@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/chrisaugu/pngx-api#readme",
   "dependencies": {
-    "mongoose": "^4.13.21",
+    "mongoose": "^6.0.8",
     "node-cron": "^3.0.0",
-    "node-restful": "^0.2.6",
+    "node-schedule": "^2.0.0",
     "nodemon": "^2.0.13"
   }
 }

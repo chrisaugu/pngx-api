@@ -1,10 +1,7 @@
-#!/usr/bin/env node
-
 const express = require("express");
 const http = require('http');
 const request = require('request');
 const extend = require('extend');
-const restful = require('node-restful');
 const mongoose = require('mongoose');
 const cron = require('node-cron');
 const fs = require('fs');
@@ -15,25 +12,70 @@ const app = express();
 const router = express.Router();
 const PORT = process.env.PORT || 5000;
 
-const app = express();
-
 app.set('port', PORT);
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-app.get('/', function(req, res) {
-	console.log("Hello World!");
-	res.send("Hello WOrld")
-});
 
 // create server and listen on the port
 app.listen(app.get('port'), function(req, res) {
-	console.log("Server running on port 5000.");
-	console.log(`API running on http://${ this.address().address }:${ this.address().port }`);
+	console.log(`Server running on port ${PORT}.`);
+});
+
+// Creating an instance for MongoDB
+mongoose.connect("mongodb://localhost:27017/crisbotdb", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.Promise = global.Promise;
+mongoose.connection.on("connected", function(){
+	console.log("Connected: Successfully connect to mongo server");
+});
+mongoose.connection.on('error', function(){
+	console.log("Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
 
 // models
-const Stock = mongoose.model('stockquote');
+const Schema = mongoose.Schema;
+
+function convertDate(e) {
+	return e;
+}
+
+var quoteSchema = new Schema({
+	date: {type: Date, default: Date.now, index: true, get: convertDate},  
+	code: String,
+	short_name: String,
+	bid: Number,
+	offer: Number,
+	last: Number,
+	close: Number,
+	high: Number,
+	low: Number,
+	open: Number,
+	chg_today: Number,
+	vol_today: Number,
+	num_trades: Number
+});
+
+const Stock = mongoose.model('stockquote', quoteSchema);
+
+// var kitty = new Stock({
+// 	date: "2021-09-01",
+// 	code: "BSP",
+// 	short_name: "BSP",
+// 	bid: 0,
+// 	offer: 12.6,
+// 	last: 12.6,
+// 	close: 12.6,
+// 	high: 13.05,
+// 	low: 12,
+// 	open: 13.05,
+// 	chg_today:0.3,
+// 	vol_today: 2000,
+// 	num_trades: 4
+// });
+// kitty.save(function (err) {
+// 	if (err) {
+// 		console.log(err);
+// 	} else {
+// 		console.log('meow');
+// 	}
+// });
 
 
 // const Parse = require('parse');
@@ -68,21 +110,18 @@ const Stock = mongoose.model('stockquote');
 // 		// error is a Parse.Error with an error code and message.
 // 	});
 
-// Stock.methods(['get', 'post', 'put', 'delete']);
-// Stock.register(api, '/stocks');
-
 // http://www.pngx.com.pg/wp-content/uploads/wp-responsive-images-thumbnail-slider/BSP_150_150.png
 // fetch("http://www.pngx.com.pg/data/BSP.csv", {"credentials":"include","headers":{"accept":"text/plain, */*; q=0.01","accept-language":"en-US,en;q=0.9","cache-control":"no-cache","pragma":"no-cache","x-requested-with":"XMLHttpRequest"},"referrer":"http://www.pngx.com.pg/","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}); ;
 const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','OSH','SST'];
-// const DATAURL = "http://www.pngx.com.pg/data/";
-const DATAURL = "http://christianaugustyn.localhost/ajax/";
+const DATAURL = "http://www.pngx.com.pg/data/";
+// const DATAURL = "http://christianaugustyn.localhost/ajax/";
 
 /**
  * Schedule task to requests data from PNGX datasets and model them and stores them in db
  * Fetch data from PNGX.com every 5 minutes
  */
-// cron.schedule('* 5 * * *', function() {
-cron.schedule('1 * * * *', function() {
+cron.schedule('* 5 * * *', function() {
+// cron.schedule('5 * * * *', function() {
 	console.log('running a task every 5 minutes');
 
 	console.log('Fetching data from https://www.pngx.com.pg');
@@ -99,6 +138,63 @@ cron.schedule('0 0 21 * *', function() {
 	});
 });
 
+// get_quotes_from_pngx(DATAURL, QUOTES[0]).then(function(response) {
+// 	console.log("start")
+// 	response.forEach(function(data) {
+// 		// check if the quote for that particular company at that particular date already exists
+// 		Stock.findOne({
+// 			'date': data['Date'],
+// 			'short_name': data['Short Name']
+// 		})
+// 		.lean()
+// 		.exec()
+// 		.then(function(result) {
+// 			if (result == null) {
+// 				let quote = new Stock();
+
+// 				quote['date'] = data['Date'];
+// 				quote['code'] = data['Short Name'];
+// 				quote['short_name'] = data['Short Name'];
+// 				quote['bid'] = data['Bid'];
+// 				quote['offer'] = data['Offer'];
+// 				quote['last'] = data['Last'];
+// 				quote['close'] = data['Close'];
+// 				quote['high'] = data['High'];
+// 				quote['low'] = data['Low'];
+// 				quote['open'] = data['Open'];
+// 				quote['chg_today'] = data['Chg. Today'];
+// 				quote['vol_today'] = data['Vol. Today'];
+// 				quote['num_trades'] = data['Num. Trades'];
+
+// 				quote.save(function(err) {
+// 					if (err) {
+// 						console.log(err);
+// 					} else {
+// 						console.log('saved');
+// 					}
+// 				});
+
+// 			}
+// 		});
+// 	});
+// 	console.log("end")
+// })
+// .catch(function(error) {
+// 	console.log(error);
+// });
+
+
+// const schedule = require('node-schedule');
+
+// const job = schedule.scheduleJob('42 * * * *', function(){
+//   console.log('The answer to life, the universe, and everything!');
+// });
+
+app.get('/', function(req, res) {
+	console.log("Hello World!");
+	res.send("Hello WOrld")
+});
+
 /**
  * GET /api/pngx/stocks
  * Retrieve PNGX stock quotes stored in the my own database
@@ -113,8 +209,8 @@ cron.schedule('0 0 21 * *', function() {
  * @param: /pngx?code=CODE&date=now, retreive quotes from a specific company for the specific day
  * @param: /pnx?code=CODE&from=DATE&to=DATE
  */
-api.get('/pngx/stocks', function(req, res, next) {
-	let code = req.query.code || '';
+app.get('/stocks', function(req, res, next) {
+	// let code = req.query.code || '';
 	let date = req.query.date || '';
 	let start = req.query.start || '';
 	let end = req.query.end || '';
@@ -154,28 +250,43 @@ api.get('/pngx/stocks', function(req, res, next) {
 	// 				quote['vol_today'] = data['Vol. Today'];
 	// 				quote['num_trades'] = data['Num. Trades'];
 
-	// 				quote.save(function(err, res) {
-	// 					console.log('saved');
+	// 				quote.save(function(err) {
+	// 					if (err) {
+	//						console.log(err);
+	//					} else {
+	// 						console.log('saved');
+	// 					}
 	// 				});
+
 	// 			}
 	// 		});
 	// 	}
 	// });
 
-	// Stock.insert();
-
 	let stock = Stock.find({});
-	// stock.where()
-	// stock.where()
-	// stock.where()
-	stock.exec()
-	stock.then(function(stocks){
-		// if (stocks) {
+
+	// if (code) {
+	// 	stock.where('code', `/${code}/i`);
+	// }
+	if (date) {
+		stock.where('date', new Date(date));
+	}
+	if (start) {
+		stock.where('date').gte(new Date(start));
+	}
+	if (end) {
+		stock.where('date').lte(new Date(end));
+	}
+
+	stock.limit(100)
+
+	stock.exec(function(err, stocks) {
+		if (err) {
+			console.log(error);
+		}
+		if (stocks) {
 			res.json(stocks);
-		// }
-	});
-	stock.catch(function(error) {
-		console.log(error);
+		}
 	});
 });
 
@@ -183,7 +294,7 @@ api.get('/pngx/stocks', function(req, res, next) {
  * /api/stocks/:symbol
  * @param :symbol unique symbol of the quote
  */
-api.get('/pngx/stocks/:symbol', function(req, res, next) {
+app.get('/stocks/:symbol', function(req, res, next) {
 	let symbol = req.params.symbol
 	let code = req.query.code || '';
 	let date = req.query.date || '';
@@ -191,19 +302,38 @@ api.get('/pngx/stocks/:symbol', function(req, res, next) {
 	let end = req.query.end || '';
 	
 	let stock = Stock.find()
-	// stock.where({ code: symbol })
+	stock.where({ code: symbol })
 	// /^vonderful/i)
-	.exec(function(err, stocks){
+
+	if (code) {
+		stock.where('code', `/${code}/i`);
+	}
+	if (date) {
+		stock.where('date', new Date(date));
+	}
+	if (start) {
+		stock.where('date').gte(new Date(start));
+	}
+	if (end) {
+		stock.where('date').lte(new Date(end));
+	}
+
+	stock.limit(100)
+	stock.exec(function(err, stocks){
+		if (err) {
+			console.log(err);
+		}
 		if (stocks) {
 			res.json({
 				'symbol': symbol,
-				'historical': [stocks]
+				'limit': 100,
+				'historical': stocks
 			});
 		}
 	});
 });
 
-function get_quotes_from_pngx(url) {
+function get_quotes_from_pngx(url, code) {
 	var i = [];
 	var options = {};
 	Object.assign(options, {
@@ -215,22 +345,30 @@ function get_quotes_from_pngx(url) {
 		// }
 	});
 
-	if (undefined !== typeof code) {
-		options['url'] = DATAURL + code +".csv";
-		getData(options).then(function(response){
-			res.json(response)
-		});
-	} 
-	else {
-		for (var j = 0; j < QUOTES.length; j++) {
-
-			options['url'] = DATAURL + QUOTES[j] +".csv";
-
+	return new Promise(function(resolve, reject) {
+		if (undefined !== typeof code) {
+			options['url'] = DATAURL + code +".csv";
 			getData(options).then(function(response){
-				res.json(response)
+				resolve(response);
+			})
+			.catch(function(error) {
+				reject(error);
 			});
+		} 
+		else {
+			for (var j = 0; j < QUOTES.length; j++) {
+
+				options['url'] = DATAURL + QUOTES[j] +".csv";
+
+				getData(options).then(function(response){
+					resolve(response);
+				})
+				.catch(function(error) {
+					reject(error);
+				});
+			}
 		}
-	}
+	});
 }
 
 function read_csv(filename) {
