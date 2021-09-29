@@ -13,6 +13,7 @@ const router = express.Router();
 const PORT = process.env.PORT || 5000;
 
 app.set('port', PORT);
+app.use('/v1', router);
 
 // create server and listen on the port
 app.listen(app.get('port'), function(req, res) {
