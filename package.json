@@ -1,6 +1,7 @@
 {
   "name": "pngx-api",
   "version": "1.0.0",
+  "private": true,
   "description": "API enpoint that exposes the PNGX.com stock quotes",
   "main": "index.js",
   "scripts": {
