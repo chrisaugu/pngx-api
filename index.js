@@ -10,7 +10,7 @@ require("dotenv").config();
 // Creating express app
 const app = express();
 const router = express.Router();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.set('port', PORT);
 app.use('/v1', router);
@@ -21,7 +21,7 @@ app.listen(app.get('port'), function(req, res) {
 });
 
 // Creating an instance for MongoDB
-mongoose.connect("mongodb://localhost:27017/crisbotdb", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 mongoose.connection.on("connected", function(){
 	console.log("Connected: Successfully connect to mongo server");
@@ -184,7 +184,6 @@ cron.schedule('0 0 21 * *', function() {
 // 	console.log(error);
 // });
 
-
 // const schedule = require('node-schedule');
 
 // const job = schedule.scheduleJob('42 * * * *', function(){
@@ -192,8 +191,7 @@ cron.schedule('0 0 21 * *', function() {
 // });
 
 app.get('/', function(req, res) {
-	console.log("Hello World!");
-	res.send("Hello WOrld")
+	res.json({});
 });
 
 /**

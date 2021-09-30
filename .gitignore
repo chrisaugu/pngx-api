@@ -21,3 +21,4 @@ bin-release/
 *.sublime-workspace
 package-lock.json
 node_modules
+.env
