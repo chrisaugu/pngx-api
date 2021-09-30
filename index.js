@@ -188,7 +188,7 @@ cron.schedule('0 0 21 * *', function() {
 //   console.log('The answer to life, the universe, and everything!');
 // });
 
-api.get('/', function(req, res) {
+app.get('/', function(req, res) {
 	res.json({
 		"status": 200,
 		"data": {}
