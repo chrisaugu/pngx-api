@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/chrisaugu/pngx-api#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "mongoose": "^5.13.9",
     "node-cron": "^3.0.0",
     "node-schedule": "^2.0.0",

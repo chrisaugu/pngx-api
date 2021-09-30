@@ -38,7 +38,7 @@ function convertDate(e) {
 }
 
 var quoteSchema = new Schema({
-	date: {type: Date, default: Date.now, index: true, get: convertDate},  
+	date: {type: Date, default: Date.now, index: true, get: convertDate},
 	code: String,
 	short_name: String,
 	bid: Number,
@@ -202,7 +202,7 @@ app.get('/', function(req, res) {
  * @query date - specific date to retrieve quote
  * @query start - start date in a range
  * @query end - end date in a range
- * 
+ *
  * @param: /pngx, retrieve quotes from all the companies for the current day
  * @param: /pngx?code=CODE, retreive quotes from a specific company for the current day
  * @param: /pngx?code=CODE&date=now, retreive quotes from a specific company for the specific day
@@ -286,6 +286,12 @@ app.get('/stocks', function(req, res, next) {
 		if (stocks) {
 			res.json(stocks);
 		}
+		else {
+			res.json({
+				"status": 404,
+				"reason": "NotFound"
+			})
+		}
 	});
 });
 
@@ -299,7 +305,7 @@ app.get('/stocks/:symbol', function(req, res, next) {
 	let date = req.query.date || '';
 	let start = req.query.start || '';
 	let end = req.query.end || '';
-	
+
 	let stock = Stock.find()
 	stock.where({ code: symbol })
 	// /^vonderful/i)
@@ -353,7 +359,7 @@ function get_quotes_from_pngx(url, code) {
 			.catch(function(error) {
 				reject(error);
 			});
-		} 
+		}
 		else {
 			for (var j = 0; j < QUOTES.length; j++) {
 
@@ -394,7 +400,7 @@ function parse_csv_to_json(body) {
 	for (var o = body.split(/\r\n|\n/), a = o[0].split(","), s = 1; s < o.length; s++) {
 		// split each row by comma
 		var l = o[s].split(",")
-		// compare the splited row with the first/header row 
+		// compare the splited row with the first/header row
 		if (l.length == a.length) {
 			// run through the header row
 			// attaches splited row to the header row
