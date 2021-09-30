@@ -1,3 +1,4 @@
+'use strict';
 const express = require("express");
 const request = require('request');
 const mongoose = require('mongoose');
@@ -296,7 +297,7 @@ router.get('/stocks', function(req, res, next) {
 
 	stock.exec(function(err, stocks) {
 		if (err) {
-			console.log(error);
+			console.log(err);
 		}
 		if (stocks) {
 			res.json(stocks);
