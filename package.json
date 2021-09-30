@@ -29,6 +29,11 @@
     "mongoose": "^5.13.9",
     "node-cron": "^3.0.0",
     "node-schedule": "^2.0.0",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security"
   }
 }

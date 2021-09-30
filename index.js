@@ -1,11 +1,9 @@
 const express = require("express");
-const http = require('http');
 const request = require('request');
-const extend = require('extend');
 const mongoose = require('mongoose');
 const cron = require('node-cron');
 const fs = require('fs');
-require("dotenv").config();
+// require("dotenv").config();
 
 // Creating express app
 const app = express();
