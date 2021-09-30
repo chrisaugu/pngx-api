@@ -188,8 +188,17 @@ cron.schedule('0 0 21 * *', function() {
 //   console.log('The answer to life, the universe, and everything!');
 // });
 
-app.get('/', function(req, res) {
-	res.json({});
+api.get('/', function(req, res) {
+	res.json({
+		"status": 200,
+		"data": {}
+	});
+});
+
+router.get('/', function(req, res) {
+	res.json({
+		"symbols": QUOTES
+	});
 });
 
 /**
@@ -206,7 +215,7 @@ app.get('/', function(req, res) {
  * @param: /pngx?code=CODE&date=now, retreive quotes from a specific company for the specific day
  * @param: /pnx?code=CODE&from=DATE&to=DATE
  */
-app.get('/stocks', function(req, res, next) {
+router.get('/stocks', function(req, res, next) {
 	// let code = req.query.code || '';
 	let date = req.query.date || '';
 	let start = req.query.start || '';
@@ -288,7 +297,7 @@ app.get('/stocks', function(req, res, next) {
 			res.json({
 				"status": 404,
 				"reason": "NotFound"
-			})
+			});
 		}
 	});
 });
@@ -297,7 +306,7 @@ app.get('/stocks', function(req, res, next) {
  * /api/stocks/:symbol
  * @param :symbol unique symbol of the quote
  */
-app.get('/stocks/:symbol', function(req, res, next) {
+router.get('/stocks/:symbol', function(req, res, next) {
 	let symbol = req.params.symbol
 	let code = req.query.code || '';
 	let date = req.query.date || '';
