@@ -338,3 +338,13 @@ The REST API to the example app is described below.
     Date: Thu, 24 Feb 2011 12:36:33 GMT
     Status: 204 No Content
     Connection: close
+
+</br>
+
+### Contribute
+Show your support by 🌟 the project!!
+
+Feel free to contribute!!
+
+### License
+This project is released under [MIT License](https://opensource.org/licenses/MIT)(LICENSE.txt).

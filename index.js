@@ -11,6 +11,9 @@ const router = express.Router();
 const PORT = process.env.PORT;
 
 app.set('port', PORT);
+app.set('env', process.env.ENV);
+
+// api
 app.use('/v1', router);
 
 // create server and listen on the port
@@ -19,7 +22,12 @@ app.listen(app.get('port'), function(req, res) {
 });
 
 // Creating an instance for MongoDB
-mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+if (app.get('env') == "development") {
+	mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+}
+else if (app.get('env') == "production") {
+	mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+}
 mongoose.Promise = global.Promise;
 mongoose.connection.on("connected", function(){
 	console.log("Connected: Successfully connect to mongo server");
@@ -53,28 +61,28 @@ var quoteSchema = new Schema({
 
 const Stock = mongoose.model('stockquote', quoteSchema);
 
-// var kitty = new Stock({
-// 	date: "2021-09-01",
-// 	code: "BSP",
-// 	short_name: "BSP",
-// 	bid: 0,
-// 	offer: 12.6,
-// 	last: 12.6,
-// 	close: 12.6,
-// 	high: 13.05,
-// 	low: 12,
-// 	open: 13.05,
-// 	chg_today:0.3,
-// 	vol_today: 2000,
-// 	num_trades: 4
-// });
-// kitty.save(function (err) {
-// 	if (err) {
-// 		console.log(err);
-// 	} else {
-// 		console.log('meow');
-// 	}
-// });
+var kitty = new Stock({
+	date: "2021-09-01",
+	code: "BSP",
+	short_name: "BSP",
+	bid: 0,
+	offer: 12.6,
+	last: 12.6,
+	close: 12.6,
+	high: 13.05,
+	low: 12,
+	open: 13.05,
+	chg_today:0.3,
+	vol_today: 2000,
+	num_trades: 4
+});
+kitty.save(function (err) {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log('meow');
+	}
+});
 
 
 // const Parse = require('parse');
