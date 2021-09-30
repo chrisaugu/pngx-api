@@ -3,7 +3,7 @@ const request = require('request');
 const mongoose = require('mongoose');
 const cron = require('node-cron');
 const fs = require('fs');
-// require("dotenv").config();
+require("dotenv").config();
 
 // Creating express app
 const app = express();
