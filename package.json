@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -27,12 +28,11 @@
     "express": "^4.17.1",
     "mongoose": "^6.0.8",
     "node-cron": "^3.0.0",
-    "node-schedule": "^2.0.0",
-    "nodemon": "^2.0.13",
     "request": "^2.88.2"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "nodemon": "^2.0.13"
   }
 }
