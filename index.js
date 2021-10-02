@@ -62,28 +62,28 @@ var quoteSchema = new Schema({
 
 const Stock = mongoose.model('stockquote', quoteSchema);
 
-var kitty = new Stock({
-	date: "2021-09-01",
-	code: "BSP",
-	short_name: "BSP",
-	bid: 0,
-	offer: 12.6,
-	last: 12.6,
-	close: 12.6,
-	high: 13.05,
-	low: 12,
-	open: 13.05,
-	chg_today:0.3,
-	vol_today: 2000,
-	num_trades: 4
-});
-kitty.save(function (err) {
-	if (err) {
-		console.log(err);
-	} else {
-		console.log('meow');
-	}
-});
+// var kitty = new Stock({
+// 	date: "2021-09-01",
+// 	code: "BSP",
+// 	short_name: "BSP",
+// 	bid: 0,
+// 	offer: 12.6,
+// 	last: 12.6,
+// 	close: 12.6,
+// 	high: 13.05,
+// 	low: 12,
+// 	open: 13.05,
+// 	chg_today:0.3,
+// 	vol_today: 2000,
+// 	num_trades: 4
+// });
+// kitty.save(function (err) {
+// 	if (err) {
+// 		console.log(err);
+// 	} else {
+// 		console.log('meow');
+// 	}
+// });
 
 
 // const Parse = require('parse');
