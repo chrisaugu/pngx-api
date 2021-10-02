@@ -18,23 +18,18 @@ Companies listed on PNGX
     OSH
     SST
 
-`/v1/stocks` -
-Retrieve stocks
-
-[BSP, CCP, CGA, COY, CPL, KAM, KSL, NCM, NGP, NIU, OSH, SST]
-
-# REST API
+## REST API
 
 The REST API to the example app is described below.
 
-## Get list of currently listed companies
+### Get list of currently listed companies
 
-### Request
+#### Request
 `GET /v1/`
 
     curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/
 
-### Response
+#### Response
 
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
@@ -49,13 +44,13 @@ The REST API to the example app is described below.
 
 ## Get list of Stocks
 
-### Request
+#### Request
 
 `GET /v1/stocks/`
 
     curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/stocks
 
-### Response
+#### Response
 
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
@@ -70,7 +65,7 @@ The REST API to the example app is described below.
 
 ## Get a specific Quote
 
-### Request
+#### Request
 
 `GET /v1/stocks/:symbol`
 </br>
@@ -86,7 +81,7 @@ The REST API to the example app is described below.
 
     curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/:symbol
 
-### Response
+#### Response
 
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
@@ -100,13 +95,13 @@ The REST API to the example app is described below.
 
 ## Get a non-existent Quote
 
-### Request
+#### Request
 
 `GET /v1/stocks/:symbol`
 
     curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/stocks/:symbol
 
-### Response
+#### Response
 
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
