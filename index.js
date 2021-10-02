@@ -339,9 +339,11 @@ router.get('/stocks', function(req, res, next) {
  */
 router.get('/stocks/:symbol', function(req, res, next) {
 	let symbol = req.params.symbol
-	let date = req.query.date || '';
-	let start = req.query.start || '';
-	let end = req.query.end || '';
+	let date = req.query.date;
+	let start = req.query.start;
+	let end = req.query.end;
+	let limit = req.query.limit;
+	let sort = req.query.sort;
 
 	let stock = Stock.find()
 	stock.where({ code: symbol })
