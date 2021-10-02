@@ -376,7 +376,6 @@ router.get('/stocks/:symbol', function(req, res, next) {
 		if (stocks) {
 			res.json({
 				'symbol': symbol,
-				'limit': 100,
 				'historical': stocks
 			});
 		}
