@@ -98,7 +98,7 @@ const DATAURL = "http://www.pngx.com.pg/data/";
 cron.schedule('*/2 * * * *', () => {
 	console.log('running a task every 5 minutes');
 
-	dataFetcher();
+	// dataFetcher();
 });
 
 // /v1
@@ -173,6 +173,9 @@ router.get('/stocks', function(req, res, next) {
 	}
 
 	if (sort) {
+		stock.sort({ date: sort });
+	}
+	else {
 		stock.sort({ date: 1 });
 	}
 
@@ -365,6 +368,8 @@ function dataFetcher() {
 				.exec()
 				.then(function(result) {
 					if (result == null) {
+						console.log("Match not found.");
+						console.log("Adding it to the db");
 						let quote = new Stock();
 
 						quote['date'] = new Date(data['Date']);
