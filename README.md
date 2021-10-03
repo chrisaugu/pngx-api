@@ -1,5 +1,5 @@
 # PNGX-API
-API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/data/).
+API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/data/). PNGX-API is part of [crisbot](https://github.com/chrisaugu/cristhebot).
 
 The entire application is written in JavaScript and built on NodeJs.
 
@@ -18,11 +18,11 @@ Companies listed on PNGX
     OSH
     SST
 
-## REST API
+## REST API Usage
 
 The REST API to the example app is described below.
 
-### Get list of currently listed companies
+### Get a list of symbols for all the current listed companies
 
 #### Request
 `GET /v1/`
@@ -41,6 +41,7 @@ The REST API to the example app is described below.
 
     {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
     ST"]}
+
 
 ## Get list of Stocks
 
@@ -62,6 +63,7 @@ The REST API to the example app is described below.
 
     {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
     ST"]}
+
 
 ## Get a specific Quote
 
@@ -93,6 +95,7 @@ The REST API to the example app is described below.
 
     {"symbol": "BSP", "historical": [{}]}
 
+
 ## Get a non-existent Quote
 
 #### Request
@@ -113,10 +116,4 @@ The REST API to the example app is described below.
 
     {"status":404,"reason":"Not found"}
 
-### Contribute
-Show your support by 🌟 the project!!
-
-Feel free to contribute!!
-
-### License
-This project is released under [MIT License](https://opensource.org/licenses/MIT)(LICENSE.txt).
+</br>

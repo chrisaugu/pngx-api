@@ -14,9 +14,6 @@ const PORT = process.env.PORT;
 app.set('port', PORT);
 app.set('env', process.env.ENV);
 
-// /v1
-app.use('/v1', router);
-
 // create server and listen on the port
 app.listen(app.get('port'), function(req, res) {
 	console.log(`Server running on port ${PORT}.`);
@@ -58,30 +55,6 @@ var quoteSchema = new Schema({
 
 const Stock = mongoose.model('stockquote', quoteSchema);
 
-// var kitty = new Stock({
-// 	date: "2021-09-02",
-// 	code: "CPL",
-// 	short_name: "CPL",
-// 	bid: 0,
-// 	offer: 12.6,
-// 	last: 12.6,
-// 	close: 12.6,
-// 	high: 13.05,
-// 	low: 12,
-// 	open: 13.05,
-// 	chg_today:0.3,
-// 	vol_today: 2000,
-// 	num_trades: 4
-// });
-// kitty.save(function (err) {
-// 	if (err) {
-// 		console.log(err);
-// 	} else {
-// 		console.log('meow');
-// 	}
-// });
-
-
 // const Parse = require('parse');
 
 // Parse.initialize("YOUR_APP_ID", "YOUR_JAVASCRIPT_KEY");
@@ -115,85 +88,21 @@ const Stock = mongoose.model('stockquote', quoteSchema);
 // 	});
 
 // http://www.pngx.com.pg/wp-content/uploads/wp-responsive-images-thumbnail-slider/BSP_150_150.png
-// fetch("http://www.pngx.com.pg/data/BSP.csv", {"credentials":"include","headers":{"accept":"text/plain, */*; q=0.01","accept-language":"en-US,en;q=0.9","cache-control":"no-cache","pragma":"no-cache","x-requested-with":"XMLHttpRequest"},"referrer":"http://www.pngx.com.pg/","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}); ;
 const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','OSH','SST'];
 const DATAURL = "http://www.pngx.com.pg/data/";
-// const DATAURL = "http://christianaugustyn.localhost/ajax/";
 
 /**
  * Schedule task to requests data from PNGX datasets and model them and stores them in db
  * Fetch data from PNGX.com every 5 minutes
  */
-cron.schedule('* 5 * * *', function() {
-// cron.schedule('5 * * * *', function() {
+cron.schedule('*/2 * * * *', () => {
 	console.log('running a task every 5 minutes');
 
-	console.log('Fetching data from https://www.pngx.com.pg');
-	for (var i = 0; i < QUOTES.length; i++) {
-
-		get_quotes_from_pngx(DATAURL, QUOTES[i]).then(function(response) {
-			var totalCount = response.length, totalAdded = 0;
-			console.log("start");
-			console.log("Adding quotes for " + QUOTES[i] + " ...");
-
-			response.forEach(function(data) {
-				// check if the quote for that particular company at that particular date already exists
-				Stock.findOne({
-					'date': data['Date'],
-					'short_name': data['Short Name']
-				})
-				.lean()
-				.exec()
-				.then(function(result) {
-					if (result == null) {
-						let quote = new Stock();
-
-						quote['date'] = new Date(data['Date']);
-						quote['code'] = data['Short Name'];
-						quote['short_name'] = data['Short Name'];
-						quote['bid'] = Number(data['Bid']);
-						quote['offer'] = Number(data['Offer']);
-						quote['last'] = Number(data['Last']);
-						quote['close'] = Number(data['Close']);
-						quote['high'] = Number(data['High']);
-						quote['low'] = Number(data['Low']);
-						quote['open'] = Number(data['Open']);
-						quote['chg_today'] = Number(data['Chg. Today']);
-						quote['vol_today'] = Number(data['Vol. Today']);
-						quote['num_trades'] = Number(data['Num. Trades']);
-
-						quote.save(function(err) {
-							if (err) {
-								console.log(err);
-							} else {
-								console.log('added quote for ' + data['Date']);
-								totalAdded++;
-							}
-						});
-					}
-				});
-			});
-
-			console.log(totalAdded + "/" + totalCount + " quotes were added.");
-			console.log("stop");
-		})
-		.catch(function(error) {
-			console.log(error);
-		});
-
-	}
-	console.log('Data fetched from https://www.pngx.com.pg');
+	dataFetcher();
 });
 
-// Remove the error.log file every twenty-first day of the month.
-// cron.schedule('0 0 21 * *', function() {
-// 	console.log('---------------------');
-// 	console.log('Running Cron Job');
-// 	fs.unlink('./error.log', err => {
-// 		if (err) throw err;
-// 		console.log('Error file successfully deleted');
-// 	});
-// });
+// /v1
+app.use('/v1', router);
 
 app.get('/', function(req, res) {
 	res.json({
@@ -209,18 +118,23 @@ router.get('/', function(req, res) {
 });
 
 /**
- * GET /api/pngx/stocks
+ * GET /api/stocks
+ * Retrieve quotes for all the companies for the current day
  * Retrieve PNGX stock quotes stored in the my own database
  * Retrieve Stock Quotes directly from PNGX website
- * @query code - Code/short name of company listed on PNGX
- * @query date - specific date to retrieve quote
+ * @query date - retrieve quote for the exact date
  * @query start - start date in a range
  * @query end - end date in a range
+ * @query limit - 
+ * @query offset - 
+ * @query sort - 
+ * @query skip - 
+ * @query fields - i.e. fields=id,name,address,contact
  *
- * @param: /pngx, retrieve quotes from all the companies for the current day
  * @param: /pngx?code=CODE, retreive quotes from a specific company for the current day
  * @param: /pngx?code=CODE&date=now, retreive quotes from a specific company for the specific day
  * @param: /pnx?code=CODE&from=DATE&to=DATE
+ * 
  */
 router.get('/stocks', function(req, res, next) {
 	let date = req.query.date;
@@ -228,54 +142,6 @@ router.get('/stocks', function(req, res, next) {
 	let end = req.query.end;
 	let limit = req.query.limit;
 	let sort = req.query.sort;
-
-	// let date = new Date(req.query.date);
-
-	// `${date.getFullYear()}-${date.getUTCMonth()}-${date.getUTCDate()}`;
-
-	// insert new data from pngx into the local database
-	// get csv data from pngx.com
-	// parse the csv to json
-	// for each quote compare its date against the date of the ones that exist in the database
-	// if the date compared does not match any existing quote then insert that quote into the database
-	// else continue to next quote until all quotes are compared then exit the program
-	// let options = {};
-	// getData().then(function(err, data) {
-	// 	// iterate through the data
-	// 	for (var i = 0; i < data.length; i++) {
-	// 		// check if the quote for that particular company at that particular date already exists
-	// 		Stock.findOne({
-	// 			'date': data['Date'],
-	// 			'short_name': data['Short Name']
-	// 		})
-	// 		.then(function(result) {
-	// 			if (data['Date'] == 0) {
-	// 				let quote = new Stock();
-	// 				quote['date'] = new Date(data['Date']);
-	// 				quote['short_name'] = data['Short Name'];
-	// 				quote['bid'] = data['Bid'];
-	// 				quote['offer'] = data['Offer'];
-	// 				quote['last'] = data['Last'];
-	// 				quote['close'] = data['Close'];
-	// 				quote['high'] = data['High'];
-	// 				quote['low'] = data['Low'];
-	// 				quote['open'] = data['Open'];
-	// 				quote['chg_today'] = data['Chg. Today'];
-	// 				quote['vol_today'] = data['Vol. Today'];
-	// 				quote['num_trades'] = data['Num. Trades'];
-
-	// 				quote.save(function(err) {
-	// 					if (err) {
-	//						console.log(err);
-	//					} else {
-	// 						console.log('saved');
-	// 					}
-	// 				});
-
-	// 			}
-	// 		});
-	// 	}
-	// });
 
 	let stock = Stock.find({});
 
@@ -308,12 +174,14 @@ router.get('/stocks', function(req, res, next) {
 
 	if (sort) {
 		stock.sort({ date: 1 });
-	} else {
-		stock.sort({ date: 1 });
 	}
 
 	if (limit) {
-		stock.limit(100);
+		stock.limit(limit);
+	}
+
+	if (skip) {
+		stock.skip(skip);
 	}
 
 	stock.exec(function(err, stocks) {
@@ -344,9 +212,10 @@ router.get('/stocks/:symbol', function(req, res, next) {
 	let end = req.query.end;
 	let limit = req.query.limit;
 	let sort = req.query.sort;
+	let skip = req.query.skip;
 
 	let stock = Stock.find()
-	stock.where({ code: symbol })
+	stock.where({ code: symbol });
 	// /^vonderful/i)
 
 	if (date) {
@@ -360,13 +229,15 @@ router.get('/stocks/:symbol', function(req, res, next) {
 	}
 
 	if (sort) {
-		stock.sort({ date: 1 });
-	} else {
-		stock.sort({ date: 1 });
+		stock.sort({ date: sort });
 	}
 
 	if (limit) {
-		stock.limit(100);
+		stock.limit(limit);
+	}
+
+	if (skip) {
+		stock.skip(skip);
 	}
 
 	stock.exec(function(err, stocks){
@@ -466,4 +337,69 @@ function getData(options) {
 			}
 		});
 	});
+}
+
+function dataFetcher() {
+	console.log('Fetching data from https://www.pngx.com.pg');
+
+	QUOTES.forEach(function(quote) {
+		// insert new data from pngx into the local database
+		// get csv data from pngx.com
+		// parse the csv to json
+		// for each quote compare its date against the date of the ones that exist in the database
+		// if the date compared does not match any existing quote then insert that quote into the database
+		// else continue to next quote until all quotes are compared then exit the program
+
+		get_quotes_from_pngx(DATAURL, quote).then(function(response) {
+			var totalCount = response.length, totalAdded = 0;
+			console.log("start");
+			console.log("Adding quotes for " + quote + " ...");
+
+			response.forEach(function(data) {
+				// check if the quote for that particular company at that particular date already exists
+				Stock.findOne({
+					'date': data['Date'],
+					'short_name': data['Short Name']
+				})
+				.lean()
+				.exec()
+				.then(function(result) {
+					if (result == null) {
+						let quote = new Stock();
+
+						quote['date'] = new Date(data['Date']);
+						quote['code'] = data['Short Name'];
+						quote['short_name'] = data['Short Name'];
+						quote['bid'] = Number(data['Bid']);
+						quote['offer'] = Number(data['Offer']);
+						quote['last'] = Number(data['Last']);
+						quote['close'] = Number(data['Close']);
+						quote['high'] = Number(data['High']);
+						quote['low'] = Number(data['Low']);
+						quote['open'] = Number(data['Open']);
+						quote['chg_today'] = Number(data['Chg. Today']);
+						quote['vol_today'] = Number(data['Vol. Today']);
+						quote['num_trades'] = Number(data['Num. Trades']);
+
+						quote.save(function(err) {
+							if (err) {
+								console.log(err);
+							} else {
+								console.log('added quote for ' + data['Date']);
+								totalAdded++;
+							}
+						});
+					}
+				});
+			});
+
+			console.log(totalAdded + "/" + totalCount + " quotes were added.");
+			console.log("stop");
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
+
+	});
+	console.log('Data fetched from https://www.pngx.com.pg');
 }
