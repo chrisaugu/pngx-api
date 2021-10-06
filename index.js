@@ -142,6 +142,7 @@ router.get('/stocks', function(req, res, next) {
 	let end = req.query.end;
 	let limit = req.query.limit;
 	let sort = req.query.sort;
+	let skip = req.query.skip;
 
 	let stock = Stock.find({});
 
