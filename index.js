@@ -283,30 +283,30 @@ router.post('/add', function(req, res) {
 		else if (result == null) {
 			console.log("Match not found.");
 			console.log("Adding it to the db");
-			// let quote = new Stock();
+			
+			let quote = new Stock();
+			quote['date'] = new Date(data[0]['date']);
+			quote['code'] = data[0]['code'];
+			quote['short_name'] = data[0]['short_name'];
+			quote['bid'] = Number(data[0]['bid']);
+			quote['offer'] = Number(data[0]['offer']);
+			quote['last'] = Number(data[0]['last']);
+			quote['close'] = Number(data[0]['close']);
+			quote['high'] = Number(data[0]['high']);
+			quote['low'] = Number(data[0]['low']);
+			quote['open'] = Number(data[0]['open']);
+			quote['chg_today'] = Number(data[0]['chg_today']);
+			quote['vol_today'] = Number(data[0]['vol_today']);
+			quote['num_trades'] = Number(data[0]['num_trades']);
 
-			// quote['date'] = new Date(data[0]['date']);
-			// quote['code'] = data[0]['code'];
-			// quote['short_name'] = data[0]['short_name'];
-			// quote['bid'] = Number(data[0]['bid']);
-			// quote['offer'] = Number(data[0]['offer']);
-			// quote['last'] = Number(data[0]['last']);
-			// quote['close'] = Number(data[0]['close']);
-			// quote['high'] = Number(data[0]['high']);
-			// quote['low'] = Number(data[0]['low']);
-			// quote['open'] = Number(data[0]['open']);
-			// quote['chg_today'] = Number(data[0]['chg_today']);
-			// quote['vol_today'] = Number(data[0]['vol_today']);
-			// quote['num_trades'] = Number(data[0]['num_trades']);
-
-			// quote.save(function(err) {
-			// 	if (err) {
-			// 		console.log(err);
-			// 	} else {
-			// 		console.log('added quote for ' + data['Date']);
-			//      res.sendStatus(201);
-			// 	}
-			// });
+			quote.save(function(err) {
+				if (err) {
+					console.error(err);
+				} else {
+					console.log('added quote for ' + data['date']);
+					res.sendStatus(201);
+				}
+			});
 		}
 		else {
 			console.log("Match found! Cannot add quote");
@@ -315,15 +315,15 @@ router.post('/add', function(req, res) {
 	});
 });
 
-router.post('/delete/:stockId', function(req, res) {
+router.delete('/delete/:stockId', function(req, res) {
 	let stockId = req.params.stockId;
 
-	Stock.findById(stockId, function(error, result) {
+	Stock.findByIdAndRemove(stockId, function(error, result) {
 		if (error) {
 			console.error("Error: " + error);
 		}
 		else {
-			console.log(result);
+			console.log("Removed Quote : ", result);
 		}
 	});
 });
