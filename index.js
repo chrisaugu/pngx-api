@@ -108,7 +108,7 @@ const DATAURL = "http://www.pngx.com.pg/data/";
 cron.schedule('*/2 * * * *', async () => {
 	console.log('running a task every 5 minutes');
 
-	await dataFetcher();
+	// await dataFetcher();
 });
 
 // /v1
@@ -275,10 +275,12 @@ router.post('/add', function(req, res) {
 		short_name: data[0]['short_name'] 
 	});
 	query.lean()
-	query.exec()
-	query.then(function(result) {
-		console.log(result)
-		if (result == null) {
+	query.exec(function(error, result) {
+		if (error) {
+			console.error("Error: " + error);
+			res.send("Error: " + error);
+		}
+		else if (result == null) {
 			console.log("Match not found.");
 			console.log("Adding it to the db");
 			// let quote = new Stock();
@@ -302,11 +304,29 @@ router.post('/add', function(req, res) {
 			// 		console.log(err);
 			// 	} else {
 			// 		console.log('added quote for ' + data['Date']);
+			//      res.sendStatus(201);
 			// 	}
 			// });
 		}
+		else {
+			console.log("Match found! Cannot add quote");
+			res.send("Match found! Cannot add quote");
+		}
 	});
-})
+});
+
+router.post('/delete/:stockId', function(req, res) {
+	let stockId = req.params.stockId;
+
+	Stock.findById(stockId, function(error, result) {
+		if (error) {
+			console.error("Error: " + error);
+		}
+		else {
+			console.log(result);
+		}
+	});
+});
 
 function get_quotes_from_pngx(url, code) {
 	var i = [];
