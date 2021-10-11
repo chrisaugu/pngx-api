@@ -107,7 +107,7 @@ const DATAURL = "http://www.pngx.com.pg/data/";
 cron.schedule('*/2 * * * *', () => {
 	console.log('running a task every 5 minutes');
 
-	dataFetcher();
+	// dataFetcher();
 });
 
 // /v1
