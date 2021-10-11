@@ -3,7 +3,9 @@ const express = require("express");
 const request = require('request');
 const mongoose = require('mongoose');
 const cron = require('node-cron');
+const cors = require("cors");
 const fs = require('fs');
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 // Creating express app
@@ -13,6 +15,14 @@ const PORT = process.env.PORT;
 
 app.set('port', PORT);
 app.set('env', process.env.ENV);
+// enables cors
+app.use(cors({
+	'allowedHeaders': ['sessionId', 'Content-Type'],
+	'exposedHeaders': ['sessionId'],
+	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({}));
 
 // create server and listen on the port
 app.listen(app.get('port'), function(req, res) {
@@ -95,10 +105,10 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * Schedule task to requests data from PNGX datasets and model them and stores them in db
  * Fetch data from PNGX.com every 5 minutes
  */
-cron.schedule('*/2 * * * *', () => {
+cron.schedule('*/2 * * * *', async () => {
 	console.log('running a task every 5 minutes');
 
-	// dataFetcher();
+	await dataFetcher();
 });
 
 // /v1
@@ -257,6 +267,47 @@ router.get('/stocks/:symbol', function(req, res, next) {
 	});
 });
 
+router.post('/add', function(req, res) {
+	let data = req.body;
+
+	let query = Stock.findOne({
+		date: data[0]['date'],
+		short_name: data[0]['short_name'] 
+	});
+	query.lean()
+	query.exec()
+	query.then(function(result) {
+		console.log(result)
+		if (result == null) {
+			console.log("Match not found.");
+			console.log("Adding it to the db");
+			// let quote = new Stock();
+
+			// quote['date'] = new Date(data[0]['date']);
+			// quote['code'] = data[0]['code'];
+			// quote['short_name'] = data[0]['short_name'];
+			// quote['bid'] = Number(data[0]['bid']);
+			// quote['offer'] = Number(data[0]['offer']);
+			// quote['last'] = Number(data[0]['last']);
+			// quote['close'] = Number(data[0]['close']);
+			// quote['high'] = Number(data[0]['high']);
+			// quote['low'] = Number(data[0]['low']);
+			// quote['open'] = Number(data[0]['open']);
+			// quote['chg_today'] = Number(data[0]['chg_today']);
+			// quote['vol_today'] = Number(data[0]['vol_today']);
+			// quote['num_trades'] = Number(data[0]['num_trades']);
+
+			// quote.save(function(err) {
+			// 	if (err) {
+			// 		console.log(err);
+			// 	} else {
+			// 		console.log('added quote for ' + data['Date']);
+			// 	}
+			// });
+		}
+	});
+})
+
 function get_quotes_from_pngx(url, code) {
 	var i = [];
 	var options = {};
@@ -292,15 +343,6 @@ function get_quotes_from_pngx(url, code) {
 				});
 			}
 		}
-	});
-}
-
-function read_csv(filename) {
-	// let file = new File("./BSP.csv");
-	// let json = parse_csv_to_json(file);
-	fs.unlink('./error.log', err => {
-		if (err) throw err;
-		console.log('Error file successfully deleted');
 	});
 }
 
@@ -343,10 +385,10 @@ function getData(options) {
 	});
 }
 
-function dataFetcher() {
+async function dataFetcher() {
 	console.log('Fetching data from https://www.pngx.com.pg');
 
-	QUOTES.forEach(function(quote) {
+	QUOTES.forEach(async function(quote) {
 		// insert new data from pngx into the local database
 		// get csv data from pngx.com
 		// parse the csv to json
@@ -354,14 +396,16 @@ function dataFetcher() {
 		// if the date compared does not match any existing quote then insert that quote into the database
 		// else continue to next quote until all quotes are compared then exit the program
 
-		get_quotes_from_pngx(DATAURL, quote).then(function(response) {
+		await get_quotes_from_pngx(DATAURL, quote).then(function(response) {
 			var totalCount = response.length, totalAdded = 0;
 			console.log("start");
 			console.log("Adding quotes for " + quote + " ...");
 
-			response.forEach(function(data) {
+			response[totalCount-1];
+
+			response.forEach(async function(data) {
 				// check if the quote for that particular company at that particular date already exists
-				Stock.findOne({
+				await Stock.findOne({
 					'date': data['Date'],
 					'short_name': data['Short Name']
 				})
