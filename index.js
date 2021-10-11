@@ -97,7 +97,6 @@ const Stock = mongoose.model('stockquote', quoteSchema);
 // 		// error is a Parse.Error with an error code and message.
 // 	});
 
-// http://www.pngx.com.pg/wp-content/uploads/wp-responsive-images-thumbnail-slider/BSP_150_150.png
 const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','OSH','SST'];
 const DATAURL = "http://www.pngx.com.pg/data/";
 
@@ -105,10 +104,10 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * Schedule task to requests data from PNGX datasets and model them and stores them in db
  * Fetch data from PNGX.com every 5 minutes
  */
-cron.schedule('*/2 * * * *', async () => {
+cron.schedule('*/2 * * * *', () => {
 	console.log('running a task every 5 minutes');
 
-	// await dataFetcher();
+	dataFetcher();
 });
 
 // /v1
@@ -128,7 +127,63 @@ router.get('/', function(req, res) {
 });
 
 /**
- * GET /api/stocks
+ * GET /api/v1/historicals/:symbol
+ * @param :symbol unique symbol of the stock
+ */
+router.get('/historicals/:symbol', function(req, res, next) {
+	let symbol = req.params.symbol
+	let date = req.query.date;
+	let start = req.query.start;
+	let end = req.query.end;
+	let limit = req.query.limit;
+	let sort = req.query.sort;
+	let skip = req.query.skip;
+
+	let stock = Stock.find()
+	stock.where({ 'code': symbol });
+	// /^vonderful/i)
+
+	if (date) {
+		stock.where('date', new Date(date));
+	}
+	if (start) {
+		stock.where({ 'date': { $gte: new Date(start) } });
+	}
+	if (end) {
+		stock.where({ 'date': { $lte: new Date(end) } })
+	}
+
+	if (sort) {
+		stock.sort({ 'date': sort });
+	}
+
+	if (limit) {
+		stock.limit(limit);
+	}
+
+	if (skip) {
+		stock.skip(skip);
+	}
+
+	stock.exec(function(err, stocks){
+		if (err) {
+			console.log(err);
+		}
+		if (stocks) {
+			res.json({
+				'status': 302,
+				'symbol': symbol,
+				'historical': stocks
+			});
+		}
+		else {
+			res.sendStatus(404);
+		}
+	});
+});
+
+/**
+ * GET /api/v1/stocks
  * Retrieve quotes for all the companies for the current day
  * Retrieve PNGX stock quotes stored in the my own database
  * Retrieve Stock Quotes directly from PNGX website
@@ -141,12 +196,11 @@ router.get('/', function(req, res) {
  * @query skip - 
  * @query fields - i.e. fields=id,name,address,contact
  *
- * @param: /pngx?code=CODE, retreive quotes from a specific company for the current day
- * @param: /pngx?code=CODE&date=now, retreive quotes from a specific company for the specific day
- * @param: /pnx?code=CODE&from=DATE&to=DATE
- * 
+ * @param: /api/v1/stocks?code=CODE, retreive quotes from a specific company for the current day
+ * @param: /api/v1/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
+ * @param: /api/v1/stocks?code=CODE&from=DATE&to=DATE
  */
-router.get('/stocks', function(req, res, next) {
+router.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
@@ -156,7 +210,12 @@ router.get('/stocks', function(req, res, next) {
 
 	let stock = Stock.find({});
 
+	var dateStr = {
+		date: new Date().toDateString()
+	};
+
 	if (date) {
+		dateStr['date'] = new Date(date).toDateString();
 		if (Number.isInteger(Number(date))) {
 			stock.where({ date: date });
 		}
@@ -166,7 +225,8 @@ router.get('/stocks', function(req, res, next) {
 	}
 
 	if (start) {
-		if (Number.isInteger(Number(date))) {
+		dateStr['start'] = new Date(start).toDateString();
+		if (Number.isInteger(Number(start))) {
 			stock.where({ date: { $gte: start } });
 		}
 		else {
@@ -175,7 +235,8 @@ router.get('/stocks', function(req, res, next) {
 	}
 
 	if (end) {
-		if (Number.isInteger(Number(date))) {
+		dateStr['end'] = new Date(start).toDateString();
+		if (Number.isInteger(Number(end))) {
 			stock.where({ date: { $lte: end } });
 		}
 		else {
@@ -203,7 +264,11 @@ router.get('/stocks', function(req, res, next) {
 			console.log(err);
 		}
 		if (stocks) {
-			res.json(stocks);
+			res.json({
+				'status': 200,
+				dateStr,
+				'data': stocks
+			});
 		}
 		else {
 			res.json({
@@ -212,62 +277,13 @@ router.get('/stocks', function(req, res, next) {
 			});
 		}
 	});
-
 });
 
 /**
- * /api/stocks/:symbol
- * @param :symbol unique symbol of the quote
+ * POST /api/v1/stocks
+ * Manually add sample data for testing
  */
-router.get('/stocks/:symbol', function(req, res, next) {
-	let symbol = req.params.symbol
-	let date = req.query.date;
-	let start = req.query.start;
-	let end = req.query.end;
-	let limit = req.query.limit;
-	let sort = req.query.sort;
-	let skip = req.query.skip;
-
-	let stock = Stock.find()
-	stock.where({ code: symbol });
-	// /^vonderful/i)
-
-	if (date) {
-		stock.where('date', new Date(date));
-	}
-	if (start) {
-		stock.where({ date: { $gte: new Date(start) } });
-	}
-	if (end) {
-		stock.where({ date: { $lte: new Date(end) } })
-	}
-
-	if (sort) {
-		stock.sort({ date: sort });
-	}
-
-	if (limit) {
-		stock.limit(limit);
-	}
-
-	if (skip) {
-		stock.skip(skip);
-	}
-
-	stock.exec(function(err, stocks){
-		if (err) {
-			console.log(err);
-		}
-		if (stocks) {
-			res.json({
-				'symbol': symbol,
-				'historical': stocks
-			});
-		}
-	});
-});
-
-router.post('/add', function(req, res) {
+router.post('/stocks', function(req, res) {
 	let data = req.body;
 
 	let query = Stock.findOne({
@@ -315,8 +331,38 @@ router.post('/add', function(req, res) {
 	});
 });
 
-router.delete('/delete/:stockId', function(req, res) {
-	let stockId = req.params.stockId;
+/**
+ * GET /api/v1/stocks/:quote_id
+ * Get a specific quote from the database
+ * @param :quote_id unique id of the quote
+ */
+router.get('/stocks/:quote_id', function(req, res) {
+	let stockId = req.params.quote_id;
+
+	Stock.findById(stockId, function(error, result) {
+		if (error) {
+			console.error("Error: " + error);
+		}
+		if (result) {
+			console.log("Match found!: ", result);
+			res.json({
+				'status': 302,
+				'data': result
+			});
+		}
+		else {
+			res.sendStatus(404);
+		}
+	});
+});
+
+/**
+ * DELETE /api/v1/stocks/:quote_id
+ * Delete a specific quote from the database
+ * @param :quote_id unique id of the quote
+ */
+router.delete('/stocks/:quote_id', function(req, res) {
+	let stockId = req.params.quote_id;
 
 	Stock.findByIdAndRemove(stockId, function(error, result) {
 		if (error) {
@@ -324,26 +370,23 @@ router.delete('/delete/:stockId', function(req, res) {
 		}
 		else {
 			console.log("Removed Quote : ", result);
+			res.sendStatus(200);
 		}
 	});
 });
 
-function get_quotes_from_pngx(url, code) {
-	var i = [];
+function get_quotes_from_pngx(code) {
 	var options = {};
 	Object.assign(options, {
 		"method": 'GET',
-		"json": true,
-		// 'body': {
-		// 	'username': req.body.username,
-		// 	'password': req.body.password
-		// }
+		"json": true
 	});
 
 	return new Promise(function(resolve, reject) {
 		if (undefined !== typeof code) {
 			options['url'] = DATAURL + code +".csv";
 			getData(options).then(function(response){
+				// resolve(typeof callback == 'function' ? new callback(response) : response);
 				resolve(response);
 			})
 			.catch(function(error) {
@@ -356,6 +399,7 @@ function get_quotes_from_pngx(url, code) {
 				options['url'] = DATAURL + QUOTES[j] +".csv";
 
 				getData(options).then(function(response){
+					// resolve(typeof callback == 'function' ? new callback(response) : response);
 					resolve(response);
 				})
 				.catch(function(error) {
@@ -407,31 +451,35 @@ function getData(options) {
 
 async function dataFetcher() {
 	console.log('Fetching data from https://www.pngx.com.pg');
+	var startTime = new Date();
+	var reqTime = 0;
 
-	QUOTES.forEach(async function(quote) {
+	for (var i = 0; i < QUOTES.length; i++) {
+		let quote = QUOTES[i];
 		// insert new data from pngx into the local database
 		// get csv data from pngx.com
 		// parse the csv to json
 		// for each quote compare its date against the date of the ones that exist in the database
 		// if the date compared does not match any existing quote then insert that quote into the database
 		// else continue to next quote until all quotes are compared then exit the program
-
-		await get_quotes_from_pngx(DATAURL, quote).then(function(response) {
+		await get_quotes_from_pngx(quote).then(function(response) {
 			var totalCount = response.length, totalAdded = 0;
 			console.log("start");
 			console.log("Adding quotes for " + quote + " ...");
 
 			response[totalCount-1];
 
-			response.forEach(async function(data) {
+			for (var j = 0; j < response.length; j++) {
+				let data = response[j];
+				// console.log(data)
+
 				// check if the quote for that particular company at that particular date already exists
-				await Stock.findOne({
+				Stock.findOne({
 					'date': data['Date'],
 					'short_name': data['Short Name']
 				})
-				.lean()
-				.exec()
 				.then(function(result) {
+					reqTime++;
 					if (result == null) {
 						console.log("Match not found.");
 						console.log("Adding it to the db");
@@ -460,8 +508,11 @@ async function dataFetcher() {
 							}
 						});
 					}
+				})
+				.catch(function(error) {
+					throw new Error(error);
 				});
-			});
+			};
 
 			console.log(totalAdded + "/" + totalCount + " quotes were added.");
 			console.log("stop");
@@ -469,7 +520,10 @@ async function dataFetcher() {
 		.catch(function(error) {
 			console.log(error);
 		});
+	};
 
-	});
 	console.log('Data fetched from https://www.pngx.com.pg');
+	var endTime = new Date();
+	console.log(startTime + " - " + endTime)
+	console.log("total request itme: " + reqTime)
 }
