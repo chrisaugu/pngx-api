@@ -104,11 +104,11 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * Schedule task to requests data from PNGX datasets and model them and stores them in db
  * Fetch data from PNGX.com every 5 minutes
  */
-cron.schedule('*/2 * * * *', () => {
+// cron.schedule('*/2 * * * *', () => {
 	console.log('running a task every 5 minutes');
 
-	// dataFetcher();
-});
+	dataFetcher();
+// });
 
 // /v1
 app.use('/v1', router);
@@ -451,6 +451,7 @@ function getData(options) {
 
 async function dataFetcher() {
 	console.log('Fetching data from https://www.pngx.com.pg');
+	console.time("timer");   //start time with name = timer
 	var startTime = new Date();
 	var reqTime = 0;
 
@@ -467,10 +468,8 @@ async function dataFetcher() {
 			console.log("start");
 			console.log("Adding quotes for " + quote + " ...");
 
-			response[totalCount-1];
-
-			for (var j = 0; j < response.length; j++) {
-				let data = response[j];
+			// for (var j = 0; j < response.length; j++) {
+				let data = response[totalCount-1];
 				// console.log(data)
 
 				// check if the quote for that particular company at that particular date already exists
@@ -512,7 +511,7 @@ async function dataFetcher() {
 				.catch(function(error) {
 					throw new Error(error);
 				});
-			};
+			// };
 
 			console.log(totalAdded + "/" + totalCount + " quotes were added.");
 			console.log("stop");
@@ -523,7 +522,9 @@ async function dataFetcher() {
 	};
 
 	console.log('Data fetched from https://www.pngx.com.pg');
+	console.timeEnd("timer"); //end timer and log time difference
 	var endTime = new Date();
-	console.log(startTime + " - " + endTime)
+	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
+	console.log(timeDiff + " secs");
 	console.log("total request itme: " + reqTime)
 }
