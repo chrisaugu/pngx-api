@@ -104,11 +104,11 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * Schedule task to requests data from PNGX datasets and model them and stores them in db
  * Fetch data from PNGX.com every 5 minutes
  */
-// cron.schedule('*/2 * * * *', () => {
+cron.schedule('*/2 * * * *', () => {
 	console.log('running a task every 5 minutes');
 
 	dataFetcher();
-// });
+});
 
 // /v1
 app.use('/v1', router);
