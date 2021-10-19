@@ -1,3 +1,13 @@
+<p align="center">
+  <img src=".github/logo.png" width="300" height="175" alt="Bootstrap npm logo">
+</p>
+
+<h3 align="center">Bootstrap npm starter template</h3>
+
+<p align="center">Create new Bootstrap-powered npm projects in no time.</p>
+
+## About
+
 # PNGX-API
 API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/data/). PNGX-API is part of [crisbot](https://github.com/chrisaugu/cristhebot).
 
@@ -43,7 +53,7 @@ The REST API to the example app is described below.
     ST"]}
 
 
-## Get list of Stocks
+## Get list of Stocks for the day
 
 #### Request
 
@@ -77,7 +87,7 @@ The REST API to the example app is described below.
 </br>
 `GET /v1/stocks/:symbol?end=DATE`
 </br>
-`GET /v1/stocks/:symbol?start=DATE&end=DATE`
+`GET /v1/stocks/:symbol?field=`
 </br>
 
 
@@ -107,7 +117,7 @@ The REST API to the example app is described below.
 #### Response
 
     HTTP/1.1 200 OK
-    Date: Sat, 02 Oct 2021 03:25:07 GMT
+    Date: Sat, 02 Oct 2021 03:25:07[^1] GMT
     Status: 200 OK
     Connection: close
     X-Powered-By: Express
@@ -117,3 +127,8 @@ The REST API to the example app is described below.
     {"status":404,"reason":"Not found"}
 
 </br>
+
+
+## Copyright
+
+&copy; @chrisaugu 2021.

@@ -2,7 +2,7 @@
   "name": "pngx-api",
   "version": "1.0.0",
   "private": true,
-  "description": "API enpoint that exposes the PNGX.com stock quotes",
+  "description": "An unofficial api that serves stock quotes from pngx.com.pg",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,10 +16,11 @@
   "keywords": [
     "PNG",
     "Stocks",
-    "PNGX stocks"
+    "PNGX stocks",
+    "POMSOX"
   ],
   "author": "Christian Augustyn",
-  "license": "MIT",
+  "license": "Unspecified",
   "bugs": {
     "url": "https://github.com/chrisaugu/pngx-api/issues"
   },

@@ -14,8 +14,7 @@ const router = express.Router();
 const PORT = process.env.PORT;
 
 app.set('port', PORT);
-app.set('env', process.env.ENV);
-// enables cors
+
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
@@ -30,12 +29,7 @@ app.listen(app.get('port'), function(req, res) {
 });
 
 // Creating an instance for MongoDB
-if (app.get('env') == "development") {
-	mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-}
-else if (app.get('env') == "production") {
-	mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-}
+mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 mongoose.connection.on("connected", function(){
 	console.log("Connected: Successfully connect to mongo server");
@@ -135,26 +129,63 @@ router.get('/historicals/:symbol', function(req, res, next) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
-	let limit = req.query.limit;
-	let sort = req.query.sort;
-	let skip = req.query.skip;
+	let limit = parseInt(req.query.limit) || 11; // default limit is 11 - currently the number of companies listed on PNGX.com.pg
+	let sort = parseInt(req.query.sort);
+	let skip = parseInt(req.query.skip);
+	let fields = req.query.fields;
 
-	let stock = Stock.find()
+	let stock = Stock.find();
 	stock.where({ 'code': symbol });
 	// /^vonderful/i)
 
+	var dateStr = {
+		date: new Date().toDateString()
+	};
+
 	if (date) {
-		stock.where('date', new Date(date));
+		dateStr['date'] = new Date(date).toDateString();
+		
+		if (Number.isInteger(Number(date))) {
+			// stock.where({ date: date });
+			stock.where('date', date);
+		}
+		else {
+			// stock.where({ date: new Date(date) });
+			stock.where('date', new Date(date));
+		}
 	}
+
 	if (start) {
-		stock.where({ 'date': { $gte: new Date(start) } });
+		Object.assign(dateStr['date'], { start: new Date(start).toDateString() });
+		
+		if (Number.isInteger(Number(start))) {
+			// stock.where({ date: { $gte: start } });
+			stock.where({ 'date': { $gte: start } });
+		}
+		else {
+			// stock.where({ date: { $gte: new Date(start) } });
+			stock.where({ 'date': { $gte: new Date(start) } });
+		}
 	}
 	if (end) {
-		stock.where({ 'date': { $lte: new Date(end) } })
+		Object.assign(dateStr['date'], { end: new Date(end).toDateString() });
+		
+		if (Number.isInteger(Number(end))) {
+			// stock.where({ date: { $lte: end } });
+			stock.where({ 'date': { $lte: end } })
+		}
+		else {
+			// stock.where({ date: { $lte: new Date(end) } });
+			stock.where({ 'date': { $lte: new Date(end) } })
+		}
 	}
 
 	if (sort) {
 		stock.sort({ 'date': sort });
+	}
+	else {
+		// default sort descendence
+		stock.sort({ 'date': -1 });
 	}
 
 	if (limit) {
@@ -163,6 +194,11 @@ router.get('/historicals/:symbol', function(req, res, next) {
 
 	if (skip) {
 		stock.skip(skip);
+		// dateStr['date'] = new Date(`2021-10-${new Date().getDate() + skip}`).toDateString();
+	}
+
+	if (fields) {
+		stock.select(fields.split(','));
 	}
 
 	stock.exec(function(err, stocks){
@@ -172,7 +208,9 @@ router.get('/historicals/:symbol', function(req, res, next) {
 		if (stocks) {
 			res.json({
 				'status': 302,
+				// ...dateStr,
 				'symbol': symbol,
+				'count': limit,
 				'historical': stocks
 			});
 		}
@@ -204,9 +242,10 @@ router.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
-	let limit = req.query.limit;
-	let sort = req.query.sort;
-	let skip = req.query.skip;
+	let limit = parseInt(req.query.limit) || 11; // default limit is 11 - currently the number of companies listed on PNGX.com.pg
+	let sort = parseInt(req.query.sort);
+	let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
+	let fields = req.query.fields;
 
 	let stock = Stock.find({});
 
@@ -216,6 +255,7 @@ router.get('/stocks', function(req, res) {
 
 	if (date) {
 		dateStr['date'] = new Date(date).toDateString();
+		
 		if (Number.isInteger(Number(date))) {
 			stock.where({ date: date });
 		}
@@ -225,7 +265,8 @@ router.get('/stocks', function(req, res) {
 	}
 
 	if (start) {
-		dateStr['start'] = new Date(start).toDateString();
+		Object.assign(dateStr['date'], { start: new Date(start).toDateString() });
+		
 		if (Number.isInteger(Number(start))) {
 			stock.where({ date: { $gte: start } });
 		}
@@ -235,7 +276,8 @@ router.get('/stocks', function(req, res) {
 	}
 
 	if (end) {
-		dateStr['end'] = new Date(start).toDateString();
+		Object.assign(dateStr['date'], { end: new Date(end).toDateString() });
+		
 		if (Number.isInteger(Number(end))) {
 			stock.where({ date: { $lte: end } });
 		}
@@ -244,15 +286,24 @@ router.get('/stocks', function(req, res) {
 		}
 	}
 
+	if (fields) {
+		stock.select(fields.split(','));
+	}
+
 	if (sort) {
 		stock.sort({ date: sort });
 	}
 	else {
-		stock.sort({ date: 1 });
+		// default sort descendence
+		stock.sort({ date: -1 });
 	}
 
 	if (limit) {
 		stock.limit(limit);
+	}
+	else {
+		// default limit is 11 - currently the number of companies listed on PNGX.com.pg
+		stock.limit(11);
 	}
 
 	if (skip) {
@@ -266,7 +317,7 @@ router.get('/stocks', function(req, res) {
 		if (stocks) {
 			res.json({
 				'status': 200,
-				dateStr,
+				...dateStr,
 				'data': stocks
 			});
 		}
