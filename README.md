@@ -1,5 +1,9 @@
+# {title}
+
+Just an example view rendered with _markdown_.
+
 <p align="center">
-  <img src=".github/logo.png" width="300" height="175" alt="Bootstrap npm logo">
+  <img src="https://github.com/logo.png" width="300" height="175" alt="Bootstrap npm logo">
 </p>
 
 <h3 align="center">Bootstrap npm starter template</h3>
@@ -128,7 +132,10 @@ The REST API to the example app is described below.
 
 </br>
 
+## ChangeLog
+>hello
+
 
 ## Copyright
 
-&copy; @chrisaugu 2021.
+&copy; chrisaugu 2021.

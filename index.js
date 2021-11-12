@@ -1,4 +1,4 @@
-'use strict';
+const http = require("http");
 const express = require("express");
 const request = require('request');
 const mongoose = require('mongoose');
@@ -6,7 +6,11 @@ const cron = require('node-cron');
 const cors = require("cors");
 const fs = require('fs');
 const bodyParser = require("body-parser");
+const boxen = require('boxen');
 require("dotenv").config();
+const escapeHtml = require('escape-html');
+const marked = require('marked');
+const path = require('path');
 
 // Creating express app
 const app = express();
@@ -14,6 +18,17 @@ const router = express.Router();
 const PORT = process.env.PORT;
 
 app.set('port', PORT);
+app.engine('md', function(path, options, fn){
+  fs.readFile(path, 'utf8', function(err, str){
+    if (err) return fn(err);
+    var html = marked.parse(str).replace(/\{([^}]+)\}/g, function(_, name){
+      return escapeHtml(options[name] || '');
+    });
+    fn(null, html);
+  });
+});
+app.set('views', path.join(__dirname, './'));
+app.set('view engine', 'md');
 
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
@@ -23,9 +38,48 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({}));
 
+const os = require('os');
+const interfaces = os.networkInterfaces();
+const getNetworkAddress = () => {
+	for (const name of Object.keys(interfaces)) {
+		for (const interface of interfaces[name]) {
+			const {address, family, internal} = interface;
+			if (family === 'IPv4' && !internal) {
+				return address;
+			}
+		}
+	}
+};
+let server = http.createServer(app);
+
 // create server and listen on the port
-app.listen(app.get('port'), function(req, res) {
-	console.log(`Server running on port ${PORT}.`);
+server.listen(app.get('port'), function(req, res) {
+	const details = server.address();
+	let localAddress = null;
+	let networkAddress = null;
+
+	if (typeof details === 'string') {
+		localAddress = details;
+	} else if (typeof details === 'object' && details.port) {
+		const address = details.address === '::' ? 'localhost' : details.address;
+		const ip = getNetworkAddress();
+
+		localAddress = `http://${address}:${details.port}`;
+		networkAddress = `http://${ip}:${details.port}`;
+	}
+
+	log = "\n----------------------------------------------------------\n";
+
+	if (localAddress) {
+		log += `Server running on port http://${localAddress}.\n`;
+	}
+	if (networkAddress) {
+		log += `Server running on port http://${networkAddress}.`;
+	}
+
+	log += "\n----------------------------------------------------------\n";
+
+	console.log(log);
 });
 
 // Creating an instance for MongoDB
@@ -105,18 +159,17 @@ cron.schedule('*/2 * * * *', () => {
 });
 
 // /v1
-app.use('/v1', router);
-
 app.get('/', function(req, res) {
-	res.json({
-		"status": 200,
-		"data": {}
-	});
+  res.render('README', { title: 'PNGX-Api Doc' });
 });
+
+app.use('/v1', router);
 
 router.get('/', function(req, res) {
 	res.json({
-		"symbols": QUOTES
+		"status": 200,
+		"symbols": QUOTES,
+		"data": {}
 	});
 });
 
@@ -209,6 +262,7 @@ router.get('/historicals/:symbol', function(req, res, next) {
 			res.json({
 				'status': 302,
 				// ...dateStr,
+				'last_updated': stocks[0].date,
 				'symbol': symbol,
 				'count': limit,
 				'historical': stocks
@@ -318,6 +372,7 @@ router.get('/stocks', function(req, res) {
 			res.json({
 				'status': 200,
 				...dateStr,
+				'last_updated': stocks[0].date,
 				'data': stocks
 			});
 		}
@@ -398,6 +453,7 @@ router.get('/stocks/:quote_id', function(req, res) {
 			console.log("Match found!: ", result);
 			res.json({
 				'status': 302,
+				'last_updated': result.date,
 				'data': result
 			});
 		}

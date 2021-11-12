@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -27,9 +27,12 @@
   "homepage": "https://github.com/chrisaugu/pngx-api#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "escape-html": "^1.0.3",
     "express": "^4.17.1",
+    "marked": "^3.0.8",
     "mongoose": "^6.0.8",
     "node-cron": "^3.0.0",
+    "path": "^0.12.7",
     "request": "^2.88.2"
   },
   "devDependencies": {
