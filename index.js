@@ -16,19 +16,21 @@ const path = require('path');
 const app = express();
 const router = express.Router();
 const PORT = process.env.PORT;
+const Schema = mongoose.Schema;
 
 app.set('port', PORT);
-app.engine('md', function(path, options, fn){
-  fs.readFile(path, 'utf8', function(err, str){
-    if (err) return fn(err);
-    var html = marked.parse(str).replace(/\{([^}]+)\}/g, function(_, name){
-      return escapeHtml(options[name] || '');
-    });
-    fn(null, html);
-  });
-});
-app.set('views', path.join(__dirname, './'));
-app.set('view engine', 'md');
+// app.engine('md', function(path, options, fn){
+//   fs.readFile(path, 'utf8', function(err, str){
+//     if (err) return fn(err);
+//     var html = marked.parse(str).replace(/\{([^}]+)\}/g, function(_, name){
+//       return escapeHtml(options[name] || '');
+//     });
+//     fn(null, html);
+//   });
+// });
+// app.set('views', path.join(__dirname, './'));
+// app.set('view engine', 'md');
+app.use(express.static(path.join(__dirname, 'docs')));
 
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
@@ -38,48 +40,50 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({}));
 
-const os = require('os');
-const interfaces = os.networkInterfaces();
-const getNetworkAddress = () => {
-	for (const name of Object.keys(interfaces)) {
-		for (const interface of interfaces[name]) {
-			const {address, family, internal} = interface;
-			if (family === 'IPv4' && !internal) {
-				return address;
-			}
-		}
-	}
-};
+// const os = require('os');
+// const interfaces = os.networkInterfaces();
+// const getNetworkAddress = () => {
+// 	for (const name of Object.keys(interfaces)) {
+// 		for (const interface of interfaces[name]) {
+// 			const {address, family, internal} = interface;
+// 			if (family === 'IPv4' && !internal) {
+// 				return address;
+// 			}
+// 		}
+// 	}
+// };
+
 let server = http.createServer(app);
 
 // create server and listen on the port
 server.listen(app.get('port'), function(req, res) {
-	const details = server.address();
-	let localAddress = null;
-	let networkAddress = null;
+	// const details = server.address();
+	// let localAddress = null;
+	// let networkAddress = null;
 
-	if (typeof details === 'string') {
-		localAddress = details;
-	} else if (typeof details === 'object' && details.port) {
-		const address = details.address === '::' ? 'localhost' : details.address;
-		const ip = getNetworkAddress();
+	// if (typeof details === 'string') {
+	// 	localAddress = details;
+	// } else if (typeof details === 'object' && details.port) {
+	// 	const address = details.address === '::' ? 'localhost' : details.address;
+	// 	const ip = getNetworkAddress();
 
-		localAddress = `http://${address}:${details.port}`;
-		networkAddress = `http://${ip}:${details.port}`;
-	}
+	// 	localAddress = `http://${address}:${details.port}`;
+	// 	networkAddress = `http://${ip}:${details.port}`;
+	// }
 
-	log = "\n----------------------------------------------------------\n";
+	// log = "\n----------------------------------------------------------\n";
 
-	if (localAddress) {
-		log += `Server running on port http://${localAddress}.\n`;
-	}
-	if (networkAddress) {
-		log += `Server running on port http://${networkAddress}.`;
-	}
+	// if (localAddress) {
+	// 	log += `Server running on port http://${localAddress}.\n`;
+	// }
+	// if (networkAddress) {
+	// 	log += `Server running on port http://${networkAddress}.`;
+	// }
 
-	log += "\n----------------------------------------------------------\n";
+	// log += "\n----------------------------------------------------------\n";
 
-	console.log(log);
+	// console.log(log);
+	console.log(`Server running on port http://localhost:${app.get('port')}`);
 });
 
 // Creating an instance for MongoDB
@@ -93,9 +97,7 @@ mongoose.connection.on('error', function(){
 });
 
 // models
-const Schema = mongoose.Schema;
-
-var quoteSchema = new Schema({
+const quoteSchema = new Schema({
 	date: {type: Date},
 	code: String,
 	short_name: String,
@@ -110,8 +112,16 @@ var quoteSchema = new Schema({
 	vol_today: Number,
 	num_trades: Number
 });
-
 const Stock = mongoose.model('stockquote', quoteSchema);
+
+const companySchema = new Schema({
+	name: String,
+	code: String,
+	description: String,
+	industry: String,
+	date_listed: Date
+});
+const Company = mongoose.model('company', companySchema);
 
 // const Parse = require('parse');
 
@@ -152,15 +162,15 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * Schedule task to requests data from PNGX datasets and model them and stores them in db
  * Fetch data from PNGX.com every 5 minutes
  */
-cron.schedule('*/2 * * * *', () => {
-	console.log('running a task every 5 minutes');
+// cron.schedule('*/2 * * * *', () => {
+// 	console.log('running a task every 5 minutes');
 
-	dataFetcher();
-});
+// 	dataFetcher();
+// });
 
 // /v1
 app.get('/', function(req, res) {
-  res.render('README', { title: 'PNGX-Api Doc' });
+  res.render('index.html', { title: 'PNGX-Api Doc' });
 });
 
 app.use('/v1', router);
@@ -182,13 +192,14 @@ router.get('/historicals/:symbol', function(req, res, next) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
-	let limit = parseInt(req.query.limit) || 11; // default limit is 11 - currently the number of companies listed on PNGX.com.pg
+	let limit = parseInt(req.query.limit);
 	let sort = parseInt(req.query.sort);
 	let skip = parseInt(req.query.skip);
 	let fields = req.query.fields;
 
 	let stock = Stock.find();
 	stock.where({ 'code': symbol });
+	stock.select('date code close high low open vol_today');
 	// /^vonderful/i)
 
 	var dateStr = {
@@ -254,24 +265,33 @@ router.get('/historicals/:symbol', function(req, res, next) {
 		stock.select(fields.split(','));
 	}
 
-	stock.exec(function(err, stocks){
+	stock.exec(function(err, stocks) {
+		const count = stocks.length == limit ? limit : stocks.length;
+
 		if (err) {
 			console.log(err);
 		}
-		if (stocks) {
+		if (stocks && stocks.length > 0) {
 			res.json({
 				'status': 302,
 				// ...dateStr,
 				'last_updated': stocks[0].date,
 				'symbol': symbol,
-				'count': limit,
+				'total_count': count,
 				'historical': stocks
 			});
 		}
 		else {
-			res.sendStatus(404);
+			res.status(404).json({
+				"status": 404,
+				"reason": "NotFound"
+			});
 		}
 	});
+});
+
+router.get('/historicals/:symbol/essentials', function(req, res) {
+	
 });
 
 /**
@@ -296,12 +316,12 @@ router.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
-	let limit = parseInt(req.query.limit) || 11; // default limit is 11 - currently the number of companies listed on PNGX.com.pg
+	let limit = parseInt(req.query.limit) || 12; // default limit is 11 - currently the number of companies listed on PNGX.com.pg
 	let sort = parseInt(req.query.sort);
 	let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
 	let fields = req.query.fields;
 
-	let stock = Stock.find({});
+	let query = Stock.find({});
 
 	var dateStr = {
 		date: new Date().toDateString()
@@ -311,10 +331,10 @@ router.get('/stocks', function(req, res) {
 		dateStr['date'] = new Date(date).toDateString();
 		
 		if (Number.isInteger(Number(date))) {
-			stock.where({ date: date });
+			query.where({ date: date });
 		}
 		else {
-			stock.where({ date: new Date(date) });
+			query.where({ date: new Date(date) });
 		}
 	}
 
@@ -322,10 +342,10 @@ router.get('/stocks', function(req, res) {
 		Object.assign(dateStr['date'], { start: new Date(start).toDateString() });
 		
 		if (Number.isInteger(Number(start))) {
-			stock.where({ date: { $gte: start } });
+			query.where({ date: { $gte: start } });
 		}
 		else {
-			stock.where({ date: { $gte: new Date(start) } });
+			query.where({ date: { $gte: new Date(start) } });
 		}
 	}
 
@@ -333,42 +353,42 @@ router.get('/stocks', function(req, res) {
 		Object.assign(dateStr['date'], { end: new Date(end).toDateString() });
 		
 		if (Number.isInteger(Number(end))) {
-			stock.where({ date: { $lte: end } });
+			query.where({ date: { $lte: end } });
 		}
 		else {
-			stock.where({ date: { $lte: new Date(end) } });
+			query.where({ date: { $lte: new Date(end) } });
 		}
 	}
 
 	if (fields) {
-		stock.select(fields.split(','));
+		query.select(fields.split(','));
 	}
 
 	if (sort) {
-		stock.sort({ date: sort });
+		query.sort({ date: sort });
 	}
 	else {
 		// default sort descendence
-		stock.sort({ date: -1 });
+		query.sort({ date: -1 });
 	}
 
 	if (limit) {
-		stock.limit(limit);
+		query.limit(limit);
 	}
 	else {
 		// default limit is 11 - currently the number of companies listed on PNGX.com.pg
-		stock.limit(11);
+		query.limit(11);
 	}
 
 	if (skip) {
-		stock.skip(skip);
+		query.skip(skip);
 	}
 
-	stock.exec(function(err, stocks) {
+	query.exec(function(err, stocks) {
 		if (err) {
 			console.log(err);
 		}
-		if (stocks) {
+		if (stocks && stocks.length > 0) {
 			res.json({
 				'status': 200,
 				...dateStr,
@@ -396,7 +416,7 @@ router.post('/stocks', function(req, res) {
 		date: data[0]['date'],
 		short_name: data[0]['short_name'] 
 	});
-	query.lean()
+	query.lean();
 	query.exec(function(error, result) {
 		if (error) {
 			console.error("Error: " + error);

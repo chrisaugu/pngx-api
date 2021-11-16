@@ -3,7 +3,7 @@
 Just an example view rendered with _markdown_.
 
 <p align="center">
-  <img src="https://github.com/logo.png" width="300" height="175" alt="Bootstrap npm logo">
+  <img src="https://i2.wp.com/www.pngx.com.pg/wp-content/uploads/2019/07/pngx1.png" width="300" height="175" alt="PNGX logo">
 </p>
 
 <h3 align="center">Bootstrap npm starter template</h3>
