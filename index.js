@@ -74,10 +74,10 @@ server.listen(app.get('port'), function(req, res) {
 	// log = "\n----------------------------------------------------------\n";
 
 	// if (localAddress) {
-	// 	log += `Server running on port http://${localAddress}.\n`;
+	// 	log += `Server running on port ${localAddress}.\n`;
 	// }
 	// if (networkAddress) {
-	// 	log += `Server running on port http://${networkAddress}.`;
+	// 	log += `Server running on port ${networkAddress}.`;
 	// }
 
 	// log += "\n----------------------------------------------------------\n";
@@ -123,47 +123,16 @@ const companySchema = new Schema({
 });
 const Company = mongoose.model('company', companySchema);
 
-// const Parse = require('parse');
-
-// Parse.initialize("YOUR_APP_ID", "YOUR_JAVASCRIPT_KEY");
-// Parse.serverURL = 'http://YOUR_PARSE_SERVER:1337/parse';
-
-// const GameScore = Parse.Object.extend("GameScore");
-
-// const gameScore = new GameScore();
-
-// gameScore.set("score", 1337);
-// gameScore.set("playerName", "Sean Plott");
-// gameScore.set("cheatMode", false);
-
-// gameScore.save()
-// 		.then((gameScore) => {
-// 			// Execute any logic that should take place after the object is saved.
-// 		 	alert('New object created with objectId: ' + gameScore.id);
-// 		}, (error) => {
-// 		// Execute any logic that should take place if the save fails.
-// 		// error is a Parse.Error with an error code and message.
-// 		alert('Failed to create new object, with error code: ' + error.message);
-// 	});
-
-// const query = new Parse.Query(GameScore);
-// query.get("playerName")
-// 	.then((gameScore) => {
-// 		// The object was retrieved successfully.
-// 	}, (error) => {
-// 		// The object was not retrieved successfully.
-// 		// error is a Parse.Error with an error code and message.
-// 	});
-
 const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','OSH','SST'];
 const DATAURL = "http://www.pngx.com.pg/data/";
 
 /**
- * Schedule task to requests data from PNGX datasets and model them and stores them in db
- * Fetch data from PNGX.com every 5 minutes
+ * Schedule task to requests data from PNGX datasets every 2 minutes
+ * The task requests and models the data them stores those data in db
+ * Fetch data from PNGX.com every 2 minutes
  */
 // cron.schedule('*/2 * * * *', () => {
-// 	console.log('running a task every 5 minutes');
+// 	console.log('running a task every 2 minutes');
 
 // 	dataFetcher();
 // });
@@ -187,7 +156,7 @@ router.get('/', function(req, res) {
  * GET /api/v1/historicals/:symbol
  * @param :symbol unique symbol of the stock
  */
-router.get('/historicals/:symbol', function(req, res, next) {
+router.get('/historicals/:symbol', function(req, res) {
 	let symbol = req.params.symbol
 	let date = req.query.date;
 	let start = req.query.start;
@@ -200,7 +169,6 @@ router.get('/historicals/:symbol', function(req, res, next) {
 	let stock = Stock.find();
 	stock.where({ 'code': symbol });
 	stock.select('date code close high low open vol_today');
-	// /^vonderful/i)
 
 	var dateStr = {
 		date: new Date().toDateString()
@@ -249,7 +217,7 @@ router.get('/historicals/:symbol', function(req, res, next) {
 	}
 	else {
 		// default sort descendence
-		stock.sort({ 'date': -1 });
+		stock.sort({ 'date': 1 });
 	}
 
 	if (limit) {
@@ -284,14 +252,57 @@ router.get('/historicals/:symbol', function(req, res, next) {
 		else {
 			res.status(404).json({
 				"status": 404,
-				"reason": "NotFound"
+				"reason": "Not Found"
 			});
 		}
 	});
 });
 
+// router.get('/historicals/:symbol/essentials', function(req, res) {});
+
 router.get('/historicals/:symbol/essentials', function(req, res) {
-	
+	let symbol = req.params.symbol
+
+	let stock = Stock.find();
+	stock.where({ 'code': symbol });
+	stock.select('date bid offer code close high low open vol_today');
+
+	stock.exec(function(err, stocks) {
+		const count = stocks.length;
+		var dates = [];
+		var bids = [];
+		var offers = [];
+
+		if (err) {
+			console.log(err);
+		}
+		if (stocks && stocks.length > 0) {
+
+			stocks.forEach(function(stock) {
+				dates.push(new Date(stock.date).getTime());
+				bids.push(stock.bid);
+				offers.push(stock.offer);
+			});
+
+			res.status(302).json({
+				"columns": {
+					"x": dates,
+					"y1": bids,
+					"y2": offers
+				},
+				"types":{"y0":"line","y1":"line","x":"x"},
+				"names":{"y0":"#0","y1":"#1"},
+				"colors":{"y0":"#3DC23F","y1":"#F34C44"}
+			});
+		}
+		else {
+			res.status(404).json({
+				"status": 404,
+				"reason": "Not Found"
+			});
+		}
+
+	});
 });
 
 /**
@@ -399,7 +410,7 @@ router.get('/stocks', function(req, res) {
 		else {
 			res.json({
 				"status": 404,
-				"reason": "NotFound"
+				"reason": "Not Found"
 			});
 		}
 	});
@@ -409,53 +420,53 @@ router.get('/stocks', function(req, res) {
  * POST /api/v1/stocks
  * Manually add sample data for testing
  */
-router.post('/stocks', function(req, res) {
-	let data = req.body;
+// router.post('/stocks', function(req, res) {
+// 	let data = req.body;
 
-	let query = Stock.findOne({
-		date: data[0]['date'],
-		short_name: data[0]['short_name'] 
-	});
-	query.lean();
-	query.exec(function(error, result) {
-		if (error) {
-			console.error("Error: " + error);
-			res.send("Error: " + error);
-		}
-		else if (result == null) {
-			console.log("Match not found.");
-			console.log("Adding it to the db");
+// 	let query = Stock.findOne({
+// 		date: data[0]['date'],
+// 		short_name: data[0]['short_name'] 
+// 	});
+// 	query.lean();
+// 	query.exec(function(error, result) {
+// 		if (error) {
+// 			console.error("Error: " + error);
+// 			res.send("Error: " + error);
+// 		}
+// 		else if (result == null) {
+// 			console.log("Match not found.");
+// 			console.log("Adding it to the db");
 			
-			let quote = new Stock();
-			quote['date'] = new Date(data[0]['date']);
-			quote['code'] = data[0]['code'];
-			quote['short_name'] = data[0]['short_name'];
-			quote['bid'] = Number(data[0]['bid']);
-			quote['offer'] = Number(data[0]['offer']);
-			quote['last'] = Number(data[0]['last']);
-			quote['close'] = Number(data[0]['close']);
-			quote['high'] = Number(data[0]['high']);
-			quote['low'] = Number(data[0]['low']);
-			quote['open'] = Number(data[0]['open']);
-			quote['chg_today'] = Number(data[0]['chg_today']);
-			quote['vol_today'] = Number(data[0]['vol_today']);
-			quote['num_trades'] = Number(data[0]['num_trades']);
+// 			let quote = new Stock();
+// 			quote['date'] = new Date(data[0]['date']);
+// 			quote['code'] = data[0]['code'];
+// 			quote['short_name'] = data[0]['short_name'];
+// 			quote['bid'] = Number(data[0]['bid']);
+// 			quote['offer'] = Number(data[0]['offer']);
+// 			quote['last'] = Number(data[0]['last']);
+// 			quote['close'] = Number(data[0]['close']);
+// 			quote['high'] = Number(data[0]['high']);
+// 			quote['low'] = Number(data[0]['low']);
+// 			quote['open'] = Number(data[0]['open']);
+// 			quote['chg_today'] = Number(data[0]['chg_today']);
+// 			quote['vol_today'] = Number(data[0]['vol_today']);
+// 			quote['num_trades'] = Number(data[0]['num_trades']);
 
-			quote.save(function(err) {
-				if (err) {
-					console.error(err);
-				} else {
-					console.log('added quote for ' + data['date']);
-					res.sendStatus(201);
-				}
-			});
-		}
-		else {
-			console.log("Match found! Cannot add quote");
-			res.send("Match found! Cannot add quote");
-		}
-	});
-});
+// 			quote.save(function(err) {
+// 				if (err) {
+// 					console.error(err);
+// 				} else {
+// 					console.log('added quote for ' + data['date']);
+// 					res.sendStatus(201);
+// 				}
+// 			});
+// 		}
+// 		else {
+// 			console.log("Match found! Cannot add quote");
+// 			res.send("Match found! Cannot add quote");
+// 		}
+// 	});
+// });
 
 /**
  * GET /api/v1/stocks/:quote_id
@@ -488,19 +499,19 @@ router.get('/stocks/:quote_id', function(req, res) {
  * Delete a specific quote from the database
  * @param :quote_id unique id of the quote
  */
-router.delete('/stocks/:quote_id', function(req, res) {
-	let stockId = req.params.quote_id;
+// router.delete('/stocks/:quote_id', function(req, res) {
+// 	let stockId = req.params.quote_id;
 
-	Stock.findByIdAndRemove(stockId, function(error, result) {
-		if (error) {
-			console.error("Error: " + error);
-		}
-		else {
-			console.log("Removed Quote : ", result);
-			res.sendStatus(200);
-		}
-	});
-});
+// 	Stock.findByIdAndRemove(stockId, function(error, result) {
+// 		if (error) {
+// 			console.error("Error: " + error);
+// 		}
+// 		else {
+// 			console.log("Removed Quote : ", result);
+// 			res.sendStatus(200);
+// 		}
+// 	});
+// });
 
 function get_quotes_from_pngx(code) {
 	var options = {};
@@ -541,6 +552,7 @@ function get_quotes_from_pngx(code) {
  * Parses CSV format to JSON format for easy manipulation of data
  */
 function parse_csv_to_json(body) {
+	console.log("parsing csv to json");
 	var i = [];
 	// split the data into array by whitespaces
 	// var o = body.split(/\r\n|\n/);
@@ -577,7 +589,7 @@ function getData(options) {
 }
 
 async function dataFetcher() {
-	console.log('Fetching data from https://www.pngx.com.pg');
+	console.log('Fetching csv data from https://www.pngx.com.pg');
 	console.time("timer");   //start time with name = timer
 	var startTime = new Date();
 	var reqTime = 0;

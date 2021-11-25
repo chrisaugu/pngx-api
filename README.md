@@ -1,14 +1,12 @@
-# {title}
+<!-- Just an example view rendered with _markdown_. -->
 
-Just an example view rendered with _markdown_.
+<!-- <p align="center"> -->
+  <!-- <img src="https://i2.wp.com/www.pngx.com.pg/wp-content/uploads/2019/07/pngx1.png" width="300" height="175" alt="PNGX logo"> -->
+<!-- </p> -->
 
-<p align="center">
-  <img src="https://i2.wp.com/www.pngx.com.pg/wp-content/uploads/2019/07/pngx1.png" width="300" height="175" alt="PNGX logo">
-</p>
+<!-- <h3 align="center">Bootstrap npm starter template</h3> -->
 
-<h3 align="center">Bootstrap npm starter template</h3>
-
-<p align="center">Create new Bootstrap-powered npm projects in no time.</p>
+<!-- <p align="center">Create new Bootstrap-powered npm projects in no time.</p> -->
 
 ## About
 
@@ -133,7 +131,7 @@ The REST API to the example app is described below.
 </br>
 
 ## ChangeLog
->hello
+hello
 
 
 ## Copyright

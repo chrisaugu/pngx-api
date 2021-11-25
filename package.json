@@ -1,6 +1,6 @@
 {
   "name": "pngx-api",
-  "version": "1.0.0",
+  "version": "1.8.0",
   "private": true,
   "description": "An unofficial api that serves stock quotes from pngx.com.pg",
   "main": "index.js",
@@ -20,7 +20,7 @@
     "POMSOX"
   ],
   "author": "Christian Augustyn",
-  "license": "Unspecified",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/chrisaugu/pngx-api/issues"
   },
