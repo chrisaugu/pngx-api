@@ -8,7 +8,7 @@ const fs = require('fs');
 const bodyParser = require("body-parser");
 const boxen = require('boxen');
 require("dotenv").config();
-const escapeHtml = require('escape-html');
+// const escapeHtml = require('escape-html');
 const marked = require('marked');
 const path = require('path');
 
