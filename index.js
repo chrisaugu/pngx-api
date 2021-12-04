@@ -31,7 +31,6 @@ app.set('port', PORT);
 // app.set('views', path.join(__dirname, './'));
 // app.set('view engine', 'md');
 app.use(express.static(path.join(__dirname, 'docs')));
-
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
@@ -131,11 +130,11 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * The task requests and models the data them stores those data in db
  * Fetch data from PNGX.com every 2 minutes
  */
-// cron.schedule('*/2 * * * *', () => {
-// 	console.log('running a task every 2 minutes');
+cron.schedule('*/2 * * * *', () => {
+	console.log('running a task every 2 minutes');
 
-// 	dataFetcher();
-// });
+	dataFetcher();
+});
 
 // /v1
 app.get('/', function(req, res) {
