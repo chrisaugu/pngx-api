@@ -142,9 +142,9 @@ app.get('/', function(req, res) {
   res.render('index.html', { title: 'PNGX-Api Doc' });
 });
 
-app.use('/v1', router);
+// app.use('/v1', router);
 
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
 	res.json({
 		"status": 200,
 		"symbols": QUOTES,
@@ -156,7 +156,7 @@ router.get('/', function(req, res) {
  * GET /api/v1/historicals/:symbol
  * @param :symbol unique symbol of the stock
  */
-router.get('/historicals/:symbol', function(req, res) {
+app.get('/historicals/:symbol', function(req, res) {
 	let symbol = req.params.symbol
 	let date = req.query.date;
 	let start = req.query.start;
@@ -258,9 +258,9 @@ router.get('/historicals/:symbol', function(req, res) {
 	});
 });
 
-// router.get('/historicals/:symbol/essentials', function(req, res) {});
+// app.get('/historicals/:symbol/essentials', function(req, res) {});
 
-router.get('/historicals/:symbol/essentials', function(req, res) {
+app.get('/historicals/:symbol/essentials', function(req, res) {
 	let symbol = req.params.symbol
 
 	let stock = Stock.find();
@@ -323,7 +323,7 @@ router.get('/historicals/:symbol/essentials', function(req, res) {
  * @param: /api/v1/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
  * @param: /api/v1/stocks?code=CODE&from=DATE&to=DATE
  */
-router.get('/stocks', function(req, res) {
+app.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
@@ -420,7 +420,7 @@ router.get('/stocks', function(req, res) {
  * POST /api/v1/stocks
  * Manually add sample data for testing
  */
-// router.post('/stocks', function(req, res) {
+// app.post('/stocks', function(req, res) {
 // 	let data = req.body;
 
 // 	let query = Stock.findOne({
@@ -473,7 +473,7 @@ router.get('/stocks', function(req, res) {
  * Get a specific quote from the database
  * @param :quote_id unique id of the quote
  */
-router.get('/stocks/:quote_id', function(req, res) {
+app.get('/stocks/:quote_id', function(req, res) {
 	let stockId = req.params.quote_id;
 
 	Stock.findById(stockId, function(error, result) {
@@ -499,7 +499,7 @@ router.get('/stocks/:quote_id', function(req, res) {
  * Delete a specific quote from the database
  * @param :quote_id unique id of the quote
  */
-// router.delete('/stocks/:quote_id', function(req, res) {
+// app.delete('/stocks/:quote_id', function(req, res) {
 // 	let stockId = req.params.quote_id;
 
 // 	Stock.findByIdAndRemove(stockId, function(error, result) {

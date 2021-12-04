@@ -75,12 +75,12 @@ Companies listed on PNGX
 ### Get a list of symbols for all the current listed companies
 #### Get upcoming matches
 #### Request
-```GET /v1/```
+```GET /```
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/
 
 ```https
-  GET /api/v1/stocks
+  GET /api/stocks
 ```
 
 | Parameter | Type     | Description                |
@@ -108,9 +108,9 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /v1/stocks/`
+`GET /stocks/`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/stocks
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/stocks
 
 #### Response
 
@@ -130,19 +130,19 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /v1/stocks/:symbol`
+`GET /stocks/:symbol`
 </br>
-`GET /v1/stocks/:symbol?date=DATE`
+`GET /stocks/:symbol?date=DATE`
 </br>
-`GET /v1/stocks/:symbol?start=DATE`
+`GET /stocks/:symbol?start=DATE`
 </br>
-`GET /v1/stocks/:symbol?end=DATE`
+`GET /stocks/:symbol?end=DATE`
 </br>
-`GET /v1/stocks/:symbol?field=`
+`GET /stocks/:symbol?field=`
 </br>
 
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/:symbol
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/:symbol
 
 #### Response
 
@@ -161,9 +161,9 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /v1/stocks/:symbol`
+`GET /stocks/:symbol`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/v1/stocks/:symbol
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/stocks/:symbol
 
 #### Response
 
@@ -204,4 +204,4 @@ hello
 
 ## Copyright
 
-&copy; Christian Augustyn 2021.
+&copy; 2021, Christian Augustyn.
