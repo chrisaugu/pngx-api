@@ -1,5 +1,6 @@
 const http = require("http");
 const express = require("express");
+const ejs = require('ejs');
 const request = require('request');
 const mongoose = require('mongoose');
 const cron = require('node-cron');
@@ -28,9 +29,13 @@ app.set('port', PORT);
 //     fn(null, html);
 //   });
 // });
-// app.set('views', path.join(__dirname, './'));
 // app.set('view engine', 'md');
-app.use(express.static(path.join(__dirname, 'docs')));
+// app.set('views', path.join(__dirname, "app"));
+// app.engine('html', ejs.renderFile);
+// app.set('view engine', 'html');
+// app.set('views', path.join(__dirname, "app"));
+// app.use(express.static(path.join(__dirname, 'app')));
+// app.use(express.static(path.join(__dirname, 'docs')));
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
@@ -136,12 +141,10 @@ cron.schedule('*/2 * * * *', () => {
 	dataFetcher();
 });
 
-// /v1
-app.get('/', function(req, res) {
-  res.render('index.html', { title: 'PNGX-Api Doc' });
-});
-
-// app.use('/v1', router);
+// docs
+// app.get('/', function(req, res) {
+//   res.render("index.html");
+// });
 
 app.get('/', function(req, res) {
 	res.json({
@@ -152,7 +155,7 @@ app.get('/', function(req, res) {
 });
 
 /**
- * GET /api/v1/historicals/:symbol
+ * GET /api/historicals/:symbol
  * @param :symbol unique symbol of the stock
  */
 app.get('/historicals/:symbol', function(req, res) {
@@ -283,16 +286,16 @@ app.get('/historicals/:symbol/essentials', function(req, res) {
 				offers.push(stock.offer);
 			});
 
-			res.status(302).json({
-				"columns": {
-					"x": dates,
-					"y1": bids,
-					"y2": offers
-				},
+			res.status(302).json([{
+				"columns": [
+					["x", ...dates],
+					["y1", ...bids],
+					["y2", ...offers]
+				],
 				"types":{"y0":"line","y1":"line","x":"x"},
 				"names":{"y0":"#0","y1":"#1"},
 				"colors":{"y0":"#3DC23F","y1":"#F34C44"}
-			});
+			}]);
 		}
 		else {
 			res.status(404).json({
@@ -305,7 +308,7 @@ app.get('/historicals/:symbol/essentials', function(req, res) {
 });
 
 /**
- * GET /api/v1/stocks
+ * GET /api/stocks
  * Retrieve quotes for all the companies for the current day
  * Retrieve PNGX stock quotes stored in the my own database
  * Retrieve Stock Quotes directly from PNGX website
@@ -318,9 +321,9 @@ app.get('/historicals/:symbol/essentials', function(req, res) {
  * @query skip - 
  * @query fields - i.e. fields=id,name,address,contact
  *
- * @param: /api/v1/stocks?code=CODE, retreive quotes from a specific company for the current day
- * @param: /api/v1/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
- * @param: /api/v1/stocks?code=CODE&from=DATE&to=DATE
+ * @param: /api/stocks?code=CODE, retreive quotes from a specific company for the current day
+ * @param: /api/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
+ * @param: /api/stocks?code=CODE&from=DATE&to=DATE
  */
 app.get('/stocks', function(req, res) {
 	let date = req.query.date;
@@ -416,7 +419,7 @@ app.get('/stocks', function(req, res) {
 });
 
 /**
- * POST /api/v1/stocks
+ * POST /api/stocks
  * Manually add sample data for testing
  */
 // app.post('/stocks', function(req, res) {
@@ -468,7 +471,7 @@ app.get('/stocks', function(req, res) {
 // });
 
 /**
- * GET /api/v1/stocks/:quote_id
+ * GET /api/stocks/:quote_id
  * Get a specific quote from the database
  * @param :quote_id unique id of the quote
  */
@@ -494,7 +497,7 @@ app.get('/stocks/:quote_id', function(req, res) {
 });
 
 /**
- * DELETE /api/v1/stocks/:quote_id
+ * DELETE /api/stocks/:quote_id
  * Delete a specific quote from the database
  * @param :quote_id unique id of the quote
  */

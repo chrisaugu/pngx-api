@@ -10,15 +10,13 @@
 
 # PNGX-API
 
-# 🛠️Hi!The app might have some bugs since it's undergoing major refactoring🛠
-
 ### Screenshots
-<p align="left">
+<!-- <p align="left">
 <img src="/images/upcomingmatches.png" width="30%"/> 
 <img src="/images/pastscores.png" width="30%"/> 
 <img src="/images/leaguetable.png" width="30%"/>
 <img src="/images/topscorers.png" width="30%"/>
-</p>
+</p> -->
 
 ---
 
@@ -30,7 +28,6 @@
 - [Lessons Learnt](#lesssons-learnt)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
-- [Google Playstore](google-playstore)
 - [License](#license)
 - [Author Info](author-info)
 
