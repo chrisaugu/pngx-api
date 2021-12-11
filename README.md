@@ -1,22 +1,17 @@
-<!-- Just an example view rendered with _markdown_. -->
-
-<!-- <p align="center"> -->
+<p align="center">
   <!-- <img src="https://i2.wp.com/www.pngx.com.pg/wp-content/uploads/2019/07/pngx1.png" width="300" height="175" alt="PNGX logo"> -->
-<!-- </p> -->
-
-<!-- <h3 align="center">Bootstrap npm starter template</h3> -->
-
-<!-- <p align="center">Create new Bootstrap-powered npm projects in no time.</p> -->
+  <img src="/images/banner.png" width="300" height="175" alt="PNGX-API logo banner"/>
+</p>
 
 # PNGX-API
 
 ### Screenshots
-<!-- <p align="left">
-<img src="/images/upcomingmatches.png" width="30%"/> 
+<p align="left">
+<!-- <img src="/images/upcomingmatches.png" width="30%"/> 
 <img src="/images/pastscores.png" width="30%"/> 
 <img src="/images/leaguetable.png" width="30%"/>
-<img src="/images/topscorers.png" width="30%"/>
-</p> -->
+<img src="/images/topscorers.png" width="30%"/>-->
+</p>
 
 ---
 
@@ -34,12 +29,13 @@
 ---
 
 ## Description
-API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/data/). PNGX-API is part of [crisbot](https://github.com/chrisaugu/cristhebot).
+API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/data/). PNGX-API is part of [crisbot](https://github.com/chrisaugu/cristhebot). PNGX-API is part of Crisbot.io, my personal bot which is still under heavy development.
 
 * A simple football stats and live-score Android app
 * A user can select a league they want to view the league table, top scorers and also be updated on the live-scores in realtime
 * User can be able to select to see upcoming matches for a given day
 * Project was completed with MVVM architecture and following android app architecture using Retrofit , Coroutines and Navigation components
+* 
 
 ### Dependencies
 * Coroutines
