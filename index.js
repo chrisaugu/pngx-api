@@ -15,7 +15,7 @@ const path = require('path');
 
 // Creating express app
 const app = express();
-const router = express.Router();
+const api = express.Router();
 const PORT = process.env.PORT;
 const Schema = mongoose.Schema;
 
@@ -30,12 +30,11 @@ app.set('port', PORT);
 //   });
 // });
 // app.set('view engine', 'md');
-// app.set('views', path.join(__dirname, "app"));
 // app.engine('html', ejs.renderFile);
 // app.set('view engine', 'html');
 // app.set('views', path.join(__dirname, "app"));
-// app.use(express.static(path.join(__dirname, 'app')));
-// app.use(express.static(path.join(__dirname, 'docs')));
+app.use(express.static(path.join(__dirname, 'docs')));
+// app.use("/assets", express.static(path.join(__dirname, 'docs/assets')));
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
@@ -146,7 +145,9 @@ cron.schedule('*/2 * * * *', () => {
 //   res.render("index.html");
 // });
 
-app.get('/', function(req, res) {
+app.use('/api', api);
+
+api.get('/', function(req, res) {
 	res.json({
 		"status": 200,
 		"symbols": QUOTES,
@@ -158,7 +159,7 @@ app.get('/', function(req, res) {
  * GET /api/historicals/:symbol
  * @param :symbol unique symbol of the stock
  */
-app.get('/historicals/:symbol', function(req, res) {
+api.get('/historicals/:symbol', function(req, res) {
 	let symbol = req.params.symbol
 	let date = req.query.date;
 	let start = req.query.start;
@@ -260,9 +261,9 @@ app.get('/historicals/:symbol', function(req, res) {
 	});
 });
 
-// app.get('/historicals/:symbol/essentials', function(req, res) {});
+// api.get('/historicals/:symbol/essentials', function(req, res) {});
 
-app.get('/historicals/:symbol/essentials', function(req, res) {
+api.get('/historicals/:symbol/essentials', function(req, res) {
 	let symbol = req.params.symbol
 
 	let stock = Stock.find();
@@ -325,7 +326,7 @@ app.get('/historicals/:symbol/essentials', function(req, res) {
  * @param: /api/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
  * @param: /api/stocks?code=CODE&from=DATE&to=DATE
  */
-app.get('/stocks', function(req, res) {
+api.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
@@ -422,7 +423,7 @@ app.get('/stocks', function(req, res) {
  * POST /api/stocks
  * Manually add sample data for testing
  */
-// app.post('/stocks', function(req, res) {
+// api.post('/stocks', function(req, res) {
 // 	let data = req.body;
 
 // 	let query = Stock.findOne({
@@ -475,7 +476,7 @@ app.get('/stocks', function(req, res) {
  * Get a specific quote from the database
  * @param :quote_id unique id of the quote
  */
-app.get('/stocks/:quote_id', function(req, res) {
+api.get('/stocks/:quote_id', function(req, res) {
 	let stockId = req.params.quote_id;
 
 	Stock.findById(stockId, function(error, result) {

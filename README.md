@@ -1,3 +1,5 @@
+[![PNGX-API Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
+
 <p align="center">
   <!-- <img src="https://i2.wp.com/www.pngx.com.pg/wp-content/uploads/2019/07/pngx1.png" width="300" height="175" alt="PNGX logo"> -->
   <img src="/images/banner.png" width="300" height="175" alt="PNGX-API logo banner"/>
@@ -182,16 +184,27 @@ Contributions are what make the open source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## Contributing
+
+[Contributing Guide](Contributing.md)
+
+## People
+
+The original author of PNGX-API is [Christian Augustyn](https://github.com/chrisaugu)
+
+[List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
 
 ## ChangeLog
-hello
-
+    [History](HISTORY.md)
 
 ## Author Info
 
 - Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
 
 ## License
+
+  [MIT](LICENSE)
+
 ```
 MIT License
 
@@ -219,3 +232,16 @@ SOFTWARE.
 ## Copyright
 
 &copy; 2021, Christian Augustyn.
+
+
+
+[npm-image]: https://img.shields.io/npm/v/express.svg
+[npm-url]: https://npmjs.org/package/express
+[downloads-image]: https://img.shields.io/npm/dm/express.svg
+[downloads-url]: https://npmjs.org/package/express
+[travis-image]: https://img.shields.io/travis/expressjs/express/master.svg?label=linux
+[travis-url]: https://travis-ci.org/expressjs/express
+[appveyor-image]: https://img.shields.io/appveyor/ci/dougwilson/express/master.svg?label=windows
+[appveyor-url]: https://ci.appveyor.com/project/dougwilson/express
+[coveralls-image]: https://img.shields.io/coveralls/expressjs/express/master.svg
+[coveralls-url]: https://coveralls.io/r/expressjs/express?branch=master
