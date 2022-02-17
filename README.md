@@ -108,7 +108,7 @@ Companies listed on PNGX
 
 `GET /api/stocks/`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/stocks
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/stocks
 
 #### Response
 
@@ -128,27 +128,27 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /api/stocks/:symbol`
+`GET /api/historicals/:symbol`
 
 </br>
 
-`GET /api/stocks/:symbol?date=DATE`
+`GET /api/historicals/:symbol?date=DATE`
 
 </br>
 
-`GET /api/stocks/:symbol?start=DATE`
+`GET /api/historicals/:symbol?start=DATE`
 
 </br>
 
-`GET /api/stocks/:symbol?end=DATE`
+`GET /api/historicals/:symbol?end=DATE`
 
 </br>
 
-`GET /api/stocks/:symbol?field=`
+`GET /api/historicals/:symbol?field=`
 
 </br>
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/:symbol
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/historicals/:symbol
 
 #### Response
 
@@ -167,9 +167,9 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /api/stocks/:symbol`
+`GET /api/historicals/:symbol`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/stocks/:symbol
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/historicals/:symbol
 
 #### Response
 
