@@ -20,21 +20,8 @@ const PORT = process.env.PORT;
 const Schema = mongoose.Schema;
 
 app.set('port', PORT);
-// app.engine('md', function(path, options, fn){
-//   fs.readFile(path, 'utf8', function(err, str){
-//     if (err) return fn(err);
-//     var html = marked.parse(str).replace(/\{([^}]+)\}/g, function(_, name){
-//       return escapeHtml(options[name] || '');
-//     });
-//     fn(null, html);
-//   });
-// });
-// app.set('view engine', 'md');
-// app.engine('html', ejs.renderFile);
-// app.set('view engine', 'html');
-// app.set('views', path.join(__dirname, "app"));
 app.use(express.static(path.join(__dirname, 'docs')));
-// app.use("/assets", express.static(path.join(__dirname, 'docs/assets')));
+app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
@@ -126,7 +113,7 @@ const companySchema = new Schema({
 });
 const Company = mongoose.model('company', companySchema);
 
-const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','OSH','SST'];
+const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','SST','STO'];
 const DATAURL = "http://www.pngx.com.pg/data/";
 
 /**
@@ -157,6 +144,7 @@ api.get('/', function(req, res) {
 
 /**
  * GET /api/historicals/:symbol
+ * see also /api/stocks/:symbol/historicals
  * @param :symbol unique symbol of the stock
  */
 api.get('/historicals/:symbol', function(req, res) {
@@ -260,8 +248,6 @@ api.get('/historicals/:symbol', function(req, res) {
 		}
 	});
 });
-
-// api.get('/historicals/:symbol/essentials', function(req, res) {});
 
 api.get('/historicals/:symbol/essentials', function(req, res) {
 	let symbol = req.params.symbol
@@ -412,6 +398,117 @@ api.get('/stocks', function(req, res) {
 		}
 		else {
 			res.json({
+				"status": 404,
+				"reason": "Not Found"
+			});
+		}
+	});
+});
+/**
+ * GET /api/stocks/:symbol
+ */
+api.get('/stocks/:symbol', function(req, res) {
+	let symbol = req.params.symbol;
+});
+/**
+ * GET /api/stocks/:symbol/historicals
+ * - Retrieve all stock prices for a particular symbol
+ */
+api.get('/stocks/:symbol/historicals', function(req, res) {
+	let symbol = req.params.symbol
+	let date = req.query.date;
+	let start = req.query.start;
+	let end = req.query.end;
+	let limit = parseInt(req.query.limit);
+	let sort = parseInt(req.query.sort);
+	let skip = parseInt(req.query.skip);
+	let fields = req.query.fields;
+
+	let stock = Stock.find();
+	stock.where({ 'code': symbol });
+	stock.select('date code close high low open vol_today');
+
+	var dateStr = {
+		date: new Date().toDateString()
+	};
+
+	if (date) {
+		dateStr['date'] = new Date(date).toDateString();
+		
+		if (Number.isInteger(Number(date))) {
+			// stock.where({ date: date });
+			stock.where('date', date);
+		}
+		else {
+			// stock.where({ date: new Date(date) });
+			stock.where('date', new Date(date));
+		}
+	}
+
+	if (start) {
+		Object.assign(dateStr['date'], { start: new Date(start).toDateString() });
+		
+		if (Number.isInteger(Number(start))) {
+			// stock.where({ date: { $gte: start } });
+			stock.where({ 'date': { $gte: start } });
+		}
+		else {
+			// stock.where({ date: { $gte: new Date(start) } });
+			stock.where({ 'date': { $gte: new Date(start) } });
+		}
+	}
+	if (end) {
+		Object.assign(dateStr['date'], { end: new Date(end).toDateString() });
+		
+		if (Number.isInteger(Number(end))) {
+			// stock.where({ date: { $lte: end } });
+			stock.where({ 'date': { $lte: end } })
+		}
+		else {
+			// stock.where({ date: { $lte: new Date(end) } });
+			stock.where({ 'date': { $lte: new Date(end) } })
+		}
+	}
+
+	if (sort) {
+		stock.sort({ 'date': sort });
+	}
+	else {
+		// default sort descendence
+		stock.sort({ 'date': 1 });
+	}
+
+	if (limit) {
+		stock.limit(limit);
+	}
+
+	if (skip) {
+		stock.skip(skip);
+		// dateStr['date'] = new Date(`2021-10-${new Date().getDate() + skip}`).toDateString();
+	}
+
+	if (fields) {
+		stock.select(fields.split(','));
+	}
+
+	stock.exec(function(err, stocks) {
+		const count = stocks.length == limit ? limit : stocks.length;
+
+		if (err) {
+			console.log(err);
+		}
+		if (stocks && stocks.length > 0) {
+			res.json({
+				'status': 302,
+				// ...dateStr,
+				'last_updated': stocks[0].date,
+				'symbol': symbol,
+				'total_count': count,
+				'historical': stocks
+			});
+		}
+		else {
+			res.status(404).json({
 				"status": 404,
 				"reason": "Not Found"
 			});

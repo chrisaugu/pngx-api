@@ -18,15 +18,14 @@
 ---
 
 ### Table of Contents
-
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [API Reference](#api-reference)
 - [Lessons Learnt](#lesssons-learnt)
 - [Contributing](#contributing)
-- [Roadmap](#roadmap)
-- [License](#license)
 - [Author Info](author-info)
+- [License](#license)
+- [Copyright](#copyright)
 
 ---
 
@@ -40,30 +39,34 @@ API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/da
 * 
 
 ### Dependencies
-* Coroutines
-* Retrofit
-* Navigation components
-* Glide
-* GlideVectorYou
-
+* Express
+* CORS
+* BodyParser
+* Mongoose
+* MongoDB
+* EJS
+* NodeCron
+* Path
+* Request
 
 ### Tech & Tools
 The entire application is written in JavaScript and built on NodeJs.
 
 Companies listed on PNGX
 
-    BSP
-    CCP
-    CGA
-    COY
-    CPL
-    KAM
-    KSL
-    NCM
-    NGP
-    NIU
-    OSH
-    SST
+|Symbol|Company|
+|BSP|BSP Financial Group Limited|
+|CCP|Credit Corporation (PNG) Ltd|
+|CGA|PNG Air Limited|
+|COY|Coppermoly Limited|
+|CPL|CPL Group|
+|KAM|Kina Asset Management Limited|
+|KSL|Kina Securities Limited|
+|NCM|Newcrest Mining Limited|
+|NGP|NGIP Agmark Limited|
+|NIU|Niuminco Group Limited|
+|SST|Steamships Trading Company Limited|
+|STO|Santos Limited|
 
 ### API Reference
 
@@ -103,7 +106,7 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /stocks/`
+`GET /api/stocks/`
 
     curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/stocks
 
@@ -125,17 +128,25 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /stocks/:symbol`
-</br>
-`GET /stocks/:symbol?date=DATE`
-</br>
-`GET /stocks/:symbol?start=DATE`
-</br>
-`GET /stocks/:symbol?end=DATE`
-</br>
-`GET /stocks/:symbol?field=`
+`GET /api/stocks/:symbol`
+
 </br>
 
+`GET /api/stocks/:symbol?date=DATE`
+
+</br>
+
+`GET /api/stocks/:symbol?start=DATE`
+
+</br>
+
+`GET /api/stocks/:symbol?end=DATE`
+
+</br>
+
+`GET /api/stocks/:symbol?field=`
+
+</br>
 
     curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/:symbol
 
@@ -156,7 +167,7 @@ Companies listed on PNGX
 
 #### Request
 
-`GET /stocks/:symbol`
+`GET /api/stocks/:symbol`
 
     curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/stocks/:symbol
 
@@ -201,9 +212,10 @@ The original author of PNGX-API is [Christian Augustyn](https://github.com/chris
 
 - Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
 
-## License
+## 📝 License
 
-  [MIT](LICENSE)
+Licensed under the [MIT License](./LICENSE).
+
 
 ```
 MIT License
@@ -232,16 +244,3 @@ SOFTWARE.
 ## Copyright
 
 &copy; 2021, Christian Augustyn.
-
-
-
-[npm-image]: https://img.shields.io/npm/v/express.svg
-[npm-url]: https://npmjs.org/package/express
-[downloads-image]: https://img.shields.io/npm/dm/express.svg
-[downloads-url]: https://npmjs.org/package/express
-[travis-image]: https://img.shields.io/travis/expressjs/express/master.svg?label=linux
-[travis-url]: https://travis-ci.org/expressjs/express
-[appveyor-image]: https://img.shields.io/appveyor/ci/dougwilson/express/master.svg?label=windows
-[appveyor-url]: https://ci.appveyor.com/project/dougwilson/express
-[coveralls-image]: https://img.shields.io/coveralls/expressjs/express/master.svg
-[coveralls-url]: https://coveralls.io/r/expressjs/express?branch=master
