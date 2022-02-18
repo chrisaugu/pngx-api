@@ -54,19 +54,20 @@ The entire application is written in JavaScript and built on NodeJs.
 
 Companies listed on PNGX
 
-|Symbol|Company|
-|BSP|BSP Financial Group Limited|
-|CCP|Credit Corporation (PNG) Ltd|
-|CGA|PNG Air Limited|
-|COY|Coppermoly Limited|
-|CPL|CPL Group|
-|KAM|Kina Asset Management Limited|
-|KSL|Kina Securities Limited|
-|NCM|Newcrest Mining Limited|
-|NGP|NGIP Agmark Limited|
-|NIU|Niuminco Group Limited|
-|SST|Steamships Trading Company Limited|
-|STO|Santos Limited|
+| Symbol | Company |
+| :----- | :------ |
+| BSP | BSP Financial Group Limited |
+| CCP | Credit Corporation (PNG) Ltd |
+| CGA | PNG Air Limited |
+| COY | Coppermoly Limited |
+| CPL | CPL Group |
+| KAM | Kina Asset Management Limited |
+| KSL | Kina Securities Limited |
+| NCM | Newcrest Mining Limited |
+| NGP | NGIP Agmark Limited |
+| NIU | Niuminco Group Limited |
+| SST | Steamships Trading Company Limited |
+| STO | Santos Limited |
 
 ### API Reference
 
