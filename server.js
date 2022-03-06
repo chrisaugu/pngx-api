@@ -1,6 +1,5 @@
 const http = require("http");
 const express = require("express");
-const ejs = require('ejs');
 const request = require('request');
 const mongoose = require('mongoose');
 const cron = require('node-cron');
@@ -8,10 +7,9 @@ const cors = require("cors");
 const fs = require('fs');
 const bodyParser = require("body-parser");
 const boxen = require('boxen');
-require("dotenv").config();
-// const escapeHtml = require('escape-html');
 const marked = require('marked');
 const path = require('path');
+require('dotenv').config();
 
 // Creating express app
 const app = express();
@@ -742,7 +740,7 @@ async function dataFetcher() {
 								console.log(err);
 							} else {
 								console.log('added quote for ' + data['Date']);
-								totalAdded++;
+								totalAdded = totalAdded + 1;
 							}
 						});
 					}
