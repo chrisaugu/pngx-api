@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const http = require("http");
 const express = require("express");
 const request = require('request');
@@ -9,15 +11,17 @@ const bodyParser = require("body-parser");
 const boxen = require('boxen');
 const marked = require('marked');
 const path = require('path');
+const debug = require('debug')('test');
 require('dotenv').config();
+
+const port = normalizePort(process.env.PORT || '3002');
 
 // Creating express app
 const app = express();
 const api = express.Router();
-const PORT = process.env.PORT;
 const Schema = mongoose.Schema;
 
-app.set('port', PORT);
+app.set('port', port);
 app.use(express.static(path.join(__dirname, 'docs')));
 app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
 app.use(cors({
@@ -26,7 +30,30 @@ app.use(cors({
 	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({}));
+app.use(bodyParser.json({limit: '100mb'}));
+
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    var html = '<!DOCTYPE html>';
+    html+= '<html>';
+    html+= '  <head>';
+    html+= '    <title></title>';
+    html+= '  </head>';
+    html+= '  <body>';
+    html+= '    <h1>'+err.message+'</h1>';
+    html+= '    <h2>'+err.status+'</h2>';
+    html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
+    html+= '    <pre>'+err.stack+'</pre>';
+    html+= '  </body>';
+    html+= '</html>';
+    res.send(html);
+}); 
 
 // const os = require('os');
 // const interfaces = os.networkInterfaces();
@@ -73,6 +100,54 @@ server.listen(app.get('port'), function(req, res) {
 	// console.log(log);
 	console.log(`Server running on port http://localhost:${app.get('port')}`);
 });
+
+server.on('error', onError);
+server.on('listening', onListening);
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    return val;
+  }
+
+  if (port >= 0) {
+    return port;
+  }
+
+  return false;
+}
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
 
 // Creating an instance for MongoDB
 mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
