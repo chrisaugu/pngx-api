@@ -1,0 +1,133 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #222222;
+}
+#buttons-container {
+  margin: 0 0 1em 0;
+}
+.night-mode {
+  background-color: #242f3e;
+  color: #242f3e;
+}
+.mode-switch {
+  color: #108be3;
+  font-size: 1.2em;
+  bottom: 10px;
+  display: block;
+  width: 12em;
+  margin: 2em auto;
+  text-decoration: none;
+  text-align: center;
+}
+.mode-switch:hover {
+  text-decoration: underline;
+}
+.night-mode .mode-switch {
+  color: #36a8f1;
+}
+.chart {
+  margin: 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+.chart:empty {
+  display: none;
+}
+.view, .preview {
+  display: block;
+}
+.view-overlay, .preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.chart-title {
+  font-weight: bold;
+  font-size: 1em;
+}
+.night-mode .chart-title {
+  color: #fff;
+}
+.chart-graph {
+  position: relative;
+  display: block;
+}
+.chart-legend {
+  margin: 0;
+}
+.chart-tooltip {
+  font-size: 0.9em;
+  max-width: 12em;
+  min-width: 6em;
+  padding: 0.5em 0.75em;
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  border-radius: 0.5em;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+}
+.night-mode .chart-tooltip {
+  background-color: #253241;
+  color: #fff;
+  border-color: #212c3a;
+}
+
+.chart-tooltip > .item {
+  display: inline-block;
+  margin: 0.75em 1.5em 0  0;
+}
+.chart-tooltip > .item > .value {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.chart-tooltip > .item > .label {
+  font-size: 0.8em;
+}
+.checkbox-round {
+  width: 2em;
+  height: 2em;
+  background-color: green;
+  border: 0.15em solid green;
+  border-radius: 1em;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 0.5em;
+}
+.checkbox-round:not(:checked):after {
+  content: '';
+  text-align: center;
+  display: block;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 0.85em;
+  background-color: #fff;
+}
+.checkbox-round:checked:after {
+  content: '';
+  display: block;
+  width: 0.4em;
+  height: 0.8em;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  margin: 0.2em 0 0 0.55em;
+}
+.checkbox-round-label {
+  color: #43484b;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2em;
+  vertical-align: middle;
+  border: 2px solid #e6ecf0;
+  padding: 0.5em;
+  margin: 1em 1em 0 0;
+}
+.night-mode .checkbox-round-label {
+  color: #e8ecee;
+  border-color: #344658;
+}

@@ -22,6 +22,5 @@ bin-release/
 package-lock.json
 node_modules
 .env
-docs
 *.zip
 app
