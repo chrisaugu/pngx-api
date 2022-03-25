@@ -30,30 +30,30 @@ app.use(cors({
 	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({limit: '100mb'}));
+app.use(bodyParser.json({}));
 
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+// app.use(function(req, res, next) {
+//     var err = new Error('Not Found');
+//     err.status = 404;
+//     next(err);
+// });
 
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    var html = '<!DOCTYPE html>';
-    html+= '<html>';
-    html+= '  <head>';
-    html+= '    <title></title>';
-    html+= '  </head>';
-    html+= '  <body>';
-    html+= '    <h1>'+err.message+'</h1>';
-    html+= '    <h2>'+err.status+'</h2>';
-    html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
-    html+= '    <pre>'+err.stack+'</pre>';
-    html+= '  </body>';
-    html+= '</html>';
-    res.send(html);
-}); 
+// app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     var html = '<!DOCTYPE html>';
+//     html+= '<html>';
+//     html+= '  <head>';
+//     html+= '    <title></title>';
+//     html+= '  </head>';
+//     html+= '  <body>';
+//     html+= '    <h1>'+err.message+'</h1>';
+//     html+= '    <h2>'+err.status+'</h2>';
+//     html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
+//     html+= '    <pre>'+err.stack+'</pre>';
+//     html+= '  </body>';
+//     html+= '</html>';
+//     res.send(html);
+// }); 
 
 // const os = require('os');
 // const interfaces = os.networkInterfaces();
@@ -305,7 +305,7 @@ api.get('/historicals/:symbol', function(req, res) {
 		}
 		if (stocks && stocks.length > 0) {
 			res.json({
-				'status': 302,
+				'status': 200,
 				// ...dateStr,
 				'last_updated': stocks[0].date,
 				'symbol': symbol,
@@ -346,7 +346,7 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
 				offers.push(stock.offer);
 			});
 
-			res.status(302).json([{
+			res.status(200).json([{
 				"columns": [
 					["x", ...dates],
 					["y1", ...bids],
@@ -572,7 +572,7 @@ api.get('/stocks/:symbol/historicals', function(req, res) {
 		}
 		if (stocks && stocks.length > 0) {
 			res.json({
-				'status': 302,
+				'status': 200,
 				// ...dateStr,
 				'last_updated': stocks[0].date,
 				'symbol': symbol,
@@ -656,7 +656,7 @@ api.get('/stocks/:quote_id', function(req, res) {
 		if (result) {
 			console.log("Match found!: ", result);
 			res.json({
-				'status': 302,
+				'status': 200,
 				'last_updated': result.date,
 				'data': result
 			});
