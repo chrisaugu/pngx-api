@@ -24,3 +24,5 @@ node_modules
 .env
 *.zip
 app
+
+.openode

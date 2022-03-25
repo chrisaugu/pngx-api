@@ -14,7 +14,7 @@ const path = require('path');
 const debug = require('debug')('test');
 require('dotenv').config();
 
-const port = normalizePort(process.env.PORT || '3002');
+const port = normalizePort(process.env.PORT || '3000');
 
 // Creating express app
 const app = express();
