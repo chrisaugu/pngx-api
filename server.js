@@ -14,12 +14,12 @@ const path = require('path');
 const debug = require('debug')('test');
 require('dotenv').config();
 
-const port = normalizePort(process.env.PORT);
-
 // Creating express app
 const app = express();
 const api = express.Router();
 const Schema = mongoose.Schema;
+
+const port = normalizePort(process.env.PORT);
 
 app.set('port', port);
 app.use(express.static(path.join(__dirname, 'docs')));
@@ -161,7 +161,7 @@ mongoose.connection.on('error', function(){
 
 // models
 const quoteSchema = new Schema({
-	date: {type: Date},
+	date: Date,
 	code: String,
 	short_name: String,
 	bid: Number,
@@ -389,7 +389,7 @@ api.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
-	let limit = parseInt(req.query.limit) || 12; // default limit is 11 - currently the number of companies listed on PNGX.com.pg
+	let limit = parseInt(req.query.limit) || QUOTES.length; // default limit is 12 - currently the number of companies listed on PNGX.com.pg
 	let sort = parseInt(req.query.sort);
 	let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
 	let fields = req.query.fields;
@@ -449,8 +449,8 @@ api.get('/stocks', function(req, res) {
 		query.limit(limit);
 	}
 	else {
-		// default limit is 11 - currently the number of companies listed on PNGX.com.pg
-		query.limit(11);
+		// default limit is 12 - currently the number of companies listed on PNGX.com.pg
+		query.limit(QUOTES.length);
 	}
 
 	if (skip) {
