@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const boxen = require('boxen');
 const marked = require('marked');
 const path = require('path');
+const date = require('date-fns');
 const debug = require('debug')('test');
 require('dotenv').config();
 
@@ -161,7 +162,7 @@ mongoose.connection.on('error', function(){
 
 // models
 const quoteSchema = new Schema({
-	date: Date,
+	date: String,
 	code: String,
 	short_name: String,
 	bid: Number,
@@ -671,8 +672,6 @@ api.get('/stocks/:quote_id', function(req, res) {
 function dateUtil(date) {
 	const [month, day, year] = date.split('/');
 	const result = [year, month, day].join('-');
-
-	console.log(result);
 
 	return result;
 }

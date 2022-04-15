@@ -27,6 +27,7 @@
   "homepage": "https://github.com/chrisaugu/pngx-api#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "date-fns": "^2.28.0",
     "escape-html": "^1.0.3",
     "express": "^4.17.1",
     "marked": "^3.0.8",
