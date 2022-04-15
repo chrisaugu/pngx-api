@@ -667,6 +667,16 @@ api.get('/stocks/:quote_id', function(req, res) {
 	});
 });
 
+
+function dateUtil(date) {
+	const [month, day, year] = date.split('/');
+	const result = [year, month, day].join('-');
+
+	console.log(result);
+
+	return result;
+}
+
 /**
  * DELETE /api/stocks/:quote_id
  * Delete a specific quote from the database
@@ -796,7 +806,7 @@ async function dataFetcher() {
 						console.log("Adding it to the db");
 						let quote = new Stock();
 
-						quote['date'] = new Date(data['Date']);
+						quote['date'] = data['Date'];
 						quote['code'] = data['Short Name'];
 						quote['short_name'] = data['Short Name'];
 						quote['bid'] = Number(data['Bid']);
