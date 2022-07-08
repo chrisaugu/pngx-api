@@ -6,7 +6,6 @@ const morgan = require('morgan');
 const cron = require('node-cron');
 const cors = require("cors");
 const fs = require('fs');
-const boxen = require('boxen');
 const marked = require('marked');
 const path = require('path');
 const date = require('date-fns');
