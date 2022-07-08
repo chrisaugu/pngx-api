@@ -1,9 +1,8 @@
-#!/usr/bin/env node
-
 const http = require("http");
 const express = require("express");
 const request = require('request');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 const cron = require('node-cron');
 const cors = require("cors");
 const fs = require('fs');
@@ -14,6 +13,8 @@ const path = require('path');
 const date = require('date-fns');
 const debug = require('debug')('test');
 require('dotenv').config();
+
+const logger = require('./config/winston');
 
 // Creating express app
 const app = express();
@@ -32,6 +33,11 @@ app.use(cors({
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({}));
+app.use(morgan("combined", { stream: logger.stream.write }));
+app.use(function(err, req, res, next) {
+  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+  next(err)
+});
 
 // app.use(function(req, res, next) {
 //     var err = new Error('Not Found');
@@ -668,14 +674,6 @@ api.get('/stocks/:quote_id', function(req, res) {
 	});
 });
 
-
-function dateUtil(date) {
-	const [month, day, year] = date.split('/');
-	const result = [year, month, day].join('-');
-
-	return result;
-}
-
 /**
  * DELETE /api/stocks/:quote_id
  * Delete a specific quote from the database
@@ -694,6 +692,40 @@ function dateUtil(date) {
 // 		}
 // 	});
 // });
+
+/**
+ * GET /api/company/:ticker
+ * Get a specific company info using stock quote
+ * @param :ticker unique ticker of the comapny
+ */
+api.get('/company/:ticker', function(req, res) {
+	let stockTicker = req.params.quote;
+
+	// Stock.findByName(stockQuote, req.)
+  let companies = {
+    "BSP": "BSP Financial Group Limited",
+    "CCP": "Credit Corporation (PNG) Ltd",
+    "CGA": "PNG Air Limited",
+    "COY": "Coppermoly Limited",
+    "CPL": "CPL Group",
+    "KAM": "Kina Asset Management Limited",
+    "KSL": "Kina Securities Limited",
+    "NCM": "Newcrest Mining Limited",
+    "NGP": "NGIP Agmark Limited",
+    "NIU": "Niuminco Group Limited",
+    "SST": "Steamships Trading Company Limited",
+    "STO": "Santos Limited"
+  }
+
+  return companies[stockTicker];
+});
+
+function dateUtil(date) {
+	const [month, day, year] = date.split('/');
+	const result = [year, month, day].join('-');
+
+	return result;
+}
 
 function get_quotes_from_pngx(code) {
 	var options = {};

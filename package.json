@@ -3,6 +3,7 @@
   "version": "1.8.0",
   "private": true,
   "description": "Restful API that serves stock quotes from pngx.com.pg",
+  "engines": { "node": "16.x" },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,9 +33,11 @@
     "express": "^4.17.1",
     "marked": "^3.0.8",
     "mongoose": "^6.0.8",
+    "morgan": "^1.10.0",
     "node-cron": "^3.0.0",
     "path": "^0.12.7",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
