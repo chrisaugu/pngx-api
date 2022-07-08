@@ -1,26 +1,27 @@
-#!/usr/bin/env node
-
 const http = require("http");
 const express = require("express");
 const request = require('request');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 const cron = require('node-cron');
 const cors = require("cors");
 const fs = require('fs');
-const bodyParser = require("body-parser");
 const boxen = require('boxen');
 const marked = require('marked');
 const path = require('path');
 const date = require('date-fns');
 const debug = require('debug')('test');
+const createError = require('http-errors');
 require('dotenv').config();
+
+const logger = require('./config/winston');
 
 // Creating express app
 const app = express();
 const api = express.Router();
 const Schema = mongoose.Schema;
 
-const port = normalizePort(process.env.PORT);
+const port = process.env.PORT;
 
 app.set('port', port);
 app.use(express.static(path.join(__dirname, 'docs')));
@@ -30,125 +31,47 @@ app.use(cors({
 	'exposedHeaders': ['sessionId'],
 	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({}));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({}));
+app.use(morgan("combined", { stream: logger.stream.write }));
+app.use(function(err, req, res, next) {
+  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+  next(err)
+});
 
+// catch 404 and forward to error handler
 // app.use(function(req, res, next) {
-//     var err = new Error('Not Found');
-//     err.status = 404;
-//     next(err);
+  // var err = new Error('Not Found');
+  // err.status = 404;
+  // next(err);
+  // next(createError(404));
 // });
 
-// app.use(function(err, req, res, next) {
-//     res.status(err.status || 500);
-//     var html = '<!DOCTYPE html>';
-//     html+= '<html>';
-//     html+= '  <head>';
-//     html+= '    <title></title>';
-//     html+= '  </head>';
-//     html+= '  <body>';
-//     html+= '    <h1>'+err.message+'</h1>';
-//     html+= '    <h2>'+err.status+'</h2>';
-//     html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
-//     html+= '    <pre>'+err.stack+'</pre>';
-//     html+= '  </body>';
-//     html+= '</html>';
-//     res.send(html);
-// }); 
-
-// const os = require('os');
-// const interfaces = os.networkInterfaces();
-// const getNetworkAddress = () => {
-// 	for (const name of Object.keys(interfaces)) {
-// 		for (const interface of interfaces[name]) {
-// 			const {address, family, internal} = interface;
-// 			if (family === 'IPv4' && !internal) {
-// 				return address;
-// 			}
-// 		}
-// 	}
-// };
+// error handler
+app.use(function(err, req, res, next) {
+  // render the error page
+  res.status(err.status || 500);
+  var html = '<!DOCTYPE html>';
+  html+= '<html>';
+  html+= '  <head>';
+  html+= '    <title></title>';
+  html+= '  </head>';
+  html+= '  <body>';
+  html+= '    <h1>'+err.message+'</h1>';
+  html+= '    <h2>'+err.status+'</h2>';
+  html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
+  html+= '    <pre>'+err.stack+'</pre>';
+  html+= '  </body>';
+  html+= '</html>';
+  res.send(html);
+}); 
 
 let server = http.createServer(app);
 
 // create server and listen on the port
 server.listen(app.get('port'), function(req, res) {
-	// const details = server.address();
-	// let localAddress = null;
-	// let networkAddress = null;
-
-	// if (typeof details === 'string') {
-	// 	localAddress = details;
-	// } else if (typeof details === 'object' && details.port) {
-	// 	const address = details.address === '::' ? 'localhost' : details.address;
-	// 	const ip = getNetworkAddress();
-
-	// 	localAddress = `http://${address}:${details.port}`;
-	// 	networkAddress = `http://${ip}:${details.port}`;
-	// }
-
-	// log = "\n----------------------------------------------------------\n";
-
-	// if (localAddress) {
-	// 	log += `Server running on port ${localAddress}.\n`;
-	// }
-	// if (networkAddress) {
-	// 	log += `Server running on port ${networkAddress}.`;
-	// }
-
-	// log += "\n----------------------------------------------------------\n";
-
-	// console.log(log);
 	console.log(`Server running on port http://localhost:${app.get('port')}`);
 });
-
-server.on('error', onError);
-server.on('listening', onListening);
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    return val;
-  }
-
-  if (port >= 0) {
-    return port;
-  }
-
-  return false;
-}
-
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port
-
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
-}
 
 // Creating an instance for MongoDB
 mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -668,14 +591,6 @@ api.get('/stocks/:quote_id', function(req, res) {
 	});
 });
 
-
-function dateUtil(date) {
-	const [month, day, year] = date.split('/');
-	const result = [year, month, day].join('-');
-
-	return result;
-}
-
 /**
  * DELETE /api/stocks/:quote_id
  * Delete a specific quote from the database
@@ -694,6 +609,40 @@ function dateUtil(date) {
 // 		}
 // 	});
 // });
+
+/**
+ * GET /api/company/:ticker
+ * Get a specific company info using stock quote
+ * @param :ticker unique ticker of the comapny
+ */
+api.get('/company/:ticker', function(req, res) {
+	let stockTicker = req.params.quote;
+
+	// Stock.findByName(stockQuote, req.)
+  let companies = {
+    "BSP": "BSP Financial Group Limited",
+    "CCP": "Credit Corporation (PNG) Ltd",
+    "CGA": "PNG Air Limited",
+    "COY": "Coppermoly Limited",
+    "CPL": "CPL Group",
+    "KAM": "Kina Asset Management Limited",
+    "KSL": "Kina Securities Limited",
+    "NCM": "Newcrest Mining Limited",
+    "NGP": "NGIP Agmark Limited",
+    "NIU": "Niuminco Group Limited",
+    "SST": "Steamships Trading Company Limited",
+    "STO": "Santos Limited"
+  }
+
+  return companies[stockTicker];
+});
+
+function dateUtil(date) {
+	const [month, day, year] = date.split('/');
+	const result = [year, month, day].join('-');
+
+	return result;
+}
 
 function get_quotes_from_pngx(code) {
 	var options = {};
@@ -772,6 +721,7 @@ function getData(options) {
 
 async function dataFetcher() {
 	console.log('Fetching csv data from https://www.pngx.com.pg');
+	console.log("\n");
 	console.time("timer");   //start time with name = timer
 	var startTime = new Date();
 	var reqTime = 0;
@@ -789,9 +739,10 @@ async function dataFetcher() {
 			console.log("start");
 			console.log("Adding quotes for " + quote + " ...");
 
-			// for (var j = 0; j < response.length; j++) {
-				let data = response[totalCount-1];
-				// console.log(data)
+			// for (var j = 0; j < totalCount; j++) {
+				// let data = response[j];
+				let data = response[totalCount-1]
+				// console.log(data['Date'])
 
 				// check if the quote for that particular company at that particular date already exists
 				Stock.findOne({
@@ -822,8 +773,10 @@ async function dataFetcher() {
 						quote.save(function(err) {
 							if (err) {
 								console.log(err);
+								console.log("\n");
 							} else {
 								console.log('added quote for ' + data['Date']);
+								console.log("\n");
 								totalAdded = totalAdded + 1;
 							}
 						});
@@ -836,6 +789,7 @@ async function dataFetcher() {
 
 			console.log(totalAdded + "/" + totalCount + " quotes were added.");
 			console.log("stop");
+			console.log("\n");
 		})
 		.catch(function(error) {
 			console.log(error);
@@ -843,9 +797,11 @@ async function dataFetcher() {
 	};
 
 	console.log('Data fetched from https://www.pngx.com.pg');
+	console.log("\n");
 	console.timeEnd("timer"); //end timer and log time difference
 	var endTime = new Date();
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
 	console.log(timeDiff + " secs");
-	console.log("total request itme: " + reqTime)
+	console.log("\n");
+	console.log("total request itme: " + reqTime);
 }

@@ -5,7 +5,13 @@
 _The First Unofficial PNGX-API, Ever_
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/chrisaugu/pngx-api/master)
+![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
+![Lines of code](https://img.shields.io/tokei/lines/github/chrisaugu/pngx-api)
+![GitHub forks](https://img.shields.io/github/forks/chrisaugu/pngx-api?style=social)
+![Github Repo stars](https://img.shields.io/github/stars/chrisaugu/pngx-api?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/chrisaugu/pngx-api?style=social)
+![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
 AngularJS-powered HTML5 Markdown editor.
@@ -36,7 +42,7 @@ As [John Gruber] writes on the [Markdown site][df1]
 
 This text you see here is *actually- written in Markdown! To get a feel
 for Markdown's syntax, type some text into the left window and 
-watch the results in the right.
+watch the results in the right.*
 
 ## Tech
 
