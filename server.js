@@ -738,9 +738,9 @@ async function dataFetcher() {
 			console.log("start");
 			console.log("Adding quotes for " + quote + " ...");
 
-			// for (var j = 0; j < totalCount; j++) {
-				// let data = response[j];
-				let data = response[totalCount-1]
+			for (var j = 0; j < totalCount; j++) {
+				let data = response[j];
+				// let data = response[totalCount-1]
 				// console.log(data['Date'])
 
 				// check if the quote for that particular company at that particular date already exists
@@ -784,7 +784,7 @@ async function dataFetcher() {
 				.catch(function(error) {
 					throw new Error(error);
 				});
-			// };
+			};
 
 			console.log(totalAdded + "/" + totalCount + " quotes were added.");
 			console.log("stop");
