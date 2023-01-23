@@ -28,15 +28,15 @@ app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
 app.use(cors({
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
-	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+	'methods': 'GET,PUT,POST,DELETE',
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({}));
 app.use(morgan("combined", { stream: logger.stream.write }));
-app.use(function(err, req, res, next) {
-  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
-  next(err)
-});
+// app.use(function(err, req, res, next) {
+//   logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+//   next(err)
+// });
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -84,7 +84,7 @@ mongoose.connection.on('error', function(){
 
 // models
 const quoteSchema = new Schema({
-	date: String,
+	date: {type: String, index: true},
 	code: String,
 	short_name: String,
 	bid: Number,
@@ -98,6 +98,8 @@ const quoteSchema = new Schema({
 	vol_today: Number,
 	num_trades: Number
 });
+// quoteSchema.index('date', 1)
+
 const Stock = mongoose.model('stockquote', quoteSchema);
 
 const companySchema = new Schema({
@@ -117,11 +119,11 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * The task requests and models the data them stores those data in db
  * Fetch data from PNGX.com every 2 minutes
  */
-cron.schedule('*/2 * * * *', () => {
-	console.log('running a task every 2 minutes');
+// cron.schedule('*/2 * * * *', () => {
+// 	console.log('running a task every 2 minutes');
 
-	dataFetcher();
-});
+	// dataFetcher();
+// });
 
 // docs
 // app.get('/', function(req, res) {
@@ -131,10 +133,13 @@ cron.schedule('*/2 * * * *', () => {
 app.use('/api', api);
 
 api.get('/', function(req, res) {
-	res.json({
+	res.status(200).json({
 		"status": 200,
+		"message": "Ok",
 		"symbols": QUOTES,
-		"data": {}
+		"data": {},
+		"api": "PNGX API",
+		"time": new Date().toDateString()
 	});
 });
 
@@ -246,11 +251,11 @@ api.get('/historicals/:symbol', function(req, res) {
 });
 
 api.get('/historicals/:symbol/essentials', function(req, res) {
-	let symbol = req.params.symbol
+	let symbol = req.params.symbol;
 
-	let stock = Stock.find();
-	stock.where({ 'code': symbol });
-	stock.select('date bid offer code close high low open vol_today');
+	let stock = Stock.find({});
+	// stock.where({ 'code': symbol });
+	// stock.select('date bid offer code close high low open vol_today');
 
 	stock.exec(function(err, stocks) {
 		const count = stocks.length;
@@ -259,7 +264,7 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
 		var offers = [];
 
 		if (err) {
-			console.log(err);
+			console.error(err);
 		}
 		if (stocks && stocks.length > 0) {
 
@@ -318,6 +323,8 @@ api.get('/stocks', function(req, res) {
 	let fields = req.query.fields;
 
 	let query = Stock.find({});
+	// let query = new mongoose.Query();
+	// query.collection(Stock.collection);
 
 	var dateStr = {
 		date: new Date().toDateString()
@@ -400,6 +407,7 @@ api.get('/stocks', function(req, res) {
 		}
 	});
 });
+
 /**
  * GET /api/stocks/:symbol
  */
@@ -803,5 +811,57 @@ async function dataFetcher() {
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
 	console.log(timeDiff + " secs");
 	console.log("\n");
-	console.log("total request itme: " + reqTime);
+	console.log("total request time: " + reqTime);
 }
+
+// const getStream = require('get-stream');
+
+// (async () => {
+// 	const stream = fs.createReadStream("./data/SST.csv");
+
+// 	let stockData = parse_csv_to_json(await getStream(stream));
+
+// 	for (var j = 0; j < stockData.length; j++) {
+// 		let data = stockData[j];
+
+// 		Stock.findOne({
+// 			'date': data['Date'],
+// 			'short_name': data['Short Name']
+// 		})
+// 		.then(function(result) {
+// 			if (result == null) {
+// 				console.log("Match not found.");
+// 				console.log("Adding it to the db");
+				
+// 				let quote = new Stock();
+
+// 				quote['date'] = data['Date'];
+// 				quote['code'] = data['Short Name'];
+// 				quote['short_name'] = data['Short Name'];
+// 				quote['bid'] = Number(data['Bid']);
+// 				quote['offer'] = Number(data['Offer']);
+// 				quote['last'] = Number(data['Last']);
+// 				quote['close'] = Number(data['Close']);
+// 				quote['high'] = Number(data['High']);
+// 				quote['low'] = Number(data['Low']);
+// 				quote['open'] = Number(data['Open']);
+// 				quote['chg_today'] = Number(data['Chg. Today']);
+// 				quote['vol_today'] = Number(data['Vol. Today']);
+// 				quote['num_trades'] = Number(data['Num. Trades']);
+
+// 				quote.save(function(err) {
+// 					if (err) {
+// 						console.log(err);
+// 					} else {
+// 						console.log('added quote for ' + data['Date']);
+// 					}
+// 					console.log("\n");
+// 				});
+// 			}
+// 		})
+// 		.catch(function(error) {
+// 			throw new Error(error);
+// 		});
+// 	};
+
+// })()

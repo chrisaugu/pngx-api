@@ -1,10 +1,10 @@
 Contributing
-======
+============
 Considering that this project is actively maintained, contributions of all types are welcome.
 
 
 Opening issues
--------
+--------------
 Open a new issue when:
 - you notice an unwanted behavior
 - you want a new feature implemented
@@ -15,7 +15,7 @@ If you are interested to an existing issue, feel free to comment the issue or su
 
 
 Submitting pull requests
--------
+------------------------
 If you want to fix a bug or implement a new feature, feel free to submit a new pull request.
 To submit a pull request, you have to fork this repository and fill the PR template.
 When you want to submit a pull request, remember to:

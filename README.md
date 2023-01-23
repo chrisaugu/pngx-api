@@ -2,6 +2,12 @@
 
 # PNGX-API
 
+PNGX-API
+============
+
+PNGX Restful API. Formerly part of CrisBot, now a standalone API.
+
+
 _The First Unofficial PNGX-API, Ever_
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -180,7 +186,6 @@ API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/da
 * A user can select a league they want to view the league table, top scorers and also be updated on the live-scores in realtime
 * User can be able to select to see upcoming matches for a given day
 * Project was completed with MVVM architecture and following android app architecture using Retrofit , Coroutines and Navigation components
-* 
 
 ### Dependencies
 * Express
