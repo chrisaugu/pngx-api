@@ -8,9 +8,15 @@ const cors = require("cors");
 const fs = require('fs');
 const marked = require('marked');
 const path = require('path');
-const date = require('date-fns');
+const dateFns = require('date-fns');
+// const { zonedTimeToUtc, utcToZonedTime, format } = require('date-fns-tz');
+const moment = require('moment');
+const momentTimezone = require('moment-timezone');
 const debug = require('debug')('test');
 const createError = require('http-errors');
+// const ip = require('ip');
+const boxen = require('boxen');
+const os = require('os');
 require('dotenv').config();
 
 const logger = require('./config/winston');
@@ -20,57 +26,83 @@ const app = express();
 const api = express.Router();
 const Schema = mongoose.Schema;
 
-const port = process.env.PORT;
+app.set('port', process.env.PORT);
 
-app.set('port', port);
 app.use(express.static(path.join(__dirname, 'docs')));
 app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({}));
+app.use(morgan("combined", { stream: logger.stream.write }));
+
 app.use(cors({
+	'origin': 'http://localhost:4000',
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
 	'methods': 'GET,PUT,POST,DELETE',
 }));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json({}));
-app.use(morgan("combined", { stream: logger.stream.write }));
-// app.use(function(err, req, res, next) {
-//   logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
-//   next(err)
-// });
+app.use(allowCrossDomain);
+app.use(allowMethodOverride);
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-  // var err = new Error('Not Found');
-  // err.status = 404;
-  // next(err);
-  // next(createError(404));
-// });
-
+// app.use(errorsHandler);
 // error handler
-app.use(function(err, req, res, next) {
-  // render the error page
-  res.status(err.status || 500);
-  var html = '<!DOCTYPE html>';
-  html+= '<html>';
-  html+= '  <head>';
-  html+= '    <title></title>';
-  html+= '  </head>';
-  html+= '  <body>';
-  html+= '    <h1>'+err.message+'</h1>';
-  html+= '    <h2>'+err.status+'</h2>';
-  html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
-  html+= '    <pre>'+err.stack+'</pre>';
-  html+= '  </body>';
-  html+= '</html>';
-  res.send(html);
-}); 
+app.use(errorHandler);
+app.use(errorLogHandler);
 
 let server = http.createServer(app);
 
+const interfaces = os.networkInterfaces();
+const getNetworkAddress = () => {
+	for (const name of Object.keys(interfaces)) {
+		for (const interface of interfaces[name]) {
+			const {address, family, internal} = interface;
+			if (family === 'IPv4' && !internal) {
+				return address;
+			}
+		}
+	}
+};
+
 // create server and listen on the port
-server.listen(app.get('port'), function(req, res) {
-	console.log(`Server running on port http://localhost:${app.get('port')}`);
+server.listen(app.get('port'), /*"localhost",*/ function(req, res) {
+	const details = server.address();
+	let localAddress = null;
+	let networkAddress = null;
+
+	if (typeof details === 'string') {
+		localAddress = details;
+	} else if (typeof details === 'object' && details.port) {
+		const address = details.address === '::' ? 'localhost' : details.address;
+		const ip = getNetworkAddress();
+		// const ip = ip.address();
+
+		localAddress = `http://${address}:${details.port}`;
+		networkAddress = `http://${ip}:${details.port}`;
+	}
+
+	let log = "\n--------------------------------------------------\n";
+
+	if (localAddress) {
+		log += `Server running on port ${localAddress}\n`;
+	}
+	if (networkAddress) {
+		log += `Server running on port ${networkAddress}`;
+	}
+
+	log += "\n--------------------------------------------------\n";
+
+	// console.debug(log);
+
+	// console.debug(boxen(`Server running on ${localAddress}`));
+	console.debug(`Server running on port ${localAddress}`);
 });
+// server.on('error', function(error) {
+// 	console.error(error);
+// });
+// server.on('end', function() {
+// 	server.end();
+// 	server.destroy();
+// });
 
 // Creating an instance for MongoDB
 mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -84,7 +116,8 @@ mongoose.connection.on('error', function(){
 
 // models
 const quoteSchema = new Schema({
-	date: {type: String, index: true},
+	date: Date,
+	// symbol: String,
 	code: String,
 	short_name: String,
 	bid: Number,
@@ -95,10 +128,11 @@ const quoteSchema = new Schema({
 	low: Number,
 	open: Number,
 	chg_today: Number,
+	// volume: Number,
 	vol_today: Number,
 	num_trades: Number
 });
-// quoteSchema.index('date', 1)
+quoteSchema.index({ 'code' : 1, 'date' : 1});
 
 const Stock = mongoose.model('stockquote', quoteSchema);
 
@@ -110,6 +144,47 @@ const companySchema = new Schema({
 	date_listed: Date
 });
 const Company = mongoose.model('company', companySchema);
+
+// {
+//   date: ISODate("2020-01-03T05:00:00.000Z"),
+//   symbol: 'AAPL',
+//   volume: 146322800,
+//   open: 74.287498,
+//   adjClose: 73.486023,
+//   high: 75.144997,
+//   low: 74.125,
+//   close: 74.357498
+// }
+const tickerSchema = new Schema({
+	date: Date,
+	symbol: String,
+	bid: Number,
+	offer: Number,
+	last: Number,
+	close: Number,
+	high: Number,
+	low: Number,
+	open: Number,
+	change: Number,
+	volume: Number,
+	num_trades: Number
+},
+{ 
+	timeseries: { 
+		timeField: "date", 
+		metaField: "symbol",
+		granularity: "minutes" 
+	},
+	autoCreate: false,
+// },
+// {
+// 	timestamps: {
+// 		currentTime: () => Math.floor(Date.now() / 1000)
+// 	}
+});
+tickerSchema.index({ 'symbol' : 1, 'date' : 1});
+
+const Ticker = mongoose.model('ticker', tickerSchema);
 
 const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','SST','STO'];
 const DATAURL = "http://www.pngx.com.pg/data/";
@@ -242,9 +317,9 @@ api.get('/historicals/:symbol', function(req, res) {
 			});
 		}
 		else {
-			res.status(404).json({
-				"status": 404,
-				"reason": "Not Found"
+			res.status(204).json({
+				"status": 204,
+				"reason": "No Content"
 			});
 		}
 	});
@@ -286,9 +361,9 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
 			}]);
 		}
 		else {
-			res.status(404).json({
-				"status": 404,
-				"reason": "Not Found"
+			res.status(204).json({
+				"status": 204,
+				"reason": "No Content"
 			});
 		}
 
@@ -401,8 +476,8 @@ api.get('/stocks', function(req, res) {
 		}
 		else {
 			res.json({
-				"status": 404,
-				"reason": "Not Found"
+				"status": 204,
+				"reason": "No Content"
 			});
 		}
 	});
@@ -414,6 +489,7 @@ api.get('/stocks', function(req, res) {
 api.get('/stocks/:symbol', function(req, res) {
 	let symbol = req.params.symbol;
 });
+
 /**
  * GET /api/stocks/:symbol/historicals
  * - Retrieve all stock prices for a particular symbol
@@ -512,9 +588,9 @@ api.get('/stocks/:symbol/historicals', function(req, res) {
 			});
 		}
 		else {
-			res.status(404).json({
-				"status": 404,
-				"reason": "Not Found"
+			res.status(204).json({
+				"status": 204,
+				"reason": "No Content"
 			});
 		}
 	});
@@ -538,7 +614,7 @@ api.get('/stocks/:symbol/historicals', function(req, res) {
 // 			res.send("Error: " + error);
 // 		}
 // 		else if (result == null) {
-// 			console.log("Match not found.");
+// 			console.log("Match No Content.");
 // 			console.log("Adding it to the db");
 			
 // 			let quote = new Stock();
@@ -593,7 +669,7 @@ api.get('/stocks/:quote_id', function(req, res) {
 			});
 		}
 		else {
-			res.sendStatus(404);
+			res.sendStatus(204);
 		}
 	});
 });
@@ -643,6 +719,11 @@ api.get('/company/:ticker', function(req, res) {
 
   return companies[stockTicker];
 });
+
+api.get('/tickers', async function(req, res) {
+	let tickers = await Ticker.find();
+	res.send(tickers);
+})
 
 function dateUtil(date) {
 	const [month, day, year] = date.split('/');
@@ -760,11 +841,13 @@ async function dataFetcher() {
 				.then(function(result) {
 					reqTime++;
 					if (result == null) {
-						console.log("Match not found.");
+						console.log("Match No Content.");
 						console.log("Adding it to the db");
 						let quote = new Stock();
-
-						quote['date'] = data['Date'];
+						
+						// fixing timezone issues on clever-cloud.io
+						let localTime = momentTimezone.tz(new Date(data['Date']), 'Pacific/Port_Moresby');
+						quote['date'] = localTime;
 						quote['code'] = data['Short Name'];
 						quote['short_name'] = data['Short Name'];
 						quote['bid'] = Number(data['Bid']);
@@ -817,7 +900,7 @@ async function dataFetcher() {
 // const getStream = require('get-stream');
 
 // (async () => {
-// 	const stream = fs.createReadStream("./data/SST.csv");
+// 	const stream = fs.createReadStream("./data/BSP.csv");
 
 // 	let stockData = parse_csv_to_json(await getStream(stream));
 
@@ -830,7 +913,7 @@ async function dataFetcher() {
 // 		})
 // 		.then(function(result) {
 // 			if (result == null) {
-// 				console.log("Match not found.");
+// 				console.log("Match No Content.");
 // 				console.log("Adding it to the db");
 				
 // 				let quote = new Stock();
@@ -865,3 +948,79 @@ async function dataFetcher() {
 // 	};
 
 // })()
+
+// (async () => {
+// 	let ticker = await Ticker.find();
+// 	console.log("tickers: ", ticker)
+
+	// new Ticker({
+	// 	date: "2020-01-03T05:00:00.000Z",
+	// 	symbol: 'AAPL',
+	// 	bid: 0,
+	// 	offer: 0,
+	// 	last: 0,
+	// 	close: 74.357498,
+	// 	high: 75.144997,
+	// 	low: 74.125,
+	// 	open: 74.287498,
+	// 	change: 0,
+	// 	volume: 146322800,
+	// 	num_trades: 0  
+	// }).save()
+// })()
+
+
+function allowCrossDomain(req, res, next) {
+  // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
+
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  // res.header('Access-Control-Allow-Headers', allowHeaders);
+  res.header('Access-Control-Expose-Headers', 'X-Parse-Job-Status-Id, X-Parse-Push-Status-Id'); // intercept OPTIONS method
+
+  if ('OPTIONS' == req.method) {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+}
+
+function allowMethodOverride(req, res, next) {
+  if (req.method === 'POST' && req.body._method) {
+    req.originalMethod = req.method;
+    req.method = req.body._method;
+    delete req.body._method;
+  }
+
+  next();
+}
+
+function errorsHandler(req, res, next) {
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err) || next(createError(404));
+}
+
+function errorHandler(err, req, res, next) {
+  // render the error page
+  res.status(err.status || 500);
+
+  var html = '<!DOCTYPE html>';
+  html+= '<html>';
+  html+= '  <head>';
+  html+= '    <title></title>';
+  html+= '  </head>';
+  html+= '  <body>';
+  html+= '    <h1>'+err.message+'</h1>';
+  html+= '    <h2>'+err.status+'</h2>';
+  html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
+  html+= '    <pre>'+err.stack+'</pre>';
+  html+= '  </body>';
+  html+= '</html>';
+  res.send(html);
+}
+
+function errorLogHandler(err, req, res, next) {
+  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+  next(err)
+};
