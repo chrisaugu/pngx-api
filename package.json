@@ -4,8 +4,8 @@
   "private": true,
   "description": "Restful API that serves stock quotes from pngx.com.pg",
   "engines": {
-    "node": "v18.15.0", 
-    "npm": "9.5.0"
+    "node": "v16.16.0",
+    "npm": "8.11.0"
   },
   "main": "server.js",
   "scripts": {
@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/chrisaugu/pngx-api#readme",
   "dependencies": {
+    "boxen": "^7.0.2",
     "cors": "^2.8.5",
     "date-fns": "^2.28.0",
     "date-fns-tz": "^1.3.7",
@@ -45,9 +46,12 @@
     "http-errors": "^2.0.0",
     "ip": "^1.1.8",
     "marked": "^3.0.8",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
     "mongoose": "^6.0.8",
     "morgan": "^1.10.0",
     "node-cron": "^3.0.0",
+    "os": "^0.1.2",
     "path": "^0.12.7",
     "request": "^2.88.2",
     "winston": "^3.7.2"
