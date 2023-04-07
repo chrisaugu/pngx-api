@@ -8,9 +8,15 @@ const cors = require("cors");
 const fs = require('fs');
 const marked = require('marked');
 const path = require('path');
-const date = require('date-fns');
+const dateFns = require('date-fns');
+const { zonedTimeToUtc, utcToZonedTime, format } = require('date-fns-tz');
+const moment = require('moment');
+const momentTimezone = require('moment-timezone');
 const debug = require('debug')('test');
 const createError = require('http-errors');
+const ip = require('ip');
+const boxen = require('boxen');
+const os = require('os');
 require('dotenv').config();
 
 const logger = require('./config/winston');
@@ -20,57 +26,83 @@ const app = express();
 const api = express.Router();
 const Schema = mongoose.Schema;
 
-const port = process.env.PORT;
+app.set('port', process.env.PORT);
 
-app.set('port', port);
 app.use(express.static(path.join(__dirname, 'docs')));
 app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
-app.use(cors({
-	'allowedHeaders': ['sessionId', 'Content-Type'],
-	'exposedHeaders': ['sessionId'],
-	'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({}));
-app.use(morgan("combined", { stream: logger.stream.write }));
-app.use(function(err, req, res, next) {
-  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
-  next(err)
-});
+// app.use(morgan("combined", { stream: logger.stream.write }));
+
+app.use(cors({
+	'origin': 'http://localhost:4000',
+	'allowedHeaders': ['sessionId', 'Content-Type'],
+	'exposedHeaders': ['sessionId'],
+	'methods': 'GET,PUT,POST,DELETE',
+}));
+app.use(allowCrossDomain);
+app.use(allowMethodOverride);
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-  // var err = new Error('Not Found');
-  // err.status = 404;
-  // next(err);
-  // next(createError(404));
-// });
-
+app.use(error404Handler);
 // error handler
-app.use(function(err, req, res, next) {
-  // render the error page
-  res.status(err.status || 500);
-  var html = '<!DOCTYPE html>';
-  html+= '<html>';
-  html+= '  <head>';
-  html+= '    <title></title>';
-  html+= '  </head>';
-  html+= '  <body>';
-  html+= '    <h1>'+err.message+'</h1>';
-  html+= '    <h2>'+err.status+'</h2>';
-  html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
-  html+= '    <pre>'+err.stack+'</pre>';
-  html+= '  </body>';
-  html+= '</html>';
-  res.send(html);
-}); 
+app.use(errorHandler);
+// app.use(errorLogHandler);
 
 let server = http.createServer(app);
 
+const interfaces = os.networkInterfaces();
+const getNetworkAddress = () => {
+	for (const name of Object.keys(interfaces)) {
+		for (const interface of interfaces[name]) {
+			const {address, family, internal} = interface;
+			if (family === 'IPv4' && !internal) {
+				return address;
+			}
+		}
+	}
+};
+
 // create server and listen on the port
-server.listen(app.get('port'), function(req, res) {
-	console.log(`Server running on port http://localhost:${app.get('port')}`);
+server.listen(app.get('port'), /*"localhost",*/ function(req, res) {
+	const details = server.address();
+	let localAddress = null;
+	let networkAddress = null;
+
+	if (typeof details === 'string') {
+		localAddress = details;
+	} else if (typeof details === 'object' && details.port) {
+		const address = details.address === '::' ? 'localhost' : details.address;
+		const ip = getNetworkAddress();
+		// const ip = ip.address();
+
+		localAddress = `http://${address}:${details.port}`;
+		networkAddress = `http://${ip}:${details.port}`;
+	}
+
+	let log = "\n--------------------------------------------------\n";
+
+	if (localAddress) {
+		log += `Server running on port ${localAddress}\n`;
+	}
+	if (networkAddress) {
+		log += `Server running on port ${networkAddress}`;
+	}
+
+	log += "\n--------------------------------------------------\n";
+
+	// console.debug(log);
+
+	// console.debug(boxen(`Server running on ${localAddress}`));
+	console.debug(`Server running on port ${localAddress}`);
 });
+// server.on('error', function(error) {
+// 	console.error(error);
+// });
+// server.on('end', function() {
+// 	server.end();
+// 	server.destroy();
+// });
 
 // Creating an instance for MongoDB
 mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -84,7 +116,7 @@ mongoose.connection.on('error', function(){
 
 // models
 const quoteSchema = new Schema({
-	date: String,
+	date: Date,
 	code: String,
 	short_name: String,
 	bid: Number,
@@ -98,16 +130,63 @@ const quoteSchema = new Schema({
 	vol_today: Number,
 	num_trades: Number
 });
+quoteSchema.index({ 'code' : 1, 'date' : 1});
+
 const Stock = mongoose.model('stockquote', quoteSchema);
 
 const companySchema = new Schema({
 	name: String,
-	code: String,
+	ticker: String,
 	description: String,
 	industry: String,
-	date_listed: Date
+	sector: String,
+	key_people: Array,
+	date_listed: Date, // ipo
+	esteblished_date: Date,
+	outstanding_shares: Number
 });
 const Company = mongoose.model('company', companySchema);
+
+// {
+//   date: ISODate("2020-01-03T05:00:00.000Z"),
+//   symbol: 'AAPL',
+//   volume: 146322800,
+//   open: 74.287498,
+//   adjClose: 73.486023,
+//   high: 75.144997,
+//   low: 74.125,
+//   close: 74.357498
+// }
+const tickerSchema = new Schema({
+	date: Date,
+	symbol: String,
+	bid: Number,
+	offer: Number,
+	last: Number,
+	close: Number,
+	high: Number,
+	low: Number,
+	open: Number,
+	change: Number,
+	volume: Number,
+	num_trades: Number
+},
+{
+	timeseries: { 
+		timeField: "date", 
+		metaField: "symbol",
+		granularity: "minutes" 
+	},
+	autoCreate: false,
+// },
+// {
+// 	timestamps: {
+// 		currentTime: () => Math.floor(Date.now() / 1000)
+// 	}
+});
+tickerSchema.index({ 'symbol' : 1, 'date' : 1});
+
+const Ticker = mongoose.model('ticker', tickerSchema);
 
 const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','SST','STO'];
 const DATAURL = "http://www.pngx.com.pg/data/";
@@ -117,24 +196,22 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * The task requests and models the data them stores those data in db
  * Fetch data from PNGX.com every 2 minutes
  */
-cron.schedule('*/2 * * * *', () => {
-	console.log('running a task every 2 minutes');
+// cron.schedule('*/2 * * * *', () => {
+// 	console.log('running a task every 2 minutes');
 
-	dataFetcher();
-});
-
-// docs
-// app.get('/', function(req, res) {
-//   res.render("index.html");
+// 	dataFetcher();
 // });
 
 app.use('/api', api);
 
 api.get('/', function(req, res) {
-	res.json({
+	res.status(200).json({
 		"status": 200,
+		"message": "Ok",
 		"symbols": QUOTES,
-		"data": {}
+		"data": {},
+		"api": "PNGX API",
+		"time": new Date().toDateString()
 	});
 });
 
@@ -237,20 +314,20 @@ api.get('/historicals/:symbol', function(req, res) {
 			});
 		}
 		else {
-			res.status(404).json({
-				"status": 404,
-				"reason": "Not Found"
+			res.status(204).json({
+				"status": 204,
+				"reason": "No Content"
 			});
 		}
 	});
 });
 
 api.get('/historicals/:symbol/essentials', function(req, res) {
-	let symbol = req.params.symbol
+	let symbol = req.params.symbol;
 
-	let stock = Stock.find();
-	stock.where({ 'code': symbol });
-	stock.select('date bid offer code close high low open vol_today');
+	let stock = Stock.find({});
+	// stock.where({ 'code': symbol });
+	// stock.select('date bid offer code close high low open vol_today');
 
 	stock.exec(function(err, stocks) {
 		const count = stocks.length;
@@ -259,7 +336,7 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
 		var offers = [];
 
 		if (err) {
-			console.log(err);
+			console.error(err);
 		}
 		if (stocks && stocks.length > 0) {
 
@@ -281,9 +358,9 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
 			}]);
 		}
 		else {
-			res.status(404).json({
-				"status": 404,
-				"reason": "Not Found"
+			res.status(204).json({
+				"status": 204,
+				"reason": "No Content"
 			});
 		}
 
@@ -306,60 +383,61 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
  *
  * @param: /api/stocks?code=CODE, retreive quotes from a specific company for the current day
  * @param: /api/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
- * @param: /api/stocks?code=CODE&from=DATE&to=DATE
+ * @param: /api/stocks?code=CODE&date_from=DATE&date_to=DATE
  */
 api.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
-	let limit = parseInt(req.query.limit) || QUOTES.length; // default limit is 12 - currently the number of companies listed on PNGX.com.pg
+	let limit = parseInt(req.query.limit) || QUOTES.length; // default limit is 12 - current number of companies listed on PNGX.com.pg
 	let sort = parseInt(req.query.sort);
 	let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
 	let fields = req.query.fields;
 
-	let query = Stock.find({});
+	let query = Stock.find();
 
 	var dateStr = {
 		date: new Date().toDateString()
 	};
 
 	if (date) {
-		dateStr['date'] = new Date(date).toDateString();
-		
 		if (Number.isInteger(Number(date))) {
-			query.where({ date: date });
+			date = Number(date);
 		}
-		else {
-			query.where({ date: new Date(date) });
-		}
+		let $date = new Date(date);
+
+		dateStr['date'] = $date.toDateString();
+		query.where({ date: $date });
 	}
 
+	// TODO: Fix date range
 	if (start) {
-		Object.assign(dateStr['date'], { start: new Date(start).toDateString() });
-		
 		if (Number.isInteger(Number(start))) {
-			query.where({ date: { $gte: start } });
+			start = Number(start);
 		}
-		else {
-			query.where({ date: { $gte: new Date(start) } });
-		}
+		let $start = new Date(start);
+		console.log($start)
+		
+		Object.assign(dateStr['date'], { start: $start.toDateString() });
+		query.where({ date: { $gte: $start } });
 	}
 
 	if (end) {
-		Object.assign(dateStr['date'], { end: new Date(end).toDateString() });
-		
 		if (Number.isInteger(Number(end))) {
-			query.where({ date: { $lte: end } });
+			end = Number(end);
 		}
-		else {
-			query.where({ date: { $lte: new Date(end) } });
-		}
+		let $end = new Date(end);
+
+		Object.assign(dateStr['date'], { end: $end.toDateString() });
+		query.where({ date: { $lte: $end } });
 	}
 
+	// ?fields=bid,open
 	if (fields) {
 		query.select(fields.split(','));
 	}
 
+	// ?sort=1
 	if (sort) {
 		query.sort({ date: sort });
 	}
@@ -368,6 +446,7 @@ api.get('/stocks', function(req, res) {
 		query.sort({ date: -1 });
 	}
 
+	// ?limit=12
 	if (limit) {
 		query.limit(limit);
 	}
@@ -376,6 +455,7 @@ api.get('/stocks', function(req, res) {
 		query.limit(QUOTES.length);
 	}
 
+	// skip=
 	if (skip) {
 		query.skip(skip);
 	}
@@ -394,119 +474,8 @@ api.get('/stocks', function(req, res) {
 		}
 		else {
 			res.json({
-				"status": 404,
-				"reason": "Not Found"
-			});
-		}
-	});
-});
-/**
- * GET /api/stocks/:symbol
- */
-api.get('/stocks/:symbol', function(req, res) {
-	let symbol = req.params.symbol;
-});
-/**
- * GET /api/stocks/:symbol/historicals
- * - Retrieve all stock prices for a particular symbol
- */
-api.get('/stocks/:symbol/historicals', function(req, res) {
-	let symbol = req.params.symbol
-	let date = req.query.date;
-	let start = req.query.start;
-	let end = req.query.end;
-	let limit = parseInt(req.query.limit);
-	let sort = parseInt(req.query.sort);
-	let skip = parseInt(req.query.skip);
-	let fields = req.query.fields;
-
-	let stock = Stock.find();
-	stock.where({ 'code': symbol });
-	stock.select('date code close high low open vol_today');
-
-	var dateStr = {
-		date: new Date().toDateString()
-	};
-
-	if (date) {
-		dateStr['date'] = new Date(date).toDateString();
-		
-		if (Number.isInteger(Number(date))) {
-			// stock.where({ date: date });
-			stock.where('date', date);
-		}
-		else {
-			// stock.where({ date: new Date(date) });
-			stock.where('date', new Date(date));
-		}
-	}
-
-	if (start) {
-		Object.assign(dateStr['date'], { start: new Date(start).toDateString() });
-		
-		if (Number.isInteger(Number(start))) {
-			// stock.where({ date: { $gte: start } });
-			stock.where({ 'date': { $gte: start } });
-		}
-		else {
-			// stock.where({ date: { $gte: new Date(start) } });
-			stock.where({ 'date': { $gte: new Date(start) } });
-		}
-	}
-	if (end) {
-		Object.assign(dateStr['date'], { end: new Date(end).toDateString() });
-		
-		if (Number.isInteger(Number(end))) {
-			// stock.where({ date: { $lte: end } });
-			stock.where({ 'date': { $lte: end } })
-		}
-		else {
-			// stock.where({ date: { $lte: new Date(end) } });
-			stock.where({ 'date': { $lte: new Date(end) } })
-		}
-	}
-
-	if (sort) {
-		stock.sort({ 'date': sort });
-	}
-	else {
-		// default sort descendence
-		stock.sort({ 'date': 1 });
-	}
-
-	if (limit) {
-		stock.limit(limit);
-	}
-
-	if (skip) {
-		stock.skip(skip);
-		// dateStr['date'] = new Date(`2021-10-${new Date().getDate() + skip}`).toDateString();
-	}
-
-	if (fields) {
-		stock.select(fields.split(','));
-	}
-
-	stock.exec(function(err, stocks) {
-		const count = stocks.length == limit ? limit : stocks.length;
-
-		if (err) {
-			console.log(err);
-		}
-		if (stocks && stocks.length > 0) {
-			res.json({
-				'status': 200,
-				// ...dateStr,
-				'last_updated': stocks[0].date,
-				'symbol': symbol,
-				'total_count': count,
-				'historical': stocks
-			});
-		}
-		else {
-			res.status(404).json({
-				"status": 404,
-				"reason": "Not Found"
+				"status": 204,
+				"reason": "No Content"
 			});
 		}
 	});
@@ -514,55 +483,55 @@ api.get('/stocks/:symbol/historicals', function(req, res) {
 
 /**
  * POST /api/stocks
- * Manually add sample data for testing
+ * import sample data for testing
  */
-// api.post('/stocks', function(req, res) {
-// 	let data = req.body;
+api.post('/stocks', function(req, res) {
+	let data = req.body;
 
-// 	let query = Stock.findOne({
-// 		date: data[0]['date'],
-// 		short_name: data[0]['short_name'] 
-// 	});
-// 	query.lean();
-// 	query.exec(function(error, result) {
-// 		if (error) {
-// 			console.error("Error: " + error);
-// 			res.send("Error: " + error);
-// 		}
-// 		else if (result == null) {
-// 			console.log("Match not found.");
-// 			console.log("Adding it to the db");
+	let query = Stock.findOne({
+		date: data[0]['date'],
+		short_name: data[0]['short_name'] 
+	});
+	// query.lean();
+	query.exec(function(error, result) {
+		if (error) {
+			console.error("Error: " + error);
+			res.send("Error: " + error);
+		}
+		else if (result == null) {
+			console.log("Match No Content.");
+			console.log("Adding it to the db");
 			
-// 			let quote = new Stock();
-// 			quote['date'] = new Date(data[0]['date']);
-// 			quote['code'] = data[0]['code'];
-// 			quote['short_name'] = data[0]['short_name'];
-// 			quote['bid'] = Number(data[0]['bid']);
-// 			quote['offer'] = Number(data[0]['offer']);
-// 			quote['last'] = Number(data[0]['last']);
-// 			quote['close'] = Number(data[0]['close']);
-// 			quote['high'] = Number(data[0]['high']);
-// 			quote['low'] = Number(data[0]['low']);
-// 			quote['open'] = Number(data[0]['open']);
-// 			quote['chg_today'] = Number(data[0]['chg_today']);
-// 			quote['vol_today'] = Number(data[0]['vol_today']);
-// 			quote['num_trades'] = Number(data[0]['num_trades']);
+			let quote = new Stock();
+			quote['date'] = new Date(data[0]['date']);
+			quote['code'] = data[0]['code'];
+			quote['short_name'] = data[0]['short_name'];
+			quote['bid'] = Number(data[0]['bid']);
+			quote['offer'] = Number(data[0]['offer']);
+			quote['last'] = Number(data[0]['last']);
+			quote['close'] = Number(data[0]['close']);
+			quote['high'] = Number(data[0]['high']);
+			quote['low'] = Number(data[0]['low']);
+			quote['open'] = Number(data[0]['open']);
+			quote['chg_today'] = Number(data[0]['chg_today']);
+			quote['vol_today'] = Number(data[0]['vol_today']);
+			quote['num_trades'] = Number(data[0]['num_trades']);
 
-// 			quote.save(function(err) {
-// 				if (err) {
-// 					console.error(err);
-// 				} else {
-// 					console.log('added quote for ' + data['date']);
-// 					res.sendStatus(201);
-// 				}
-// 			});
-// 		}
-// 		else {
-// 			console.log("Match found! Cannot add quote");
-// 			res.send("Match found! Cannot add quote");
-// 		}
-// 	});
-// });
+			quote.save(function(err) {
+				if (err) {
+					console.error(err);
+				} else {
+					console.log('added quote for ' + data['date']);
+					res.sendStatus(201);
+				}
+			});
+		}
+		else {
+			console.log("Match found! Cannot add quote");
+			res.send("Match found! Cannot add quote");
+		}
+	});
+});
 
 /**
  * GET /api/stocks/:quote_id
@@ -585,29 +554,10 @@ api.get('/stocks/:quote_id', function(req, res) {
 			});
 		}
 		else {
-			res.sendStatus(404);
+			res.sendStatus(204);
 		}
 	});
 });
-
-/**
- * DELETE /api/stocks/:quote_id
- * Delete a specific quote from the database
- * @param :quote_id unique id of the quote
- */
-// app.delete('/stocks/:quote_id', function(req, res) {
-// 	let stockId = req.params.quote_id;
-
-// 	Stock.findByIdAndRemove(stockId, function(error, result) {
-// 		if (error) {
-// 			console.error("Error: " + error);
-// 		}
-// 		else {
-// 			console.log("Removed Quote : ", result);
-// 			res.sendStatus(200);
-// 		}
-// 	});
-// });
 
 /**
  * GET /api/company/:ticker
@@ -636,6 +586,11 @@ api.get('/company/:ticker', function(req, res) {
   return companies[stockTicker];
 });
 
+api.get('/tickers', async function(req, res) {
+	let tickers = await Ticker.find();
+	res.send(tickers);
+})
+
 function dateUtil(date) {
 	const [month, day, year] = date.split('/');
 	const result = [year, month, day].join('-');
@@ -643,6 +598,9 @@ function dateUtil(date) {
 	return result;
 }
 
+/**
+ * hello
+ */
 function get_quotes_from_pngx(code) {
 	var options = {};
 	Object.assign(options, {
@@ -707,6 +665,9 @@ function parse_csv_to_json(body) {
 	return i;
 }
 
+/**
+ * Hello
+ */
 function getData(options) {
 	return new Promise(function(resolve, reject) {
 		request(options, function(error, response, body) {
@@ -718,9 +679,11 @@ function getData(options) {
 	});
 }
 
+/**
+ * Hello
+ */
 async function dataFetcher() {
-	console.log('Fetching csv data from https://www.pngx.com.pg');
-	console.log("\n");
+	console.log('Fetching csv data from https://www.pngx.com.pg\n');
 	console.time("timer");   //start time with name = timer
 	var startTime = new Date();
 	var reqTime = 0;
@@ -752,11 +715,14 @@ async function dataFetcher() {
 				.then(function(result) {
 					reqTime++;
 					if (result == null) {
-						console.log("Match not found.");
+						console.log("Match No Content.");
 						console.log("Adding it to the db");
+						
 						let quote = new Stock();
-
-						quote['date'] = data['Date'];
+						
+						// fixing timezone issues on clever-cloud.io
+						let localTime = momentTimezone.tz(new Date(data['Date']), 'Pacific/Port_Moresby');
+						quote['date'] = localTime;
 						quote['code'] = data['Short Name'];
 						quote['short_name'] = data['Short Name'];
 						quote['bid'] = Number(data['Bid']);
@@ -772,11 +738,9 @@ async function dataFetcher() {
 
 						quote.save(function(err) {
 							if (err) {
-								console.log(err);
-								console.log("\n");
+								console.log(err + "\n");
 							} else {
-								console.log('added quote for ' + data['Date']);
-								console.log("\n");
+								console.log('added quote for ' + data['Date'] + "\n");
 								totalAdded = totalAdded + 1;
 							}
 						});
@@ -788,20 +752,217 @@ async function dataFetcher() {
 			// };
 
 			console.log(totalAdded + "/" + totalCount + " quotes were added.");
-			console.log("stop");
-			console.log("\n");
+			console.log("stop\n");
 		})
 		.catch(function(error) {
 			console.log(error);
 		});
 	};
 
-	console.log('Data fetched from https://www.pngx.com.pg');
-	console.log("\n");
+	console.log('Data fetched from https://www.pngx.com.pg\n');
 	console.timeEnd("timer"); //end timer and log time difference
 	var endTime = new Date();
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
-	console.log(timeDiff + " secs");
-	console.log("\n");
-	console.log("total request itme: " + reqTime);
+	console.log(timeDiff + " secs\n");
+	console.log("total request time: " + reqTime);
 }
+
+// const getStream = require('get-stream');
+
+// (async () => {
+// 	const stream = fs.createReadStream("./data/SST.csv");
+
+// 	let stockData = parse_csv_to_json(await getStream(stream));
+
+// 	for (var j = 0; j < stockData.length; j++) {
+// 		let data = stockData[j];
+
+// 		Stock.findOne({
+// 			'date': data['Date'],
+// 			'short_name': data['Short Name']
+// 		})
+// 		.then(function(result) {
+// 			if (result == null) {
+// 				console.log("Match No Content.");
+// 				console.log("Adding it to the db");
+				
+// 				let quote = new Stock();
+
+// 				let localTime = momentTimezone.tz(new Date(data['Date']), 'Pacific/Port_Moresby');	
+// 				quote['date'] = localTime;
+// 				quote['code'] = data['Short Name'];
+// 				quote['short_name'] = data['Short Name'];
+// 				quote['bid'] = Number(data['Bid']);
+// 				quote['offer'] = Number(data['Offer']);
+// 				quote['last'] = Number(data['Last']);
+// 				quote['close'] = Number(data['Close']);
+// 				quote['high'] = Number(data['High']);
+// 				quote['low'] = Number(data['Low']);
+// 				quote['open'] = Number(data['Open']);
+// 				quote['chg_today'] = Number(data['Chg. Today']);
+// 				quote['vol_today'] = Number(data['Vol. Today']);
+// 				quote['num_trades'] = Number(data['Num. Trades']);
+
+// 				quote.save(function(err) {
+// 					if (err) {
+// 						console.log(err);
+// 					} else {
+// 						console.log('added quote for ' + data['Date']);
+// 					}
+// 				});
+// 			}
+// 		})
+// 		// Ticker.findOne({
+// 		// 	'date': data['Date'],
+// 		// 	'symbol': data['Short Name']
+// 		// })
+// 		// .then(function(result) {
+// 		// 	if (result == null) {
+// 		// 		console.log("Match No Content.");
+// 		// 		console.log("Adding it to the db");
+				
+// 		// 		let quote = new Ticker();
+
+// 		// 		let localTime = momentTimezone.tz(new Date(data['Date']), 'Pacific/Port_Moresby');	
+// 		// 		quote['date'] = localTime;
+// 		// 		console.log(quote)
+// 		// 		console.log(new Date(data['Date']))
+
+// 		// 		// quote['symbol'] = data['Short Name'];
+// 		// 		// quote['bid'] = Number(data['Bid']);
+// 		// 		// quote['offer'] = Number(data['Offer']);
+// 		// 		// quote['last'] = Number(data['Last']);
+// 		// 		// quote['close'] = Number(data['Close']);
+// 		// 		// quote['high'] = Number(data['High']);
+// 		// 		// quote['low'] = Number(data['Low']);
+// 		// 		// quote['open'] = Number(data['Open']);
+// 		// 		// quote['change'] = Number(data['Chg. Today']);
+// 		// 		// quote['volume'] = Number(data['Vol. Today']);
+// 		// 		// quote['num_trades'] = Number(data['Num. Trades']);
+
+// 		// 		// quote.save(function(err) {
+// 		// 		// 	if (err) {
+// 		// 		// 		console.log(err);
+// 		// 		// 	} else {
+// 		// 		// 		console.log('added quote for ' + data['Date']);
+// 		// 		// 	}
+// 		// 		// 	console.log("\n");
+// 		// 		// });
+// 		// 	}
+// 		// })
+// 		.catch(function(error) {
+// 			throw new Error(error);
+// 		});
+// 	};
+
+// })()
+
+// (async () => {
+// 	let ticker = await Ticker.find();
+// 	console.log("tickers: ", ticker)
+
+	// new Ticker({
+	// 	date: "2020-01-03T05:00:00.000Z",
+	// 	symbol: 'AAPL',
+	// 	bid: 0,
+	// 	offer: 0,
+	// 	last: 0,
+	// 	close: 74.357498,
+	// 	high: 75.144997,
+	// 	low: 74.125,
+	// 	open: 74.287498,
+	// 	change: 0,
+	// 	volume: 146322800,
+	// 	num_trades: 0  
+	// }).save()
+// })()
+
+
+function allowCrossDomain(req, res, next) {
+  // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
+
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  // res.header('Access-Control-Allow-Headers', allowHeaders);
+  res.header('Access-Control-Expose-Headers', 'X-Parse-Job-Status-Id, X-Parse-Push-Status-Id'); // intercept OPTIONS method
+
+  if ('OPTIONS' == req.method) {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+}
+
+function allowMethodOverride(req, res, next) {
+  if (req.method === 'POST' && req.body._method) {
+    req.originalMethod = req.method;
+    req.method = req.body._method;
+    delete req.body._method;
+  }
+
+  next();
+}
+
+function error404Handler(error, req, res, next) {
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err) || next(createError(404));
+}
+
+function errorHandler(err, req, res, next) {
+  // render the error page
+  res.status(err.status || 500);
+
+  var html = '<!DOCTYPE html>';
+  html+= '<html>';
+  html+= '  <head>';
+  html+= '    <title></title>';
+  html+= '  </head>';
+  html+= '  <body>';
+  html+= '    <h1>'+err.message+'</h1>';
+  html+= '    <h2>'+err.status+'</h2>';
+  html+= '    <h2>More information: hello@christianaugustyn.me</h2>';
+  html+= '    <pre>'+err.stack+'</pre>';
+  html+= '  </body>';
+  html+= '</html>';
+  res.send(html);
+}
+
+function errorLogHandler(err, req, res, next) {
+  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+  next(err)
+};
+
+
+
+
+// db.ticker.aggregate([
+//  {
+//    $match: {
+//      symbol: "BTC-USD",
+//    },
+//  },
+//  {
+//    $group: {
+//      _id: {
+//        symbol: "$symbol",
+//        time: {
+//          $dateTrunc: {
+//            date: "$time",
+//            unit: "minute",
+//            binSize: 5
+//          },
+//        },
+//      },
+//      high: { $max: "$price" },
+//      low: { $min: "$price" },
+//      open: { $first: "$price" },
+//      close: { $last: "$price" },
+//    },
+//  },
+//  {
+//    $sort: {
+//      "_id.time": 1,
+//    },
+//  },
+// ]);
