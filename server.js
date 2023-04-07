@@ -932,3 +932,37 @@ function errorLogHandler(err, req, res, next) {
   logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
   next(err)
 };
+
+
+
+
+// db.ticker.aggregate([
+//  {
+//    $match: {
+//      symbol: "BTC-USD",
+//    },
+//  },
+//  {
+//    $group: {
+//      _id: {
+//        symbol: "$symbol",
+//        time: {
+//          $dateTrunc: {
+//            date: "$time",
+//            unit: "minute",
+//            binSize: 5
+//          },
+//        },
+//      },
+//      high: { $max: "$price" },
+//      low: { $min: "$price" },
+//      open: { $first: "$price" },
+//      close: { $last: "$price" },
+//    },
+//  },
+//  {
+//    $sort: {
+//      "_id.time": 1,
+//    },
+//  },
+// ]);

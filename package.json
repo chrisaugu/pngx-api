@@ -1,10 +1,11 @@
 {
   "name": "pngx-api",
-  "version": "1.8.1",
+  "version": "1.20.0",
   "private": true,
   "description": "Restful API that serves stock quotes from pngx.com.pg",
   "engines": {
-    "node": "16.x"
+    "node": "v18.15.0", 
+    "npm": "9.5.0"
   },
   "main": "server.js",
   "scripts": {
