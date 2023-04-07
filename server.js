@@ -15,7 +15,7 @@ const momentTimezone = require('moment-timezone');
 const debug = require('debug')('test');
 const createError = require('http-errors');
 const ip = require('ip');
-const boxen = require('boxen');
+// const boxen = require('boxen');
 const os = require('os');
 require('dotenv').config();
 
