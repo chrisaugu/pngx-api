@@ -19,7 +19,7 @@ const boxen = require('boxen');
 const os = require('os');
 require('dotenv').config();
 
-const logger = require('./config/winston');
+// const logger = require('./config/winston');
 
 // Creating express app
 const app = express();
@@ -196,11 +196,11 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * The task requests and models the data them stores those data in db
  * Fetch data from PNGX.com every 2 minutes
  */
-// cron.schedule('*/2 * * * *', () => {
-// 	console.log('running a task every 2 minutes');
+cron.schedule('*/2 * * * *', () => {
+	console.log('running a task every 2 minutes');
 
-// 	dataFetcher();
-// });
+	dataFetcher();
+});
 
 app.use('/api', api);
 
