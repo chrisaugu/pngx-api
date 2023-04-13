@@ -310,7 +310,35 @@ api.get('/historicals/:symbol', function(req, res) {
 				'last_updated': stocks[0].date,
 				'symbol': symbol,
 				'total_count': count,
-				'historical': stocks
+				'historical': stocks,
+
+				// "links": {},
+				// "meta": {
+				// 	"current_page": 1,
+				// 	"from": 1,
+				// 	"last_page": 1,
+				// 	"links": [
+				// 		{
+				// 			"active": false,
+				// 			"label": "« Previous",
+				// 			"url": null
+				// 		},
+				// 		{
+				// 			"active": true,
+				// 			"label": "1",
+				// 			"url": "https://api.apilayer.com/bank_data/banks_by_country?page=1"
+				// 		},
+				// 		{
+				// 			"active": false,
+				// 			"label": "Next »",
+				// 			"url": null
+				// 		}
+				// 	],
+				// 	"path": "https://api.apilayer.com/bank_data/banks_by_country",
+				// 	"per_page": 10,
+				// 	"to": 6,
+				// 	"total": 6
+				// }
 			});
 		}
 		else {
