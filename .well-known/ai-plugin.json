@@ -9,12 +9,12 @@
     },
     "api": {
         "type": "openapi",
-        "url": "https://pngx-api.cyclic.app/openapi.yaml",
+        "url": "https://pngx-api.zeabur.app/openapi.yaml",
         "is_user_authenticated": false
     },
-    "logo_url": "https://pngx-api.cyclic.app/images/banner.png",
+    "logo_url": "https://pngx-api.zeabur.app/images/banner.png",
     "contact_email": "support@christianaugustyn.me",
-    "legal_info_url": "https://pngx-api.cyclic.app/legal"
+    "legal_info_url": "https://pngx-api.zeabur.app/legal"
 },
 
 {
@@ -32,10 +32,10 @@
     },
     "api": {
         "type": "openapi",
-        "url": "https://pngx-api.cyclic.app/openapi.yaml",
+        "url": "https://pngx-api.zeabur.app/openapi.yaml",
         "is_user_authenticated": false
     },
-    "logo_url": "https://pngx-api.cyclic.app/images/banner.png",
+    "logo_url": "https://pngx-api.zeabur.app/images/banner.png",
     "contact_email": "support@christianaugustyn.me",
-    "legal_info_url": "https://pngx-api.cyclic.app/legal"
+    "legal_info_url": "https://pngx-api.zeabur.app/legal"
 }
