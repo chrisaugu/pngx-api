@@ -18,6 +18,8 @@ const ip = require('ip');
 // const boxen = require('boxen');
 const os = require('os');
 require('dotenv').config();
+// const ora = require('ora');
+// const spinner = ora('Connecting to the database...').start()
 
 // const logger = require('./config/winston');
 
@@ -65,7 +67,7 @@ const getNetworkAddress = () => {
 };
 
 // create server and listen on the port
-server.listen(app.get('port'), /*"localhost",*/ function(req, res) {
+server.listen(app.get('port'), /*"localhost",*/ () => {
 	const details = server.address();
 	let localAddress = null;
 	let networkAddress = null;
@@ -105,6 +107,9 @@ server.listen(app.get('port'), /*"localhost",*/ function(req, res) {
 // 	server.destroy();
 // });
 
+console.log(process.env.MONGO_URI)
+console.log(app.get('mongodb_uri'))
+
 // Creating an instance for MongoDB
 mongoose
 .set('strictQuery', false)
@@ -135,8 +140,7 @@ const quoteSchema = new Schema({
 	vol_today: Number,
 	num_trades: Number
 });
-quoteSchema.index({ 'code' : 1, 'date' : 1});
-
+quoteSchema.index({'code' : 1, 'date' : 1});
 const Stock = mongoose.model('stockquote', quoteSchema);
 
 const companySchema = new Schema({
@@ -150,6 +154,7 @@ const companySchema = new Schema({
 	esteblished_date: Date,
 	outstanding_shares: Number
 });
+quoteSchema.index({'ticker' : 1});
 const Company = mongoose.model('company', companySchema);
 
 // {
@@ -190,7 +195,6 @@ const tickerSchema = new Schema({
 // 	}
 });
 tickerSchema.index({ 'symbol' : 1, 'date' : 1});
-
 const Ticker = mongoose.model('ticker', tickerSchema);
 
 const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','SST','STO'];
@@ -640,6 +644,42 @@ api.get('/company/:ticker', function(req, res) {
 api.get('/tickers', async function(req, res) {
 	let tickers = await Ticker.find();
 	res.send(tickers);
+});
+
+api.get('/tickersx', function(req, res) {
+	Stock.aggregate([
+		{
+			$match: {
+				code: "BSP",
+			},
+		},
+		// {
+		// 	$group: {
+		// 		_id: {
+		// 			symbol: "$symbol",
+		// 			time: {
+		// 				$dateTrunc: {
+		// 					date: "$time",
+		// 					unit: "minute",
+		// 					binSize: 5
+		// 				},
+		// 			},
+		// 		},
+		// 		high: { $max: "$price" },
+		// 		low: { $min: "$price" },
+		// 		open: { $first: "$price" },
+		// 		close: { $last: "$price" },
+		// 	},
+		// },
+		// {
+		// 	$sort: {
+		// 		"_id.time": 1,
+		// 	},
+		// },
+	])
+	.then(function(tickers) {
+		res.json(tickers)
+	});
 })
 
 function dateUtil(date) {
@@ -753,9 +793,9 @@ async function dataFetcher() {
 			console.log("Adding quotes for " + quote + " ...");
 
 			// iterate through the dataset and add each data element to the db
-			// for (var j = 0; j < totalCount; j++) {
-				// let data = response[j];
-				let data = response[totalCount-1]
+			for (var j = 0; j < totalCount; j++) {
+				let data = response[j];
+				// let data = response[totalCount-1]; // latest
 				// console.log(data['Date'])
 
 				// check if the quote for that particular company at that particular date already exists
@@ -800,7 +840,7 @@ async function dataFetcher() {
 				.catch(function(error) {
 					throw new Error(error);
 				});
-			// };
+			};
 
 			console.log(totalAdded + "/" + totalCount + " quotes were added.");
 			console.log("stop\n");
@@ -983,37 +1023,3 @@ function errorLogHandler(err, req, res, next) {
   logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
   next(err)
 };
-
-
-
-
-// db.ticker.aggregate([
-//  {
-//    $match: {
-//      symbol: "BTC-USD",
-//    },
-//  },
-//  {
-//    $group: {
-//      _id: {
-//        symbol: "$symbol",
-//        time: {
-//          $dateTrunc: {
-//            date: "$time",
-//            unit: "minute",
-//            binSize: 5
-//          },
-//        },
-//      },
-//      high: { $max: "$price" },
-//      low: { $min: "$price" },
-//      open: { $first: "$price" },
-//      close: { $last: "$price" },
-//    },
-//  },
-//  {
-//    $sort: {
-//      "_id.time": 1,
-//    },
-//  },
-// ]);
