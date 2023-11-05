@@ -1,0 +1,41 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "TODO Plugin (no auth)",
+    "name_for_model": "todo",
+    "description_for_human": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
+    "description_for_model": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://pngx-api.cyclic.app/openapi.yaml",
+        "is_user_authenticated": false
+    },
+    "logo_url": "https://pngx-api.cyclic.app/images/banner.png",
+    "contact_email": "support@christianaugustyn.me",
+    "legal_info_url": "https://pngx-api.cyclic.app/legal"
+},
+
+{
+    "schema_version": "v1",
+    "name_for_human": "TODO Plugin (service auth)",
+    "name_for_model": "todo",
+    "description_for_human": "Plugin for managing a TODO list, you can add, remove & view TODOs.",
+    "description_for_model": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
+    "auth": {
+        "type": "service_http",
+        "authorization_type": "bearer",
+        "verification_tokens": {
+            "openai": "Replace_this_string_with_the_verification_token_generated_in_the_ChatGPT_UI"
+        }
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://pngx-api.cyclic.app/openapi.yaml",
+        "is_user_authenticated": false
+    },
+    "logo_url": "https://pngx-api.cyclic.app/images/banner.png",
+    "contact_email": "support@christianaugustyn.me",
+    "legal_info_url": "https://pngx-api.cyclic.app/legal"
+}

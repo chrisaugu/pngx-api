@@ -27,6 +27,7 @@ const api = express.Router();
 const Schema = mongoose.Schema;
 
 app.set('port', process.env.PORT);
+app.set('mongodb_uri', process.env.MONGO_URI);
 
 app.use(express.static(path.join(__dirname, 'docs')));
 app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
@@ -105,12 +106,16 @@ server.listen(app.get('port'), /*"localhost",*/ function(req, res) {
 // });
 
 // Creating an instance for MongoDB
-mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.Promise = global.Promise;
-mongoose.connection.on("connected", function(){
+mongoose
+.set('strictQuery', false)
+.connect(app.get('mongodb_uri'), {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
+mongoose.connection.on("connected", function() {
 	console.log("Connected: Successfully connect to mongo server");
 });
-mongoose.connection.on('error', function(){
+mongoose.connection.on('error', function() {
 	console.log("Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
 
@@ -508,7 +513,25 @@ api.get('/stocks', function(req, res) {
 		}
 	});
 });
-
+// db.sales.aggregate([
+//   // First Stage
+//   {
+//     $match : { "date": { $gte: new ISODate("2014-01-01"), $lt: new ISODate("2015-01-01") } }
+//   },
+//   // Second Stage
+//   {
+//     $group : {
+//        _id : { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+//        totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } },
+//        averageQuantity: { $avg: "$quantity" },
+//        count: { $sum: 1 }
+//     }
+//   },
+//   // Third Stage
+//   {
+//     $sort : { totalSaleAmount: -1 }
+//   }
+//  ])
 /**
  * POST /api/stocks
  * import sample data for testing
