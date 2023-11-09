@@ -107,9 +107,6 @@ server.listen(app.get('port'), /*"localhost",*/ () => {
 // 	server.destroy();
 // });
 
-console.log(process.env)
-console.log(app.get('mongodb_uri'))
-
 // Creating an instance for MongoDB
 mongoose
 .set('strictQuery', false)
