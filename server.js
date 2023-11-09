@@ -29,7 +29,7 @@ const api = express.Router();
 const Schema = mongoose.Schema;
 
 app.set('port', process.env.PORT);
-app.set('mongodb_uri', process.env.MONGO_URI);
+app.set('mongodb_uri', process.env.MONGODB_URI);
 
 app.use(express.static(path.join(__dirname, 'docs')));
 app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
@@ -646,8 +646,8 @@ api.get('/tickers', async function(req, res) {
 	res.send(tickers);
 });
 
-api.get('/tickersx', function(req, res) {
-	Stock.aggregate([
+api.get('/tickersx', (req, res) => {
+	Ticker.aggregate([
 		{
 			$match: {
 				code: "BSP",
@@ -680,7 +680,7 @@ api.get('/tickersx', function(req, res) {
 	.then(function(tickers) {
 		res.json(tickers)
 	});
-})
+});
 
 function dateUtil(date) {
 	const [month, day, year] = date.split('/');
