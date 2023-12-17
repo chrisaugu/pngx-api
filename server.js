@@ -194,7 +194,8 @@ const tickerSchema = new Schema({
 tickerSchema.index({ 'symbol' : 1, 'date' : 1});
 const Ticker = mongoose.model('ticker', tickerSchema);
 
-const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NCM','NGP','NIU','SST','STO'];
+const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NEM','NGP','NIU','SST','STO'];
+const OLD_QUOTES = ['NCM','OSH'];
 const DATAURL = "http://www.pngx.com.pg/data/";
 
 /**
