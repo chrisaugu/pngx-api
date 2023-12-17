@@ -88,3 +88,16 @@ body {
 .bi {
   fill: currentColor;
 }
+
+
+pre {
+  box-sizing: border-box;
+  font-size: 14px;
+  width: 100%; padding: 10px;
+  overflow: auto;
+  color: #00ff0a; background: #000;
+}
+
+code {
+  color: red;
+}

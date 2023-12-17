@@ -202,11 +202,12 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * The task requests and models the data them stores those data in db
  * Fetch data from PNGX.com every 2 minutes
  */
-cron.schedule('*/2 * * * *', () => {
-	console.log('running a task every 2 minutes');
+let initialFetch = true;
+// cron.schedule('*/2 * * * *', () => {
+	console.log('This script will run every 2 minutes to update stocks info.');
 
 	dataFetcher();
-});
+// });
 
 app.use('/api', api);
 
@@ -778,13 +779,16 @@ async function dataFetcher() {
 
 	for (var i = 0; i < QUOTES.length; i++) {
 		let quote = QUOTES[i];
-		// insert new data from pngx into the local database
-		// get csv data from pngx.com
-		// parse the csv to json
-		// for each quote compare its date against the date of the ones that exist in the database
-		// if the date compared does not match any existing quote then insert that quote into the database
-		// else continue to next quote until all quotes are compared then exit the program
-		await get_quotes_from_pngx(quote).then(function(response) {
+		console.log("Fetching quotes for " + quote + " ...");
+		/**
+		 * insert new data from pngx into the local database
+		 * get csv data from pngx.com
+		 * parse the csv to json
+		 * for each quote compare its date against the date of the ones that exist in the database
+		 * if the date compared does not match any existing quote then insert that quote into the database
+		 * else continue to next quote until all quotes are compared then exit the program
+		 */
+		await get_quotes_from_pngx(quote).then((response) => {
 			var totalCount = response.length, totalAdded = 0;
 			console.log("start");
 			console.log("Adding quotes for " + quote + " ...");
@@ -800,7 +804,7 @@ async function dataFetcher() {
 					'date': data['Date'],
 					'short_name': data['Short Name']
 				})
-				.then(function(result) {
+				.then(result => {
 					reqTime++;
 					if (result == null) {
 						console.log("Match No Content.");
@@ -824,9 +828,9 @@ async function dataFetcher() {
 						quote['vol_today'] = Number(data['Vol. Today']);
 						quote['num_trades'] = Number(data['Num. Trades']);
 
-						quote.save(function(err) {
-							if (err) {
-								console.log(err + "\n");
+						quote.save((error) => {
+							if (error) {
+								console.log(error + "\n");
 							} else {
 								console.log('added quote for ' + data['Date'] + "\n");
 								totalAdded = totalAdded + 1;
@@ -834,7 +838,7 @@ async function dataFetcher() {
 						});
 					}
 				})
-				.catch(function(error) {
+				.catch((error) => {
 					throw new Error(error);
 				});
 			};
@@ -842,17 +846,19 @@ async function dataFetcher() {
 			console.log(totalAdded + "/" + totalCount + " quotes were added.");
 			console.log("stop\n");
 		})
-		.catch(function(error) {
-			console.log(error);
+		.catch((error) => {
+			console.log(error.code == 'ENOTFOUND');
+			throw new Error(error);
 		});
 	};
 
+	initialFetch = false;
 	console.log('Data fetched from https://www.pngx.com.pg\n');
 	console.timeEnd("timer"); //end timer and log time difference
 	var endTime = new Date();
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
 	console.log(timeDiff + " secs\n");
-	console.log("total request time: " + reqTime);
+	console.log("Total request time: " + reqTime);
 }
 
 // const getStream = require('get-stream');

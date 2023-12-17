@@ -1,4 +1,4 @@
- [![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](https://pngx-api.cleverapps.io/) 
+ [![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](https://pngx-api.zeabur.app/) 
 
 # PNGX-API
 
