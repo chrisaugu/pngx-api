@@ -1,3 +1,8 @@
+0.0.1 / 2023-012-17
+==================
+  * Added `STO` and `NEM` property to model
+  * Removed `OSH` and `NCM` property to model
+
 0.0.1 / 2023-01-28
 ==================
   * Added `timeseries` property to model
