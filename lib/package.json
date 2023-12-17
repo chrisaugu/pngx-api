@@ -1,0 +1,28 @@
+{
+  "name": "mymath",
+  "version": "1.0.0",
+  "description": "tiny math library for JavaScript and NodeJS",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisaugu/MyMath.git"
+  },
+  "author": "Christian Augustyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisaugu/MyMath/issues"
+  },
+  "xbabel": {
+    "presets": ["@babel/preset-env"]
+  },
+  "homepage": "https://github.com/chrisaugu/MyMath#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2"
+  }
+}

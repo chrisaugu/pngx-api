@@ -1,0 +1,19 @@
+{
+  "name": "@chrisaugu/mymath",
+  "version": "1.0.0",
+  "description": "tiny math library for JavaScript and NodeJS",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisaugu/MyMath.git"
+  },
+  "author": "Christian Augustyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisaugu/MyMath/issues"
+  },
+  "homepage": "https://github.com/chrisaugu/MyMath#readme"
+}
