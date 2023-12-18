@@ -248,6 +248,14 @@ And of course Dillinger itself is open source with a [public repository][dill]
 
 ## 👩‍💻 Contributing
 
+fork_and_knifeFork it!
+twisted_rightwards_arrowsCreate your branch: git checkout -b new-branch
+wrenchMake your changes
+memoCommit your changes: git commit -am 'Add some feature'
+rocketPush to the branch: git push origin new-branch
+tadaSubmit a pull request
+or submit an issue - any helpful suggestions are welcomed. stuck_out_tongue_winking_eye
+
 Want to contribute? Great!
 
 PNGX-API uses Gulp for fast developing.

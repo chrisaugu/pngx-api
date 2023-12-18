@@ -32,6 +32,7 @@ app.set('port', process.env.PORT);
 app.set('mongodb_uri', process.env.MONGODB_URI);
 
 app.use(express.static(path.join(__dirname, 'docs')));
+app.use("/demo", express.static(path.join(__dirname, 'demo')));
 app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({}));
@@ -209,6 +210,7 @@ let initialFetch = true;
 
 	dataFetcher();
 // });
+
 
 app.use('/api', api);
 
