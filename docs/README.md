@@ -1,124 +1,354 @@
-<p align="center">
-  <img src=".github/logo.png" width="300" height="175" alt="Bootstrap npm logo">
+ [![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](https://pngx-api.christianaugustyn.app/) 
+
+# PNGX-API
+
+_The First Unofficial PNGX-API, Ever_
+
+PNGX Restful API. Formerly part of CrisBot, now a standalone API.
+
+
+![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
+![Lines of code](https://img.shields.io/tokei/lines/github/chrisaugu/pngx-api)
+![GitHub forks](https://img.shields.io/github/forks/chrisaugu/pngx-api?style=social)
+![Github Repo stars](https://img.shields.io/github/stars/chrisaugu/pngx-api?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/chrisaugu/pngx-api?style=social)
+![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
+
+
+## 📋 Table of Contents
+- [Description](#description)
+- [API Reference](#api-reference)
+- [Tech](#tech)
+- [Dependencies](##dependencies)
+- [Contributing](#contributing)
+- [Author Info](author-info)
+- [License](#license)
+- [Copyright](#copyright)
+
+---
+
+## 📜 Description
+API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/data/). PNGX-API is part of [crisbot](https://github.com/chrisaugu/cristhebot). PNGX-API was part of CrisBot - my personal bot which is still under heavy development but now is a standalone server.
+
+* A simple football stats and live-score Android app
+* A user can select a league they want to view the league table, top scorers and also be updated on the live-scores in realtime
+* User can be able to select to see upcoming matches for a given day
+* Project was completed with MVVM architecture and following android app architecture using Retrofit , Coroutines and Navigation components
+
+Companies listed on PNGX
+
+| Symbol | Company |
+| :----- | :------ |
+| BSP | BSP Financial Group Limited |
+| CCP | Credit Corporation (PNG) Ltd |
+| CGA | PNG Air Limited |
+| COY | Coppermoly Limited |
+| CPL | CPL Group |
+| KAM | Kina Asset Management Limited |
+| KSL | Kina Securities Limited |
+| NCM | Newcrest Mining Limited |
+| NGP | NGIP Agmark Limited |
+| NIU | Niuminco Group Limited |
+| SST | Steamships Trading Company Limited |
+| STO | Santos Limited |
+
+## ✨Features
+- Historical data
+- Current listed stock info
+- Near-realtime updates
+- RESTful API format
+
+
+## 📱 Screenshots
+<p align="left">
+<!-- <img src="/images/upcomingmatches.png" width="30%"/> 
+<img src="/images/pastscores.png" width="30%"/> 
+<img src="/images/leaguetable.png" width="30%"/>
+<img src="/images/topscorers.png" width="30%"/>-->
 </p>
+---
 
-<h3 align="center">Bootstrap npm starter template</h3>
+## API Reference
 
-<p align="center">Create new Bootstrap-powered npm projects in no time.</p>
+### Get a list of symbols for all the current listed companies
+#### Get upcoming matches
+#### Request
+```GET /```
 
-## About
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/
 
-`bootstrap-npm-starter` is a GitHub template repository for creating new Bootstrap-powered npm projects, maintained by Bootstrap co-author @mdo. You can also use it as your own Bootstrap prototyping sandbox. It's built with Bootstrap v4 with plans to update for v5.
+```https
+  GET /api/stocks
+```
 
-[![Build Status](https://github.com/twbs/bootstrap-npm-starter/workflows/CI/badge.svg)](https://github.com/twbs/bootstrap-npm-starter/actions)
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `apiKey` | `string` | **Required**. Your API key |
+| `seasonId` | `string` | **Required**.League Id e.g Premier League|
+| `dateFrom` | `string` | **Required**.|
+| `dateTo` | `string` | **Required**.|
 
-## Repo template
+#### Response
+```
+    HTTP/1.1 200 OK
+    Date: Sat, 02 Oct 2021 03:25:07 GMT
+    Status: 200 OK
+    Connection: close
+    X-Powered-By: Express
+    Content-Type: application/json
+    Content-Length: 85
 
-Setup as a starter template, you can easily generate a new GitHub repository. From the repository homepage, click the `Use this template` button.
+    {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
+    ST"]}
+```
 
-## What's included
+## Get list of Stocks for the day
 
-- Single HTML page (`index.html`) to demonstrate how to include Bootstrap.
-- Includes [Bootstrap](https://getbootstrap.com) (currently using v4.6.0) source files via npm.
-- Includes [Bootstrap Icons](https://icons.getbootstrap.com) (v1.4.0), which includes over 1,200 icons available as SVGs and web fonts.
-- npm scripts (see `package.json`) for compiling and autoprefixing Sass, watching for changes, and starting a basic local server.
-- Example stylesheet (`scss/starter.scss`) highlighting two ways to include and customize Bootstrap.
-- Example JavaScript file (`assets/js/starter.js`) showing how to import all of Bootstrap, or just the parts you need.
+#### Request
 
-## Usage
+`GET /api/stocks/`
 
-Be sure to have [Node.js](https://nodejs.org/) installed before proceeding.
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/stocks
 
-```shell
-# Clone the repo
-git clone https://github.com/twbs/bootstrap-npm-starter
-cd bootstrap-npm-starter
+#### Response
 
-# Install dependencies
+    HTTP/1.1 200 OK
+    Date: Sat, 02 Oct 2021 03:25:07 GMT
+    Status: 200 OK
+    Connection: close
+    X-Powered-By: Express
+    Content-Type: application/json
+    Content-Length: 85
+
+    {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
+    ST"]}
+
+
+## Get a specific Quote
+
+#### Request
+
+`GET /api/historicals/:symbol`
+
+&nbsp;
+
+`GET /api/historicals/:symbol?date=DATE`
+
+&nbsp;
+
+`GET /api/historicals/:symbol?start=DATE`
+
+&nbsp;
+
+`GET /api/historicals/:symbol?end=DATE`
+
+&nbsp;
+
+`GET /api/historicals/:symbol?field=`
+
+&nbsp;
+
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/historicals/:symbol
+
+&nbsp;
+
+#### Response
+
+    HTTP/1.1 200 OK
+    Date: Sat, 02 Oct 2021 03:25:07 GMT
+    Status: 200 OK
+    Connection: close
+    X-Powered-By: Express
+    Content-Type: application/json
+    Content-Length: 85
+    
+    {"symbol": "BSP", "historical": [{}]}
+
+
+## Get a non-existent Quote
+
+&nbsp;
+
+#### Request
+
+`GET /api/historicals/:symbol`
+
+    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/historicals/:symbol
+
+&nbsp;
+
+#### Response
+
+    HTTP/1.1 200 OK
+    Date: Sat, 02 Oct 2021 03:25:07[^1] GMT
+    Status: 200 OK
+    Connection: close
+    X-Powered-By: Express
+    Content-Type: application/json
+    Content-Length: 85
+
+    {"status":404,"reason":"Not found"}
+
+
+## ⚙️Installation
+
+Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+cd dillinger
 npm i
-
-# Compile Sass
-npm run css-compile
-
-# Watch Sass for changes (uses nodemon)
-npm run watch
-
-# Start local server (uses sirv-cli)
-npm run server
-
-# Watches Sass for changes and starts a local server
-npm start
+node app
 ```
 
-For the most straightforward development, open two Terminal tabs to execute `npm run server` and `npm run watch` at the same time.
+For production environments...
 
-Open <http://localhost:3000> to see the page in action.
-
-## Scripts
-
-The following npm scripts are available to you in this starter repo. With the exception of `npm start` and `npm test`, the remaining scripts can be run from your command line with `npm run scriptName`.
-
-| Script | Description |
-| --- | --- |
-| `server` | Starts a local server (<http://localhost:3000>) for development |
-| `watch` | Automatically recompiles CSS as it watches the `scss` directory for changes |
-| `css` | Runs `css-compile` and `css-prefix` |
-| `css-compile` | Compiles source Sass into CSS |
-| `css-lint` | Runs [Stylelint](https://stylelint.io) against source Sass for code quality |
-| `css-prefix` | Runs [Autoprefixer](https://github.com/postcss/autoprefixer) on the compiled CSS |
-| `css-purge` | Runs [PurgeCSS](https://purgecss.com) to remove CSS that is unused by `index.html` |
-| `test` | Runs `css-lint` and `css`, in sequential order |
-
-## Advanced usage
-
-Take this starter repository to another level with some built-in addons that you can enable and customize.
-
-### Optimizing CSS
-
-Before you start to use tools that remove Bootstrap styling like [PurgeCSS](#purgecss), you can make some broad optimizations by only including the stylesheets you think you'll need.
-
-Look to the `scss/starter.scss` file for your two options of including all of Bootstrap, or a subset of our styles and components. By default we've only imported the stylesheets that Bootstrap requires plus those of the components we're planning to use.
-
-Uncomment specific lines as needed, then recompile to use them.
-
-### Optimizing JS
-
-Similar to optimizing CSS, we publish individual scripts for each of our plugins. This allows you to import only what you need, versus the entire bundle and dependencies. For example, if you don't plan on using dropdowns, tooltips, or popovers, you can safely omit the Popper.js depdendency. Bootstrap 4 requires jQuery though, so you won't be able to safely remove that until v5 launches.
-
-See the `js/starter.js` file for an example of how to import all of Bootstrap's JS or just the individual pieces. By default we've only imported our modal JavaScript since we have no need for anything else.
-
-You can add more options here, or import the entire `bootstrap-bundle.min.js` file, to get all JavaScript plugins and Popper.js.
-
-### PurgeCSS
-
-[PurgeCSS](https://purgecss.com/) is a [PostCSS](https://postcss.org) plugin that removes unused CSS based on your site's HTML. It finds rulesets that are unused by your HTML and removes them, ensuring only what's needed is sent to your site's visitors while improving file size and performance.
-
-We've included a single npm script that runs PurgeCSS against our single `index.html` file to remove unused styles from `assets/css/starter.css`.
-
-To purge your CSS, run `npm run css-purge` from the command line. This executes the following:
-
-```shell
-npm purgecss --css assets/css/starter.css --content index.html --output assets/css/
+```sh
+npm install --production
+NODE_ENV=production node app
 ```
 
-PurgeCSS is a PostCSS plugin and [can be configured](https://purgecss.com/configuration.html) to your exact needs with a little extra effort, including additional [command line options](https://purgecss.com/CLI.html).
 
-## Actions CI
+## 🛠️ Tech & Tools
 
-We've included some simple GitHub Actions in this template repo. When you generate your new project from here, you'll have the same tests that run whenever a pull request is created. We've included Actions for the following:
+The entire application is written in JavaScript and built on NodeJs.
 
-- Stylelint for your CSS
+Dillinger uses a number of open source projects to work properly:
 
-When your repository is generated, you won't see anything in the Actions tab until you create a new pull request. You can customize these Actions, add new ones, or remove them outright if you wish.
+- [Moment.js] - Moment.js to manipulate date
+- [Date-fn] - to manipulate date
+- [MongoDB] - MongoDB to store stock info
+- [node-cron] - Node-cron to to schedule the tasks
+- [markdown-it] - Markdown parser done right. Fast and easy to extend.
+- [Twitter Bootstrap] - great UI boilerplate for modern web apps
+- [node.js] - evented I/O for the backend
+- [Express] - fast node.js network app framework [@tjholowaychuk]
+- [Gulp] - the streaming build system
+- [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
+- [jQuery] - duh
 
-[Learn more about GitHub Actions](https://github.com/features/actions), [read the Actions docs](https://help.github.com/en/actions), or [browse the Actions Marketplace](https://github.com/marketplace/actions).
+And of course Dillinger itself is open source with a [public repository][dill]
+ on GitHub.
 
-### Stylelint
+### Dependencies
+* Express
+* CORS
+* BodyParser
+* Mongoose
+* MongoDB
+* NodeCron
+* Path
+* Request
+* Fs
+* d
 
-Stylelint is included, as is Bootstrap's default Stylelint config, [stylelint-config-twbs-bootstrap](https://github.com/twbs/stylelint-config-twbs-bootstrap). This is the same linter configuration we use in the main Bootstrap project. It's run via the `npm test` command, which is invoked in our `ci.yml` Actions workflow file.
 
-At the root of the repo, `.stylelintignore` is used to list files that we ignore when linting and `.stylelintrc` is where we tell Stylelint to use the Bootstrap config. The former is recommended based on your specific needs, while the latter is required.
 
-## Copyright
 
-&copy; @mdo 2020-2021 and licensed MIT.
+## 👩‍💻 Contributing
+
+Want to contribute? Great!
+
+PNGX-API uses Gulp for fast developing.
+Make a change in your file and instantaneously see your updates!
+
+Open your favorite Terminal and run these commands.
+
+First Tab:
+
+```sh
+node app
+```
+
+Second Tab:
+
+```sh
+gulp watch
+```
+
+(optional) Third:
+
+```sh
+karma test
+```
+
+#### Building for source
+
+For production release:
+
+```sh
+gulp build --prod
+```
+
+Generating pre-built zip archives for distribution:
+
+```sh
+gulp build dist --prod
+```
+
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+[Contributing Guide](Contributing.md)
+
+[List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
+
+## 🧑 Author Info
+
+The original author of PNGX-API is [Christian Augustyn](https://github.com/chrisaugu)
+- Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
+- Website - [Christian Augustyn](https://www.christianaugustyn.me)
+
+
+## 🧾 ChangeLog
+[History](HISTORY.md)
+
+
+## 📝 License
+
+Licensed under the [MIT License](./LICENSE).
+
+**Free Software, Hell Yeah!**
+
+## © Copyright
+
+&copy; 2023, Christian Augustyn.
+
+
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+   [dill]: <https://github.com/joemccann/dillinger>
+   [MongoDB]: <https://www.mongodb.com>
+   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
+   [john gruber]: <http://daringfireball.net>
+   [df1]: <http://daringfireball.net/projects/markdown/>
+   [markdown-it]: <https://github.com/markdown-it/markdown-it>
+   [Ace Editor]: <http://ace.ajax.org>
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [jQuery]: <http://jquery.com>
+   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
+   [express]: <http://expressjs.com>
+   [AngularJS]: <http://angularjs.org>
+   [Gulp]: <http://gulpjs.com>
+
+   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
+   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
+   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
+   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
+   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
+   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+
+

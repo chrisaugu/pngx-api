@@ -15,23 +15,7 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 ![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
 
 
-## ✨Features
-- Historical data
-- Current listed stock info
-- Near-realtime updates
-- RESTful API format
-
-
-### 📱 Screenshots
-<p align="left">
-<!-- <img src="/images/upcomingmatches.png" width="30%"/> 
-<img src="/images/pastscores.png" width="30%"/> 
-<img src="/images/leaguetable.png" width="30%"/>
-<img src="/images/topscorers.png" width="30%"/>-->
-</p>
----
-
-### 📋 Table of Contents
+## 📋 Table of Contents
 - [Description](#description)
 - [API Reference](#api-reference)
 - [Tech](#tech)
@@ -68,7 +52,23 @@ Companies listed on PNGX
 | SST | Steamships Trading Company Limited |
 | STO | Santos Limited |
 
-### API Reference
+## ✨Features
+- Historical data
+- Current listed stock info
+- Near-realtime updates
+- RESTful API format
+
+
+## 📱 Screenshots
+<p align="left">
+<!-- <img src="/images/upcomingmatches.png" width="30%"/> 
+<img src="/images/pastscores.png" width="30%"/> 
+<img src="/images/leaguetable.png" width="30%"/>
+<img src="/images/topscorers.png" width="30%"/>-->
+</p>
+---
+
+## API Reference
 
 ### Get a list of symbols for all the current listed companies
 #### Get upcoming matches

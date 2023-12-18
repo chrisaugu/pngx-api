@@ -631,6 +631,7 @@ api.get('/company/:ticker', function(req, res) {
     "KAM": "Kina Asset Management Limited",
     "KSL": "Kina Securities Limited",
     "NCM": "Newcrest Mining Limited",
+    "NEM": "Newmont Mining Limited",
     "NGP": "NGIP Agmark Limited",
     "NIU": "Niuminco Group Limited",
     "SST": "Steamships Trading Company Limited",
