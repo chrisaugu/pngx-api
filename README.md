@@ -8,11 +8,13 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
-![Lines of code](https://img.shields.io/tokei/lines/github/chrisaugu/pngx-api)
+![](https://tokei.rs/b1/github/chrisaugu/pngx-api)
+![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
 ![GitHub forks](https://img.shields.io/github/forks/chrisaugu/pngx-api?style=social)
 ![Github Repo stars](https://img.shields.io/github/stars/chrisaugu/pngx-api?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/chrisaugu/pngx-api?style=social)
 ![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
+![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript)
 
 
 ## 📋 Table of Contents
@@ -28,12 +30,7 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 ---
 
 ## 📜 Description
-API endpoint that exposes stock quotes from [pngx.com](http://www.pngx.com.pg/data/). PNGX-API is part of [crisbot](https://github.com/chrisaugu/cristhebot). PNGX-API was part of CrisBot - my personal bot which is still under heavy development but now is a standalone server.
-
-* A simple football stats and live-score Android app
-* A user can select a league they want to view the league table, top scorers and also be updated on the live-scores in realtime
-* User can be able to select to see upcoming matches for a given day
-* Project was completed with MVVM architecture and following android app architecture using Retrofit , Coroutines and Navigation components
+API endpoint that exposes stock quotes from [PNGX.com.pg](http://www.pngx.com.pg/data/).
 
 Companies listed on PNGX
 
@@ -46,7 +43,6 @@ Companies listed on PNGX
 | CPL | CPL Group |
 | KAM | Kina Asset Management Limited |
 | KSL | Kina Securities Limited |
-| *NCM | Newcrest Mining Limited |
 | NEM | Newmont Corporation |
 | NGP | NGIP Agmark Limited |
 | NIU | Niuminco Group Limited |
@@ -58,9 +54,6 @@ Companies listed on PNGX
 - Current listed stock info
 - Near-realtime updates
 - RESTful API format
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
 
 
 ## 📱 Screenshots
@@ -74,16 +67,26 @@ Companies listed on PNGX
 
 ## API Reference
 
-### Get a list of symbols for all the current listed companies
-#### Get upcoming matches
-#### Request
-```GET /```
+> v1.0.0
 
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/
+Base URLs:
+```https
+GET https://pngx-api.christianaugustyn.me
+```
+
+### Get ticker symbols
+Update an existing pet by Id
+
+` GET /api`
+
+> Request
 
 ```https
-  GET /api/stocks
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api
 ```
+
+
+> Params
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -92,7 +95,7 @@ Companies listed on PNGX
 | `dateFrom` | `string` | **Required**.|
 | `dateTo` | `string` | **Required**.|
 
-#### Response
+> Response
 ```
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
@@ -106,16 +109,31 @@ Companies listed on PNGX
     ST"]}
 ```
 
-## Get list of Stocks for the day
 
-#### Request
+### Get latest stocks data
+Update an existing pet by Id
 
-`GET /api/stocks/`
+`GET /api/stocks`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/api/stocks
+> Request
 
-#### Response
+```https
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api/stocks
+```
 
+> Params
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `apiKey` | `string` | **Required**. Your API key |
+| `seasonId` | `string` | **Required**.League Id e.g Premier League|
+| `dateFrom` | `string` | **Required**.|
+| `dateTo` | `string` | **Required**.|
+
+
+> Response
+
+```
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
     Status: 200 OK
@@ -126,38 +144,38 @@ Companies listed on PNGX
 
     {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
     ST"]}
+```
 
 
-## Get a specific Quote
-
-#### Request
+### Get a historical stock data
+Update an existing pet by Id
 
 `GET /api/historicals/:symbol`
 
-&nbsp;
+> Request
 
-`GET /api/historicals/:symbol?date=DATE`
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api/historicals/BSP
 
-&nbsp;
+> Params
 
-`GET /api/historicals/:symbol?start=DATE`
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|symbol|param|string| yes |ticker symbol of the prefered stock|
 
-&nbsp;
+> Query Params
 
-`GET /api/historicals/:symbol?end=DATE`
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|date|query|date| no |none|
+|start|query|date| no |none|
+|end|query|date| no |none|
+|field|query|array| no |none|
+|start|body|integer| no |none|
 
-&nbsp;
 
-`GET /api/historicals/:symbol?field=`
+> Response
 
-&nbsp;
-
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/api/historicals/:symbol
-
-&nbsp;
-
-#### Response
-
+```
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
     Status: 200 OK
@@ -167,22 +185,20 @@ Companies listed on PNGX
     Content-Length: 85
     
     {"symbol": "BSP", "historical": [{}]}
+```
 
-
-## Get a non-existent Quote
-
-&nbsp;
-
-#### Request
+### Get a non-existent Quote
+Update an existing pet by Id
 
 `GET /api/historicals/:symbol`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/api/historicals/:symbol
+> Request
 
-&nbsp;
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api/historicals/HIL
 
-#### Response
+> Response
 
+```
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07[^1] GMT
     Status: 200 OK
@@ -192,6 +208,7 @@ Companies listed on PNGX
     Content-Length: 85
 
     {"status":404,"reason":"Not found"}
+```
 
 
 ## 🛠️ Tech & Tools
@@ -199,8 +216,6 @@ Companies listed on PNGX
 The entire application is written in JavaScript and built on NodeJs.
 
 Dillinger uses a number of open source projects to work properly:
-
-### Dependencies
 
 - [Moment.js] - Moment.js to manipulate date
 - [Date-fn] - to manipulate date
@@ -213,7 +228,11 @@ Dillinger uses a number of open source projects to work properly:
 - [Gulp] - the streaming build system
 - [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
 - [jQuery] - duh
-- []
+
+And of course PNGX-API itself is open source with a [public repository][pngx-api]
+ on GitHub.
+
+### Dependencies
 * Express
 * CORS
 * BodyParser
@@ -222,63 +241,15 @@ Dillinger uses a number of open source projects to work properly:
 * NodeCron
 * Path
 * Request
-* Fs
-
-
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
+* fs
 
 
 ## 👩‍💻 Contributing
-
-fork_and_knifeFork it!
-twisted_rightwards_arrowsCreate your branch: git checkout -b new-branch
-wrenchMake your changes
-memoCommit your changes: git commit -am 'Add some feature'
-rocketPush to the branch: git push origin new-branch
-tadaSubmit a pull request
-or submit an issue - any helpful suggestions are welcomed. stuck_out_tongue_winking_eye
 
 Want to contribute? Great!
 
 PNGX-API uses Gulp for fast developing.
 Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-
-```sh
-node app
-```
-
-Second Tab:
-
-```sh
-gulp watch
-```
-
-(optional) Third:
-
-```sh
-karma test
-```
-
-#### Building for source
-
-For production release:
-
-```sh
-gulp build --prod
-```
-
-Generating pre-built zip archives for distribution:
-
-```sh
-gulp build dist --prod
-```
 
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -297,14 +268,11 @@ Please make sure to update tests as appropriate.
 
 [List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
 
-
-
 ## 🧑 Author Info
 
 The original author of PNGX-API is [Christian Augustyn](https://github.com/chrisaugu)
 - Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
 - Website - [Christian Augustyn](https://www.christianaugustyn.me)
-
 
 
 ## 🧾 ChangeLog
@@ -317,7 +285,6 @@ Licensed under the [MIT License](./LICENSE).
 
 **Free Software, Hell Yeah!**
 
-
 ## © Copyright
 
 &copy; 2023, Christian Augustyn.
@@ -326,9 +293,9 @@ Licensed under the [MIT License](./LICENSE).
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-   [dill]: <https://github.com/joemccann/dillinger>
+   [pngx-api]: <https://github.com/chrisaugu/pngx-api>
    [MongoDB]: <https://www.mongodb.com>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
+   [git-repo-url]: <https://github.com/chrisaugu/pngx-api.git>
    [john gruber]: <http://daringfireball.net>
    [df1]: <http://daringfireball.net/projects/markdown/>
    [markdown-it]: <https://github.com/markdown-it/markdown-it>
@@ -340,12 +307,4 @@ Licensed under the [MIT License](./LICENSE).
    [express]: <http://expressjs.com>
    [AngularJS]: <http://angularjs.org>
    [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
-
 

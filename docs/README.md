@@ -1,4 +1,4 @@
- [![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](https://pngx-api.christianaugustyn.app/) 
+[![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](https://pngx-api.christianaugustyn.app/) 
 
 # PNGX-API
 
@@ -9,10 +9,13 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
 ![Lines of code](https://img.shields.io/tokei/lines/github/chrisaugu/pngx-api)
+![](https://tokei.rs/b1/github/chrisaugu/pngx-api)
+![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
 ![GitHub forks](https://img.shields.io/github/forks/chrisaugu/pngx-api?style=social)
 ![Github Repo stars](https://img.shields.io/github/stars/chrisaugu/pngx-api?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/chrisaugu/pngx-api?style=social)
 ![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
+![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript)
 
 
 ## 📋 Table of Contents
@@ -28,12 +31,7 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 ---
 
 ## 📜 Description
-API endpoint that exposes stock quotes from [PNGX.com.pg](http://www.pngx.com.pg/data/). PNGX-API is part of [crisbot](https://github.com/chrisaugu/cristhebot). PNGX-API was part of CrisBot - my personal bot which is still under heavy development but now is a standalone server.
-
-* A simple football stats and live-score Android app
-* A user can select a league they want to view the league table, top scorers and also be updated on the live-scores in realtime
-* User can be able to select to see upcoming matches for a given day
-* Project was completed with MVVM architecture and following android app architecture using Retrofit , Coroutines and Navigation components
+API endpoint that exposes stock quotes from [PNGX.com.pg](http://www.pngx.com.pg/data/).
 
 Companies listed on PNGX
 
@@ -61,10 +59,10 @@ Companies listed on PNGX
 
 ## 📱 Screenshots
 <p align="left">
-<!-- <img src="/images/upcomingmatches.png" width="30%"/> 
+<img src="/images/upcomingmatches.png" width="30%"/> 
 <img src="/images/pastscores.png" width="30%"/> 
 <img src="/images/leaguetable.png" width="30%"/>
-<img src="/images/topscorers.png" width="30%"/>-->
+<img src="/images/topscorers.png" width="30%"/>
 </p>
 ---
 
@@ -76,7 +74,6 @@ Base URLs:
 ```https
 GET https://pngx-api.christianaugustyn.me
 ```
-
 
 ### Get ticker symbols
 Update an existing pet by Id
@@ -178,6 +175,7 @@ Update an existing pet by Id
 
 
 > Response
+
 ```
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
