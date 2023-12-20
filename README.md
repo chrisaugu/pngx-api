@@ -46,7 +46,8 @@ Companies listed on PNGX
 | CPL | CPL Group |
 | KAM | Kina Asset Management Limited |
 | KSL | Kina Securities Limited |
-| NCM | Newcrest Mining Limited |
+| *NCM | Newcrest Mining Limited |
+| NEM | Newmont Corporation |
 | NGP | NGIP Agmark Limited |
 | NIU | Niuminco Group Limited |
 | SST | Steamships Trading Company Limited |
@@ -57,6 +58,9 @@ Companies listed on PNGX
 - Current listed stock info
 - Near-realtime updates
 - RESTful API format
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
 
 
 ## 📱 Screenshots
@@ -75,7 +79,7 @@ Companies listed on PNGX
 #### Request
 ```GET /```
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/
 
 ```https
   GET /api/stocks
@@ -108,7 +112,7 @@ Companies listed on PNGX
 
 `GET /api/stocks/`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/stocks
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/api/stocks
 
 #### Response
 
@@ -148,7 +152,7 @@ Companies listed on PNGX
 
 &nbsp;
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/historicals/:symbol
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/api/historicals/:symbol
 
 &nbsp;
 
@@ -173,7 +177,7 @@ Companies listed on PNGX
 
 `GET /api/historicals/:symbol`
 
-    curl -i -H 'Accept: application/json' https://pngx-api.cleverapps.io/api/historicals/:symbol
+    curl -i -H 'Accept: application/json' https://pngx-api.christianaugustyn.me/api/historicals/:symbol
 
 &nbsp;
 
@@ -190,31 +194,13 @@ Companies listed on PNGX
     {"status":404,"reason":"Not found"}
 
 
-## ⚙️Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
-
-Install the dependencies and devDependencies and start the server.
-
-```sh
-cd dillinger
-npm i
-node app
-```
-
-For production environments...
-
-```sh
-npm install --production
-NODE_ENV=production node app
-```
-
-
 ## 🛠️ Tech & Tools
 
 The entire application is written in JavaScript and built on NodeJs.
 
 Dillinger uses a number of open source projects to work properly:
+
+### Dependencies
 
 - [Moment.js] - Moment.js to manipulate date
 - [Date-fn] - to manipulate date
@@ -227,11 +213,7 @@ Dillinger uses a number of open source projects to work properly:
 - [Gulp] - the streaming build system
 - [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
 - [jQuery] - duh
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
-### Dependencies
+- []
 * Express
 * CORS
 * BodyParser
@@ -241,8 +223,11 @@ And of course Dillinger itself is open source with a [public repository][dill]
 * Path
 * Request
 * Fs
-* d
 
+
+
+And of course Dillinger itself is open source with a [public repository][dill]
+ on GitHub.
 
 
 
@@ -312,11 +297,14 @@ Please make sure to update tests as appropriate.
 
 [List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
 
+
+
 ## 🧑 Author Info
 
 The original author of PNGX-API is [Christian Augustyn](https://github.com/chrisaugu)
 - Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
 - Website - [Christian Augustyn](https://www.christianaugustyn.me)
+
 
 
 ## 🧾 ChangeLog
@@ -328,6 +316,7 @@ The original author of PNGX-API is [Christian Augustyn](https://github.com/chris
 Licensed under the [MIT License](./LICENSE).
 
 **Free Software, Hell Yeah!**
+
 
 ## © Copyright
 
