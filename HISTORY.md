@@ -1,3 +1,8 @@
+0.0.1 / 2024-01-15
+==================
+  * Added `express-rate-limit` to limit the requests
+  * Added `helmet`
+
 0.0.1 / 2023-012-17
 ==================
   * Added `STO` and `NEM` property to model

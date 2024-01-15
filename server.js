@@ -1,5 +1,6 @@
 const http = require("http");
 const express = require("express");
+const setRateLimit = require('express-rate-limit');
 const request = require('request');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -20,6 +21,7 @@ const os = require('os');
 require('dotenv').config();
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start()
+const helmet = require('helmet');
 
 // const logger = require('./config/winston');
 
@@ -27,6 +29,22 @@ require('dotenv').config();
 const app = express();
 const api = express.Router();
 const Schema = mongoose.Schema;
+
+const allowlist = ['192.168.0.56', '192.168.0.21'];
+const rateLimitMiddleware = setRateLimit({
+	windowMs: 60 * 1000,
+	max: 5,
+	message: "You have exceeded your 5 requests per minute limit.",
+	headers: true,
+	handler: function (req, res, next) {
+		// applyFeesForConsumer()
+    // next()
+    return res.status(429).json({
+      error: 'You sent too many requests. Please wait a while then try again'
+    })
+  },
+	skip: (req, res) => allowlist.includes(req.ip)
+});
 
 app.set('port', process.env.PORT);
 app.set('mongodb_uri', process.env.MONGODB_URI);
@@ -38,6 +56,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json({}));
 // app.use(morgan("combined", { stream: logger.stream.write }));
 
+// app.use(helmet);
 app.use(cors({
 	'origin': 'http://localhost:4000',
 	'allowedHeaders': ['sessionId', 'Content-Type'],
@@ -52,6 +71,8 @@ app.use(error404Handler);
 // error handler
 app.use(errorHandler);
 // app.use(errorLogHandler);
+
+app.use('/api', rateLimitMiddleware);
 
 let server = http.createServer(app);
 
@@ -779,7 +800,7 @@ async function dataFetcher() {
 	console.log('Fetching csv data from https://www.pngx.com.pg\n');
 	console.time("timer");   //start time with name = timer
 	var startTime = new Date();
-	var reqTime = 0;
+	var reqTimes = 0; // number of times the loop runs to fetch data
 
 	for (var i = 0; i < QUOTES.length; i++) {
 		let quote = QUOTES[i];
@@ -809,7 +830,7 @@ async function dataFetcher() {
 					'short_name': data['Short Name']
 				})
 				.then(result => {
-					reqTime++;
+					reqTimes++;
 					if (result == null) {
 						console.log("Match No Content.");
 						console.log("Adding it to the db");
@@ -862,7 +883,7 @@ async function dataFetcher() {
 	var endTime = new Date();
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
 	console.log(timeDiff + " secs\n");
-	console.log("Total request time: " + reqTime);
+	console.log("Total request time: " + reqTimes);
 }
 
 // const getStream = require('get-stream');

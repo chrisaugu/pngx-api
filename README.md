@@ -65,7 +65,7 @@ Companies listed on PNGX
 </p>
 ---
 
-## API Reference
+## 🔗 API Reference
 
 > v1.0.0
 
