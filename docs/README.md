@@ -20,9 +20,9 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 
 ## 📋 Table of Contents
 - [Description](#description)
+- [Features](#features)
+- [Examples](#examples)
 - [API Reference](#api-reference)
-- [Tech](#tech)
-- [Dependencies](##dependencies)
 - [Contributing](#contributing)
 - [Author Info](author-info)
 - [License](#license)
@@ -50,6 +50,9 @@ Companies listed on PNGX
 | SST | Steamships Trading Company Limited |
 | STO | Santos Limited |
 
+## 🧬 Examples
+[View Demo](https://pngx-api.christianaugustyn.me/demo)
+
 ## ✨Features
 - Historical data
 - Current listed stock info
@@ -66,7 +69,7 @@ Companies listed on PNGX
 </p>
 ---
 
-## API Reference
+## 🔗 API Reference
 
 > v1.0.0
 

@@ -8,5 +8,5 @@
 - Extendable and easily configurable
 - Brings its own effects to the party
 
-[GitHub](https://github.com/dobromir-hristov/palettify)
-[Get Started](#intro)
+[GitHub](https://github.com/chrisaugu/pngx-api)
+[Get Started](#demo)
