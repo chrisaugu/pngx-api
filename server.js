@@ -204,7 +204,7 @@ const tickerSchema = new Schema({
 	timeseries: { 
 		timeField: "date", 
 		metaField: "symbol",
-		granularity: "minutes" 
+		granularity: "days"
 	},
 	autoCreate: false,
 // },
@@ -216,8 +216,8 @@ const tickerSchema = new Schema({
 tickerSchema.index({ 'symbol' : 1, 'date' : 1});
 const Ticker = mongoose.model('ticker', tickerSchema);
 
-const QUOTES = ['BSP','CCP','CGA','COY','CPL','KAM','KSL','NEM','NGP','NIU','SST','STO'];
-const OLD_QUOTES = ['NCM','OSH'];
+const QUOTES = ['BSP','CCP','CGA','CPL','KAM','KSL','NEM','NGP','NIU','SST','STO'];
+const OLD_QUOTES = ['COY','NCM','OSH'];
 const DATAURL = "http://www.pngx.com.pg/data/";
 
 /**
@@ -448,7 +448,7 @@ api.get('/stocks', function(req, res) {
 	let date = req.query.date;
 	let start = req.query.start;
 	let end = req.query.end;
-	let limit = parseInt(req.query.limit) || QUOTES.length; // default limit is 12 - current number of companies listed on PNGX.com.pg
+	let limit = parseInt(req.query.limit) || QUOTES.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
 	let sort = parseInt(req.query.sort);
 	let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
 	let fields = req.query.fields;
