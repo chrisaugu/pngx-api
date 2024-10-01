@@ -1,27 +1,27 @@
-const http = require("http");
-const express = require("express");
-const setRateLimit = require('express-rate-limit');
-const request = require('request');
-const mongoose = require('mongoose');
-const morgan = require('morgan');
-const cron = require('node-cron');
-const cors = require("cors");
-const fs = require('fs');
-const marked = require('marked');
-const path = require('path');
-const dateFns = require('date-fns');
-const { zonedTimeToUtc, utcToZonedTime, format } = require('date-fns-tz');
-const moment = require('moment');
-const momentTimezone = require('moment-timezone');
+import http from "http";
+import express from "express";
+import setRateLimit from 'express-rate-limit';
+import request from 'request';
+import mongoose from 'mongoose';
+import morgan from 'morgan';
+import cron from 'node-cron';
+import cors from "cors";
+import fs from 'fs';
+import marked from 'marked';
+import path from 'path';
+import dateFns from 'date-fns';
+import { zonedTimeToUtc, utcToZonedTime, format } from 'date-fns-tz';
+import moment from 'moment';
+import momentTimezone from 'moment-timezone';
 const debug = require('debug')('test');
-const createError = require('http-errors');
-const ip = require('ip');
+import createError from 'http-errors';
+import ip from 'ip';
 // const boxen = require('boxen');
-const os = require('os');
+import os from 'os';
 require('dotenv').config();
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start()
-const helmet = require('helmet');
+import helmet from 'helmet';
 
 // const logger = require('./config/winston');
 

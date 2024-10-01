@@ -29,3 +29,4 @@ app
 
 *.logs
 logs
+/lib
