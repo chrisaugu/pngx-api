@@ -9,10 +9,8 @@ const cors = require("cors");
 const fs = require('fs');
 const marked = require('marked');
 const path = require('path');
-const dateFns = require('date-fns');
-const { zonedTimeToUtc, utcToZonedTime, format } = require('date-fns-tz');
-const moment = require('moment');
-const momentTimezone = require('moment-timezone');
+const {format, parse, formatDate} = require('date-fns');
+const { formatInTimeZone } = require('date-fns-tz');
 const debug = require('debug')('test');
 const createError = require('http-errors');
 const ip = require('ip');
@@ -24,6 +22,9 @@ require('dotenv').config();
 const helmet = require('helmet');
 
 // const logger = require('./config/winston');
+
+const LOCAL_TIMEZONE = 'Pacific/Port_Moresby';
+const LOCAL_TIMEZONE_FORMAT = 'yyyy-MM-dd'; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)
 
 // Creating express app
 const app = express();
@@ -218,7 +219,23 @@ const Ticker = mongoose.model('ticker', tickerSchema);
 
 const QUOTES = ['BSP','CCP','CGA','CPL','KAM','KSL','NEM','NGP','NIU','SST','STO'];
 const OLD_QUOTES = ['COY','NCM','OSH'];
-const DATAURL = "http://www.pngx.com.pg/data/";
+const LISTED_COMPANIES = {
+    "BSP": "BSP Financial Group Limited",
+    "CCP": "Credit Corporation (PNG) Ltd",
+    "CGA": "PNG Air Limited",
+    "COY": "Coppermoly Limited",
+    "CPL": "CPL Group Limited",
+    "KAM": "Kina Asset Management Limited",
+    "KSL": "Kina Securities Limited",
+    "NCM": "Newcrest Mining Limited",
+    "NEM": "Newmont Mining Limited",
+    "NGP": "NGIP Agmark Limited",
+    "NIU": "Niuminco Group Limited",
+    "SST": "Steamships Trading Company Limited",
+    "STO": "Santos Limited"
+}
+const PNGX_URL = "https://www.pngx.com.pg";
+const PNGX_DATA_URL = `${PNGX_URL}/data/`;
 
 /**
  * Schedule task to requests data from PNGX datasets every 2 minutes
@@ -226,12 +243,11 @@ const DATAURL = "http://www.pngx.com.pg/data/";
  * Fetch data from PNGX.com every 2 minutes
  */
 let initialFetch = true;
-// cron.schedule('*/2 * * * *', () => {
+cron.schedule('*/2 * * * *', () => {
 	console.log('This script will run every 2 minutes to update stocks info.');
 
-	dataFetcher();
-// });
-
+	data_fetcher();
+});
 
 app.use('/api', api);
 
@@ -443,6 +459,8 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
  * @param: /api/stocks?code=CODE, retreive quotes from a specific company for the current day
  * @param: /api/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
  * @param: /api/stocks?code=CODE&date_from=DATE&date_to=DATE
+ * 
+ * Date form
  */
 api.get('/stocks', function(req, res) {
 	let date = req.query.date;
@@ -645,23 +663,8 @@ api.get('/company/:ticker', function(req, res) {
 	let stockTicker = req.params.quote;
 
 	// Stock.findByName(stockQuote, req.)
-  let companies = {
-    "BSP": "BSP Financial Group Limited",
-    "CCP": "Credit Corporation (PNG) Ltd",
-    "CGA": "PNG Air Limited",
-    "COY": "Coppermoly Limited",
-    "CPL": "CPL Group",
-    "KAM": "Kina Asset Management Limited",
-    "KSL": "Kina Securities Limited",
-    "NCM": "Newcrest Mining Limited",
-    "NEM": "Newmont Mining Limited",
-    "NGP": "NGIP Agmark Limited",
-    "NIU": "Niuminco Group Limited",
-    "SST": "Steamships Trading Company Limited",
-    "STO": "Santos Limited"
-  }
 
-  return companies[stockTicker];
+  return LISTED_COMPANIES[stockTicker];
 });
 
 api.get('/tickers', async function(req, res) {
@@ -717,6 +720,7 @@ function dateUtil(date) {
  */
 function get_quotes_from_pngx(code) {
 	var options = {};
+
 	Object.assign(options, {
 		"method": 'GET',
 		"json": true
@@ -724,8 +728,8 @@ function get_quotes_from_pngx(code) {
 
 	return new Promise(function(resolve, reject) {
 		if (undefined !== typeof code) {
-			options['url'] = DATAURL + code +".csv";
-			getData(options).then(function(response){
+			options['url'] = PNGX_DATA_URL + code +".csv";
+			make_async_request(options).then(function(response){
 				// resolve(typeof callback == 'function' ? new callback(response) : response);
 				resolve(response);
 			})
@@ -736,9 +740,9 @@ function get_quotes_from_pngx(code) {
 		else {
 			for (var j = 0; j < QUOTES.length; j++) {
 
-				options['url'] = DATAURL + QUOTES[j] +".csv";
+				options['url'] = PNGX_DATA_URL + QUOTES[j] +".csv";
 
-				getData(options).then(function(response){
+				make_async_request(options).then(function(response){
 					// resolve(typeof callback == 'function' ? new callback(response) : response);
 					resolve(response);
 				})
@@ -782,10 +786,11 @@ function parse_csv_to_json(body) {
 /**
  * Hello
  */
-function getData(options) {
+function make_async_request(options) {
 	return new Promise(function(resolve, reject) {
 		request(options, function(error, response, body) {
 			if (error) reject(error);
+			
 			if (response && response.statusCode == 200) {
 				resolve(parse_csv_to_json(body));
 			}
@@ -796,8 +801,8 @@ function getData(options) {
 /**
  * Hello
  */
-async function dataFetcher() {
-	console.log('Fetching csv data from https://www.pngx.com.pg\n');
+async function data_fetcher() {
+	console.log(`Fetching csv data from ${PNGX_URL}\n`);
 	console.time("timer");   //start time with name = timer
 	var startTime = new Date();
 	var reqTimes = 0; // number of times the loop runs to fetch data
@@ -822,36 +827,25 @@ async function dataFetcher() {
 			for (var j = 0; j < totalCount; j++) {
 				let data = response[j];
 				// let data = response[totalCount-1]; // latest
-				// console.log(data['Date'])
-
+				
+				let formatedDate = format_date(data['Date']);
+				// console.log(formatedDate)
+			
 				// check if the quote for that particular company at that particular date already exists
 				Stock.findOne({
-					'date': data['Date'],
+					'date': formatedDate,
 					'short_name': data['Short Name']
 				})
 				.then(result => {
 					reqTimes++;
+					// console.log("Results found: " + result)
 					if (result == null) {
 						console.log("Match No Content.");
 						console.log("Adding it to the db");
 						
 						let quote = new Stock();
 						
-						// fixing timezone issues on clever-cloud.io
-						let localTime = momentTimezone.tz(new Date(data['Date']), 'Pacific/Port_Moresby');
-						quote['date'] = localTime;
-						quote['code'] = data['Short Name'];
-						quote['short_name'] = data['Short Name'];
-						quote['bid'] = Number(data['Bid']);
-						quote['offer'] = Number(data['Offer']);
-						quote['last'] = Number(data['Last']);
-						quote['close'] = Number(data['Close']);
-						quote['high'] = Number(data['High']);
-						quote['low'] = Number(data['Low']);
-						quote['open'] = Number(data['Open']);
-						quote['chg_today'] = Number(data['Chg. Today']);
-						quote['vol_today'] = Number(data['Vol. Today']);
-						quote['num_trades'] = Number(data['Num. Trades']);
+						prepare_quote(quote, data)
 
 						quote.save((error) => {
 							if (error) {
@@ -878,12 +872,56 @@ async function dataFetcher() {
 	};
 
 	initialFetch = false;
-	console.log('Data fetched from https://www.pngx.com.pg\n');
+	console.log(`Data fetched from ${PNGX_DATA_URL}\n`);
 	console.timeEnd("timer"); //end timer and log time difference
 	var endTime = new Date();
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
 	console.log(timeDiff + " secs\n");
 	console.log("Total request time: " + reqTimes);
+}
+// let s = parse_date("13/09/2024")
+// console.log(s)
+
+
+// Stock.findOne({
+// 	'date': s,
+// 	// 'short_name': data['Short Name']
+// })
+// .then(result => console.log(result))
+// .catch(err => console.log(err))
+
+function format_date(date) {
+	if (date.match(/\d{1,2}\/\d{1,2}\/\d{2,4}/)) {
+		let d = parse(date, "dd/MM/yyyy", new Date())
+		let localTime = formatInTimeZone(d, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT)
+		return localTime;
+	}
+	// else if (date.match(/\d{2,4}-\d{1,2}-\d{1,2}/)) {
+
+	// }
+	else {
+		return new Date(date);
+	}
+}
+
+function prepare_quote(quote, data) {
+	// fixing timezone issues on clever-cloud.io
+	let unformattedDate = format_date(data['Date'])
+	let localTime = formatInTimeZone(unformattedDate, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT)
+
+	quote['date'] = localTime;
+	quote['code'] = data['Short Name'];
+	quote['short_name'] = data['Short Name'];
+	quote['bid'] = Number(data['Bid']);
+	quote['offer'] = Number(data['Offer']);
+	quote['last'] = Number(data['Last']);
+	quote['close'] = Number(data['Close']);
+	quote['high'] = Number(data['High']);
+	quote['low'] = Number(data['Low']);
+	quote['open'] = Number(data['Open']);
+	quote['chg_today'] = Number(data['Chg. Today']);
+	quote['vol_today'] = Number(data['Vol. Today']);
+	quote['num_trades'] = Number(data['Num. Trades']);
 }
 
 // const getStream = require('get-stream');
@@ -907,20 +945,7 @@ async function dataFetcher() {
 				
 // 				let quote = new Stock();
 
-// 				let localTime = momentTimezone.tz(new Date(data['Date']), 'Pacific/Port_Moresby');	
-// 				quote['date'] = localTime;
-// 				quote['code'] = data['Short Name'];
-// 				quote['short_name'] = data['Short Name'];
-// 				quote['bid'] = Number(data['Bid']);
-// 				quote['offer'] = Number(data['Offer']);
-// 				quote['last'] = Number(data['Last']);
-// 				quote['close'] = Number(data['Close']);
-// 				quote['high'] = Number(data['High']);
-// 				quote['low'] = Number(data['Low']);
-// 				quote['open'] = Number(data['Open']);
-// 				quote['chg_today'] = Number(data['Chg. Today']);
-// 				quote['vol_today'] = Number(data['Vol. Today']);
-// 				quote['num_trades'] = Number(data['Num. Trades']);
+// 				quote = prepare_data(quote, data)
 
 // 				quote.save(function(err) {
 // 					if (err) {
@@ -942,7 +967,7 @@ async function dataFetcher() {
 				
 // 		// 		let quote = new Ticker();
 
-// 		// 		let localTime = momentTimezone.tz(new Date(data['Date']), 'Pacific/Port_Moresby');	
+// 		// 		let localTime = momentTimezone.tz(new Date(data['Date']), LOCAL_TIMEZONE);	
 // 		// 		quote['date'] = localTime;
 // 		// 		console.log(quote)
 // 		// 		console.log(new Date(data['Date']))
@@ -1051,3 +1076,27 @@ function errorLogHandler(err, req, res, next) {
   logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
   next(err)
 };
+
+function fixDateFormatOnProdDB() {
+	Stock
+	.find({
+		// _id: mongoose.mongo.ObjectId("633a925da76dd590ada1d70c"),
+		// date: new Date("10/03/2022"),
+		code: "STO"
+	})
+	.then(res => {
+		return Promise.all(
+			res.map(data => {
+				// if (date)
+				// data.date = new Date(data.date)
+				// data.save()
+				return data
+			})
+		)
+	})
+	.then(res => {
+		console.table(res)
+	})
+}
+
+// fixDateFormatOnProdDB()
