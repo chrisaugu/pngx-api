@@ -1,7 +1,7 @@
 const http = require("http");
 const express = require("express");
 const setRateLimit = require('express-rate-limit');
-const request = require('request');
+const request = require('request-promise');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cron = require('node-cron');
@@ -150,11 +150,11 @@ mongoose.connection.on("connected", function() {
 	
 	console.log('Stocks info will be updated every 1 hour.');
 	// cron.schedule('*/2 * * * *', () => {
-	// cron.schedule('* */2 * * *', () => {
-	// 	// console.log('This script will run every 2 minutes to update stocks info.');
+	cron.schedule('* */2 * * *', () => {
+		console.log('This script will run every 2 minutes to update stocks info.');
 	
-	// 	data_fetcher();
-	// });
+		data_fetcher();
+	});
 });
 
 mongoose.connection.on('error', function() {
@@ -740,13 +740,15 @@ function get_quotes_from_pngx(code) {
 
 	Object.assign(options, {
 		"method": 'GET',
-		"json": true
+		// "headers": {
+		// 	'Content-Type': 'text/csv'
+		// }
 	});
 
 	return new Promise(function(resolve, reject) {
 		if (undefined !== typeof code) {
-			options['url'] = PNGX_DATA_URL + code +".csv";
-			make_async_request(options).then(function(response){
+			let url = PNGX_DATA_URL + code +".csv";
+			make_async_request(url, options).then(function(response){
 				// resolve(typeof callback == 'function' ? new callback(response) : response);
 				resolve(response);
 			})
@@ -803,15 +805,21 @@ function parse_csv_to_json(body) {
 /**
  * Hello
  */
-function make_async_request(options) {
+function make_async_request(url, options) {
 	return new Promise(function(resolve, reject) {
-		request(options, function(error, response, body) {
-			if (error) reject(error);
-			
-			if (response && response.statusCode == 200) {
-				resolve(parse_csv_to_json(body));
+		fetch(url, options)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
 			}
-		});
+			return response.text();
+		})
+		.then((response) => {
+			resolve(parse_csv_to_json(response));
+		})
+		.catch((error) => {
+			reject(error);
+		})
 	});
 }
 
@@ -1119,3 +1127,13 @@ function fixDateFormatOnProdDB() {
 }
 
 // fixDateFormatOnProdDB()
+
+async function parallel(arr, fn, threads = 2) {
+	const result = [];
+
+	while (arr.length) {
+		const res = await Promise.all(arr.splice(0, threads).map(x => fn(x)));
+		result.push(res);
+	}
+	return result.flat();
+}
