@@ -150,11 +150,11 @@ mongoose.connection.on("connected", function() {
 	
 	console.log('Stocks info will be updated every 1 hour.');
 	// cron.schedule('*/2 * * * *', () => {
-	cron.schedule('* */2 * * *', () => {
-		console.log('This script will run every 2 minutes to update stocks info.');
+	// cron.schedule('* */2 * * *', () => {
+	// 	console.log('This script will run every 2 minutes to update stocks info.');
 	
-		data_fetcher();
-	});
+	// 	data_fetcher();
+	// });
 });
 
 mongoose.connection.on('error', function() {
