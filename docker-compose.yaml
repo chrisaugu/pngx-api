@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  backend:
+    build: .
+    env_file: ./Dockerfile
+    depends_on:
+      - redisq
+      - mongodb
+    restart: always
+    networks:
+      - nuku-network
+  redisq:
+    image: redis
+    ports:
+      - "6379:6379"
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata6:/data/db
+    networks:
+      - nuku-network
+volumes:
+  dbdata6:
+networks:
+  nuku-network:
+    driver: bridge
