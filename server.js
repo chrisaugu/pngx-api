@@ -1,4 +1,5 @@
 const http = require("http");
+const debug = require('debug')('test');
 const express = require("express");
 const setRateLimit = require('express-rate-limit');
 const request = require('request-promise');
@@ -9,28 +10,79 @@ const cors = require("cors");
 const fs = require('fs');
 const marked = require('marked');
 const path = require('path');
-const {format, parse, formatDate} = require('date-fns');
-const { formatInTimeZone } = require('date-fns-tz');
-const debug = require('debug')('test');
 const createError = require('http-errors');
 const ip = require('ip');
 // const boxen = require('boxen');
-const os = require('os');
-require('dotenv').config();
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start()
+const os = require('os');
 const helmet = require('helmet');
-const { specs, swaggerUi } = require('./swagger');
+const redis = require('redis');
+const celery = require('celery-node');
+require('dotenv').config();
+// require("./worker");
 
-// const logger = require('./config/winston');
-
-const LOCAL_TIMEZONE = 'Pacific/Port_Moresby';
-const LOCAL_TIMEZONE_FORMAT = 'yyyy-MM-dd'; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)
+const { specs, swaggerUi } = require('./config/swagger');
+const logger = require('./config/winston');
+const utils = require('./utils');
+const tasks = require('./tasks');
+const { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL } = require("./constants");
+const { Stock, Company, Ticker } = require("./models");
+const { initDatabase } = require("./database");
 
 // Creating express app
 const app = express();
 const api = express.Router();
-const Schema = mongoose.Schema;
+
+// Redis client
+let redisClient = redis.createClient({
+	host: '127.0.0.1',
+	port: 6379,
+}).on('error', (err) => {
+	console.error('Redis connection error:', err);
+}).on('connect', () => {
+	console.log('Connected to Redis');
+});
+// If authentication is required, use the 'auth' method on the client
+// redisClient.auth('your-redis-password');
+
+// Celery client
+const celeryClient = celery.createClient(
+	"redis://127.0.0.1:6379", 
+	"redis://127.0.0.1:6379"
+);
+
+// const task = celeryClient.createTask("tasks.add");
+// const result = task.applyAsync([1, 2]);
+// result.get().then(data => {
+// //   console.log(data);
+// //   celeryClient.disconnect();
+// });
+// const taskKwargs = celeryClient.createTask("tasks.fetch_data_from_pngx");
+// Promise.all([
+//   task
+//     .delay(1, 2)
+//     .get()
+//     .then(console.log),
+//   task
+//     .applyAsync([1, 2])
+//     .get()
+//     .then(console.log),
+//   taskKwargs
+//     .delay(1, 2, { c: 3, d: 4 })
+//     .get()
+//     .then(console.log),
+//   taskKwargs
+//     .applyAsync([1, 2], { c: 3, d: 4 })
+//     .get()
+//     .then(console.log)
+// ]).then(() => celeryClient.disconnect());
+// const task = celeryClient.createTask("tasks.stock_fetcher");
+// const result = task.applyAsync([]);
+// result.get().then(data => {
+//   console.log(data);
+//   celeryClient.disconnect();
+// });
 
 const allowlist = ['192.168.0.56', '192.168.0.21'];
 const rateLimitMiddleware = setRateLimit({
@@ -56,7 +108,7 @@ app.use("/demo", express.static(path.join(__dirname, 'demo')));
 app.use("/assets", express.static(path.join(__dirname + 'docs/assets')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({}));
-// app.use(morgan("combined", { stream: logger.stream.write }));
+app.use(morgan("combined", { stream: logger.stream.write }));
 
 // app.use(helmet);
 app.use(cors({
@@ -76,25 +128,39 @@ app.use(errorHandler);
 
 app.use('/api', rateLimitMiddleware);
 
-let server = http.createServer(app);
-
-const interfaces = os.networkInterfaces();
-const getNetworkAddress = () => {
-	for (const name of Object.keys(interfaces)) {
-		for (const interface of interfaces[name]) {
-			const {address, family, internal} = interface;
-			if (family === 'IPv4' && !internal) {
-				return address;
-			}
+// middleware to check data is present in cache
+var checkCache = (req, res, next) => {
+	let search = req.params.search;
+	redisClient.get(search, (err, data) => {
+		if (err) throw err;
+		if (!data) {
+			return next();
+		} else {
+			return res.json({ data: JSON.parse(data), info: 'data from cache' });
 		}
-	}
+	});
 };
+// app.use(checkCache);
+
+let server = http.createServer(app);
 
 // create server and listen on the port
 server.listen(app.get('port'), /*"localhost",*/ () => {
 	const details = server.address();
 	let localAddress = null;
 	let networkAddress = null;
+	
+	const interfaces = os.networkInterfaces();
+	const getNetworkAddress = () => {
+		for (const name of Object.keys(interfaces)) {
+			for (const interface of interfaces[name]) {
+				const {address, family, internal} = interface;
+				if (family === 'IPv4' && !internal) {
+					return address;
+				}
+			}
+		}
+	};
 
 	if (typeof details === 'string') {
 		localAddress = details;
@@ -123,144 +189,69 @@ server.listen(app.get('port'), /*"localhost",*/ () => {
 	// console.debug(boxen(`Server running on ${localAddress}`));
 	console.debug(`Server running on port ${localAddress}`);
 });
-// server.on('error', function(error) {
-// 	console.error(error);
-// });
-// server.on('end', function() {
-// 	server.end();
-// 	server.destroy();
-// });
-
-// Creating an instance for MongoDB
-mongoose
-.set('strictQuery', false)
-.connect(app.get('mongodb_uri'), {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
+server.on('error', function(error) {
+	console.error(error);
+});
+server.on('end', function() {
+	server.end();
+	server.destroy();
 });
 
-mongoose.connection.on("connected", function() {
-	console.log("Connected: Successfully connect to mongo server");
-
+initDatabase()
+.on("connected", function(result) {
+	console.log("[Main_Thread]: Connected: Successfully connect to mongo server");
 	/**
 	 * Schedule task to requests data from PNGX datasets every 2 minutes
 	 * The task requests and models the data them stores those data in db
 	 * Fetch data from PNGX.com every 2 minutes
 	 */
 	
-	console.log('Stocks info will be updated every 1 hour.');
+	// console.log('This script will run every 2 minutes to update stocks info.');
 	// cron.schedule('*/2 * * * *', () => {
-	// cron.schedule('* */2 * * *', () => {
-	// 	console.log('This script will run every 2 minutes to update stocks info.');
-	
-	// 	data_fetcher();
-	// });
-});
+	console.log('Stocks info will be updated every 2 hours.');
+	cron.schedule('* */2 * * *', () => {
+		// tasks.data_fetcher();
+		// const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
+		// 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
+		// const data_fetcher = celeryClient.createTask("tasks.data_fetcher")
+		// 								 .applyAsync([]);
 
-mongoose.connection.on('error', function() {
-	console.log("Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
-});
+		// data_fetcher.get().then(data => {
+		// 	console.log(data)
+		// 	celeryClient.disconnect();
+		// });
+		const { Worker } = require('node:worker_threads');
+		const cpuCount = os.cpus().length; // 8
+		const childWorkerPath = path.resolve(process.cwd(), 'threads.js');
 
-let initialFetch = true;
-// models
-const quoteSchema = new Schema({
-	date: Date,
-	code: String,
-	short_name: String,
-	bid: Number,
-	offer: Number,
-	last: Number,
-	close: Number,
-	high: Number,
-	low: Number,
-	open: Number,
-	chg_today: Number,
-	vol_today: Number,
-	num_trades: Number
+		try {
+			let worker = new Worker(childWorkerPath);
+			worker.once('message', result => {
+				console.log('completed: ', result);
+			});
+			worker.on('error', error => {
+				throw new Error(`Error occured`, error);
+			})
+			worker.on('exit', exitCode => {
+				if (exitCode !== 0) {
+					throw new Error(`Worker stopped with exit code ${exitCode}`);
+				}
+			})
+		} catch (erorr) {
+			console.log(erorr)
+		}
+	});
+})
+.on('error', function(error) {
+	console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
-quoteSchema.index({'code' : 1, 'date' : 1});
-const Stock = mongoose.model('stockquote', quoteSchema);
-
-const companySchema = new Schema({
-	name: String,
-	ticker: String,
-	description: String,
-	industry: String,
-	sector: String,
-	key_people: Array,
-	date_listed: Date, // ipo
-	esteblished_date: Date,
-	outstanding_shares: Number
-});
-quoteSchema.index({'ticker' : 1});
-const Company = mongoose.model('company', companySchema);
-
-// {
-//   date: ISODate("2020-01-03T05:00:00.000Z"),
-//   symbol: 'AAPL',
-//   volume: 146322800,
-//   open: 74.287498,
-//   adjClose: 73.486023,
-//   high: 75.144997,
-//   low: 74.125,
-//   close: 74.357498
-// }
-const tickerSchema = new Schema({
-	date: Date,
-	symbol: String,
-	bid: Number,
-	offer: Number,
-	last: Number,
-	close: Number,
-	high: Number,
-	low: Number,
-	open: Number,
-	change: Number,
-	volume: Number,
-	num_trades: Number
-},
-{
-	timeseries: { 
-		timeField: "date", 
-		metaField: "symbol",
-		granularity: "days"
-	},
-	autoCreate: false,
-// },
-// {
-// 	timestamps: {
-// 		currentTime: () => Math.floor(Date.now() / 1000)
-// 	}
-});
-tickerSchema.index({ 'symbol' : 1, 'date' : 1});
-const Ticker = mongoose.model('ticker', tickerSchema);
-
-const SYMBOLS = ['BSP','CCP','CGA','CPL','KAM','KSL','NEM','NGP','NIU','SST','STO'];
-const OLD_SYMBOLS = ['COY','NCM','OSH'];
-const LISTED_COMPANIES = {
-    "BSP": "BSP Financial Group Limited",
-    "CCP": "Credit Corporation (PNG) Ltd",
-    "CGA": "PNG Air Limited",
-    "COY": "Coppermoly Limited",
-    "CPL": "CPL Group Limited",
-    "KAM": "Kina Asset Management Limited",
-    "KSL": "Kina Securities Limited",
-    "NCM": "Newcrest Mining Limited",
-    "NEM": "Newmont Mining Limited",
-    "NGP": "NGIP Agmark Limited",
-    "NIU": "Niuminco Group Limited",
-    "SST": "Steamships Trading Company Limited",
-    "STO": "Santos Limited"
-}
-const PNGX_URL = "https://www.pngx.com.pg";
-const PNGX_DATA_URL = `${PNGX_URL}/data/`;
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/api', api);
 
 /**
  * @swagger
- * /sample:
+ * /:
  *   get:
  *     summary: Returns a sample message
  *     responses:
@@ -362,6 +353,9 @@ api.get('/historicals/:symbol', function(req, res) {
 
 	stock.exec(function(err, stocks) {
 		const count = stocks.length == limit ? limit : stocks.length;
+		
+		// caching received data using redis
+		// redisClient.setEx(search, 600, JSON.stringify(stocks));
 
 		if (err) {
 			console.log(err);
@@ -486,6 +480,7 @@ api.get('/stocks', function(req, res) {
 	let sort = parseInt(req.query.sort);
 	let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
 	let fields = req.query.fields;
+	let code = req.query.code || req.query.symbol || req.query.ticker;
 
 	let query = Stock.find();
 
@@ -543,14 +538,14 @@ api.get('/stocks', function(req, res) {
 	if (limit) {
 		query.limit(limit);
 	}
-	else {
-		// default limit is 12 - currently the number of companies listed on PNGX.com.pg
-		query.limit(SYMBOLS.length);
-	}
 
 	// skip=
 	if (skip) {
 		query.skip(skip);
+	}
+
+	if (code) {
+		query.where({'code': code});
 	}
 
 	query.exec(function(err, stocks) {
@@ -725,185 +720,6 @@ api.get('/tickersx', (req, res) => {
 	});
 });
 
-function dateUtil(date) {
-	const [month, day, year] = date.split('/');
-	const result = [year, month, day].join('-');
-
-	return result;
-}
-
-/**
- * hello
- */
-function get_quotes_from_pngx(code) {
-	var options = {};
-
-	Object.assign(options, {
-		"method": 'GET',
-		// "headers": {
-		// 	'Content-Type': 'text/csv'
-		// }
-	});
-
-	return new Promise(function(resolve, reject) {
-		if (undefined !== typeof code) {
-			let url = PNGX_DATA_URL + code +".csv";
-			make_async_request(url, options).then(function(response){
-				// resolve(typeof callback == 'function' ? new callback(response) : response);
-				resolve(response);
-			})
-			.catch(function(error) {
-				reject(error);
-			});
-		}
-		else {
-			for (var j = 0; j < SYMBOLS.length; j++) {
-
-				options['url'] = PNGX_DATA_URL + SYMBOLS[j] +".csv";
-
-				make_async_request(options).then(function(response){
-					// resolve(typeof callback == 'function' ? new callback(response) : response);
-					resolve(response);
-				})
-				.catch(function(error) {
-					reject(error);
-				});
-			}
-		}
-	});
-}
-
-/**
- * Parses CSV format to JSON format for easy manipulation of data
- */
-function parse_csv_to_json(body) {
-	console.log("parsing csv to json");
-	var i = [];
-	// split the data into array by whitespaces
-	// var o = body.split(/\r\n|\n/);
-
-	// split the first row of that array only by comma (,) to get headers
-	// var a = o[0].split(",");
-
-	// loop through the other rows to obtain data
-	for (var o = body.split(/\r\n|\n/), a = o[0].split(","), s = 1; s < o.length; s++) {
-		// split each row by comma
-		var l = o[s].split(",")
-		// compare the splited row with the first/header row
-		if (l.length == a.length) {
-			// run through the header row
-			// attaches splited row to the header row
-			// then store it on variable d
-			// create array by pushing the stored data to the variable i
-			for(var d = {}, u = 0; u < a.length; u++) d[a[u]] = l[u]; i.push(d)
-		}
-	}
-	// i[i.length -1]
-	return i;
-}
-
-/**
- * Hello
- */
-function make_async_request(url, options) {
-	return new Promise(function(resolve, reject) {
-		fetch(url, options)
-		.then((response) => {
-			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
-			}
-			return response.text();
-		})
-		.then((response) => {
-			resolve(parse_csv_to_json(response));
-		})
-		.catch((error) => {
-			reject(error);
-		})
-	});
-}
-
-/**
- * Hello
- */
-async function data_fetcher() {
-	console.log(`Fetching csv data from ${PNGX_URL}\n`);
-	console.time("timer");   //start time with name = timer
-	var startTime = new Date();
-	var reqTimes = 0; // number of times the loop runs to fetch data
-
-	for (var i = 0; i < SYMBOLS.length; i++) {
-		let symbol = SYMBOLS[i];
-		console.log("Fetching quotes for " + symbol + " ...");
-		/**
-		 * insert new data from pngx into the local database
-		 * get csv data from pngx.com
-		 * parse the csv to json
-		 * for each quote compare its date against the date of the ones that exist in the database
-		 * if the date compared does not match any existing quote then insert that quote into the database
-		 * else continue to next quote until all quotes are compared then exit the program
-		 */
-		await get_quotes_from_pngx(symbol).then((quotes) => {
-			console.log("Fetched quotes for " + symbol);
-			var totalCount = quotes.length, 
-			    totalAdded = 0;
-
-			// iterate through the dataset and add each data element to the db
-			for (var j = 0; j < totalCount; j++) {
-				let quote = normalize_data(quotes[j]);
-				console.log("Querying db for existing quote for " + symbol + " on " + quote.date.toLocaleDateString() + " ...");
-				// let data = quotes[totalCount-1]; // latest
-			
-				// check if the quote for that particular company at that particular date already exists
-				Stock.findOne({
-					'date': quote.date,
-					'short_name': quote.short_name
-				})
-				.then(result => {
-					reqTimes++;
-
-					if (result == null) {
-						console.log("Results not found");
-						console.log("Adding quote for " + symbol + " ...");
-						
-						let stock = new Stock(quote);
-						// console.log(stock)
-						stock.save((error) => {
-							if (error) {
-								console.log(error + "\n");
-							} else {
-								console.log('Added quote for ' + quote.date.toLocaleDateString() + "\n");
-								totalAdded = totalAdded + 1;
-							}
-						});
-					}
-					else {
-						console.log("Results found: ")
-						console.log("Skip ...")
-					}
-				})
-				.catch((error) => {
-					throw new Error(error);
-				});
-			};
-
-			console.log(totalAdded + "/" + totalCount + " quotes were added.");
-			console.log("stop\n");
-		})
-		.catch((error) => {
-			console.log(error.code == 'ENOTFOUND');
-			throw new Error(error);
-		});
-	};
-
-	initialFetch = false;
-	console.log(`Data fetched from ${PNGX_DATA_URL}\n`);
-	console.timeEnd("timer"); //end timer and log time difference
-	var endTime = new Date();
-	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
-	console.log(timeDiff + " secs\n");
-	console.log("Total request time: " + reqTimes);
-}
 // let s = parse_date("13/09/2024")
 // console.log(s)
 
@@ -915,41 +731,7 @@ async function data_fetcher() {
 // .then(result => console.log(result))
 // .catch(err => console.log(err))
 
-function format_date(date) {
-	if (date.match(/\d{1,2}\/\d{1,2}\/\d{2,4}/)) {
-		let parseDate = parse(date, "dd/MM/yyyy", new Date())
-		// fixing timezone issues on clever-cloud.io
-		let localTime = formatInTimeZone(parseDate, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT)
-		return new Date(localTime);
-	}
-	// else if (date.match(/\d{2,4}-\d{1,2}-\d{1,2}/)) {
 
-	// }
-	else {
-		return new Date(date);
-	}
-}
-
-function normalize_data(data) {
-	let quote = {};
-	let formattedDate = format_date(data['Date'])
-
-	quote['date'] = formattedDate;
-	quote['code'] = data['Short Name'];
-	quote['short_name'] = data['Short Name'];
-	quote['bid'] = Number(data['Bid']);
-	quote['offer'] = Number(data['Offer']);
-	quote['last'] = Number(data['Last']);
-	quote['close'] = Number(data['Close']);
-	quote['high'] = Number(data['High']);
-	quote['low'] = Number(data['Low']);
-	quote['open'] = Number(data['Open']);
-	quote['chg_today'] = Number(data['Chg. Today']);
-	quote['vol_today'] = Number(data['Vol. Today']);
-	quote['num_trades'] = Number(data['Num. Trades']);
-
-	return quote;
-}
 
 // const getStream = require('get-stream');
 

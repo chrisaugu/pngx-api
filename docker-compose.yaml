@@ -1,0 +1,34 @@
+services:
+  api:
+    build: .
+    env_file: ./Dockerfile
+    depends_on:
+      - nuku-redis
+      - nuku-mongodb
+    restart: always
+    networks:
+      - nuku-network
+  nuku-worker:
+    build: 
+      context: .
+    command: ["node", "worker.js"]
+    restart: always
+    depends_on:
+      - nuku-redis
+  nuku-redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  nuku-mongodb:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata6:/data/db
+    networks:
+      - nuku-network
+volumes:
+  dbdata6:
+networks:
+  nuku-network:
+    driver: bridge
