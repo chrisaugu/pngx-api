@@ -167,7 +167,7 @@ async function data_fetcher() {
 exports.data_fetcher = data_fetcher;
 
 async function stock_fetcher() {
-	let result = await Stock.find().then(res => res)
+	let result = await Stock.find()
 	return result;
 }
 exports.stock_fetcher = stock_fetcher;

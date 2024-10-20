@@ -1,3 +1,8 @@
+0.0.1 / 2024-10-20
+==================
+  * Added `redis` to take of load
+  * Added `node-celery` to handle tasks out of the main thread 
+
 0.0.1 / 2024-01-15
 ==================
   * Added `express-rate-limit` to limit the requests
@@ -14,7 +19,6 @@
 
 4.17.1 / 2019-05-25
 ===================
-
   * Revert "Improve error message for `null`/`undefined` to `res.status`"
 
 4.17.0 / 2019-05-16

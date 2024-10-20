@@ -16,10 +16,10 @@ mongoose
 	useUnifiedTopology: true
 });
 mongoose.connection.on("connected", function() {
-	console.log("[Worker]: Connected: Successfully connect to mongo server on the worker");
+	console.log("[Celery_Worker]: Connected: Successfully connect to mongo server on the worker");
 });
 mongoose.connection.on('error', function() {
-	console.log("[Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+	console.log("[Celery_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
 
 // registering all tasks

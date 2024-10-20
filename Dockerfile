@@ -23,4 +23,6 @@ FROM base as production
 ENV NODE_ENV=production
 RUN npm install
 COPY . .
-CMD ["node", "server.js"]
+# CMD ["node", "server.js"]
+# CMD ["node", "worker.js"]
+RUN node server.js && node worker.js

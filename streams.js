@@ -1,7 +1,7 @@
 // streams.mjs
-import { pipeline } from 'node:stream/promises';
-import { createReadStream, createWriteStream } from 'node:fs';
-import { createGzip } from 'node:zlib';
+const { pipeline } = require('node:stream/promises');
+const { createReadStream, createWriteStream } = require('node:fs');
+const { createGzip } = require('node:zlib');
 
 // ensure you have a `package.json` file for this test!
 await pipeline

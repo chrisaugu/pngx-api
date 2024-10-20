@@ -1,19 +1,25 @@
-version: "3.9"
 services:
-  backend:
+  api:
     build: .
     env_file: ./Dockerfile
     depends_on:
-      - redisq
-      - mongodb
+      - nuku-redis
+      - nuku-mongodb
     restart: always
     networks:
       - nuku-network
-  redisq:
+  nuku-worker:
+    build: 
+      context: .
+    command: ["node", "worker.js"]
+    restart: always
+    depends_on:
+      - nuku-redis
+  nuku-redis:
     image: redis
     ports:
       - "6379:6379"
-  mongodb:
+  nuku-mongodb:
     image: mongo:6-jammy
     ports:
       - '27017:27017'

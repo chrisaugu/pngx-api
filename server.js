@@ -28,6 +28,7 @@ const utils = require('./utils');
 const tasks = require('./tasks');
 const { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL } = require("./constants");
 const { Stock, Company, Ticker } = require("./models");
+const { initDatabase } = require("./database");
 
 // Creating express app
 const app = express();
@@ -196,17 +197,9 @@ server.on('end', function() {
 	server.destroy();
 });
 
-// Creating an instance for MongoDB
-mongoose
-.set('strictQuery', false)
-.connect(app.get('mongodb_uri'), {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
-
-mongoose.connection.on("connected", function() {
-	console.log("Connected: Successfully connect to mongo server");
-
+initDatabase()
+.on("connected", function(result) {
+	console.log("[Main_Thread]: Connected: Successfully connect to mongo server");
 	/**
 	 * Schedule task to requests data from PNGX datasets every 2 minutes
 	 * The task requests and models the data them stores those data in db
@@ -215,24 +208,44 @@ mongoose.connection.on("connected", function() {
 	
 	// console.log('This script will run every 2 minutes to update stocks info.');
 	// cron.schedule('*/2 * * * *', () => {
-	console.log('Stocks info will be updated every 1 hour.');
+	console.log('Stocks info will be updated every 2 hours.');
 	cron.schedule('* */2 * * *', () => {
 		// tasks.data_fetcher();
 		// const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
 		// 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
-		const data_fetcher = celeryClient.createTask("tasks.data_fetcher")
-										 .applyAsync([]);
+		// const data_fetcher = celeryClient.createTask("tasks.data_fetcher")
+		// 								 .applyAsync([]);
 
-		data_fetcher.get().then(data => {
-			console.log(data)
-			celeryClient.disconnect();
-		});
+		// data_fetcher.get().then(data => {
+		// 	console.log(data)
+		// 	celeryClient.disconnect();
+		// });
+		const { Worker } = require('node:worker_threads');
+		const cpuCount = os.cpus().length; // 8
+		const childWorkerPath = path.resolve(process.cwd(), 'threads.js');
+
+		try {
+			let worker = new Worker(childWorkerPath);
+			worker.once('message', result => {
+				console.log('completed: ', result);
+			});
+			worker.on('error', error => {
+				throw new Error(`Error occured`, error);
+			})
+			worker.on('exit', exitCode => {
+				if (exitCode !== 0) {
+					throw new Error(`Worker stopped with exit code ${exitCode}`);
+				}
+			})
+		}catch (erorr) {
+			console.log(erorr)
+		}
 	});
+})
+.on('error', function(error) {
+	console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
 
-mongoose.connection.on('error', function() {
-	console.log("Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
-});
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/api', api);
