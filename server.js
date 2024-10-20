@@ -2,7 +2,7 @@ const http = require("http");
 const debug = require('debug')('test');
 const express = require("express");
 const setRateLimit = require('express-rate-limit');
-// const request = require('request-promise');
+const request = require('request-promise');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cron = require('node-cron');
@@ -237,7 +237,7 @@ initDatabase()
 					throw new Error(`Worker stopped with exit code ${exitCode}`);
 				}
 			})
-		}catch (erorr) {
+		} catch (erorr) {
 			console.log(erorr)
 		}
 	});
@@ -245,7 +245,6 @@ initDatabase()
 .on('error', function(error) {
 	console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
-
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/api', api);
@@ -910,3 +909,13 @@ function fixDateFormatOnProdDB() {
 }
 
 // fixDateFormatOnProdDB()
+
+async function parallel(arr, fn, threads = 2) {
+	const result = [];
+
+	while (arr.length) {
+		const res = await Promise.all(arr.splice(0, threads).map(x => fn(x)));
+		result.push(res);
+	}
+	return result.flat();
+}

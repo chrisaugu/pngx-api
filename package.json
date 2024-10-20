@@ -55,7 +55,7 @@
     "path": "^0.12.7",
     "redis": "^4.7.0",
     "request": "^2.88.2",
-    "request-promise": "^0.0.1",
+    "request-promise": "^4.2.6",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "winston": "^3.7.2"
