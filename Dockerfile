@@ -11,18 +11,15 @@ ENV PORT=4000
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package*.json ./src
-# COPY package.json package-lock.json /src/
+COPY package*.json .
 
 # Bundle app source
 COPY . .
 
-EXPOSE 4000
-
 FROM base as production
 ENV NODE_ENV=production
 RUN npm install
-COPY . .
+EXPOSE 4000
 # CMD ["node", "server.js"]
 # CMD ["node", "worker.js"]
 RUN node server.js && node worker.js

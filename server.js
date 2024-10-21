@@ -2,7 +2,7 @@ const http = require("http");
 const debug = require('debug')('test');
 const express = require("express");
 const setRateLimit = require('express-rate-limit');
-const request = require('request-promise');
+// const request = require('request-promise');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cron = require('node-cron');
@@ -544,7 +544,7 @@ api.get('/stocks', function(req, res) {
 		query.skip(skip);
 	}
 
-	if (code) {
+	if (code != null) {
 		query.where({'code': code});
 	}
 
