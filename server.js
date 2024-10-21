@@ -2,7 +2,7 @@ const http = require("http");
 const debug = require('debug')('test');
 const express = require("express");
 const setRateLimit = require('express-rate-limit');
-const request = require('request-promise');
+// const request = require('request-promise');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cron = require('node-cron');
@@ -209,7 +209,7 @@ initDatabase()
 	// console.log('This script will run every 2 minutes to update stocks info.');
 	// cron.schedule('*/2 * * * *', () => {
 	console.log('Stocks info will be updated every 2 hours.');
-	// cron.schedule('* */2 * * *', () => {
+	cron.schedule('* */2 * * *', () => {
 		// tasks.data_fetcher();
 		// const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
 		// 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
@@ -240,7 +240,7 @@ initDatabase()
 		} catch (erorr) {
 			console.log(erorr)
 		}
-	// });
+	});
 })
 .on('error', function(error) {
 	console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
