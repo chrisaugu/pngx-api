@@ -6,8 +6,11 @@ require('dotenv').config();
 // Creating an instance for MongoDB
 
 initDatabase()
-.on("connected", function() {
+.on("connected", async function() {
 	console.log("[Worker_Threads]: Connected: Successfully connect to mongo server on the worker");
+  
+  let result = await data_fetcher();
+  parentPort.postMessage(result);
 })
 .on('error', function() {
 	console.log("[Worker_Threads]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
@@ -24,7 +27,7 @@ initDatabase()
 //   parentPort.postMessage(btoa(source.toUpperCase()));
 // }
 
-(async () => {
-  let result = await data_fetcher();
-  parentPort.postMessage(result);
-})();
+// (async () => {
+//   let result = await data_fetcher();
+//   parentPort.postMessage(result);
+// })();

@@ -4,7 +4,7 @@ const celery = require('celery-node');
 const tasks = require("./tasks");
 
 const worker = celery.createWorker(
-    "redis://127.0.0.1:6379", 
+    process.env.REDIS_URL, 
     "redis://127.0.0.1:6379"
 );
 

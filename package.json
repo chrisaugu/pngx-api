@@ -1,6 +1,6 @@
 {
   "name": "pngx-api",
-  "version": "1.20.0",
+  "version": "2.0",
   "private": true,
   "description": "Restful API that serves stock quotes from pngx.com.pg",
   "main": "./server.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/chrisaugu/pngx-api.git"
+    "url": "https://github.com/chrisaugu/pngx-api.git"
   },
   "keywords": [
     "PNG",
@@ -49,6 +49,7 @@
     "mongoose": "^6.8.0",
     "morgan": "^1.10.0",
     "node-cron": "^3.0.0",
+    "node-fetch": "^3.3.2",
     "ora": "^7.0.1",
     "os": "^0.1.2",
     "papaparse": "^5.4.1",
@@ -56,6 +57,7 @@
     "redis": "^4.7.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
+    "superagent": "^10.1.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "winston": "^3.7.2"
