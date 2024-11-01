@@ -222,10 +222,22 @@ initDatabase()
 		// });
 		const { Worker } = require('node:worker_threads');
 		const cpuCount = os.cpus().length; // 8
-		const childWorkerPath = path.resolve(process.cwd(), 'threads.js');
+		const childWorkerPath = path.resolve(process.cwd(), 'thread_workers.js');
+
+		// const workerPromises = [];
+		// for (let i = 0; i < THREAD_COUNT; i++) {
+		// 	workerPromises.push(createWorker());
+		// }
+		// const thread_results = await Promise.all(workerPromises);
+		// const total =
+		// 	thread_results[0] +
+		// 	thread_results[1] +
+		// 	thread_results[2] +
+		// 	thread_results[3];
 
 		try {
 			let worker = new Worker(childWorkerPath);
+
 			worker.once('message', result => {
 				console.log('completed: ', result);
 			});
@@ -569,25 +581,7 @@ api.get('/stocks', function(req, res) {
 		}
 	});
 });
-// db.sales.aggregate([
-//   // First Stage
-//   {
-//     $match : { "date": { $gte: new ISODate("2014-01-01"), $lt: new ISODate("2015-01-01") } }
-//   },
-//   // Second Stage
-//   {
-//     $group : {
-//        _id : { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
-//        totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } },
-//        averageQuantity: { $avg: "$quantity" },
-//        count: { $sum: 1 }
-//     }
-//   },
-//   // Third Stage
-//   {
-//     $sort : { totalSaleAmount: -1 }
-//   }
-//  ])
+
 /**
  * POST /api/stocks
  * import sample data for testing
@@ -595,49 +589,41 @@ api.get('/stocks', function(req, res) {
 api.post('/stocks', function(req, res) {
 	let data = req.body;
 
-	let query = Stock.findOne({
-		date: data[0]['date'],
-		short_name: data[0]['short_name'] 
-	});
-	// query.lean();
-	query.exec(function(error, result) {
-		if (error) {
-			console.error("Error: " + error);
-			res.send("Error: " + error);
-		}
-		else if (result == null) {
-			console.log("Match No Content.");
-			console.log("Adding it to the db");
+	if (Array.isArray(data)) {
+		for (let i = 0; i < data.length; i++) {
+			const element = utils.normalize_data(array[i]);
 			
-			let quote = new Stock();
-			quote['date'] = new Date(data[0]['date']);
-			quote['code'] = data[0]['code'];
-			quote['short_name'] = data[0]['short_name'];
-			quote['bid'] = Number(data[0]['bid']);
-			quote['offer'] = Number(data[0]['offer']);
-			quote['last'] = Number(data[0]['last']);
-			quote['close'] = Number(data[0]['close']);
-			quote['high'] = Number(data[0]['high']);
-			quote['low'] = Number(data[0]['low']);
-			quote['open'] = Number(data[0]['open']);
-			quote['chg_today'] = Number(data[0]['chg_today']);
-			quote['vol_today'] = Number(data[0]['vol_today']);
-			quote['num_trades'] = Number(data[0]['num_trades']);
-
-			quote.save(function(err) {
-				if (err) {
-					console.error(err);
-				} else {
-					console.log('added quote for ' + data['date']);
-					res.sendStatus(201);
+			let query = Stock.findOne({
+				date: element['date'],
+				short_name: element['short_name'] 
+			});
+			// query.lean();
+			query.exec(function(error, result) {
+				if (error) {
+					console.error("Error: " + error);
+					res.send("Error: " + error);
+				}
+				else if (result == null) {
+					console.log("Match No Content.");
+					console.log("Adding it to the db");
+					
+					let quote = new Stock(element);
+					quote.save(function(err) {
+						if (err) {
+							console.error(err);
+						} else {
+							console.log('added quote for ' + element['date']);
+							res.sendStatus(201);
+						}
+					});
+				}
+				else {
+					console.log("Match found! Cannot add quote");
+					res.send("Match found! Cannot add quote");
 				}
 			});
 		}
-		else {
-			console.log("Match found! Cannot add quote");
-			res.send("Match found! Cannot add quote");
-		}
-	});
+	}
 });
 
 /**
@@ -718,6 +704,27 @@ api.get('/tickersx', (req, res) => {
 	.then(function(tickers) {
 		res.json(tickers)
 	});
+
+	
+// db.sales.aggregate([
+// 	// First Stage
+// 	{
+// 	  $match : { "date": { $gte: new ISODate("2014-01-01"), $lt: new ISODate("2015-01-01") } }
+// 	},
+// 	// Second Stage
+// 	{
+// 	  $group : {
+// 		 _id : { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+// 		 totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } },
+// 		 averageQuantity: { $avg: "$quantity" },
+// 		 count: { $sum: 1 }
+// 	  }
+// 	},
+// 	// Third Stage
+// 	{
+// 	  $sort : { totalSaleAmount: -1 }
+// 	}
+//    ])
 });
 
 // let s = parse_date("13/09/2024")

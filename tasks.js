@@ -171,3 +171,7 @@ async function stock_fetcher() {
 	return result;
 }
 exports.stock_fetcher = stock_fetcher;
+
+/**
+ * reverse run down
+ */

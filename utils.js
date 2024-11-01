@@ -119,6 +119,20 @@ function parse_csv_to_json(csv) {
 	// });
 }
 
+function createWorker() {
+	return new Promise(function (resolve, reject) {
+		const worker = new Worker("./thread_workers.js", {
+			workerData: { thread_count: THREAD_COUNT },
+		});
+		worker.on("message", (data) => {
+			resolve(data);
+		});
+		worker.on("error", (msg) => {
+			reject(`An error ocurred: ${msg}`);
+		});
+	});
+}  
+
 module.exports = {
 	parse_csv_to_json,
 	parallel,

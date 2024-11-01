@@ -18,11 +18,14 @@ const quoteSchema = new Schema({
 	num_trades: Number
 });
 quoteSchema.index({'code' : 1, 'date' : 1});
+quoteSchema.methods.findSimilarTypes = function(cb) {
+	return mongoose.model('quote').find({ code: this.code }, cb);
+};
 const Stock = mongoose.model('quote', quoteSchema);
 
 const companySchema = new Schema({
 	name: String,
-	ticker: String,
+	code: String,
 	description: String,
 	industry: String,
 	sector: String,
@@ -31,8 +34,15 @@ const companySchema = new Schema({
 	esteblished_date: Date,
 	outstanding_shares: Number
 });
-quoteSchema.index({'ticker' : 1});
+companySchema.index({'code' : 1});
+companySchema.methods.findByCode = function(cb) {
+	return this.find({ code: this.code }, cb);
+};
+companySchema.query.byName = function(name) {
+	return this.where({ name: new RegExp(name, 'i') });
+  };
 const Company = mongoose.model('company', companySchema);
+
 
 // {
 //   date: ISODate("2020-01-03T05:00:00.000Z"),
@@ -46,7 +56,7 @@ const Company = mongoose.model('company', companySchema);
 // }
 const tickerSchema = new Schema({
 	date: Date,
-	symbol: String,
+	code: String,
 	bid: Number,
 	offer: Number,
 	last: Number,
