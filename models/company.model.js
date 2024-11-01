@@ -9,12 +9,13 @@ const companySchema = new Schema({
 	key_people: Array,
 	date_listed: Date, // ipo
 	esteblished_date: Date,
-	outstanding_shares: Number
+	outstanding_shares: Number,
+	pngx_profile_url: String
 });
 companySchema.index({'ticker' : 1});
 
 const Company = module.exports = model('company', companySchema);
 
 exports.findByName = function(name) {
-    return Company.find({'name': name})
+    return Company.find({ 'name': name });
 }

@@ -355,6 +355,15 @@ api.route('/companies/:id')
 	// 	}
 	// });
 
+api.route('/companies/:code/code')
+	.get(async function(req, res) {
+		let {code} = req.params;
+
+		let company = await Company.findOne({'ticker': new RegExp(code, 'i')});
+		
+		res.json(company);
+	})
+
 /**
  * GET /api/historicals/:symbol
  * see also /api/stocks/:symbol/historicals

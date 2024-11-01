@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "nodemon server.js --trace-warnings",
     "start": "node server.js --trace-warnings",
+    "docs": "docsify serve docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -181,9 +181,9 @@ async function data_fetcher() {
 	console.timeEnd("timer"); // end timer and log time difference
 	const endTime = new Date();
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
-	console.log('Start time '+ startTime);
-	console.log('End time '+ timeDiff + " secs\n");
-	console.log('Time difference'+ timeDiff + " secs\n");
+	console.log('Start time: '+ startTime);
+	console.log('End time: '+ timeDiff + " secs\n");
+	console.log('Time difference: '+ timeDiff + " secs\n");
 	console.log("Total request time: " + reqTimes);
 }
 exports.data_fetcher = data_fetcher;
