@@ -21,7 +21,6 @@ const PNGX_DATA_URL = `${PNGX_URL}/data/`;
 const LOCAL_TIMEZONE = 'Pacific/Port_Moresby';
 const LOCAL_TIMEZONE_FORMAT = 'yyyy-MM-dd'; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)
 
-
 module.exports = {
     SYMBOLS,
     OLD_SYMBOLS,
