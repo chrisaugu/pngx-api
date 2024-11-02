@@ -1,4 +1,4 @@
- [![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](https://pngx-api.christianaugustyn.app/) 
+ [![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](/) 
 
 # PNGX-API
 
@@ -8,7 +8,6 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
-![](https://tokei.rs/b1/github/chrisaugu/pngx-api)
 ![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
 ![GitHub forks](https://img.shields.io/github/forks/chrisaugu/pngx-api?style=social)
 ![Github Repo stars](https://img.shields.io/github/stars/chrisaugu/pngx-api?style=social)
@@ -71,7 +70,7 @@ Companies listed on PNGX
 
 Base URLs:
 ```https
-GET https://pngx-api.christianaugustyn.me
+GET 
 ```
 
 ### Get ticker symbols
@@ -82,7 +81,7 @@ Update an existing pet by Id
 > Request
 
 ```https
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api
+    curl -i -H 'Accept: application/json' https://example.com/api
 ```
 
 
@@ -90,10 +89,10 @@ Update an existing pet by Id
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `apiKey` | `string` | **Required**. Your API key |
-| `seasonId` | `string` | **Required**.League Id e.g Premier League|
-| `dateFrom` | `string` | **Required**.|
-| `dateTo` | `string` | **Required**.|
+<!-- | `apiKey` | `string` | **Required**. Your API key | -->
+<!-- | `seasonId` | `string` | **Required**.League Id e.g Premier League| -->
+<!-- | `dateFrom` | `string` | **Required**.| -->
+<!-- | `dateTo` | `string` | **Required**.| -->
 
 > Response
 ```
@@ -118,17 +117,17 @@ Update an existing pet by Id
 > Request
 
 ```https
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api/stocks
+    curl -i -H 'Accept: application/json' https://example.com/api/stocks
 ```
 
 > Params
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `apiKey` | `string` | **Required**. Your API key |
+<!-- | `apiKey` | `string` | **Required**. Your API key |
 | `seasonId` | `string` | **Required**.League Id e.g Premier League|
 | `dateFrom` | `string` | **Required**.|
-| `dateTo` | `string` | **Required**.|
+| `dateTo` | `string` | **Required**.| -->
 
 
 > Response
@@ -154,7 +153,7 @@ Update an existing pet by Id
 
 > Request
 
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api/historicals/BSP
+    curl -i -H 'Accept: application/json' https://example.com/api/historicals/BSP
 
 > Params
 
@@ -194,7 +193,7 @@ Update an existing pet by Id
 
 > Request
 
-    curl -i -H 'Accept: application/json' https://pngx-api.christianaugsutyn.me/api/historicals/HIL
+    curl -i -H 'Accept: application/json' https://example.com/api/historicals/HIL
 
 > Response
 
@@ -213,9 +212,10 @@ Update an existing pet by Id
 
 ## 🛠️ Tech & Tools
 
-The entire application is written in JavaScript and built on NodeJs.
+The entire application is written in JavaScript and run on NodeJS environment.
 
-Dillinger uses a number of open source projects to work properly:
+### Dependencies
+**Nuku** uses a number of open source projects to work properly:
 
 - [Moment.js] - Moment.js to manipulate date
 - [Date-fn] - to manipulate date
@@ -229,10 +229,6 @@ Dillinger uses a number of open source projects to work properly:
 - [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
 - [jQuery] - duh
 
-And of course PNGX-API itself is open source with a [public repository][pngx-api]
- on GitHub.
-
-### Dependencies
 * Express
 * CORS
 * BodyParser
@@ -243,6 +239,9 @@ And of course PNGX-API itself is open source with a [public repository][pngx-api
 * Request
 * fs
 
+
+And of course PNGX-API itself is open source with a [public repository][pngx-api]
+ on GitHub.
 
 ## 👩‍💻 Contributing
 

@@ -2,8 +2,6 @@ const http = require("http");
 const debug = require('debug')('test');
 const express = require("express");
 const setRateLimit = require('express-rate-limit');
-// const request = require('request-promise');
-const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cron = require('node-cron');
 const cors = require("cors");
@@ -25,8 +23,8 @@ const { specs, swaggerUi } = require('./config/swagger');
 const logger = require('./config/winston');
 const utils = require('./utils');
 const tasks = require('./tasks');
-const { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL } = require("./constants");
-const { Stock, Company, Ticker } = require("./models");
+const { SYMBOLS, OLD_SYMBOLS, COMPANIES, PNGX_DATA_URL, PNGX_URL } = require("./constants");
+const { Stock, Company, Ticker } = require("./models/index");
 const { initDatabase } = require("./database");
 
 // Creating express app
@@ -257,7 +255,14 @@ initDatabase()
 	console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
 
+/**
+ * /api-docs
+ */
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+/**
+ * /api
+ */
 app.use('/api', api);
 
 /**
@@ -273,12 +278,102 @@ api.get('/', function(req, res) {
 	res.status(200).json({
 		"status": 200,
 		"message": "Ok",
-		"symbols": SYMBOLS,
-		"data": {},
-		"api": "PNGX API",
-		"time": new Date().toDateString()
+		"data": {
+			"api": "PNGX API",
+			"time": new Date().toDateString(),
+			"symbols": SYMBOLS,
+		}
 	});
 });
+
+
+/**
+ * GET /api/company/:ticker
+ * Get a specific company info using stock quote
+ * @param :ticker unique ticker of the comapny
+ */
+api.get('/company', function(req, res) {
+	let stockTicker = req.params.ticker;
+
+	// Stock.findByName(stockQuote, req.)
+
+	res.json(COMPANIES);
+})
+
+/**
+ * /api/companies
+ */
+api.route('/companies')
+	.get(async function(req, res) {
+		let companies = await Company.find({});
+
+		res.json(companies)
+	})
+	// .post(async function(req, res) {
+	// 	let update = req.body;
+
+	// 	try {
+	// 		let company = await Company.create(update);
+
+	// 		res.json(company);
+	// 	} catch (error) {
+	// 		return res.json({
+	// 			status: "Error",
+	// 			message: error
+	// 		});
+	// 	}
+	// })
+
+api.route('/companies/:id')
+	.get(async function(req, res) {
+		let {id} = req.params;
+
+		let company = await Company.findById(id);
+		
+		res.json(company);
+	})
+	// .put(async function(req, res) {
+	// 	let {id} = req.params;
+	// 	let update = req.body;
+
+	// 	try {
+	// 		let company = await Company.findByIdAndUpdate(id, update);
+
+	// 		res.json(company);
+	// 	} catch (error) {
+	// 		return res.json({
+	// 			status: "Error",
+	// 			message: error
+	// 		});
+	// 	}
+	// })
+	// .delete(async function(req, res) {
+	// 	let {id} = req.params;
+
+	// 	try {
+	// 		await Company.findOneAndDelete(id);
+
+	// 		return res.statusCode(204).json({
+	// 			status: "Error",
+	// 			message: error
+	// 		});
+	// 	} catch (error) {
+	// 		// throw new Error(error);
+	// 		return res.json({
+	// 			status: "Error",
+	// 			message: error
+	// 		});
+	// 	}
+	// });
+
+api.route('/companies/:code/code')
+	.get(async function(req, res) {
+		let {code} = req.params;
+
+		let company = await Company.findOne({'ticker': new RegExp(code, 'i')});
+		
+		res.json(company);
+	})
 
 /**
  * GET /api/historicals/:symbol
@@ -329,7 +424,9 @@ api.get('/historicals/:symbol', function(req, res) {
 		}
 	}
 	if (end) {
-		Object.assign(dateStr['date'], { end: new Date(end).toDateString() });
+		Object.assign(dateStr['date'], { 
+			end: new Date(end).toDateString() 
+		});
 		
 		if (Number.isInteger(Number(end))) {
 			// stock.where({ date: { $lte: end } });
@@ -371,6 +468,7 @@ api.get('/historicals/:symbol', function(req, res) {
 		if (err) {
 			console.log(err);
 		}
+
 		if (stocks && stocks.length > 0) {
 			res.json({
 				'status': 200,
@@ -427,13 +525,14 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
 
 	stock.exec(function(err, stocks) {
 		const count = stocks.length;
-		var dates = [];
-		var bids = [];
-		var offers = [];
+		let dates = [];
+		let bids = [];
+		let offers = [];
 
 		if (err) {
 			console.error(err);
 		}
+		
 		if (stocks && stocks.length > 0) {
 
 			stocks.forEach(function(stock) {
@@ -459,7 +558,6 @@ api.get('/historicals/:symbol/essentials', function(req, res) {
 				"reason": "No Content"
 			});
 		}
-
 	});
 });
 
@@ -651,22 +749,10 @@ api.get('/stocks/:quote_id', function(req, res) {
 	});
 });
 
-/**
- * GET /api/company/:ticker
- * Get a specific company info using stock quote
- * @param :ticker unique ticker of the comapny
- */
-api.get('/company/:ticker', function(req, res) {
-	let stockTicker = req.params.quote;
-
-	// Stock.findByName(stockQuote, req.)
-
-  return LISTED_COMPANIES[stockTicker];
-});
-
 api.get('/tickers', async function(req, res) {
-	let tickers = await Ticker.find();
-	res.send(tickers);
+	let tickers = await Ticker.find({});
+
+	res.json(tickers);
 });
 
 api.get('/tickersx', (req, res) => {
@@ -726,17 +812,12 @@ api.get('/tickersx', (req, res) => {
 //    ])
 });
 
-// let s = parse_date("13/09/2024")
-// console.log(s)
-
-
 // Stock.findOne({
 // 	'date': s,
 // 	// 'short_name': data['Short Name']
 // })
 // .then(result => console.log(result))
 // .catch(err => console.log(err))
-
 
 
 // const getStream = require('get-stream');
@@ -820,20 +901,20 @@ api.get('/tickersx', (req, res) => {
 // 	let ticker = await Ticker.find();
 // 	console.log("tickers: ", ticker)
 
-	// new Ticker({
-	// 	date: "2020-01-03T05:00:00.000Z",
-	// 	symbol: 'AAPL',
-	// 	bid: 0,
-	// 	offer: 0,
-	// 	last: 0,
-	// 	close: 74.357498,
-	// 	high: 75.144997,
-	// 	low: 74.125,
-	// 	open: 74.287498,
-	// 	change: 0,
-	// 	volume: 146322800,
-	// 	num_trades: 0  
-	// }).save()
+// 	new Ticker({
+// 		date: "2020-01-03T05:00:00.000Z",
+// 		symbol: 'AAPL',
+// 		bid: 0,
+// 		offer: 0,
+// 		last: 0,
+// 		close: 74.357498,
+// 		high: 75.144997,
+// 		low: 74.125,
+// 		open: 74.287498,
+// 		change: 0,
+// 		volume: 146322800,
+// 		num_trades: 0  
+// 	}).save()
 // })()
 
 

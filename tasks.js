@@ -1,8 +1,12 @@
+const request = require('request');
+// const fetch = require('node-fetch');
+const superagent = require('superagent');
+
 const { parse_csv_to_json, normalize_data } = require("./utils")
 const { 
     SYMBOLS, 
     OLD_SYMBOLS, 
-    LISTED_COMPANIES, 
+    COMPANIES, 
     PNGX_DATA_URL, 
     PNGX_URL, 
     LOCAL_TIMEZONE, 
@@ -20,13 +24,27 @@ exports.fetch_data_from_pngx = function fetch_data_from_pngx(url) {
 function make_async_request(url, options) {
 	Object.assign(options, {
 		"method": 'GET',
-		"headers": {
-			'Content-Type': 'text/csv'
-		}
+		"redirect": "follow",
+		// "headers": {
+		// 	'Content-Type': 'text/csv'
+		// }
 	});
 
 	return new Promise(function(resolve, reject) {
 		fetch(url, options)
+		// .retry(2)
+		// .on('progress', event => {
+		// 	/* the event is:
+		// 	{
+		// 	  direction: "upload" or "download"
+		// 	  percent: 0 to 100 // may be missing if file size is unknown
+		// 	  total: // total file size, may be missing
+		// 	  loaded: // bytes downloaded or uploaded so far
+		// 	} */
+		// 	console.log(event)
+		// })
+		// .withCredentials()
+		// .redirects(2)
 		.then((response) => {
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
@@ -34,7 +52,10 @@ function make_async_request(url, options) {
 			return response.text();
 		})
 		.then((csv) => {
-			resolve(parse_csv_to_json(csv));
+			return parse_csv_to_json(csv)
+		})
+		.then((json) => {
+			resolve(json);
 		})
 		.catch((error) => {
 			reject(error);
@@ -52,7 +73,6 @@ function get_quotes_from_pngx(code) {
 	return new Promise(function(resolve, reject) {
 		if (undefined !== typeof code) {
 			let url = PNGX_DATA_URL + code +".csv";
-			console.log(url)
 			make_async_request(url, options).then(function(response){
 				// resolve(typeof callback == 'function' ? new callback(response) : response);
 				resolve(response);
@@ -85,6 +105,7 @@ exports.get_quotes_from_pngx = get_quotes_from_pngx;
  */
 async function data_fetcher() {
 	console.log(`Fetching csv data from ${PNGX_URL}\n`);
+	
 	console.time("timer");   //start time with name = timer
 	const startTime = new Date();
 	let reqTimes = 0; // number of times the loop runs to fetch data
@@ -150,7 +171,8 @@ async function data_fetcher() {
 			console.log("stop\n");
 		})
 		.catch((error) => {
-			throw new Error(error);
+			// throw new Error(error);
+			console.error(error)
 		});
 	};
 
