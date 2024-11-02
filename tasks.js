@@ -105,14 +105,14 @@ async function data_fetcher() {
 			console.log("Fetched quotes for " + symbol);
 			let totalCount = quotes.length, 
 			    totalAdded = 0,
-				j = 0;
+						 j = totalCount - 1,
+				recordExist = false;
 
 			// iterate through the dataset and add each data element to the db
-			while (j < totalCount) {
-				let quote = normalize_data(quotes[j]);
+			do {
+				let quote = normalize_data(quotes[j]); // latest quote
 				console.log("Querying db for existing quote for " + symbol + " on " + quote.date.toLocaleDateString() + " ...");
-				// let data = quotes[totalCount-1]; // latest
-			
+				
 				// check if the quote for that particular company at that particular date already exists
 				Stock.findOne({
 					'date': quote.date,
@@ -129,11 +129,12 @@ async function data_fetcher() {
 								console.log(error + "\n");
 							} else {
 								console.log('Added quote for ' + quote.date.toLocaleDateString() + "\n");
-								totalAdded = totalAdded + 1;
+								totalAdded++;
 							}
 						});
 					}
 					else {
+						recordExist = true;
 						console.log("Results found: ")
 						console.log("Skip ...")
 					}
@@ -142,10 +143,10 @@ async function data_fetcher() {
 					throw new Error(error);
 				});
 
-				j++;
-			};
+				j--;
+			} while (recordExist && j >= 0);
 
-			console.log(totalAdded + "/" + totalCount + " quotes were added.");
+			console.log(`${totalAdded}/${totalCount}  quotes were added.`);
 			console.log("stop\n");
 		})
 		.catch((error) => {
@@ -161,7 +162,7 @@ async function data_fetcher() {
 	const timeDiff = parseInt(Math.abs(endTime.getTime() - startTime.getTime()) / (1000) % 60); 
 	console.log('Start time '+ startTime);
 	console.log('End time '+ timeDiff + " secs\n");
-	console.log('Time difference'+ timeDiff + " secs\n");
+	console.log('Time difference '+ timeDiff + " secs\n");
 	console.log("Total request time: " + reqTimes);
 }
 exports.data_fetcher = data_fetcher;

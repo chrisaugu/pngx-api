@@ -20,7 +20,6 @@ const helmet = require('helmet');
 const redis = require('redis');
 const celery = require('celery-node');
 require('dotenv').config();
-// require("./worker");
 
 const { specs, swaggerUi } = require('./config/swagger');
 const logger = require('./config/winston');
@@ -35,22 +34,22 @@ const app = express();
 const api = express.Router();
 
 // Redis client
-let redisClient = redis.createClient({
-	host: '127.0.0.1',
-	port: 6379,
-}).on('error', (err) => {
-	console.error('Redis connection error:', err);
-}).on('connect', () => {
-	console.log('Connected to Redis');
-});
+// let redisClient = redis.createClient({
+// 	host: '127.0.0.1',
+// 	port: 6379,
+// }).on('error', (err) => {
+// 	console.error('Redis connection error:', err);
+// }).on('connect', () => {
+// 	console.log('Connected to Redis');
+// });
 // If authentication is required, use the 'auth' method on the client
 // redisClient.auth('your-redis-password');
 
 // Celery client
-const celeryClient = celery.createClient(
-	"redis://127.0.0.1:6379", 
-	"redis://127.0.0.1:6379"
-);
+// const celeryClient = celery.createClient(
+// 	"redis://127.0.0.1:6379", 
+// 	"redis://127.0.0.1:6379"
+// );
 
 // const task = celeryClient.createTask("tasks.add");
 // const result = task.applyAsync([1, 2]);
@@ -209,7 +208,7 @@ initDatabase()
 	// console.log('This script will run every 2 minutes to update stocks info.');
 	// cron.schedule('*/2 * * * *', () => {
 	console.log('Stocks info will be updated every 2 hours.');
-	cron.schedule('* */2 * * *', () => {
+	// cron.schedule('* */2 * * *', () => {
 		// tasks.data_fetcher();
 		// const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
 		// 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
@@ -243,16 +242,16 @@ initDatabase()
 			});
 			worker.on('error', error => {
 				throw new Error(`Error occured`, error);
-			})
+			});
 			worker.on('exit', exitCode => {
 				if (exitCode !== 0) {
 					throw new Error(`Worker stopped with exit code ${exitCode}`);
 				}
-			})
+			});
 		} catch (erorr) {
 			console.log(erorr)
 		}
-	});
+	// });
 })
 .on('error', function(error) {
 	console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
