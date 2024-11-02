@@ -18,6 +18,9 @@ const quoteSchema = new Schema({
 	num_trades: Number
 });
 quoteSchema.index({'code' : 1, 'date' : 1});
+quoteSchema.methods.findSimilarTypes = function(cb) {
+	return mongoose.model('quote').find({ code: this.code }, cb);
+};
 
 const Quote = module.exports = mongoose.model('quote', quoteSchema);
 
