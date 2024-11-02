@@ -7,10 +7,10 @@ require('dotenv').config();
 
 initDatabase()
 .on("connected", function() {
-	console.log("[Worker_Threads]: Connected: Successfully connect to mongo server on the worker");
+	console.log("[Threads_Worker]: Connected: Successfully connect to mongo server on the worker");
 })
 .on('error', function() {
-	console.log("[Worker_Threads]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+	console.log("[Threads_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
 
 // if (isMainThread) {
@@ -28,7 +28,6 @@ initDatabase()
   let result = await data_fetcher();
   parentPort.postMessage(result);
 })();
-
 
 // var num = parseInt(prompt("enter num"));
 //   var all = (1 << num) - 1;

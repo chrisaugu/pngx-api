@@ -154,7 +154,6 @@ async function data_fetcher() {
 		});
 	};
 
-	initialFetch = false;
 	console.log('Date Request Summary');
 	console.log(`Data fetched from ${PNGX_DATA_URL}\n`);
 	console.timeEnd("timer"); // end timer and log time difference
