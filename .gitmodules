@@ -1,0 +1,3 @@
+[submodule "nuku-redis-worker"]
+	path = nuku-redis-worker
+	url = git@github.com:chrisaugu/nuku-redis-worker

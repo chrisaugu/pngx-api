@@ -5,13 +5,15 @@ services:
     depends_on:
       - nuku-redis
       - nuku-mongodb
+      - nuku-worker
     restart: always
     networks:
       - nuku-network
   
   nuku-worker:
     build: 
-      context: .
+      context: ./nuku-worker
+      dockerfile: ./Dockerfile
     command: ["node", "worker.js"]
     restart: always
     depends_on:

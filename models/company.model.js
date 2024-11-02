@@ -13,6 +13,12 @@ const companySchema = new Schema({
 	pngx_profile_url: String
 });
 companySchema.index({'ticker' : 1});
+companySchema.methods.findByCode = function(cb) {
+	return this.find({ code: this.code }, cb);
+};
+companySchema.query.byName = function(name) {
+	return this.where({ name: new RegExp(name, 'i') });
+};
 
 const Company = module.exports = model('company', companySchema);
 
