@@ -26,5 +26,5 @@ app
 
 .openode
 
-*.logs
-logs
+*.log
+.vercel

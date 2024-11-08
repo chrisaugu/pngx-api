@@ -1006,3 +1006,5 @@ async function parallel(arr, fn, threads = 2) {
 	}
 	return result.flat();
 }
+
+module.exports = server;
