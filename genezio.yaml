@@ -1,24 +1,24 @@
 backend:
-    functions:
-        - entry: ./server.js
-          handler: handler
-          name: express
-          path: ./
-          type: httpServer
-    language:
-        name: js
-        packageManager: npm
-    path: .
-    scripts:
-        deploy:
-            - npm install
-        local:
-            - npm install
+  functions:
+    - entry: ./server.js
+      handler: handler
+      name: express
+      path: ./
+      type: httpServer
+  language:
+    name: js
+    packageManager: npm
+  path: .
+  scripts:
+    deploy:
+      - npm install
+    local:
+      - npm install
 name: pngx-api
 region: us-east-1
 services:
-    databases:
-        - name: my-mongo-db
-          region: us-east-1
-          type: mongo-atlas
+  databases:
+    - name: my-mongo-db
+      region: us-east-1
+      type: mongo-atlas
 yamlVersion: 2
