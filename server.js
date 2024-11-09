@@ -1,4 +1,5 @@
 const http = require("http");
+const serverless = require('serverless-http');
 const debug = require('debug')('test');
 const express = require("express");
 const setRateLimit = require('express-rate-limit');
@@ -139,60 +140,64 @@ var checkCache = (req, res, next) => {
 };
 // app.use(checkCache);
 
-let server = http.createServer(app);
+// replaces all instance of app with server
+// let server = http.createServer(app);
 
-// create server and listen on the port
-server.listen(app.get('port'), /*"localhost",*/ () => {
-	const details = server.address();
-	let localAddress = null;
-	let networkAddress = null;
-	
-	const interfaces = os.networkInterfaces();
-	const getNetworkAddress = () => {
-		for (const name of Object.keys(interfaces)) {
-			for (const interface of interfaces[name]) {
-				const {address, family, internal} = interface;
-				if (family === 'IPv4' && !internal) {
-					return address;
+// Start server
+if (process.env.NODE_ENV === 'dev') {
+    // create server and listen on the port
+	app.listen(app.get('port'), /*"localhost",*/ () => {
+		const details = app.address();
+		let localAddress = null;
+		let networkAddress = null;
+		
+		const interfaces = os.networkInterfaces();
+		const getNetworkAddress = () => {
+			for (const name of Object.keys(interfaces)) {
+				for (const interface of interfaces[name]) {
+					const {address, family, internal} = interface;
+					if (family === 'IPv4' && !internal) {
+						return address;
+					}
 				}
 			}
+		};
+
+		if (typeof details === 'string') {
+			localAddress = details;
+		} else if (typeof details === 'object' && details.port) {
+			const address = details.address === '::' ? 'localhost' : details.address;
+			const ip = getNetworkAddress();
+			// const ip = ip.address();
+
+			localAddress = `http://${address}:${details.port}`;
+			networkAddress = `http://${ip}:${details.port}`;
 		}
-	};
 
-	if (typeof details === 'string') {
-		localAddress = details;
-	} else if (typeof details === 'object' && details.port) {
-		const address = details.address === '::' ? 'localhost' : details.address;
-		const ip = getNetworkAddress();
-		// const ip = ip.address();
+		let log = "\n--------------------------------------------------\n";
 
-		localAddress = `http://${address}:${details.port}`;
-		networkAddress = `http://${ip}:${details.port}`;
-	}
+		if (localAddress) {
+			log += `Server running on port ${localAddress}\n`;
+		}
+		if (networkAddress) {
+			log += `Server running on port ${networkAddress}`;
+		}
 
-	let log = "\n--------------------------------------------------\n";
+		log += "\n--------------------------------------------------\n";
 
-	if (localAddress) {
-		log += `Server running on port ${localAddress}\n`;
-	}
-	if (networkAddress) {
-		log += `Server running on port ${networkAddress}`;
-	}
+		// console.debug(log);
 
-	log += "\n--------------------------------------------------\n";
-
-	// console.debug(log);
-
-	// console.debug(boxen(`Server running on ${localAddress}`));
-	console.debug(`Server running on port ${localAddress}`);
-});
-server.on('error', function(error) {
-	console.error(error);
-});
-server.on('end', function() {
-	server.end();
-	server.destroy();
-});
+		// console.debug(boxen(`Server running on ${localAddress}`));
+		console.debug(`Server running on port ${localAddress}`);
+	});
+	app.on('error', function(error) {
+		console.error(error);
+	});
+	app.on('end', function() {
+		app.end();
+		app.destroy();
+	});
+}
 
 initDatabase()
 .on("connected", function(result) {
@@ -1007,4 +1012,4 @@ async function parallel(arr, fn, threads = 2) {
 	return result.flat();
 }
 
-module.exports = server;
+module.exports.handler = serverless(app);

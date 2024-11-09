@@ -1,0 +1,33 @@
+backend:
+    functions:
+        - entry: server.js
+          handler: handler
+          name: nuku-api
+          path: ./
+          type: aws
+    language:
+        name: js
+        packageManager: npm
+    path: ./
+    scripts:
+        deploy: npm install
+        local: npm install
+frontend:
+    environment:
+        VITE_API_URL: ${{ backend.functions.nuku-api.url }}
+    path: ./demo
+    publish: ./dist
+    scripts:
+        build: npm run build
+        deploy: npm install
+        local: npm install
+        start: npm run dev
+    subdomain: nuku-api
+name: nuku-api
+region: us-east-1
+services:
+    databases:
+        - name: my-mongo-db
+          region: us-east-1
+          type: mongo-atlas
+yamlVersion: 2
