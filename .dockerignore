@@ -3,3 +3,9 @@ logs
 lib
 .github
 tests
+.git
+.gitignore
+README.md
+Dockerfile
+.vscode
+.vercel

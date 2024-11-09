@@ -37,6 +37,7 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
     "escape-html": "^1.0.3",
     "express": "^4.17.1",
     "express-rate-limit": "^7.1.5",
@@ -65,7 +66,6 @@
     "winston": "^3.7.2"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3",
     "nodemon": "^3.1.7"
   }
 }
