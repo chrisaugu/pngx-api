@@ -141,13 +141,13 @@ var checkCache = (req, res, next) => {
 // app.use(checkCache);
 
 // replaces all instance of app with server
-// let server = http.createServer(app);
+let server = http.createServer(app);
 
 // Start server
-if (process.env.NODE_ENV === 'dev') {
+// if (process.env.NODE_ENV === 'dev') {
     // create server and listen on the port
-	app.listen(app.get('port'), /*"localhost",*/ () => {
-		const details = app.address();
+	server.listen(app.get('port'), /*"localhost",*/ () => {
+		const details = server.address();
 		let localAddress = null;
 		let networkAddress = null;
 		
@@ -190,14 +190,14 @@ if (process.env.NODE_ENV === 'dev') {
 		// console.debug(boxen(`Server running on ${localAddress}`));
 		console.debug(`Server running on port ${localAddress}`);
 	});
-	app.on('error', function(error) {
+	server.on('error', function(error) {
 		console.error(error);
 	});
-	app.on('end', function() {
-		app.end();
-		app.destroy();
+	server.on('end', function() {
+		server.end();
+		server.destroy();
 	});
-}
+// }
 
 initDatabase()
 .on("connected", function(result) {
@@ -1012,4 +1012,4 @@ async function parallel(arr, fn, threads = 2) {
 	return result.flat();
 }
 
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
