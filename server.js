@@ -144,7 +144,7 @@ var checkCache = (req, res, next) => {
 let server = http.createServer(app);
 
 // Start server
-// if (process.env.NODE_ENV === 'dev') {
+if (process.env.NODE_ENV === 'dev') {
     // create server and listen on the port
 	server.listen(app.get('port'), /*"localhost",*/ () => {
 		const details = server.address();
@@ -194,10 +194,10 @@ let server = http.createServer(app);
 		console.error(error);
 	});
 	server.on('end', function() {
-		server.end();
-		server.destroy();
+		app.end();
+		app.destroy();
 	});
-// }
+}
 
 initDatabase()
 .on("connected", function(result) {
@@ -1012,4 +1012,4 @@ async function parallel(arr, fn, threads = 2) {
 	return result.flat();
 }
 
-// module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
