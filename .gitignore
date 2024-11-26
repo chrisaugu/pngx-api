@@ -21,6 +21,7 @@ bin-release/
 *.sublime-workspace
 node_modules
 .env
+.env.production
 *.zip
 app
 
@@ -28,3 +29,4 @@ app
 
 *.log
 .vercel
+
