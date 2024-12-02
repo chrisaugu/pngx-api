@@ -6,7 +6,6 @@ _The First Unofficial PNGX-API, Ever_
 
 PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 
-
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
 ![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
 ![GitHub forks](https://img.shields.io/github/forks/chrisaugu/pngx-api?style=social)

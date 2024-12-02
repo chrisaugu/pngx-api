@@ -1,16 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// {
-//   date: ISODate("2020-01-03T05:00:00.000Z"),
-//   symbol: 'AAPL',
-//   volume: 146322800,
-//   open: 74.287498,
-//   adjClose: 73.486023,
-//   high: 75.144997,
-//   low: 74.125,
-//   close: 74.357498
-// }
 const tickerSchema = new Schema({
 	date: Date,
 	symbol: String,
