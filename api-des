@@ -1,9 +1,0 @@
-{"message":"Welcome to the Groq API! Documentation is available at https://console.groq.com/docs/"}
-
-{
-  "error": {
-    "message": "Unknown request URL: GET /openai/v1. Please check the URL for typos, or see the docs at https://console.groq.com/docs/",
-    "type": "invalid_request_error",
-    "code": "unknown_url"
-  }
-}

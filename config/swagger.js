@@ -5,12 +5,12 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Swagger Express API',
+      title: 'Nuku API',
       version: '1.0.0',
-      description: 'A simple Express API with Swagger documentation',
+      description: 'Nuku API with Swagger documentation',
     },
   },
-  apis: ['./routes/*.js'], // Path to your API routes
+  apis: ['./routes/*.js'],
 };
 
 const specs = swaggerJsdoc(options);
