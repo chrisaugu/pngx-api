@@ -5,14 +5,14 @@ services:
     depends_on:
       - nuku-redis
       - nuku-mongodb
-      - nuku-worker
+      - nuku-redis-worker
     restart: always
     networks:
-      - nuku-network
+      - nuku-api-network
   
   nuku-worker:
     build: 
-      context: ./nuku-worker
+      context: ./nuku-redis-worker
       dockerfile: ./Dockerfile
     command: ["node", "worker.js"]
     restart: always
@@ -31,11 +31,11 @@ services:
     volumes:
       - dbdata6:/data/db
     networks:
-      - nuku-network
+      - nuku-api-network
 
 volumes:
   dbdata6:
 
 networks:
-  nuku-network:
+  nuku-api-network:
     driver: bridge
