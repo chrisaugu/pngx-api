@@ -9,3 +9,6 @@ README.md
 Dockerfile
 .vscode
 .vercel
+package
+nuku-redis-worker
+data

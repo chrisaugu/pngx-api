@@ -3,8 +3,8 @@ import { TAPIResponse } from "./types";
 import { METHODS } from 'http';
 
 // const DATA_URL = 'https://www.pngx.com.pg/data';
-// const API_URL = `https://api.pngx-api.io/api`;
-const API_URL = `http://locahost:5000/api`;
+// const API_URL = `https://api.nuku-api.io/api/v1`;
+const API_URL = `http://locahost:5000/api/v1`;
 
 const fetcher = async (url: string, options: any) => await fetch(`${API_URL}/${url}`, options)
 

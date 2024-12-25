@@ -10,7 +10,7 @@ backend:
     - name: server
       path: ./
       handler: handler
-      entry: server.js
+      entry: serverless.js
       type: aws
   scripts:
     deploy:

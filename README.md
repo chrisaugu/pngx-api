@@ -1,11 +1,10 @@
- [![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](/) 
+[![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](/) 
 
 # PNGX-API
 
 _The First Unofficial PNGX-API, Ever_
 
 PNGX Restful API. Formerly part of CrisBot, now a standalone API.
-
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
 ![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
