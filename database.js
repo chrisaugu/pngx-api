@@ -6,9 +6,7 @@ module.exports.initDatabase = function() {
         // Creating an instance for MongoDB
         mongoose
         .set('strictQuery', false)
-        .connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true
-        });
+        .connect(process.env.MONGODB_URI, {});
 
         // mongoose.connection.on("connected", function(result) {
         //     console.log("Connected: Successfully connect to mongo server");

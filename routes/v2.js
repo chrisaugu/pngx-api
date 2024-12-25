@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const {
   SYMBOLS,
@@ -11,7 +11,7 @@ const { Stock, Company, Ticker } = require("../models/index");
 
 /**
  * @swagger
- * 
+ *
  * /:
  *   get:
  *     summary: Returns a sample message
@@ -197,60 +197,61 @@ router.get("/historicals/:symbol", function (req, res) {
     stock.select(fields.split(","));
   }
 
-  stock.exec(function (err, stocks) {
-    const count = stocks.length == limit ? limit : stocks.length;
+  stock
+    .exec()
+    .then(function (stocks) {
+      const count = stocks.length == limit ? limit : stocks.length;
 
-    // caching received data using redis
-    // redisClient.setEx(search, 600, JSON.stringify(stocks));
+      // caching received data using redis
+      // redisClient.setEx(search, 600, JSON.stringify(stocks));
 
-    if (err) {
+      if (stocks && stocks.length > 0) {
+        res.json({
+          status: 200,
+          // ...dateStr,
+          last_updated: stocks[0].date,
+          symbol: symbol,
+          total_count: count,
+          historical: stocks,
+
+          // "links": {},
+          // "meta": {
+          // 	"current_page": 1,
+          // 	"from": 1,
+          // 	"last_page": 1,
+          // 	"links": [
+          // 		{
+          // 			"active": false,
+          // 			"label": "« Previous",
+          // 			"url": null
+          // 		},
+          // 		{
+          // 			"active": true,
+          // 			"label": "1",
+          // 			"url": "https://router.apilayer.com/bank_data/banks_by_country?page=1"
+          // 		},
+          // 		{
+          // 			"active": false,
+          // 			"label": "Next »",
+          // 			"url": null
+          // 		}
+          // 	],
+          // 	"path": "https://router.apilayer.com/bank_data/banks_by_country",
+          // 	"per_page": 10,
+          // 	"to": 6,
+          // 	"total": 6
+          // }
+        });
+      } else {
+        res.status(204).json({
+          status: 204,
+          reason: "No Content",
+        });
+      }
+    })
+    .catch((err) => {
       console.log(err);
-    }
-
-    if (stocks && stocks.length > 0) {
-      res.json({
-        status: 200,
-        // ...dateStr,
-        last_updated: stocks[0].date,
-        symbol: symbol,
-        total_count: count,
-        historical: stocks,
-
-        // "links": {},
-        // "meta": {
-        // 	"current_page": 1,
-        // 	"from": 1,
-        // 	"last_page": 1,
-        // 	"links": [
-        // 		{
-        // 			"active": false,
-        // 			"label": "« Previous",
-        // 			"url": null
-        // 		},
-        // 		{
-        // 			"active": true,
-        // 			"label": "1",
-        // 			"url": "https://router.apilayer.com/bank_data/banks_by_country?page=1"
-        // 		},
-        // 		{
-        // 			"active": false,
-        // 			"label": "Next »",
-        // 			"url": null
-        // 		}
-        // 	],
-        // 	"path": "https://router.apilayer.com/bank_data/banks_by_country",
-        // 	"per_page": 10,
-        // 	"to": 6,
-        // 	"total": 6
-        // }
-      });
-    } else {
-      res.status(204).json({
-        status: 204,
-        reason: "No Content",
-      });
-    }
-  });
+    });
 });
 
 router.get("/historicals/:symbol/essentials", function (req, res) {
@@ -260,42 +261,43 @@ router.get("/historicals/:symbol/essentials", function (req, res) {
   // stock.where({ 'code': symbol });
   // stock.select('date bid offer code close high low open vol_today');
 
-  stock.exec(function (err, stocks) {
-    const count = stocks.length;
-    let dates = [];
-    let bids = [];
-    let offers = [];
+  stock
+    .exec()
+    .then(function (stocks) {
+      const count = stocks.length;
+      let dates = [];
+      let bids = [];
+      let offers = [];
 
-    if (err) {
+      if (stocks && stocks.length > 0) {
+        stocks.forEach(function (stock) {
+          dates.push(new Date(stock.date).getTime());
+          bids.push(stock.bid);
+          offers.push(stock.offer);
+        });
+
+        res.status(200).json([
+          {
+            columns: [
+              ["x", ...dates],
+              ["y1", ...bids],
+              ["y2", ...offers],
+            ],
+            types: { y0: "line", y1: "line", x: "x" },
+            names: { y0: "#0", y1: "#1" },
+            colors: { y0: "#3DC23F", y1: "#F34C44" },
+          },
+        ]);
+      } else {
+        res.status(204).json({
+          status: 204,
+          reason: "No Content",
+        });
+      }
+    })
+    .catch((err) => {
       console.error(err);
-    }
-
-    if (stocks && stocks.length > 0) {
-      stocks.forEach(function (stock) {
-        dates.push(new Date(stock.date).getTime());
-        bids.push(stock.bid);
-        offers.push(stock.offer);
-      });
-
-      res.status(200).json([
-        {
-          columns: [
-            ["x", ...dates],
-            ["y1", ...bids],
-            ["y2", ...offers],
-          ],
-          types: { y0: "line", y1: "line", x: "x" },
-          names: { y0: "#0", y1: "#1" },
-          colors: { y0: "#3DC23F", y1: "#F34C44" },
-        },
-      ]);
-    } else {
-      res.status(204).json({
-        status: 204,
-        reason: "No Content",
-      });
-    }
-  });
+    });
 });
 
 /**
@@ -393,27 +395,28 @@ router.get("/stocks", function (req, res) {
     query.where({ code: code });
   }
 
-  query.exec(function (err, stocks) {
-    if (err) {
-      console.log(err);
-    }
-    if (stocks && stocks.length > 0) {
-      res.json({
-        status: 200,
-        ...dateStr,
-        last_updated: stocks[0].date,
-        count: stocks.length,
-        data: stocks,
-      });
-    } else {
-      res.json({
-        status: 204,
-        reason: "No Content",
-      });
-    }
-  });
+  query
+    .exec()
+    .then(function (stocks) {
+      if (stocks && stocks.length > 0) {
+        res.json({
+          status: 200,
+          ...dateStr,
+          last_updated: stocks[0].date,
+          count: stocks.length,
+          data: stocks,
+        });
+      } else {
+        res.json({
+          status: 204,
+          reason: "No Content",
+        });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
-
 /**
  * POST /api/stocks
  * import sample data for testing
@@ -430,28 +433,31 @@ router.post("/stocks", function (req, res) {
         short_name: element["short_name"],
       });
       // query.lean();
-      query.exec(function (error, result) {
-        if (error) {
-          console.error("Error: " + error);
-          res.send("Error: " + error);
-        } else if (result == null) {
-          console.log("Match No Content.");
-          console.log("Adding it to the db");
+      query
+        .exec()
+        .then(function (result) {
+          if (result == null) {
+            console.log("Match No Content.");
+            console.log("Adding it to the db");
 
-          let quote = new Stock(element);
-          quote.save(function (err) {
-            if (err) {
-              console.error(err);
-            } else {
-              console.log("added quote for " + element["date"]);
-              res.sendStatus(201);
-            }
-          });
-        } else {
-          console.log("Match found! Cannot add quote");
-          res.send("Match found! Cannot add quote");
-        }
-      });
+            let quote = new Stock(element);
+            quote.save(function (err) {
+              if (err) {
+                console.error(err);
+              } else {
+                console.log("added quote for " + element["date"]);
+                res.sendStatus(201);
+              }
+            });
+          } else {
+            console.log("Match found! Cannot add quote");
+            res.send("Match found! Cannot add quote");
+          }
+        })
+        .catch((err) => {
+          console.error("Error: " + err);
+          res.send("Error: " + err);
+        });
     }
   }
 });
