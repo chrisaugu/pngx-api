@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const celery = require('celery-node');
+require("dotenv").config();
 const tasks = require("./tasks");
 
 const worker = celery.createWorker(

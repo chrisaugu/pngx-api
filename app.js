@@ -72,8 +72,6 @@ const app = express();
 //   celeryClient.disconnect();
 // });
 
-app.set("mongodb_uri", process.env.MONGODB_URI);
-
 app.use(express.static(path.join(__dirname, "docs")));
 app.use("/demo", express.static(path.join(__dirname, "demo")));
 app.use("/assets", express.static(path.join(__dirname + "docs/assets")));
