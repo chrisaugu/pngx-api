@@ -129,11 +129,11 @@ initDatabase()
      */
 
     // console.log('This script will run every 2 minutes to update stocks info.');
-    // cron.schedule('*/2 * * * *', () => {
-    console.log(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
-    );
-    // cron.schedule("30 8 * * *", () => {
+    // cron.schedule("*/2 * * * *", () => {
+      console.log(
+        "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+      );
+      cron.schedule("30 8 * * *", () => {
       // tasks.data_fetcher();
       // const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
       // 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
@@ -175,7 +175,7 @@ initDatabase()
       } catch (erorr) {
         console.log(erorr);
       }
-    // });
+    });
   })
   .on("error", function () {
     console.log(

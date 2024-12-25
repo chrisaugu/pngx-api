@@ -7,8 +7,7 @@ module.exports.initDatabase = function() {
         mongoose
         .set('strictQuery', false)
         .connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            useNewUrlParser: true
         });
 
         // mongoose.connection.on("connected", function(result) {

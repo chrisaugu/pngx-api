@@ -4,7 +4,7 @@ ENV PORT=5000
 ENV NODE_ENV=production
 
 # Setting up the work directory
-WORKDIR /usr/src/app
+WORKDIR /usr/src/nuku-api
 
 # RUN addgroup --system --gid 1001 nodejs
 # USER nextjs
