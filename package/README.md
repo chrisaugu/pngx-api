@@ -1,5 +1,5 @@
 # PNGX-API Library
-This is a small javascript library for retrieving stocks info from PNGX.com website
+This is a small javascript library package for retrieving stocks info from PNGX.com website
 
 The library is built using TypeScript
 

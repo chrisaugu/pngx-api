@@ -1,7 +1,6 @@
 const { Worker, isMainThread, workerData, parentPort } = require('node:worker_threads');
 const { stock_fetcher, data_fetcher } = require('./tasks');
 const { initDatabase } = require('./database');
-require('dotenv').config();
 
 // Creating an instance for MongoDB
 

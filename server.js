@@ -1,6 +1,6 @@
 const http = require("http");
 const os = require("os");
-require("dotenv").config();
+// require("dotenv").config();
 const app = require("./app");
 
 // replaces all instance of app with server

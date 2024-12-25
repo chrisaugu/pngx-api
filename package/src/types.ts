@@ -2,8 +2,8 @@ export type Stock = {
 
 }
 
-export type Quote =	{
-    date: Date;
+export type Quote = {
+	date: Date;
 	code: string;
 	short_name: string;
 	bid: number;
@@ -41,7 +41,7 @@ export type Company = {
 //   close: 74.357498
 // }
 
-export type Tiker = {
+export type Ticker = {
 	date: Date,
 	symbol: String,
 	bid: Number,
@@ -57,37 +57,37 @@ export type Tiker = {
 }
 
 enum QUOTES {
-    'BSP',
-    'CCP',
-    'CGA',
-    'COY',
-    'CPL',
-    'KAM',
-    'KSL',
-    'NEM',
-    'NGP',
-    'NIU',
-    'SST',
-    'STO'
+	'BSP',
+	'CCP',
+	'CGA',
+	'COY',
+	'CPL',
+	'KAM',
+	'KSL',
+	'NEM',
+	'NGP',
+	'NIU',
+	'SST',
+	'STO'
 };
 
 enum OLD_QUOTES {
-    'NCM',
-    'OSH'
+	'NCM',
+	'OSH'
 };
 
 export type TAPIResponse = {
-    status: number;
-    message: string;
-    symbols: string;
-    data: any;
-    api: string;
-    time: Date;
+	status: number;
+	message: string;
+	symbols: string;
+	data: any;
+	api: string;
+	time: Date;
 };
 
 export type TAPIResult = {
-    status: number;
-    date: Date;
-    last_updated: Date;
-    data: []
+	status: number;
+	date: Date;
+	last_updated: Date;
+	data: []
 }

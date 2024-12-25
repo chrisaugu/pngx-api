@@ -5,8 +5,8 @@
   "description": "Restful API that serves stock quotes from pngx.com.pg",
   "main": "./server.js",
   "scripts": {
-    "dev": "nodemon server.js --trace-warnings",
-    "start": "node server.js --trace-warnings",
+    "dev": "nodemon -r dotenv/config server.js --trace-warnings",
+    "start": "node --env-file=.env server.js",
     "docs": "docsify serve docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -37,7 +37,7 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "debug": "~2.6.9",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.4.7",
     "escape-html": "^1.0.3",
     "express": "^4.17.1",
     "express-rate-limit": "^7.1.5",

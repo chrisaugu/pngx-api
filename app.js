@@ -72,22 +72,6 @@ const app = express();
 //   celeryClient.disconnect();
 // });
 
-const allowlist = ["192.168.0.56", "192.168.0.21"];
-const rateLimitMiddleware = setRateLimit({
-  windowMs: 60 * 1000,
-  max: 5,
-  message: "You have exceeded your 5 requests per minute limit.",
-  headers: true,
-  handler: function (req, res) {
-    // applyFeesForConsumer()
-    // next()
-    return res.status(429).json({
-      error: "You sent too many requests. Please wait a while then try again",
-    });
-  },
-  skip: (req) => allowlist.includes(req.ip),
-});
-
 app.set("mongodb_uri", process.env.MONGODB_URI);
 
 app.use(express.static(path.join(__dirname, "docs")));
@@ -115,7 +99,22 @@ app.use(error404Handler);
 app.use(errorHandler);
 // app.use(errorLogHandler);
 
-app.use("/api", rateLimitMiddleware);
+const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
+const rateLimitMiddleware = setRateLimit({
+  windowMs: 60 * 1000,
+  max: 5,
+  message: "You have exceeded your 5 requests per minute limit.",
+  headers: true,
+  handler: function (req, res) {
+    // applyFeesForConsumer()
+    // next()
+    return res.status(429).json({
+      error: "You sent too many requests. Please wait a while then try again",
+    });
+  },
+  skip: (req) => allowlist.includes(req.ip),
+});
+// app.use("/api", rateLimitMiddleware);
 
 // middleware to check data is present in cache
 // app.use(checkCache);
@@ -136,7 +135,7 @@ initDatabase()
     console.log(
       "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
     );
-    cron.schedule("30 8 * * *", () => {
+    // cron.schedule("30 8 * * *", () => {
       // tasks.data_fetcher();
       // const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
       // 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
@@ -178,7 +177,7 @@ initDatabase()
       } catch (erorr) {
         console.log(erorr);
       }
-    });
+    // });
   })
   .on("error", function () {
     console.log(
