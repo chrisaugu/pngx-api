@@ -20,7 +20,7 @@ RUN npm install
 COPY . .
 
 # Installing pm2 globally
-# RUN npm install pm2 -g
+RUN npm install pm2 -g
 
 # Starting our application
 # CMD pm2 start process.yml && tail -f /dev/null
@@ -29,4 +29,5 @@ COPY . .
 EXPOSE 5000
 
 # Starting our application
-CMD [ "node", "server.js" ]
+# CMD [ "node", "server.js" ]
+CMD ["pm2-runtime", "server.js"]

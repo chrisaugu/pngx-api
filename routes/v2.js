@@ -468,12 +468,12 @@ router.post("/stocks", function (req, res) {
  * @param :code unique id of the quote
  */
 router.get("/stocks/:code", function (req, res) {
-  let code = req.params.code;
+  let { code } = req.params;
 
   Stock.findById(code)
     .then(function (result) {
       if (result) {
-        console.log("Match found!: ", result);
+        // console.log("Match found!: ", result);
         res.json({
           status: 200,
           last_updated: result.date,
