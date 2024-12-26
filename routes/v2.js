@@ -463,28 +463,31 @@ router.post("/stocks", function (req, res) {
 });
 
 /**
- * GET /api/stocks/:quote_id
+ * GET /api/stocks/:code
  * Get a specific quote from the database
- * @param :quote_id unique id of the quote
+ * @param :code unique id of the quote
  */
-router.get("/stocks/:quote_id", function (req, res) {
-  let stockId = req.params.quote_id;
+router.get("/stocks/:code", function (req, res) {
+  let code = req.params.code;
 
-  Stock.findById(stockId, function (error, result) {
-    if (error) {
-      console.error("Error: " + error);
-    }
-    if (result) {
-      console.log("Match found!: ", result);
-      res.json({
-        status: 200,
-        last_updated: result.date,
-        data: result,
-      });
-    } else {
-      res.sendStatus(204);
-    }
-  });
+  Stock.findById(code)
+    .then(function (result) {
+      if (result) {
+        console.log("Match found!: ", result);
+        res.json({
+          status: 200,
+          last_updated: result.date,
+          data: result,
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((error) => {
+      if (error) {
+        console.error("Error: " + error);
+      }
+    });
 });
 
 router.get("/tickers", async function (req, res) {
