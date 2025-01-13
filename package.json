@@ -47,7 +47,7 @@
     "fs": "^0.0.1-security",
     "helmet": "^7.1.0",
     "http-errors": "^2.0.0",
-    "ioredis": "^5.4.1",
+    "ioredis": "^5.4.2",
     "ip": "^1.1.8",
     "mongoose": "^8.8.3",
     "marked": "^14.1.4",
