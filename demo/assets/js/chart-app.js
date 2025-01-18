@@ -88,9 +88,9 @@
     });
     appContainer.appendChild(modeSwitch);
 
-    // loadData("/assets/chart_data.json");
-    // loadData("/api/historicals/BSP/essentials");
-    loadData("/api/historicals/CPL/essentials");
+    // loadData("assets/chart_data.json");
+    loadData("/api/v2/historicals/BSP/essentials");
+    // loadData("/api/v2/historicals/CPL/essentials");
 
     function clearCharts () {
       charts.forEach(function (chart) {

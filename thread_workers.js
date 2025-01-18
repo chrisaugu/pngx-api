@@ -1,16 +1,21 @@
-const { Worker, isMainThread, workerData, parentPort } = require('node:worker_threads');
-const { stock_fetcher, data_fetcher } = require('./tasks');
-const { initDatabase } = require('./database');
+const {
+  Worker,
+  isMainThread,
+  workerData,
+  parentPort,
+} = require("node:worker_threads");
+const { stock_fetcher, data_fetcher } = require("./tasks");
+const { initDatabase } = require("./database");
 
 // Creating an instance for MongoDB
 
 initDatabase()
-.on("connected", function() {
-	console.log("[Threads_Worker]: Connected: Successfully connect to mongo server on the worker");
-})
-.on('error', function() {
-	console.log("[Threads_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
-});
+  .on("connected", function () {
+    console.log("[Threads_Worker]: Connected: Successfully connect to mongo server on the worker");
+  })
+  .on("error", function () {
+    console.log("[Threads_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+  });
 
 // if (isMainThread) {
 //   const data = 'some data';

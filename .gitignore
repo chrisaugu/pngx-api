@@ -29,4 +29,5 @@ app
 
 *.log
 .vercel
-
+coverage
+certs

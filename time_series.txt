@@ -1,2 +1,3 @@
 
-The most common mathematical techniques used for predicting time series data include linear regression, autoregression, exponential smoothing, and ARIMA. Additionally, more advanced techniques such as deep learning, recurrent neural networks, and support vector machines can be used to develop more accurate predictions.
+The most common mathematical techniques used for predicting time series data include linear regression, autoregression, exponential smoothing, and ARIMA. 
+Additionally, more advanced techniques such as deep learning, recurrent neural networks, and support vector machines can be used to develop more accurate predictions.
