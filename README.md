@@ -4,7 +4,7 @@
 
 _The First Unofficial PNGX-API, Ever_
 
-PNGX Restful API. Formerly part of CrisBot, now a standalone API.
+NUKU (aka PNGX) is a RESTFul API that retrieves, store and process stock data from PNGX. It formerly part of [CrisBot](https://github.com/crisbotio), now a standalone API.
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
 ![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
@@ -13,6 +13,7 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 ![GitHub watchers](https://img.shields.io/github/watchers/chrisaugu/pngx-api?style=social)
 ![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
 ![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript)
+[![Build Status](https://travis-ci.org/chrisaugu/pngx-api.png)](https://travis-ci.org/chrisaugu/pngx-api)
 
 
 ## 📋 Table of Contents
@@ -28,7 +29,7 @@ PNGX Restful API. Formerly part of CrisBot, now a standalone API.
 ---
 
 ## 📜 Description
-API endpoint that exposes stock quotes from [PNGX.com.pg](http://www.pngx.com.pg/data/).
+The API retrieve, store, and process financial data from from [PNGX.com.pg](http://www.pngx.com.pg).
 
 Companies listed on PNGX
 
@@ -65,11 +66,11 @@ Companies listed on PNGX
 
 ## 🔗 API Reference
 
-> v1.0.0
+> v2.0.0
 
 Base URLs:
 ```https
-GET 
+GET http[s]://pngx-api.christianaugustyn.me
 ```
 
 ### Get ticker symbols
@@ -111,12 +112,12 @@ Update an existing pet by Id
 ### Get latest stocks data
 Update an existing pet by Id
 
-`GET /api/stocks`
+`GET /api/v1/stocks`
 
 > Request
 
 ```https
-    curl -i -H 'Accept: application/json' https://example.com/api/stocks
+    curl -i -H 'Accept: application/json' https://example.com/api/v1/stocks
 ```
 
 > Params
@@ -148,11 +149,11 @@ Update an existing pet by Id
 ### Get a historical stock data
 Update an existing pet by Id
 
-`GET /api/historicals/:symbol`
+`GET /api/v1/historicals/:symbol`
 
 > Request
 
-    curl -i -H 'Accept: application/json' https://example.com/api/historicals/BSP
+    curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/BSP
 
 > Params
 
@@ -188,11 +189,11 @@ Update an existing pet by Id
 ### Get a non-existent Quote
 Update an existing pet by Id
 
-`GET /api/historicals/:symbol`
+`GET /api/v1/historicals/:symbol`
 
 > Request
 
-    curl -i -H 'Accept: application/json' https://example.com/api/historicals/HIL
+    curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/HIL
 
 > Response
 
@@ -274,7 +275,7 @@ The original author of PNGX-API is [Christian Augustyn](https://github.com/chris
 
 
 ## 🧾 ChangeLog
-[History](HISTORY.md)
+[CHANGELOG](./CHANGELOG.md)
 
 
 ## 📝 License
@@ -287,6 +288,43 @@ Licensed under the [MIT License](./LICENSE).
 
 &copy; 2023, Christian Augustyn.
 
+## 🔧 Pull Request Steps
+
+TOAST UI products are open source, so you can create a pull request(PR) after you fix issues.
+Run npm scripts and develop yourself with the following process.
+
+### Setup
+
+Fork `main` branch into your personal repository.
+Clone it to local computer. Install node modules.
+Before starting development, you should check to have any errors.
+
+``` sh
+git clone https://github.com/{your-personal-repo}/[[repo name]].git
+cd [[repo name]]
+npm install
+```
+
+### Develop
+
+Let's start development!
+
+### Pull Request
+
+Before PR, check to test lastly and then check any errors.
+If it has no error, commit and then push it!
+
+For more information on PR's step, please see links of Contributing section.
+
+## 💬 Contributing
+
+- [Code of Conduct](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CODE_OF_CONDUCT.md)
+- [Contributing Guidelines](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CONTRIBUTING.md)
+- [Commit Message Convention](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/docs/COMMIT_MESSAGE_CONVENTION.md)
+
+## 📜 License
+
+This software is licensed under the [MIT](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/LICENSE) © [NHN Cloud](https://github.com/nhn).
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
@@ -305,4 +343,67 @@ Licensed under the [MIT License](./LICENSE).
    [express]: <http://expressjs.com>
    [AngularJS]: <http://angularjs.org>
    [Gulp]: <http://gulpjs.com>
+
+
+
+
+
+
+
+
+Types of schedules supported by _Schedule_:
+
+* Schedule a set of work items across developers with different schedules
+* Manage elevator reservations for an apartment building
+* Schedule the company ping pong tournment
+
+####For complete documentation visit [http://bunkat.github.io/schedule/](http://bunkat.github.io/schedule/).
+
+
+## Installation
+Using npm:
+
+    $ npm install schedulejs
+
+Using bower:
+
+    $ bower install later
+    $ bower install schedule
+
+## Building
+
+To build the minified javascript files for _schedule_, run `npm install` to install dependencies and then:
+
+    $ make build
+
+## Running tests
+
+To run the tests for _schedule_, run `npm install` to install dependencies and then:
+
+    $ make test
+
+## Versioning
+
+Releases will be numbered with the following format:
+
+`<major>.<minor>.<patch>`
+
+And constructed with the following guidelines:
+
+* Breaking backward compatibility bumps the major (and resets the minor and patch)
+* New additions without breaking backward compatibility bumps the minor (and resets the patch)
+* Bug fixes and misc changes bumps the patch
+
+For more information on SemVer, please visit [http://semver.org/](http://semver.org/).
+
+## Bug tracker
+
+Have a bug or a feature request? [Please open a new issue](https://github.com/chrisaugu/pngx-api/issues).
+
+## Change Log
+
+### Schedule v0.6.0
+
+* First documented release.
+
 

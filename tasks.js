@@ -97,7 +97,6 @@ function get_quotes_from_pngx(code) {
     }
   });
 }
-
 exports.get_quotes_from_pngx = get_quotes_from_pngx;
 
 /**
@@ -127,57 +126,51 @@ async function data_fetcher() {
         console.log("Fetched quotes for " + symbol);
         let totalCount = quotes.length,
           totalAdded = 0,
-          j = totalCount - 1,
+          index = totalCount - 1,
           recordExist = false;
 
         // iterate through the dataset and add each data element to the db
         do {
-          let quote = normalize_data(quotes[j]); // latest quote
-          console.log(
-            "Querying db for existing quote for " +
-              symbol +
-              " on " +
-              quote.date.toLocaleDateString() +
-              " ..."
-          );
+          let quote = normalize_data(quotes[index]); // latest quote
+          console.log(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
 
           // check if the quote for that particular company at that particular date already exists
-          Stock.findOne({
-            date: quote.date,
-            short_name: quote.short_name,
-          })
+          Stock
+            .findOne({
+              date: quote.date,
+              code: quote.code,
+            })
             .then((result) => {
-              if (result == null) {
+              if (result) {
+                recordExist = true;
+                console.log("Results found");
+                console.log("Skip ...");
+              } else {
+                recordExist = false;
                 console.log("Results not found");
                 console.log("Adding quote for " + symbol + " ...");
 
                 let stock = new Stock(quote);
-                stock.save((error) => {
-                  if (error) {
-                    console.log(error + "\n");
-                  } else {
-                    console.log(
-                      "Added quote for " +
-                        quote.date.toLocaleDateString() +
-                        "\n"
-                    );
+                stock
+                  .save()
+                  .then(() => {
+                    console.log(`Added quote for ${quote.date.toLocaleDateString()} \n`);
+
                     totalAdded++;
-                  }
-                });
-              } else {
-                recordExist = true;
-                console.log("Results found: ");
-                console.log("Skip ...");
+                  })
+                  .catch((error) => {
+                    console.log(error + "\n");
+                  });
               }
             })
             .catch((error) => {
               throw new Error(error);
             });
 
-          j--;
-        } while (recordExist && j >= 0);
+          index--;
+        }  while (recordExist && index >= 0);
 
-        console.log(`${totalAdded}/${totalCount}  quotes were added.`);
+        console.log(`${totalAdded}/${totalCount} quotes were added.`);
         console.log("stop\n");
       })
       .catch((error) => {
@@ -190,15 +183,23 @@ async function data_fetcher() {
   console.log(`Data fetched from ${PNGX_DATA_URL}\n`);
   console.timeEnd("timer"); // end timer and log time difference
   const endTime = new Date();
-  const timeDiff = parseInt(
-    (Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60
-  );
+  const timeDiff = parseInt((Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60);
   console.log("Start time " + startTime);
   console.log("End time " + timeDiff + " secs\n");
   console.log("Time difference " + timeDiff + " secs\n");
   console.log("Total request time: " + reqTimes);
 }
 exports.data_fetcher = data_fetcher;
+
+async function checkIfExistInDatabase(code, date) {
+  let result = await Stock
+    .findOne({
+      date: date,
+      code: code,
+    })
+
+  return result > 0;
+}
 
 async function stock_fetcher() {
   let result = await Stock.find();

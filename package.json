@@ -10,7 +10,8 @@
     "start": "node server.js",
     "startx": "node --env-file=.env server.js",
     "docs": "docsify serve docs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -49,8 +50,8 @@
     "http-errors": "^2.0.0",
     "ioredis": "^5.4.1",
     "ip": "^1.1.8",
-    "mongoose": "^8.8.3",
     "marked": "^14.1.4",
+    "mongoose": "^8.8.3",
     "morgan": "^1.10.0",
     "node-cron": "^3.0.0",
     "node-fetch": "^3.3.2",
@@ -68,6 +69,10 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "sinon": "^19.0.2",
+    "supertest": "^7.0.0"
   }
 }

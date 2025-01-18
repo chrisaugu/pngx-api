@@ -6,24 +6,29 @@ const {
   COMPANIES,
   PNGX_DATA_URL,
   PNGX_URL,
+  BASE_URL,
 } = require("../constants");
 const { Stock, Company, Ticker } = require("../models/index");
 
 /**
  * @swagger
  *
- * /:
+ *
+ * /api/v2/:
  *   get:
- *     summary: Returns a sample message
+ *     summary: Returns list of stock codes/symbols
  *     responses:
  *       200:
  *         description: A successful response
+ */
+/**
+ * GET /api/v2/
  */
 router.get("/", function (req, res) {
   res.status(200).json({
     status: 200,
     message:
-      "Welcome to the Nuku API! Documentation is available at https://console.groq.com/docs/",
+      `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
     data: {
       api: "PNGX API",
       time: new Date().toDateString(),
@@ -33,7 +38,28 @@ router.get("/", function (req, res) {
 });
 
 /**
- * GET /api/company/:ticker
+ * @swagger
+ *
+ * /api/v2/company/{code}:
+ *   get:
+ *     tags: 
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ *     parameters:
+ *       - name: code
+ *         in: path
+ *         description: code symbol
+ *         required: true
+ *         schema:
+ *           type: string
+ *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
+ * 
+ */
+/**
+ * GET /api/v2/company/:ticker
  * Get a specific company info using stock quote
  * @param :ticker unique ticker of the comapny
  */
@@ -46,9 +72,26 @@ router.get("/company", function (req, res) {
 });
 
 /**
- * /api/companies
+ * @swagger
+ *
+ * /api/v2/companies:
+ *   get:
+ *     tags: 
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ * 
  */
-router.route("/companies").get(async function (req, res) {
+/**
+ * /api/v2/companies
+ */
+router.route("/companies")
+/**
+ * GET
+ */
+.get(async function (req, res) {
   let companies = await Company.find({});
 
   res.json(companies);
@@ -68,6 +111,19 @@ router.route("/companies").get(async function (req, res) {
 // 	}
 // })
 
+/**
+ * @swagger
+ *
+ * /api/v2/companies/:id:
+ *   get:
+ *     tags: 
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ * 
+ */
 router.route("/companies/:id").get(async function (req, res) {
   let { id } = req.params;
 
@@ -75,6 +131,20 @@ router.route("/companies/:id").get(async function (req, res) {
 
   res.json(company);
 });
+// .post(async function(req, res) {
+// 	let update = req.body;
+
+// 	try {
+// 		let company = await Company.create(update);
+
+// 		res.json(company);
+// 	} catch (error) {
+// 		return res.json({
+// 			status: "Error",
+// 			message: error
+// 		});
+// 	}
+// })
 // .put(async function(req, res) {
 // 	let {id} = req.params;
 // 	let update = req.body;
@@ -109,6 +179,19 @@ router.route("/companies/:id").get(async function (req, res) {
 // 	}
 // });
 
+/**
+ * @swagger
+ *
+ * /api/v2/companies/:code/code:
+ *   get:
+ *     tags: 
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ * 
+ */
 router.route("/companies/:code/code").get(async function (req, res) {
   let { code } = req.params;
 
@@ -118,8 +201,47 @@ router.route("/companies/:code/code").get(async function (req, res) {
 });
 
 /**
+ * @swagger
+ *
+ *
+ * /api/v2/company/{code}:
+ *   get:
+ *     tags: 
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/company/:ticker
+ * Get a specific company info using stock quote
+ * @param :ticker unique ticker of the comapny
+ */
+router.get("/company/:ticker", async function (req, res) {
+  let stockTicker = req.params.ticker;
+
+  let company = await Company.findOne({ ticker: stockTicker });
+
+  res.json(company);
+});
+
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/historicals/:symbol:
+ *   get:
+ *     tags: 
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
  * GET /api/historicals/:symbol
- * see also /api/stocks/:symbol/historicals
+ * see also /api/v2/stocks/:symbol/historicals
  * @param :symbol unique symbol of the stock
  */
 router.get("/historicals/:symbol", function (req, res) {
@@ -254,6 +376,24 @@ router.get("/historicals/:symbol", function (req, res) {
     });
 });
 
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/historicals/:symbol/essentials:
+ *   get:
+ *     tags: 
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/historicals/:symbol/essentials
+ * Retrieves 
+ * @param {string} :symbol 
+ */
 router.get("/historicals/:symbol/essentials", function (req, res) {
   let symbol = req.params.symbol;
 
@@ -301,7 +441,20 @@ router.get("/historicals/:symbol/essentials", function (req, res) {
 });
 
 /**
- * GET /api/stocks
+ * @swagger
+ *
+ *
+ * /api/v2/stocks:
+ *   get:
+ *     tags: 
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/stocks
  * Retrieve quotes for all the companies for the current day
  * Retrieve PNGX stock quotes stored in the my own database
  * Retrieve Stock Quotes directly from PNGX website
@@ -314,9 +467,9 @@ router.get("/historicals/:symbol/essentials", function (req, res) {
  * @query skip -
  * @query fields - i.e. fields=id,name,address,contact
  *
- * @param: /api/stocks?code=CODE, retreive quotes from a specific company for the current day
- * @param: /api/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
- * @param: /api/stocks?code=CODE&date_from=DATE&date_to=DATE
+ * @param: /api/v2/stocks?code=CODE, retreive quotes from a specific company for the current day
+ * @param: /api/v2/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
+ * @param: /api/v2/stocks?code=CODE&date_from=DATE&date_to=DATE
  *
  * Date form
  */
@@ -417,9 +570,23 @@ router.get("/stocks", function (req, res) {
       console.error(err);
     });
 });
+
 /**
- * POST /api/stocks
- * import sample data for testing
+ * @swagger
+ *
+ *
+ * /api/v2/stocks:
+ *   post:
+ *     tags: 
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * POST /api/v2/stocks
+ * Import sample data for testing
  */
 router.post("/stocks", function (req, res) {
   let data = req.body;
@@ -441,14 +608,15 @@ router.post("/stocks", function (req, res) {
             console.log("Adding it to the db");
 
             let quote = new Stock(element);
-            quote.save(function (err) {
-              if (err) {
-                console.error(err);
-              } else {
+            quote
+              .save()
+              .then(() => {
                 console.log("added quote for " + element["date"]);
                 res.sendStatus(201);
-              }
-            });
+              })
+              .catch(function (err) {
+                console.error(err);
+              });
           } else {
             console.log("Match found! Cannot add quote");
             res.send("Match found! Cannot add quote");
@@ -463,17 +631,32 @@ router.post("/stocks", function (req, res) {
 });
 
 /**
- * GET /api/stocks/:code
+ * @swagger
+ *
+ *
+ * /api/v2/stocks/:code:
+ *   get:
+ *     tags: 
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/stocks/:code
  * Get a specific quote from the database
- * @param :code unique id of the quote
+ * @param :code - a unique code that represents the quote/stock of a public company on PNGX
  */
 router.get("/stocks/:code", function (req, res) {
-  let { code } = req.params;
+  let code = req.params.code;
 
-  Stock.findById(code)
+  Stock.find({
+    code: code,
+  })
     .then(function (result) {
       if (result) {
-        // console.log("Match found!: ", result);
+        console.log("Match found!: ", result);
         res.json({
           status: 200,
           last_updated: result.date,
@@ -490,12 +673,46 @@ router.get("/stocks/:code", function (req, res) {
     });
 });
 
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/tickers:
+ *   get:
+ *     tags: 
+ *      - ticker
+ *     description: Welcome to swagger-jsdoc!
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/tickers
+ * Retrieves tickers/codes for all the stocks
+ */
 router.get("/tickers", async function (req, res) {
   let tickers = await Ticker.find({});
 
   res.json(tickers);
 });
 
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/tickersx:
+ *   get:
+ *     tags: 
+ *      - ticker
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/tickersx
+ */
 router.get("/tickersx", (req, res) => {
   Ticker.aggregate([
     {

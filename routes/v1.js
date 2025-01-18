@@ -1,23 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const utils = require("../utils");
-const {
-  SYMBOLS,
-  OLD_SYMBOLS,
-  COMPANIES,
-  PNGX_DATA_URL,
-  PNGX_URL,
-} = require("../constants");
-const { Stock, Company, Ticker } = require("../models/index");
+const { SYMBOLS } = require("../constants");
+const { Stock } = require("../models/index");
 
 /**
  * @swagger
- * /:
+ *
+ *
+ * /api/v1/:
+ *   tags: 
+ *    - company
  *   get:
- *     summary: Returns a sample message
+ *     summary: Returns list of stock codes/symbols
  *     responses:
  *       200:
  *         description: A successful response
+ */
+/**
+ * GET /api/v1/
  */
 router.get("/", function (req, res) {
   res.status(200).json({
@@ -32,108 +32,37 @@ router.get("/", function (req, res) {
 });
 
 /**
- * /api/v1/companies
- */
-router.route("/companies").get(async function (req, res) {
-  let companies = await Company.find({});
-
-  res.json(companies);
-});
-// .post(async function(req, res) {
-// 	let update = req.body;
-
-// 	try {
-// 		let company = await Company.create(update);
-
-// 		res.json(company);
-// 	} catch (error) {
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// })
-
-// router.route("/companies/:id").get(async function (req, res) {
-//   let { id } = req.params;
-
-//   let company = await Company.findById(id);
-
-//   res.json(company);
-// });
-// .put(async function(req, res) {
-// 	let {id} = req.params;
-// 	let update = req.body;
-
-// 	try {
-// 		let company = await Company.findByIdAndUpdate(id, update);
-
-// 		res.json(company);
-// 	} catch (error) {
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// })
-// .delete(async function(req, res) {
-// 	let {id} = req.params;
-
-// 	try {
-// 		await Company.findOneAndDelete(id);
-
-// 		return res.statusCode(204).json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	} catch (error) {
-// 		// throw new Error(error);
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// });
-
-router.route("/companies/:code/code").get(async function (req, res) {
-  let { code } = req.params;
-
-  let company = await Company.findOne({ ticker: new RegExp(code, "i") });
-
-  res.json(company);
-});
-
-/**
  * @swagger
  *
  *
- * /v1/company:
+ * /api/v1/historicals/{code}:
  *   get:
- *     summary: Returns a sample message
+ *     summary: Returns all the historical data for code/symbol
+ *     description: Returns all the historical data for code/symbol
+ *     operationId: getHistoricals
  *     responses:
  *       200:
  *         description: A successful response
+ *       204:
+ *         description: No Content
+ *       500:
+ *         description: Server error
+ *     parameters:
+ *       - name: code
+ *         in: path
+ *         description: code symbol
+ *         required: true
+ *         schema:
+ *           type: string
+ *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
  */
 /**
- * GET /api/v1/company/:ticker
- * Get a specific company info using stock quote
- * @param :ticker unique ticker of the comapny
+ * GET /api/v1/historicals/:code
+ * see also /api/v1/stocks/:code/historicals
+ * @param :code unique symbol of the stock
  */
-router.get("/company/:ticker", async function (req, res) {
-  let stockTicker = req.params.ticker;
-
-  let company = await Company.findOne({ ticker: stockTicker });
-
-  res.json(company);
-});
-
-/**
- * GET /api/v1/historicals/:symbol
- * see also /api/v1/stocks/:symbol/historicals
- * @param :symbol unique symbol of the stock
- */
-router.get("/historicals/:symbol", function (req, res) {
-  let symbol = req.params.symbol;
+router.get("/historicals/:code", function (req, res) {
+  let code = req.params.code;
   let date = req.query.date;
   let start = req.query.start;
   let end = req.query.end;
@@ -143,7 +72,7 @@ router.get("/historicals/:symbol", function (req, res) {
   let fields = req.query.fields;
 
   let stock = Stock.find();
-  stock.where({ code: symbol });
+  stock.where({ code: code });
   stock.select("date code close high low open vol_today");
 
   var dateStr = {
@@ -216,11 +145,11 @@ router.get("/historicals/:symbol", function (req, res) {
       // redisClient.setEx(search, 600, JSON.stringify(stocks));
 
       if (stocks && stocks.length > 0) {
-        res.json({
+        res.status(200).json({
           status: 200,
           // ...dateStr,
           last_updated: stocks[0].date,
-          symbol: symbol,
+          symbol: code,
           total_count: count,
           historical: stocks,
 
@@ -261,55 +190,28 @@ router.get("/historicals/:symbol", function (req, res) {
     })
     .catch((err) => {
       console.log(err);
+      res.status(500).json({
+        status: 500,
+        reason: "Error occurred when ",
+      });
     });
 });
 
-router.get("/historicals/:symbol/essentials", function (req, res) {
-  let symbol = req.params.symbol;
-
-  let stock = Stock.find({});
-  // stock.where({ 'code': symbol });
-  // stock.select('date bid offer code close high low open vol_today');
-
-  stock
-    .exec()
-    .then(function (stocks) {
-      const count = stocks.length;
-      let dates = [];
-      let bids = [];
-      let offers = [];
-
-      if (stocks && stocks.length > 0) {
-        stocks.forEach(function (stock) {
-          dates.push(new Date(stock.date).getTime());
-          bids.push(stock.bid);
-          offers.push(stock.offer);
-        });
-
-        res.status(200).json([
-          {
-            columns: [
-              ["x", ...dates],
-              ["y1", ...bids],
-              ["y2", ...offers],
-            ],
-            types: { y0: "line", y1: "line", x: "x" },
-            names: { y0: "#0", y1: "#1" },
-            colors: { y0: "#3DC23F", y1: "#F34C44" },
-          },
-        ]);
-      } else {
-        res.status(204).json({
-          status: 204,
-          reason: "No Content",
-        });
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-});
-
+/**
+ * @swagger
+ *
+ * /api/v1/stocks/:
+ *   get:
+ *     operationId: getStocks
+ *     summary: Returns list of quotes for the day
+ *     responses:
+ *       200:
+ *         description: A successful response
+ *       204:
+ *         description: No Content
+ *       500:
+ *         description: Server error
+ */
 /**
  * GET /api/v1/stocks
  * Retrieve quotes for all the companies for the current day
@@ -362,7 +264,6 @@ router.get("/stocks", function (req, res) {
       start = Number(start);
     }
     let $start = new Date(start);
-    console.log($start);
 
     Object.assign(dateStr["date"], { start: $start.toDateString() });
     query.where({ date: { $gte: $start } });
@@ -417,7 +318,7 @@ router.get("/stocks", function (req, res) {
           data: stocks,
         });
       } else {
-        res.json({
+        res.status(204).json({
           status: 204,
           reason: "No Content",
         });
@@ -425,247 +326,11 @@ router.get("/stocks", function (req, res) {
     })
     .catch((err) => {
       console.error(err);
-    });
-});
-
-/**
- * POST /api/v1/stocks
- * import sample data for testing
- */
-router.post("/stocks", function (req, res) {
-  let data = req.body;
-
-  if (Array.isArray(data)) {
-    for (let i = 0; i < data.length; i++) {
-      const element = utils.normalize_data(array[i]);
-
-      let query = Stock.findOne({
-        date: element["date"],
-        short_name: element["short_name"],
+      res.status(500).json({
+        status: 500,
+        reason: "Error occured",
       });
-      // query.lean();
-      query
-        .exec()
-        .then(function (result) {
-          if (result == null) {
-            console.log("Match No Content.");
-            console.log("Adding it to the db");
-
-            let quote = new Stock(element);
-            quote.save(function (err) {
-              if (err) {
-                console.error(err);
-              } else {
-                console.log("added quote for " + element["date"]);
-                res.sendStatus(201);
-              }
-            });
-          } else {
-            console.log("Match found! Cannot add quote");
-            res.send("Match found! Cannot add quote");
-          }
-        })
-        .catch((err) => {
-          console.error("Error: " + err);
-          res.send("Error: " + err);
-        });
-    }
-  }
-});
-
-/**
- * GET /api/v1/stocks/:code
- * Get a specific quote from the database
- * @param :code unique id of the quote
- */
-router.get("/stocks/:code", function (req, res) {
-  let code = req.params.code;
-
-  Stock.find({
-    code: code,
-  })
-    .then(function (result) {
-      if (result) {
-        console.log("Match found!: ", result);
-        res.json({
-          status: 200,
-          last_updated: result.date,
-          data: result,
-        });
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((error) => {
-      if (error) {
-        console.error("Error: " + error);
-      }
     });
 });
-
-router.get("/tickers", async function (req, res) {
-  let tickers = await Ticker.find({});
-
-  res.json(tickers);
-});
-
-router.get("/tickersx", (req, res) => {
-  Ticker.aggregate([
-    {
-      $match: {
-        code: "BSP",
-      },
-    },
-    // {
-    // 	$group: {
-    // 		_id: {
-    // 			symbol: "$symbol",
-    // 			time: {
-    // 				$dateTrunc: {
-    // 					date: "$time",
-    // 					unit: "minute",
-    // 					binSize: 5
-    // 				},
-    // 			},
-    // 		},
-    // 		high: { $max: "$price" },
-    // 		low: { $min: "$price" },
-    // 		open: { $first: "$price" },
-    // 		close: { $last: "$price" },
-    // 	},
-    // },
-    // {
-    // 	$sort: {
-    // 		"_id.time": 1,
-    // 	},
-    // },
-  ]).then(function (tickers) {
-    res.json(tickers);
-  });
-
-  // db.sales.aggregate([
-  // 	// First Stage
-  // 	{
-  // 	  $match : { "date": { $gte: new ISODate("2014-01-01"), $lt: new ISODate("2015-01-01") } }
-  // 	},
-  // 	// Second Stage
-  // 	{
-  // 	  $group : {
-  // 		 _id : { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
-  // 		 totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } },
-  // 		 averageQuantity: { $avg: "$quantity" },
-  // 		 count: { $sum: 1 }
-  // 	  }
-  // 	},
-  // 	// Third Stage
-  // 	{
-  // 	  $sort : { totalSaleAmount: -1 }
-  // 	}
-  //    ])
-});
-
-// Stock.findOne({
-// 	'date': s,
-// 	// 'short_name': data['Short Name']
-// })
-// .then(result => console.log(result))
-// .catch(err => console.log(err))
-
-// const getStream = require('get-stream');
-
-// (async () => {
-// 	const stream = fs.createReadStream("./data/SST.csv");
-
-// 	let stockData = parse_csv_to_json(await getStream(stream));
-
-// 	for (var j = 0; j < stockData.length; j++) {
-// 		let data = stockData[j];
-
-// 		Stock.findOne({
-// 			'date': data['Date'],
-// 			'short_name': data['Short Name']
-// 		})
-// 		.then(function(result) {
-// 			if (result == null) {
-// 				console.log("Match No Content.");
-// 				console.log("Adding it to the db");
-
-// 				let quote = new Stock();
-
-// 				quote = prepare_data(quote, data)
-
-// 				quote.save(function(err) {
-// 					if (err) {
-// 						console.log(err);
-// 					} else {
-// 						console.log('added quote for ' + data['Date']);
-// 					}
-// 				});
-// 			}
-// 		})
-// 		// Ticker.findOne({
-// 		// 	'date': data['Date'],
-// 		// 	'symbol': data['Short Name']
-// 		// })
-// 		// .then(function(result) {
-// 		// 	if (result == null) {
-// 		// 		console.log("Match No Content.");
-// 		// 		console.log("Adding it to the db");
-
-// 		// 		let quote = new Ticker();
-
-// 		// 		let localTime = momentTimezone.tz(new Date(data['Date']), LOCAL_TIMEZONE);
-// 		// 		quote['date'] = localTime;
-// 		// 		console.log(quote)
-// 		// 		console.log(new Date(data['Date']))
-
-// 		// 		// quote['symbol'] = data['Short Name'];
-// 		// 		// quote['bid'] = Number(data['Bid']);
-// 		// 		// quote['offer'] = Number(data['Offer']);
-// 		// 		// quote['last'] = Number(data['Last']);
-// 		// 		// quote['close'] = Number(data['Close']);
-// 		// 		// quote['high'] = Number(data['High']);
-// 		// 		// quote['low'] = Number(data['Low']);
-// 		// 		// quote['open'] = Number(data['Open']);
-// 		// 		// quote['change'] = Number(data['Chg. Today']);
-// 		// 		// quote['volume'] = Number(data['Vol. Today']);
-// 		// 		// quote['num_trades'] = Number(data['Num. Trades']);
-
-// 		// 		// quote.save(function(err) {
-// 		// 		// 	if (err) {
-// 		// 		// 		console.log(err);
-// 		// 		// 	} else {
-// 		// 		// 		console.log('added quote for ' + data['Date']);
-// 		// 		// 	}
-// 		// 		// 	console.log("\n");
-// 		// 		// });
-// 		// 	}
-// 		// })
-// 		.catch(function(error) {
-// 			throw new Error(error);
-// 		});
-// 	};
-
-// })()
-
-// (async () => {
-// 	let ticker = await Ticker.find();
-// 	console.log("tickers: ", ticker)
-
-// 	new Ticker({
-// 		date: "2020-01-03T05:00:00.000Z",
-// 		symbol: 'AAPL',
-// 		bid: 0,
-// 		offer: 0,
-// 		last: 0,
-// 		close: 74.357498,
-// 		high: 75.144997,
-// 		low: 74.125,
-// 		open: 74.287498,
-// 		change: 0,
-// 		volume: 146322800,
-// 		num_trades: 0
-// 	}).save()
-// })()
 
 module.exports = router;

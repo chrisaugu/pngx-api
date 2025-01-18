@@ -24,6 +24,8 @@ const PNGX_DATA_URL = `${PNGX_URL}/data/`;
 const LOCAL_TIMEZONE = 'Pacific/Port_Moresby';
 const LOCAL_TIMEZONE_FORMAT = 'yyyy-MM-dd'; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)
 
+const BASE_URL = new URL('https://nuku1-btlxx2lu.b4a.run/')
+
 module.exports = {
     SYMBOLS,
     OLD_SYMBOLS,
@@ -31,5 +33,6 @@ module.exports = {
     PNGX_DATA_URL,
     PNGX_URL,
     LOCAL_TIMEZONE,
-    LOCAL_TIMEZONE_FORMAT
+    LOCAL_TIMEZONE_FORMAT,
+    BASE_URL
 }

@@ -18,7 +18,6 @@ function date_split(date) {
 function format_date(date) {
 	// only for STO's date i.e. 30/09/2024 - dd/MM/yyyy
 	if (date.match(new RegExp('^((0[1-9]|[12][0-9]|3[01])/(01|03|05|07|08|10|12)/([0-9]{4}))|((0[1-9]|[12][0-9]|30)/(04|06|09|11)/([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])/02/([0-9]{4}))|(29/02/([0-9]{2}(0[48]|[2468][048]|[13579][26])|([048][048]|[13579][26])00))$'))) {
-		console.log(date)
 		let parseDate = parse(date, "dd/MM/yyyy", new Date())
 		// fixing timezone issues on clever-cloud.io
 		let localTime = formatInTimeZone(parseDate, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT)
