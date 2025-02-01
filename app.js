@@ -1,12 +1,10 @@
 const express = require("express");
-const setRateLimit = require("express-rate-limit");
 const morgan = require("morgan");
 const cron = require("node-cron");
-const cors = require("cors");
 const path = require("path");
 // const boxen = require('boxen');
 // const ora = require('ora');
-// const spinner = ora('Connecting to the database...').start()
+// const spinner = ora('Connecting to the database...').start();
 const { specs, swaggerUi } = require("./config/swagger");
 const logger = require("./config/winston");
 require("./constants");
@@ -17,6 +15,8 @@ const {
   allowMethodOverride,
   error404Handler,
   errorHandler,
+  corsMiddleware,
+  rateLimitMiddleware,
 } = require("./middlewares");
 const tasks = require("./tasks");
 
@@ -81,14 +81,7 @@ app.use(express.json({}));
 app.use(morgan("combined", { stream: logger.stream.write }));
 
 // app.use(helmet);
-app.use(
-  cors({
-    origin: "http://localhost:4000",
-    allowedHeaders: ["sessionId", "Content-Type"],
-    exposedHeaders: ["sessionId"],
-    methods: "GET,PUT,PATCH,POST,DELETE",
-  })
-);
+app.use(corsMiddleware);
 app.use(allowCrossDomain);
 app.use(allowMethodOverride);
 
@@ -98,31 +91,14 @@ app.use(error404Handler);
 app.use(errorHandler);
 // app.use(errorLogHandler);
 
-const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
-const rateLimitMiddleware = setRateLimit({
-  windowMs: 60 * 1000,
-  max: 5,
-  message: "You have exceeded your 5 requests per minute limit.",
-  headers: true,
-  handler: function (req, res) {
-    // applyFeesForConsumer()
-    // next()
-    return res.status(429).json({
-      error: "You sent too many requests. Please wait a while then try again",
-    });
-  },
-  skip: (req) => allowlist.includes(req.ip),
-});
-// app.use("/api", rateLimitMiddleware);
+app.use("/api", rateLimitMiddleware);
 
 // middleware to check data is present in cache
 // app.use(checkCache);
 
 initDatabase()
   .on("connected", function () {
-    console.log(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
-    );
+    console.log("[Main_Thread]: Connected: Successfully connect to mongo server");
     /**
      * Schedule task to requests data from PNGX datasets every 2 minutes
      * The task requests and models the data them stores those data in db
@@ -131,9 +107,7 @@ initDatabase()
 
     // console.log('This script will run every 2 minutes to update stocks info.');
     // cron.schedule("*/2 * * * *", () => {
-    console.log(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
-    );
+    console.log("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
     cron.schedule("30 8 * * *", () => {
       // tasks.data_fetcher();
       // const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
@@ -179,9 +153,7 @@ initDatabase()
     });
   })
   .on("error", function () {
-    console.log(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
-    );
+    console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
   });
 
 /**

@@ -1,3 +1,6 @@
+const setRateLimit = require("express-rate-limit");
+const cors = require("cors");
+
 exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
   // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
 
@@ -78,7 +81,6 @@ exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
       console.table(res);
     });
 };
-
 // fixDateFormatOnProdDB()
 
 exports.parallel = async function parallel(arr, fn, threads = 2) {
@@ -90,3 +92,26 @@ exports.parallel = async function parallel(arr, fn, threads = 2) {
   }
   return result.flat();
 };
+
+const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
+exports.rateLimitMiddleware = setRateLimit({
+  windowMs: 1 * 1000, // 1 second
+  max: 100,
+  message: "You have exceeded your 100 requests per second limit.",
+  headers: true,
+  handler: function (req, res) {
+    // applyFeesForConsumer()
+    // next()
+    return res.status(429).json({
+      error: "You sent too many requests. Please wait a while then try again",
+    });
+  },
+  skip: (req) => allowlist.includes(req.ip),
+});
+
+exports.corsMiddleware = cors({
+  origin: "http://localhost:3000",
+  allowedHeaders: ["sessionId", "Content-Type"],
+  exposedHeaders: ["sessionId"],
+  methods: "GET,PUT,PATCH,POST,DELETE",
+});
