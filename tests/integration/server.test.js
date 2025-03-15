@@ -1,6 +1,6 @@
 const request = require("supertest");
-const app = require("../../app");
 const mongoose = require("mongoose");
+const app = require("../../app");
 
 require("dotenv").config();
 
@@ -15,30 +15,49 @@ afterEach(async () => {
   await mongoose.connection.close();
 });
 
-describe("GET /api/stocks", () => {
-  it("should return a list of stocks", async () => {
-    const response = await request(app).get("/api/stocks");
+describe("GET /api/health", () => {
+  it("should return healt check", async () => {
+    const response = await request(app).get("/api/health");
 
     expect(response.status).toBe(200);
-
-    expect(response.body).toBeInstanceOf(Array);
-  });
-
-  it("should return an error for invalid stock CODE", async () => {
-    const response = await request(app).get("/api/stocks/code");
-
-    expect(response.status).toBe(400);
+    expect(response.body).toBeInstanceOf(Object);
   });
 });
 
-// /* Testing the API endpoints. */
-// describe("GET /api/products", () => {
-//   it("should return all products", async () => {
-//     const res = await request(app).get("/api/products");
-//     expect(res.statusCode).toBe(200);
-//     expect(res.body.length).toBeGreaterThan(0);
-//   });
-// });
+/* Testing the API endpoints. */
+describe("GET /api/v1", () => {
+  it("should return all public companies", async () => {
+    const res = await request(app).get("/api/v1");
+
+    expect(res.status).toBe(200);
+    expect(res.body).toBeInstanceOf(Object);
+  });
+});
+
+describe("GET /api/v1/stocks", () => {
+  it("should return a list of stocks", async () => {
+    const response = await request(app).get("/api/v1/stocks");
+
+    expect(response.status).toBe(200);
+    expect(response.body).toBeInstanceOf(Object);
+  });
+});
+
+describe("GET /api/v1/historicals/:code", () => {
+  it("should return a stock", async () => {
+    const response = await request(app).get("/api/v1/historicals/BSP");
+
+    expect(response.status).toBe(200);
+    expect(response.body).toBeInstanceOf(Object);
+  });
+
+  it("should return an error for invalid stock CODE", async () => {
+    const response = await request(app).get("/api/v1/historicals/CODE");
+
+    expect(response.status).toBe(204);
+    // expect(response.body).toBeInstanceOf(Object);
+  });
+});
 
 // describe("GET /api/products/:id", () => {
 //   it("should return a product", async () => {

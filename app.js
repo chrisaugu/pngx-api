@@ -18,60 +18,10 @@ const {
   corsMiddleware,
   rateLimitMiddleware,
 } = require("./middlewares");
-const tasks = require("./tasks");
+const { WORKER_SCHEDULE_TIME } = require("./constants");
 
 // Creating express app
 const app = express();
-
-// Redis client
-// let redisClient = redis.createClient({
-// 	host: '127.0.0.1',
-// 	port: 6379,
-// }).on('error', (err) => {
-// 	console.error('Redis connection error:', err);
-// }).on('connect', () => {
-// 	console.log('Connected to Redis');
-// });
-// If authentication is required, use the 'auth' method on the client
-// redisClient.auth('your-redis-password');
-
-// Celery client
-// const celeryClient = celery.createClient(
-// 	"redis://127.0.0.1:6379",
-// 	"redis://127.0.0.1:6379"
-// );
-
-// const task = celeryClient.createTask("tasks.add");
-// const result = task.applyAsync([1, 2]);
-// result.get().then(data => {
-// //   console.log(data);
-// //   celeryClient.disconnect();
-// });
-// const taskKwargs = celeryClient.createTask("tasks.fetch_data_from_pngx");
-// Promise.all([
-//   task
-//     .delay(1, 2)
-//     .get()
-//     .then(console.log),
-//   task
-//     .applyAsync([1, 2])
-//     .get()
-//     .then(console.log),
-//   taskKwargs
-//     .delay(1, 2, { c: 3, d: 4 })
-//     .get()
-//     .then(console.log),
-//   taskKwargs
-//     .applyAsync([1, 2], { c: 3, d: 4 })
-//     .get()
-//     .then(console.log)
-// ]).then(() => celeryClient.disconnect());
-// const task = celeryClient.createTask("tasks.stock_fetcher");
-// const result = task.applyAsync([]);
-// result.get().then(data => {
-//   console.log(data);
-//   celeryClient.disconnect();
-// });
 
 app.use(express.static(path.join(__dirname, "docs")));
 app.use("/demo", express.static(path.join(__dirname, "demo")));
@@ -100,26 +50,11 @@ initDatabase()
   .on("connected", function () {
     console.log("[Main_Thread]: Connected: Successfully connect to mongo server");
     /**
-     * Schedule task to requests data from PNGX datasets every 2 minutes
-     * The task requests and models the data them stores those data in db
-     * Fetch data from PNGX.com every 2 minutes
+     * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
-
-    // console.log('This script will run every 2 minutes to update stocks info.');
-    // cron.schedule("*/2 * * * *", () => {
     console.log("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
-    cron.schedule("30 8 * * *", () => {
-      // tasks.data_fetcher();
-      // const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
-      // 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
-      // const data_fetcher = celeryClient.createTask("tasks.data_fetcher")
-      // 								 .applyAsync([]);
-
-      // data_fetcher.get().then(data => {
-      // 	console.log(data)
-      // 	celeryClient.disconnect();
-      // });
-      const { Worker } = require("node:worker_threads");
+    cron.schedule(WORKER_SCHEDULE_TIME, () => {
+      const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(process.cwd(), "thread_workers.js");
 
       // const workerPromises = [];
@@ -134,19 +69,23 @@ initDatabase()
       // 	thread_results[3];
 
       try {
-        let worker = new Worker(childWorkerPath);
+        if (isMainThread) {
+          let worker = new Worker(childWorkerPath);
 
-        worker.once("message", (result) => {
-          console.log("completed: ", result);
-        });
-        worker.on("error", (error) => {
-          throw new Error(`Error occured`, error);
-        });
-        worker.on("exit", (exitCode) => {
-          if (exitCode !== 0) {
-            throw new Error(`Worker stopped with exit code ${exitCode}`);
-          }
-        });
+          worker.once("message", (result) => {
+            console.log("completed: ", result);
+          });
+          
+          worker.on("error", (error) => {
+            throw new Error(`Error occured`, error);
+          });
+
+          worker.on("exit", (exitCode) => {
+            if (exitCode !== 0) {
+              throw new Error(`Worker stopped with exit code ${exitCode}`);
+            }
+          });
+        }
       } catch (erorr) {
         console.log(erorr);
       }

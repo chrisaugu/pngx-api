@@ -4,7 +4,6 @@ const swaggerUi = require("swagger-ui-express");
 const options = {
   definition: {
     openapi: "3.0.0",
-    // swagger: '2.0',
     info: {
       title: "Nuku API",
       summary: "A pet store manager.",

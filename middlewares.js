@@ -61,38 +61,6 @@ exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
   next(err);
 };
 
-exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
-  Stock.find({
-    // _id: mongoose.mongo.ObjectId("633a925da76dd590ada1d70c"),
-    // date: new Date("10/03/2022"),
-    code: "STO",
-  })
-    .then((res) => {
-      return Promise.all(
-        res.map((data) => {
-          // if (date)
-          // data.date = new Date(data.date)
-          // data.save()
-          return data;
-        })
-      );
-    })
-    .then((res) => {
-      console.table(res);
-    });
-};
-// fixDateFormatOnProdDB()
-
-exports.parallel = async function parallel(arr, fn, threads = 2) {
-  const result = [];
-
-  while (arr.length) {
-    const res = await Promise.all(arr.splice(0, threads).map((x) => fn(x)));
-    result.push(res);
-  }
-  return result.flat();
-};
-
 const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
 exports.rateLimitMiddleware = setRateLimit({
   windowMs: 1 * 1000, // 1 second

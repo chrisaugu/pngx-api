@@ -42,6 +42,14 @@ Deprecated – for deprecated features that will be removed in future versions,
 Removed – for removed functions,
 Fixed – for fixed bugs and refactoring.
 
+2.0.1 / 2025-03-08
+==================
+  * added nginx
+  * upgraded node version to 22
+  * changed WORKDIR in Dockerfile to /app/nuku-api
+  * Extracted ENV-VARs to /config/env.js
+  * Removed support for https on server.js to give space for nginx-lb to implement https
+
 
 2.0.0 / 2024-12-29
 ==================
@@ -68,7 +76,7 @@ Fixed – for fixed bugs and refactoring.
   * Added `Dockerfile` and `docker-compose.yaml` file
   * Added `OpenAPI` documentation at `/api/docs`
   * Migrated `mongoose` to `^8.8.3`
-    - fixed callback issues 
+    - fixed callback issues
 
 1.0.0 / 2024-10-20
 ==================

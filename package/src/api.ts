@@ -6,16 +6,21 @@ import { METHODS } from 'http';
 // const API_URL = `https://api.nuku-api.io/api/v1`;
 const API_URL = `http://locahost:5000/api/v1`;
 
+enum Servers {
+  PNGX = "pngx",
+  NUKUAPI = "nuku"
+}
+
 const fetcher = async (url: string, options: any) => await fetch(`${API_URL}/${url}`, options)
 
 type TQuery = {
-  date: string;
-  start: string;
-  end: string;
-  limit: number;
-  sort: number;
-  skip: number;
-  fields: []
+  date?: string;
+  start?: string;
+  end?: string;
+  limit?: number;
+  sort?: number;
+  skip?: number;
+  fields?: []
 }
 
 /**

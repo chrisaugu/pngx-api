@@ -210,3 +210,28 @@ exports.stock_fetcher = stock_fetcher;
 /**
  * reverse run down
  */
+
+
+
+
+exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
+  Stock.find({
+    // _id: mongoose.mongo.ObjectId("633a925da76dd590ada1d70c"),
+    // date: new Date("10/03/2022"),
+    code: "STO",
+  })
+    .then((res) => {
+      return Promise.all(
+        res.map((data) => {
+          // if (date)
+          // data.date = new Date(data.date)
+          // data.save()
+          return data;
+        })
+      );
+    })
+    .then((res) => {
+      console.table(res);
+    });
+};
+// fixDateFormatOnProdDB()

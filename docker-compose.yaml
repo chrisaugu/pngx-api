@@ -1,44 +1,48 @@
 services:
   nuku-api:
     build: .
-    # dockerfile: ./Dockerfile
+    dockerfile: ./Dockerfile
     container_name: nuku-api
     ports:
       - "5000:5000"
-    # depends_on:
-      # - nuku-redis
-      # - nuku-mongodb
-      # - nuku-redis-worker
+    depends_on:
+      - nuku-redis
+      - nuku-mongodb
+      - nuku-redis-worker
     restart: always
-    # networks:
-    #   - nuku-api-network
+    networks:
+      - nuku-api-network
   
-#   nuku-worker:
-#     build: 
-#       context: ./nuku-redis-worker
-#       dockerfile: ./Dockerfile
-#     command: ["node", "worker.js"]
-#     restart: always
-#     depends_on:
-#       - nuku-redis
+  nuku-worker:
+    build: 
+      context: ./nuku-redis-worker
+      dockerfile: ./Dockerfile
+    command: ["node", "worker.js"]
+    restart: always
+    depends_on:
+      - nuku-redis
   
-#   nuku-redis:
-#     image: redis
-#     ports:
-#       - "6379:6379"
+  nuku-redis:
+    image: redis
+    ports:
+      - "6379:6379"
   
-#   nuku-mongodb:
-#     image: mongo:6-jammy
-#     ports:
-#       - '27017:27017'
-#     volumes:
-#       - dbdata6:/data/db
-#     networks:
-#       - nuku-api-network
+  nuku-mongodb:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata6:/data/db
+    networks:
+      - nuku-api-network
 
-# volumes:
-#   dbdata6:
+  nuku-price-consumer-service:
+    depends_on:
+      - nuku-redis
 
-# networks:
-#   nuku-api-network:
-#     driver: bridge
+volumes:
+  dbdata6:
+
+networks:
+  nuku-api-network:
+    driver: bridge

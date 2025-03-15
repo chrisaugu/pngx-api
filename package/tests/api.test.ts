@@ -1,24 +1,24 @@
 import { getDataFromServer, getHistoricals, getStock, getStocks } from '../src/api';
 
-// getHistoricals('bsp')
+// getHistoricals('bsp');
 // getStock('bsp')
 // getDataFromServer('BSP').then(res => {
 //     console.log(res)
-// })
+// });
 
 // describe('retrieving data from www.pngx.com.pg', () => {
 //     test('should return full data in json', async () => {
 //         const result = await getDataFromServer('BSP');
 //         expect(result).toBe('expected value');
 //     })
-// })
+// });
 
 describe('retrieving data from localhost', () => {
     test('should return full data in json', async () => {
         const result = await getStocks();
         expect(result).toBe('expected value');
     })
-})
+});
 
 // test('fetches data from an API', async () => {
 //     // mock the fetch function to return a fake response

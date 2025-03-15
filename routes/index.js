@@ -1,6 +1,6 @@
 const express = require("express");
-const { BASE_URL } = require("../constants");
 const router = express.Router();
+const { BASE_URL } = require("../constants");
 
 router.get("/", (req, res) => {
   res.status(200).json({

@@ -1,6 +1,4 @@
-const SYMBOLS = ['BSP','CCP','CGA','CPL','KAM','KSL','NEM','NGP','NIU','SST','STO'];
-const OLD_SYMBOLS = ['COY','NCM','OSH'];
-const COMPANIES = {
+const COMPANIES = Object.freeze({
     "BSP": "BSP Financial Group Limited",
     "CCP": "Credit Corporation (PNG) Ltd",
     "CGA": "PNG Air Limited",
@@ -13,16 +11,19 @@ const COMPANIES = {
     "NGP": "NGIP Agmark Limited",
     "NIU": "Niuminco Group Limited",
     "SST": "Steamships Trading Company Limited",
-    "STO": "Santos Limited"
-}
-
-const Quotes = Object.freeze(SYMBOLS);
+    "STO": "Santos Limited",
+    "OSH": ""
+});
+const OLD_SYMBOLS = ['COY','NCM','OSH'];
+const SYMBOLS = Object.keys(COMPANIES).filter(c => !OLD_SYMBOLS.includes(c));
 
 const PNGX_URL = "https://www.pngx.com.pg";
 const PNGX_DATA_URL = `${PNGX_URL}/data/`;
 
 const LOCAL_TIMEZONE = 'Pacific/Port_Moresby';
 const LOCAL_TIMEZONE_FORMAT = 'yyyy-MM-dd'; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)
+
+const WORKER_SCHEDULE_TIME = "30 8 * * *";
 
 const BASE_URL = new URL('https://nuku1-btlxx2lu.b4a.run/')
 
@@ -34,5 +35,6 @@ module.exports = {
     PNGX_URL,
     LOCAL_TIMEZONE,
     LOCAL_TIMEZONE_FORMAT,
-    BASE_URL
+    BASE_URL,
+    WORKER_SCHEDULE_TIME
 }

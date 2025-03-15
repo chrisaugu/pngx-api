@@ -1,10 +1,12 @@
-[![PNGX-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](/) 
+[![NUKU-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](/) 
 
-# PNGX-API
+# NUKU-API (formerly PNGX-API)
 
-_The First Unofficial PNGX-API, Ever_
+_The First Unofficial PNGX API, Ever_
 
-NUKU (aka PNGX) is a RESTFul API that retrieves, store and process stock data from PNGX. It formerly part of [CrisBot](https://github.com/crisbotio), now a standalone API.
+NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and processes stock data directly from PNGX. It was formerly part of [CrisBot](https://github.com/crisbotio), now a standalone API.
+
+#### For complete documentation visit [https://chrisaugu.github.io/pngx-api/](https://chrisaugu.github.io/pngx-api/).
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
 ![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
@@ -29,9 +31,9 @@ NUKU (aka PNGX) is a RESTFul API that retrieves, store and process stock data fr
 ---
 
 ## 📜 Description
-The API retrieve, store, and process financial data from from [PNGX.com.pg](http://www.pngx.com.pg).
+The API retrieve, store, and process financial data directly from [PNGX](http://www.pngx.com.pg).
 
-Companies listed on PNGX
+#### Companies listed on PNGX:
 
 | Symbol | Company |
 | :----- | :------ |
@@ -51,7 +53,7 @@ Companies listed on PNGX
 ## ✨Features
 - Historical data
 - Current listed stock info
-- Near-realtime updates
+- Near-realtime stock updates
 - RESTful API format
 
 
@@ -187,7 +189,7 @@ Update an existing pet by Id
 ```
 
 ### Get a non-existent Quote
-Update an existing pet by Id
+<!-- Update an existing pet by Id -->
 
 `GET /api/v1/historicals/:symbol`
 
@@ -212,7 +214,7 @@ Update an existing pet by Id
 
 ## 🛠️ Tech & Tools
 
-The entire application is written in JavaScript and run on NodeJS environment.
+The entire application is written in JavaScript and runs on NodeJS environment.
 
 ### Dependencies
 **Nuku** uses a number of open source projects to work properly:
@@ -223,33 +225,25 @@ The entire application is written in JavaScript and run on NodeJS environment.
 - [node-cron] - Node-cron to to schedule the tasks
 - [markdown-it] - Markdown parser done right. Fast and easy to extend.
 - [Twitter Bootstrap] - great UI boilerplate for modern web apps
-- [node.js] - evented I/O for the backend
+- [Node.js] - evented I/O for the backend
 - [Express] - fast node.js network app framework [@tjholowaychuk]
 - [Gulp] - the streaming build system
 - [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
-- [jQuery] - duh
-
-* Express
 * CORS
-* BodyParser
 * Mongoose
-* MongoDB
 * NodeCron
 * Path
 * Request
-* fs
+* FS
 
 
-And of course PNGX-API itself is open source with a [public repository][pngx-api]
+And of course NUKU-API itself is open source with a [public repository](https://github.com/chrisaugu/pngx-api)
  on GitHub.
 
 ## 👩‍💻 Contributing
+<!-- ## 💬 Contributing -->
 
 Want to contribute? Great!
-
-PNGX-API uses Gulp for fast developing.
-Make a change in your file and instantaneously see your updates!
-
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -263,35 +257,20 @@ Please make sure to update tests as appropriate.
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-[Contributing Guide](Contributing.md)
+Make sure you read [Contributing Guide](Contributing.md) before making your contributions.
 
 [List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
 
-## 🧑 Author Info
+- [Code of Conduct](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CODE_OF_CONDUCT.md)
+- [Contributing Guidelines](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CONTRIBUTING.md)
+- [Commit Message Convention](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/docs/COMMIT_MESSAGE_CONVENTION.md)
 
-The original author of PNGX-API is [Christian Augustyn](https://github.com/chrisaugu)
-- Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
-- Website - [Christian Augustyn](https://www.christianaugustyn.me)
-
-
-## 🧾 ChangeLog
-[CHANGELOG](./CHANGELOG.md)
-
-
-## 📝 License
-
-Licensed under the [MIT License](./LICENSE).
-
-**Free Software, Hell Yeah!**
-
-## © Copyright
-
-&copy; 2023, Christian Augustyn.
 
 ## 🔧 Pull Request Steps
 
 TOAST UI products are open source, so you can create a pull request(PR) after you fix issues.
 Run npm scripts and develop yourself with the following process.
+
 
 ### Setup
 
@@ -316,48 +295,9 @@ If it has no error, commit and then push it!
 
 For more information on PR's step, please see links of Contributing section.
 
-## 💬 Contributing
+## Bug tracker
 
-- [Code of Conduct](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CODE_OF_CONDUCT.md)
-- [Contributing Guidelines](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CONTRIBUTING.md)
-- [Commit Message Convention](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/docs/COMMIT_MESSAGE_CONVENTION.md)
-
-## 📜 License
-
-This software is licensed under the [MIT](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/LICENSE) © [NHN Cloud](https://github.com/nhn).
-
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-   [pngx-api]: <https://github.com/chrisaugu/pngx-api>
-   [MongoDB]: <https://www.mongodb.com>
-   [git-repo-url]: <https://github.com/chrisaugu/pngx-api.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-
-
-
-
-
-
-
-Types of schedules supported by _Schedule_:
-
-* Schedule a set of work items across developers with different schedules
-* Manage elevator reservations for an apartment building
-* Schedule the company ping pong tournment
-
-####For complete documentation visit [http://bunkat.github.io/schedule/](http://bunkat.github.io/schedule/).
+Have a bug or a feature request? [Please open a new issue](https://github.com/chrisaugu/pngx-api/issues).
 
 
 ## Installation
@@ -396,14 +336,45 @@ And constructed with the following guidelines:
 
 For more information on SemVer, please visit [http://semver.org/](http://semver.org/).
 
-## Bug tracker
 
-Have a bug or a feature request? [Please open a new issue](https://github.com/chrisaugu/pngx-api/issues).
+## 🧑 Author Info
 
-## Change Log
-
-### Schedule v0.6.0
-
-* First documented release.
+The original author of NUKU-API is [Christian Augustyn](https://github.com/chrisaugu)
+- Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
+- Website - [Christian Augustyn](https://www.christianaugustyn.me)
 
 
+## 🧾 ChangeLog
+Wonder how NUKU-API has been changing for years
+[CHANGELOG](./CHANGELOG.md)
+
+
+<!-- ## 📝 License -->
+## 📜 License
+This software is licensed under the [MIT License](./LICENSE) © [Christian Augustyn](https://github.com/chrisaugu).
+
+
+**Free Software, Hell Yeah!**
+
+## © Copyright
+
+&copy; 2023, Christian Augustyn.
+
+
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+   [pngx-api]: <https://github.com/chrisaugu/pngx-api>
+   [MongoDB]: <https://www.mongodb.com>
+   [git-repo-url]: <https://github.com/chrisaugu/pngx-api.git>
+   [john gruber]: <http://daringfireball.net>
+   [df1]: <http://daringfireball.net/projects/markdown/>
+   [markdown-it]: <https://github.com/markdown-it/markdown-it>
+   [Ace Editor]: <http://ace.ajax.org>
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [jQuery]: <http://jquery.com>
+   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
+   [express]: <http://expressjs.com>
+   [AngularJS]: <http://angularjs.org>
+   [Gulp]: <http://gulpjs.com>

@@ -1,5 +1,5 @@
 const Papa = require('papaparse');
-const {format, parse, formatDate} = require('date-fns');
+const { format, parse, formatDate } = require('date-fns');
 const { formatInTimeZone } = require('date-fns-tz');
 const { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT } = require("./constants");
 
@@ -54,15 +54,15 @@ function normalize_data(data) {
 }
 
 
-async function parallel(arr, fn, threads = 2) {
-	const result = [];
+exports.parallel = async function parallel(arr, fn, threads = 2) {
+  const result = [];
 
-	while (arr.length) {
-		const res = await Promise.all(arr.splice(0, threads).map(x => fn(x)));
-		result.push(res);
-	}
-	return result.flat();
-}
+  while (arr.length) {
+	const res = await Promise.all(arr.splice(0, threads).map((x) => fn(x)));
+	result.push(res);
+  }
+  return result.flat();
+};
 
 
 /**
@@ -95,7 +95,7 @@ function parse_csv_to_json2(body) {
 }
 
 function parse_csv_to_json(csv) {
-	let {errors, data, meta} = Papa.parse(csv, {
+	let { errors, data, meta } = Papa.parse(csv, {
 		header: true,
 		dynamicTyping: true,
 		skipEmptyLines: true
@@ -137,5 +137,6 @@ module.exports = {
 	parallel,
 	normalize_data,
 	format_date,
-	date_split
+	date_split,
+	createWorker
 }

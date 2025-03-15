@@ -8,7 +8,6 @@ const { stock_fetcher, data_fetcher } = require("./tasks");
 const { initDatabase } = require("./database");
 
 // Creating an instance for MongoDB
-
 initDatabase()
   .on("connected", function () {
     console.log("[Threads_Worker]: Connected: Successfully connect to mongo server on the worker");
@@ -30,7 +29,7 @@ initDatabase()
 
 (async () => {
   let result = await data_fetcher();
-  parentPort.postMessage(result);
+  parentPort.postMessage('completed');
 })();
 
 // var num = parseInt(prompt("enter num"));

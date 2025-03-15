@@ -20,7 +20,7 @@ companySchema.query.byName = function (name) {
   return this.where({ name: new RegExp(name, "i") });
 };
 
-const Company = (module.exports = model("company", companySchema));
+const Company = module.exports = model("company", companySchema);
 
 exports.findByName = function (name) {
   return Company.find({ name: name });

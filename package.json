@@ -10,7 +10,8 @@
     "start": "node server.js",
     "startx": "node --env-file=.env server.js",
     "docs": "docsify serve docs",
-    "test": "jest --watch",
+    "test": "jest --detectOpenHandles",
+    "pretestx": "cross-env NODE_ENV=test jest --testTimeout=5000",
     "test:coverage": "jest --coverage"
   },
   "repository": {
@@ -35,8 +36,10 @@
   "homepage": "https://github.com/chrisaugu/pngx-api#readme",
   "dependencies": {
     "boxen": "^7.0.2",
+    "bullmq": "^5.40.2",
     "celery-node": "^0.5.9",
     "cors": "^2.8.5",
+    "csurf": "^1.10.0",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "debug": "~2.6.9",
@@ -48,7 +51,7 @@
     "fs": "^0.0.1-security",
     "helmet": "^7.1.0",
     "http-errors": "^2.0.0",
-    "ioredis": "^5.4.1",
+    "ioredis": "^5.5.0",
     "ip": "^1.1.8",
     "marked": "^14.1.4",
     "mongoose": "^8.8.3",
@@ -66,7 +69,8 @@
     "superagent": "^10.1.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "ws": "^8.18.1"
   },
   "devDependencies": {
     "@types/supertest": "^6.0.2",
