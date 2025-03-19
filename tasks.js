@@ -1,6 +1,7 @@
 const request = require("request");
 // const fetch = require('node-fetch');
 const superagent = require("superagent");
+const _ = require('lodash');
 
 const { parse_csv_to_json, normalize_data } = require("./utils");
 const {
@@ -18,6 +19,34 @@ exports.fetch_data_from_pngx = function fetch_data_from_pngx(url) {
   return "fetching data from: " + url;
 };
 
+function hello() {
+  const results = [];
+
+  const csvDatasetUrl = "https://www.pngx.com.pg/data/BSP.csv";
+
+  needle
+    .get(csvDatasetUrl)
+    .pipe(Papa.parse(Papa.NODE_STREAM_INPUT, csvOptions))
+  //   .pipe(
+  // 	csv({
+  // 		mapHeaders: ({ header, index, value }) => {
+  // 			if (index > 0) {
+  // 			let dates = header.split(" ");
+  // 			let month = "March";
+  // 			let date = new Date(`${dates[0]} ${month} ${dates[1]} ${year}`);
+  // 			return `${year}-${date.getMonth()}-${dates[1]}`;
+  // 			} else {
+  // 			return header;
+  // 			}
+  // 		},
+  // 	})
+  //   )
+    .on("data", (data) => results.push(normalize_data(data)))
+    .on("end", async () => {
+      console.log(results);
+    });
+}
+
 /**
  * Hello
  */
@@ -25,9 +54,9 @@ function make_async_request(url, options) {
   Object.assign(options, {
     method: "GET",
     redirect: "follow",
-    // "headers": {
-    // 	'Content-Type': 'text/csv'
-    // }
+    "headers": {
+    	'Content-Type': 'text/csv'
+    }
   });
 
   return new Promise(function (resolve, reject) {
@@ -122,6 +151,7 @@ async function data_fetcher() {
      * else continue to next quote until all quotes are compared then exit the program
      */
     await get_quotes_from_pngx(symbol)
+      .then((quotes) => quotes.map(quote => normalize_data(quote)))
       .then((quotes) => {
         console.log("Fetched quotes for " + symbol);
         let totalCount = quotes.length,
@@ -129,9 +159,11 @@ async function data_fetcher() {
           index = totalCount - 1,
           recordExist = false;
 
+          quotes = _.sortBy(quotes, (q) => q.date)
+
         // iterate through the dataset and add each data element to the db
         do {
-          let quote = normalize_data(quotes[index]); // latest quote
+          let quote = quotes[index]; // latest quote
           console.log(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
 
           // check if the quote for that particular company at that particular date already exists

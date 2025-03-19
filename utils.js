@@ -1,7 +1,15 @@
 const Papa = require('papaparse');
+const csv = require('csv-parser');
+const needle = require("needle");
 const {format, parse, formatDate} = require('date-fns');
 const { formatInTimeZone } = require('date-fns-tz');
 const { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT } = require("./constants");
+
+const csvOptions = {
+	header: true, 
+	dynamicTyping: true,
+	skipEmptyLines: true
+};
 
 function date_split(date) {
 	const [month, day, year] = date.split('/');
@@ -95,27 +103,25 @@ function parse_csv_to_json2(body) {
 }
 
 function parse_csv_to_json(csv) {
+	// Parse local CSV file
+	// Stream big file in worker thread
 	let {errors, data, meta} = Papa.parse(csv, {
-		header: true,
-		dynamicTyping: true,
-		skipEmptyLines: true
+		...csvOptions,
+		// worker: true,
+		// step: function(results) {
+		// 	results['data'] = normalize_data(results.data)
+		// },
+		// chunk: function(chunks) {
+		// 	console.log(chunks)
+		// },
+		// complete: function(results) {
+		// 	console.log("Finished:", results.data);
+		// }
 	});
 
 	if (errors.length > 0) throw new Error(errors);
 
 	return data;
-
-	// Parse local CSV file
-	// Stream big file in worker thread
-	// Papa.parse(bigFile, {
-	// 	worker: true,
-	// 	step: function(results) {
-	// 		console.log("Row:", results.data);
-	// 	},
-	// 	complete: function(results) {
-	// 		console.log("Finished:", results.data);
-	// 	}
-	// });
 }
 
 function createWorker() {

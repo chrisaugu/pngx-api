@@ -29,13 +29,13 @@ export async function getHistoricals(
   query?: TQuery
 ) {
   let {
-  date,
-  start,
-  end,
-  limit,
-  sort,
-  skip,
-  fields
+    date,
+    start,
+    end,
+    limit,
+    sort,
+    skip,
+    fields
   } = query || {};
 
   let options = {
@@ -121,16 +121,16 @@ export async function getDataFromServer(symbol: string, options?: TQuery) {
   // let res = await fetch(`${DATA_URL}/${symbol}.csv`);
   // let data = await res.text();
   let data;
-  
+
   const requestOptions: RequestInit = {
     method: "GET"
   };
 
   fetch("https://www.pngx.com.pg/data/BSP.csv", requestOptions)
-  .then((response) => response.text())
-  .then((result) => data = parse(result))
-  .catch((error) => console.error(error));
-  
+    .then((response) => response.text())
+    .then((result) => data = parse(result))
+    .catch((error) => console.error(error));
+
   // let d = parse(data);
 
   console.log(data)

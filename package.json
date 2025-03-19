@@ -37,6 +37,7 @@
     "boxen": "^7.0.2",
     "celery-node": "^0.5.9",
     "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "debug": "~2.6.9",
@@ -50,9 +51,11 @@
     "http-errors": "^2.0.0",
     "ioredis": "^5.4.1",
     "ip": "^1.1.8",
+    "lodash": "^4.17.21",
     "marked": "^14.1.4",
     "mongoose": "^8.8.3",
     "morgan": "^1.10.0",
+    "needle": "^3.3.1",
     "node-cron": "^3.0.0",
     "node-fetch": "^3.3.2",
     "ora": "^7.0.1",
@@ -66,7 +69,8 @@
     "superagent": "^10.1.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "ws": "^8.18.1"
   },
   "devDependencies": {
     "@types/supertest": "^6.0.2",
