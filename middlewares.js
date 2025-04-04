@@ -55,9 +55,8 @@ exports.errorHandler = function errorHandler(err, req, res, next) {
 };
 
 exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
-  logger.error(
-    `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`
-  );
+  const logger = require('./config/logger');
+  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
   next(err);
 };
 
@@ -82,16 +81,6 @@ exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
     });
 };
 // fixDateFormatOnProdDB()
-
-exports.parallel = async function parallel(arr, fn, threads = 2) {
-  const result = [];
-
-  while (arr.length) {
-    const res = await Promise.all(arr.splice(0, threads).map((x) => fn(x)));
-    result.push(res);
-  }
-  return result.flat();
-};
 
 const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
 exports.rateLimitMiddleware = setRateLimit({

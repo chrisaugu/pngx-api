@@ -6,7 +6,7 @@ const path = require("path");
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
 const { specs, swaggerUi } = require("./config/swagger");
-const logger = require("./config/winston");
+const logger = require("./config/logger");
 require("./constants");
 require("./models/index");
 const { initDatabase } = require("./database");
@@ -17,6 +17,7 @@ const {
   errorHandler,
   corsMiddleware,
   rateLimitMiddleware,
+  errorLogHandler,
 } = require("./middlewares");
 const tasks = require("./tasks");
 
@@ -89,9 +90,10 @@ app.use(allowMethodOverride);
 app.use(error404Handler);
 // error handler
 app.use(errorHandler);
-// app.use(errorLogHandler);
+app.use(errorLogHandler);
 
 app.use("/api", rateLimitMiddleware);
+app.use("/events", require('./routes/sse'));
 
 // middleware to check data is present in cache
 // app.use(checkCache);
@@ -108,7 +110,7 @@ initDatabase()
     // console.log('This script will run every 2 minutes to update stocks info.');
     // cron.schedule("*/2 * * * *", () => {
     console.log("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
-    cron.schedule("30 8 * * *", () => {
+    // cron.schedule("30 8 * * *", () => {
       // tasks.data_fetcher();
       // const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
       // 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
@@ -150,7 +152,7 @@ initDatabase()
       } catch (erorr) {
         console.log(erorr);
       }
-    });
+    // });
   })
   .on("error", function () {
     console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");

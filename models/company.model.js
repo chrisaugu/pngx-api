@@ -12,16 +12,19 @@ const companySchema = new Schema({
   outstanding_shares: Number,
   pngx_profile_url: String,
 });
+
 companySchema.index({ ticker: 1 });
+
 companySchema.methods.findByCode = function (cb) {
   return this.find({ code: this.code }, cb);
 };
+
 companySchema.query.byName = function (name) {
   return this.where({ name: new RegExp(name, "i") });
 };
 
-const Company = (module.exports = model("company", companySchema));
-
-exports.findByName = function (name) {
-  return Company.find({ name: name });
+companySchema.statics.findByName = function (name) {
+  return this.find({ name: new RegExp(name, "i") });
 };
+
+const Company = (module.exports = model("company", companySchema));

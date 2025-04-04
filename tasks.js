@@ -1,7 +1,7 @@
 const request = require("request");
 // const fetch = require('node-fetch');
 const superagent = require("superagent");
-const _ = require('lodash');
+const _ = require("lodash");
 
 const { parse_csv_to_json, normalize_data } = require("./utils");
 const {
@@ -27,20 +27,20 @@ function hello() {
   needle
     .get(csvDatasetUrl)
     .pipe(Papa.parse(Papa.NODE_STREAM_INPUT, csvOptions))
-  //   .pipe(
-  // 	csv({
-  // 		mapHeaders: ({ header, index, value }) => {
-  // 			if (index > 0) {
-  // 			let dates = header.split(" ");
-  // 			let month = "March";
-  // 			let date = new Date(`${dates[0]} ${month} ${dates[1]} ${year}`);
-  // 			return `${year}-${date.getMonth()}-${dates[1]}`;
-  // 			} else {
-  // 			return header;
-  // 			}
-  // 		},
-  // 	})
-  //   )
+    //   .pipe(
+    // 	csv({
+    // 		mapHeaders: ({ header, index, value }) => {
+    // 			if (index > 0) {
+    // 			let dates = header.split(" ");
+    // 			let month = "March";
+    // 			let date = new Date(`${dates[0]} ${month} ${dates[1]} ${year}`);
+    // 			return `${year}-${date.getMonth()}-${dates[1]}`;
+    // 			} else {
+    // 			return header;
+    // 			}
+    // 		},
+    // 	})
+    //   )
     .on("data", (data) => results.push(normalize_data(data)))
     .on("end", async () => {
       console.log(results);
@@ -54,9 +54,10 @@ function make_async_request(url, options) {
   Object.assign(options, {
     method: "GET",
     redirect: "follow",
-    "headers": {
-    	'Content-Type': 'text/csv'
-    }
+    headers: {
+      "Content-Type": "text/csv",
+    },
+    cache: "no-cache", // or 'force-cache', 'reload', 'default'
   });
 
   return new Promise(function (resolve, reject) {
@@ -75,14 +76,17 @@ function make_async_request(url, options) {
       // .withCredentials()
       // .redirects(2)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        // if (!response.ok) {
+        //   throw new Error(`HTTP error! status: ${response.status}`);
+        // }
+        // return response.text();
+        if (response.status >= 200 && response.status < 300) {
+          return response.text()
         }
-        return response.text();
+        // reject if the response is not 2xx
+        throw new Error(response.statusText)
       })
-      .then((csv) => {
-        return parse_csv_to_json(csv);
-      })
+      .then((csv) => parse_csv_to_json(csv))
       .then((json) => {
         resolve(json);
       })
@@ -97,7 +101,7 @@ exports.make_async_request = make_async_request;
  * hello
  */
 function get_quotes_from_pngx(code) {
-  var options = {};
+  let options = {};
 
   return new Promise(function (resolve, reject) {
     if (undefined !== typeof code) {
@@ -111,7 +115,7 @@ function get_quotes_from_pngx(code) {
           reject(error);
         });
     } else {
-      for (var j = 0; j < SYMBOLS.length; j++) {
+      for (let j = 0; j < SYMBOLS.length; j++) {
         options["url"] = PNGX_DATA_URL + SYMBOLS[j] + ".csv";
 
         make_async_request(options)
@@ -151,7 +155,7 @@ async function data_fetcher() {
      * else continue to next quote until all quotes are compared then exit the program
      */
     await get_quotes_from_pngx(symbol)
-      .then((quotes) => quotes.map(quote => normalize_data(quote)))
+      .then((quotes) => quotes.map((quote) => normalize_data(quote)))
       .then((quotes) => {
         console.log("Fetched quotes for " + symbol);
         let totalCount = quotes.length,
@@ -159,19 +163,20 @@ async function data_fetcher() {
           index = totalCount - 1,
           recordExist = false;
 
-          quotes = _.sortBy(quotes, (q) => q.date)
+        quotes = _.sortBy(quotes, (q) => q.date);
 
         // iterate through the dataset and add each data element to the db
         do {
           let quote = quotes[index]; // latest quote
-          console.log(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
+          console.log(
+            `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
+          );
 
           // check if the quote for that particular company at that particular date already exists
-          Stock
-            .findOne({
-              date: quote.date,
-              code: quote.code,
-            })
+          Stock.findOne({
+            date: quote.date,
+            code: quote.code,
+          })
             .then((result) => {
               if (result) {
                 recordExist = true;
@@ -186,7 +191,9 @@ async function data_fetcher() {
                 stock
                   .save()
                   .then(() => {
-                    console.log(`Added quote for ${quote.date.toLocaleDateString()} \n`);
+                    console.log(
+                      `Added quote for ${quote.date.toLocaleDateString()} \n`
+                    );
 
                     totalAdded++;
                   })
@@ -200,7 +207,7 @@ async function data_fetcher() {
             });
 
           index--;
-        }  while (recordExist && index >= 0);
+        } while (recordExist && index >= 0);
 
         console.log(`${totalAdded}/${totalCount} quotes were added.`);
         console.log("stop\n");
@@ -215,7 +222,9 @@ async function data_fetcher() {
   console.log(`Data fetched from ${PNGX_DATA_URL}\n`);
   console.timeEnd("timer"); // end timer and log time difference
   const endTime = new Date();
-  const timeDiff = parseInt((Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60);
+  const timeDiff = parseInt(
+    (Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60
+  );
   console.log("Start time " + startTime);
   console.log("End time " + timeDiff + " secs\n");
   console.log("Time difference " + timeDiff + " secs\n");
@@ -223,15 +232,15 @@ async function data_fetcher() {
 }
 exports.data_fetcher = data_fetcher;
 
-async function checkIfExistInDatabase(code, date) {
-  let result = await Stock
-    .findOne({
-      date: date,
-      code: code,
-    })
+async function check_if_exist_in_database(code, date) {
+  let result = await Stock.findOne({
+    date: date,
+    code: code,
+  });
 
   return result > 0;
 }
+exports.check_if_exist_in_database = check_if_exist_in_database;
 
 async function stock_fetcher() {
   let result = await Stock.find();

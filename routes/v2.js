@@ -230,21 +230,53 @@ router.get("/company/:ticker", async function (req, res) {
  * @swagger
  *
  *
- * /api/v2/historicals/:symbol:
+ * /api/v2/historicals/{symbol}:
  *   get:
  *     tags: 
- *      - quote
- *     summary: Returns a sample message
+ *      - historical
+ *     summary: Returns past quotes for a symbol
  *     responses:
  *       200:
  *         description: A successful response
+ *       300:
+ *         description: Symbol required
+ *       400:
+ *         description: Symbol not found
+ *       500:
+ *         description: Server error
+ *     parameters:
+ *       - name: symbol
+ *         in: path
+ *         description: Date 
+ *         required: true
+ *         schema:
+ *           type: string
+ *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
+ *       - name: date
+ *         in: path
+ *         description: symbol
+ *         schema:
+ *            type: date
  */
 /**
  * GET /api/historicals/:symbol
  * see also /api/v2/stocks/:symbol/historicals
  * @param :symbol unique symbol of the stock
+ * @param ?date={date}
+ * @param ?start={date}
+ * @param ?end={date}
+ * @param ?limit=1
+ * @param ?sort=1|-1
+ * @param ?skip=1
+ * @param ?fields=[]
  */
 router.get("/historicals/:symbol", function (req, res) {
+  if (!req.params.symbol) {
+    return res.status(300).json({
+      status: 300,
+      message: "`symbol` is required"
+    });
+  }
   let symbol = req.params.symbol;
   let date = req.query.date;
   let start = req.query.start;
@@ -278,10 +310,8 @@ router.get("/historicals/:symbol", function (req, res) {
     Object.assign(dateStr["date"], { start: new Date(start).toDateString() });
 
     if (Number.isInteger(Number(start))) {
-      // stock.where({ date: { $gte: start } });
       stock.where({ date: { $gte: start } });
     } else {
-      // stock.where({ date: { $gte: new Date(start) } });
       stock.where({ date: { $gte: new Date(start) } });
     }
   }
@@ -291,10 +321,8 @@ router.get("/historicals/:symbol", function (req, res) {
     });
 
     if (Number.isInteger(Number(end))) {
-      // stock.where({ date: { $lte: end } });
       stock.where({ date: { $lte: end } });
     } else {
-      // stock.where({ date: { $lte: new Date(end) } });
       stock.where({ date: { $lte: new Date(end) } });
     }
   }
@@ -571,64 +599,64 @@ router.get("/stocks", function (req, res) {
     });
 });
 
-/**
- * @swagger
- *
- *
- * /api/v2/stocks:
- *   post:
- *     tags: 
- *      - quote
- *     summary: Returns a sample message
- *     responses:
- *       200:
- *         description: A successful response
- */
-/**
- * POST /api/v2/stocks
- * Import sample data for testing
- */
-router.post("/stocks", function (req, res) {
-  let data = req.body;
+// /**
+//  * @swagger
+//  *
+//  *
+//  * /api/v2/stocks:
+//  *   post:
+//  *     tags: 
+//  *      - quote
+//  *     summary: Returns a sample message
+//  *     responses:
+//  *       200:
+//  *         description: A successful response
+//  */
+// /**
+//  * POST /api/v2/stocks
+//  * Add new quote
+//  */
+// router.post("/stocks", function (req, res) {
+//   let data = req.body;
 
-  if (Array.isArray(data)) {
-    for (let i = 0; i < data.length; i++) {
-      const element = utils.normalize_data(array[i]);
+//   if (Array.isArray(data)) {
+//     for (let i = 0; i < data.length; i++) {
+//       const element = utils.normalize_data(array[i]);
 
-      let query = Stock.findOne({
-        date: element["date"],
-        short_name: element["short_name"],
-      });
-      // query.lean();
-      query
-        .exec()
-        .then(function (result) {
-          if (result == null) {
-            console.log("Match No Content.");
-            console.log("Adding it to the db");
+//       let query = Stock.findOne({
+//         date: element["date"],
+//         short_name: element["short_name"],
+//       });
+//       // query.lean();
+//       query
+//         .exec()
+//         .then(function (result) {
+//           if (result == null) {
+//             console.log("Match No Content.");
+//             console.log("Adding it to the db");
 
-            let quote = new Stock(element);
-            quote
-              .save()
-              .then(() => {
-                console.log("added quote for " + element["date"]);
-                res.sendStatus(201);
-              })
-              .catch(function (err) {
-                console.error(err);
-              });
-          } else {
-            console.log("Match found! Cannot add quote");
-            res.send("Match found! Cannot add quote");
-          }
-        })
-        .catch((err) => {
-          console.error("Error: " + err);
-          res.send("Error: " + err);
-        });
-    }
-  }
-});
+//             let quote = new Stock(element);
+//             quote
+//               .save()
+//               .then(() => {
+//                 console.log("added quote for " + element["date"]);
+//                 res.sendStatus(201);
+//               })
+//               .catch(function (err) {
+//                 console.error(err);
+//               });
+//           } else {
+//             console.log("Match found! Cannot add quote");
+//             res.send("Match found! Cannot add quote");
+//           }
+//         })
+//         .catch((err) => {
+//           console.error("Error: " + err);
+//           res.send("Error: " + err);
+//         });
+//     }
+//   }
+// });
 
 /**
  * @swagger
@@ -645,7 +673,7 @@ router.post("/stocks", function (req, res) {
  */
 /**
  * GET /api/v2/stocks/:code
- * Get a specific quote from the database
+ * Get a specific quote by code
  * @param :code - a unique code that represents the quote/stock of a public company on PNGX
  */
 router.get("/stocks/:code", function (req, res) {
@@ -767,109 +795,5 @@ router.get("/tickersx", (req, res) => {
   // 	}
   //    ])
 });
-
-// Stock.findOne({
-// 	'date': s,
-// 	// 'short_name': data['Short Name']
-// })
-// .then(result => console.log(result))
-// .catch(err => console.log(err))
-
-// const getStream = require('get-stream');
-
-// (async () => {
-// 	const stream = fs.createReadStream("./data/SST.csv");
-
-// 	let stockData = parse_csv_to_json(await getStream(stream));
-
-// 	for (var j = 0; j < stockData.length; j++) {
-// 		let data = stockData[j];
-
-// 		Stock.findOne({
-// 			'date': data['Date'],
-// 			'short_name': data['Short Name']
-// 		})
-// 		.then(function(result) {
-// 			if (result == null) {
-// 				console.log("Match No Content.");
-// 				console.log("Adding it to the db");
-
-// 				let quote = new Stock();
-
-// 				quote = prepare_data(quote, data)
-
-// 				quote.save(function(err) {
-// 					if (err) {
-// 						console.log(err);
-// 					} else {
-// 						console.log('added quote for ' + data['Date']);
-// 					}
-// 				});
-// 			}
-// 		})
-// 		// Ticker.findOne({
-// 		// 	'date': data['Date'],
-// 		// 	'symbol': data['Short Name']
-// 		// })
-// 		// .then(function(result) {
-// 		// 	if (result == null) {
-// 		// 		console.log("Match No Content.");
-// 		// 		console.log("Adding it to the db");
-
-// 		// 		let quote = new Ticker();
-
-// 		// 		let localTime = momentTimezone.tz(new Date(data['Date']), LOCAL_TIMEZONE);
-// 		// 		quote['date'] = localTime;
-// 		// 		console.log(quote)
-// 		// 		console.log(new Date(data['Date']))
-
-// 		// 		// quote['symbol'] = data['Short Name'];
-// 		// 		// quote['bid'] = Number(data['Bid']);
-// 		// 		// quote['offer'] = Number(data['Offer']);
-// 		// 		// quote['last'] = Number(data['Last']);
-// 		// 		// quote['close'] = Number(data['Close']);
-// 		// 		// quote['high'] = Number(data['High']);
-// 		// 		// quote['low'] = Number(data['Low']);
-// 		// 		// quote['open'] = Number(data['Open']);
-// 		// 		// quote['change'] = Number(data['Chg. Today']);
-// 		// 		// quote['volume'] = Number(data['Vol. Today']);
-// 		// 		// quote['num_trades'] = Number(data['Num. Trades']);
-
-// 		// 		// quote.save(function(err) {
-// 		// 		// 	if (err) {
-// 		// 		// 		console.log(err);
-// 		// 		// 	} else {
-// 		// 		// 		console.log('added quote for ' + data['Date']);
-// 		// 		// 	}
-// 		// 		// 	console.log("\n");
-// 		// 		// });
-// 		// 	}
-// 		// })
-// 		.catch(function(error) {
-// 			throw new Error(error);
-// 		});
-// 	};
-
-// })()
-
-// (async () => {
-// 	let ticker = await Ticker.find();
-// 	console.log("tickers: ", ticker)
-
-// 	new Ticker({
-// 		date: "2020-01-03T05:00:00.000Z",
-// 		symbol: 'AAPL',
-// 		bid: 0,
-// 		offer: 0,
-// 		last: 0,
-// 		close: 74.357498,
-// 		high: 75.144997,
-// 		low: 74.125,
-// 		open: 74.287498,
-// 		change: 0,
-// 		volume: 146322800,
-// 		num_trades: 0
-// 	}).save()
-// })()
 
 module.exports = router;

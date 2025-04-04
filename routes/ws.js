@@ -11,10 +11,12 @@ module.exports = (expressServer) => {
     // port: 8080,
   });
 
-  const connections = {};
+  const connections = new Map();
 
   const authenticate = (request) => {
-    const { token } = parse(request.url, true).query;
+    const origin = request.headers["origin"];
+    const token = request.headers["authorization"].split(" ")[1];
+    // const { token } = parse(request.url, true).query;
     // TODO: Actually authenticate token
     if (token === "abc") {
       return true;
@@ -42,17 +44,23 @@ module.exports = (expressServer) => {
   const handleMessage = (bytes, uuid) => {
     const message = JSON.parse(bytes.toString());
     const connection = connections[uuid];
+    console.log(message)
 
     if (message.type === "authenticate") {
       connection.authenticated = authenticate(message.token);
       return;
     }
 
-    //   if (connection.authenticated) {
-    //     // Process the message
-    //   } else {
-    //     connection.terminate();
-    //   }
+    if (connection.authenticated) {
+      // Broadcast the message to all connected clients
+      wsServer.clients.forEach((client) => {
+        if (client.readyState === WebSocket.OPEN) {
+          client.send(parsedMessage);
+        }
+      });
+    } else {
+      connection.terminate();
+    }
   };
 
   const handleClose = (uuid) => delete connections[uuid];
@@ -75,14 +83,7 @@ module.exports = (expressServer) => {
       // %s: Convert the bytes (buffer) into a string using
       // utf-8 encoding.
       // Event listener for incoming messages
-    //   console.log("Received message: %s", bytes.toString());
-
-      // Broadcast the message to all connected clients
-      wsServer.clients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN) {
-          client.send(parsedMessage);
-        }
-      });
+      //   console.log("Received message: %s", bytes.toString());
 
       handleMessage(bytes, uuid);
     });
@@ -98,19 +99,79 @@ module.exports = (expressServer) => {
 };
 
 
-// {
-//     "subscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
-// }
-// {
-//     "unsubscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
-// }
-// {
-//     "event": "channel_subscribed",
-//     "channel": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxx/stats/devices"
-// }
 
-// {
-//     "event": "data",
-//     "channel": "/sites/c1947558-268d-4d31- xxxx - xxxxxxxxxxxx /stats/devices",
-//     "data": "{\"mac\": \"5c5b35f15ed8\", \"last_seen\": 1686592607, \"uptime\": 6259614, \"version\": \"0.9.22801\", \"_partition\": 48, \"_offset_apbasic\": 4639768722, \"ip_stat\": {\"dns\": [\"10.10.12.11\", \"10.10.12.12\"], \"ips\": {\"vlan12\": \"10.10.12.25/25,fe80:0:0:0:5e5b:35ff:fef1:5ed8/64\"}, \"gateway\": \"10.10.12.1\", \"ip6\": \"fe80:0:0:0:5e5b:35ff:fef1:5ed8\", \"netmask6\": \"/64\", \"ip\": \"10.10.12.25\", \"netmask\": \"255.255.255.128\", \"dhcp_server\": \"10.10.12.1\"}, \"ip\": \"10.10.12.25\", \"ble_stat\": {\"tx_pkts\": 9073, \"tx_bytes\": 105431, \"rx_pkts\": 393432193, \"rx_bytes\": 2772782221, \"tx_resets\": 0}, \"_time\": 1686592607.62131}"
-// }
+/*
+## Realtime
+Fetch stock quotes in realtime
+`/ws/v1/stocks`
+
+
+### Add to watchlist
+{
+    "action": "watch",
+    "symbol": "BSP"
+}
+
+### subscribe to 
+{
+    "subscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
+}
+### subscribe to 
+{
+    "unsubscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
+}
+{
+    "event": "channel_subscribed",
+    "channel": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxx/stats/devices"
+}
+
+{
+    "event": "data",
+    "channel": "/sites/c1947558-268d-4d31- xxxx - xxxxxxxxxxxx /stats/devices",
+    "data": "{\"mac\": \"5c5b35f15ed8\", \"last_seen\": 1686592607, \"uptime\": 6259614, \"version\": \"0.9.22801\", \"_partition\": 48, \"_offset_apbasic\": 4639768722, \"ip_stat\": {\"dns\": [\"10.10.12.11\", \"10.10.12.12\"], \"ips\": {\"vlan12\": \"10.10.12.25/25,fe80:0:0:0:5e5b:35ff:fef1:5ed8/64\"}, \"gateway\": \"10.10.12.1\", \"ip6\": \"fe80:0:0:0:5e5b:35ff:fef1:5ed8\", \"netmask6\": \"/64\", \"ip\": \"10.10.12.25\", \"netmask\": \"255.255.255.128\", \"dhcp_server\": \"10.10.12.1\"}, \"ip\": \"10.10.12.25\", \"ble_stat\": {\"tx_pkts\": 9073, \"tx_bytes\": 105431, \"rx_pkts\": 393432193, \"rx_bytes\": 2772782221, \"tx_resets\": 0}, \"_time\": 1686592607.62131}"
+}
+
+-- Message format
+{
+  type: 'event' | 'connected' | 'error',
+
+}
+
+-- Authentication message format
+{
+  type: 'authentication'
+  data: {}
+}
+
+message = event.data - JSON data
+message.type 
+message.data
+message.data.user
+message.data.channels
+
+
+
+/api/v1/transactions/place-order
+place order
+{
+  action: '',
+  symbol: 'BSP',
+  type: 'market' | 'limit',
+  side: 'buy' | 'sell',
+  limitPrice: 
+}
+
+/api/v1/assets/top?offset=5&after=0
+{
+  code: 2xx | 3xx | 4xx | 5xx,
+  status: "success",
+  data: {},
+  meta: {
+    total: 100,
+    offset: 0,
+    limit: 5
+  }
+}
+
+
+*/
