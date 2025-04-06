@@ -81,6 +81,7 @@ app.use(express.static(path.join(__dirname, "images")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({}));
 app.use(morgan("combined", { stream: logger.stream.write }));
+app.set('trust proxy', 1 /* number of proxies between user and server */)
 
 // app.use(helmet);
 app.use(corsMiddleware);
@@ -181,5 +182,6 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
  * /api
  */
 app.use("/api", require("./routes/index"));
+app.get('/ip', (request, response) => response.send(request.ip))
 
 module.exports = app;
