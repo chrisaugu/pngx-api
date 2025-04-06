@@ -1,17 +1,26 @@
 const { model, Schema } = require("mongoose");
 
-const companySchema = new Schema({
-  name: String,
-  ticker: String,
-  description: String,
-  industry: String,
-  sector: String,
-  key_people: Array,
-  date_listed: Date, // ipo
-  esteblished_date: Date,
-  outstanding_shares: Number,
-  pngx_profile_url: String,
-});
+const companySchema = new Schema(
+  {
+    name: String,
+    ticker: String,
+    description: String,
+    industry: String,
+    sector: String,
+    key_people: Array,
+    date_listed: Date, // ipo
+    esteblished_date: Date,
+    outstanding_shares: Number,
+    pngx_profile_url: String,
+    logo: {
+      data: Buffer,
+      contentType: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 companySchema.index({ ticker: 1 });
 

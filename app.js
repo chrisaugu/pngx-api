@@ -20,6 +20,7 @@ const {
   errorLogHandler,
 } = require("./middlewares");
 const tasks = require("./tasks");
+const myQueue = require("./queue");
 
 // Creating express app
 const app = express();
@@ -76,7 +77,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "docs")));
 app.use("/demo", express.static(path.join(__dirname, "demo")));
-app.use("/assets", express.static(path.join(__dirname + "docs/assets")));
+app.use(express.static(path.join(__dirname, "images")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({}));
 app.use(morgan("combined", { stream: logger.stream.write }));
@@ -93,14 +94,16 @@ app.use(errorHandler);
 app.use(errorLogHandler);
 
 app.use("/api", rateLimitMiddleware);
-app.use("/events", require('./routes/sse'));
+app.use("/events", require("./routes/sse"));
 
 // middleware to check data is present in cache
 // app.use(checkCache);
 
 initDatabase()
   .on("connected", function () {
-    console.log("[Main_Thread]: Connected: Successfully connect to mongo server");
+    console.log(
+      "[Main_Thread]: Connected: Successfully connect to mongo server"
+    );
     /**
      * Schedule task to requests data from PNGX datasets every 2 minutes
      * The task requests and models the data them stores those data in db
@@ -109,8 +112,10 @@ initDatabase()
 
     // console.log('This script will run every 2 minutes to update stocks info.');
     // cron.schedule("*/2 * * * *", () => {
-    console.log("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
-    cron.schedule("30 8 * * *", () => {
+    console.log(
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+    );
+    cron.schedule("30 8 * * *", async () => {
       // tasks.data_fetcher();
       // const fetch_data_from_pngx = celeryClient.createTask("tasks.fetch_data_from_pngx")
       // 								 .applyAsync(["https://www.pngx.com.pg/data/BSP.csv"]);
@@ -152,10 +157,19 @@ initDatabase()
       } catch (erorr) {
         console.log(erorr);
       }
+
+      // const response = await myQueue.add({
+      //   type: "register",
+      //   data: { date: "07/04/2024" },
+      // });
+
+      // res.json({message: response.message});
     });
   })
   .on("error", function () {
-    console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+    console.log(
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+    );
   });
 
 /**

@@ -3,6 +3,14 @@ const { parse } = require("url");
 const { randomUUID } = require("crypto");
 const queryString = require("querystring");
 
+function uuidv4() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
 module.exports = (expressServer) => {
   const wsServer = new WebSocket.Server({
     noServer: true,
@@ -44,7 +52,8 @@ module.exports = (expressServer) => {
   const handleMessage = (bytes, uuid) => {
     const message = JSON.parse(bytes.toString());
     const connection = connections[uuid];
-    console.log(message)
+    const metadata = connections.get(uuid);
+    console.log(message);
 
     if (message.type === "authenticate") {
       connection.authenticated = authenticate(message.token);
@@ -58,12 +67,19 @@ module.exports = (expressServer) => {
           client.send(parsedMessage);
         }
       });
+
+      [...clients.keys()].forEach((client) => {
+        client.send(outbound);
+      });
     } else {
       connection.terminate();
     }
   };
 
-  const handleClose = (uuid) => delete connections[uuid];
+  const handleClose = (uuid) => {
+    delete connections[uuid];
+    clients.delete(ws);
+  };
 
   wsServer.on("connection", (connection, request) => {
     console.log("A new client connected");
@@ -71,6 +87,10 @@ module.exports = (expressServer) => {
     const connectionParams = queryString.parse(params);
 
     const uuid = randomUUID();
+    const color = Math.floor(Math.random() * 360);
+    const metadata = { uuid, color };
+
+    connections.set(ws, metadata);
     connections[uuid] = connection;
 
     // NOTE: connectParams are not used here but good to understand how to get
@@ -97,8 +117,6 @@ module.exports = (expressServer) => {
 
   return wsServer;
 };
-
-
 
 /*
 ## Realtime

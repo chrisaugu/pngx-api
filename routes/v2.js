@@ -1,4 +1,7 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const Grid = require("gridfs-stream");
+const fs = require("fs");
 const router = express.Router();
 const {
   SYMBOLS,
@@ -27,8 +30,7 @@ const { Stock, Company, Ticker } = require("../models/index");
 router.get("/", function (req, res) {
   res.status(200).json({
     status: 200,
-    message:
-      `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
+    message: `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
     data: {
       api: "PNGX API",
       time: new Date().toDateString(),
@@ -42,7 +44,7 @@ router.get("/", function (req, res) {
  *
  * /api/v2/company/{code}:
  *   get:
- *     tags: 
+ *     tags:
  *      - company
  *     summary: Returns a sample message
  *     responses:
@@ -56,7 +58,7 @@ router.get("/", function (req, res) {
  *         schema:
  *           type: string
  *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
- * 
+ *
  */
 /**
  * GET /api/v2/company/:ticker
@@ -76,26 +78,27 @@ router.get("/company", function (req, res) {
  *
  * /api/v2/companies:
  *   get:
- *     tags: 
+ *     tags:
  *      - company
  *     summary: Returns a sample message
  *     responses:
  *       200:
  *         description: A successful response
- * 
+ *
  */
 /**
  * /api/v2/companies
  */
-router.route("/companies")
-/**
- * GET
- */
-.get(async function (req, res) {
-  let companies = await Company.find({});
+router
+  .route("/companies")
+  /**
+   * GET
+   */
+  .get(async function (req, res) {
+    let companies = await Company.find({});
 
-  res.json(companies);
-});
+    res.json(companies);
+  });
 // .post(async function(req, res) {
 // 	let update = req.body;
 
@@ -116,50 +119,65 @@ router.route("/companies")
  *
  * /api/v2/companies/:id:
  *   get:
- *     tags: 
+ *     tags:
  *      - company
  *     summary: Returns a sample message
  *     responses:
  *       200:
  *         description: A successful response
- * 
+ *
  */
-router.route("/companies/:id").get(async function (req, res) {
-  let { id } = req.params;
+router
+  .route("/companies/:id")
+  .get(async function (req, res) {
+    let { id } = req.params;
 
-  let company = await Company.findById(id);
+    let company = await Company.findById(id);
 
-  res.json(company);
-});
-// .post(async function(req, res) {
-// 	let update = req.body;
+    res.json(company);
+  })
+  .post(async function (req, res) {
+    let update = req.body;
 
-// 	try {
-// 		let company = await Company.create(update);
+    try {
+      // const gfs = new Grid(mongoose.connection.db, mongoose.mongo);
+      // const writeStream = gfs.createWriteStream({
+      //   filename: req.file.originalname,
+      //   mode: "w",
+      //   content_type: req.file.mimetype,
+      // });
+      // fs.createReadStream(req.file.path).pipe(writeStream);
+      // writeStream.on("close", (file) => {
+      //   fs.unlink(req.file.path, (err) => {
+      //     if (err) throw err;
+      //     return res.json({ file });
+      //   });
+      // });
 
-// 		res.json(company);
-// 	} catch (error) {
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// })
-// .put(async function(req, res) {
-// 	let {id} = req.params;
-// 	let update = req.body;
+      let company = await Company.create(update);
+      res.json(company);
+    } catch (error) {
+      return res.json({
+        status: "Error",
+        message: error,
+      });
+    }
+  })
+  .put(async function (req, res) {
+    let { id } = req.params;
+    let update = req.body;
 
-// 	try {
-// 		let company = await Company.findByIdAndUpdate(id, update);
+    try {
+      let company = await Company.findByIdAndUpdate(id, update);
 
-// 		res.json(company);
-// 	} catch (error) {
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// })
+      res.json(company);
+    } catch (error) {
+      return res.json({
+        status: "Error",
+        message: error,
+      });
+    }
+  });
 // .delete(async function(req, res) {
 // 	let {id} = req.params;
 
@@ -184,13 +202,13 @@ router.route("/companies/:id").get(async function (req, res) {
  *
  * /api/v2/companies/:code/code:
  *   get:
- *     tags: 
+ *     tags:
  *      - company
  *     summary: Returns a sample message
  *     responses:
  *       200:
  *         description: A successful response
- * 
+ *
  */
 router.route("/companies/:code/code").get(async function (req, res) {
   let { code } = req.params;
@@ -206,7 +224,7 @@ router.route("/companies/:code/code").get(async function (req, res) {
  *
  * /api/v2/company/{code}:
  *   get:
- *     tags: 
+ *     tags:
  *      - company
  *     summary: Returns a sample message
  *     responses:
@@ -232,7 +250,7 @@ router.get("/company/:ticker", async function (req, res) {
  *
  * /api/v2/historicals/{symbol}:
  *   get:
- *     tags: 
+ *     tags:
  *      - historical
  *     summary: Returns past quotes for a symbol
  *     responses:
@@ -247,7 +265,7 @@ router.get("/company/:ticker", async function (req, res) {
  *     parameters:
  *       - name: symbol
  *         in: path
- *         description: Date 
+ *         description: Date
  *         required: true
  *         schema:
  *           type: string
@@ -274,7 +292,7 @@ router.get("/historicals/:symbol", function (req, res) {
   if (!req.params.symbol) {
     return res.status(300).json({
       status: 300,
-      message: "`symbol` is required"
+      message: "`symbol` is required",
     });
   }
   let symbol = req.params.symbol;
@@ -410,7 +428,7 @@ router.get("/historicals/:symbol", function (req, res) {
  *
  * /api/v2/historicals/:symbol/essentials:
  *   get:
- *     tags: 
+ *     tags:
  *      - quote
  *     summary: Returns a sample message
  *     responses:
@@ -419,8 +437,8 @@ router.get("/historicals/:symbol", function (req, res) {
  */
 /**
  * GET /api/v2/historicals/:symbol/essentials
- * Retrieves 
- * @param {string} :symbol 
+ * Retrieves
+ * @param {string} :symbol
  */
 router.get("/historicals/:symbol/essentials", function (req, res) {
   let symbol = req.params.symbol;
@@ -474,7 +492,7 @@ router.get("/historicals/:symbol/essentials", function (req, res) {
  *
  * /api/v2/stocks:
  *   get:
- *     tags: 
+ *     tags:
  *      - quote
  *     summary: Returns a sample message
  *     responses:
@@ -605,7 +623,7 @@ router.get("/stocks", function (req, res) {
 //  *
 //  * /api/v2/stocks:
 //  *   post:
-//  *     tags: 
+//  *     tags:
 //  *      - quote
 //  *     summary: Returns a sample message
 //  *     responses:
@@ -664,7 +682,7 @@ router.get("/stocks", function (req, res) {
  *
  * /api/v2/stocks/:code:
  *   get:
- *     tags: 
+ *     tags:
  *      - quote
  *     summary: Returns a sample message
  *     responses:
@@ -707,7 +725,7 @@ router.get("/stocks/:code", function (req, res) {
  *
  * /api/v2/tickers:
  *   get:
- *     tags: 
+ *     tags:
  *      - ticker
  *     description: Welcome to swagger-jsdoc!
  *     summary: Returns a sample message
@@ -731,7 +749,7 @@ router.get("/tickers", async function (req, res) {
  *
  * /api/v2/tickersx:
  *   get:
- *     tags: 
+ *     tags:
  *      - ticker
  *     summary: Returns a sample message
  *     responses:
