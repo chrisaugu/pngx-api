@@ -166,10 +166,26 @@ function parse_csv_to_json(csv) {
   return data;
 }
 
+/**
+ * 
+ * @param {Request} request 
+ * @param {Response} _response 
+ * @returns string
+ */
+const keyGenerator = (request, _response) => {
+	if (!request.ip) {
+		console.error('Warning: request.ip is missing!')
+		return request.socket.remoteAddress
+	}
+
+	return request.ip.replace(/:\d+[^:]*$/, '')
+}
+
 module.exports = {
   parse_csv_to_json,
   parallel,
   normalize_data,
   format_date,
   date_split,
+  keyGenerator
 };
