@@ -1,11 +1,12 @@
 {
   "name": "@chrisaugu/pngx-api-lib",
   "version": "1.0.0",
-  "description": "Library",
-  "mainx": "dist/index.js",
+  "description": "NUKU API NPM library",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/increment-build.js",
     "build": "tsc",
     "test": "jest",
     "test:node": "node --test --test-reporter spec",
@@ -24,8 +25,7 @@
   "homepage": "https://github.com/chrisaugu/PNGX-API#readme",
   "dependencies": {
     "csv-parse": "^5.5.6",
-    "node-fetch": "^3.3.2",
-    "pngx-api-lib": "^1.0.0"
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.13",

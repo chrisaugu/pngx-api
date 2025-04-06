@@ -30,7 +30,7 @@ const options = {
     tags: [
       {
         name: "quote",
-        description: "Everything about your Pets",
+        description: "Fetch quotes",
         externalDocs: {
           description: "Find out more",
           url: "http://swagger.io",
@@ -39,6 +39,10 @@ const options = {
       {
         name: "ticker",
         description: "Access to Petstore orders",
+      },
+      {
+        name: "historical",
+        description: "Fetch historical quotes",
       },
       {
         name: "company",

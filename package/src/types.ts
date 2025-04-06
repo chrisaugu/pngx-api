@@ -1,8 +1,38 @@
-export type Stock = {
+export enum QUOTES {
+	'BSP',
+	'CCP',
+	'CGA',
+	'COY',
+	'CPL',
+	'KAM',
+	'KSL',
+	'NEM',
+	'NGP',
+	'NIU',
+	'SST',
+	'STO'
+};
 
-}
+export enum OLD_QUOTES {
+	'NCM',
+	'OSH'
+};
 
-export type Quote = {
+export type TQuotes =
+	'BSP' |
+	'CCP' |
+	'CGA' |
+	'COY' |
+	'CPL' |
+	'KAM' |
+	'KSL' |
+	'NEM' |
+	'NGP' |
+	'NIU' |
+	'SST' |
+	'STO';
+
+export type TQuote = {
 	date: Date;
 	code: string;
 	short_name: string;
@@ -18,17 +48,19 @@ export type Quote = {
 	num_trades: number;
 };
 
-export type Company = {
-	name: String,
-	ticker: String,
-	description: String,
-	industry: String,
-	sector: String,
-	key_people: [],
+export type TCompany = {
+	name: string,
+	ticker: string,
+	description: string,
+	industry: string,
+	sector: string,
+	key_people: string[],
 	date_listed: Date, // ipo
 	esteblished_date: Date,
 	outstanding_shares: Number
 };
+
+export type TTicker = TQuote & {}
 
 // {
 //   date: ISODate("2020-01-03T05:00:00.000Z"),
@@ -41,53 +73,15 @@ export type Company = {
 //   close: 74.357498
 // }
 
-export type Ticker = {
-	date: Date,
-	symbol: String,
-	bid: Number,
-	offer: Number,
-	last: Number,
-	close: Number,
-	high: Number,
-	low: Number,
-	open: Number,
-	change: Number,
-	volume: Number,
-	num_trades: Number
-}
+export type TAPIRequest = {}
 
-enum QUOTES {
-	'BSP',
-	'CCP',
-	'CGA',
-	'COY',
-	'CPL',
-	'KAM',
-	'KSL',
-	'NEM',
-	'NGP',
-	'NIU',
-	'SST',
-	'STO'
-};
-
-enum OLD_QUOTES {
-	'NCM',
-	'OSH'
-};
-
-export type TAPIResponse = {
+export type TAPIResponse<T> = {
 	status: number;
 	message: string;
 	symbols: string;
-	data: any;
 	api: string;
-	time: Date;
-};
-
-export type TAPIResult = {
-	status: number;
+	time: number;
 	date: Date;
 	last_updated: Date;
-	data: []
+	data: T[]
 }

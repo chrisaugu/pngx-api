@@ -1,7 +1,5 @@
 (function (global) {
-
   global.ChartsApp = function ChartsApp() {
-
     var charts = [];
     var symbols = [];
     var symbol = "";
@@ -53,13 +51,13 @@
     // buttonsContainer.appendChild(clearChartsButton);
 
     var stockOptions = document.createElement("select");
-    getStockOptions().then(stocks => {
-      symbols.forEach(stock => {
-        stockOptions.add(new Option(stock, stock.toLowerCase()))
-      })
-    })
-    stockOptions.addEventListener("select", function(e) {
-      console.log("he")
+    getStockOptions().then((stocks) => {
+      symbols.forEach((stock) => {
+        stockOptions.add(new Option(stock, stock.toLowerCase()));
+      });
+    });
+    stockOptions.addEventListener("select", function (e) {
+      console.log("he");
     });
     buttonsContainer.appendChild(stockOptions);
 
@@ -88,28 +86,61 @@
     });
     appContainer.appendChild(modeSwitch);
 
-    // loadData("assets/chart_data.json");
-    loadData("/api/v2/historicals/BSP/essentials");
+    loadData("assets/chart_data.json");
+    // loadData("/api/v2/historicals/BSP/essentials");
     // loadData("/api/v2/historicals/CPL/essentials");
 
-    function clearCharts () {
+    function clearCharts() {
       charts.forEach(function (chart) {
         chart.destroy();
       });
       charts = [];
     }
 
-    function loadData (file) {
+    function loadData(file) {
       var xhr = new XMLHttpRequest();
       xhr.onload = function () {
-        drawChart(JSON.parse(this.responseText));
+        let json = JSON.parse(this.responseText);
+        // let data = restructureData(json.historical);
+        drawChart(json);
       };
       xhr.open("get", file, true);
       xhr.send();
     }
 
-    function restructureData(data) {
+    function restructureData(data = []) {
+      const count = data.length;
+      let dates = [];
+      let bids = [];
+      let offers = [];
 
+      if (data && data.length > 0) {
+        data.forEach(function (stock) {
+          dates.push(new Date(stock.date).getTime());
+          bids.push(stock.bid);
+          offers.push(stock.offer);
+        });
+
+        return [
+          {
+            columns: [
+              ["x", ...dates],
+              ["y1", ...bids],
+              ["y2", ...offers],
+            ],
+            types: { y0: "line", y1: "line", x: "x" },
+            names: { y0: "#0", y1: "#1" },
+            colors: { y0: "#3DC23F", y1: "#F34C44" },
+          },
+        ];
+      } else {
+        return [{
+          columns: [],
+          types: {},
+          names: {},
+          colors: {}
+        }];
+      }
     }
 
     function getStockOptions() {
@@ -118,13 +149,13 @@
         xhr.onload = function () {
           symbols = JSON.parse(this.responseText).symbols;
           resolve(JSON.parse(this.responseText).symbols);
-        }
+        };
         xhr.open("get", "/api/", true);
-        xhr.send(); 
-      })
+        xhr.send();
+      });
     }
 
-    function uploadData (e) {
+    function uploadData(e) {
       try {
         var input = e.target;
         var file = input.files[0];
@@ -138,7 +169,7 @@
       }
     }
 
-    function processData (e) {
+    function processData(e) {
       var content = e.target.result;
       var data = JSON.parse(content);
       drawChart(data);
@@ -146,8 +177,8 @@
 
     function drawChart(data) {
       clearCharts();
-
       console.log(data)
+
       var chartsContainer = document.getElementById("charts-container");
       charts = data.map(function (data, i) {
         var chart = new Chart({
@@ -156,11 +187,10 @@
           container: chartsContainer,
           mode: mode,
           width: window.innerWidth - 64,
-          height: window.innerHeight - 100
+          height: window.innerHeight - 100,
         });
         return chart;
       });
     }
   };
-
 })(this);

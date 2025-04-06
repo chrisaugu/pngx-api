@@ -4,6 +4,10 @@
 ### 🚀 Enhancements
 
 - **api:** Created an NPM lib for JavaScript ([d43dcb3](https://github.com/chrisaugu/pngx-api/commit/d43dcb3))
+- Added `etl.js` - a process that fetches data from PNGX.com.pg and compare it against the database and save any data from PNGX that are missing from db.
+- Added `webhook.js` - to allow external connections into the system to receive payloads
+- Added `ws.js` - websocket addon to receive stock data in real-time
+- Added `sse.js` - websocket addon to send events to clients
 
 ### 🩹 Fixes
 
