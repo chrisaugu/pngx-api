@@ -814,4 +814,40 @@ router.get("/tickersx", (req, res) => {
   //    ])
 });
 
+router.get("/news", async function(req, res) {
+  let page = req.query.page;
+
+  let headers = new Headers();
+  headers.set('User-Agent', '');
+
+  // let NEWS_URL = 'https://www.pngx.com.pg/feed/';
+  let NEWS_URLS = [
+    "https://www.pngx.com.pg/wp-json/wp/v2/posts",
+    "https://www.postcourier.com.pg/wp-json/wp/v2/posts",
+    "https://www.thenational.com.pg/wp-json/wp/v2/posts",
+  ];
+  let news_posts = [];
+
+  try {
+    const jsons = await Promise.all(NEWS_URLS.map(async url => {
+      if (page) {
+        url += "?page=" + page;
+      }
+      const r = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+      });
+      return await r.json();
+    }));
+
+    jsons.forEach((json) => news_posts.push(...json));
+    news_posts.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+    res.json(news_posts);
+  } catch (error) {
+    console.error('An error occurred:', error);
+    res.json({message: 'An error occurred:', error});
+  }
+})
+
 module.exports = router;
