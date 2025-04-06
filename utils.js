@@ -12,20 +12,31 @@ const {
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
 } = require("./constants");
-const _ = require('lodash');
+const _ = require("lodash");
 
 const csvOptions = {
   header: true,
   dynamicTyping: true,
-  skipEmptyLines: true,
+  skipEmptyLines: 'greedy',
+  newline: "\r\n",
   worker: true,
 };
 
 function date_split(date) {
-  const [month, day, year] = date.split("/");
-  const result = [year, month, day].join("-");
+  const regex = /^\d{4}[-/]\d{2}[-/]\d{2}$/;
+  const regex2 = /^\d{4}[-/]\d{2}[-/]\d{2}$/;
 
-  return result;
+  if (regex.test(date)) {
+    if (regex2.test(date)) {
+      const [month, day, year] = date.split("/");
+      const result = [year, month, day].join("-");
+      const normalizedDate = date.replace(/\//g, "-");
+
+      return result;
+    } else {
+      return date;
+    }
+  }
 }
 
 /**
@@ -35,6 +46,7 @@ function date_split(date) {
  */
 function format_date(date) {
   // only for STO's date i.e. 30/09/2024 - dd/MM/yyyy
+
   if (
     date.match(
       new RegExp(
@@ -87,18 +99,16 @@ function normalize_data(data) {
  * @returns {Number}
  */
 function convertStringToNumber(str) {
-	if (_.isString(str)) {
-		if (str.includes(",")) {
-			let num = Number(str.split(",").join(""));
-			return num;
-		}
-		else {
-			return Number(str);
-		}
-	}
-	else {
-		return str;
-	}
+  if (_.isString(str)) {
+    if (str.includes(",")) {
+      let num = Number(str.split(",").join(""));
+      return num;
+    } else {
+      return Number(str);
+    }
+  } else {
+    return str;
+  }
 }
 
 async function parallel(arr, fn, threads = 2) {
@@ -156,9 +166,43 @@ function parse_csv_to_json(csv) {
     // chunk: function(chunks) {
     // 	console.log(chunks)
     // },
-    // complete: function(results) {
-    // 	console.log("Finished:", results.data);
-    // }
+    // complete: function (results) {
+    //   // Remove empty columns
+    //   const cleanedData = results.data.map((row) => {
+    //     const newRow = {};
+    //     for (let key in row) {
+    //       // Keep only columns with non-empty headers
+    //       if (key.trim() !== "") {
+    //         newRow[key] = row[key];
+    //       }
+    //     }
+    //     return newRow;
+    //   });
+
+    //   console.log(cleanedData);
+    // },
+    // complete: function (results) {
+    //   // Filter out empty columns (by checking the header row)
+    //   const data = results.data;
+    //   const header = data;
+
+    //   // Get indexes of non-empty columns
+    //   const validIndexes = header
+    //     .map((col, index) => (col.trim() !== "" ? index : -1))
+    //     .filter((i) => i !== -1);
+
+    //   // Rebuild cleaned data
+    //   const cleanedData = data.map((row) => validIndexes.map((i) => row[i]));
+
+    //   console.log(cleanedData);
+    //   return cleanedData;
+    // },
+    // transformHeader: function (header) {
+    //   if (header.trim() !== "") return header;
+    // },
+    // complete: function (results) {
+    //   console.log(results.data);
+    // },
   });
 
   if (errors.length > 0) throw new Error(errors);
@@ -167,19 +211,19 @@ function parse_csv_to_json(csv) {
 }
 
 /**
- * 
- * @param {Request} request 
- * @param {Response} _response 
+ *
+ * @param {Request} request
+ * @param {Response} _response
  * @returns string
  */
 const keyGenerator = (request, _response) => {
-	if (!request.ip) {
-		console.error('Warning: request.ip is missing!')
-		return request.socket.remoteAddress
-	}
+  if (!request.ip) {
+    console.error("Warning: request.ip is missing!");
+    return request.socket.remoteAddress;
+  }
 
-	return request.ip.replace(/:\d+[^:]*$/, '')
-}
+  return request.ip.replace(/:\d+[^:]*$/, "");
+};
 
 module.exports = {
   parse_csv_to_json,
@@ -187,5 +231,5 @@ module.exports = {
   normalize_data,
   format_date,
   date_split,
-  keyGenerator
+  keyGenerator,
 };

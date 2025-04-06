@@ -14,6 +14,7 @@ initDatabase()
     );
 
     SYMBOLS.forEach(async (quote) => {
+      // let quote = "NGP"
       let dbData = await fetchDataFromDB(quote);
       let sourceData = await fetchDataFromPNGX(quote);
 
@@ -30,14 +31,14 @@ initDatabase()
   });
 
 async function fetchDataFromDB(quote) {
-  console.log("Fetching quotes for ", quote);
+  console.log("Fetching quotes for", quote, "from DB");
   return new Promise((resolve, reject) => {
     Stock.findBySymbol(quote).then(resolve).catch(reject);
   });
 }
 
 async function fetchDataFromPNGX(quote) {
-  console.log("Fetching quotes for ", quote);
+  console.log("Fetching quotes for", quote, "from PNGX");
   return new Promise((resolve, reject) => {
     get_quotes_from_pngx(quote)
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
@@ -46,7 +47,7 @@ async function fetchDataFromPNGX(quote) {
   });
 }
 
-const dataComparatorAsc = (a, b) => a.date - b.date;
+const dataComparatorAsc = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
 
 function runSideBySide(dbData = [], source = []) {
   let dups = {}; // are ones common on both dataset
