@@ -63,8 +63,12 @@ module.exports = (expressServer) => {
     if (connection.authenticated) {
       // Broadcast the message to all connected clients
       wsServer.clients.forEach((client) => {
+        if (client.isAlive === false) return client.terminate();
         if (client.readyState === WebSocket.OPEN) {
           client.send(parsedMessage);
+
+          client.isAlive = false;
+          client.ping();
         }
       });
 
@@ -78,7 +82,7 @@ module.exports = (expressServer) => {
 
   const handleClose = (uuid) => {
     delete connections[uuid];
-    clients.delete(ws);
+    clients.delete(uuid);
   };
 
   wsServer.on("connection", (connection, request) => {
@@ -90,15 +94,22 @@ module.exports = (expressServer) => {
     const color = Math.floor(Math.random() * 360);
     const metadata = { uuid, color };
 
-    connections.set(ws, metadata);
+    connections.set(connection, metadata);
     connections[uuid] = connection;
+
+    connection.isAlive = true;
+
+    connection.on("pong", () => {
+      connection.isAlive = true;
+    });
 
     // NOTE: connectParams are not used here but good to understand how to get
     // to them if you need to pass data with the connection to identify it (e.g., a userId).
     // console.log(connectionParams);
 
     connection.on("message", (bytes) => {
-      const parsedMessage = JSON.parse(bytes);
+      let obj = bytes.toString();
+      const parsedMessage = JSON.parse(obj);
       console.log("Received message: %s", parsedMessage);
       // %s: Convert the bytes (buffer) into a string using
       // utf-8 encoding.

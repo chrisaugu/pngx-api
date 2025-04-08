@@ -18,6 +18,14 @@ const quoteSchema = new Schema(
     num_trades: Number,
   },
   {
+    toJSON: {
+      transform(doc, rest) {
+        delete rest.__v;
+        delete rest._id;
+        delete rest.createdAt;
+        delete rest.updatedAt;
+      },
+    },
     timestamps: {
       currentTime: () => Math.floor(Date.now() / 1000),
     },

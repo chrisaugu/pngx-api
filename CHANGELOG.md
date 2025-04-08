@@ -38,6 +38,9 @@
 
 Unreleased
 ==========
+Remove `_id` when displaying stocks, tickers, indices, companies
+Remove `__v` when displaying stocks, tickers, indices, companies
+Remove `createdAt` and `updatedAt` when displaying stocks, tickers, indices, companies
 
 New Release
 ===========
