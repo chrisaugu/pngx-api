@@ -94,7 +94,8 @@ function normalize_data(data) {
 }
 
 /**
- *
+ * this util function addresses what papa parse fails, when infering the data type when parsing csv data stream
+ * from data source as they are not always consistency in their format
  * @param {String} str
  * @returns {Number}
  */

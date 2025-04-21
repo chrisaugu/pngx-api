@@ -1,18 +1,21 @@
 const { WebSocketServer, WebSocket } = require("ws");
-const { parse } = require("url");
+const url = require("url");
 const { randomUUID } = require("crypto");
 const queryString = require("querystring");
+const { isUint8Array } = require("util/types");
 
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
+    let r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }
 
 module.exports = (expressServer) => {
-  const wsServer = new WebSocket.Server({
+  const ws1 = new WebSocketServer({ noServer: true });
+
+  const wsServer = new WebSocketServer({
     noServer: true,
     path: "/ws/v1",
     // server,
@@ -20,18 +23,18 @@ module.exports = (expressServer) => {
   });
 
   const connections = new Map();
-
-  const authenticate = (request) => {
-    const origin = request.headers["origin"];
-    const token = request.headers["authorization"].split(" ")[1];
-    // const { token } = parse(request.url, true).query;
-    // TODO: Actually authenticate token
-    if (token === "abc") {
-      return true;
-    }
-  };
+  // let clients = new List<IWebSocketConnection>();
 
   expressServer.on("upgrade", (request, socket, head) => {
+    // const { pathname } = new URL(request.URL, "wss://base.url");
+    // if (pathname === "/foo") {
+    //   ws1.handleUpgrade(request, socket, head, function done(ws) {
+    //     ws1.emit('connection', ws, request);
+    //   })
+    // }
+    // else {
+    //   socket.destroy();
+    // }
     // const authed = authenticate(request);
 
     // if (!authed) {
@@ -42,21 +45,98 @@ module.exports = (expressServer) => {
     //   return;
     // }
 
-    wsServer.handleUpgrade(request, socket, head, (connection) => {
+    socket.on("error", onSocketError);
+
+    wsServer.handleUpgrade(request, socket, head, (connection, request) => {
       // Manually emit the 'connection' event on a WebSocket
       // server (we subscribe to this event below).
-      wsServer.emit("connection", connection, request);
+      wsServer.emit("connection", connection, request, "client");
     });
   });
 
+  wsServer.on("connection", (connection /*stream*/, request, client) => {
+    console.log("A new client connected");
+    const [_path, params] = request?.url?.split("?");
+    const connectionParams = queryString.parse(params);
+    const ip = request.socket.remoteAddress;
+    // const ip = request.headers["X-Forwarded-For"].split(",")[0].trim();
+
+    console.log(ip);
+
+    const uuid = randomUUID();
+    const color = Math.floor(Math.random() * 360);
+    const metadata = {
+      uuid,
+      color,
+      date: "2020-04-06",
+      symbol: "SST",
+      bid: 0,
+      offer: 0,
+      last: 0,
+      close: 35.46,
+      high: 0,
+      low: 0,
+      open: 0,
+      change: 0,
+      volume: 0,
+      num_trades: 0,
+    };
+
+    connections.set(connection, metadata);
+    connections[uuid] = connection;
+
+    connection.isAlive = true;
+
+    connection.ping("ping", () => {
+      console.log("PING");
+    });
+    connection.on("pong", heartbeat, () => {
+      connection.isAlive = true;
+      console.log("PONG");
+    });
+
+    // Event listener for incoming messages
+    connection.on("message", (bytes) => handleMessage(bytes, uuid));
+    // Event listener for client disconnection
+    connection.on("close", () => handleClose(uuid));
+  });
+
+  wsServer.on("error", (error) => {
+    console.error("Error: " + error.message);
+  });
+
+  const interval = setInterval(function ping() {
+    wsServer.clients.forEach((client) => {
+      if (client.isAlive === false) return client.terminate();
+      client.isAlive = false;
+      client.ping();
+    });
+  }, 3000);
+
+  const authenticate = (token /*request*/) => {
+    // const origin = request.headers["origin"];
+    // const token = request.headers["authorization"].split(" ")[1];
+    // const { token } = url.parse(request.url, true).query;
+    // TODO: Actually authenticate token
+    if (token === "abc") {
+      return true;
+    }
+  };
+
   const handleMessage = (bytes, uuid) => {
-    const message = JSON.parse(bytes.toString());
+    // Convert the bytes (buffer) into a string using utf-8 encoding.
+    const obj = bytes.toString();
+    const parsedMessage = JSON.parse(obj);
     const connection = connections[uuid];
     const metadata = connections.get(uuid);
-    console.log(message);
+    let data;
+    // if (isUint8Array(bytes)) {
+    //   data = new ArrayBuffer(bytes)
+    // }
+    console.log("Received message: %s", parsedMessage);
 
-    if (message.type === "authenticate") {
-      connection.authenticated = authenticate(message.token);
+    if (parsedMessage.type === "authenticate") {
+      connection.authenticated = authenticate(parsedMessage.token);
       return;
     }
 
@@ -64,15 +144,15 @@ module.exports = (expressServer) => {
       // Broadcast the message to all connected clients
       wsServer.clients.forEach((client) => {
         if (client.isAlive === false) return client.terminate();
-        if (client.readyState === WebSocket.OPEN) {
-          client.send(parsedMessage);
-
+        // broadcasting message to all connected clients, excluding itself
+        if (client !== socket && client.readyState === WebSocket.OPEN) {
           client.isAlive = false;
-          client.ping();
+          // client.ping();
+          client.send(parsedMessage);
         }
       });
 
-      [...clients.keys()].forEach((client) => {
+      [...wsServer.clients.keys()].forEach((client) => {
         client.send(outbound);
       });
     } else {
@@ -81,50 +161,21 @@ module.exports = (expressServer) => {
   };
 
   const handleClose = (uuid) => {
+    console.log("A client disconnected. Reconnecting...");
     delete connections[uuid];
-    clients.delete(uuid);
+    wsServer.clients.delete(uuid);
+
+    // setTimeout(this, 1000);
+    clearInterval(interval);
   };
 
-  wsServer.on("connection", (connection, request) => {
-    console.log("A new client connected");
-    const [_path, params] = request?.url?.split("?");
-    const connectionParams = queryString.parse(params);
+  const onSocketError = (err) => {
+    console.error(err);
+  };
 
-    const uuid = randomUUID();
-    const color = Math.floor(Math.random() * 360);
-    const metadata = { uuid, color };
-
-    connections.set(connection, metadata);
-    connections[uuid] = connection;
-
-    connection.isAlive = true;
-
-    connection.on("pong", () => {
-      connection.isAlive = true;
-    });
-
-    // NOTE: connectParams are not used here but good to understand how to get
-    // to them if you need to pass data with the connection to identify it (e.g., a userId).
-    // console.log(connectionParams);
-
-    connection.on("message", (bytes) => {
-      let obj = bytes.toString();
-      const parsedMessage = JSON.parse(obj);
-      console.log("Received message: %s", parsedMessage);
-      // %s: Convert the bytes (buffer) into a string using
-      // utf-8 encoding.
-      // Event listener for incoming messages
-      //   console.log("Received message: %s", bytes.toString());
-
-      handleMessage(bytes, uuid);
-    });
-
-    // Event listener for client disconnection
-    connection.on("close", () => {
-      console.log("A client disconnected.");
-      handleClose(uuid);
-    });
-  });
+  const heartbeat = () => {
+    this.isAlive = true;
+  };
 
   return wsServer;
 };
@@ -134,41 +185,41 @@ module.exports = (expressServer) => {
 Fetch stock quotes in realtime
 `/ws/v1/stocks`
 
-
 ### Add to watchlist
 {
-    "action": "watch",
-    "symbol": "BSP"
+  "action": "watch",
+  "symbol": "BSP"
 }
 
 ### subscribe to 
 {
-    "subscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
+  "subscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
 }
 ### subscribe to 
 {
-    "unsubscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
+  "unsubscribe": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxxxx/stats/devices"
 }
 {
-    "event": "channel_subscribed",
-    "channel": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxx/stats/devices"
+  "event": "channel_subscribed",
+  "channel": "/sites/c1947558-268d-4d31-xxxx-xxxxxxxxxxxx/stats/devices"
 }
 
 {
-    "event": "data",
-    "channel": "/sites/c1947558-268d-4d31- xxxx - xxxxxxxxxxxx /stats/devices",
-    "data": "{\"mac\": \"5c5b35f15ed8\", \"last_seen\": 1686592607, \"uptime\": 6259614, \"version\": \"0.9.22801\", \"_partition\": 48, \"_offset_apbasic\": 4639768722, \"ip_stat\": {\"dns\": [\"10.10.12.11\", \"10.10.12.12\"], \"ips\": {\"vlan12\": \"10.10.12.25/25,fe80:0:0:0:5e5b:35ff:fef1:5ed8/64\"}, \"gateway\": \"10.10.12.1\", \"ip6\": \"fe80:0:0:0:5e5b:35ff:fef1:5ed8\", \"netmask6\": \"/64\", \"ip\": \"10.10.12.25\", \"netmask\": \"255.255.255.128\", \"dhcp_server\": \"10.10.12.1\"}, \"ip\": \"10.10.12.25\", \"ble_stat\": {\"tx_pkts\": 9073, \"tx_bytes\": 105431, \"rx_pkts\": 393432193, \"rx_bytes\": 2772782221, \"tx_resets\": 0}, \"_time\": 1686592607.62131}"
+  "event": "data",
+  "channel": "/sites/c1947558-268d-4d31- xxxx - xxxxxxxxxxxx /stats/devices",
+  "data": "{\"mac\": \"5c5b35f15ed8\", \"last_seen\": 1686592607, \"uptime\": 6259614, \"version\": \"0.9.22801\", \"_partition\": 48, \"_offset_apbasic\": 4639768722, \"ip_stat\": {\"dns\": [\"10.10.12.11\", \"10.10.12.12\"], \"ips\": {\"vlan12\": \"10.10.12.25/25,fe80:0:0:0:5e5b:35ff:fef1:5ed8/64\"}, \"gateway\": \"10.10.12.1\", \"ip6\": \"fe80:0:0:0:5e5b:35ff:fef1:5ed8\", \"netmask6\": \"/64\", \"ip\": \"10.10.12.25\", \"netmask\": \"255.255.255.128\", \"dhcp_server\": \"10.10.12.1\"}, \"ip\": \"10.10.12.25\", \"ble_stat\": {\"tx_pkts\": 9073, \"tx_bytes\": 105431, \"rx_pkts\": 393432193, \"rx_bytes\": 2772782221, \"tx_resets\": 0}, \"_time\": 1686592607.62131}"
 }
 
 -- Message format
 {
   type: 'event' | 'connected' | 'error',
-
 }
 
 -- Authentication message format
 {
-  type: 'authentication'
+  status: 'ok' | 'error',
+  event: EVENT_NAME,
+  type: 'authentication',
   data: {}
 }
 
@@ -202,5 +253,16 @@ place order
   }
 }
 
+{"status":403,"message":"Server error"}
 
+/ws/stocks/quotes
+{"action": "subscribe", "symbols": "AMZN, TSLA"}
+
+Response data for US Quote:
+s: ticker code
+ap: ask price
+bp: bid price
+as: ask size
+bs: bid size
+t: timestamp in milliseconds
 */

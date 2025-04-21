@@ -49,6 +49,9 @@ Deprecated – for deprecated features that will be removed in future versions,
 Removed – for removed functions,
 Fixed – for fixed bugs and refactoring.
 
+2 / 2024-12-24
+==================
+  * 
 
 2.0.0 / 2024-12-29
 ==================

@@ -1,20 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+/**
+ * this model is used to store tickers of stocks. It is a time-series data. The collection is populated by
+ * etl process which runs on a cron job every morning.
+ */
 const tickerSchema = new Schema(
   {
     date: Date,
     symbol: String,
-    bid: Number,
-    offer: Number,
-    last: Number,
     close: Number,
     high: Number,
     low: Number,
     open: Number,
-    change: Number,
-    volume: Number,
-    num_trades: Number,
   },
   {
     timeseries: {
@@ -25,7 +23,10 @@ const tickerSchema = new Schema(
     autoCreate: false,
   }
 );
-tickerSchema.index({ symbol: 1, date: 1 });
+tickerSchema.index({
+  symbol: 1,
+  date: 1,
+});
 
 const Ticker = (module.exports = mongoose.model("ticker", tickerSchema));
 

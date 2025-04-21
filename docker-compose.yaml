@@ -12,6 +12,16 @@ services:
     restart: always
     # networks:
     #   - nuku-api-network
+
+  nuku-etl:
+    build:
+      context: .
+      dockerfile: etl.Dockerfile
+    container_name: nuku-etl
+    # depends_on:
+      # - nuku-mongodb
+    # networks:
+    #   - nuku-api-network
   
 #   nuku-worker:
 #     build: 
@@ -21,7 +31,7 @@ services:
 #     restart: always
 #     depends_on:
 #       - nuku-redis
-  
+
 #   nuku-redis:
 #     image: redis
 #     ports:

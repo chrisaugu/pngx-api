@@ -814,6 +814,9 @@ router.get("/tickersx", (req, res) => {
   //    ])
 });
 
+/**
+ * /api/v2/news
+ */
 router.get("/news", async function(req, res) {
   let page = req.query.page;
 
