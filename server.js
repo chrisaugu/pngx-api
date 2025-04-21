@@ -7,6 +7,7 @@ require("dotenv").config();
 
 const app = require("./app");
 const Env = require("./config/env");
+const websocket = require("./routes/ws");
 
 // replaces all instance of app with server
 let server;
@@ -21,6 +22,8 @@ let server;
   server.on("end", onStop);
 // } 
 // else {
+// stream data
+websocket(server);
 //   const options = {
 //     key: fs.readFileSync(path.join(__dirname, "certs", "nuku-key.pem")),
 //     cert: fs.readFileSync(path.join(__dirname, "certs", "nuku.pem")),
@@ -88,11 +91,15 @@ function onStop() {
   app.destroy();
 }
 
-process.on('SIGTERM', () => {
-  debug('SIGTERM signal received: closing HTTP server')
+process.on("message", (message) => {
+  console.log(message);
+});
+
+process.on("SIGTERM", () => {
+  debug("SIGTERM signal received: closing HTTP server");
   server.close(() => {
-    debug('HTTP server closed')
-  })
+    debug("HTTP server closed");
+  });
 });
 
 module.exports = server;

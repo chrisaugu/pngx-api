@@ -55,9 +55,8 @@ exports.errorHandler = function errorHandler(err, req, res, next) {
 };
 
 exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
-  logger.error(
-    `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`
-  );
+  const logger = require('./config/logger');
+  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
   next(err);
 };
 

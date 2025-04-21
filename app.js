@@ -6,7 +6,7 @@ const path = require("path");
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
 const { specs, swaggerUi } = require("./config/swagger");
-const logger = require("./config/winston");
+const logger = require("./config/logger");
 require("./constants");
 require("./models/index");
 const { initDatabase } = require("./database");
@@ -17,6 +17,7 @@ const {
   errorHandler,
   corsMiddleware,
   rateLimitMiddleware,
+  errorLogHandler,
 } = require("./middlewares");
 const { WORKER_SCHEDULE_TIME } = require("./constants");
 
@@ -25,10 +26,11 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "docs")));
 app.use("/demo", express.static(path.join(__dirname, "demo")));
-app.use("/assets", express.static(path.join(__dirname + "docs/assets")));
+app.use(express.static(path.join(__dirname, "images")));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json({}));
+app.use(express.json());
 app.use(morgan("combined", { stream: logger.stream.write }));
+app.set("trust proxy", 1 /* number of proxies between user and server */);
 
 // app.use(helmet);
 app.use(corsMiddleware);
@@ -39,16 +41,19 @@ app.use(allowMethodOverride);
 app.use(error404Handler);
 // error handler
 app.use(errorHandler);
-// app.use(errorLogHandler);
+app.use(errorLogHandler);
 
 app.use("/api", rateLimitMiddleware);
+app.use("/events", require("./routes/sse"));
 
 // middleware to check data is present in cache
 // app.use(checkCache);
 
 initDatabase()
   .on("connected", function () {
-    console.log("[Main_Thread]: Connected: Successfully connect to mongo server");
+    console.log(
+      "[Main_Thread]: Connected: Successfully connect to mongo server"
+    );
     /**
      * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
@@ -89,10 +94,19 @@ initDatabase()
       } catch (erorr) {
         console.log(erorr);
       }
+
+      // const response = await myQueue.add({
+      //   type: "register",
+      //   data: { date: "07/04/2024" },
+      // });
+
+      // res.json({message: response.message});
     });
   })
   .on("error", function () {
-    console.log("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+    console.log(
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+    );
   });
 
 /**
@@ -104,5 +118,6 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
  * /api
  */
 app.use("/api", require("./routes/index"));
+app.get("/ip", (request, response) => response.send(request.ip));
 
 module.exports = app;

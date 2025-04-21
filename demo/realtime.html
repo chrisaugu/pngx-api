@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Realtime</title>
+    <link rel="stylesheet" href="assets/css/starter.css" />
+</head>
+
+<body>
+    <marquee class="ticker-tape" style="background-color: rgb(255, 255, 255);">
+        <span>BSP (2%)↗️</span>
+        <span>CPL (-40%)↘️</span>
+    </marquee>
+
+    <h1>Realtime</h1>
+    <input type="text" id="text-view" />
+    <input type="button" id="send-button" value="Send!" />
+    <input type="button" id="stop-button" value="Stop" />
+    <input type="button" id="start-button" value="Start" />
+    </br>
+    <label id="status-label">Status</label>
+    <textarea id="status-log"></textarea>
+
+    <table id="quotes-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Symbol</th>
+                <th>Bid</th>
+                <th>Offer</th>
+                <th>Last</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>Change</th>
+                <th>Volume</th>
+                <th># Trades</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Watchlist</h1>
+    <ul id="feed"></ul>
+
+    <h1>Candlesick Chart</h1>
+    <div id="candlestick" style="position: relative;"></div>
+
+    <script type="text/javascript" src="./dummy-data.js"></script>
+
+    <script src="https://unpkg.com/lightweight-charts@5.0.5/dist/lightweight-charts.standalone.production.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            // const userId = "user3"; // Simulate logged-in user
+            // ?user=${userId}
+            const channel = "quotes,tickers,news";
+            // ?channel=${channel}
+            let topics = ['stocks:BSP', 'stocks:CCP', 'stocks:CPL', 'stocks:KAM'];
+            const evtSource = new EventSource(`http://localhost:5000/events?topics=${topics.join(',')}`, {
+                withCredentials: true,
+                headers: {
+                    'Authorization': 'abc',
+                    'X-Access-Token': 'abc',
+                    'X-Channel': 'events',
+                    'X-Topics': 'tickers:*',
+                },
+            });
+            const feed = document.getElementById("feed");
+            const log = document.getElementById('ticker-tape');
+            const table = document.getElementById('quotes-table');
+            //     const treeWalker = document.createTreeWalker(table)
+
+            const tickers = ['BSP', 'CCP', 'CGA', 'CPL', 'KAM', 'KSL', 'NEM', 'NGP', 'NIU', 'SST', 'STO'];
+
+            const liMap = {};
+            tickers.forEach(ticker => {
+                const li = document.createElement("li");
+                li.id = `stock-${ticker}`;
+                li.textContent = `${ticker}: loading...`;
+                feed.appendChild(li);
+                liMap[ticker] = li;
+
+                evtSource.addEventListener(`stocks:${ticker}`, e => {
+                    const data = JSON.parse(e.data);
+                    liMap[ticker].textContent = `${data.ticker}: K${data.price} @ ${data.timestamp}`;
+                });
+            });
+
+            evtSource.addEventListener('tickers', e => {
+                const data = JSON.parse(e.data);
+            });
+
+            //     evtSource.addEventListener(channel, (e) => {
+            //         console.log("Channel update:", JSON.parse(e.data));
+            //     });
+
+            //     // news message handler
+            //     evtSource.addEventListener('news', e => {
+            //         console.log(`last ID: ${e.lastEventId}`);
+
+            //         document.getElementById('headline')
+            //             .textContent = e.data;
+
+            //     });
+
+            //     // weather message handler
+            //     evtSource.addEventListener('weather', e => {
+
+            //         const w = JSON.parse(e.data);
+
+            //         document.getElementById('weather')
+            //             .textContent = `${w.temperature} with ${w.wind} wind`;
+
+            //     });
+
+            //     // stock message handler
+            //     evtSource.addEventListener('stock', e => {
+
+            //         const s = JSON.parse(e.data);
+
+            //         document.getElementById(`stock-${s.symbol}`)
+            //             .textContent = `${s.share}: ${s.price} (${s.increase}%)`;
+
+            //     });
+
+            //     evtSource.addEventListener('error', e => {
+
+            //         if (e.eventPhase === EventSource.CLOSED) {
+            //             console.log('SSE connection closed');
+            //         }
+            //         else {
+            //             console.log('error', e);
+            //         }
+
+            //     });
+
+            //     evtSource.onopen = function () {
+            //         console.log('connection to stream has been opened');
+            //     };
+            //     evtSource.onerror = function (error) {
+            //         console.log('An error has occurred while receiving stream', error);
+            //         evtSource.close();
+            //     };
+            //     evtSource.onmessage = function (stream) {
+            //         console.log('received stream', stream);
+            //         const parsedData = JSON.parse(stream.data);
+            //         console.log(parsedData)
+            //         // log.append(document.createElement('a'))
+
+            //         const groups = Object.groupBy(parsedData, function (d) { return d.code });
+            //         for (const key in groups) {
+            //             let tr = document.createElement('tr');
+            //             let row = groups[key].map((stock) => (`
+            //                     <td>${stock.date}</td>
+            //                     <td>${stock.code}</td>
+            //                     <td>${stock.bid}</td>
+            //                     <td>${stock.offer}</td>
+            //                     <td>${stock.last}</td>
+            //                     <td>${stock.high}</td>
+            //                     <td>${stock.low}</td>
+            //                     <td>${stock.open}</td>
+            //                     <td>${stock.close}</td>
+            //                     <td>${stock.chg_today}</td>
+            //                     <td>${stock.vol_today}</td>
+            //                     <td>${stock.num_trades}</td>
+            //             `));
+            //             tr.append(row)
+
+            //             table.children.item(1).append(tr)
+            //         }
+
+            //     };
+
+            //     function renderTable(headers, rows) {
+            //         let header = ""
+            //     }
+
+            const chartOptions = {
+                layout: {
+                    textColor: 'black',
+                    background: { type: 'solid', color: 'white' },
+                },
+                width: 800,
+                height: 300
+            };
+
+            const container = document.getElementById('candlestick');
+            const chart = LightweightCharts.createChart(container, chartOptions);
+            chart.applyOptions({
+                crosshair: {
+                    // hide the horizontal crosshair line
+                    horzLine: {
+                        visible: false,
+                        labelVisible: false,
+                    },
+                    // hide the vertical crosshair label
+                    vertLine: {
+                        labelVisible: false,
+                    },
+                },
+                // hide the grid lines
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        visible: false,
+                    },
+                },
+            });
+
+            let ticker = "NCM";
+            let stocksGroup = Object.groupBy(quotesData, (e) => e.symbol);
+            console.log(stocksGroup)
+            let candleData = stocksGroup[ticker].slice(0, 25).map(d => ({
+                open: d.open,
+                high: d.high,
+                low: d.low,
+                close: d.close,
+                time: d.date
+            }));
+            console.log(candleData)
+            let volumeData = stocksGroup[ticker].slice(0, 25).map(d => ({
+                value: d.volume,
+                time: d.date
+            }));
+            console.log(volumeData)
+            let bidData = stocksGroup[ticker].slice(0, 25).map(d => ({
+                value: d.bid,
+                time: d.date
+            }));
+            console.log(bidData)
+
+            // Only needed within demo page
+            // eslint-disable-next-line no-undef
+            window.addEventListener('resize', () => {
+                chart.applyOptions({ height: 200 });
+            });
+
+            //             const intervalColors = {
+            //                 '1D': '#2962FF',
+            //                 '1W': 'rgb(225, 87, 90)',
+            //                 '1M': 'rgb(242, 142, 44)',
+            //                 '1Y': 'rgb(164, 89, 209)',
+            //             };
+
+            //             // bid and offer
+            //             const lineSeries = chart.addSeries(LightweightCharts.LineSeries, { color: intervalColors['1D'] });
+            //             lineSeries.setData([
+            //                 { time: '2019-04-11', value: 80.01 },
+            //                 { time: '2019-04-12', value: 96.63 },
+            //                 { time: '2019-04-13', value: 76.64 },
+            //                 { time: '2019-04-14', value: 81.89 },
+            //                 { time: '2019-04-15', value: 74.43 },
+            //                 { time: '2019-04-16', value: 80.01 },
+            //                 { time: '2019-04-17', value: 96.63 },
+            //                 { time: '2019-04-18', value: 76.64 },
+            //                 { time: '2019-04-19', value: 81.89 },
+            //                 { time: '2019-04-20', value: 74.43 },
+            //             ]);
+
+            //             function setChartInterval(interval) {
+            //                 lineSeries.setData(seriesesData.get(interval));
+            //                 lineSeries.applyOptions({
+            //                     color: intervalColors[interval],
+            //                 });
+            //                 chart.timeScale().fitContent();
+            //             }
+
+            //             setChartInterval('1D');
+
+            //             const styles = `
+            //     .buttons-container {
+            //         display: flex;
+            //         flex-direction: row;
+            //         gap: 8px;
+            //     }
+            //     .buttons-container button {
+            //         all: initial;
+            //         font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu,
+            //             sans-serif;
+            //         font-size: 16px;
+            //         font-style: normal;
+            //         font-weight: 510;
+            //         line-height: 24px; /* 150% */
+            //         letter-spacing: -0.32px;
+            //         padding: 8px 24px;
+            //         color: rgba(19, 23, 34, 1);
+            //         background-color: rgba(240, 243, 250, 1);
+            //         border-radius: 8px;
+            //         cursor: pointer;
+            //     }
+
+            //     .buttons-container button:hover {
+            //         background-color: rgba(224, 227, 235, 1);
+            //     }
+
+            //     .buttons-container button:active {
+            //         background-color: rgba(209, 212, 220, 1);
+            //     }
+            // `;
+
+            //             const stylesElement = document.createElement('style');
+            //             stylesElement.innerHTML = styles;
+            //             container.appendChild(stylesElement);
+
+            //             const buttonsContainer = document.createElement('div');
+            //             buttonsContainer.classList.add('buttons-container');
+            //             const intervals = ['1D', '1W', '1M', '1Y'];
+            //             intervals.forEach(interval => {
+            //                 const button = document.createElement('button');
+            //                 button.innerText = interval;
+            //                 button.addEventListener('click', () => setChartInterval(interval));
+            //                 buttonsContainer.appendChild(button);
+            //             });
+
+            //             container.appendChild(buttonsContainer);
+
+            // volume traded
+            const areaSeries = chart.addSeries(LightweightCharts.AreaSeries, {
+                lineColor: '#2962FF',
+                topColor: '#2962FF',
+                bottomColor: 'rgba(41, 98, 255, 0.28)',
+                lineWidth: 2,
+                crossHairMarkerVisible: false,
+            });
+            areaSeries.priceScale().applyOptions({
+                scaleMargins: {
+                    top: 0.3, // leave some space for the legend
+                    bottom: 0.25,
+                },
+            });
+            areaSeries.setData(volumeData);
+
+            const toolTipWidth = 80;
+            const toolTipHeight = 80;
+            const toolTipMargin = 15;
+
+            // Create and style the tooltip html element
+            const toolTip = document.createElement('div');
+            toolTip.style = `width: 96px; height: 80px; position: absolute; display: none; padding: 8px; box-sizing: border-box; font-size: 12px; text-align: left; z-index: 1000; top: 12px; left: 12px; pointer-events: none; border: 1px solid; border-radius: 2px;font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`;
+            toolTip.style.background = 'white';
+            toolTip.style.color = 'black';
+            toolTip.style.borderColor = '#2962FF';
+            container.appendChild(toolTip);
+
+            // update tooltip
+            chart.subscribeCrosshairMove(param => {
+                if (
+                    param.point === undefined ||
+                    !param.time ||
+                    param.point.x < 0 ||
+                    param.point.x > container.clientWidth ||
+                    param.point.y < 0 ||
+                    param.point.y > container.clientHeight
+                ) {
+                    toolTip.style.display = 'none';
+                } else {
+                    // time will be in the same format that we supplied to setData.
+                    // thus it will be YYYY-MM-DD
+                    const dateStr = param.time;
+                    toolTip.style.display = 'block';
+                    const data = param.seriesData.get(areaSeries);
+                    const price = data.value !== undefined ? data.value : data.close;
+                    toolTip.innerHTML = `<div style="color: ${'#2962FF'}">${ticker}</div><div style="font-size: 24px; margin: 4px 0px; color: ${'black'}">
+                                        ${Math.round(100 * price) / 100}
+                                        </div><div style="color: ${'black'}">
+                                        ${dateStr}
+                                        </div>`;
+
+                    const coordinate = areaSeries.priceToCoordinate(price);
+                    let shiftedCoordinate = param.point.x - 50;
+                    if (coordinate === null) {
+                        return;
+                    }
+                    shiftedCoordinate = Math.max(
+                        0,
+                        Math.min(container.clientWidth - toolTipWidth, shiftedCoordinate)
+                    );
+                    const coordinateY =
+                        coordinate - toolTipHeight - toolTipMargin > 0
+                            ? coordinate - toolTipHeight - toolTipMargin
+                            : Math.max(
+                                0,
+                                Math.min(
+                                    container.clientHeight - toolTipHeight - toolTipMargin,
+                                    coordinate + toolTipMargin
+                                )
+                            );
+                    toolTip.style.left = shiftedCoordinate + 'px';
+                    toolTip.style.top = coordinateY + 'px';
+                }
+            })
+
+            chart.subscribeClick(param => {
+                console.log(param)
+            })
+            // candlestick
+            const candlestickSeries = chart.addSeries(LightweightCharts.CandlestickSeries, {
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderVisible: false,
+                wickUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+            });
+            // candlestickSeries.setData(tickerData);
+            // candlestickSeries.setData(candleData);
+
+            // candlestickSeries.applyOptions({
+            //     upColor: 'red',
+            //     downColor: 'blue',
+            // });
+
+            const lineSeries = chart.addSeries(LightweightCharts.LineSeries);
+            lineSeries.setData(bidData);
+
+            function calculateMovingAverageSeriesData(candleData, maLength) {
+                const maData = [];
+
+                for (let i = 0; i < candleData.length; i++) {
+                    if (i < maLength) {
+                        // Provide whitespace data points until the MA can be calculated
+                        maData.push({ time: candleData[i].time });
+                    } else {
+                        // Calculate the moving average, slow but simple way
+                        let sum = 0;
+                        for (let j = 0; j < maLength; j++) {
+                            sum += candleData[i - j].close;
+                        }
+                        const maValue = sum / maLength;
+                        maData.push({ time: candleData[i].time, value: maValue });
+                    }
+                }
+
+                return maData;
+            }
+
+            // const barSeries = chart.addSeries(LightweightCharts.BarSeries, { upColor: '#26a69a', downColor: '#ef5350' });
+            // const maData = calculateMovingAverageSeriesData(tickerData, 20);
+
+            // barSeries.setData(tickerData);
+            // const maSeries = chart.addSeries(LightweightCharts.LineSeries, { color: '#2962FF', lineWidth: 1 });
+            // maSeries.setData(maData);
+
+            const baselineSeries = chart.addSeries(LightweightCharts.BaselineSeries, {
+                baseValue: { type: 'price', price: 25 },
+                topLineColor: 'rgba( 38, 166, 154, 1)',
+                topFillColor1: 'rgba( 38, 166, 154, 0.28)',
+                topFillColor2: 'rgba( 38, 166, 154, 0.05)',
+                bottomLineColor: 'rgba( 239, 83, 80, 1)',
+                bottomFillColor1: 'rgba( 239, 83, 80, 0.05)',
+                bottomFillColor2: 'rgba( 239, 83, 80, 0.28)'
+            });
+            // baselineSeries.setData(dayData);
+
+            function addData(chart, label, newData) {
+                // Update the most recent bar
+                // areaSeries.update({ time: '2018-12-31', value: 25 });
+                // candlestickSeries.update({ time: '2018-12-31', open: 109.87, high: 114.69, low: 85.66, close: 112 });
+
+                // Creating the new bar
+                // areaSeries.update({ time: '2019-01-01', value: 20 });
+                // candlestickSeries.update({ time: '2019-01-01', open: 112, high: 112, low: 100, close: 101 });
+            }
+
+            function removeData(chart) {
+            }
+
+//             const series = chart.addSeries(LightweightCharts.CandlestickSeries, {
+//                 upColor: '#26a69a',
+//                 downColor: '#ef5350',
+//                 borderVisible: false,
+//                 wickUpColor: '#26a69a',
+//                 wickDownColor: '#ef5350',
+//             });
+//             let randomFactor = 25 + Math.random() * 25;
+//             const samplePoint = i =>
+//                 i *
+//                 (0.5 +
+//                     Math.sin(i / 1) * 0.2 +
+//                     Math.sin(i / 2) * 0.4 +
+//                     Math.sin(i / randomFactor) * 0.8 +
+//                     Math.sin(i / 50) * 0.5) +
+//                 200 +
+//                 i * 2;
+
+//             function generateData(
+//                 numberOfCandles = 500,
+//                 updatesPerCandle = 5,
+//                 startAt = 100
+//             ) {
+//                 const createCandle = (val, time) => ({
+//                     time,
+//                     open: val,
+//                     high: val,
+//                     low: val,
+//                     close: val,
+//                 });
+
+//                 const updateCandle = (candle, val) => ({
+//                     time: candle.time,
+//                     close: val,
+//                     open: candle.open,
+//                     low: Math.min(candle.low, val),
+//                     high: Math.max(candle.high, val),
+//                 });
+
+//                 randomFactor = 25 + Math.random() * 25;
+//                 const date = new Date(Date.UTC(2018, 0, 1, 12, 0, 0, 0));
+//                 const numberOfPoints = numberOfCandles * updatesPerCandle;
+//                 const initialData = [];
+//                 const realtimeUpdates = [];
+//                 let lastCandle;
+//                 let previousValue = samplePoint(-1);
+//                 for (let i = 0; i < numberOfPoints; ++i) {
+//                     if (i % updatesPerCandle === 0) {
+//                         date.setUTCDate(date.getUTCDate() + 1);
+//                     }
+//                     const time = date.getTime() / 1000;
+//                     let value = samplePoint(i);
+//                     const diff = (value - previousValue) * Math.random();
+//                     value = previousValue + diff;
+//                     previousValue = value;
+//                     if (i % updatesPerCandle === 0) {
+//                         const candle = createCandle(value, time);
+//                         lastCandle = candle;
+//                         if (i >= startAt) {
+//                             realtimeUpdates.push(candle);
+//                         }
+//                     } else {
+//                         const newCandle = updateCandle(lastCandle, value);
+//                         lastCandle = newCandle;
+//                         if (i >= startAt) {
+//                             realtimeUpdates.push(newCandle);
+//                         } else if ((i + 1) % updatesPerCandle === 0) {
+//                             initialData.push(newCandle);
+//                         }
+//                     }
+//                 }
+
+//                 return {
+//                     initialData,
+//                     realtimeUpdates,
+//                 };
+//             }
+//             const data = generateData(2500, 20, 1000);
+
+//             series.setData(data.initialData);
+//             chart.timeScale().fitContent();
+//             chart.timeScale().scrollToPosition(5);
+
+//             // simulate real-time data
+//             function* getNextRealtimeUpdate(realtimeData) {
+//                 for (const dataPoint of realtimeData) {
+//                     yield dataPoint;
+//                 }
+//                 return null;
+//             }
+//             const streamingDataProvider = getNextRealtimeUpdate(data.realtimeUpdates);
+
+//             const intervalID = setInterval(() => {
+//                 const update = streamingDataProvider.next();
+//                 if (update.done) {
+//                     clearInterval(intervalID);
+//                     return;
+//                 }
+//                 series.update(update.value);
+//             }, 100);
+//             const styles = `
+//     .buttons-container {
+//         display: flex;
+//         flex-direction: row;
+//         gap: 8px;
+//     }
+//     .buttons-container button {
+//         all: initial;
+//         font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu,
+//             sans-serif;
+//         font-size: 16px;
+//         font-style: normal;
+//         font-weight: 510;
+//         line-height: 24px; /* 150% */
+//         letter-spacing: -0.32px;
+//         padding: 8px 24px;
+//         color: rgba(19, 23, 34, 1);
+//         background-color: rgba(240, 243, 250, 1);
+//         border-radius: 8px;
+//         cursor: pointer;
+//     }
+
+//     .buttons-container button:hover {
+//         background-color: rgba(224, 227, 235, 1);
+//     }
+
+//     .buttons-container button:active {
+//         background-color: rgba(209, 212, 220, 1);
+//     }
+// `;
+
+//             const stylesElement = document.createElement('style');
+//             stylesElement.innerHTML = styles;
+//             container.appendChild(stylesElement);
+
+//             const buttonsContainer = document.createElement('div');
+//             buttonsContainer.classList.add('buttons-container');
+//             const button = document.createElement('button');
+//             button.innerText = 'Go to realtime';
+//             button.addEventListener('click', () => chart.timeScale().scrollToRealTime());
+//             buttonsContainer.appendChild(button);
+//             container.appendChild(buttonsContainer);
+
+            chart.timeScale().fitContent();
+
+        }());
+
+        (function () {
+            let textView = document.getElementById('text-view');
+            let sendBtn = document.getElementById('send-button');
+            let stopBtn = document.getElementById('stop-button');
+            let startBtn = document.getElementById('start-button');
+            let label = document.getElementById('status-label');
+            let log = document.getElementById('status-log');
+
+            //     const WS_URL = "ws://localhost:5000/ws/v1";
+            //     const headers = ["Authorization", "abc"];
+
+            //     // const ws = new WebSocket("wss://username:password@example.com")
+            //     // the client will pull out the basic authentication access header
+            //     let socket = new WebSocket(WS_URL, headers);
+
+            //     // react
+            //     // const { sendMessage, lastMessage } = useWebSocket("wss://example.com/path", {
+            //     //     protocols: ["Authorization", "your_token_here"]
+            //     // })
+
+            //     if (socket.CLOSED) {
+            //         log.innerHTML += "Connection closed."
+            //     }
+            //     if (socket.CLOSING) {
+            //         log.innerHTML += "Connection closing."
+            //     }
+            //     if (socket.CONNECTING) {
+            //         log.innerHTML += "Connection connecting."
+            //     }
+            //     if (socket.OPEN) {
+            //         log.innerHTML += "Connection opened."
+            //     }
+
+            //     socket.onopen = function (event) {
+            //         console.log("Connection established.");
+            //         // Initialize any resources here and display some user-friendly
+            //         // messages
+            //         label.innerHTML = "Connection established!";
+            //         // socket.send('ping')
+            //         socket.send(JSON.stringify({
+            //             'type': 'authenticate',
+            //             'token': 'abc'
+            //         }));
+            //     };
+
+            //     socket.onmessage = function (event) {
+            //         if (typeof event.data === "string") {
+            //             // If the server has sent text data, then display it.
+            //             label.innerHTML += "<br />" + event.data;
+            //         }
+            //     };
+
+            //     socket.onerror = function (event) {
+            //         label.innerHTML = "Error: " + event;
+            //     }
+
+            //     socket.onclose = function (event) {
+            //         console.log("Connection closed.");
+            //         let code = event.code;
+            //         let reason = event.reason;
+            //         let wasClean = event.wasClean;
+            //         if (wasClean) {
+            //             label.innerHTML = "Connection closed normally.";
+            //         } else {
+            //             label.innerHTML =
+            //                 "Connection closed with message " + reason + "(Code: " + code + ")";
+            //         }
+            //     };
+
+            //     sendBtn.onclick = function () {
+            //         // Send the data if the connection is open.
+            //         if (socket.readyState === WebSocket.OPEN) {
+            //             // send data to server
+            //             socket.send(JSON.stringify({
+            //                 'action': 'send',
+            //                 'type': textView.value
+            //             }));
+            //         }
+            //     }
+
+            //     stopBtn.onclick = function () {
+            //         // Send the data if the connection is open.
+            //         if (socket.readyState === WebSocket.OPEN) {
+            //             socket.close(1000, "Deliberate disconnection");
+            //         }
+            //     }
+
+            //     startBtn.onclick = function () {
+            //         if (socket.readyState === WebSocket.CLOSED) {
+            //             socket = new WebSocket("ws://localhost:5000/ws/v1");
+            //         }
+            //     }
+        }())
+    </script>
+</body>
+
+</html>

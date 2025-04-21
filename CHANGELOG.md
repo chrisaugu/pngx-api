@@ -4,6 +4,10 @@
 ### 🚀 Enhancements
 
 - **api:** Created an NPM lib for JavaScript ([d43dcb3](https://github.com/chrisaugu/pngx-api/commit/d43dcb3))
+- Added `etl.js` - a process that fetches data from PNGX.com.pg and compare it against the database and save any data from PNGX that are missing from db.
+- Added `webhook.js` - to allow external connections into the system to receive payloads
+- Added `ws.js` - websocket addon to receive stock data in real-time
+- Added `sse.js` - websocket addon to send events to clients
 
 ### 🩹 Fixes
 
@@ -34,6 +38,9 @@
 
 Unreleased
 ==========
+Remove `_id` when displaying stocks, tickers, indices, companies
+Remove `__v` when displaying stocks, tickers, indices, companies
+Remove `createdAt` and `updatedAt` when displaying stocks, tickers, indices, companies
 
 New Release
 ===========
@@ -49,7 +56,6 @@ Fixed – for fixed bugs and refactoring.
   * changed WORKDIR in Dockerfile to /app/nuku-api
   * Extracted ENV-VARs to /config/env.js
   * Removed support for https on server.js to give space for nginx-lb to implement https
-
 
 2.0.0 / 2024-12-29
 ==================

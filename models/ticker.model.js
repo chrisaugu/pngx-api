@@ -1,37 +1,35 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const tickerSchema = new Schema({
-	date: Date,
-	symbol: String,
-	bid: Number,
-	offer: Number,
-	last: Number,
-	close: Number,
-	high: Number,
-	low: Number,
-	open: Number,
-	change: Number,
-	volume: Number,
-	num_trades: Number
-},
-{
-	timeseries: { 
-		timeField: "date", 
-		metaField: "symbol",
-		granularity: "hours"
-	},
-	autoCreate: false,
-// },
-// {
-// 	timestamps: {
-// 		currentTime: () => Math.floor(Date.now() / 1000)
-// 	}
+/**
+ * this model is used to store tickers of stocks. It is a time-series data. The collection is populated by
+ * etl process which runs on a cron job every morning.
+ */
+const tickerSchema = new Schema(
+  {
+    date: Date,
+    symbol: String,
+    close: Number,
+    high: Number,
+    low: Number,
+    open: Number,
+  },
+  {
+    timeseries: {
+      timeField: "date",
+      metaField: "symbol",
+      granularity: "hours",
+    },
+    autoCreate: false,
+  }
+);
+tickerSchema.index({
+  symbol: 1,
+  date: 1,
 });
-tickerSchema.index({ 'symbol' : 1, 'date' : 1});
 
-const Ticker = module.exports = mongoose.model('ticker', tickerSchema);
+const Ticker = (module.exports = mongoose.model("ticker", tickerSchema));
 
-exports.findBySymbol = function(symbol) {
-	return Ticker.find({symbol: symbol});
-}
+exports.findBySymbol = function (symbol) {
+  return Ticker.find({ symbol: symbol });
+};

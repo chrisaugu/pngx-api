@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 const Env = require("./config/env");
 require("dotenv").config();
 
+const dbOptions = {};
+
 module.exports.initDatabase = function () {
   // return new Promise((resolve, reject) => {
   // Creating an instance for MongoDB
-  mongoose.set("strictQuery", false).connect(Env.mongodb.uri, {});
+  mongoose.set("strictQuery", false).connect(Env.mongodb.uri, dbOptions);
 
   // mongoose.connection.on("connected", function(result) {
   //     console.log("Connected: Successfully connect to mongo server");

@@ -27,6 +27,7 @@ router.get('/health', async (_req, res, _next) => {
 
 /**
  * /api/v1
+ * @deprecated Please use v2 as this version is deprecated and will be removed in the future
  */
 router.use("/v1", require("./v1"));
 
@@ -34,6 +35,8 @@ router.use("/v1", require("./v1"));
  * /api/v2
  */
 router.use("/v2", require("./v2"));
+
+// router.use('/webhook', require('./webhook'));
 
 router.all("/*", (req, res) => {
   res.status(404).json({

@@ -211,6 +211,30 @@ Update an existing pet by Id
     {"status":404,"reason":"Not found"}
 ```
 
+### Get news
+Get news
+
+`GET /api/v2/news`
+
+> Request
+
+    curl -i -H 'Accept: application/json' https://example.com/api/v2/news
+
+> Response
+
+```
+    HTTP/1.1 200 OK
+    Date: Sat, 02 Oct 2021 03:25:07[^1] GMT
+    Status: 200 OK
+    Connection: close
+    X-Powered-By: Express
+    Content-Type: application/json
+    Content-Length: 85
+
+    [{}]
+```
+
+
 
 ## 🛠️ Tech & Tools
 
