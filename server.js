@@ -8,6 +8,7 @@ require("dotenv").config();
 const app = require("./app");
 const Env = require("./config/env");
 const websocket = require("./routes/ws");
+const debug = require('debug')('NUKU-API');
 
 // replaces all instance of app with server
 let server;
@@ -83,16 +84,17 @@ function onListen() {
 }
 
 function onError(error) {
-  console.error(error);
+  debug("Error occurred: " + error);
 }
 
 function onStop() {
+  debug("Stopping server");
   app.end();
   app.destroy();
 }
 
 process.on("message", (message) => {
-  console.log(message);
+  debug("Message: " + message);
 });
 
 process.on("SIGTERM", () => {
