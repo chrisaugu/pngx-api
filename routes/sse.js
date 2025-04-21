@@ -12,14 +12,6 @@ const { SYMBOLS } = require("../constants");
 const clients = new Set();
 const facts = [];
 
-// auth.js start
-// const jwt = require("jsonwebtoken");
-
-function issueToken(user) {
-  return jwt.sign({ id: user.id }, "my-secret-key", { expiresIn: "1h" });
-}
-// auth.js end
-
 /**
  *
  * @param {*} req

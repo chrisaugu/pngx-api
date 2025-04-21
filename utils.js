@@ -1,4 +1,6 @@
-const { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT } = require("./constants");
+const _ = require("lodash");
+const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
 const Papa = require("papaparse");
 const csv = require("csv-parser");
 const needle = require("needle");
@@ -13,12 +15,11 @@ const {
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
 } = require("./constants");
-const _ = require("lodash");
 
 const csvOptions = {
   header: true,
   dynamicTyping: true,
-  skipEmptyLines: 'greedy',
+  skipEmptyLines: "greedy",
   newline: "\r\n",
   worker: true,
 };
@@ -227,11 +228,39 @@ const keyGenerator = (request, _response) => {
   return request.ip.replace(/:\d+[^:]*$/, "");
 };
 
+function uuidv4() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    let r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
+// Function to verify the signature
+const verifySignature = (secret, payload, signature) => {
+  if (!secret || !payload || !signature) return false;
+  const digest = crypto
+    .createHmac("sha256", secret)
+    .update(payload)
+    .digest("hex");
+  return crypto.timingSafeEqual(
+    Buffer.from(digest, "utf-8"),
+    Buffer.from(signature, "utf-8")
+  );
+};
+
+function issueToken(user) {
+  return jwt.sign({ id: user.id }, "my-secret-key", { expiresIn: "1h" });
+}
+
 module.exports = {
-	parse_csv_to_json,
-	parallel,
-	normalize_data,
-	format_date,
-	date_split,
+  parse_csv_to_json,
+  parallel,
+  normalize_data,
+  format_date,
+  date_split,
   keyGenerator,
+  uuidv4,
+  verifySignature,
+  issueToken,
 };

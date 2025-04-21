@@ -235,6 +235,16 @@ Get news
 ```
 
 
+## How to integrate with third-parties
+### Webhook
+Register your callback function via this url [Register Webhook Callback](https://api.nuku-api.com.pg/api/v2/webhook)
+```sh
+{
+    event: '',
+    callbackUrl: 'https://www.example.com/callback',
+}
+```
+
 
 ## 🛠️ Tech & Tools
 
