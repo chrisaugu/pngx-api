@@ -237,12 +237,110 @@ Get news
 
 ## How to integrate with third-parties
 ### Webhook
-Register your callback function via this url [Register Webhook Callback](https://api.nuku-api.com.pg/api/v2/webhook)
-```sh
+You can create webhooks to subscribe to specific events that occur on NUKU-API.
+
+#### Register Webhook
+Register your callback function via the API to be notified the stock market events.
+
+To register a webhook, send a POST request to [Register Webhook Callback](https://api.nuku-api.com.pg/api/v2/webhook) with a JSON body containing your webhook URL, the event type you want to be notified about, and an optional workflow ID.
+
+For example:
+```json
 {
-    event: '',
-    callbackUrl: 'https://www.example.com/callback',
+    "eventTypes": [""],
+    "endpointUrl": "<https://www.example.com/api/callback>",
 }
+```
+
+```sh
+curl --request POST \
+     --url https://api.nuku-api.com.pg/api/webhook \
+     --header 'accept: application/json' \
+     --header 'content-type: application/json' \
+     --data '
+        {
+            "endpointUrl": "<https://your_website.com/webhook>",
+            "eventTypes": ["workflowRun.completed"]
+        }
+    '
+```
+You will receive a response with the details of your registered webhook:
+```json
+{
+  "status": "success",
+  "data": {
+    "id": "<id of webhook>",
+    "endpointUrl": "<https://mywebsite.com/webhook>",
+    "eventTypes": ["workflowRun.completed"]
+  }
+}
+```
+
+#### View Webhook
+You can view the details of a webhook endpoint via the API.
+```sh
+curl --request GET \
+     --url https://api.nuku-api.com.pg/api/webhook/webhook_id \
+     --header 'accept: application/json'
+```
+To view a webhook, send a GET request to https://api.nuku-api.com.pg/api/webhook/<webhook_id>.
+
+You will receive a response with the details of the webhook.
+```json
+{
+	"status": "success",
+	"data": {
+		"id": "<webhook_id>",
+		"url": "<https://mywebsite.com/webhook>",
+		"eventType": "workflowRun.completed"
+	}
+}
+```
+
+#### Get All Webhooks
+```sh
+curl --request GET \
+     --url 'https://api.nuku-api.com.pg/api/webhook?size=10&page=0' \
+     --header 'accept: application/json'
+```
+To view all webhooks registered for your workspace, send a GET request to https://api.nuku-api.com.pg/api/webhook.
+
+You will receive a response with the details for all webhooks.
+```json
+{
+    "total": 2,
+    "data":
+    [
+        {
+            "id": "<webhook_id>",
+            "url": "<https://mywebsite.com/webhook>",
+            "eventType": "workflowRun.completed",
+            "workflowId": "<workflow_id>"
+        },
+        {
+            "id": "<webhook_id>",
+            "url": "<https://mywebsite.com/webhook>",
+            "eventType": "workflowRun.started",
+            "workflowId": null
+        }
+    ]
+}
+```
+
+#### Remove Webhook
+You can remove a webhook endpoint via the API.
+To remove a webhook, send a DELETE request to https://api.nuku-api.com.pg/api/webhook/<webhook_id>.
+```sh
+curl --request DELETE \
+     --url https://api.nuku-api.com.pg/api/webhook/webhook_id \
+     --header 'accept: application/json'
+```
+
+
+## Logging
+```sh
+LOG_DESTINATION = ./logs.txt
+LOG_LEVEL = 'error'
 ```
 
 

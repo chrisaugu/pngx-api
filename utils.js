@@ -249,6 +249,18 @@ const verifySignature = (secret, payload, signature) => {
   );
 };
 
+function generateSignature(method, url, timestamp, body) {
+  const hmac = crypto.createHmac("SHA256", API_SECRET);
+
+  hmac.update(`${method.toUpperCase()}${url}${timestamp}`);
+
+  if (body) {
+    hmac.update(body);
+  }
+
+  return hmac.digest("hex");
+}
+
 function issueToken(user) {
   return jwt.sign({ id: user.id }, "my-secret-key", { expiresIn: "1h" });
 }
@@ -262,5 +274,6 @@ module.exports = {
   keyGenerator,
   uuidv4,
   verifySignature,
+  generateSignature,
   issueToken,
 };

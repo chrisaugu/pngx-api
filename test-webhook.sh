@@ -24,3 +24,6 @@ echo "Generated signature: $signature"
 
 # Send the payload with the signature and timestamp to the webhook
 curl -X POST -H "Content-Type: application/json" -H "x-signature: $signature" -H "x-webhook-token: $webhook_token" -H "x-timestamp: $timestamp" -d "$payload" "http://localhost:3000/webhook"
+
+
+curl -X POST -H "Content-Type: application/json" -d '{"title":"The Catcher in the Rye","author":"J.D. Salinger","publishedYear":1951,"isAvailable":true,"genres":["Fiction","Coming-of-age"]}' http://example.com/api/books

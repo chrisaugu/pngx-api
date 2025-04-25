@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const Env = {
     redis: {
         broker: process.env.REDIS_URL,

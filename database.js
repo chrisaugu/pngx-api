@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Env = require("./config/env");
-require("dotenv").config();
 
 const dbOptions = {};
 

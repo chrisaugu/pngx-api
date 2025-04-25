@@ -3,7 +3,6 @@ const https = require("https");
 const os = require("os");
 const fs = require("fs");
 const path = require("path");
-require("dotenv").config();
 
 const app = require("./app");
 const Env = require("./config/env");

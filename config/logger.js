@@ -1,10 +1,17 @@
-const winston = require('winston');
+const winston = require("winston");
+
+const LOG_LEVEL = process.env.LOG_LEVEL || "error";
+const LOG_DESTINATION = process.env.LOG_DESTINATION || "./logs/error.log";
+
 // creates a new Winston Logger
 const logger = new winston.createLogger({
-  level: 'info',
+  level: "info",
   transports: [
-    new winston.transports.File({ filename: './logs/error.log', level: 'error' }),
+    new winston.transports.File({
+      filename: LOG_DESTINATION,
+      level: LOG_LEVEL,
+    }),
   ],
-  exitOnError: false
+  exitOnError: false,
 });
 module.exports = logger;
