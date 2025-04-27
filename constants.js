@@ -25,7 +25,7 @@ const LOCAL_TIMEZONE_FORMAT = 'yyyy-MM-dd'; // HH:mm:ss zzz'; // 2014-10-25 12:4
 
 const WORKER_SCHEDULE_TIME = "30 8 * * *";
 
-const BASE_URL = new URL('https://nuku1-btlxx2lu.b4a.run/')
+const BASE_URL = new URL('https://nuku1-btlxx2lu.b4a.run/');
 
 module.exports = {
     SYMBOLS,
@@ -36,5 +36,5 @@ module.exports = {
     LOCAL_TIMEZONE,
     LOCAL_TIMEZONE_FORMAT,
     BASE_URL,
-    WORKER_SCHEDULE_TIME
+    WORKER_SCHEDULE_TIME,
 }

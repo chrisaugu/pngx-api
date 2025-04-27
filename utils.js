@@ -249,13 +249,14 @@ const verifySignature = (secret, payload, signature) => {
   );
 };
 
-function generateSignature(method, url, timestamp, body) {
-  const hmac = crypto.createHmac("SHA256", API_SECRET);
+function generateSignature(secret, method, url, timestamp, body) {
+  if (!secret || !payload || !signature) throw new Error("Secret, payload or signature is missing.");
 
-  hmac.update(`${method.toUpperCase()}${url}${timestamp}`);
-
+  const hmac = crypto.createHmac("SHA256", secret);
   if (body) {
-    hmac.update(body);
+    hmac.update(JSON.stringify(body));
+  } else {
+    hmac.update(`${method.toUpperCase()}${url}${timestamp}`);
   }
 
   return hmac.digest("hex");

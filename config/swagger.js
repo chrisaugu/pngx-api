@@ -19,12 +19,13 @@ const options = {
         url: "https://www.apache.org/licenses/LICENSE-2.0.html",
       },
       version: "2.0.0",
-    },
+    },  
     // host: "nuku-api.christianaugustyn.me/api",
     basePath: "/v2",
     // servers: [
     //   { url: "https://nuku-api.christianaugustyn.me" },
     //   { url: "http://localhost:5000/" },
+    //   { url: "https://api.nuku-api.com.pg/api/v2" },
     // ],
     tags: [
       {
@@ -50,6 +51,10 @@ const options = {
           description: "Find out more about our store",
           url: "http://swagger.io",
         },
+      },
+      {
+        name: "Webhooks",
+        description: "Manage webhook subscriptions",
       },
     ],
     schemes: ["https", "http"],
@@ -976,6 +981,249 @@ const options = {
       description: "Find out more about Swagger",
       url: "http://swagger.io",
     },
+  
+    // paths: {
+    //   "/webhook": {
+    //     post: {
+    //       tags: ["Webhooks"],
+    //       summary: "Register a new webhook",
+    //       description: "Create a new webhook subscription for receiving events",
+    //       requestBody: {
+    //         required: true,
+    //         content: {
+    //           "application/json": {
+    //             schema: {
+    //               $ref: "#/components/schemas/WebhookInput",
+    //             },
+    //           },
+    //         },
+    //       },
+    //       responses: {
+    //         201: {
+    //           description: "Webhook created successfully",
+    //           content: {
+    //             "application/json": {
+    //               schema: {
+    //                 $ref: "#/components/schemas/WebhookResponse",
+    //               },
+    //             },
+    //           },
+    //         },
+    //         400: {
+    //           description: "Invalid input",
+    //         },
+    //       },
+    //     },
+    //     get: {
+    //       tags: ["Webhooks"],
+    //       summary: "List all webhooks",
+    //       parameters: [
+    //         {
+    //           name: "page",
+    //           in: "query",
+    //           schema: {
+    //             type: "integer",
+    //             default: 0,
+    //           },
+    //         },
+    //         {
+    //           name: "size",
+    //           in: "query",
+    //           schema: {
+    //             type: "integer",
+    //             default: 10,
+    //           },
+    //         },
+    //       ],
+    //       responses: {
+    //         200: {
+    //           description: "List of webhooks",
+    //           content: {
+    //             "application/json": {
+    //               schema: {
+    //                 $ref: "#/components/schemas/WebhookListResponse",
+    //               },
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   "/webhook/{webhook_id}": {
+    //     get: {
+    //       tags: ["Webhooks"],
+    //       summary: "Get webhook details",
+    //       parameters: [
+    //         {
+    //           name: "webhook_id",
+    //           in: "path",
+    //           required: true,
+    //           schema: {
+    //             type: "string",
+    //           },
+    //         },
+    //       ],
+    //       responses: {
+    //         200: {
+    //           description: "Webhook details",
+    //           content: {
+    //             "application/json": {
+    //               schema: {
+    //                 $ref: "#/components/schemas/WebhookResponse",
+    //               },
+    //             },
+    //           },
+    //         },
+    //         404: {
+    //           description: "Webhook not found",
+    //         },
+    //       },
+    //     },
+    //     delete: {
+    //       tags: ["Webhooks"],
+    //       summary: "Remove a webhook",
+    //       parameters: [
+    //         {
+    //           name: "webhook_id",
+    //           in: "path",
+    //           required: true,
+    //           schema: {
+    //             type: "string",
+    //           },
+    //         },
+    //       ],
+    //       responses: {
+    //         204: {
+    //           description: "Webhook deleted successfully",
+    //         },
+    //         404: {
+    //           description: "Webhook not found",
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
+    // components: {
+    //   schemas: {
+    //     WebhookInput: {
+    //       type: "object",
+    //       required: ["endpointUrl", "eventTypes"],
+    //       properties: {
+    //         endpointUrl: {
+    //           type: "string",
+    //           format: "uri",
+    //           example: "https://yourdomain.com/webhook",
+    //         },
+    //         eventTypes: {
+    //           type: "array",
+    //           items: {
+    //             type: "string",
+    //             enum: [
+    //               "workflowRun.completed",
+    //               "workflowRun.started",
+    //               "subscribe",
+    //             ],
+    //           },
+    //           example: ["workflowRun.completed"],
+    //         },
+    //         workflowId: {
+    //           type: "string",
+    //           nullable: true,
+    //         },
+    //         description: {
+    //           type: "string",
+    //         },
+    //       },
+    //     },
+    //     WebhookResponse: {
+    //       type: "object",
+    //       properties: {
+    //         status: {
+    //           type: "string",
+    //           enum: ["success", "error"],
+    //         },
+    //         data: {
+    //           $ref: "#/components/schemas/Webhook",
+    //         },
+    //       },
+    //     },
+    //     WebhookListResponse: {
+    //       type: "object",
+    //       properties: {
+    //         total: {
+    //           type: "integer",
+    //         },
+    //         data: {
+    //           type: "array",
+    //           items: {
+    //             $ref: "#/components/schemas/Webhook",
+    //           },
+    //         },
+    //       },
+    //     },
+    //     Webhook: {
+    //       type: "object",
+    //       properties: {
+    //         id: {
+    //           type: "string",
+    //         },
+    //         endpointUrl: {
+    //           type: "string",
+    //           format: "uri",
+    //         },
+    //         eventTypes: {
+    //           type: "array",
+    //           items: {
+    //             type: "string",
+    //           },
+    //         },
+    //         workflowId: {
+    //           type: "string",
+    //           nullable: true,
+    //         },
+    //         headers: {
+    //           type: "object",
+    //           properties: {
+    //             "x-cs-signature": {
+    //               type: "string",
+    //             },
+    //             "x-cs-timestamp": {
+    //               type: "integer",
+    //             },
+    //             "x-webhook-token": {
+    //               type: "string",
+    //             },
+    //           },
+    //         },
+    //         secret: {
+    //           type: "string",
+    //         },
+    //         isActive: {
+    //           type: "boolean",
+    //         },
+    //         description: {
+    //           type: "string",
+    //         },
+    //         createdAt: {
+    //           type: "string",
+    //           format: "date-time",
+    //         },
+    //       },
+    //     },
+    //   },
+    //   securitySchemes: {
+    //     ApiKeyAuth: {
+    //       type: "apiKey",
+    //       in: "header",
+    //       name: "X-API-Key",
+    //     },
+    //   },
+    // },
+    // security: [
+    //   {
+    //     ApiKeyAuth: [],
+    //   },
+    // ],
   },
   apis: ["./routes/*.js"],
 };

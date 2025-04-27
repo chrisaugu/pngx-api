@@ -28,6 +28,8 @@ services:
       - "6379:6379"
     # networks:
     #   - nuku-api-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
 
   nuku-etl:
     build:
@@ -39,20 +41,6 @@ services:
     # networks:
     #   - nuku-api-network
   
-#   nuku-worker:
-#     build: 
-#       context: ./nuku-redis-worker
-#       dockerfile: ./Dockerfile
-#     command: ["node", "worker.js"]
-#     restart: always
-#     depends_on:
-#       - nuku-redis
-
-#   nuku-redis:
-#     image: redis
-#     ports:
-#       - "6379:6379"
-  
   nuku-mongodb:
     image: mongo:6-jammy
     ports:
@@ -62,20 +50,12 @@ services:
     networks:
       - nuku-api-network
 
-  nuku-price-consumer-service:
-    depends_on:
-      - nuku-redis
-
 volumes:
   dbdata6:
 
 networks:
   nuku-api-network:
     driver: bridge
-# networks:
-#   nuku-api-network:
-#     driver: bridge
-
 
 #   db:
 #     restart: always

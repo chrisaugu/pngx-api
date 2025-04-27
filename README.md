@@ -322,7 +322,23 @@ You will receive a response with the details for all webhooks.
             "url": "<https://mywebsite.com/webhook>",
             "eventType": "workflowRun.started",
             "workflowId": null
-        }
+        },
+        {
+            "_id": "680c958aa4fd958428e03da6",
+            "url": "http://localhost:5000/api/webhook",
+            "headers": {
+                "x-cs-signature": "abc",
+                "x-cs-timestamp": 1745712000000,
+                "x-webhook-token": "abc"
+            },
+            "events": [
+                "subscribe"
+            ],
+            "secret": "secr3t",
+            "isActive": true,
+            "description": "hello",
+            "createdAt": "2025-04-26T08:12:58.977Z"
+        },
     ]
 }
 ```
@@ -334,6 +350,13 @@ To remove a webhook, send a DELETE request to https://api.nuku-api.com.pg/api/we
 curl --request DELETE \
      --url https://api.nuku-api.com.pg/api/webhook/webhook_id \
      --header 'accept: application/json'
+```
+
+You will receive a response with the details for all webhooks.
+```json
+{
+    "success": true
+}
 ```
 
 
