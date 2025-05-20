@@ -248,12 +248,6 @@ async function stock_fetcher() {
 }
 exports.stock_fetcher = stock_fetcher;
 
-/**
- * reverse run down
- */
-
-
-
 
 exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
   Stock.find({

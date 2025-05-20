@@ -1,7 +1,9 @@
+require("dotenv").config();
+
 const Env = {
     redis: {
         broker: process.env.REDIS_URL,
-        backend: "redis://127.0.0.1:6379"
+        backend: process.env.REDIS_BACKEND_URL
     },
     mongodb: {
         uri: process.env.MONGODB_URI

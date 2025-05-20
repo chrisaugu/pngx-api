@@ -1,10 +1,12 @@
-const winston = require('winston');
-// creates a new Winston Logger
-const logger = new winston.createLogger({
-  level: 'info',
+const winston = require("winston");
+
+module.exports = {
+  level: "info",
   transports: [
-    new winston.transports.File({ filename: './logs/error.log', level: 'error' }),
+    new winston.transports.File({
+      filename: "./logs/error.log",
+      level: "error",
+    }),
   ],
-  exitOnError: false
-});
-module.exports = logger;
+  exitOnError: false,
+};

@@ -6,7 +6,7 @@ const path = require("path");
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
 const { specs, swaggerUi } = require("./config/swagger");
-const logger = require("./config/logger");
+const logger = require("./libs/logger");
 require("./constants");
 require("./models/index");
 const { initDatabase } = require("./database");
@@ -39,7 +39,6 @@ app.use(allowMethodOverride);
 
 // catch 404 and forward to error handler
 app.use(error404Handler);
-// error handler
 app.use(errorHandler);
 app.use(errorLogHandler);
 

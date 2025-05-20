@@ -75,7 +75,7 @@ export async function getHistoricals(
  * @param {TQuery} options 
  * @returns {Object}
  */
-export async function getStocks(options?: TQuery): Promise<Object> {
+export async function getStocks(options?: TQuery): Promise<unknown> {
   let res = await fetcher(`/stocks`, options);
 
   return res.json();
