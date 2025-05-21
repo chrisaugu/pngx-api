@@ -12,7 +12,9 @@ setInterval(() => {
 
 setInterval(async () => {
   let tickers = await getTickers();
-  publisher.publish(`tickers:${tickers}`, JSON.stringify({ ticker: "PNGX", price: 12.45 }));
+  tickers.forEach((ticker) => {
+    publisher.publish(`tickers:${ticker}`, JSON.stringify(ticker));
+  });
 }, TIMEOUT);
 
 setInterval(async () => {

@@ -78,4 +78,65 @@ app.post(
   }
 );
 
+app.post("/webhook-endpoint", (req, res) => {
+  const signature = req.headers["x-signature"];
+  const payload = JSON.stringify(req.body);
+  const secret = "your-secret"; // The secret you share with the third-party service
+
+  // Verify the signature
+  const hash = verifySignature(secret, payload, signature);
+
+  if (hash === signature) {
+    console.log("Valid webhook signature. Process the request.");
+
+    // Process the verified webhook
+    // ...
+  } else {
+    console.log("Invalid webhook signature. Do not process the request.");
+    return res.status(401).send("Invalid signature");
+  }
+
+  res.status(200).send("Webhook received!");
+});
+
+const Queue = require("bull");
+const webhookQueue = new Queue("webhook", "redis://127.0.0.1:6379");
+
+app.post("/webhook-endpoint", (req, res) => {
+  // Add the processing of the webhook event to the queue
+  webhookQueue.add(req.body);
+
+  res.status(200).send("Webhook received!");
+});
+
+// Process the queue jobs
+webhookQueue.process((job, done) => {
+  // Process the job data (webhook event)
+  console.log("Processing webhook event:", job.data);
+
+  // Perform the necessary operations
+  // ...
+
+  done();
+});
+
+const axios = require("axios");
+
+function sendWebhook(eventData) {
+  axios
+    .post("https://thirdparty.service/webhook-receiver", eventData)
+    .then((response) =>
+      console.log("Webhook sent successfully:", response.data)
+    )
+    .catch((error) => console.error("Failed to send webhook:", error));
+}
+
+// Somewhere in your code when an event occurs:
+sendWebhook({
+  event: "item_purchased",
+  item: "Node.js Handbook",
+  quantity: 1,
+  // additional data
+});
+
 module.exports = app;

@@ -39,6 +39,16 @@ services:
     networks:
       - nuku-api-network
 
+  nuku-stock-publisher:
+    build:
+      context: .
+      dockerfile: publisher.Dockerfile
+    container_name: nuku-stock-publisher
+    depends_on:
+      - nuku-redis
+    networks:
+      - nuku-api-network
+
   nuku-mongodb:
     image: mongo:6-jammy
     ports:
