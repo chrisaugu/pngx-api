@@ -8,20 +8,20 @@ require("dotenv").config();
 const app = require("./app");
 const Env = require("./config/env");
 const websocket = require("./routes/ws");
-const debug = require('debug')('NUKU-API');
+const debug = require("debug")("NUKU-API");
 
 // replaces all instance of app with server
 let server;
 
 // Start server
 // if (Env.NODE_ENV === "dev") {
-  server = http.createServer(app);
+server = http.createServer(app);
 
-  // create server and listen on the port
-  server.listen(Env.PORT, /*"localhost",*/ onListen);
-  server.on("error", onError);
-  server.on("end", onStop);
-// } 
+// create server and listen on the port
+server.listen(Env.PORT, /*"localhost",*/ onListen);
+server.on("error", onError);
+server.on("end", onStop);
+// }
 // else {
 // stream data
 websocket(server);
@@ -97,8 +97,20 @@ process.on("message", (message) => {
   debug("Message: " + message);
 });
 
+process.on("uncaughtException", (err) => {
+  console.error("There was an uncaught error", err);
+  process.exit(1); // exit application
+});
+
 process.on("SIGTERM", () => {
   debug("SIGTERM signal received: closing HTTP server");
+  server.close(() => {
+    debug("HTTP server closed");
+  });
+});
+
+process.on("SIGINT", () => {
+  debug("SIGINT signal received: closing HTTP server");
   server.close(() => {
     debug("HTTP server closed");
   });

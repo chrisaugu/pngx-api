@@ -25,12 +25,13 @@ const { WORKER_SCHEDULE_TIME } = require("./constants");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "docs")));
-app.use("/demo", express.static(path.join(__dirname, "demo")));
 app.use(express.static(path.join(__dirname, "images")));
+app.use("/demo", express.static(path.join(__dirname, "demo")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("combined", { stream: logger.stream.write }));
 app.set("trust proxy", 1 /* number of proxies between user and server */);
+app.disable('x-powered-by');
 
 // app.use(helmet);
 app.use(corsMiddleware);
