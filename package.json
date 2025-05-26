@@ -51,7 +51,7 @@
     "gridfs-stream": "^1.1.1",
     "helmet": "^7.1.0",
     "http-errors": "^2.0.0",
-    "ioredis": "^5.4.1",
+    "ioredis": "^5.4.2",
     "ip": "^1.1.8",
     "lodash": "^4.17.21",
     "marked": "^14.1.4",
