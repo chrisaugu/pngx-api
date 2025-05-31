@@ -6,7 +6,7 @@ _The First Unofficial PNGX API, Ever_
 
 NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and processes stock data directly from PNGX. It was formerly part of [CrisBot](https://github.com/crisbotio), now a standalone API.
 
-#### For complete documentation visit [https://chrisaugu.github.io/pngx-api/](https://chrisaugu.github.io/pngx-api/).
+## For complete documentation visit [https://chrisaugu.github.io/pngx-api/](https://chrisaugu.github.io/pngx-api/).
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
 ![GitHub repo size](https://img.shields.io/github/repo-size/chrisaugu/pngx-api)
@@ -16,7 +16,6 @@ NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and process
 ![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
 ![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript)
 [![Build Status](https://travis-ci.org/chrisaugu/pngx-api.png)](https://travis-ci.org/chrisaugu/pngx-api)
-
 
 ## 📋 Table of Contents
 - [Description](#description)
@@ -33,7 +32,7 @@ NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and process
 ## 📜 Description
 The API retrieve, store, and process financial data directly from [PNGX](http://www.pngx.com.pg).
 
-#### Companies listed on PNGX:
+### Companies listed on PNGX
 
 | Symbol | Company |
 | :----- | :------ |
@@ -54,8 +53,8 @@ The API retrieve, store, and process financial data directly from [PNGX](http://
 - Historical data
 - Current listed stock info
 - Near-realtime stock updates
+- End-of-day data
 - RESTful API format
-
 
 ## 📱 Screenshots
 <p align="left">
@@ -66,14 +65,51 @@ The API retrieve, store, and process financial data directly from [PNGX](http://
 </p>
 ---
 
+## Roadmap
+We continuously make NUKU-API the only place where all users can obtain the necessary financial data. If you have any questions or ideas about improvement, [contact us](https://fantastix.netlify.app/#contact).
+
 ## 🔗 API Reference
+### Endpoints
+API endpoints are prefixed with `http[s]://api.pngx-api.com.pg`.
+WebSocket endpoints are prefixed with `ws[s]://ws.pngx-api.com.pg`. Websocket is only available from >= v2
+
+> v1.0.0
+
+Base URL:
+```
+GET /api/v1
+```
 
 > v2.0.0
 
-Base URLs:
+Base URL:
 ```https
-GET http[s]://pngx-api.christianaugustyn.me
+GET /api/v2
+WS /ws/v2
 ```
+
+### Parameters
+#### How to separate params
+Parameters are ampersand(&) separated
+`?symbol=BSP&interval=5min`
+
+#### Exchange
+`symbol:exchange_name`
+`?BSP:PNGX`
+
+#### Dates
+d
+
+#### Errors
+
+| Error Codes | Status | Meaning |
+|--|--|--|
+| 300 | Multiple Choices |  |
+| 400 | Bad Request |  |
+| 500 | Internal Server Error |  |
+
+### API Health
+`GET /api/v2/health`
 
 ### Get ticker symbols
 Update an existing pet by Id
@@ -83,9 +119,8 @@ Update an existing pet by Id
 > Request
 
 ```https
-    curl -i -H 'Accept: application/json' https://example.com/api
+curl -i -H 'Accept: application/json' https://example.com/api
 ```
-
 
 > Params
 
@@ -102,14 +137,12 @@ Update an existing pet by Id
     Date: Sat, 02 Oct 2021 03:25:07 GMT
     Status: 200 OK
     Connection: close
-    X-Powered-By: Express
     Content-Type: application/json
     Content-Length: 85
 
     {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
     ST"]}
 ```
-
 
 ### Get latest stocks data
 Update an existing pet by Id
@@ -131,7 +164,6 @@ Update an existing pet by Id
 | `dateFrom` | `string` | **Required**.|
 | `dateTo` | `string` | **Required**.| -->
 
-
 > Response
 
 ```
@@ -139,14 +171,12 @@ Update an existing pet by Id
     Date: Sat, 02 Oct 2021 03:25:07 GMT
     Status: 200 OK
     Connection: close
-    X-Powered-By: Express
     Content-Type: application/json
     Content-Length: 85
 
     {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
     ST"]}
 ```
-
 
 ### Get a historical stock data
 Update an existing pet by Id
@@ -155,7 +185,7 @@ Update an existing pet by Id
 
 > Request
 
-    curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/BSP
+`curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/BSP`
 
 > Params
 
@@ -181,7 +211,6 @@ Update an existing pet by Id
     Date: Sat, 02 Oct 2021 03:25:07 GMT
     Status: 200 OK
     Connection: close
-    X-Powered-By: Express
     Content-Type: application/json
     Content-Length: 85
     
@@ -204,7 +233,6 @@ Update an existing pet by Id
     Date: Sat, 02 Oct 2021 03:25:07[^1] GMT
     Status: 200 OK
     Connection: close
-    X-Powered-By: Express
     Content-Type: application/json
     Content-Length: 85
 
@@ -227,11 +255,33 @@ Get news
     Date: Sat, 02 Oct 2021 03:25:07[^1] GMT
     Status: 200 OK
     Connection: close
-    X-Powered-By: Express
     Content-Type: application/json
     Content-Length: 85
 
     [{}]
+```
+
+### Real-time Events
+#### Watchlist
+
+
+#### Tickers
+`/events?topics=tickers:BSP`
+
+```sh
+{
+    event:topic,
+    data:message
+}
+```
+```json
+{
+    'Authorization': 'abc',
+    'X-Access-Token': 'abc',
+    'X-Channel': 'events',
+    'X-Topics': 'tickers:*',
+    'X-API-Version': 'v1'
+}
 ```
 
 
@@ -275,7 +325,6 @@ And of course NUKU-API itself is open source with a [public repository](https://
  on GitHub.
 
 ## 👩‍💻 Contributing
-<!-- ## 💬 Contributing -->
 
 Want to contribute? Great!
 
@@ -308,7 +357,7 @@ Run npm scripts and develop yourself with the following process.
 
 ### Setup
 
-Fork `main` branch into your personal repository.
+Fork `master` branch into your personal repository.
 Clone it to local computer. Install node modules.
 Before starting development, you should check to have any errors.
 
@@ -337,24 +386,19 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/ch
 ## Installation
 Using npm:
 
-    $ npm install schedulejs
-
-Using bower:
-
-    $ bower install later
-    $ bower install schedule
+    $ npm install @nuku/client-js
 
 ## Building
 
 To build the minified javascript files for _schedule_, run `npm install` to install dependencies and then:
-
+	
     $ make build
 
 ## Running tests
 
 To run the tests for _schedule_, run `npm install` to install dependencies and then:
 
-    $ make test
+	$ make test
 
 ## Versioning
 
@@ -378,7 +422,7 @@ The original author of NUKU-API is [Christian Augustyn](https://github.com/chris
 - Website - [Christian Augustyn](https://www.christianaugustyn.me)
 
 
-## 🧾 ChangeLog
+## 🧾 Changelog
 Wonder how NUKU-API has been changing for years
 [CHANGELOG](./CHANGELOG.md)
 

@@ -1,19 +1,19 @@
-FROM node:20-alpine
+FROM node:22-alpine
 
 ENV NODE_ENV=production
 
 # Setting up the work directory
-WORKDIR /usr/src/nuku-etl
+WORKDIR /usr/src/nuku-api
 
-COPY package*.json ./
+# COPY package*.json ./
 
 # RUN npm install -g npm@11.0.0
 
 # Installing dependencies
-RUN npm install
+# RUN npm install
 
 # Copying all the files in our project
-COPY . .
+# COPY . .
 
 # Starting our application
 CMD [ "node", "etl.js" ]

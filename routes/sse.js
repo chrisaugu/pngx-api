@@ -3,10 +3,33 @@ const Redis = require("ioredis");
 const jwt = require("jsonwebtoken");
 
 const router = Router();
-const redis = new Redis(); // for publishing
-const subscriber = new Redis(); // for consuming
-const watchlists = require("./userWatchlists");
+const redis = new Redis(6379); // for publishing
+const subscriber = new Redis(6379); // for consuming
 const { SYMBOLS } = require("../constants");
+
+subscriber.on('error', async (err) => {
+  console.error('Redis error:', err);
+  await subscriber.quit();
+  process.exit();
+});
+
+redis.on('error', async (err) => {
+  console.error('Redis error:', err);
+  await redis.quit();
+  process.exit();
+});
+process.on('SIGINT', async () => {
+  await redis.quit();
+  process.exit();
+});
+
+// // Or when creating the client
+// const redis = new Redis({
+//   retryStrategy: (times) => {
+//     const delay = Math.min(times * 50, 2000);
+//     return delay;
+//   }
+// });
 
 // use redis to store clients
 const clients = new Set();
@@ -53,8 +76,9 @@ async function eventsHandler(req, res, next) {
   const topics = req.query.topics?.split(",") || [];
   const channel = req.query.channel || "default"; // quotes,tickers,news
   // const channel2 = req.headers["X-Channel"];
+  
   const token = req.headers["X-Access-Token"];
-  const userId = req.query.user;
+  const apiVersion = req.headers['X-API-Version'];
 
   // if (!token) return res.status(401).end("No token provided");
   // else {
@@ -73,7 +97,7 @@ async function eventsHandler(req, res, next) {
 
   // many topics
   if (topics) {
-    const sub = new Redis();
+    const sub = new Redis(6379);
     for (const topic of topics) {
       await sub.subscribe(topic);
     }
@@ -91,7 +115,7 @@ async function eventsHandler(req, res, next) {
 
   // one channel
   if (channel) {
-    const sub = new Redis();
+    const sub = new Redis(6379);
     sub.subscribe(channel);
 
     sub.on("message", (_, message) => {
@@ -106,31 +130,31 @@ async function eventsHandler(req, res, next) {
   }
 
   // watchlist
-  if (userId) {
-    const tickers = watchlists[userId];
-    // const watchlist = await getUserWatchlist(userId);
+  // if (userId) {
+  //   const tickers = watchlists[userId];
+  //   // const watchlist = await getUserWatchlist(userId);
 
-    if (!tickers || tickers.length === 0) {
-      return res.status(400).send("No watchlist found.");
-    }
+  //   if (!tickers || tickers.length === 0) {
+  //     return res.status(400).send("No watchlist found.");
+  //   }
 
-    const sub = new Redis();
+  //   const sub = new Redis();
 
-    tickers.forEach((ticker) => sub.subscribe(ticker));
+  //   tickers.forEach((ticker) => sub.subscribe(ticker));
 
-    sub.on("message", (channel, message) => {
-      res.write(`event: ${channel}\n`);
-      res.write(`data: ${message}\n\n`);
-    });
+  //   sub.on("message", (channel, message) => {
+  //     res.write(`event: ${channel}\n`);
+  //     res.write(`data: ${message}\n\n`);
+  //   });
 
-    req.on("close", () => {
-      tickers.forEach((t) => sub.unsubscribe(t));
-      // sub.quit();
-      res.end();
-    });
-  }
+  //   req.on("close", () => {
+  //     tickers.forEach((t) => sub.unsubscribe(t));
+  //     // sub.quit();
+  //     res.end();
+  //   });
+  // }
 
-  // const sub = new Redis();
+  // const sub = new Redis(6379);
   // sub.subscribe("quotes");
 
   // sub.on("message", (_, message) => {

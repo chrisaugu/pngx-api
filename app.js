@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cron = require("node-cron");
 const path = require("path");
+const crypto = require("crypto");
 // const boxen = require('boxen');
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
@@ -25,13 +26,13 @@ const { WORKER_SCHEDULE_TIME } = require("./constants");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "docs")));
-app.use(express.static(path.join(__dirname, "images")));
 app.use("/demo", express.static(path.join(__dirname, "demo")));
+app.use(express.static(path.join(__dirname, "images")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("combined", { stream: logger.stream.write }));
 app.set("trust proxy", 1 /* number of proxies between user and server */);
-app.disable('x-powered-by');
+app.disable("x-powered-by");
 
 // app.use(helmet);
 app.use(corsMiddleware);
@@ -57,7 +58,9 @@ initDatabase()
     /**
      * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
-    console.log("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
+    console.log(
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+    );
     cron.schedule(WORKER_SCHEDULE_TIME, () => {
       const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(process.cwd(), "thread_workers.js");
@@ -80,7 +83,7 @@ initDatabase()
           worker.once("message", (result) => {
             console.log("completed: ", result);
           });
-          
+
           worker.on("error", (error) => {
             throw new Error(`Error occured`, error);
           });
@@ -108,6 +111,15 @@ initDatabase()
       "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
     );
   });
+
+app.use((req, res, next) => {
+  req.ctx = {
+    userId: 123,
+    requestId: crypto.randomUUID(), // Unique ID per request
+    // db: getDatabaseConnection(), // Request-scoped DB connection
+  };
+  next();
+});
 
 /**
  * /api/docs

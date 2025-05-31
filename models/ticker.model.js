@@ -13,6 +13,8 @@ const tickerSchema = new Schema(
     high: Number,
     low: Number,
     open: Number,
+    change: Number,
+    volume: Number
   },
   {
     timeseries: {

@@ -71,6 +71,7 @@
     "redis": "^4.7.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
+    "semver": "^7.7.2",
     "serverless-http": "^3.2.0",
     "superagent": "^10.1.1",
     "swagger-jsdoc": "^6.2.8",
