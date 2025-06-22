@@ -84,7 +84,7 @@
 
                 evtSource.addEventListener(`stocks:${ticker}`, e => {
                     const data = JSON.parse(e.data);
-                    liMap[ticker].textContent = `${data.ticker}: K${data.price} @ ${data.timestamp}`;
+                    liMap[ticker].textContent = `${data.ticker}: K${data.price} @ ${new Date(data.timestamp).toUTCString()}`;
                 });
             });
 
@@ -109,7 +109,7 @@
 
                 evtSource2.addEventListener(`tickers:${stock}`, (e) => {
                     const data = JSON.parse(e.data);
-                    tickerTapeMap[stock].textContent = `${data.symbol}: K${data.open} (${data.change}%) ${data.change < 0 ? '↘️' : data.change > 0 ? '↗️' : '➡️'} `;
+                    tickerTapeMap[stock].textContent = `${data.symbol}: K${data.open} (${Number(data.change).toFixed(0)}%) ${Number(data.change).toFixed(0) < 0.5 ? '↘️' : Number(data.change).toFixed(0) > 0.5 ? '↗️' : '➡️'} `;
                 });
             });
 
@@ -146,12 +146,37 @@
                         <td>K${data.low}</td>
                         <td>K${data.open}</td>
                         <td>K${data.close}</td>
-                        <td>${Number(data.chg_today).toFixed(1) < 0.5 ? '↘️' : Number(data.chg_today).toFixed(1) > 0.5 ? '↗️' : '➡️'}</td>
+                        <td>${Number(data.chg_today).toFixed(0)}% ${Number(data.chg_today).toFixed(0) < 0 ? '↘️' : Number(data.chg_today).toFixed(0) > 0 ? '↗️' : '➡️'}</td>
                         <td>${data.vol_today}</td>
                         <td>${data.num_trades}</td>
                     `;
                 });
             });
+
+            const startLogStream = () => {
+                // Create SSE connection
+                const eventSource = new EventSource('http://localhost:5000/events/logs/stream');
+
+                // Handle incoming messages
+                eventSource.onmessage = (event) => {
+                    const data = JSON.parse(event.data);
+                    console.log('Received log:', data);
+                    log.value += `${new Date(data.timestamp).toLocaleTimeString()} - ${data.message}\n`;
+                };
+
+                // Handle connection open
+                // eventSource.onopen = () => {
+                //     setIsConnected(true);
+                // };
+
+                // Handle errors
+                eventSource.onerror = (error) => {
+                    console.error('SSE error:', error);
+                    // setIsConnected(false);
+                    eventSource.close();
+                };
+            }
+            startLogStream();
 
             // evtSource.addEventListener('tickers', e => {
             //     const data = JSON.parse(e.data);

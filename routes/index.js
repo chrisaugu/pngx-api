@@ -7,7 +7,7 @@ const redis = new Redis(6379);
 
 router.get("/", (req, res) => {
   res.status(200).json({
-    message: `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
+    message: `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/api/docs/`,
   });
 });
 
@@ -71,7 +71,7 @@ router.use("/v2", require("./v2"));
 router.all("/*", (req, res) => {
   res.status(404).json({
     error: {
-      message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
+      message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${BASE_URL.protocol}//${BASE_URL.host}/api/docs/`,
       type: "invalid_request_error",
       code: "unknown_url",
     },

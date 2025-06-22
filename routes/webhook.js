@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { verifySignature } = require("../utils");
 
-const app = Router();
+const route = Router();
 
 const WEBHOOK_TOKEN = "your_shared_webhook_token";
 
@@ -62,7 +62,7 @@ const verifyWebhookMiddleware = (webhookToken) => {
 };
 
 // Endpoint to receive webhook payloads
-app.post(
+route.post(
   "/webhook",
   verifyWebhookMiddleware(WEBHOOK_TOKEN, SECRET, MAX_TIME_DIFFERENCE),
   (req, res) => {
@@ -78,7 +78,7 @@ app.post(
   }
 );
 
-app.post("/webhook-endpoint", (req, res) => {
+route.post("/webhook-endpoint", (req, res) => {
   const signature = req.headers["x-signature"];
   const payload = JSON.stringify(req.body);
   const secret = "your-secret"; // The secret you share with the third-party service
@@ -102,7 +102,7 @@ app.post("/webhook-endpoint", (req, res) => {
 const Queue = require("bull");
 const webhookQueue = new Queue("webhook", "redis://127.0.0.1:6379");
 
-app.post("/webhook-endpoint", (req, res) => {
+route.post("/webhook-endpoint", (req, res) => {
   // Add the processing of the webhook event to the queue
   webhookQueue.add(req.body);
 
@@ -139,4 +139,4 @@ sendWebhook({
   // additional data
 });
 
-module.exports = app;
+module.exports = route;

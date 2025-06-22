@@ -7,18 +7,18 @@ const redis = new Redis(6379); // for publishing
 const subscriber = new Redis(6379); // for consuming
 const { SYMBOLS } = require("../constants");
 
-subscriber.on('error', async (err) => {
-  console.error('Redis error:', err);
+subscriber.on("error", async (err) => {
+  console.error("Redis error:", err);
   await subscriber.quit();
   process.exit();
 });
 
-redis.on('error', async (err) => {
-  console.error('Redis error:', err);
+redis.on("error", async (err) => {
+  console.error("Redis error:", err);
   await redis.quit();
   process.exit();
 });
-process.on('SIGINT', async () => {
+process.on("SIGINT", async () => {
   await redis.quit();
   process.exit();
 });
@@ -76,9 +76,9 @@ async function eventsHandler(req, res, next) {
   const topics = req.query.topics?.split(",") || [];
   const channel = req.query.channel || "default"; // quotes,tickers,news
   // const channel2 = req.headers["X-Channel"];
-  
+
   const token = req.headers["X-Access-Token"];
-  const apiVersion = req.headers['X-API-Version'];
+  const apiVersion = req.headers["X-API-Version"];
 
   // if (!token) return res.status(401).end("No token provided");
   // else {
@@ -103,6 +103,8 @@ async function eventsHandler(req, res, next) {
     }
 
     sub.on("message", (topic, message) => {
+      res.write(`id: ${clientId}\n`);
+      res.write(`retry: 10000\n`); // retry after 10 seconds
       res.write(`event: ${topic}\n`);
       res.write(`data: ${message}\n\n`);
     });
@@ -128,31 +130,6 @@ async function eventsHandler(req, res, next) {
       res.end();
     });
   }
-
-  // watchlist
-  // if (userId) {
-  //   const tickers = watchlists[userId];
-  //   // const watchlist = await getUserWatchlist(userId);
-
-  //   if (!tickers || tickers.length === 0) {
-  //     return res.status(400).send("No watchlist found.");
-  //   }
-
-  //   const sub = new Redis();
-
-  //   tickers.forEach((ticker) => sub.subscribe(ticker));
-
-  //   sub.on("message", (channel, message) => {
-  //     res.write(`event: ${channel}\n`);
-  //     res.write(`data: ${message}\n\n`);
-  //   });
-
-  //   req.on("close", () => {
-  //     tickers.forEach((t) => sub.unsubscribe(t));
-  //     // sub.quit();
-  //     res.end();
-  //   });
-  // }
 
   // const sub = new Redis(6379);
   // sub.subscribe("quotes");
@@ -195,5 +172,63 @@ async function addFact(request, response, next) {
 
 router.get("/", eventsHandler);
 router.post("/fact", addFact);
+
+router.get("/logs/stream", (req, res) => {
+  // Set headers for SSE
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  // Handle client disconnect
+  req.on("close", () => {
+    // Clean up if needed
+    console.log("Client disconnected");
+  });
+
+  // Your process that generates logs
+  const streamLogs = async () => {
+    try {
+      // Example: simulate a process with multiple steps
+      const steps = [
+        "Starting process...",
+        "Loading data...",
+        "Processing...",
+        "Finishing up...",
+      ];
+
+      for (const message of steps) {
+        // Send log as SSE
+        res.write(
+          `data: ${JSON.stringify({
+            timestamp: new Date(),
+            message: message,
+          })}\n\n`
+        );
+
+        // Simulate some work
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
+    } catch (error) {
+      res.write(
+        `data: ${JSON.stringify({
+          type: "error",
+          message: error.message,
+          timestamp: new Date(),
+        })}\n\n`
+      );
+    } finally {
+      res.write(
+        `data: ${JSON.stringify({
+          type: "end",
+          message: "Stream ended",
+        })}\n\n`
+      );
+      res.end();
+    }
+  };
+
+  streamLogs();
+});
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const { initDatabase } = require("../database");
-const { Stock, Ticker } = require('../models/index')
+const { Stock, Ticker } = require("../models/index");
 const { SYMBOLS } = require("../constants");
 
 initDatabase()
@@ -19,7 +19,7 @@ function getRandomPrice() {
 }
 
 function getRandomNumber() {
-  return (Math.random() * 1000 + 100).toFixed(0)
+  return (Math.random() * 1000 + 100).toFixed(0);
 }
 
 function getStockData() {
@@ -37,16 +37,23 @@ async function getTickers() {
   // } catch (error) {
   //   console.error(error);
   // }
-  return SYMBOLS.map((ticker) => ({
-    date: new Date().toISOString(),
-    symbol: ticker,
-    high: getRandomPrice(),
-    low: getRandomPrice(),
-    open: getRandomPrice(),
-    close: getRandomPrice(),
-    change: getRandomPrice(),
-    volume: getRandomNumber()
-  }));
+
+  return SYMBOLS.map((ticker) => {
+    let close = getRandomPrice();
+    let open = getRandomPrice();
+    let change = open - close;
+
+    return {
+      date: new Date().toISOString(),
+      symbol: ticker,
+      high: getRandomPrice(),
+      low: getRandomPrice(),
+      open: open,
+      close: close,
+      change: change,
+      volume: getRandomNumber(),
+    };
+  });
 }
 
 async function getQuotes() {
@@ -57,20 +64,26 @@ async function getQuotes() {
   //   console.error(error);
   // }
 
-  return SYMBOLS.map((quote) => ({
-    date: new Date().toISOString(),
-    code: quote,
-    bid: getRandomPrice(),
-    offer: getRandomPrice(),
-    last: getRandomPrice(),
-    close: getRandomPrice(),
-    high: getRandomPrice(),
-    low: getRandomPrice(),
-    open: getRandomPrice(),
-    chg_today: getRandomPrice(),
-    vol_today: getRandomNumber(),
-    num_trades: getRandomNumber(),
-  }))
+  return SYMBOLS.map((quote) => {
+    let close = getRandomPrice();
+    let open = getRandomPrice();
+    let change = open - close;
+
+    return {
+      date: new Date().toISOString(),
+      code: quote,
+      bid: getRandomPrice(),
+      offer: getRandomPrice(),
+      last: getRandomPrice(),
+      close: close,
+      high: getRandomPrice(),
+      low: getRandomPrice(),
+      open: open,
+      chg_today: change,
+      vol_today: getRandomNumber(),
+      num_trades: getRandomNumber(),
+    };
+  });
 }
 
 module.exports = {

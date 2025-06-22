@@ -1,5 +1,4 @@
 const request = require("request");
-// const fetch = require('node-fetch');
 const superagent = require("superagent");
 const _ = require("lodash");
 
@@ -76,15 +75,17 @@ function make_async_request(url, options) {
       // .withCredentials()
       // .redirects(2)
       .then((response) => {
-        // if (!response.ok) {
-        //   throw new Error(`HTTP error! status: ${response.status}`);
-        // }
-        // return response.text();
-        if (response.status >= 200 && response.status < 300) {
-          return response.text()
+        if (!response.ok) {
+          console.error(`Error: ${response.status} - ${response.statusText}`);
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
+        return response.text();
+        // if (response.status >= 200 && response.status < 300) {
+        //   return response.text()
+        // }
+        // if the response is not
         // reject if the response is not 2xx
-        throw new Error(response.statusText)
+        // throw new Error(response.statusText)
       })
       .then((csv) => parse_csv_to_json(csv))
       .then((json) => {

@@ -8,6 +8,10 @@ publisher.on("error", async (err) => {
   await publisher.quit();
   process.exit();
 });
+process.on("SIGINT", async () => {
+  await publisher.quit();
+  process.exit();
+});
 
 setInterval(() => {
   const stocks = getStockData();

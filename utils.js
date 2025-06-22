@@ -273,6 +273,25 @@ function env(envVar, deafult_value) {
   }
 }
 
+const processLargeFile = async (file) => {
+  const totalLines = await countFileLines(file);
+  let processedLines = 0;
+
+  const readStream = createReadStream(file);
+  readStream.on("data", (chunk) => {
+    processedLines += chunk.toString().split("\n").length;
+
+    // Send progress update
+    res.write(
+      `data: ${JSON.stringify({
+        type: "progress",
+        percentage: (processedLines / totalLines) * 100,
+        message: `Processing line ${processedLines} of ${totalLines}`,
+      })}\n\n`
+    );
+  });
+};
+
 module.exports = {
   parse_csv_to_json,
   parallel,
