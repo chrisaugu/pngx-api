@@ -1,6 +1,9 @@
 const request = require("request");
 const superagent = require("superagent");
 const _ = require("lodash");
+const needle = require("needle");
+const Papa = require("papaparse");
+const logger = require("./libs/logger").winstonLogger;
 
 const { parse_csv_to_json, normalize_data } = require("./utils");
 const {
@@ -42,7 +45,7 @@ function hello() {
     //   )
     .on("data", (data) => results.push(normalize_data(data)))
     .on("end", async () => {
-      console.log(results);
+      logger.info(results);
     });
 }
 
@@ -70,7 +73,7 @@ function make_async_request(url, options) {
       // 	  total: // total file size, may be missing
       // 	  loaded: // bytes downloaded or uploaded so far
       // 	} */
-      // 	console.log(event)
+      // 	logger.info(event)
       // })
       // .withCredentials()
       // .redirects(2)
@@ -137,7 +140,7 @@ exports.get_quotes_from_pngx = get_quotes_from_pngx;
  * Fetches Quotes from PNGX.com.pg
  */
 async function data_fetcher() {
-  console.log(`Fetching csv data from ${PNGX_URL}\n`);
+  logger.info(`Fetching csv data from ${PNGX_URL}\n`);
 
   console.time("timer"); //start time with name = timer
   const startTime = new Date();
@@ -146,7 +149,7 @@ async function data_fetcher() {
   for (var i = 0; i < SYMBOLS.length; i++) {
     reqTimes++;
     let symbol = SYMBOLS[i];
-    console.log("Fetching quotes for " + symbol + " ...");
+    logger.info("Fetching quotes for " + symbol + " ...");
     /**
      * insert new data from pngx into the local database
      * get csv data from pngx.com
@@ -158,7 +161,7 @@ async function data_fetcher() {
     await get_quotes_from_pngx(symbol)
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
       .then((quotes) => {
-        console.log("Fetched quotes for " + symbol);
+        logger.info("Fetched quotes for " + symbol);
         let totalCount = quotes.length,
           totalAdded = 0,
           index = totalCount - 1,
@@ -169,9 +172,7 @@ async function data_fetcher() {
         // iterate through the dataset and add each data element to the db
         do {
           let quote = quotes[index]; // latest quote
-          console.log(
-            `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
-          );
+          logger.info(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
 
           // check if the quote for that particular company at that particular date already exists
           Stock.findOne({
@@ -181,25 +182,23 @@ async function data_fetcher() {
             .then((result) => {
               if (result) {
                 recordExist = true;
-                console.log("Results found");
-                console.log("Skip ...");
+                logger.info("Results found");
+                logger.info("Skip ...");
               } else {
                 recordExist = false;
-                console.log("Results not found");
-                console.log("Adding quote for " + symbol + " ...");
+                logger.info("Results not found");
+                logger.info("Adding quote for " + symbol + " ...");
 
                 let stock = new Stock(quote);
                 stock
                   .save()
                   .then(() => {
-                    console.log(
-                      `Added quote for ${quote.date.toLocaleDateString()} \n`
-                    );
+                    logger.info(`Added quote for ${quote.date.toLocaleDateString()} \n`);
 
                     totalAdded++;
                   })
                   .catch((error) => {
-                    console.log(error + "\n");
+                    logger.info(error + "\n");
                   });
               }
             })
@@ -210,26 +209,28 @@ async function data_fetcher() {
           index--;
         } while (recordExist && index >= 0);
 
-        console.log(`${totalAdded}/${totalCount} quotes were added.`);
-        console.log("stop\n");
+        logger.debug(`${totalAdded}/${totalCount} quotes were added.`);
+        logger.debug("stop\n");
       })
       .catch((error) => {
-        // throw new Error(error);
-        console.error(error);
+        logger.error("Error fetching quotes for " + symbol, {
+          error: error.message,
+          stack: error.stack
+        });
       });
   }
 
-  console.log("Date Request Summary");
-  console.log(`Data fetched from ${PNGX_DATA_URL}\n`);
+  logger.debug("Date Request Summary");
+  logger.debug(`Data fetched from ${PNGX_DATA_URL}\n`);
   console.timeEnd("timer"); // end timer and log time difference
   const endTime = new Date();
   const timeDiff = parseInt(
     (Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60
   );
-  console.log("Start time " + startTime);
-  console.log("End time " + timeDiff + " secs\n");
-  console.log("Time difference " + timeDiff + " secs\n");
-  console.log("Total request time: " + reqTimes);
+  logger.debug("Start time " + startTime);
+  logger.debug("End time " + timeDiff + " secs\n");
+  logger.debug("Time difference " + timeDiff + " secs\n");
+  logger.debug("Total request time: " + reqTimes);
 }
 exports.data_fetcher = data_fetcher;
 
@@ -267,7 +268,10 @@ exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
       );
     })
     .then((res) => {
-      console.table(res);
+      logger.info("Updated date format for " + res.length + " records");
+      res.forEach((data) => {
+        logger.info(`Updated date for ${data.code} on ${data.date.toLocaleDateString()}`);
+      });
     });
 };
 // fixDateFormatOnProdDB()

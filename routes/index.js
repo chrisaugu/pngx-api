@@ -4,6 +4,7 @@ const { BASE_URL } = require("../constants");
 const { versionMiddleware } = require("../middlewares");
 const Redis = require("ioredis");
 const redis = new Redis(6379);
+const logger = require("../libs/logger").winstonLogger;
 
 router.get("/", (req, res) => {
   res.status(200).json({
@@ -29,6 +30,12 @@ router.get("/health", async (_req, res, _next) => {
   } catch (e) {
     healthcheck.message = e;
     // res.status(503).json({ redis: "unavailable" });
+    logger.error("Error creating user", {
+      error: e.message,
+      stack: e.stack,
+      body: _req.body,
+    });
+    res.json(healthcheck);
     res.status(503).send();
   }
 });
@@ -68,7 +75,12 @@ router.use("/v2", require("./v2"));
 
 // router.use('/webhook', require('./webhook'));
 
-router.all("/*", (req, res) => {
+router.all("/*splat", (req, res) => {
+  logger.error("Unknown request URL", {
+    message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
+    type: "invalid_request_error",
+    code: "unknown_url",
+  });
   res.status(404).json({
     error: {
       message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${BASE_URL.protocol}//${BASE_URL.host}/api/docs/`,
