@@ -239,10 +239,12 @@ function uuidv4() {
 // Function to verify the signature
 const verifySignature = (secret, payload, signature) => {
   if (!secret || !payload || !signature) return false;
+
   const digest = crypto
     .createHmac("sha256", secret)
     .update(payload)
     .digest("hex");
+
   return crypto.timingSafeEqual(
     Buffer.from(digest, "utf-8"),
     Buffer.from(signature, "utf-8")
@@ -262,8 +264,11 @@ function generateSignature(secret, method, url, timestamp, body) {
   return hmac.digest("hex");
 }
 
-function issueToken(user) {
-  return jwt.sign({ id: user.id }, "my-secret-key", { expiresIn: "1h" });
+function issueToken(userId, secret) {
+  if (!userId || !secret) {
+    throw new Error("userId and secret are required to issue a token");
+  }
+  return jwt.sign({ id: userId }, secret, { expiresIn: "1h" });
 }
 
 module.exports = {

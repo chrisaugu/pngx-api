@@ -1,4 +1,3 @@
-const { mongoose } = require("mongoose");
 const _ = require("lodash");
 const { initDatabase } = require("./database");
 const { Stock, Ticker } = require("./models");
@@ -85,8 +84,7 @@ async function fetchDataFromPNGX(quote) {
   });
 }
 
-const dataComparatorAsc = (a, b) =>
-  new Date(a.date).getTime() - new Date(b.date).getTime();
+const dataComparatorAsc = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
 
 function load(data) {
   Stock.insertMany(data)

@@ -15,8 +15,8 @@ services:
   
   nuku-worker:
     build: 
-      context: ./nuku-redis-worker
-      dockerfile: ./Dockerfile
+      # context: ./nuku-redis-worker
+      # dockerfile: ./Dockerfile
     command: ["node", "worker.js"]
     restart: always
     depends_on:
@@ -26,10 +26,10 @@ services:
     image: redis
     ports:
       - "6379:6379"
-    # networks:
-    #   - nuku-api-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
+    networks:
+      - nuku-api-network
 
   nuku-etl:
     build:

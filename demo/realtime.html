@@ -7,10 +7,7 @@
 </head>
 
 <body>
-    <marquee class="ticker-tape" style="background-color: rgb(255, 255, 255);">
-        <span>BSP (2%)↗️</span>
-        <span>CPL (-40%)↘️</span>
-    </marquee>
+    <marquee id="ticker-tape" style="background-color: rgb(255, 255, 255);"></marquee>
 
     <h1>Realtime</h1>
     <input type="text" id="text-view" />
@@ -74,14 +71,15 @@
                 },
             });
             const feed = document.getElementById("feed");
-            const log = document.getElementById('ticker-tape');
+            const log = document.getElementById('status-log');
+            const tickertape = document.getElementById('ticker-tape');
             const table = document.getElementById('quotes-table');
             //     const treeWalker = document.createTreeWalker(table)
 
-            const tickers = ['BSP', 'CCP', 'CGA', 'CPL', 'KAM', 'KSL', 'NEM', 'NGP', 'NIU', 'SST', 'STO'];
+            const stocks = ['BSP', 'CCP', 'CGA', 'CPL', 'KAM', 'KSL', 'NEM', 'NGP', 'NIU', 'SST', 'STO'];
 
             const liMap = {};
-            tickers.forEach(ticker => {
+            stocks.forEach(ticker => {
                 const li = document.createElement("li");
                 li.id = `stock-${ticker}`;
                 li.textContent = `${ticker}: loading...`;
@@ -94,9 +92,25 @@
                 });
             });
 
-            evtSource.addEventListener('tickers', e => {
-                const data = JSON.parse(e.data);
+            const tickerTapeMap = {};
+            stocks.forEach(stock => {
+                const span = document.createElement("span");
+                span.id = `stock-${stock}`;
+                span.textContent = `${stock}: loading...`;
+                tickertape.appendChild(span);
+                tickerTapeMap[stock] = span;
+
+                //         <span>BSP (2%)↗️</span>
+                // <span>CPL (-40%)↘️</span>
+                evtSource.addEventListener(`tickers:${stock}`, e => {
+                    const data = JSON.parse(e.data);
+                    tickerTapeMap[stock].textContent = `${data.ticker}: K${data.price} (${data.change})}`;
+                });
             });
+
+            // evtSource.addEventListener('tickers', e => {
+            //     const data = JSON.parse(e.data);
+            // });
 
             //     evtSource.addEventListener(channel, (e) => {
             //         console.log("Channel update:", JSON.parse(e.data));

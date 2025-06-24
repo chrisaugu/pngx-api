@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const celery = require("celery-node");
-require("dotenv").config();
 const tasks = require("./tasks");
 const { initDatabase } = require("./database");
+const Env = require("./config/env");
 
 const worker = celery.createWorker(
-  process.env.REDIS_URL,
-  "redis://127.0.0.1:6379"
+  Env.redis.broker,
+  Env.redis.backend
 );
 
 // Creating an instance for MongoDB

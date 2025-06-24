@@ -3,11 +3,12 @@
  * Add a message queue between receiving and sending payloads out
  */
 const { Router } = require("express");
+const { default: axios } = require("axios");
 const { verifySignature, generateSignature } = require("../utils");
 const { Webhook } = require("../models");
 const Env = require("../config/env");
-const { default: axios } = require("axios");
-const logger = require("../config/logger");
+const { verifySignature } = require("../utils");
+const logger = require("../libs/logger").winstonLogger;
 
 const router = Router();
 
@@ -122,7 +123,12 @@ router.get("/webhooks", async (req, res) => {
     const webhooks = await Webhook.find().select('-secret');
     res.json(webhooks);
   } catch (error) {
-    console.error(error);
+    logger.error("Error occurred", {
+      error: error.message,
+      stack: error.stack,
+      query: req.query,
+      params: req.params
+    });
     res.status(500).send("Server Error");
   }
 });
@@ -133,7 +139,11 @@ router.post("/webhooks", async (req, res) => {
     const savedWebhook = await newWebhook.save();
     res.status(201).json(savedWebhook);
   } catch (error) {
-    console.error(error);
+    logger.error("Error occurred", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body
+    });
     res.status(500).send("Server Error");
   }
 });
@@ -146,7 +156,12 @@ router.get("/webhooks/:id", async (req, res) => {
     }
     res.json(webhook);
   } catch (error) {
-    console.error(error);
+    logger.error("Error occurred", {
+      error: error.message,
+      stack: error.stack,
+      query: req.query,
+      params: req.params
+    });
     res.status(500).send("Server Error");
   }
 });
@@ -163,7 +178,11 @@ router.put("/webhooks/:id", async (req, res) => {
     }
     res.json(updatedWebhook);
   } catch (error) {
-    console.error(error);
+    logger.error("Error occurred", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body
+    });
     res.status(500).send("Server Error");
   }
 });
@@ -180,7 +199,11 @@ router.patch("/webhooks/:id", async (req, res) => {
     }
     res.json(updatedWebhook);
   } catch (error) {
-    console.error(error);
+    logger.error("Error occurred", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body
+    });
     res.status(500).send("Server Error");
   }
 });
@@ -193,7 +216,10 @@ router.delete("/webhooks/:id", async (req, res) => {
     }
     res.json({ message: "Webhook deleted successfully" });
   } catch (error) {
-    console.error(error);
+    logger.error("Error occurred", {
+      error: error.message,
+      stack: error.stack,
+    });
     res.status(500).send("Server Error");
   }
 });
@@ -231,7 +257,11 @@ router.post("/generate-event", async (req, res) => {
       .status(200)
       .json({ message: "Event generated and webhook triggered successfully" });
   } catch (error) {
-    console.error("Error generating event and triggering webhook:", error);
+    logger.error("Error generating event and triggering webhook:", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body
+    });
     res.status(500).json({ error: "Internal server error" });
   }
 });
