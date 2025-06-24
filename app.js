@@ -47,7 +47,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(compression());
+// app.use(compression());
 app.use(helmet());
 app.use(corsMiddleware);
 app.use(allowCrossDomain);

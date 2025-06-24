@@ -1,24 +1,26 @@
-const { Router } = require("express");
+const { Router, json } = require("express");
 const Redis = require("ioredis");
 const jwt = require("jsonwebtoken");
+const logger = require("../libs/logger").winstonLogger;
+const { SYMBOLS } = require("../constants");
 
 const router = Router();
 const redis = new Redis(6379); // for publishing
 const subscriber = new Redis(6379); // for consuming
-const { SYMBOLS } = require("../constants");
 
 subscriber.on("error", async (err) => {
-  console.error("Redis error:", err);
+  logger.error("Redis error:", err);
   await subscriber.quit();
   process.exit();
 });
 
 redis.on("error", async (err) => {
-  console.error("Redis error:", err);
+  logger.error("Redis error:", err);
   await redis.quit();
   process.exit();
 });
 process.on("SIGINT", async () => {
+  logger.info("SIGINT received, closing Redis connections...");
   await redis.quit();
   process.exit();
 });
@@ -65,16 +67,16 @@ const facts = [];
  *
  */
 // topic-based channel
-async function eventsHandler(req, res, next) {
-  // Set headers to keep the connection alive and tell the client we're sending event-stream data
+async function eventsHandler(req, res) {
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
+  // res.flushHeaders();
 
-  res.flushHeaders();
+  logger.info("SSE connection established");
 
   const topics = req.query.topics?.split(",") || [];
-  const channel = req.query.channel || "default"; // quotes,tickers,news
+  const channel = req.query.channel; // quotes,tickers,news
   // const channel2 = req.headers["X-Channel"];
 
   const token = req.headers["X-Access-Token"];
@@ -95,14 +97,15 @@ async function eventsHandler(req, res, next) {
 
   clients.add(newClient);
 
+  logger.info(`New client connected: ${clientId}`);
+
   // many topics
   if (topics) {
-    const sub = new Redis(6379);
     for (const topic of topics) {
-      await sub.subscribe(topic);
+      await subscriber.subscribe(topic);
     }
 
-    sub.on("message", (topic, message) => {
+    subscriber.on("message", (topic, message) => {
       res.write(`id: ${clientId}\n`);
       res.write(`retry: 10000\n`); // retry after 10 seconds
       res.write(`event: ${topic}\n`);
@@ -110,23 +113,25 @@ async function eventsHandler(req, res, next) {
     });
 
     req.on("close", () => {
-      topics.forEach((topic) => sub.unsubscribe(topic));
+      logger.info(`Client ${clientId} disconnected`);
+      topics.forEach((topic) => subscriber.unsubscribe(topic));
       res.end();
     });
   }
 
   // one channel
   if (channel) {
-    const sub = new Redis(6379);
-    sub.subscribe(channel);
+    subscriber.subscribe(channel);
+    logger.info(`Subscribed to channel: ${channel}`);
 
-    sub.on("message", (_, message) => {
+    subscriber.on("message", (_, message) => {
       res.write(`event: ${channel}\n`);
       res.write(`data: ${message}\n\n`);
     });
 
     req.on("close", () => {
-      sub.unsubscribe(channel);
+      logger.info(`Client ${clientId} disconnected from channel: ${channel}`);
+      subscriber.unsubscribe(channel);
       res.end();
     });
   }
@@ -139,7 +144,7 @@ async function eventsHandler(req, res, next) {
   //   res.write(`data: ${message}\n\n`);
   // });
 
-  // When client closes connection, stop sending events
+  // // When client closes connection, stop sending events
   // req.on("close", () => {
   //   console.log(`${clientId} Connection closed`);
   //   // clients.filter((client) => client.id !== clientId);
@@ -152,13 +157,15 @@ async function eventsHandler(req, res, next) {
 
   //   res.end();
   // });
-
-  const sendEvent = (data) => {
-    return res.write(`data: ${JSON.stringify(data)}\n\n`);
-  };
 }
 
+const sendEvent = (clientId, data) => {
+  res.write(`id: ${clientId}\n`);
+  return res.write(`data: ${JSON.stringify(data)}\n\n`);
+};
+
 function sendEventsToAll(newFact) {
+  logger.info("Sending new fact to all clients:", newFact);
   clients.forEach((client) =>
     client.res.write(`data: ${JSON.stringify(newFact)}\n\n`)
   );
@@ -183,7 +190,7 @@ router.get("/logs/stream", (req, res) => {
   // Handle client disconnect
   req.on("close", () => {
     // Clean up if needed
-    console.log("Client disconnected");
+    logger.info("Client disconnected");
   });
 
   // Your process that generates logs
