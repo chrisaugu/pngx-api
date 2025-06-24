@@ -1,0 +1,43 @@
+{
+  "name": "nuku",
+  "version": "1.0.0",
+  "description": "The Dog API provides a wealth of information on dog breeds, groups, and fun facts. Access and integrate this data into your website or application with our easy-to-use JSON API.",
+  "source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "browser": "./dist/index.js",
+  "unpkg": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "tsc --noEmit",
+    "build": "tsup-node src/index.ts --format cjs,esm --dts --clean",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "typescript",
+    "sdk",
+    "api",
+    "client"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "@types/node": "^22.13.9",
+    "tsup": "^6.7.0"
+  },
+  "dependencies": {
+    "zod": "3.22.0"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  }
+}

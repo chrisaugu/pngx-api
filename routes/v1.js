@@ -297,7 +297,7 @@ router.get("/stocks", function (req, res) {
     query.limit(limit);
   }
 
-  // skip=
+  // ?skip=
   if (skip) {
     query.skip(skip);
   }

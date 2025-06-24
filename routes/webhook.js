@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { verifySignature } = require("../utils");
+const logger = require("../libs/logger").winstonLogger;
 
 const app = Router();
 
@@ -31,6 +32,7 @@ const verifyWebhookMiddleware2 = (webhookToken, secret, timeDifference) => {
     // Validate timestamp
     const currentTimestamp = Math.floor(Date.now() / 1000);
     if (Math.abs(currentTimestamp - timestamp) > timeDifference) {
+      logger.debug("Expired timestamp")
       return res.status(401).json({ error: "Expired timestamp" });
     }
 

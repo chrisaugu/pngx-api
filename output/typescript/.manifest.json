@@ -1,0 +1,219 @@
+{
+  "liblabVersion": "2.25.29",
+  "date": "2025-06-24T05:38:58.315Z",
+  "config": {
+    "apiId": 2373,
+    "sdkName": "nuku",
+    "sdkVersion": "1.0.0",
+    "languages": ["typescript"],
+    "auth": ["bearer"],
+    "docs": [],
+    "liblabVersion": "2",
+    "deliveryMethods": ["zip"],
+    "rawConfig": {
+      "sdkName": "nuku",
+      "apiVersion": "1.0.0",
+      "apiName": "nuku-api",
+      "specFilePath": "https://raw.githubusercontent.com/liblaber/simple-petstore-openapi/refs/heads/main/openapi.json",
+      "languages": ["typescript"],
+      "auth": ["bearer"],
+      "customizations": {
+        "includeOptionalSnippetParameters": true,
+        "authentication": {
+          "access": {
+            "prefix": "Bearer"
+          }
+        },
+        "devContainer": true,
+        "generateEnv": true,
+        "inferServiceNames": false,
+        "injectedModels": [],
+        "license": {
+          "type": "MIT"
+        },
+        "responseHeaders": false,
+        "retry": {
+          "enabled": true,
+          "maxAttempts": 3,
+          "retryDelay": 150
+        }
+      },
+      "mcp": {
+        "generate": false
+      },
+      "languageOptions": {
+        "typescript": {
+          "bundle": true,
+          "exportClassDefault": false,
+          "httpClient": "fetch",
+          "npmName": "",
+          "npmOrg": "",
+          "githubRepoName": "",
+          "ignoreFiles": [],
+          "sdkVersion": "1.0.0",
+          "liblabVersion": "2",
+          "generateEnumAs": "union"
+        }
+      },
+      "publishing": {
+        "githubOrg": ""
+      }
+    },
+    "liblabConfigVersion": "1.0.0",
+    "apiVersion": "1.0.0",
+    "apiName": "nuku-api",
+    "specFilePath": "https://raw.githubusercontent.com/liblaber/simple-petstore-openapi/refs/heads/main/openapi.json",
+    "createDocs": false,
+    "languageOptions": {
+      "typescript": {
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "1.0.0",
+        "bundle": true,
+        "denoteCommon": false,
+        "exportClassDefault": false,
+        "generateEnumAs": "union",
+        "httpClient": "fetch",
+        "npmName": "",
+        "npmOrg": ""
+      }
+    },
+    "validationsToIgnore": [],
+    "publishing": {
+      "githubOrg": "",
+      "platform": "github"
+    },
+    "analytics": {
+      "streaming": false,
+      "pagination": false
+    },
+    "mcp": {
+      "generate": false
+    },
+    "authentication": {
+      "access": {
+        "prefix": "Bearer"
+      }
+    },
+    "devContainer": true,
+    "generateEnv": true,
+    "includeOptionalSnippetParameters": true,
+    "license": {
+      "type": "MIT",
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT",
+      "path": "MIT.ejs"
+    },
+    "responseHeaders": false,
+    "buildAllModels": false,
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpCodesToRetry": [408, 429, 500, 502, 503, 504],
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "multiTenant": true,
+    "includeWatermark": true,
+    "language": "typescript",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "httpClient": "fetch",
+    "githubRepoName": "",
+    "ignoreFiles": [],
+    "renameIllegalModelProperties": true,
+    "bundle": true,
+    "denoteCommon": false,
+    "exportClassDefault": false,
+    "generateEnumAs": "union",
+    "npmName": "",
+    "npmOrg": "",
+    "typescriptVersion": "5.3.3",
+    "zodVersion": "3.22.0",
+    "compilerOptions": {
+      "target": "es6",
+      "module": "Node16",
+      "lib": ["es2018", "dom"]
+    },
+    "namingStrategy": "base",
+    "usesFormData": false,
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "inferServiceNames": false,
+    "httpLibrary": {
+      "name": "fetch",
+      "packages": {},
+      "languages": ["typescript"],
+      "types": {
+        "packageName": "@types/isomorphic-fetch",
+        "version": "^0.0.36"
+      }
+    },
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    },
+    "ai": false,
+    "specType": "openapi"
+  },
+  "files": [
+    "package.json",
+    "tsconfig.json",
+    "examples/tsconfig.json",
+    "examples/package.json",
+    "examples/README.md",
+    "examples/src/index.ts",
+    "src/http/client.ts",
+    ".gitignore",
+    "src/services/base-service.ts",
+    "src/services/breeds/breeds-service.ts",
+    "src/services/facts/facts-service.ts",
+    "src/services/groups/groups-service.ts",
+    "src/index.ts",
+    "src/services/breeds/index.ts",
+    "src/services/facts/index.ts",
+    "src/services/groups/index.ts",
+    "src/http/index.ts",
+    "src/http/handlers/handler-chain.ts",
+    "src/http/types.ts",
+    "src/http/error.ts",
+    "src/http/handlers/terminating-handler.ts",
+    "src/http/handlers/hook-handler.ts",
+    "src/http/hooks/custom-hook.ts",
+    "src/http/hooks/hook.ts",
+    "src/http/handlers/retry-handler.ts",
+    "src/http/environment.ts",
+    "src/http/handlers/response-validation-handler.ts",
+    "LICENSE",
+    "src/services/facts/request-params.ts",
+    "src/http/handlers/request-validation-handler.ts",
+    ".devcontainer/devcontainer.json",
+    "src/http/transport/request.ts",
+    "src/http/transport/request-builder.ts",
+    "src/http/serialization/base-serializer.ts",
+    "src/http/serialization/query-serializer.ts",
+    "src/http/serialization/path-serializer.ts",
+    "src/http/serialization/header-serializer.ts",
+    "src/http/transport/request-fetch-adapter.ts",
+    "src/http/transport/transport-hook-adapter.ts",
+    "src/http/utils/line-decoder.ts",
+    "src/http/utils/response-matcher.ts",
+    "src/http/utils/content-type.ts",
+    "src/http/errors/validation-error.ts",
+    "src/http/transport/types.ts",
+    "src/http/errors/throwable-error.ts",
+    "documentation/services/FactsService.md",
+    "documentation/services/BreedsService.md",
+    "documentation/services/GroupsService.md",
+    "README.md"
+  ]
+}
