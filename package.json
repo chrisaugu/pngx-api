@@ -39,8 +39,8 @@
   },
   "homepage": "https://github.com/chrisaugu/pngx-api#readme",
   "dependencies": {
-    "axios": "^1.9.0",
     "@elastic/elasticsearch": "^9.0.2",
+    "axios": "^1.10.0",
     "benchmark": "^2.1.4",
     "boxen": "^8.0.1",
     "bull": "^4.16.5",

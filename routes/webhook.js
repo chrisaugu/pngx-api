@@ -3,11 +3,10 @@
  * Add a message queue between receiving and sending payloads out
  */
 const { Router } = require("express");
-const { default: axios } = require("axios");
+const axios = require("axios");
 const { verifySignature, generateSignature } = require("../utils");
 const { Webhook } = require("../models");
 const Env = require("../config/env");
-const { verifySignature } = require("../utils");
 const logger = require("../libs/logger").winstonLogger;
 
 const router = Router();

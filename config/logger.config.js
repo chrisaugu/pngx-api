@@ -1,10 +1,10 @@
-const { format, transports, config } = require("winston");
+const { format, transports, config, addColors } = require("winston");
 require("winston-daily-rotate-file");
 const pino = require("pino");
 
 // Custom log format for console
 const consoleFormat = format.printf(({ level, message, timestamp, stack }) => {
-  return `${timestamp} [${level}]: ${stack || message}`;
+  return `${timestamp} [${level.toString()}]: ${stack || message}`;
 });
 
 // Custom log format for files (more detailed)
@@ -17,18 +17,26 @@ const fileFormat = format.printf(({ level, message, timestamp, stack, ...metadat
 });
 
 // Define log levels
-const levels = {
-  error: 0,
-  warn: 1,
-  info: 2,
-  http: 3,
-  verbose: 4,
-  debug: 5,
-  silly: 6
+const customLevels = {
+  levels: {
+    error: 0,
+    warn: 1,
+    info: 2,
+    http: 3,
+    verbose: 4,
+    debug: 5,
+  },
+  colors: {
+    critical: 'red',
+    error: 'red',
+    warn: 'yellow',
+    info: 'green',
+    debug: 'blue'
+  }
 };
 
 exports.winstonConfig = {
-  levels: levels, //config.syslog.levels,
+  levels: customLevels.levels, //config.syslog.levels,
   level: process.env.LOG_LEVEL || "debug",
   transports: [
     new transports.Console({
@@ -66,11 +74,12 @@ exports.winstonConfig = {
   ],
   exitOnError: false,
   format: format.combine(
-    format.colorize({ all: true }),
+    format.colorize(/*{ all: true }*/),
     format.timestamp(),
     format.errors({ stack: true }),
     format.json(),
-    format.align(),
+    // format.cli(),
+    // format.align(),
     format.printf((info) => `[${info.timestamp}] ${info.level}: ${info.message}`)
   ),
   exceptionHandlers: [
@@ -80,6 +89,7 @@ exports.winstonConfig = {
     new transports.File({ filename: "./logs/rejections.log" }),
   ],
 };
+addColors(customLevels.colors);
 
 exports.pinoConfig = {
   level: process.env.LOG_LEVEL || "debug",

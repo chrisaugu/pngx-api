@@ -114,7 +114,6 @@ exports.morganCombinedMiddlware = morgan("combined", {
     return req.path === "/health" || req.method === 'OPTIONS'
   },
 });
-
 exports.morganMiddlware = morgan(morganFormat,
   { stream: morganStream }
 );

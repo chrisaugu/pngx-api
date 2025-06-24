@@ -94,9 +94,7 @@ initDatabase()
     /**
      * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
-    logger.debug(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
-    );
+    logger.debug("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
     cron.schedule(WORKER_SCHEDULE_TIME, () => {
       const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(process.cwd(), "thread_workers.js");
