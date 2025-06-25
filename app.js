@@ -47,6 +47,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// TODO: compression middleware causes issues with some responses from sse, need to investigate further
 // app.use(compression());
 app.use(helmet());
 app.use(corsMiddleware);

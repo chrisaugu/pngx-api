@@ -3,26 +3,113 @@
 
 <head>
     <title>Realtime</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/starter.css" />
 </head>
 
-<body>
-    <marquee id="ticker-tape" style="background-color: rgb(255, 255, 255);"></marquee>
+<body class="container-fluid py-0">
+    <!-- <marquee id="ticker-tape" style="background-color: rgb(255, 255, 255);"></marquee> -->
+    <!-- <section id="ticker-tape1" class="scroller__wrapper">
+        <div class="scroller__container">
+            <div class="scroller">
+                <div class="scroller__item">00000</div>
+            </div>
+        </div>
+    </section> -->
+
+    <div id="ticker-tape" class="ticker-container">
+        <div class="ticker-text">
+        </div>
+    </div>
+
+    <div class="container enonewsticker py-3 px-3"">
+        <div class="row g-0">
+        <!--Breaking box-->
+        <div class="col-12  col-md-2  pe-md-0 ">
+            <div class="bg-primary text-white text-center titleenonewsticker py-2 px-2 d-flex">
+            <span class="d-md-inline-block">NEWS</span>
+            </div>
+        </div>
+        <div class="col-10  col-md-9  itemsenonewsticker">
+        <div class="breaking-box position-relative px-3 py-2">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <p><span class="topicenonewsticker bg-success">Important</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                </div>
+                <div class="carousel-item">
+                <p><span class="topicenonewsticker bg-success">Important</span> Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut eiusmod</p>
+                </div>
+                <div class="carousel-item">
+            <p><span class="topicenonewsticker bg-success">Important</span> Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+                </div>
+            </div>
+            </div>
+            </div>
+            <!--end breaking news-->
+        </div>
+        <div class="col-2  col-md-1 text-center  navenonewsticker d-flex ">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-secondary" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-secondary" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center breaking-news bg-white">
+                    <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news"><span class="d-flex align-items-center">Read this</span></div>
+                    <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                        <a href="#">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </a>
+                        <span class="dot"></span>
+                        <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </a>
+                        <span class="dot"></span>
+                        <a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse </a>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <h1>Realtime</h1>
-    <input type="text" id="text-view" />
-    <input type="button" id="send-button" value="Send!" />
-    <input type="button" id="stop-button" value="Stop" />
-    <input type="button" id="start-button" value="Start" />
-    </br>
-    <label id="status-label">Status</label>
-    <textarea id="status-log"></textarea>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <ul id="messages"></ul>
+        </div>
+        <div class="col-md-6">
+            <form id="chat-form" action="">
+                <input id="input" autocomplete="off" placeholder="Type your message here..." />
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" id="text-view" />
+            <input type="button" id="send-button" value="Send!" />
+            <input type="button" id="stop-button" value="Stop" />
+            <input type="button" id="start-button" value="Start" />
+            </br>
+            <label id="status-label">Status: <span></span></label>
+            <label id="date">Date: <span></span></label>
+        </div>
+        <div class="col-md-6">
+            <textarea id="status-log"></textarea>
+        </div>
+    </div>
 
-    <table id="quotes-table" style="width: 100%;">
+    <table id="quotes-table" style="width: 100%;" class="table table-striped table-bordered table-sm">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Symbol</th>
+                <th>Code/Symbol</th>
                 <th>Bid</th>
                 <th>Offer</th>
                 <th>Last</th>
@@ -46,9 +133,83 @@
     <div id="bidoffer" style="position: relative;"></div>
     <div id="volume" style="position: relative;"></div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/lightweight-charts@5.0.5/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    
     <script type="text/javascript" src="./dummy-data.js"></script>
 
-    <script src="https://unpkg.com/lightweight-charts@5.0.5/dist/lightweight-charts.standalone.production.js"></script>
+    <script>
+        dayjs().format()
+
+        let myDate = [];
+        quotesData.forEach((d) => {
+            myDate.push(dayjs(d.date).format('YYYY-MM-DD'));
+            myDate.push(dayjs(d.timestamp).valueOf());
+        });
+        console.log(Object.groupBy(quotesData, (e) => e.date));
+    </script>
+
+    
+    <script>
+        const socket = io({
+            auth: {
+                serverOffset: 0,
+            },
+            askTimeout: 5000,
+            retries: 3
+        });
+        socket.on('connect', () => {
+            console.log('Connected to the server');
+            document.getElementById('status-label').lastChild.innerText = 'Connected';
+        });
+        const form = document.getElementById('chat-form');
+        const input = document.getElementById('input');
+        const messages = document.getElementById('messages');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (input.value) {
+                socket.emit('chat', input.value);
+                input.value = '';
+            }
+        });
+
+        socket.on('chat', (msg, serverOffset) => {
+            const item = document.createElement('li');
+            item.textContent = msg;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+            socket.auth.serverOffset = serverOffset;
+        });
+
+        const toggleButton = document.getElementById('toggle-btn');
+
+        toggleButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (socket.connected) {
+                toggleButton.innerText = 'Connect';
+                socket.disconnect();
+            } else {
+                toggleButton.innerText = 'Disconnect';
+                socket.connect();
+            }
+        });
+
+        function emit(socket, event, arg) {
+            socket.timeout(5000).emit(event, arg, (err) => {
+                if (err) {
+                // no ack from the server, let's retry
+                emit(socket, event, arg);
+                }
+            });
+        }
+        // emit(socket, 'hello', 'world');
+        
+    </script>
 
     <script type="text/javascript">
         (function () {
@@ -104,7 +265,12 @@
                 const span = document.createElement("span");
                 span.id = `stock-${stock}`;
                 span.textContent = `${stock}: loading...`;
-                tickertape.appendChild(span);
+                // tickertape.appendChild(span); // marquee
+                
+                span.className = "ticker-itemx me-2";
+                tickertape.firstElementChild.appendChild(span);
+                // span.className = "scroller__item";
+                // tickertape.firstElementChild.firstElementChild.appendChild(span);
                 tickerTapeMap[stock] = span;
 
                 evtSource2.addEventListener(`tickers:${stock}`, (e) => {
@@ -126,7 +292,9 @@
             });
             const stocklistMap = {};
             const body = document.createElement("tbody");
+            const date = document.getElementById('date');
             table.appendChild(body);
+            // date.innerText = `Date: ${new Date(data.date).toUTCString()}`;
             stocks.forEach(stock => {
                 const tr = document.createElement("tr");
                 tr.id = `stock-${stock}`;
@@ -137,7 +305,6 @@
                 evtSource3.addEventListener(`quotes:${stock}`, (e) => {
                     const data = JSON.parse(e.data);
                     stocklistMap[stock].innerHTML = `
-                        <td>${new Date(data.date).toUTCString()}</td>
                         <td>${data.code}</td>
                         <td>K${data.bid}</td>
                         <td>K${data.offer}</td>
@@ -307,7 +474,7 @@
             //         console.log("Connection established.");
             //         // Initialize any resources here and display some user-friendly
             //         // messages
-            //         label.innerHTML = "Connection established!";
+            //         label.lastChild.innerHTML = "Connection established!";
             //         // socket.send('ping')
             //         socket.send(JSON.stringify({
             //             'type': 'authenticate',
@@ -473,93 +640,93 @@
 
                 //             container.appendChild(buttonsContainer);
 
-                // volume traded
-                const areaSeries = chart.addSeries(LightweightCharts.AreaSeries, {
-                    lineColor: '#2962FF',
-                    topColor: '#2962FF',
-                    bottomColor: 'rgba(41, 98, 255, 0.28)',
-                    lineWidth: 2,
-                    crossHairMarkerVisible: false,
-                });
-                areaSeries.priceScale().applyOptions({
-                    scaleMargins: {
-                        top: 0.3, // leave some space for the legend
-                        bottom: 0.25,
-                    },
-                });
-                areaSeries.setData(volumeData);
+                // // volume traded
+                // const areaSeries = chart.addSeries(LightweightCharts.AreaSeries, {
+                //     lineColor: '#2962FF',
+                //     topColor: '#2962FF',
+                //     bottomColor: 'rgba(41, 98, 255, 0.28)',
+                //     lineWidth: 2,
+                //     crossHairMarkerVisible: false,
+                // });
+                // areaSeries.priceScale().applyOptions({
+                //     scaleMargins: {
+                //         top: 0.3, // leave some space for the legend
+                //         bottom: 0.25,
+                //     },
+                // });
+                // areaSeries.setData(volumeData);
 
-                const toolTipWidth = 80;
-                const toolTipHeight = 80;
-                const toolTipMargin = 15;
+                // const toolTipWidth = 80;
+                // const toolTipHeight = 80;
+                // const toolTipMargin = 15;
 
-                // Create and style the tooltip html element
-                const toolTip = document.createElement('div');
-                toolTip.style = `width: 96px; height: 80px; position: absolute; display: none; padding: 8px; box-sizing: border-box; font-size: 12px; text-align: left; z-index: 1000; top: 12px; left: 12px; pointer-events: none; border: 1px solid; border-radius: 2px;font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`;
-                toolTip.style.background = 'white';
-                toolTip.style.color = 'black';
-                toolTip.style.borderColor = '#2962FF';
-                container.appendChild(toolTip);
+                // // Create and style the tooltip html element
+                // const toolTip = document.createElement('div');
+                // toolTip.style = `width: 96px; height: 80px; position: absolute; display: none; padding: 8px; box-sizing: border-box; font-size: 12px; text-align: left; z-index: 1000; top: 12px; left: 12px; pointer-events: none; border: 1px solid; border-radius: 2px;font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`;
+                // toolTip.style.background = 'white';
+                // toolTip.style.color = 'black';
+                // toolTip.style.borderColor = '#2962FF';
+                // container.appendChild(toolTip);
 
-                // update tooltip
-                chart.subscribeCrosshairMove(param => {
-                    if (
-                        param.point === undefined ||
-                        !param.time ||
-                        param.point.x < 0 ||
-                        param.point.x > container.clientWidth ||
-                        param.point.y < 0 ||
-                        param.point.y > container.clientHeight
-                    ) {
-                        toolTip.style.display = 'none';
-                    } else {
-                        // time will be in the same format that we supplied to setData.
-                        // thus it will be YYYY-MM-DD
-                        const dateStr = param.time;
-                        toolTip.style.display = 'block';
-                        const data = param.seriesData.get(areaSeries);
-                        const price = data.value !== undefined ? data.value : data.close;
-                        toolTip.innerHTML = `<div style="color: ${'#2962FF'}">${ticker}</div><div style="font-size: 24px; margin: 4px 0px; color: ${'black'}">
-                                        ${Math.round(100 * price) / 100}
-                                        </div><div style="color: ${'black'}">
-                                        ${dateStr}
-                                        </div>`;
+                // // update tooltip
+                // chart.subscribeCrosshairMove(param => {
+                //     if (
+                //         param.point === undefined ||
+                //         !param.time ||
+                //         param.point.x < 0 ||
+                //         param.point.x > container.clientWidth ||
+                //         param.point.y < 0 ||
+                //         param.point.y > container.clientHeight
+                //     ) {
+                //         toolTip.style.display = 'none';
+                //     } else {
+                //         // time will be in the same format that we supplied to setData.
+                //         // thus it will be YYYY-MM-DD
+                //         const dateStr = param.time;
+                //         toolTip.style.display = 'block';
+                //         const data = param.seriesData.get(areaSeries);
+                //         const price = data.value !== undefined ? data.value : data.close;
+                //         toolTip.innerHTML = `<div style="color: ${'#2962FF'}">${ticker}</div><div style="font-size: 24px; margin: 4px 0px; color: ${'black'}">
+                //                         ${Math.round(100 * price) / 100}
+                //                         </div><div style="color: ${'black'}">
+                //                         ${dateStr}
+                //                         </div>`;
 
-                        const coordinate = areaSeries.priceToCoordinate(price);
-                        let shiftedCoordinate = param.point.x - 50;
-                        if (coordinate === null) {
-                            return;
-                        }
-                        shiftedCoordinate = Math.max(
-                            0,
-                            Math.min(container.clientWidth - toolTipWidth, shiftedCoordinate)
-                        );
-                        const coordinateY =
-                            coordinate - toolTipHeight - toolTipMargin > 0
-                                ? coordinate - toolTipHeight - toolTipMargin
-                                : Math.max(
-                                    0,
-                                    Math.min(
-                                        container.clientHeight - toolTipHeight - toolTipMargin,
-                                        coordinate + toolTipMargin
-                                    )
-                                );
-                        toolTip.style.left = shiftedCoordinate + 'px';
-                        toolTip.style.top = coordinateY + 'px';
-                    }
-                })
+                //         const coordinate = areaSeries.priceToCoordinate(price);
+                //         let shiftedCoordinate = param.point.x - 50;
+                //         if (coordinate === null) {
+                //             return;
+                //         }
+                //         shiftedCoordinate = Math.max(
+                //             0,
+                //             Math.min(container.clientWidth - toolTipWidth, shiftedCoordinate)
+                //         );
+                //         const coordinateY =
+                //             coordinate - toolTipHeight - toolTipMargin > 0
+                //                 ? coordinate - toolTipHeight - toolTipMargin
+                //                 : Math.max(
+                //                     0,
+                //                     Math.min(
+                //                         container.clientHeight - toolTipHeight - toolTipMargin,
+                //                         coordinate + toolTipMargin
+                //                     )
+                //                 );
+                //         toolTip.style.left = shiftedCoordinate + 'px';
+                //         toolTip.style.top = coordinateY + 'px';
+                //     }
+                // })
 
-                chart.subscribeClick(param => {
-                    console.log(param)
-                })
-                // candlestick
-                const candlestickSeries = chart.addSeries(LightweightCharts.CandlestickSeries, {
-                    upColor: '#26a69a',
-                    downColor: '#ef5350',
-                    borderVisible: false,
-                    wickUpColor: '#26a69a',
-                    wickDownColor: '#ef5350',
-                });
+                // chart.subscribeClick(param => {
+                //     console.log(param)
+                // })
+                // // candlestick
+                // const candlestickSeries = chart.addSeries(LightweightCharts.CandlestickSeries, {
+                //     upColor: '#26a69a',
+                //     downColor: '#ef5350',
+                //     borderVisible: false,
+                //     wickUpColor: '#26a69a',
+                //     wickDownColor: '#ef5350',
+                // });
                 // candlestickSeries.setData(tickerData);
                 // candlestickSeries.setData(candleData);
 
@@ -568,60 +735,60 @@
                 //     downColor: 'blue',
                 // });
 
-                const lineSeries = chart.addSeries(LightweightCharts.LineSeries);
-                lineSeries.setData(bidData);
+                // const lineSeries = chart.addSeries(LightweightCharts.LineSeries);
+                // lineSeries.setData(bidData);
 
-                function calculateMovingAverageSeriesData(candleData, maLength) {
-                    const maData = [];
+                // function calculateMovingAverageSeriesData(candleData, maLength) {
+                //     const maData = [];
 
-                    for (let i = 0; i < candleData.length; i++) {
-                        if (i < maLength) {
-                            // Provide whitespace data points until the MA can be calculated
-                            maData.push({ time: candleData[i].time });
-                        } else {
-                            // Calculate the moving average, slow but simple way
-                            let sum = 0;
-                            for (let j = 0; j < maLength; j++) {
-                                sum += candleData[i - j].close;
-                            }
-                            const maValue = sum / maLength;
-                            maData.push({ time: candleData[i].time, value: maValue });
-                        }
-                    }
+                //     for (let i = 0; i < candleData.length; i++) {
+                //         if (i < maLength) {
+                //             // Provide whitespace data points until the MA can be calculated
+                //             maData.push({ time: candleData[i].time });
+                //         } else {
+                //             // Calculate the moving average, slow but simple way
+                //             let sum = 0;
+                //             for (let j = 0; j < maLength; j++) {
+                //                 sum += candleData[i - j].close;
+                //             }
+                //             const maValue = sum / maLength;
+                //             maData.push({ time: candleData[i].time, value: maValue });
+                //         }
+                //     }
 
-                    return maData;
-                }
+                //     return maData;
+                // }
 
-                // const barSeries = chart.addSeries(LightweightCharts.BarSeries, { upColor: '#26a69a', downColor: '#ef5350' });
-                // const maData = calculateMovingAverageSeriesData(tickerData, 20);
+                // // const barSeries = chart.addSeries(LightweightCharts.BarSeries, { upColor: '#26a69a', downColor: '#ef5350' });
+                // // const maData = calculateMovingAverageSeriesData(tickerData, 20);
 
-                // barSeries.setData(tickerData);
-                // const maSeries = chart.addSeries(LightweightCharts.LineSeries, { color: '#2962FF', lineWidth: 1 });
-                // maSeries.setData(maData);
+                // // barSeries.setData(tickerData);
+                // // const maSeries = chart.addSeries(LightweightCharts.LineSeries, { color: '#2962FF', lineWidth: 1 });
+                // // maSeries.setData(maData);
 
-                const baselineSeries = chart.addSeries(LightweightCharts.BaselineSeries, {
-                    baseValue: { type: 'price', price: 25 },
-                    topLineColor: 'rgba( 38, 166, 154, 1)',
-                    topFillColor1: 'rgba( 38, 166, 154, 0.28)',
-                    topFillColor2: 'rgba( 38, 166, 154, 0.05)',
-                    bottomLineColor: 'rgba( 239, 83, 80, 1)',
-                    bottomFillColor1: 'rgba( 239, 83, 80, 0.05)',
-                    bottomFillColor2: 'rgba( 239, 83, 80, 0.28)'
-                });
-                // baselineSeries.setData(dayData);
+                // const baselineSeries = chart.addSeries(LightweightCharts.BaselineSeries, {
+                //     baseValue: { type: 'price', price: 25 },
+                //     topLineColor: 'rgba( 38, 166, 154, 1)',
+                //     topFillColor1: 'rgba( 38, 166, 154, 0.28)',
+                //     topFillColor2: 'rgba( 38, 166, 154, 0.05)',
+                //     bottomLineColor: 'rgba( 239, 83, 80, 1)',
+                //     bottomFillColor1: 'rgba( 239, 83, 80, 0.05)',
+                //     bottomFillColor2: 'rgba( 239, 83, 80, 0.28)'
+                // });
+                // // baselineSeries.setData(dayData);
 
-                function addData(chart, label, newData) {
-                    // Update the most recent bar
-                    // areaSeries.update({ time: '2018-12-31', value: 25 });
-                    // candlestickSeries.update({ time: '2018-12-31', open: 109.87, high: 114.69, low: 85.66, close: 112 });
+                // function addData(chart, label, newData) {
+                //     // Update the most recent bar
+                //     // areaSeries.update({ time: '2018-12-31', value: 25 });
+                //     // candlestickSeries.update({ time: '2018-12-31', open: 109.87, high: 114.69, low: 85.66, close: 112 });
 
-                    // Creating the new bar
-                    // areaSeries.update({ time: '2019-01-01', value: 20 });
-                    // candlestickSeries.update({ time: '2019-01-01', open: 112, high: 112, low: 100, close: 101 });
-                }
+                //     // Creating the new bar
+                //     // areaSeries.update({ time: '2019-01-01', value: 20 });
+                //     // candlestickSeries.update({ time: '2019-01-01', open: 112, high: 112, low: 100, close: 101 });
+                // }
 
-                function removeData(chart) {
-                }
+                // function removeData(chart) {
+                // }
 
                 //             const series = chart.addSeries(LightweightCharts.CandlestickSeries, {
                 //                 upColor: '#26a69a',
@@ -732,44 +899,44 @@
                 //             buttonsContainer.appendChild(button);
                 //             container.appendChild(buttonsContainer);
 
-                // chart.timeScale().fitContent();
-                chart.timeScale().subscribeVisibleLogicalRangeChange(logicalRange => {
-                    if (logicalRange.from < 10) {
-                        // load more data
-                        const numberBarsToLoad = 50 - logicalRange.from;
-                        // const data = datafeed.getBars(numberBarsToLoad);
-                        // console.log(numberBarsToLoad)
-                        setTimeout(() => {
-                            // series.setData(data);
-                        }, 250); // add a loading delay
-                    }
-                });
+                // // chart.timeScale().fitContent();
+                // chart.timeScale().subscribeVisibleLogicalRangeChange(logicalRange => {
+                //     if (logicalRange.from < 10) {
+                //         // load more data
+                //         const numberBarsToLoad = 50 - logicalRange.from;
+                //         // const data = datafeed.getBars(numberBarsToLoad);
+                //         // console.log(numberBarsToLoad)
+                //         setTimeout(() => {
+                //             // series.setData(data);
+                //         }, 250); // add a loading delay
+                //     }
+                // });
 
-                const chartOptions2 = {
-                    autoSize: true,
-                    layout: {
-                        textColor: 'black',
-                        background: { type: 'solid', color: 'white' },
-                    },
-                    yieldCurve: {
-                        baseResolution: 12,
-                        minimumTimeRange: 10,
-                        startTimeRange: 3,
-                    },
-                    handleScroll: false,
-                    handleScale: false,
-                    grid: {
-                        vertLines: {
-                            visible: false,
-                        },
-                        horzLines: {
-                            visible: false,
-                        },
-                    },
-                    timeScale: {
-                        minBarSpacing: 3,
-                    },
-                };
+                // const chartOptions2 = {
+                //     autoSize: true,
+                //     layout: {
+                //         textColor: 'black',
+                //         background: { type: 'solid', color: 'white' },
+                //     },
+                //     yieldCurve: {
+                //         baseResolution: 12,
+                //         minimumTimeRange: 10,
+                //         startTimeRange: 3,
+                //     },
+                //     handleScroll: false,
+                //     handleScale: false,
+                //     grid: {
+                //         vertLines: {
+                //             visible: false,
+                //         },
+                //         horzLines: {
+                //             visible: false,
+                //         },
+                //     },
+                //     timeScale: {
+                //         minBarSpacing: 3,
+                //     },
+                // };
                 // const chart2 = LightweightCharts.createYieldCurveChart(container, chartOptions2);
                 // const curve1 = [
                 //     { time: 1, value: 5.378 },
