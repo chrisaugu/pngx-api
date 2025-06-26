@@ -78,17 +78,17 @@ function make_async_request(url, options) {
       // .withCredentials()
       // .redirects(2)
       .then((response) => {
-        if (!response.ok) {
-          console.error(`Error: ${response.status} - ${response.statusText}`);
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.text();
-        // if (response.status >= 200 && response.status < 300) {
-        //   return response.text()
+        // if (!response.ok) {
+        //   logger.error(`Error: ${response.status} - ${response.statusText}`);
+        //   throw new Error(`HTTP error! status: ${response.status}`);
         // }
+        // return response.text();
+        if (response.status >= 200 && response.status < 300) {
+          return response.text()
+        }
         // if the response is not
         // reject if the response is not 2xx
-        // throw new Error(response.statusText)
+        throw new Error(`HTTP error! status: ${response.status}`);
       })
       .then((csv) => parse_csv_to_json(csv))
       .then((json) => {
@@ -140,7 +140,7 @@ exports.get_quotes_from_pngx = get_quotes_from_pngx;
  * Fetches Quotes from PNGX.com.pg
  */
 async function data_fetcher() {
-  logger.info(`Fetching csv data from ${PNGX_URL}\n`);
+  logger.debug(`Fetching csv data from ${PNGX_URL}\n`);
 
   console.time("timer"); //start time with name = timer
   const startTime = new Date();
@@ -149,7 +149,7 @@ async function data_fetcher() {
   for (var i = 0; i < SYMBOLS.length; i++) {
     reqTimes++;
     let symbol = SYMBOLS[i];
-    logger.info("Fetching quotes for " + symbol + " ...");
+    logger.debug("Fetching quotes for " + symbol + " ...");
     /**
      * insert new data from pngx into the local database
      * get csv data from pngx.com
@@ -161,7 +161,7 @@ async function data_fetcher() {
     await get_quotes_from_pngx(symbol)
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
       .then((quotes) => {
-        logger.info("Fetched quotes for " + symbol);
+        logger.debug("Fetched quotes for " + symbol);
         let totalCount = quotes.length,
           totalAdded = 0,
           index = totalCount - 1,
@@ -172,7 +172,7 @@ async function data_fetcher() {
         // iterate through the dataset and add each data element to the db
         do {
           let quote = quotes[index]; // latest quote
-          logger.info(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
+          logger.debug(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
 
           // check if the quote for that particular company at that particular date already exists
           Stock.findOne({
@@ -182,23 +182,23 @@ async function data_fetcher() {
             .then((result) => {
               if (result) {
                 recordExist = true;
-                logger.info("Results found");
-                logger.info("Skip ...");
+                logger.debug("Results found");
+                logger.debug("Skip ...");
               } else {
                 recordExist = false;
-                logger.info("Results not found");
-                logger.info("Adding quote for " + symbol + " ...");
+                logger.debug("Results not found");
+                logger.debug("Adding quote for " + symbol + " ...");
 
                 let stock = new Stock(quote);
                 stock
                   .save()
                   .then(() => {
-                    logger.info(`Added quote for ${quote.date.toLocaleDateString()} \n`);
+                    logger.debug(`Added quote for ${quote.date.toLocaleDateString()} \n`);
 
                     totalAdded++;
                   })
                   .catch((error) => {
-                    logger.info(error + "\n");
+                    logger.error(error + "\n");
                   });
               }
             })

@@ -30,11 +30,27 @@ tickerSchema.index({
   date: 1,
 });
 
-const Ticker = (module.exports = mongoose.model("ticker", tickerSchema));
+const Ticker = mongoose.model("ticker", tickerSchema);
 
 exports.findBySymbol = function (symbol) {
   return Ticker.find({ symbol: symbol });
 };
+
+// Ticker.watch().on("change", (data) => {
+//   console.log("Ticker changed", data);
+// });
+
+// // Insert a doc, will trigger the change stream handler above
+// await Ticker.create({
+//   date: new Date(),
+//   symbol: 'AAPL',
+//   close: 150.00,
+//   high: 155.00,
+//   low: 145.00,
+//   open: 148.00,
+//   change: 5.00,
+//   volume: 1000000,
+// });
 
 // class MyClass {
 
@@ -53,3 +69,5 @@ exports.findBySymbol = function (symbol) {
 
 // const schema = new Schema();
 // schema.loadClass(MyClass);
+
+module.exports = Ticker;

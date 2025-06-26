@@ -10,7 +10,6 @@ const socket = require("./routes/socket");
 const debug = require("debug")("NUKU-API");
 const logger = require("./libs/logger").winstonLogger;
 
-// replaces all instance of app with server
 let server;
 
 logger.debug("Starting NUKU API server...");

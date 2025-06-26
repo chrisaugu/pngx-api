@@ -42,4 +42,13 @@ quoteSchema.statics.findBySymbol = function (symbol) {
   });
 };
 
-const Quote = (module.exports = mongoose.model("quote", quoteSchema));
+const Quote = mongoose.model("quote", quoteSchema);
+
+// Quote.watch().on("change", (data) => {
+//   console.log('Changed', data);
+// });
+
+// // Insert a doc, will trigger the change stream handler above
+// await Quote.create({ name: "Axl Rose" });
+
+module.exports = Quote;

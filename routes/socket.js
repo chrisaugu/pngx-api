@@ -20,6 +20,12 @@ const { createClient } = require("redis");
 const pubClient = createClient({ host: "localhost", port: 6379 });
 const subClient = pubClient.duplicate();
 
+/**
+ * Set up a Socket.IO server on an existing HTTP or HTTPS server.
+ * This function initializes a Socket.IO server that listens for WebSocket connections
+ * @param {http.Server | https.Server} httpServer 
+ * @returns {WebSocket.Server}
+ */
 module.exports = (httpServer) => {
   const io = new Server(httpServer, {
     path: "/socket.io/websocket",

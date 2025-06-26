@@ -187,6 +187,10 @@
                 <h1>Realtime Chart</h1>
                 <div id="realtimeChart" style="position: relative;"></div>
             </div>
+            <div class="col-6">
+                <h1>Candlestick/Volume Chart</h1>
+                <div id="volume" style="position: relative;"></div>
+            </div>
         </div>
     </div>
 
@@ -212,51 +216,51 @@
 
     
     <script type="text/javascript">
-        const socket = io({
-            auth: {
-                serverOffset: 0,
-            },
-            askTimeout: 5000,
-            retries: 3,
+        // const socket = io({
+        //     auth: {
+        //         serverOffset: 0,
+        //     },
+        //     askTimeout: 5000,
+        //     retries: 3,
+        // // });
+        // // const socket = io("wss://data.tradingview.com", {
+        //     path: "/socket.io/websocket", // Custom WebSocket path
+        //     transports: ["websocket"],   // Force WebSocket-only mode
+        //     secure: true,                // Use WSS (SSL/TLS)
+        //     rejectUnauthorized: true,     // Enable SSL certificate validation
+        //     query: {
+        //         from: "",
+        //         date: "2025-06-24T18:28:28"
+        //     },
+        //     extraHeaders: { "Authorization": "Bearer YOUR_TOKEN" }
         // });
-        // const socket = io("wss://data.tradingview.com", {
-            path: "/socket.io/websocket", // Custom WebSocket path
-            transports: ["websocket"],   // Force WebSocket-only mode
-            secure: true,                // Use WSS (SSL/TLS)
-            rejectUnauthorized: true,     // Enable SSL certificate validation
-            query: {
-                from: "",
-                date: "2025-06-24T18:28:28"
-            },
-            extraHeaders: { "Authorization": "Bearer YOUR_TOKEN" }
-        });
 
-        socket.on('connect', () => {
-            console.log('Connected to the server');
-            document.getElementById('status-label').lastChild.innerText = 'Connected';
-        });
-        socket.on("error", (err) => {
-            console.error("Socket error:", err);
-        });
-        const form = document.getElementById('chat-form');
-        const input = document.getElementById('input');
-        const messages = document.getElementById('messages');
+        // socket.on('connect', () => {
+        //     console.log('Connected to the server');
+        //     document.getElementById('status-label').lastChild.innerText = 'Connected';
+        // });
+        // socket.on("error", (err) => {
+        //     console.error("Socket error:", err);
+        // });
+        // const form = document.getElementById('chat-form');
+        // const input = document.getElementById('input');
+        // const messages = document.getElementById('messages');
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (input.value) {
-                socket.emit('chat', input.value);
-                input.value = '';
-            }
-        });
+        // form.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     if (input.value) {
+        //         socket.emit('chat', input.value);
+        //         input.value = '';
+        //     }
+        // });
 
-        socket.on('chat', (msg, serverOffset) => {
-            const item = document.createElement('li');
-            item.textContent = msg;
-            messages.appendChild(item);
-            window.scrollTo(0, document.body.scrollHeight);
-            socket.auth.serverOffset = serverOffset;
-        });
+        // socket.on('chat', (msg, serverOffset) => {
+        //     const item = document.createElement('li');
+        //     item.textContent = msg;
+        //     messages.appendChild(item);
+        //     window.scrollTo(0, document.body.scrollHeight);
+        //     socket.auth.serverOffset = serverOffset;
+        // });
 
         // const toggleButton = document.getElementById('toggle-btn');
 
@@ -615,36 +619,156 @@
     </script>
 
     <script type="text/javascript">
-        class NukuStockData {
-            #data;
-            #newData;
-
-            constructor(data) {
-                this.#data = data;
-                this.#newData = data;
+        class Datafeed {
+            constructor(data = []) {
+                this.data = this._processData(data);
+                this.newData = this._processData(data);
             }
 
-            getData() {
-                return this.#data;
-            }
-
-            setData(data) {
-                this.#data = data;
+            _processData(data) {
+                if (!Array.isArray(data)) {
+                    throw new Error("Data must be an array");
+                }
+                delete data['_id'];
+                return data;
             }
 
             between(startDate, endDate) {
-                this.#newData = Object.groupBy(this.#data, (e) => e[name]);
+                this.newData = Object.groupBy(this.newData, (e) => e[name]);
                 return this;
             }
 
             groupBy(name) {
-                this.#newData = Object.groupBy(this.#data, (e) => e[name]);
+                this.newData = Object.groupBy(this.newData, (e) => e[name]);
                 return this;
             }
 
             slice(start, end) {
-                this.#newData = this.#data.slice(start, end);
+                this.newData = this.data.slice(start, end);
                 return this;
+            }
+
+            getBars(count) {
+                if (this.newData.length === 0) {
+                    return this.data.slice(0, count);
+                }
+                return this.newData.slice(0, count);
+            }
+
+            getCandlesticks(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    open: d.open,
+                    high: d.high,
+                    low: d.low,
+                    close: d.close
+                }));
+            }
+
+            getVolume(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.volume
+                }));
+            }
+
+            getBid(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.bid
+                }));
+            }
+
+            getOffer(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.offer
+                }));
+            }
+
+            getArea(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.close
+                }));
+            }
+
+            getGroupedByDay() {
+                return this.data.reduce((acc, current) => {
+                    const day = new Date(current.date).toISOString().split('T')[0];
+                    if (!acc[day]) {
+                        acc[day] = [];
+                    }
+                    acc[day].push(current);
+                    return acc;
+                }, {});
+            }
+
+            getGroupedByWeek() {
+                return this.data.reduce((acc, current) => {
+                    const date = new Date(current.date);
+                    const year = date.getFullYear();
+                    const week = this._getWeekNumber(date);
+                    const key = `${year}-W${week}`;
+                    if (!acc[key]) {
+                        acc[key] = [];
+                    }
+                    acc[key].push(current);
+                    return acc;
+                }, {});
+            }
+
+            _getWeekNumber(date) {
+                const start = new Date(date.getFullYear(), 0, 1);
+                const days = Math.floor((date - start) / (24 * 60 * 60 * 1000));
+                return Math.ceil((days + start.getDay() + 1) / 7);
+            }
+
+            groupedByMonth() {
+                return this.data.reduce((acc, current) => {
+                    const yearMonth = new Date(current.date).toISOString().slice(0, 7);
+                    if (!acc[yearMonth]) {
+                        acc[yearMonth] = [];
+                    }
+                    acc[yearMonth].push(current);
+                    return acc;
+                }, {});
+            }
+
+            groupedByYear() {
+                return this.data.reduce((acc, current) => {
+                    const year = new Date(current.date).getFullYear();
+                    if (!acc[year]) {
+                        acc[year] = [];
+                    }
+                    acc[year].push(current);
+                    return acc;
+                }, {});
+            }
+
+            getGroupedBySymbol() {
+                return Object.groupBy(this.data, (e) => e.symbol);
+            }
+
+            calculateMovingAverageSeriesData(candleData, maLength) {
+                const maData = [];
+
+                for (let i = 0; i < candleData.length; i++) {
+                    if (i < maLength) {
+                        // Provide whitespace data points until the MA can be calculated
+                        maData.push({ time: candleData[i].time });
+                    } else {
+                        // Calculate the moving average, slow but simple way
+                        let sum = 0;
+                        for (let j = 0; j < maLength; j++) {
+                            sum += candleData[i - j].close;
+                        }
+                        const maValue = sum / maLength;
+                        maData.push({ time: candleData[i].time, value: maValue });
+                    }
+                }
+
+                return maData;
             }
         }
 
@@ -655,11 +779,14 @@
                 day: new Date(date).getDate() 
             }
         }
+
+        const datafeed = new Datafeed(quotesData);
+        console.log(datafeed.getBars(50));
     </script>
 
     <script type="text/javascript">
             (function () {
-                const stocks = ['BSP', 'CCP', 'CGA', 'CPL', 'KAM', 'KSL', 'NEM', 'NGP', 'NIU', 'SST', 'STO'];
+                const stocks = ['BSP', 'CCP', 'CGA', 'CPL', 'KAM', 'KSL', 'NEM', 'NGP', 'NIU', 'SST'];
                 let ticker = "BSP";
                 const selectedStockEl = document.getElementById("selectedStock");
                 const stocklist = document.getElementById("stockList");
@@ -686,7 +813,7 @@
                 }));
                 // console.log(candleData)
 
-                let volumeData = stocksGroup[ticker].slice(0, 20).map(d => ({
+                let volumeData = stocksGroup[ticker].slice(0, 50).map(d => ({
                     value: d.volume,
                     time: d.date,
                     // time: new Date(d.date).getTime(),
@@ -697,7 +824,17 @@
                     value: d.bid,
                     time: d.date
                 }));
-                console.log(bidData)
+                // console.log(bidData)
+                let offerData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                    value: d.offer,
+                    time: d.date
+                }));
+                // console.log(offerData)
+
+                let openData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                    value: d.open,
+                    time: d.date
+                }));
 
                 let localDayData = stocksGroup[ticker].map(d => ({
                     value: d.bid,
@@ -743,6 +880,10 @@
                 //     candleStickChart.applyOptions({ height: 200 });
                 // });
                 
+                const maData = datafeed.calculateMovingAverageSeriesData(candleData, 20);
+                const maSeries = candleStickChart.addSeries(LightweightCharts.LineSeries, { color: '#2962FF', lineWidth: 1 });
+                maSeries.setData(maData);
+                
                 // Candlestick
                 const candlestickSeries = candleStickChart.addSeries(LightweightCharts.CandlestickSeries, {
                     upColor: '#26a69a',
@@ -764,12 +905,65 @@
                 // // Creating the new bar
                 // areaSeries.update({ time: '2019-01-01', value: 20 });
                 // candlestickSeries.update({ time: '2019-01-01', open: 112, high: 112, low: 100, close: 101 });
-
+                candleStickChart.timeScale().fitContent();
 
                 // histogram
                 const histogramContainer = document.getElementById('histogram');
-                const histogramChart = LightweightCharts.createChart(histogramContainer, chartOptions);
-                const histogramSeries = histogramChart.addSeries(LightweightCharts.HistogramSeries, { color: '#26a69a' });
+                const histogramChart = LightweightCharts.createChart(histogramContainer, Object.assign(chartOptions, {
+                    rightPriceScale: {
+                        borderVisible: false,
+                    },
+                    panes: {
+                        separatorColor: '#f22c3d',
+                        separatorHoverColor: 'rgba(255, 0, 0, 0.1)',
+                        // setting this to false will disable the resize of the panes by the user
+                        enableResize: false,
+                    },
+                }));
+                histogramChart.applyOptions({
+                    layout: {
+                        panes: {
+                            separatorColor: '#ff0000',
+                            separatorHoverColor: '#00ff00',
+                            enableResize: false,
+                        },
+                    },
+                });
+                const areaSeries2 = histogramChart.addSeries(LightweightCharts.AreaSeries, {
+                    topColor: '#2962FF',
+                    bottomColor: 'rgba(41, 98, 255, 0.28)',
+                    lineColor: '#2962FF',
+                    lineWidth: 2,
+                });
+                areaSeries2.priceScale().applyOptions({
+                    scaleMargins: {
+                        // positioning the price scale for the area series
+                        top: 0.1,
+                        bottom: 0.4,
+                    },
+                });
+                const histogramSeries = histogramChart.addSeries(LightweightCharts.HistogramSeries, { 
+                    color: '#26a69a',
+                    priceFormat: {
+                        type: 'volume',
+                    },
+                    priceScaleId: '', // set as an overlay by setting a blank priceScaleId
+                },
+                // 1 // Pane index
+                );
+                // histogramSeries.moveToPane(2);
+                // const secondPane = histogramChart.panes()[1];
+                // secondPane.setHeight(300);
+                // secondPane.moveTo(0);
+                // histogramChart.removePane(1);
+                histogramSeries.priceScale().applyOptions({
+                    // set the positioning of the volume series
+                    scaleMargins: {
+                        top: 0.7, // highest point of the series will be 70% away from the top
+                        bottom: 0,
+                    },
+                });
+                areaSeries2.setData(bidData);
                 histogramSeries.setData(volumeData);
                 histogramChart.timeScale().fitContent();
 
@@ -785,9 +979,61 @@
                     '1Y': 'rgb(164, 89, 209)',
                 };
 
-                // bid and offer
-                const lineSeries = lineSeriesChart.addSeries(LightweightCharts.LineSeries, { color: intervalColors['1D'] });
+                const lineSeries = lineSeriesChart.addSeries(LightweightCharts.LineSeries, { 
+                    // color: intervalColors['1D'],
+                    color: '#2962FF',
+                    lineWidth: 2,
+                    // disabling built-in price lines
+                    lastValueVisible: false,
+                    priceLineVisible: false,
+                });
+
                 lineSeries.setData(bidData);
+
+                let minimumPrice = bidData[0].value;
+                let maximumPrice = minimumPrice;
+                for (let i = 1; i < bidData.length; i++) {
+                    const price = bidData[i].value;
+                    if (price > maximumPrice) {
+                        maximumPrice = price;
+                    }
+                    if (price < minimumPrice) {
+                        minimumPrice = price;
+                    }
+                }
+                const avgPrice = (maximumPrice + minimumPrice) / 2;
+
+                const lineWidth = 2;
+                const minPriceLine = {
+                    price: minimumPrice,
+                    color: '#ef5350',
+                    lineWidth: lineWidth,
+                    lineStyle: 2, // LineStyle.Dashed
+                    axisLabelVisible: true,
+                    title: 'min price',
+                };
+                const avgPriceLine = {
+                    price: avgPrice,
+                    color: 'black',
+                    lineWidth: lineWidth,
+                    lineStyle: 1, // LineStyle.Dotted
+                    axisLabelVisible: true,
+                    title: 'ave price',
+                };
+                const maxPriceLine = {
+                    price: maximumPrice,
+                    color: '#26a69a',
+                    lineWidth: lineWidth,
+                    lineStyle: 2, // LineStyle.Dashed
+                    axisLabelVisible: true,
+                    title: 'max price',
+                };
+
+                lineSeries.createPriceLine(minPriceLine);
+                lineSeries.createPriceLine(avgPriceLine);
+                lineSeries.createPriceLine(maxPriceLine);
+
+                lineSeriesChart.timeScale().fitContent();
 
                 // function setChartInterval(interval) {
                 //     lineSeries.setData(seriesesData.get(interval));
@@ -872,36 +1118,12 @@
                 //     console.log(param)
                 // })
 
-                function calculateMovingAverageSeriesData(candleData, maLength) {
-                    const maData = [];
-
-                    for (let i = 0; i < candleData.length; i++) {
-                        if (i < maLength) {
-                            // Provide whitespace data points until the MA can be calculated
-                            maData.push({ time: candleData[i].time });
-                        } else {
-                            // Calculate the moving average, slow but simple way
-                            let sum = 0;
-                            for (let j = 0; j < maLength; j++) {
-                                sum += candleData[i - j].close;
-                            }
-                            const maValue = sum / maLength;
-                            maData.push({ time: candleData[i].time, value: maValue });
-                        }
-                    }
-
-                    return maData;
-                }
-
                 const barSeriesContainer = document.getElementById("barseries")
                 const barSeriesChart = LightweightCharts.createChart(barSeriesContainer, chartOptions)
-
                 const barSeries = barSeriesChart.addSeries(LightweightCharts.BarSeries, { upColor: '#26a69a', downColor: '#ef5350' });
                 barSeries.setData(tickerData);
+                barSeriesChart.timeScale().fitContent();
 
-                // const maData = calculateMovingAverageSeriesData(candleData, 20);
-                // const maSeries = barSeriesChart.addSeries(LightweightCharts.LineSeries, { color: '#2962FF', lineWidth: 1 });
-                // maSeries.setData(maData);
 
                 // baseline
                 const baselineContainer = document.getElementById("baseline")
@@ -916,8 +1138,8 @@
                     bottomFillColor2: 'rgba( 239, 83, 80, 0.28)'
                 });
                 // baselineSeries.setData(dayData);
-                console.log(localDayData.slice(0, 90))
                 baselineSeries.setData(localDayData.slice(10, 50));
+                baselineChart.timeScale().fitContent();
 
                 function addData(chart, label, newData) {
                     // Update the most recent bar
@@ -933,14 +1155,9 @@
                 }
 
                 // Yield Curve Chart
-                const chartOptions2 = {
-                    width: 700,
-                    height: 300,
-                    autoSize: true,
-                    layout: {
-                        textColor: 'black',
-                        background: { type: 'solid', color: 'white' },
-                    },
+                const yieldCurveChartContainer = document.getElementById('yieldcurve');
+                const yieldCurveChart = LightweightCharts.createYieldCurveChart(yieldCurveChartContainer, Object.assign(chartOptions, {
+                    // autoSize: true,
                     yieldCurve: {
                         baseResolution: 12,
                         minimumTimeRange: 10,
@@ -959,9 +1176,7 @@
                     timeScale: {
                         minBarSpacing: 3,
                     },
-                };
-                const yieldCurveChartContainer = document.getElementById('yieldcurve');
-                const yieldCurveChart = LightweightCharts.createYieldCurveChart(yieldCurveChartContainer, chartOptions2);
+                }));
                 const curve1 = [
                     { time: 1, value: 5.378 },
                     { time: 2, value: 5.372 },
@@ -1013,7 +1228,6 @@
                 yieldCurveChart.timeScale().subscribeSizeChange(() => {
                     yieldCurveChart.timeScale().fitContent();
                 });
-
                 setInterval(() => {
                     curve1
                         .filter(() => Math.random() < 0.1)
@@ -1057,7 +1271,67 @@
                         bottom: 0.25,
                     },
                 });
+                areaSeriesChart.applyOptions({
+                    rightPriceScale: {
+                        scaleMargins: {
+                            top: 0.3, // leave some space for the legend
+                            bottom: 0.25,
+                        },
+                    },
+                    crosshair: {
+                        // hide the horizontal crosshair line
+                        horzLine: {
+                            visible: false,
+                            labelVisible: false,
+                        },
+                    },
+                    // hide the grid lines
+                    grid: {
+                        vertLines: {
+                            visible: false,
+                        },
+                        horzLines: {
+                            visible: false,
+                        },
+                    },
+                });
                 areaSeries.setData(volumeData);
+                const legend = document.createElement('div');
+                legend.style = `position: absolute; left: 12px; top: 12px; z-index: 1; font-size: 14px; font-family: sans-serif; line-height: 18px; font-weight: 300;`;
+                areaSeriesContainer.appendChild(legend);
+                const getLastBar = series => {
+                    const lastIndex = series.dataByIndex(Number.MAX_SAFE_INTEGER, -1);
+                    return series.dataByIndex(lastIndex);
+                };
+                const formatPrice = price => (Math.round(price * 100) / 100).toFixed(2);
+                const setTooltipHtml = (name, date, price) => {
+                    legend.innerHTML = `<div style="font-size: 24px; margin: 4px 0px;">${name}</div><div style="font-size: 22px; margin: 4px 0px;">${price}</div><div>${date}</div>`;
+                };
+                const updateLegend = param => {
+                    const validCrosshairPoint = !(
+                        param === undefined || param.time === undefined || param.point.x < 0 || param.point.y < 0
+                    );
+                    const bar = validCrosshairPoint ? param.seriesData.get(areaSeries) : getLastBar(areaSeries);
+                    // time is in the same format that you supplied to the setData method,
+                    // which in this case is YYYY-MM-DD
+                    const time = bar.time;
+                    const price = bar.value !== undefined ? bar.value : bar.close;
+                    const formattedPrice = formatPrice(price);
+                    setTooltipHtml(ticker, time, formattedPrice);
+                };
+                areaSeriesChart.subscribeCrosshairMove(updateLegend);
+                updateLegend(undefined);
+                // areaSeriesChart.subscribeCrosshairMove((param) => {
+                //     let priceFormatted = '';
+                //     console.log(param)
+                //     if (param.time) {
+                //         const dataPoint = param.seriesData.get(areaSeries);
+                //         const price = data.value !== undefined ? data.value : data.close;
+                //         priceFormatted = price.toFixed(2);
+                //     }
+                //     // legend is a html element which has already been created
+                //     legend.innerHTML = `${ticker} <strong>${priceFormatted}</strong>`;
+                // });
                 areaSeriesChart.timeScale().fitContent();
 
 
@@ -1081,7 +1355,6 @@
                     wickUpColor: '#26a69a',
                     wickDownColor: '#ef5350',
                 });
-
                 // // Setting the border color for the vertical axis
                 // realtimeChart.priceScale().applyOptions({
                 //     borderColor: "#71649C",
@@ -1335,17 +1608,153 @@
                 buttonsContainer1.appendChild(button);
                 realtimeChartContainer.appendChild(buttonsContainer1);
 
-                realtimeChart.timeScale().subscribeVisibleLogicalRangeChange(logicalRange => {
-                    if (logicalRange.from < 10) {
-                        // load more data
-                        const numberBarsToLoad = 50 - logicalRange.from;
-                        // const data = datafeed.getBars(numberBarsToLoad);
-                        // console.log(numberBarsToLoad)
-                        setTimeout(() => {
-                            // series.setData(data);
-                        }, 250); // add a loading delay
-                    }
+                // realtimeChart.timeScale().subscribeVisibleLogicalRangeChange(logicalRange => {
+                //     if (logicalRange.from < 10) {
+                //         // load more data
+                //         const numberBarsToLoad = Math.abs(50 - logicalRange.from);
+                //         const data = datafeed.getBars(numberBarsToLoad);
+                //         setTimeout(() => {
+                //             series.setData(data);
+                //         }, 250); // add a loading delay
+                //     }
+                // });
+                
+                // const datesForMarkers = [data[data.length - 39], data[data.length - 19]];
+                // let indexOfMinPrice = 0;
+                // for (let i = 1; i < datesForMarkers.length; i++) {
+                //     if (datesForMarkers[i].high < datesForMarkers[indexOfMinPrice].high) {
+                //         indexOfMinPrice = i;
+                //     }
+                // }
+                const markers = [
+                    {
+                        time: { year: 2018, month: 12, day: 23 },
+                        position: 'aboveBar',
+                        color: '#f68410',
+                        shape: 'circle',
+                        text: 'A',
+                    },
+                    // {
+                    //     time: data[data.length - 48].time,
+                    //     position: 'aboveBar',
+                    //     color: '#f68410',
+                    //     shape: 'circle',
+                    //     text: 'D',
+                    // },
+                ];
+                // for (let i = 0; i < datesForMarkers.length; i++) {
+                //     if (i !== indexOfMinPrice) {
+                //         markers.push({
+                //             time: datesForMarkers[i].time,
+                //             position: 'aboveBar',
+                //             color: '#e91e63',
+                //             shape: 'arrowDown',
+                //             text: 'Sell @ ' + Math.floor(datesForMarkers[i].high + 2),
+                //         });
+                //     } else {
+                //         markers.push({
+                //             time: datesForMarkers[i].time,
+                //             position: 'belowBar',
+                //             color: '#2196F3',
+                //             shape: 'arrowUp',
+                //             text: 'Buy @ ' + Math.floor(datesForMarkers[i].low - 2),
+                //         });
+                //     }
+                // }
+                LightweightCharts.createSeriesMarkers(series, markers);
+                realtimeChart.timeScale().fitContent();
+                
+                // bid and offer
+                const bidofferContainer = document.getElementById('bidoffer');
+                const bidofferChart = LightweightCharts.createYieldCurveChart(bidofferContainer, Object.assign(chartOptions, {
+
+                }));
+                // bidofferChart.applyOptions({
+                //     rightPriceScale: {
+                //         visible: true,
+                //     },
+                //     leftPriceScale: {
+                //         visible: true,
+                //     },
+                // });
+                const bidSeries = bidofferChart.addSeries(LightweightCharts.LineSeries, {
+                    // lineType: 2,
+                    color: 'red',
+                    // pointMarkersVisible: true,
+                    // lineWidth: 2,
                 });
+                const offerSeries = bidofferChart.addSeries(LightweightCharts.LineSeries, {
+                    // lineType: 2,
+                    color: '#26c6da',
+                    // pointMarkersVisible: true,
+                    // lineWidth: 2,
+                });
+                const openSeries = bidofferChart.addSeries(LightweightCharts.LineSeries, {
+                    // lineType: 2,
+                    color: '#26c6da',
+                    // pointMarkersVisible: true,
+                    // lineWidth: 2,
+                });
+                bidSeries.setData(bidData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
+                offerSeries.setData(offerData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
+                openSeries.setData(openData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
+                bidofferChart.timeScale().fitContent();
+                
+
+                // candlestick with volume
+                const candlestickContainer = document.getElementById('volume');
+                const candlestickChart = LightweightCharts.createChart(candlestickContainer, Object.assign(chartOptions, {
+                    layout: {
+                        textColor: 'black',
+                        background: { type: 'solid', color: 'white' },
+                        panes: {
+                            separatorColor: '#f22c3d',
+                            separatorHoverColor: 'rgba(255, 0, 0, 0.1)',
+                            // setting this to false will disable the resize of the panes by the user
+                            enableResize: false,
+                        },
+                    },
+                    grid: {
+                        vertLines: {
+                            visible: false,
+                        },
+                        horzLines: {
+                            visible: false,
+                        },
+                    },
+                    timeScale: {
+                        minBarSpacing: 3,
+                    },
+                }));
+                // const volumeSeries = candlestickChart.addSeries(LightweightCharts.BarSeries, {
+                //     upColor: '#26a69a',
+                //     downColor: '#ef5350',
+                //     borderVisible: false,
+                //     wickUpColor: '#26a69a',
+                //     wickDownColor: '#ef5350',
+                // });
+                const candlestickSeries1 = candlestickChart.addSeries(LightweightCharts.CandlestickSeries, {
+                    upColor: '#26a69a',
+                    downColor: '#ef5350',
+                    borderVisible: false,
+                    wickUpColor: '#26a69a',
+                    wickDownColor: '#ef5350',
+                    upColor: '#26a69a', downColor: '#ef5350', borderVisible: false,
+                    wickUpColor: '#26a69a', wickDownColor: '#ef5350',
+                }, 1);
+                const areaSeries1 = candlestickChart.addSeries(LightweightCharts.AreaSeries, {
+                    topColor: '#2962FF',
+                    bottomColor: 'rgba(41, 98, 255, 0.28)',
+                    lineColor: '#2962FF',
+                    lineWidth: 2,
+                });
+                areaSeries1.setData(volumeData);
+                // volumeSeries.setData(volumeData);
+                candlestickSeries1.setData(candleData);
+                const candlesPane = candlestickChart.panes()[1];
+                candlesPane.moveTo(0);
+                candlesPane.setHeight(150);
+                candlestickChart.timeScale().fitContent();
             }())
     </script>
 </body>
