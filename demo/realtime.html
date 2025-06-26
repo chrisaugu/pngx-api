@@ -675,9 +675,8 @@
                 selectedStockEl.innerText = `Stock: ${ticker}`;
 
                 let stocksGroup = Object.groupBy(quotesData, (e) => e.symbol);
-                // console.log(stocksGroup)
 
-                let candleData = stocksGroup[ticker].slice(0, 20).map(d => ({
+                let candleData = stocksGroup[ticker].slice(0, 50).map(d => ({
                     open: d.open,
                     high: d.high,
                     low: d.low,
@@ -694,11 +693,16 @@
                 }));
                 // console.log(volumeData)
                 
-                let bidData = stocksGroup[ticker].slice(0, 20).map(d => ({
-                    value: d.offer,
+                let bidData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                    value: d.bid,
                     time: d.date
                 }));
-                // console.log(bidData)
+                console.log(bidData)
+
+                let localDayData = stocksGroup[ticker].map(d => ({
+                    value: d.bid,
+                    time: d.date
+                }));
 
                 const chartOptions = Object.assign({
                     layout: {
@@ -785,24 +789,24 @@
                 const lineSeries = lineSeriesChart.addSeries(LightweightCharts.LineSeries, { color: intervalColors['1D'] });
                 lineSeries.setData(bidData);
 
-                function setChartInterval(interval) {
-                    lineSeries.setData(seriesesData.get(interval));
-                    lineSeries.applyOptions({
-                        color: intervalColors[interval],
-                    });
-                    lineSeriesChart.timeScale().fitContent();
-                }
-                setChartInterval('1D');
-                const buttonsContainer = document.createElement('div');
-                buttonsContainer.classList.add('buttons-container');
-                const intervals = ['1D', '1W', '1M', '1Y'];
-                intervals.forEach(interval => {
-                    const button = document.createElement('button');
-                    button.innerText = interval;
-                    button.addEventListener('click', () => setChartInterval(interval));
-                    buttonsContainer.appendChild(button);
-                });
-                lineSeriesContainer.appendChild(buttonsContainer);
+                // function setChartInterval(interval) {
+                //     lineSeries.setData(seriesesData.get(interval));
+                //     lineSeries.applyOptions({
+                //         color: intervalColors[interval],
+                //     });
+                //     lineSeriesChart.timeScale().fitContent();
+                // }
+                // setChartInterval('1D');
+                // const buttonsContainer = document.createElement('div');
+                // buttonsContainer.classList.add('buttons-container');
+                // const intervals = ['1D', '1W', '1M', '1Y'];
+                // intervals.forEach(interval => {
+                //     const button = document.createElement('button');
+                //     button.innerText = interval;
+                //     button.addEventListener('click', () => setChartInterval(interval));
+                //     buttonsContainer.appendChild(button);
+                // });
+                // lineSeriesContainer.appendChild(buttonsContainer);
 
                 // const toolTipWidth = 80;
                 // const toolTipHeight = 80;
@@ -903,7 +907,7 @@
                 const baselineContainer = document.getElementById("baseline")
                 const baselineChart = LightweightCharts.createChart(baselineContainer, chartOptions)
                 const baselineSeries = baselineChart.addSeries(LightweightCharts.BaselineSeries, {
-                    baseValue: { type: 'price', price: 25 },
+                    baseValue: { type: 'price', price: 12 },
                     topLineColor: 'rgba( 38, 166, 154, 1)',
                     topFillColor1: 'rgba( 38, 166, 154, 0.28)',
                     topFillColor2: 'rgba( 38, 166, 154, 0.05)',
@@ -911,7 +915,9 @@
                     bottomFillColor1: 'rgba( 239, 83, 80, 0.05)',
                     bottomFillColor2: 'rgba( 239, 83, 80, 0.28)'
                 });
-                baselineSeries.setData(dayData);
+                // baselineSeries.setData(dayData);
+                console.log(localDayData.slice(0, 90))
+                baselineSeries.setData(localDayData.slice(10, 50));
 
                 function addData(chart, label, newData) {
                     // Update the most recent bar
@@ -923,9 +929,8 @@
                     // lineSeries.update({ time: '2019-01-01', open: 112, high: 112, low: 100, close: 101 });
                 }
 
-                // function removeData(chart) {
-                // }
-
+                function removeData(chart) {
+                }
 
                 // Yield Curve Chart
                 const chartOptions2 = {
