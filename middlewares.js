@@ -1,4 +1,5 @@
 const cors = require("cors");
+const semver = require("semver");
 const redis = require("redis");
 const rateLimiter = require("ratelimiter");
 const setRateLimit = require("express-rate-limit");
@@ -6,6 +7,7 @@ const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
 const createError = require("http-errors");
+const { ALLOWED_IP_LIST, ORIGINAL_URL } = require("./config");
 const logger = require("./libs/logger").winstonLogger;
 
 exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
@@ -25,6 +27,13 @@ exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
     next();
   }
 };
+
+exports.corsMiddleware = cors({
+  origin: ORIGINAL_URL,
+  allowedHeaders: ["sessionId", "Content-Type"],
+  exposedHeaders: ["sessionId"],
+  methods: "GET,PUT,PATCH,POST,DELETE",
+});
 
 exports.allowMethodOverride = function allowMethodOverride(req, res, next) {
   if (req.method === "POST" && req.body._method) {
@@ -140,7 +149,7 @@ exports.rateLimitMiddleware = setRateLimit({
       error: "You sent too many requests. Please wait a while then try again",
     });
   },
-  skip: (req) => allowlist.includes(req.ip),
+  skip: (req) => ALLOWED_IP_LIST.includes(req.ip),
 });
 
 exports.rateLimit = function rateLimit(req, res, next) {
@@ -188,3 +197,12 @@ exports.corsMiddleware = cors({
   exposedHeaders: ["sessionId"],
   methods: "GET,PUT,PATCH,POST,DELETE",
 });
+
+exports.versionMiddleware = function (version) {
+  return function (req, res, next) {
+    if (semver.gte(req.headers["x-version"], version)) {
+      return next();
+    }
+    return next("route"); // skip to the next route
+  };
+};

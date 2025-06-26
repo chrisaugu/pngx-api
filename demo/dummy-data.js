@@ -531,8 +531,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -549,8 +548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -567,8 +565,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -585,8 +582,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -603,8 +599,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -621,8 +616,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -693,8 +687,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -711,8 +704,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -729,8 +721,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -747,8 +738,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -765,8 +755,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -783,8 +772,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -801,8 +789,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -819,8 +806,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -837,8 +823,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -855,8 +840,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -873,8 +857,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -891,8 +874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -909,8 +891,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -927,8 +908,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -945,8 +925,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -963,8 +942,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -981,8 +959,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -999,8 +976,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1017,8 +993,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1035,8 +1010,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1053,8 +1027,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1071,8 +1044,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1089,8 +1061,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1107,8 +1078,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1125,8 +1095,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1143,8 +1112,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1161,8 +1129,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1179,8 +1146,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1197,8 +1163,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1215,8 +1180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1233,8 +1197,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1251,8 +1214,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1269,8 +1231,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1287,8 +1248,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1305,8 +1265,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1323,8 +1282,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1341,8 +1299,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1359,8 +1316,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1377,8 +1333,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1395,8 +1350,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1413,8 +1367,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1431,8 +1384,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1449,8 +1401,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1467,8 +1418,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1485,8 +1435,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1503,8 +1452,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1521,8 +1469,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1539,8 +1486,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1557,8 +1503,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1575,8 +1520,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1593,8 +1537,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1611,8 +1554,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1629,8 +1571,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1647,8 +1588,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1665,8 +1605,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1683,8 +1622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1701,8 +1639,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1719,8 +1656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1737,8 +1673,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1755,8 +1690,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1773,8 +1707,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1791,8 +1724,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1809,8 +1741,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1827,8 +1758,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1845,8 +1775,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1863,8 +1792,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1881,8 +1809,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1899,8 +1826,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1917,8 +1843,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1935,8 +1860,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1953,8 +1877,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1971,8 +1894,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -1989,8 +1911,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2007,8 +1928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2025,8 +1945,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2043,8 +1962,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2061,8 +1979,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2079,8 +1996,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2097,8 +2013,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2115,8 +2030,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2133,8 +2047,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2151,8 +2064,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2169,8 +2081,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2187,8 +2098,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2205,8 +2115,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2223,8 +2132,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2241,8 +2149,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2259,8 +2166,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2277,8 +2183,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2295,8 +2200,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2313,8 +2217,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2331,8 +2234,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2349,8 +2251,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2367,8 +2268,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2385,8 +2285,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2403,8 +2302,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2421,8 +2319,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2439,8 +2336,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2457,8 +2353,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2475,8 +2370,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2493,8 +2387,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2511,8 +2404,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2529,8 +2421,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2547,8 +2438,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2565,8 +2455,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2583,8 +2472,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2601,8 +2489,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2619,8 +2506,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2637,8 +2523,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2655,8 +2540,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2673,8 +2557,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2691,8 +2574,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2709,8 +2591,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2727,8 +2608,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2745,8 +2625,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2763,8 +2642,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2781,8 +2659,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2799,8 +2676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2817,8 +2693,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2835,8 +2710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2853,8 +2727,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2871,8 +2744,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2889,8 +2761,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2907,8 +2778,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2925,8 +2795,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2943,8 +2812,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2961,8 +2829,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2979,8 +2846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -2997,8 +2863,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3015,8 +2880,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3033,8 +2897,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3051,8 +2914,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3069,8 +2931,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3087,8 +2948,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3105,8 +2965,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3123,8 +2982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3141,8 +2999,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3159,8 +3016,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3177,8 +3033,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3195,8 +3050,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3213,8 +3067,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3231,8 +3084,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3249,8 +3101,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3267,8 +3118,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3285,8 +3135,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3303,8 +3152,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3321,8 +3169,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3339,8 +3186,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3357,8 +3203,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3375,8 +3220,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3393,8 +3237,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3411,8 +3254,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3429,8 +3271,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3447,8 +3288,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3465,8 +3305,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3483,8 +3322,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3501,8 +3339,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3519,8 +3356,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3537,8 +3373,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3555,8 +3390,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3573,8 +3407,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3591,8 +3424,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3609,8 +3441,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3627,8 +3458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3645,8 +3475,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3663,8 +3492,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3681,8 +3509,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3699,8 +3526,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3717,8 +3543,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3735,8 +3560,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3753,8 +3577,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3771,8 +3594,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3789,8 +3611,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3807,8 +3628,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3825,8 +3645,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3843,8 +3662,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3861,8 +3679,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3879,8 +3696,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3897,8 +3713,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3915,8 +3730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3933,8 +3747,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3951,8 +3764,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3969,8 +3781,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -3987,8 +3798,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4005,8 +3815,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4023,8 +3832,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4041,8 +3849,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4059,8 +3866,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4077,8 +3883,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4095,8 +3900,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4113,8 +3917,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4131,8 +3934,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4149,8 +3951,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4167,8 +3968,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4185,8 +3985,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4203,8 +4002,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4221,8 +4019,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4239,8 +4036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4257,8 +4053,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4275,8 +4070,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4293,8 +4087,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4311,8 +4104,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4329,8 +4121,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4347,8 +4138,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4365,8 +4155,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4383,8 +4172,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4401,8 +4189,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4419,8 +4206,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4437,8 +4223,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4455,8 +4240,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4473,8 +4257,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4491,8 +4274,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4509,8 +4291,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4527,8 +4308,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4545,8 +4325,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4563,8 +4342,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4581,8 +4359,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4599,8 +4376,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4617,8 +4393,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4635,8 +4410,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4653,8 +4427,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4671,8 +4444,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4689,8 +4461,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4707,8 +4478,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4725,8 +4495,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4743,8 +4512,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4761,8 +4529,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4779,8 +4546,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4797,8 +4563,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4815,8 +4580,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4833,8 +4597,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4851,8 +4614,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4869,8 +4631,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4887,8 +4648,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4905,8 +4665,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4923,8 +4682,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4941,8 +4699,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4959,8 +4716,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4977,8 +4733,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -4995,8 +4750,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5013,8 +4767,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5031,8 +4784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5049,8 +4801,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5067,8 +4818,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5085,8 +4835,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5103,8 +4852,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5121,8 +4869,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5139,8 +4886,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5157,8 +4903,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5175,8 +4920,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5193,8 +4937,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5211,8 +4954,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5229,8 +4971,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5247,8 +4988,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5265,8 +5005,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5283,8 +5022,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5301,8 +5039,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5319,8 +5056,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5337,8 +5073,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5355,8 +5090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5373,8 +5107,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5391,8 +5124,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5409,8 +5141,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5427,8 +5158,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5445,8 +5175,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5463,8 +5192,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5481,8 +5209,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5499,8 +5226,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5517,8 +5243,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5535,8 +5260,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5553,8 +5277,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5571,8 +5294,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5589,8 +5311,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5607,8 +5328,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5625,8 +5345,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5643,8 +5362,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5661,8 +5379,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5679,8 +5396,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5697,8 +5413,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5715,8 +5430,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5733,8 +5447,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5751,8 +5464,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5769,8 +5481,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5787,8 +5498,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5805,8 +5515,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5823,8 +5532,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5841,8 +5549,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5859,8 +5566,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5877,8 +5583,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5895,8 +5600,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5913,8 +5617,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5931,8 +5634,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5949,8 +5651,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5967,8 +5668,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -5985,8 +5685,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6003,8 +5702,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6021,8 +5719,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6039,8 +5736,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6057,8 +5753,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6075,8 +5770,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6093,8 +5787,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6111,8 +5804,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6129,8 +5821,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6147,8 +5838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6165,8 +5855,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6183,8 +5872,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6201,8 +5889,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6219,8 +5906,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6237,8 +5923,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6255,8 +5940,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6273,8 +5957,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6291,8 +5974,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6309,8 +5991,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6327,8 +6008,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6345,8 +6025,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6363,8 +6042,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6381,8 +6059,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6399,8 +6076,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6417,8 +6093,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6435,8 +6110,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6453,8 +6127,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6471,8 +6144,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6489,8 +6161,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6507,8 +6178,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6525,8 +6195,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6543,8 +6212,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6561,8 +6229,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6579,8 +6246,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6597,8 +6263,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6615,8 +6280,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6633,8 +6297,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6651,8 +6314,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6669,8 +6331,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6687,8 +6348,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6705,8 +6365,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6723,8 +6382,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6741,8 +6399,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6759,8 +6416,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6777,8 +6433,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6795,8 +6450,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6813,8 +6467,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6831,8 +6484,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6849,8 +6501,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6867,8 +6518,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6885,8 +6535,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6903,8 +6552,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6921,8 +6569,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6939,8 +6586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6957,8 +6603,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6975,8 +6620,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -6993,8 +6637,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7011,8 +6654,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7029,8 +6671,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7047,8 +6688,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7065,8 +6705,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7083,8 +6722,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7101,8 +6739,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7119,8 +6756,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7137,8 +6773,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7155,8 +6790,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7173,8 +6807,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7191,8 +6824,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7209,8 +6841,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7227,8 +6858,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7245,8 +6875,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7263,8 +6892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7281,8 +6909,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7299,8 +6926,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7317,8 +6943,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7335,8 +6960,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7353,8 +6977,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7371,8 +6994,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7389,8 +7011,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7407,8 +7028,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7425,8 +7045,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7443,8 +7062,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7461,8 +7079,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7479,8 +7096,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7497,8 +7113,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7515,8 +7130,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7533,8 +7147,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7551,8 +7164,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7569,8 +7181,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7587,8 +7198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7605,8 +7215,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7623,8 +7232,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7641,8 +7249,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7659,8 +7266,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7677,8 +7283,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7695,8 +7300,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7713,8 +7317,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7731,8 +7334,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7749,8 +7351,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7767,8 +7368,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7785,8 +7385,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7803,8 +7402,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7821,8 +7419,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7839,8 +7436,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7857,8 +7453,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7875,8 +7470,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7893,8 +7487,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7911,8 +7504,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7929,8 +7521,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7947,8 +7538,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7965,8 +7555,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -7983,8 +7572,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8001,8 +7589,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8019,8 +7606,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8037,8 +7623,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8055,8 +7640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8073,8 +7657,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8091,8 +7674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8109,8 +7691,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8127,8 +7708,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8145,8 +7725,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8163,8 +7742,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8181,8 +7759,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8199,8 +7776,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8217,8 +7793,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8235,8 +7810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8253,8 +7827,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8271,8 +7844,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8289,8 +7861,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8307,8 +7878,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8325,8 +7895,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8343,8 +7912,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8361,8 +7929,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8379,8 +7946,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8397,8 +7963,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8415,8 +7980,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8433,8 +7997,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8451,8 +8014,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8469,8 +8031,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8487,8 +8048,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8505,8 +8065,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8523,8 +8082,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8541,8 +8099,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8559,8 +8116,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8577,8 +8133,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8595,8 +8150,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8613,8 +8167,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8631,8 +8184,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8649,8 +8201,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8667,8 +8218,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8685,8 +8235,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8703,8 +8252,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8721,8 +8269,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8739,8 +8286,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8757,8 +8303,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8775,8 +8320,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8793,8 +8337,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8811,8 +8354,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8829,8 +8371,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8847,8 +8388,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8865,8 +8405,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8883,8 +8422,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8902,8 +8440,7 @@ const quotesData = [
     open: 0,
     change: 0.65,
     volume: 32346,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -8921,8 +8458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8940,8 +8476,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8959,8 +8494,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8978,8 +8512,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -8997,8 +8530,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9016,8 +8548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9035,8 +8566,7 @@ const quotesData = [
     open: 0,
     change: -0.64,
     volume: 1000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -9054,8 +8584,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9073,8 +8602,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9092,8 +8620,7 @@ const quotesData = [
     open: 0,
     change: -0.01,
     volume: 681,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -9111,8 +8638,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9130,8 +8656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9149,8 +8674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9168,8 +8692,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9187,8 +8710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9206,8 +8728,7 @@ const quotesData = [
     open: 0,
     change: 0.01,
     volume: 6946,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -9225,8 +8746,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1689,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -9244,8 +8764,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9263,8 +8782,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9282,8 +8800,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9301,8 +8818,7 @@ const quotesData = [
     open: 0,
     change: -0.01,
     volume: 321,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -9320,8 +8836,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9339,8 +8854,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9358,8 +8872,7 @@ const quotesData = [
     open: 0,
     change: 0.01,
     volume: 1712,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -9377,8 +8890,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9396,8 +8908,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9415,8 +8926,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9434,8 +8944,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9453,8 +8962,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9472,8 +8980,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9491,8 +8998,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9510,8 +9016,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9529,8 +9034,7 @@ const quotesData = [
     open: 0,
     change: -0.01,
     volume: 411,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -9548,8 +9052,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9567,8 +9070,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9586,8 +9088,7 @@ const quotesData = [
     open: 0,
     change: 1.7,
     volume: 4800,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -9605,8 +9106,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9624,8 +9124,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9643,8 +9142,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9662,8 +9160,7 @@ const quotesData = [
     open: 0,
     change: -1.7,
     volume: 357,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -9681,8 +9178,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9700,8 +9196,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9719,8 +9214,7 @@ const quotesData = [
     open: 0,
     change: -0.3,
     volume: 6013,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -9738,8 +9232,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9757,8 +9250,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9776,8 +9268,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 5159,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -9795,8 +9286,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9814,8 +9304,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9833,8 +9322,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9852,8 +9340,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9871,8 +9358,7 @@ const quotesData = [
     open: 0,
     change: 0.2,
     volume: 58,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -9890,8 +9376,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9909,8 +9394,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9928,8 +9412,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9947,8 +9430,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9966,8 +9448,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -9985,8 +9466,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10004,8 +9484,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10023,8 +9502,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10042,8 +9520,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10061,8 +9538,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10080,8 +9556,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10099,8 +9574,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10118,8 +9592,7 @@ const quotesData = [
     open: 0,
     change: -1.2,
     volume: 3224,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -10137,8 +9610,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10156,8 +9628,7 @@ const quotesData = [
     open: 0,
     change: -1,
     volume: 466,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -10175,8 +9646,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10194,8 +9664,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10213,8 +9682,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10232,8 +9700,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10251,8 +9718,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10270,8 +9736,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10289,8 +9754,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10308,8 +9772,7 @@ const quotesData = [
     open: 0,
     change: -1.5,
     volume: 1443,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -10327,8 +9790,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10346,8 +9808,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10365,8 +9826,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10384,8 +9844,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10403,8 +9862,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10422,8 +9880,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10441,8 +9898,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10460,8 +9916,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10479,8 +9934,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10498,8 +9952,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10517,8 +9970,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10536,8 +9988,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10555,8 +10006,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10574,8 +10024,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10593,8 +10042,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10612,8 +10060,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10631,8 +10078,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10650,8 +10096,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10669,8 +10114,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10688,8 +10132,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10707,8 +10150,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10726,8 +10168,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10745,8 +10186,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10764,8 +10204,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10783,8 +10222,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10802,8 +10240,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10821,8 +10258,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10840,8 +10276,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10859,8 +10294,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10878,8 +10312,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10897,8 +10330,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10916,8 +10348,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10935,8 +10366,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10954,8 +10384,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10973,8 +10402,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -10992,8 +10420,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11011,8 +10438,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11030,8 +10456,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11049,8 +10474,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11068,8 +10492,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11087,8 +10510,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11106,8 +10528,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11125,8 +10546,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11144,8 +10564,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11163,8 +10582,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11182,8 +10600,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11201,8 +10618,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11220,8 +10636,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11239,8 +10654,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11258,8 +10672,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11277,8 +10690,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11296,8 +10708,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11315,8 +10726,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11334,8 +10744,7 @@ const quotesData = [
     open: 0,
     change: -4.5,
     volume: 3847,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -11353,8 +10762,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11372,8 +10780,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11391,8 +10798,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11410,8 +10816,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11429,8 +10834,7 @@ const quotesData = [
     open: 0,
     change: 0.1,
     volume: 375,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -11448,8 +10852,7 @@ const quotesData = [
     open: 0,
     change: 0.9,
     volume: 3590,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -11467,8 +10870,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11486,8 +10888,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11505,8 +10906,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11524,8 +10924,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11543,8 +10942,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11562,8 +10960,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11581,8 +10978,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11600,8 +10996,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 452,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -11619,8 +11014,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11638,8 +11032,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11657,8 +11050,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 89,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -11676,8 +11068,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11695,8 +11086,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11714,8 +11104,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1159,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -11733,8 +11122,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11752,8 +11140,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11771,8 +11158,7 @@ const quotesData = [
     open: 0,
     change: -0.8,
     volume: 697,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -11790,8 +11176,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1200,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -11809,8 +11194,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11828,8 +11212,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11847,8 +11230,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11866,8 +11248,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11885,8 +11266,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11904,8 +11284,7 @@ const quotesData = [
     open: 0,
     change: 0.01,
     volume: 426,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -11923,8 +11302,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11942,8 +11320,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11961,8 +11338,7 @@ const quotesData = [
     open: 0,
     change: -0.01,
     volume: 140,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -11980,8 +11356,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -11999,8 +11374,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12018,8 +11392,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12037,8 +11410,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12056,8 +11428,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12075,8 +11446,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12094,8 +11464,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12113,8 +11482,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 453,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -12132,8 +11500,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12151,8 +11518,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12170,8 +11536,7 @@ const quotesData = [
     open: 0,
     change: 0.01,
     volume: 847,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -12189,8 +11554,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12208,8 +11572,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12227,8 +11590,7 @@ const quotesData = [
     open: 0,
     change: 0.79,
     volume: 4145,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -12246,8 +11608,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12265,8 +11626,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12284,8 +11644,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12303,8 +11662,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12322,8 +11680,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12341,8 +11698,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12360,8 +11716,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12379,8 +11734,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12398,8 +11752,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12417,8 +11770,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12436,8 +11788,7 @@ const quotesData = [
     open: 0,
     change: -0.8,
     volume: 500,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -12455,8 +11806,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12474,8 +11824,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12493,8 +11842,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12512,8 +11860,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12531,8 +11878,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12550,8 +11896,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12569,8 +11914,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12588,8 +11932,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12607,8 +11950,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12626,8 +11968,7 @@ const quotesData = [
     open: 0,
     change: 0.8,
     volume: 200,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -12645,8 +11986,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12664,8 +12004,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12683,8 +12022,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12702,8 +12040,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12721,8 +12058,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12740,8 +12076,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12759,8 +12094,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12778,8 +12112,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12797,8 +12130,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12816,8 +12148,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12835,8 +12166,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12854,8 +12184,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12873,8 +12202,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12892,8 +12220,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12911,8 +12238,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12930,8 +12256,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12949,8 +12274,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12968,8 +12292,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -12987,8 +12310,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13006,8 +12328,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13025,8 +12346,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13044,8 +12364,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13063,8 +12382,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13082,8 +12400,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13101,8 +12418,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13120,8 +12436,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13139,8 +12454,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13158,8 +12472,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13177,8 +12490,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13196,8 +12508,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13215,8 +12526,7 @@ const quotesData = [
     open: 0,
     change: -0.5,
     volume: 210,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -13234,8 +12544,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13253,8 +12562,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13272,8 +12580,7 @@ const quotesData = [
     open: 0,
     change: -2.5,
     volume: 1390,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -13291,8 +12598,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13310,8 +12616,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13329,8 +12634,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13348,8 +12652,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13367,8 +12670,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13386,8 +12688,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13405,8 +12706,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1610,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -13424,8 +12724,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13443,8 +12742,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13462,8 +12760,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13481,8 +12778,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13500,8 +12796,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13519,8 +12814,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13538,8 +12832,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13557,8 +12850,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13576,8 +12868,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13595,8 +12886,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13614,8 +12904,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1200,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -13633,8 +12922,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13652,8 +12940,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13671,8 +12958,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13690,8 +12976,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13709,8 +12994,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13728,8 +13012,7 @@ const quotesData = [
     open: 0,
     change: 2.3,
     volume: 2285,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -13747,8 +13030,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13766,8 +13048,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13785,8 +13066,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 713,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -13804,8 +13084,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13823,8 +13102,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13842,8 +13120,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13861,8 +13138,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13880,8 +13156,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13899,8 +13174,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 700,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -13918,8 +13192,7 @@ const quotesData = [
     open: 0,
     change: 0.2,
     volume: 377,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -13937,8 +13210,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13956,8 +13228,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13975,8 +13246,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -13994,8 +13264,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14013,8 +13282,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14032,8 +13300,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14051,8 +13318,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14070,8 +13336,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14089,8 +13354,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 570,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -14108,8 +13372,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14127,8 +13390,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14146,8 +13408,7 @@ const quotesData = [
     open: 0,
     change: 0.02,
     volume: 1150,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -14165,8 +13426,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14184,8 +13444,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2038,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -14203,8 +13462,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14222,8 +13480,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14241,8 +13498,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14260,8 +13516,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14279,8 +13534,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14298,8 +13552,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14317,8 +13570,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14336,8 +13588,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2242,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -14355,8 +13606,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14374,8 +13624,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14393,8 +13642,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14412,8 +13660,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14431,8 +13678,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14450,8 +13696,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1243,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -14469,8 +13714,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14488,8 +13732,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14507,8 +13750,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14526,8 +13768,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14545,8 +13786,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14564,8 +13804,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14583,8 +13822,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14602,8 +13840,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14621,8 +13858,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14640,8 +13876,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14659,8 +13894,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14678,8 +13912,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14697,8 +13930,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14716,8 +13948,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14735,8 +13966,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14754,8 +13984,7 @@ const quotesData = [
     open: 0,
     change: 0.19,
     volume: 1180,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -14773,8 +14002,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14792,8 +14020,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14811,8 +14038,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14830,8 +14056,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14849,8 +14074,7 @@ const quotesData = [
     open: 0,
     change: 0.29,
     volume: 520,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -14868,8 +14092,7 @@ const quotesData = [
     open: 10,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14887,8 +14110,7 @@ const quotesData = [
     open: 10,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14906,8 +14128,7 @@ const quotesData = [
     open: 10,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14925,8 +14146,7 @@ const quotesData = [
     open: 10,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14944,8 +14164,7 @@ const quotesData = [
     open: 10,
     change: 0.02,
     volume: 2262,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -14963,8 +14182,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -14982,8 +14200,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15001,8 +14218,7 @@ const quotesData = [
     open: 10.02,
     change: -0.01,
     volume: 768,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -15020,8 +14236,7 @@ const quotesData = [
     open: 10.01,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15039,8 +14254,7 @@ const quotesData = [
     open: 10.01,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15058,8 +14272,7 @@ const quotesData = [
     open: 10.01,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15077,8 +14290,7 @@ const quotesData = [
     open: 10.01,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15096,8 +14308,7 @@ const quotesData = [
     open: 10.01,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15115,8 +14326,7 @@ const quotesData = [
     open: 10.01,
     change: 0.01,
     volume: 1076,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -15134,8 +14344,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15153,8 +14362,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15172,8 +14380,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15191,8 +14398,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15210,8 +14416,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15229,8 +14434,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15248,8 +14452,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15267,8 +14470,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15286,8 +14488,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15305,8 +14506,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15324,8 +14524,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15343,8 +14542,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15362,8 +14560,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15381,8 +14578,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15400,8 +14596,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 750,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -15419,8 +14614,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15438,8 +14632,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15457,8 +14650,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15476,8 +14668,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 499,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -15495,8 +14686,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 1317,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -15514,8 +14704,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15533,8 +14722,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15552,8 +14740,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15571,8 +14758,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15590,8 +14776,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 1023,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -15609,8 +14794,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15628,8 +14812,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15647,8 +14830,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15666,8 +14848,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15685,8 +14866,7 @@ const quotesData = [
     open: 10.02,
     change: 0.03,
     volume: 600,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -15704,8 +14884,7 @@ const quotesData = [
     open: 10.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15723,8 +14902,7 @@ const quotesData = [
     open: 10.05,
     change: 0,
     volume: 617,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -15742,8 +14920,7 @@ const quotesData = [
     open: 10.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15761,8 +14938,7 @@ const quotesData = [
     open: 10.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15780,8 +14956,7 @@ const quotesData = [
     open: 10.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15799,8 +14974,7 @@ const quotesData = [
     open: 10.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15818,8 +14992,7 @@ const quotesData = [
     open: 10.05,
     change: 0.45,
     volume: 208,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -15837,8 +15010,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15856,8 +15028,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 1676,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -15875,8 +15046,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15894,8 +15064,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15913,8 +15082,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15932,8 +15100,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15951,8 +15118,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15970,8 +15136,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -15989,8 +15154,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 480,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -16008,8 +15172,7 @@ const quotesData = [
     open: 10.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16027,8 +15190,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16046,8 +15208,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 1154,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -16065,8 +15226,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 1748,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -16084,8 +15244,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16103,8 +15262,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16122,8 +15280,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 334,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -16141,8 +15298,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16160,8 +15316,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16179,8 +15334,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16198,8 +15352,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 1176,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -16217,8 +15370,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16236,8 +15388,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16255,8 +15406,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16274,8 +15424,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 914,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -16293,8 +15442,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16312,8 +15460,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16331,8 +15478,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16350,8 +15496,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16369,8 +15514,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16388,8 +15532,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16407,8 +15550,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 1173,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -16426,8 +15568,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16445,8 +15586,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16464,8 +15604,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16483,8 +15622,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16502,8 +15640,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16521,8 +15658,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16540,8 +15676,7 @@ const quotesData = [
     open: 10.5,
     change: 0.1,
     volume: 252,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -16559,8 +15694,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16578,8 +15712,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 500,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -16597,8 +15730,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16616,8 +15748,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 1144,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -16635,8 +15766,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16654,8 +15784,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16673,8 +15802,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16692,8 +15820,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16711,8 +15838,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16730,8 +15856,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16749,8 +15874,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16768,8 +15892,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16787,8 +15910,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16806,8 +15928,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 610,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -16825,8 +15946,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16844,8 +15964,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16863,8 +15982,7 @@ const quotesData = [
     open: 10.5,
     change: -0.01,
     volume: 120,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -16882,8 +16000,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16901,8 +16018,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16920,8 +16036,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16939,8 +16054,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16958,8 +16072,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16977,8 +16090,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -16996,8 +16108,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17015,8 +16126,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17034,8 +16144,7 @@ const quotesData = [
     open: 10.5,
     change: -0.09,
     volume: 305,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -17053,8 +16162,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17072,8 +16180,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17091,8 +16198,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17110,8 +16216,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17129,8 +16234,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17148,8 +16252,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17167,8 +16270,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17186,8 +16288,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17205,8 +16306,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17224,8 +16324,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17243,8 +16342,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17262,8 +16360,7 @@ const quotesData = [
     open: 10.5,
     change: 0.09,
     volume: 73,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -17281,8 +16378,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17300,8 +16396,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 1217,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -17319,8 +16414,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17338,8 +16432,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17357,8 +16450,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17376,8 +16468,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17395,8 +16486,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17414,8 +16504,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17433,8 +16522,7 @@ const quotesData = [
     open: 10.5,
     change: 0.01,
     volume: 1333,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -17452,8 +16540,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17471,8 +16558,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17490,8 +16576,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17509,8 +16594,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17528,8 +16612,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17547,8 +16630,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17566,8 +16648,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17585,8 +16666,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17604,8 +16684,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17623,8 +16702,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17642,8 +16720,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17661,8 +16738,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17680,8 +16756,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17699,8 +16774,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17718,8 +16792,7 @@ const quotesData = [
     open: 10.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17737,8 +16810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17756,8 +16828,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17775,8 +16846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17794,8 +16864,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17813,8 +16882,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17832,8 +16900,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17851,8 +16918,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17870,8 +16936,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17889,8 +16954,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17908,8 +16972,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17927,8 +16990,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17946,8 +17008,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17965,8 +17026,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -17984,8 +17044,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18003,8 +17062,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18022,8 +17080,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18041,8 +17098,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18060,8 +17116,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18079,8 +17134,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18098,8 +17152,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18117,8 +17170,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18136,8 +17188,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18155,8 +17206,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18174,8 +17224,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18193,8 +17242,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18212,8 +17260,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18231,8 +17278,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18250,8 +17296,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18269,8 +17314,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18288,8 +17332,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18307,8 +17350,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18326,8 +17368,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18345,8 +17386,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18364,8 +17404,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18383,8 +17422,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18402,8 +17440,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18421,8 +17458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18440,8 +17476,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18459,8 +17494,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18478,8 +17512,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18497,8 +17530,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18516,8 +17548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18535,8 +17566,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18554,8 +17584,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18573,8 +17602,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18592,8 +17620,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18611,8 +17638,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18630,8 +17656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18649,8 +17674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18668,8 +17692,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18687,8 +17710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18706,8 +17728,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18725,8 +17746,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18744,8 +17764,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18763,8 +17782,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18782,8 +17800,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18801,8 +17818,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18820,8 +17836,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18839,8 +17854,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18858,8 +17872,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18877,8 +17890,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18896,8 +17908,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18915,8 +17926,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18934,8 +17944,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18953,8 +17962,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18972,8 +17980,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -18991,8 +17998,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19010,8 +18016,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19029,8 +18034,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19048,8 +18052,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19067,8 +18070,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19086,8 +18088,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19105,8 +18106,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19124,8 +18124,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19143,8 +18142,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19162,8 +18160,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19181,8 +18178,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19200,8 +18196,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19219,8 +18214,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19238,8 +18232,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19257,8 +18250,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19276,8 +18268,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19295,8 +18286,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19314,8 +18304,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19333,8 +18322,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19352,8 +18340,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19371,8 +18358,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19390,8 +18376,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19409,8 +18394,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19428,8 +18412,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19447,8 +18430,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19466,8 +18448,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19485,8 +18466,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19504,8 +18484,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19523,8 +18502,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19542,8 +18520,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19561,8 +18538,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19580,8 +18556,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19599,8 +18574,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19618,8 +18592,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19637,8 +18610,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19656,8 +18628,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19675,8 +18646,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19694,8 +18664,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19713,8 +18682,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19732,8 +18700,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19751,8 +18718,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19770,8 +18736,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19789,8 +18754,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19808,8 +18772,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19827,8 +18790,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19846,8 +18808,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19865,8 +18826,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19884,8 +18844,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19903,8 +18862,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19922,8 +18880,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19941,8 +18898,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19960,8 +18916,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19979,8 +18934,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -19998,8 +18952,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20017,8 +18970,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20036,8 +18988,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20055,8 +19006,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20074,8 +19024,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20093,8 +19042,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20112,8 +19060,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20131,8 +19078,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20150,8 +19096,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20169,8 +19114,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20188,8 +19132,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20207,8 +19150,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20226,8 +19168,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20245,8 +19186,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20264,8 +19204,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20283,8 +19222,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20302,8 +19240,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20321,8 +19258,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20340,8 +19276,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20359,8 +19294,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20378,8 +19312,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20397,8 +19330,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20416,8 +19348,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20435,8 +19366,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20454,8 +19384,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20473,8 +19402,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20492,8 +19420,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20511,8 +19438,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20530,8 +19456,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20549,8 +19474,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20568,8 +19492,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20587,8 +19510,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20606,8 +19528,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20625,8 +19546,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20644,8 +19564,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20663,8 +19582,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20682,8 +19600,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20701,8 +19618,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20720,8 +19636,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20739,8 +19654,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20758,8 +19672,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20777,8 +19690,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20796,8 +19708,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20815,8 +19726,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20834,8 +19744,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20853,8 +19762,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20872,8 +19780,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20891,8 +19798,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20910,8 +19816,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20929,8 +19834,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20948,8 +19852,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20967,8 +19870,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -20986,8 +19888,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21005,8 +19906,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21024,8 +19924,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21043,8 +19942,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21062,8 +19960,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21081,8 +19978,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21100,8 +19996,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21119,8 +20014,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21138,8 +20032,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21157,8 +20050,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21176,8 +20068,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21195,8 +20086,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21214,8 +20104,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21233,8 +20122,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21252,8 +20140,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21271,8 +20158,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21290,8 +20176,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21309,8 +20194,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21328,8 +20212,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21347,8 +20230,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21366,8 +20248,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21385,8 +20266,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21404,8 +20284,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21423,8 +20302,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21442,8 +20320,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21461,8 +20338,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21480,8 +20356,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21499,8 +20374,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21518,8 +20392,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21537,8 +20410,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21556,8 +20428,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21575,8 +20446,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21594,8 +20464,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21613,8 +20482,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21632,8 +20500,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21651,8 +20518,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21670,8 +20536,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21689,8 +20554,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21708,8 +20572,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21727,8 +20590,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21746,8 +20608,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21765,8 +20626,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21784,8 +20644,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21803,8 +20662,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21822,8 +20680,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21841,8 +20698,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21860,8 +20716,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21879,8 +20734,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21898,8 +20752,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21917,8 +20770,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21936,8 +20788,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21955,8 +20806,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21974,8 +20824,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -21993,8 +20842,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22012,8 +20860,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22031,8 +20878,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22050,8 +20896,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22069,8 +20914,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22088,8 +20932,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22107,8 +20950,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22126,8 +20968,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22145,8 +20986,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22164,8 +21004,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22183,8 +21022,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22202,8 +21040,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22221,8 +21058,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22240,8 +21076,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22259,8 +21094,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22278,8 +21112,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22297,8 +21130,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22316,8 +21148,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22335,8 +21166,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22354,8 +21184,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22373,8 +21202,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22392,8 +21220,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22411,8 +21238,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22430,8 +21256,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22449,8 +21274,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22468,8 +21292,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22487,8 +21310,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22506,8 +21328,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22525,8 +21346,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22544,8 +21364,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22563,8 +21382,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22582,8 +21400,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22601,8 +21418,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22620,8 +21436,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22639,8 +21454,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22658,8 +21472,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22677,8 +21490,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22696,8 +21508,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22715,8 +21526,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22734,8 +21544,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22753,8 +21562,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22772,8 +21580,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22791,8 +21598,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22810,8 +21616,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22829,8 +21634,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22848,8 +21652,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22867,8 +21670,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22886,8 +21688,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22905,8 +21706,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22924,8 +21724,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22943,8 +21742,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22962,8 +21760,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -22981,8 +21778,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23000,8 +21796,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23019,8 +21814,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23038,8 +21832,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23057,8 +21850,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23076,8 +21868,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23095,8 +21886,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23114,8 +21904,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23133,8 +21922,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23152,8 +21940,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23171,8 +21958,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23190,8 +21976,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23209,8 +21994,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23228,8 +22012,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23247,8 +22030,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23266,8 +22048,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23285,8 +22066,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23304,8 +22084,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23323,8 +22102,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23342,8 +22120,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23361,8 +22138,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23380,8 +22156,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23399,8 +22174,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23418,8 +22192,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23437,8 +22210,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23456,8 +22228,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23475,8 +22246,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23494,8 +22264,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23513,8 +22282,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23532,8 +22300,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23551,8 +22318,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23570,8 +22336,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23589,8 +22354,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23608,8 +22372,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23627,8 +22390,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23646,8 +22408,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23665,8 +22426,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23684,8 +22444,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23703,8 +22462,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23722,8 +22480,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23741,8 +22498,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23760,8 +22516,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23779,8 +22534,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23798,8 +22552,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23817,8 +22570,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23836,8 +22588,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23855,8 +22606,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23874,8 +22624,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23893,8 +22642,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23912,8 +22660,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23931,8 +22678,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23950,8 +22696,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23969,8 +22714,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -23988,8 +22732,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24007,8 +22750,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24026,8 +22768,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24045,8 +22786,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24064,8 +22804,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24083,8 +22822,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24102,8 +22840,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24121,8 +22858,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24140,8 +22876,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24159,8 +22894,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24178,8 +22912,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24197,8 +22930,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24216,8 +22948,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24235,8 +22966,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24254,8 +22984,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24273,8 +23002,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24292,8 +23020,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24311,8 +23038,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24330,8 +23056,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24349,8 +23074,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24368,8 +23092,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24387,8 +23110,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24406,8 +23128,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24425,8 +23146,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24444,8 +23164,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24463,8 +23182,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24482,8 +23200,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24501,8 +23218,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24520,8 +23236,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24539,8 +23254,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24558,8 +23272,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24577,8 +23290,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24596,8 +23308,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24615,8 +23326,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24634,8 +23344,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24653,8 +23362,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24672,8 +23380,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24691,8 +23398,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24710,8 +23416,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24729,8 +23434,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24748,8 +23452,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24767,8 +23470,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24786,8 +23488,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24805,8 +23506,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24824,8 +23524,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24843,8 +23542,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24862,8 +23560,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24881,8 +23578,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24900,8 +23596,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24919,8 +23614,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24938,8 +23632,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24957,8 +23650,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24976,8 +23668,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -24995,8 +23686,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25014,8 +23704,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25033,8 +23722,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25052,8 +23740,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25071,8 +23758,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25090,8 +23776,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25109,8 +23794,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25128,8 +23812,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25147,8 +23830,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25166,8 +23848,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25185,8 +23866,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25204,8 +23884,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25223,8 +23902,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25242,8 +23920,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25261,8 +23938,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25280,8 +23956,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25299,8 +23974,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25318,8 +23992,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25337,8 +24010,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25356,8 +24028,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25375,8 +24046,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25394,8 +24064,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25413,8 +24082,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25432,8 +24100,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25451,8 +24118,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25470,8 +24136,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25489,8 +24154,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25508,8 +24172,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25527,8 +24190,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25546,8 +24208,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25565,8 +24226,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25584,8 +24244,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25603,8 +24262,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25622,8 +24280,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25641,8 +24298,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25660,8 +24316,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25679,8 +24334,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25698,8 +24352,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25717,8 +24370,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25736,8 +24388,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25755,8 +24406,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25774,8 +24424,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25793,8 +24442,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25812,8 +24460,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25831,8 +24478,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25850,8 +24496,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25869,8 +24514,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25888,8 +24532,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25907,8 +24550,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25926,8 +24568,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25945,8 +24586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25964,8 +24604,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -25983,8 +24622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26002,8 +24640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26021,8 +24658,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26040,8 +24676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26059,8 +24694,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26078,8 +24712,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26097,8 +24730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26116,8 +24748,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26135,8 +24766,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26154,8 +24784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26173,8 +24802,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26192,8 +24820,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26211,8 +24838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26230,8 +24856,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26249,8 +24874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26268,8 +24892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26287,8 +24910,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26306,8 +24928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26325,8 +24946,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26344,8 +24964,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26363,8 +24982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26382,8 +25000,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26401,8 +25018,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26420,8 +25036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26439,8 +25054,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26458,8 +25072,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26477,8 +25090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26496,8 +25108,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26515,8 +25126,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26534,8 +25144,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26553,8 +25162,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26572,8 +25180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26591,8 +25198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26610,8 +25216,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26629,8 +25234,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26648,8 +25252,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26667,8 +25270,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26686,8 +25288,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26705,8 +25306,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26724,8 +25324,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26743,8 +25342,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26762,8 +25360,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26781,8 +25378,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26800,8 +25396,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26819,8 +25414,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26838,8 +25432,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26857,8 +25450,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26876,8 +25468,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26895,8 +25486,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26914,8 +25504,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26933,8 +25522,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26952,8 +25540,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26971,8 +25558,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -26990,8 +25576,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27009,8 +25594,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27028,8 +25612,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27047,8 +25630,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27066,8 +25648,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27085,8 +25666,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27104,8 +25684,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27123,8 +25702,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27142,8 +25720,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27161,8 +25738,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27180,8 +25756,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27199,8 +25774,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27218,8 +25792,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27237,8 +25810,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27256,8 +25828,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27275,8 +25846,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27294,8 +25864,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27313,8 +25882,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27332,8 +25900,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27351,8 +25918,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27370,8 +25936,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27389,8 +25954,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27408,8 +25972,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27427,8 +25990,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27446,8 +26008,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27465,8 +26026,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27484,8 +26044,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27503,8 +26062,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27522,8 +26080,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27541,8 +26098,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27560,8 +26116,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27579,8 +26134,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27598,8 +26152,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27617,8 +26170,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27636,8 +26188,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27655,8 +26206,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27674,8 +26224,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27693,8 +26242,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27712,8 +26260,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27731,8 +26278,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27750,8 +26296,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27769,8 +26314,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27788,8 +26332,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27807,8 +26350,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27826,8 +26368,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27845,8 +26386,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27864,8 +26404,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27883,8 +26422,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27902,8 +26440,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27921,8 +26458,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27940,8 +26476,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27959,8 +26494,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27978,8 +26512,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -27997,8 +26530,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28016,8 +26548,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28035,8 +26566,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28054,8 +26584,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28073,8 +26602,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28092,8 +26620,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28111,8 +26638,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28130,8 +26656,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28149,8 +26674,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28168,8 +26692,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28187,8 +26710,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28206,8 +26728,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28225,8 +26746,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28244,8 +26764,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28263,8 +26782,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28282,8 +26800,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28301,8 +26818,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28320,8 +26836,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28339,8 +26854,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28358,8 +26872,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28377,8 +26890,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28396,8 +26908,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28415,8 +26926,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28434,8 +26944,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28453,8 +26962,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28472,8 +26980,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28491,8 +26998,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28510,8 +27016,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28529,8 +27034,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28548,8 +27052,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28567,8 +27070,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28586,8 +27088,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28605,8 +27106,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28624,8 +27124,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28643,8 +27142,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28662,8 +27160,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28681,8 +27178,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28700,8 +27196,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28719,8 +27214,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28738,8 +27232,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28757,8 +27250,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28776,8 +27268,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28795,8 +27286,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28814,8 +27304,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28833,8 +27322,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28852,8 +27340,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28871,8 +27358,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28890,8 +27376,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28909,8 +27394,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28928,8 +27412,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28947,8 +27430,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28966,8 +27448,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -28985,8 +27466,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29004,8 +27484,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29023,8 +27502,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29042,8 +27520,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29061,8 +27538,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29080,8 +27556,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29099,8 +27574,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29118,8 +27592,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29137,8 +27610,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29156,8 +27628,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29175,8 +27646,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29194,8 +27664,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29213,8 +27682,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29232,8 +27700,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29251,8 +27718,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29270,8 +27736,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29289,8 +27754,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29308,8 +27772,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29327,8 +27790,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29346,8 +27808,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29365,8 +27826,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29384,8 +27844,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29403,8 +27862,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29422,8 +27880,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29441,8 +27898,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29460,8 +27916,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29479,8 +27934,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29498,8 +27952,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29517,8 +27970,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29536,8 +27988,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29555,8 +28006,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29574,8 +28024,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29593,8 +28042,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29612,8 +28060,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29631,8 +28078,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29650,8 +28096,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29669,8 +28114,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29688,8 +28132,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29707,8 +28150,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29726,8 +28168,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29745,8 +28186,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29764,8 +28204,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29783,8 +28222,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29802,8 +28240,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29821,8 +28258,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29840,8 +28276,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29859,8 +28294,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29878,8 +28312,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29897,8 +28330,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29916,8 +28348,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29935,8 +28366,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29954,8 +28384,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29973,8 +28402,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -29992,8 +28420,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30011,8 +28438,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30030,8 +28456,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30049,8 +28474,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30068,8 +28492,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30087,8 +28510,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30106,8 +28528,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30125,8 +28546,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30144,8 +28564,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30163,8 +28582,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30182,8 +28600,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30201,8 +28618,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30220,8 +28636,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30239,8 +28654,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30258,8 +28672,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30277,8 +28690,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30296,8 +28708,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30315,8 +28726,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30334,8 +28744,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30353,8 +28762,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30372,8 +28780,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30391,8 +28798,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30410,8 +28816,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30429,8 +28834,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30448,8 +28852,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30467,8 +28870,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30486,8 +28888,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30505,8 +28906,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30524,8 +28924,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30543,8 +28942,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30562,8 +28960,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30581,8 +28978,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30600,8 +28996,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30619,8 +29014,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30638,8 +29032,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30657,8 +29050,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30676,8 +29068,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30695,8 +29086,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30714,8 +29104,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30733,8 +29122,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30752,8 +29140,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30771,8 +29158,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30790,8 +29176,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30809,8 +29194,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30828,8 +29212,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30847,8 +29230,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30866,8 +29248,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30885,8 +29266,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30904,8 +29284,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30923,8 +29302,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30942,8 +29320,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30961,8 +29338,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30980,8 +29356,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -30999,8 +29374,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31018,8 +29392,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31037,8 +29410,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31056,8 +29428,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31075,8 +29446,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31094,8 +29464,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31113,8 +29482,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31132,8 +29500,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31151,8 +29518,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31170,8 +29536,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31189,8 +29554,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31208,8 +29572,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31227,8 +29590,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31246,8 +29608,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31265,8 +29626,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31284,8 +29644,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31303,8 +29662,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31322,8 +29680,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31341,8 +29698,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31360,8 +29716,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31379,8 +29734,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31398,8 +29752,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31417,8 +29770,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31436,8 +29788,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31455,8 +29806,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31474,8 +29824,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31493,8 +29842,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31512,8 +29860,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31531,8 +29878,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31550,8 +29896,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31569,8 +29914,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31588,8 +29932,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31607,8 +29950,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31626,8 +29968,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31645,8 +29986,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31664,8 +30004,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31683,8 +30022,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31702,8 +30040,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31721,8 +30058,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31740,8 +30076,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31759,8 +30094,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31778,8 +30112,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31797,8 +30130,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31816,8 +30148,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31835,8 +30166,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31854,8 +30184,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31873,8 +30202,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31892,8 +30220,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31911,8 +30238,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31930,8 +30256,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31949,8 +30274,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31968,8 +30292,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -31987,8 +30310,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32006,8 +30328,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32025,8 +30346,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32044,8 +30364,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32063,8 +30382,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32082,8 +30400,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32101,8 +30418,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32120,8 +30436,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32139,8 +30454,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32158,8 +30472,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32177,8 +30490,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32196,8 +30508,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32215,8 +30526,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32234,8 +30544,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32253,8 +30562,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32272,8 +30580,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32291,8 +30598,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32310,8 +30616,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32329,8 +30634,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32348,8 +30652,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32367,8 +30670,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32386,8 +30688,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32405,8 +30706,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32424,8 +30724,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32443,8 +30742,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32462,8 +30760,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32481,8 +30778,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32500,8 +30796,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32519,8 +30814,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32538,8 +30832,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32557,8 +30850,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32576,8 +30868,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32595,8 +30886,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32614,8 +30904,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32633,8 +30922,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32652,8 +30940,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32671,8 +30958,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32690,8 +30976,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32709,8 +30994,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32728,8 +31012,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32747,8 +31030,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32766,8 +31048,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32785,8 +31066,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32804,8 +31084,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32823,8 +31102,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32842,8 +31120,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32861,8 +31138,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32880,8 +31156,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32899,8 +31174,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32918,8 +31192,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32937,8 +31210,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32956,8 +31228,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32975,8 +31246,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -32994,8 +31264,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33013,8 +31282,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33032,8 +31300,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33051,8 +31318,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33070,8 +31336,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33089,8 +31354,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33108,8 +31372,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33127,8 +31390,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33146,8 +31408,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33165,8 +31426,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33184,8 +31444,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33203,8 +31462,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33222,8 +31480,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33241,8 +31498,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33260,8 +31516,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33279,8 +31534,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33298,8 +31552,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33317,8 +31570,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33336,8 +31588,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33355,8 +31606,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33374,8 +31624,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33393,8 +31642,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33412,8 +31660,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33431,8 +31678,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33450,8 +31696,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33469,8 +31714,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33488,8 +31732,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33507,8 +31750,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33526,8 +31768,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33545,8 +31786,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33564,8 +31804,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33583,8 +31822,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33602,8 +31840,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33621,8 +31858,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33640,8 +31876,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33659,8 +31894,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33678,8 +31912,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33697,8 +31930,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33716,8 +31948,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33735,8 +31966,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33754,8 +31984,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33773,8 +32002,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33792,8 +32020,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33811,8 +32038,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33830,8 +32056,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33849,8 +32074,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33868,8 +32092,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33887,8 +32110,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33906,8 +32128,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33925,8 +32146,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33944,8 +32164,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33963,8 +32182,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -33982,8 +32200,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34001,8 +32218,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34020,8 +32236,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34039,8 +32254,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34058,8 +32272,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34077,8 +32290,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34096,8 +32308,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34115,8 +32326,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34134,8 +32344,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34153,8 +32362,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34172,8 +32380,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34191,8 +32398,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34210,8 +32416,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34229,8 +32434,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34248,8 +32452,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34267,8 +32470,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34286,8 +32488,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34305,8 +32506,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34324,8 +32524,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34343,8 +32542,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34362,8 +32560,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34381,8 +32578,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34400,8 +32596,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34419,8 +32614,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34438,8 +32632,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34457,8 +32650,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34476,8 +32668,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34495,8 +32686,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34514,8 +32704,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34533,8 +32722,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34552,8 +32740,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34571,8 +32758,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34590,8 +32776,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34609,8 +32794,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34628,8 +32812,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34647,8 +32830,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34666,8 +32848,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34685,8 +32866,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34704,8 +32884,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34723,8 +32902,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34742,8 +32920,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34761,8 +32938,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34780,8 +32956,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34799,8 +32974,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34818,8 +32992,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34837,8 +33010,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34856,8 +33028,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34875,8 +33046,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34894,8 +33064,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34913,8 +33082,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34932,8 +33100,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34951,8 +33118,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34970,8 +33136,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -34989,8 +33154,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35008,8 +33172,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35027,8 +33190,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35046,8 +33208,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35065,8 +33226,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35084,8 +33244,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35103,8 +33262,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35122,8 +33280,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35141,8 +33298,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35160,8 +33316,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35179,8 +33334,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35198,8 +33352,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35217,8 +33370,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35236,8 +33388,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35255,8 +33406,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35274,8 +33424,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35293,8 +33442,7 @@ const quotesData = [
     open: 0.66,
     change: 0.04,
     volume: 7142,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -35312,8 +33460,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35331,8 +33478,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35350,8 +33496,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35369,8 +33514,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35388,8 +33532,7 @@ const quotesData = [
     open: 0.66,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35407,8 +33550,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35426,8 +33568,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35445,8 +33586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35464,8 +33604,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35483,8 +33622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35502,8 +33640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35521,8 +33658,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35540,8 +33676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 46,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -35559,8 +33694,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35578,8 +33712,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35597,8 +33730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35616,8 +33748,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35635,8 +33766,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35654,8 +33784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35673,8 +33802,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35692,8 +33820,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35711,8 +33838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35730,8 +33856,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35749,8 +33874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35768,8 +33892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35787,8 +33910,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35806,8 +33928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35825,8 +33946,7 @@ const quotesData = [
     open: 0,
     change: -6.55,
     volume: 322,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -35844,8 +33964,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35863,8 +33982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35882,8 +34000,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35901,8 +34018,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35920,8 +34036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35939,8 +34054,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35958,8 +34072,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35977,8 +34090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -35996,8 +34108,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36015,8 +34126,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36034,8 +34144,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 61,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -36053,8 +34162,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36072,8 +34180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36091,8 +34198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36110,8 +34216,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36129,8 +34234,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36148,8 +34252,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36167,8 +34270,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 129,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -36186,8 +34288,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36205,8 +34306,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36224,8 +34324,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36243,8 +34342,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36262,8 +34360,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36281,8 +34378,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36300,8 +34396,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36319,8 +34414,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36338,8 +34432,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36357,8 +34450,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36376,8 +34468,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36395,8 +34486,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36414,8 +34504,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 30,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -36433,8 +34522,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36452,8 +34540,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36471,8 +34558,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36490,8 +34576,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36509,8 +34594,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36528,8 +34612,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36547,8 +34630,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36566,8 +34648,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 101,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -36585,8 +34666,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 8,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -36604,8 +34684,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36623,8 +34702,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 132,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -36642,8 +34720,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36661,8 +34738,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36680,8 +34756,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36699,8 +34774,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36718,8 +34792,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36737,8 +34810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36756,8 +34828,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36775,8 +34846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36794,8 +34864,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36813,8 +34882,7 @@ const quotesData = [
     open: 0,
     change: -5,
     volume: 100,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -36832,8 +34900,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36851,8 +34918,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36870,8 +34936,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36889,8 +34954,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36908,8 +34972,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36927,8 +34990,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36946,8 +35008,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36965,8 +35026,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -36984,8 +35044,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37003,8 +35062,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37022,8 +35080,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37041,8 +35098,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37060,8 +35116,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37079,8 +35134,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37098,8 +35152,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37117,8 +35170,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37136,8 +35188,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37155,8 +35206,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37174,8 +35224,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37193,8 +35242,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37212,8 +35260,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37231,8 +35278,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37250,8 +35296,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37269,8 +35314,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37288,8 +35332,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37307,8 +35350,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37326,8 +35368,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37345,8 +35386,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37364,8 +35404,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37383,8 +35422,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37402,8 +35440,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37421,8 +35458,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37440,8 +35476,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37459,8 +35494,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37478,8 +35512,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37497,8 +35530,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 136,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -37516,8 +35548,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37535,8 +35566,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37554,8 +35584,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37573,8 +35602,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37592,8 +35620,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37611,8 +35638,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37630,8 +35656,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37649,8 +35674,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37668,8 +35692,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37687,8 +35710,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37706,8 +35728,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37725,8 +35746,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37744,8 +35764,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37763,8 +35782,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37782,8 +35800,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37801,8 +35818,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37820,8 +35836,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37839,8 +35854,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37858,8 +35872,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37877,8 +35890,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37896,8 +35908,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37915,8 +35926,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37934,8 +35944,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37953,8 +35962,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37972,8 +35980,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -37991,8 +35998,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38010,8 +36016,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38029,8 +36034,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38048,8 +36052,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38067,8 +36070,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38086,8 +36088,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38105,8 +36106,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38124,8 +36124,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38143,8 +36142,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38162,8 +36160,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 250,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -38181,8 +36178,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38200,8 +36196,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38219,8 +36214,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38238,8 +36232,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38257,8 +36250,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38276,8 +36268,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38295,8 +36286,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38314,8 +36304,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38333,8 +36322,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38352,8 +36340,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38371,8 +36358,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38390,8 +36376,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38409,8 +36394,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38428,8 +36412,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38447,8 +36430,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38466,8 +36448,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38485,8 +36466,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38504,8 +36484,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38523,8 +36502,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38542,8 +36520,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38561,8 +36538,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38580,8 +36556,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38599,8 +36574,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38618,8 +36592,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38637,8 +36610,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38656,8 +36628,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 84,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -38675,8 +36646,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38694,8 +36664,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38713,8 +36682,7 @@ const quotesData = [
     open: 65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38732,8 +36700,7 @@ const quotesData = [
     open: 65,
     change: 10,
     volume: 95,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -38751,8 +36718,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38770,8 +36736,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38789,8 +36754,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38808,8 +36772,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38827,8 +36790,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38846,8 +36808,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38865,8 +36826,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38884,8 +36844,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38903,8 +36862,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 551,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -38922,8 +36880,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38941,8 +36898,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38960,8 +36916,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38979,8 +36934,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -38998,8 +36952,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39017,8 +36970,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39036,8 +36988,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39055,8 +37006,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39074,8 +37024,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39093,8 +37042,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39112,8 +37060,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39131,8 +37078,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39150,8 +37096,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 83,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -39169,8 +37114,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39188,8 +37132,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39207,8 +37150,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39226,8 +37168,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39245,8 +37186,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39264,8 +37204,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39283,8 +37222,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39302,8 +37240,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39321,8 +37258,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39340,8 +37276,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39359,8 +37294,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39378,8 +37312,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39397,8 +37330,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39416,8 +37348,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39435,8 +37366,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39454,8 +37384,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39473,8 +37402,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39492,8 +37420,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 122,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -39511,8 +37438,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39530,8 +37456,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39549,8 +37474,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39568,8 +37492,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39587,8 +37510,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39606,8 +37528,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39625,8 +37546,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39644,8 +37564,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39663,8 +37582,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39682,8 +37600,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39701,8 +37618,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39720,8 +37636,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39739,8 +37654,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39758,8 +37672,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39777,8 +37690,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39796,8 +37708,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39815,8 +37726,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39834,8 +37744,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 132,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -39853,8 +37762,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39872,8 +37780,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39891,8 +37798,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39910,8 +37816,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39929,8 +37834,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39948,8 +37852,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39967,8 +37870,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -39986,8 +37888,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40005,8 +37906,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40024,8 +37924,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40043,8 +37942,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40062,8 +37960,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40081,8 +37978,7 @@ const quotesData = [
     open: 75,
     change: 6.5,
     volume: 31,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -40100,8 +37996,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40119,8 +38014,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40138,8 +38032,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40157,8 +38050,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40176,8 +38068,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40195,8 +38086,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40214,8 +38104,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40233,8 +38122,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40252,8 +38140,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40271,8 +38158,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40290,8 +38176,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40309,8 +38194,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40328,8 +38212,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40347,8 +38230,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40366,8 +38248,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40385,8 +38266,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40404,8 +38284,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40423,8 +38302,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40442,8 +38320,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 144,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -40461,8 +38338,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40480,8 +38356,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40499,8 +38374,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40518,8 +38392,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40537,8 +38410,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40556,8 +38428,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40575,8 +38446,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40594,8 +38464,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40613,8 +38482,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40632,8 +38500,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40651,8 +38518,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40670,8 +38536,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40689,8 +38554,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40708,8 +38572,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40727,8 +38590,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40746,8 +38608,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40765,8 +38626,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40784,8 +38644,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40803,8 +38662,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40822,8 +38680,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40841,8 +38698,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40860,8 +38716,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40879,8 +38734,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40898,8 +38752,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40917,8 +38770,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40936,8 +38788,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -40955,8 +38806,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 89,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -40974,8 +38824,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 406,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -40993,8 +38842,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41012,8 +38860,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41031,8 +38878,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41050,8 +38896,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41069,8 +38914,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41088,8 +38932,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41107,8 +38950,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41126,8 +38968,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41145,8 +38986,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41164,8 +39004,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41183,8 +39022,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41202,8 +39040,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41221,8 +39058,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41240,8 +39076,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41259,8 +39094,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 122,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -41278,8 +39112,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41297,8 +39130,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41316,8 +39148,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41335,8 +39166,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41354,8 +39184,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41373,8 +39202,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41392,8 +39220,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41411,8 +39238,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41430,8 +39256,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41449,8 +39274,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41468,8 +39292,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41487,8 +39310,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41506,8 +39328,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41525,8 +39346,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41544,8 +39364,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41563,8 +39382,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41582,8 +39400,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41601,8 +39418,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41620,8 +39436,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41639,8 +39454,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41658,8 +39472,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41677,8 +39490,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41696,8 +39508,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41715,8 +39526,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41734,8 +39544,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41753,8 +39562,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41772,8 +39580,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41791,8 +39598,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41810,8 +39616,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41829,8 +39634,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41848,8 +39652,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41867,8 +39670,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41886,8 +39688,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41905,8 +39706,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41924,8 +39724,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41943,8 +39742,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41962,8 +39760,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -41981,8 +39778,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42000,8 +39796,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42019,8 +39814,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42038,8 +39832,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42057,8 +39850,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42076,8 +39868,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42095,8 +39886,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42114,8 +39904,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42133,8 +39922,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42152,8 +39940,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42171,8 +39958,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42190,8 +39976,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42209,8 +39994,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42228,8 +40012,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42247,8 +40030,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42266,8 +40048,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42285,8 +40066,7 @@ const quotesData = [
     open: 81.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42304,8 +40084,7 @@ const quotesData = [
     open: 81.5,
     change: -6.5,
     volume: 142,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -42323,8 +40102,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42342,8 +40120,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42361,8 +40138,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42380,8 +40156,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 66,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -42399,8 +40174,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42418,8 +40192,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42437,8 +40210,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42456,8 +40228,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42475,8 +40246,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42494,8 +40264,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42513,8 +40282,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42532,8 +40300,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42551,8 +40318,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42570,8 +40336,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 521,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -42589,8 +40354,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42608,8 +40372,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42627,8 +40390,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 61,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -42646,8 +40408,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42665,8 +40426,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42684,8 +40444,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 94,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -42703,8 +40462,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42722,8 +40480,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42741,8 +40498,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42760,8 +40516,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 122,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -42779,8 +40534,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 57,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -42798,8 +40552,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42817,8 +40570,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42836,8 +40588,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42855,8 +40606,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42874,8 +40624,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42893,8 +40642,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42912,8 +40660,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 95,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -42931,8 +40678,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42950,8 +40696,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 123,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -42969,8 +40714,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -42988,8 +40732,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43007,8 +40750,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43026,8 +40768,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43045,8 +40786,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43064,8 +40804,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43083,8 +40822,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43102,8 +40840,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43121,8 +40858,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43140,8 +40876,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43159,8 +40894,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43178,8 +40912,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43197,8 +40930,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43216,8 +40948,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43235,8 +40966,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43254,8 +40984,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43273,8 +41002,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43292,8 +41020,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43311,8 +41038,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43330,8 +41056,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43349,8 +41074,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43368,8 +41092,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43387,8 +41110,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 110,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -43406,8 +41128,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43425,8 +41146,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43444,8 +41164,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43463,8 +41182,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43482,8 +41200,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43501,8 +41218,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43520,8 +41236,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43539,8 +41254,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43558,8 +41272,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43577,8 +41290,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43596,8 +41308,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43615,8 +41326,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 153,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -43634,8 +41344,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43653,8 +41362,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43672,8 +41380,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43691,8 +41398,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43710,8 +41416,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43729,8 +41434,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43748,8 +41452,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43767,8 +41470,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43786,8 +41488,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43805,8 +41506,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43824,8 +41524,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43843,8 +41542,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43862,8 +41560,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43881,8 +41578,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43900,8 +41596,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43919,8 +41614,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43938,8 +41632,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 53,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -43957,8 +41650,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43976,8 +41668,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -43995,8 +41686,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44014,8 +41704,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44033,8 +41722,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44052,8 +41740,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44071,8 +41758,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44090,8 +41776,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44109,8 +41794,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44128,8 +41812,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44147,8 +41830,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44166,8 +41848,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44185,8 +41866,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44204,8 +41884,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44223,8 +41902,7 @@ const quotesData = [
     open: 75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44242,8 +41920,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44261,8 +41938,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 727,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -44280,8 +41956,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44299,8 +41974,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 843,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -44318,8 +41992,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44337,8 +42010,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44356,8 +42028,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44375,8 +42046,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44394,8 +42064,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44413,8 +42082,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44432,8 +42100,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44451,8 +42118,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44470,8 +42136,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44489,8 +42154,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44508,8 +42172,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44527,8 +42190,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44546,8 +42208,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44565,8 +42226,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44584,8 +42244,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44603,8 +42262,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2348,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -44622,8 +42280,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44641,8 +42298,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 4342,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -44660,8 +42316,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44679,8 +42334,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44698,8 +42352,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44717,8 +42370,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44736,8 +42388,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44755,8 +42406,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44774,8 +42424,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44793,8 +42442,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44812,8 +42460,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44831,8 +42478,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44850,8 +42496,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44869,8 +42514,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44888,8 +42532,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44907,8 +42550,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44926,8 +42568,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 357,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -44945,8 +42586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44964,8 +42604,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -44983,8 +42622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 20000,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -45002,8 +42640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45021,8 +42658,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45040,8 +42676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45059,8 +42694,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45078,8 +42712,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45097,8 +42730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45116,8 +42748,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45135,8 +42766,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45154,8 +42784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45173,8 +42802,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45192,8 +42820,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45211,8 +42838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45230,8 +42856,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 15000,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -45249,8 +42874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45268,8 +42892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45287,8 +42910,7 @@ const quotesData = [
     open: 0,
     change: 0.01,
     volume: 546,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -45306,8 +42928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45325,8 +42946,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45344,8 +42964,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45363,8 +42982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45382,8 +43000,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45401,8 +43018,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45420,8 +43036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45439,8 +43054,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 356,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -45458,8 +43072,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45477,8 +43090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45496,8 +43108,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45515,8 +43126,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45534,8 +43144,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45553,8 +43162,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45572,8 +43180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45591,8 +43198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 188,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -45610,8 +43216,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45629,8 +43234,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45648,8 +43252,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45667,8 +43270,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45686,8 +43288,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 282,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -45705,8 +43306,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45724,8 +43324,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45743,8 +43342,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45762,8 +43360,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45781,8 +43378,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45800,8 +43396,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45819,8 +43414,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45838,8 +43432,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45857,8 +43450,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45876,8 +43468,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45895,8 +43486,7 @@ const quotesData = [
     open: 0,
     change: -0.08,
     volume: 1946507,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -45914,8 +43504,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45933,8 +43522,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45952,8 +43540,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 7602,
-    num_trades: 17,
-    __v: 0,
+    num_trades: 17
   },
   {
     _id: {
@@ -45971,8 +43558,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -45990,8 +43576,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46009,8 +43594,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46028,8 +43612,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46047,8 +43630,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46066,8 +43648,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46085,8 +43666,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46104,8 +43684,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46123,8 +43702,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46142,8 +43720,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46161,8 +43738,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46180,8 +43756,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46199,8 +43774,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46218,8 +43792,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46237,8 +43810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46256,8 +43828,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46275,8 +43846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46294,8 +43864,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46313,8 +43882,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46332,8 +43900,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46351,8 +43918,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 24720,
-    num_trades: 13,
-    __v: 0,
+    num_trades: 13
   },
   {
     _id: {
@@ -46370,8 +43936,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46389,8 +43954,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46408,8 +43972,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46427,8 +43990,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46446,8 +44008,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46465,8 +44026,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46484,8 +44044,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 4787,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -46503,8 +44062,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2880,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -46522,8 +44080,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 10439,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -46541,8 +44098,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46560,8 +44116,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 4527,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -46579,8 +44134,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46598,8 +44152,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 606,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -46617,8 +44170,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46636,8 +44188,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46655,8 +44206,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46674,8 +44224,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46693,8 +44242,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 11775,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -46712,8 +44260,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46731,8 +44278,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46750,8 +44296,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 3763,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -46769,8 +44314,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 25777,
-    num_trades: 11,
-    __v: 0,
+    num_trades: 11
   },
   {
     _id: {
@@ -46788,8 +44332,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46807,8 +44350,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46826,8 +44368,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46845,8 +44386,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46864,8 +44404,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46883,8 +44422,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46902,8 +44440,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46921,8 +44458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46940,8 +44476,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46959,8 +44494,7 @@ const quotesData = [
     open: 0,
     change: -0.3,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -46978,8 +44512,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -46997,8 +44530,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47016,8 +44548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47035,8 +44566,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47054,8 +44584,7 @@ const quotesData = [
     open: 0,
     change: 0.3,
     volume: 35582,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -47073,8 +44602,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47092,8 +44620,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47111,8 +44638,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47130,8 +44656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 20000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -47149,8 +44674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 744,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -47168,8 +44692,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47187,8 +44710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47206,8 +44728,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47225,8 +44746,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47244,8 +44764,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47263,8 +44782,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47282,8 +44800,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47301,8 +44818,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47320,8 +44836,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47339,8 +44854,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47358,8 +44872,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47377,8 +44890,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47396,8 +44908,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47415,8 +44926,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47434,8 +44944,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47453,8 +44962,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47472,8 +44980,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 757,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -47491,8 +44998,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47510,8 +45016,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 58340,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -47529,8 +45034,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47548,8 +45052,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47567,8 +45070,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47586,8 +45088,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47605,8 +45106,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 22728,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -47624,8 +45124,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47643,8 +45142,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47662,8 +45160,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47681,8 +45178,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47700,8 +45196,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47719,8 +45214,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47738,8 +45232,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 3449,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -47757,8 +45250,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47776,8 +45268,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 10107,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -47795,8 +45286,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47814,8 +45304,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47833,8 +45322,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47852,8 +45340,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47871,8 +45358,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47890,8 +45376,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1605,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -47909,8 +45394,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47928,8 +45412,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 17180,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -47947,8 +45430,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -47966,8 +45448,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 33192,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -47985,8 +45466,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1946,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -48004,8 +45484,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48023,8 +45502,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48042,8 +45520,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48061,8 +45538,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48080,8 +45556,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48099,8 +45574,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48118,8 +45592,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48137,8 +45610,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48156,8 +45628,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48175,8 +45646,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48194,8 +45664,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48213,8 +45682,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48232,8 +45700,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48251,8 +45718,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2296,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -48270,8 +45736,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48289,8 +45754,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1916,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -48308,8 +45772,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48327,8 +45790,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48346,8 +45808,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 909,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -48365,8 +45826,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48384,8 +45844,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 50000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -48403,8 +45862,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48422,8 +45880,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48441,8 +45898,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48460,8 +45916,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48479,8 +45934,7 @@ const quotesData = [
     open: 0,
     change: -0.1,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -48498,8 +45952,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48517,8 +45970,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48536,8 +45988,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48555,8 +46006,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48574,8 +46024,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48593,8 +46042,7 @@ const quotesData = [
     open: 0,
     change: 0.1,
     volume: 4083,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -48612,8 +46060,7 @@ const quotesData = [
     open: 0,
     change: -0.1,
     volume: 5312,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -48631,8 +46078,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48650,8 +46096,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48669,8 +46114,7 @@ const quotesData = [
     open: 0,
     change: 0.1,
     volume: 10606,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -48688,8 +46132,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48707,8 +46150,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48726,8 +46168,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48745,8 +46186,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48764,8 +46204,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 6851,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -48783,8 +46222,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48802,8 +46240,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48821,8 +46258,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48840,8 +46276,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48859,8 +46294,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48878,8 +46312,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48897,8 +46330,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48916,8 +46348,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48935,8 +46366,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48954,8 +46384,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48973,8 +46402,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -48992,8 +46420,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49011,8 +46438,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49030,8 +46456,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49049,8 +46474,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49068,8 +46492,7 @@ const quotesData = [
     open: 0,
     change: -0.1,
     volume: 1656,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -49087,8 +46510,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49106,8 +46528,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49125,8 +46546,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1502,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -49144,8 +46564,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49163,8 +46582,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49182,8 +46600,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 6023,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -49201,8 +46618,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49220,8 +46636,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49239,8 +46654,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49258,8 +46672,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 3819,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -49277,8 +46690,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49296,8 +46708,7 @@ const quotesData = [
     open: 0,
     change: -0.2,
     volume: 40456,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -49315,8 +46726,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49334,8 +46744,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 2558,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -49353,8 +46762,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49372,8 +46780,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 11466,
-    num_trades: 11,
-    __v: 0,
+    num_trades: 11
   },
   {
     _id: {
@@ -49391,8 +46798,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49410,8 +46816,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49429,8 +46834,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49448,8 +46852,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49467,8 +46870,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 603,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -49486,8 +46888,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49505,8 +46906,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49524,8 +46924,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 10665,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -49543,8 +46942,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49562,8 +46960,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49581,8 +46978,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49600,8 +46996,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 17950,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -49619,8 +47014,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 1600,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -49638,8 +47032,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49657,8 +47050,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 786,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -49676,8 +47068,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 1189,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -49695,8 +47086,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49714,8 +47104,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49733,8 +47122,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49752,8 +47140,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49771,8 +47158,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49790,8 +47176,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49809,8 +47194,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49828,8 +47212,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49847,8 +47230,7 @@ const quotesData = [
     open: 3,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49866,8 +47248,7 @@ const quotesData = [
     open: 3,
     change: 0.25,
     volume: 35100,
-    num_trades: 17,
-    __v: 0,
+    num_trades: 17
   },
   {
     _id: {
@@ -49885,8 +47266,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49904,8 +47284,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49923,8 +47302,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49942,8 +47320,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49961,8 +47338,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49980,8 +47356,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -49999,8 +47374,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50018,8 +47392,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50037,8 +47410,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50056,8 +47428,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50075,8 +47446,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50094,8 +47464,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 9012,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -50113,8 +47482,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50132,8 +47500,7 @@ const quotesData = [
     open: 3.25,
     change: -0.05,
     volume: 765,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -50151,8 +47518,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50170,8 +47536,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50189,8 +47554,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50208,8 +47572,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50227,8 +47590,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50246,8 +47608,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50265,8 +47626,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50284,8 +47644,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50303,8 +47662,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50322,8 +47680,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50341,8 +47698,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50360,8 +47716,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50379,8 +47734,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50398,8 +47752,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50417,8 +47770,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50436,8 +47788,7 @@ const quotesData = [
     open: 3.2,
     change: 0.05,
     volume: 554719,
-    num_trades: 18,
-    __v: 0,
+    num_trades: 18
   },
   {
     _id: {
@@ -50455,8 +47806,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50474,8 +47824,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50493,8 +47842,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50512,8 +47860,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50531,8 +47878,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50550,8 +47896,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50569,8 +47914,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50588,8 +47932,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50607,8 +47950,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50626,8 +47968,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50645,8 +47986,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50664,8 +48004,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50683,8 +48022,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50702,8 +48040,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50721,8 +48058,7 @@ const quotesData = [
     open: 3.25,
     change: -0.05,
     volume: 976,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -50740,8 +48076,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50759,8 +48094,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50778,8 +48112,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50797,8 +48130,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50816,8 +48148,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50835,8 +48166,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50854,8 +48184,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50873,8 +48202,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50892,8 +48220,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 10000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -50911,8 +48238,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50930,8 +48256,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50949,8 +48274,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 10000,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -50968,8 +48292,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -50987,8 +48310,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51006,8 +48328,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51025,8 +48346,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51044,8 +48364,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 1920,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -51063,8 +48382,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51082,8 +48400,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51101,8 +48418,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51120,8 +48436,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51139,8 +48454,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51158,8 +48472,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51177,8 +48490,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51196,8 +48508,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51215,8 +48526,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51234,8 +48544,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51253,8 +48562,7 @@ const quotesData = [
     open: 3.2,
     change: 0.01,
     volume: 23003,
-    num_trades: 12,
-    __v: 0,
+    num_trades: 12
   },
   {
     _id: {
@@ -51272,8 +48580,7 @@ const quotesData = [
     open: 3.21,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51291,8 +48598,7 @@ const quotesData = [
     open: 3.21,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51310,8 +48616,7 @@ const quotesData = [
     open: 3.21,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51329,8 +48634,7 @@ const quotesData = [
     open: 3.21,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51348,8 +48652,7 @@ const quotesData = [
     open: 3.21,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51367,8 +48670,7 @@ const quotesData = [
     open: 3.21,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51386,8 +48688,7 @@ const quotesData = [
     open: 3.21,
     change: 0,
     volume: 298,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -51405,8 +48706,7 @@ const quotesData = [
     open: 3.21,
     change: -0.01,
     volume: 6707,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -51424,8 +48724,7 @@ const quotesData = [
     open: 3.2,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51443,8 +48742,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51462,8 +48760,7 @@ const quotesData = [
     open: 3.21,
     change: 0.05,
     volume: 60104,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -51481,8 +48778,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51500,8 +48796,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51519,8 +48814,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51538,8 +48832,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51557,8 +48850,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51576,8 +48868,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51595,8 +48886,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51614,8 +48904,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51633,8 +48922,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51652,8 +48940,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51671,8 +48958,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51690,8 +48976,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51709,8 +48994,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51728,8 +49012,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 75000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -51747,8 +49030,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51766,8 +49048,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51785,8 +49066,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 2833,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -51804,8 +49084,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51823,8 +49102,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51842,8 +49120,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51861,8 +49138,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 77000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -51880,8 +49156,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 29103,
-    num_trades: 9,
-    __v: 0,
+    num_trades: 9
   },
   {
     _id: {
@@ -51899,8 +49174,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51918,8 +49192,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51937,8 +49210,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51956,8 +49228,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51975,8 +49246,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -51994,8 +49264,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 65000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -52013,8 +49282,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52032,8 +49300,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52051,8 +49318,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52070,8 +49336,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52089,8 +49354,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52108,8 +49372,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52127,8 +49390,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 1286,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -52146,8 +49408,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52165,8 +49426,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52184,8 +49444,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52203,8 +49462,7 @@ const quotesData = [
     open: 3.25,
     change: -0.01,
     volume: 65329,
-    num_trades: 18,
-    __v: 0,
+    num_trades: 18
   },
   {
     _id: {
@@ -52222,8 +49480,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52241,8 +49498,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 40000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -52260,8 +49516,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52279,8 +49534,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52298,8 +49552,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52317,8 +49570,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52336,8 +49588,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52355,8 +49606,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52374,8 +49624,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 1600,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -52393,8 +49642,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52412,8 +49660,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 132065,
-    num_trades: 37,
-    __v: 0,
+    num_trades: 37
   },
   {
     _id: {
@@ -52431,8 +49678,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 6121,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -52450,8 +49696,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52469,8 +49714,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52488,8 +49732,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52507,8 +49750,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52526,8 +49768,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52545,8 +49786,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52564,8 +49804,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52583,8 +49822,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52602,8 +49840,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52621,8 +49858,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52640,8 +49876,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 41790,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -52659,8 +49894,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52678,8 +49912,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52697,8 +49930,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52716,8 +49948,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52735,8 +49966,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52754,8 +49984,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 28014,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -52773,8 +50002,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 15221,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -52792,8 +50020,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52811,8 +50038,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52830,8 +50056,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52849,8 +50074,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52868,8 +50092,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52887,8 +50110,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52906,8 +50128,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52925,8 +50146,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52944,8 +50164,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -52963,8 +50182,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 8270,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -52982,8 +50200,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53001,8 +50218,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53020,8 +50236,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53039,8 +50254,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53058,8 +50272,7 @@ const quotesData = [
     open: 3.25,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53077,8 +50290,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53096,8 +50308,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53115,8 +50326,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53134,8 +50344,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53153,8 +50362,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53172,8 +50380,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53191,8 +50398,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53210,8 +50416,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53229,8 +50434,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53248,8 +50452,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53267,8 +50470,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53286,8 +50488,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53305,8 +50506,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53324,8 +50524,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53343,8 +50542,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53362,8 +50560,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53381,8 +50578,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53400,8 +50596,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53419,8 +50614,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53438,8 +50632,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53457,8 +50650,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53476,8 +50668,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53495,8 +50686,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53514,8 +50704,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53533,8 +50722,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53552,8 +50740,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53571,8 +50758,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53590,8 +50776,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53609,8 +50794,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53628,8 +50812,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53647,8 +50830,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53666,8 +50848,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53685,8 +50866,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53704,8 +50884,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53723,8 +50902,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53742,8 +50920,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53761,8 +50938,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53780,8 +50956,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53799,8 +50974,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53818,8 +50992,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53837,8 +51010,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53856,8 +51028,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53875,8 +51046,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53894,8 +51064,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53913,8 +51082,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53932,8 +51100,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53951,8 +51118,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53970,8 +51136,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -53989,8 +51154,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54008,8 +51172,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54027,8 +51190,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54046,8 +51208,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54065,8 +51226,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54084,8 +51244,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54103,8 +51262,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54122,8 +51280,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54141,8 +51298,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 10278,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -54160,8 +51316,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54179,8 +51334,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54198,8 +51352,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54217,8 +51370,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54236,8 +51388,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54255,8 +51406,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54274,8 +51424,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54293,8 +51442,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54312,8 +51460,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54331,8 +51478,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54350,8 +51496,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54369,8 +51514,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54388,8 +51532,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54407,8 +51550,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54426,8 +51568,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54445,8 +51586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54464,8 +51604,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54483,8 +51622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54502,8 +51640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54521,8 +51658,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54540,8 +51676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54559,8 +51694,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54578,8 +51712,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54597,8 +51730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54616,8 +51748,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54635,8 +51766,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54654,8 +51784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54673,8 +51802,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54692,8 +51820,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54711,8 +51838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54730,8 +51856,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54749,8 +51874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54768,8 +51892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54787,8 +51910,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54806,8 +51928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54825,8 +51946,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54844,8 +51964,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54863,8 +51982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54882,8 +52000,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54901,8 +52018,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54920,8 +52036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54939,8 +52054,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54958,8 +52072,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54977,8 +52090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -54996,8 +52108,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55015,8 +52126,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55034,8 +52144,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55053,8 +52162,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55072,8 +52180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55091,8 +52198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55110,8 +52216,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55129,8 +52234,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55148,8 +52252,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55167,8 +52270,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55186,8 +52288,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55205,8 +52306,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55224,8 +52324,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55243,8 +52342,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55262,8 +52360,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55281,8 +52378,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55300,8 +52396,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55319,8 +52414,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55338,8 +52432,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55357,8 +52450,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55376,8 +52468,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55395,8 +52486,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55414,8 +52504,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55433,8 +52522,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55452,8 +52540,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55471,8 +52558,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55490,8 +52576,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55509,8 +52594,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55528,8 +52612,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55547,8 +52630,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55566,8 +52648,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55585,8 +52666,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55604,8 +52684,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55623,8 +52702,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55642,8 +52720,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55661,8 +52738,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55680,8 +52756,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55699,8 +52774,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55718,8 +52792,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55737,8 +52810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55756,8 +52828,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55775,8 +52846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55794,8 +52864,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55813,8 +52882,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55832,8 +52900,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55851,8 +52918,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55870,8 +52936,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55889,8 +52954,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55908,8 +52972,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55927,8 +52990,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55946,8 +53008,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55965,8 +53026,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -55984,8 +53044,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56003,8 +53062,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56022,8 +53080,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56041,8 +53098,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56060,8 +53116,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56079,8 +53134,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56098,8 +53152,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56117,8 +53170,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56136,8 +53188,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56155,8 +53206,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56174,8 +53224,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56193,8 +53242,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56212,8 +53260,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56231,8 +53278,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56250,8 +53296,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56269,8 +53314,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56288,8 +53332,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56307,8 +53350,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56326,8 +53368,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56345,8 +53386,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 6105,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -56364,8 +53404,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56383,8 +53422,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56402,8 +53440,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56421,8 +53458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56440,8 +53476,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56459,8 +53494,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56478,8 +53512,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56497,8 +53530,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56516,8 +53548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56535,8 +53566,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56554,8 +53584,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56573,8 +53602,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56592,8 +53620,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56611,8 +53638,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56630,8 +53656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56649,8 +53674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56668,8 +53692,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56687,8 +53710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56706,8 +53728,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56725,8 +53746,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56744,8 +53764,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56763,8 +53782,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56782,8 +53800,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56801,8 +53818,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1894,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -56820,8 +53836,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56839,8 +53854,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56858,8 +53872,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56877,8 +53890,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56896,8 +53908,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56915,8 +53926,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56934,8 +53944,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56953,8 +53962,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2115,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -56972,8 +53980,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -56991,8 +53998,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57010,8 +54016,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57029,8 +54034,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57048,8 +54052,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57067,8 +54070,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57086,8 +54088,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57105,8 +54106,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57124,8 +54124,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57143,8 +54142,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57162,8 +54160,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57181,8 +54178,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57200,8 +54196,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57219,8 +54214,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57238,8 +54232,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57257,8 +54250,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57276,8 +54268,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57295,8 +54286,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57314,8 +54304,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57333,8 +54322,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57352,8 +54340,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57371,8 +54358,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57390,8 +54376,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57409,8 +54394,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57428,8 +54412,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57447,8 +54430,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57466,8 +54448,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57485,8 +54466,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57504,8 +54484,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57523,8 +54502,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57542,8 +54520,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57561,8 +54538,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57580,8 +54556,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57599,8 +54574,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57618,8 +54592,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57637,8 +54610,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57656,8 +54628,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57675,8 +54646,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57694,8 +54664,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57713,8 +54682,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57732,8 +54700,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57751,8 +54718,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57770,8 +54736,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57789,8 +54754,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57808,8 +54772,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57827,8 +54790,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57846,8 +54808,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57865,8 +54826,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57884,8 +54844,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57903,8 +54862,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 4723,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -57922,8 +54880,7 @@ const quotesData = [
     open: 0,
     change: -0.05,
     volume: 20000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -57941,8 +54898,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57960,8 +54916,7 @@ const quotesData = [
     open: 0,
     change: 0.05,
     volume: 2952,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -57979,8 +54934,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -57998,8 +54952,7 @@ const quotesData = [
     open: 0,
     change: -0.05,
     volume: 5000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -58017,8 +54970,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58036,8 +54988,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 5000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -58055,8 +55006,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58074,8 +55024,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58093,8 +55042,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58112,8 +55060,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58131,8 +55078,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58150,8 +55096,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58169,8 +55114,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58188,8 +55132,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58207,8 +55150,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58226,8 +55168,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58245,8 +55186,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58264,8 +55204,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58283,8 +55222,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58302,8 +55240,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58321,8 +55258,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58340,8 +55276,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58359,8 +55294,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58378,8 +55312,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58397,8 +55330,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58416,8 +55348,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58435,8 +55366,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58454,8 +55384,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58473,8 +55402,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58492,8 +55420,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58511,8 +55438,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58530,8 +55456,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58549,8 +55474,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58568,8 +55492,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58587,8 +55510,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58606,8 +55528,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58625,8 +55546,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58644,8 +55564,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58663,8 +55582,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58682,8 +55600,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58701,8 +55618,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58720,8 +55636,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58739,8 +55654,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58758,8 +55672,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58777,8 +55690,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58796,8 +55708,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58815,8 +55726,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58834,8 +55744,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58853,8 +55762,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58872,8 +55780,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58891,8 +55798,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58910,8 +55816,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58929,8 +55834,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58948,8 +55852,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58967,8 +55870,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -58986,8 +55888,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59005,8 +55906,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59024,8 +55924,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59043,8 +55942,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59062,8 +55960,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59081,8 +55978,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59100,8 +55996,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59119,8 +56014,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59138,8 +56032,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59157,8 +56050,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59176,8 +56068,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59195,8 +56086,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59214,8 +56104,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59233,8 +56122,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59252,8 +56140,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59271,8 +56158,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59290,8 +56176,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59309,8 +56194,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59328,8 +56212,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59347,8 +56230,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59366,8 +56248,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59385,8 +56266,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59404,8 +56284,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59423,8 +56302,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59442,8 +56320,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59461,8 +56338,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59480,8 +56356,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59499,8 +56374,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59518,8 +56392,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59537,8 +56410,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59556,8 +56428,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59575,8 +56446,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59594,8 +56464,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59613,8 +56482,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59632,8 +56500,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59651,8 +56518,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 101585,
-    num_trades: 25,
-    __v: 0,
+    num_trades: 25
   },
   {
     _id: {
@@ -59670,8 +56536,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59689,8 +56554,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59708,8 +56572,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59727,8 +56590,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59746,8 +56608,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59765,8 +56626,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59784,8 +56644,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59803,8 +56662,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59822,8 +56680,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59841,8 +56698,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59860,8 +56716,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59879,8 +56734,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59898,8 +56752,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59917,8 +56770,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59936,8 +56788,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59955,8 +56806,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59974,8 +56824,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -59993,8 +56842,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60012,8 +56860,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60031,8 +56878,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60050,8 +56896,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 134380,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -60069,8 +56914,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60088,8 +56932,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60107,8 +56950,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60126,8 +56968,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60145,8 +56986,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60164,8 +57004,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60183,8 +57022,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 5000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -60202,8 +57040,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60221,8 +57058,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60240,8 +57076,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60259,8 +57094,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60278,8 +57112,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60297,8 +57130,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60316,8 +57148,7 @@ const quotesData = [
     open: 0.9,
     change: 0.09,
     volume: 15916,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -60335,8 +57166,7 @@ const quotesData = [
     open: 0.9,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60354,8 +57184,7 @@ const quotesData = [
     open: 0.9,
     change: 0.01,
     volume: 2460,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -60373,8 +57202,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60392,8 +57220,7 @@ const quotesData = [
     open: 1,
     change: 0.05,
     volume: 2540,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -60411,8 +57238,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 5000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -60430,8 +57256,7 @@ const quotesData = [
     open: 1.05,
     change: 0.03,
     volume: 34384,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -60449,8 +57274,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60468,8 +57292,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 5732,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -60487,8 +57310,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60506,8 +57328,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60525,8 +57346,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60544,8 +57364,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60563,8 +57382,7 @@ const quotesData = [
     open: 1.05,
     change: -0.08,
     volume: 2002,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -60582,8 +57400,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60601,8 +57418,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60620,8 +57436,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 6843,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -60639,8 +57454,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60658,8 +57472,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60677,8 +57490,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60696,8 +57508,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60715,8 +57526,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60734,8 +57544,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60753,8 +57562,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60772,8 +57580,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60791,8 +57598,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 18069,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -60810,8 +57616,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60829,8 +57634,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60848,8 +57652,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60867,8 +57670,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60886,8 +57688,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60905,8 +57706,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60924,8 +57724,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60943,8 +57742,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60962,8 +57760,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -60981,8 +57778,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 5000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -61000,8 +57796,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61019,8 +57814,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61038,8 +57832,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61057,8 +57850,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61076,8 +57868,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61095,8 +57886,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 20000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -61114,8 +57904,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61133,8 +57922,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61152,8 +57940,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61171,8 +57958,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61190,8 +57976,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61209,8 +57994,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61228,8 +58012,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61247,8 +58030,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 10341,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -61266,8 +58048,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61285,8 +58066,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61304,8 +58084,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61323,8 +58102,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61342,8 +58120,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61361,8 +58138,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61380,8 +58156,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61399,8 +58174,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61418,8 +58192,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61437,8 +58210,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61456,8 +58228,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61475,8 +58246,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61494,8 +58264,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61513,8 +58282,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61532,8 +58300,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61551,8 +58318,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61570,8 +58336,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61589,8 +58354,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61608,8 +58372,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61627,8 +58390,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61646,8 +58408,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61665,8 +58426,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61684,8 +58444,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61703,8 +58462,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61722,8 +58480,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61741,8 +58498,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61760,8 +58516,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61779,8 +58534,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61798,8 +58552,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 13800,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -61817,8 +58570,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 4800,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -61836,8 +58588,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61855,8 +58606,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61874,8 +58624,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61893,8 +58642,7 @@ const quotesData = [
     open: 1.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61912,8 +58660,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61931,8 +58678,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61950,8 +58696,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61969,8 +58714,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -61988,8 +58732,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62007,8 +58750,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62026,8 +58768,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 512,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -62045,8 +58786,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62064,8 +58804,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62083,8 +58822,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62102,8 +58840,7 @@ const quotesData = [
     open: 0,
     change: 0.1,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -62121,8 +58858,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62140,8 +58876,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62159,8 +58894,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62178,8 +58912,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62197,8 +58930,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62216,8 +58948,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62235,8 +58966,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62254,8 +58984,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62273,8 +59002,7 @@ const quotesData = [
     open: 0,
     change: 0.06,
     volume: 2500,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -62292,8 +59020,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62311,8 +59038,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62330,8 +59056,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62349,8 +59074,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62368,8 +59092,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62387,8 +59110,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2397,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -62406,8 +59128,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62425,8 +59146,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62444,8 +59164,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62463,8 +59182,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62482,8 +59200,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62501,8 +59218,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62520,8 +59236,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62539,8 +59254,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62558,8 +59272,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62577,8 +59290,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62596,8 +59308,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62615,8 +59326,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62634,8 +59344,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62653,8 +59362,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62672,8 +59380,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62691,8 +59398,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62710,8 +59416,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62729,8 +59434,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62748,8 +59452,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62767,8 +59470,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62786,8 +59488,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62805,8 +59506,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62824,8 +59524,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62843,8 +59542,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62862,8 +59560,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62881,8 +59578,7 @@ const quotesData = [
     open: 0,
     change: -0.01,
     volume: 466,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -62900,8 +59596,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62919,8 +59614,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62938,8 +59632,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62957,8 +59650,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62976,8 +59668,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -62995,8 +59686,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63014,8 +59704,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63033,8 +59722,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63052,8 +59740,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63071,8 +59758,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63090,8 +59776,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63109,8 +59794,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1100,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -63128,8 +59812,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63147,8 +59830,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63166,8 +59848,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63185,8 +59866,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63204,8 +59884,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63223,8 +59902,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63242,8 +59920,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63261,8 +59938,7 @@ const quotesData = [
     open: 0,
     change: 0.01,
     volume: 4589,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -63280,8 +59956,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63299,8 +59974,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63318,8 +59992,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63337,8 +60010,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63356,8 +60028,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 232000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -63375,8 +60046,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63394,8 +60064,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63413,8 +60082,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63432,8 +60100,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63451,8 +60118,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63470,8 +60136,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63489,8 +60154,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63508,8 +60172,7 @@ const quotesData = [
     open: 0,
     change: -0.01,
     volume: 3500,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -63527,8 +60190,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63546,8 +60208,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63565,8 +60226,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63584,8 +60244,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63603,8 +60262,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63622,8 +60280,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63641,8 +60298,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63660,8 +60316,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63679,8 +60334,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63698,8 +60352,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63717,8 +60370,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63736,8 +60388,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63755,8 +60406,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63774,8 +60424,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63793,8 +60442,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63812,8 +60460,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63831,8 +60478,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63850,8 +60496,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63869,8 +60514,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63888,8 +60532,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63907,8 +60550,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63926,8 +60568,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63945,8 +60586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63964,8 +60604,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -63983,8 +60622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64002,8 +60640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64021,8 +60658,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64040,8 +60676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64059,8 +60694,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64078,8 +60712,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64097,8 +60730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64116,8 +60748,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64135,8 +60766,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64154,8 +60784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64173,8 +60802,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64192,8 +60820,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64211,8 +60838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64230,8 +60856,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64249,8 +60874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64268,8 +60892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64287,8 +60910,7 @@ const quotesData = [
     open: 0,
     change: -0.3,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -64306,8 +60928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64325,8 +60946,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64344,8 +60964,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64363,8 +60982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64382,8 +61000,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64401,8 +61018,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64420,8 +61036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64439,8 +61054,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 7634,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -64458,8 +61072,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64477,8 +61090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64496,8 +61108,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 2366,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -64515,8 +61126,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64534,8 +61144,7 @@ const quotesData = [
     open: 0,
     change: 0.05,
     volume: 66933,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -64553,8 +61162,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64572,8 +61180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64591,8 +61198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64610,8 +61216,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64629,8 +61234,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64648,8 +61252,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64667,8 +61270,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64686,8 +61288,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64705,8 +61306,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64724,8 +61324,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64743,8 +61342,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64762,8 +61360,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64781,8 +61378,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64800,8 +61396,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64819,8 +61414,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64838,8 +61432,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64857,8 +61450,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64876,8 +61468,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64895,8 +61486,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64914,8 +61504,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64933,8 +61522,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64952,8 +61540,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64971,8 +61558,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -64990,8 +61576,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65009,8 +61594,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65028,8 +61612,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65047,8 +61630,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65066,8 +61648,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65085,8 +61666,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65104,8 +61684,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65123,8 +61702,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65142,8 +61720,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65161,8 +61738,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65180,8 +61756,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65199,8 +61774,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65218,8 +61792,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65237,8 +61810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65256,8 +61828,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65275,8 +61846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65294,8 +61864,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65313,8 +61882,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65332,8 +61900,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65351,8 +61918,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65370,8 +61936,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65389,8 +61954,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65408,8 +61972,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65427,8 +61990,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65446,8 +62008,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65465,8 +62026,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65484,8 +62044,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65503,8 +62062,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65522,8 +62080,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65541,8 +62098,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65560,8 +62116,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65579,8 +62134,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65598,8 +62152,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65617,8 +62170,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65636,8 +62188,7 @@ const quotesData = [
     open: 0,
     change: -0.05,
     volume: 3600,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -65655,8 +62206,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65674,8 +62224,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65693,8 +62242,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65712,8 +62260,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65731,8 +62278,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65750,8 +62296,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65769,8 +62314,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65788,8 +62332,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65807,8 +62350,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65826,8 +62368,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65845,8 +62386,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65864,8 +62404,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65883,8 +62422,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65902,8 +62440,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65921,8 +62458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65940,8 +62476,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65959,8 +62494,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -65978,8 +62512,7 @@ const quotesData = [
     open: 0,
     change: 0.3,
     volume: 10000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -65997,8 +62530,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66016,8 +62548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66035,8 +62566,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 4806,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -66054,8 +62584,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66073,8 +62602,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66092,8 +62620,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66111,8 +62638,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66130,8 +62656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66149,8 +62674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66168,8 +62692,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66187,8 +62710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66206,8 +62728,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66225,8 +62746,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66244,8 +62764,7 @@ const quotesData = [
     open: 0,
     change: -0.3,
     volume: 9600,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -66263,8 +62782,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66282,8 +62800,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66301,8 +62818,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66320,8 +62836,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66339,8 +62854,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66358,8 +62872,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 500,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -66377,8 +62890,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66396,8 +62908,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66415,8 +62926,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66434,8 +62944,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 2000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -66453,8 +62962,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66472,8 +62980,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66491,8 +62998,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66510,8 +63016,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66529,8 +63034,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66548,8 +63052,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66567,8 +63070,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66586,8 +63088,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66605,8 +63106,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66624,8 +63124,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66643,8 +63142,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66662,8 +63160,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66681,8 +63178,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66700,8 +63196,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66719,8 +63214,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66738,8 +63232,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66757,8 +63250,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66776,8 +63268,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66795,8 +63286,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66814,8 +63304,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66833,8 +63322,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66852,8 +63340,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66871,8 +63358,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66890,8 +63376,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66909,8 +63394,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66928,8 +63412,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66947,8 +63430,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66966,8 +63448,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -66985,8 +63466,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67004,8 +63484,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67023,8 +63502,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67042,8 +63520,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67061,8 +63538,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67080,8 +63556,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67099,8 +63574,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67118,8 +63592,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67137,8 +63610,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67156,8 +63628,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67175,8 +63646,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67194,8 +63664,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67213,8 +63682,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67232,8 +63700,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67251,8 +63718,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67270,8 +63736,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67289,8 +63754,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67308,8 +63772,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67327,8 +63790,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 2000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -67346,8 +63808,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67365,8 +63826,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67384,8 +63844,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67403,8 +63862,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67422,8 +63880,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67441,8 +63898,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67460,8 +63916,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 2280,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -67479,8 +63934,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67498,8 +63952,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 197720,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -67517,8 +63970,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67536,8 +63988,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67555,8 +64006,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67574,8 +64024,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67593,8 +64042,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67612,8 +64060,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67631,8 +64078,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67650,8 +64096,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67669,8 +64114,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67688,8 +64132,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67707,8 +64150,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67726,8 +64168,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67745,8 +64186,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 7007,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -67764,8 +64204,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67783,8 +64222,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 12993,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -67802,8 +64240,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67821,8 +64258,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67840,8 +64276,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67859,8 +64294,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67878,8 +64312,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67897,8 +64330,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67916,8 +64348,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67935,8 +64366,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67954,8 +64384,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67973,8 +64402,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -67992,8 +64420,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68011,8 +64438,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68030,8 +64456,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68049,8 +64474,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68068,8 +64492,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68087,8 +64510,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68106,8 +64528,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68125,8 +64546,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68144,8 +64564,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68163,8 +64582,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68182,8 +64600,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68201,8 +64618,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68220,8 +64636,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -68239,8 +64654,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68258,8 +64672,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68277,8 +64690,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68296,8 +64708,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68315,8 +64726,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68334,8 +64744,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68353,8 +64762,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68372,8 +64780,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68391,8 +64798,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68410,8 +64816,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68429,8 +64834,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68448,8 +64852,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68467,8 +64870,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 4000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -68486,8 +64888,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68505,8 +64906,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68524,8 +64924,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68543,8 +64942,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68562,8 +64960,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68581,8 +64978,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68600,8 +64996,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68619,8 +65014,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68638,8 +65032,7 @@ const quotesData = [
     open: 0.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68657,8 +65050,7 @@ const quotesData = [
     open: 0.5,
     change: 0.01,
     volume: 13250,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -68676,8 +65068,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68695,8 +65086,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68714,8 +65104,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68733,8 +65122,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68752,8 +65140,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68771,8 +65158,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 85000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -68790,8 +65176,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68809,8 +65194,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68828,8 +65212,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68847,8 +65230,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68866,8 +65248,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68885,8 +65266,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68904,8 +65284,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68923,8 +65302,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68942,8 +65320,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68961,8 +65338,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68980,8 +65356,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -68999,8 +65374,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69018,8 +65392,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69037,8 +65410,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69056,8 +65428,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69075,8 +65446,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69094,8 +65464,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69113,8 +65482,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69132,8 +65500,7 @@ const quotesData = [
     open: 0.6,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69151,8 +65518,7 @@ const quotesData = [
     open: 0.6,
     change: 0.1,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -69170,8 +65536,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69189,8 +65554,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69208,8 +65572,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -69227,8 +65590,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69246,8 +65608,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69265,8 +65626,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69284,8 +65644,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 32250,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -69303,8 +65662,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69322,8 +65680,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69341,8 +65698,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69360,8 +65716,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69379,8 +65734,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69398,8 +65752,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69417,8 +65770,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 5071,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -69436,8 +65788,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69455,8 +65806,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 5686,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -69474,8 +65824,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69493,8 +65842,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69512,8 +65860,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69531,8 +65878,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69550,8 +65896,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69569,8 +65914,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69588,8 +65932,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69607,8 +65950,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69626,8 +65968,7 @@ const quotesData = [
     open: 0.7,
     change: 0.1,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -69645,8 +65986,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69664,8 +66004,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69683,8 +66022,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69702,8 +66040,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69721,8 +66058,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69740,8 +66076,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69759,8 +66094,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69778,8 +66112,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69797,8 +66130,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69816,8 +66148,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69835,8 +66166,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69854,8 +66184,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69873,8 +66202,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69892,8 +66220,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69911,8 +66238,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69930,8 +66256,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69949,8 +66274,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69968,8 +66292,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -69987,8 +66310,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70006,8 +66328,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70025,8 +66346,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70044,8 +66364,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70063,8 +66382,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70082,8 +66400,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70101,8 +66418,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70120,8 +66436,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70139,8 +66454,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70158,8 +66472,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70177,8 +66490,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70196,8 +66508,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70215,8 +66526,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70234,8 +66544,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70253,8 +66562,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70272,8 +66580,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70291,8 +66598,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70310,8 +66616,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70329,8 +66634,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70348,8 +66652,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70367,8 +66670,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70386,8 +66688,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70405,8 +66706,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70424,8 +66724,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70443,8 +66742,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70462,8 +66760,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70481,8 +66778,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70500,8 +66796,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70519,8 +66814,7 @@ const quotesData = [
     open: 0.7,
     change: 0.1,
     volume: 10000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -70538,8 +66832,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70557,8 +66850,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70576,8 +66868,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70595,8 +66886,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70614,8 +66904,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70633,8 +66922,7 @@ const quotesData = [
     open: 0.7,
     change: 0.1,
     volume: 5400,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -70652,8 +66940,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70671,8 +66958,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70690,8 +66976,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70709,8 +66994,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70728,8 +67012,7 @@ const quotesData = [
     open: 0.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70747,8 +67030,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70766,8 +67048,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70785,8 +67066,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70804,8 +67084,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70823,8 +67102,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70842,8 +67120,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70861,8 +67138,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70880,8 +67156,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70899,8 +67174,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70918,8 +67192,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70937,8 +67210,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70956,8 +67228,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70975,8 +67246,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -70994,8 +67264,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71013,8 +67282,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71032,8 +67300,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71051,8 +67318,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71070,8 +67336,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71089,8 +67354,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71108,8 +67372,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71127,8 +67390,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71146,8 +67408,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71165,8 +67426,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71184,8 +67444,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71203,8 +67462,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71222,8 +67480,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71241,8 +67498,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71260,8 +67516,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71279,8 +67534,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71298,8 +67552,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71317,8 +67570,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71336,8 +67588,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71355,8 +67606,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71374,8 +67624,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71393,8 +67642,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71412,8 +67660,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71431,8 +67678,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71450,8 +67696,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71469,8 +67714,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71488,8 +67732,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71507,8 +67750,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71526,8 +67768,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71545,8 +67786,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71564,8 +67804,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71583,8 +67822,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71602,8 +67840,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71621,8 +67858,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71640,8 +67876,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71659,8 +67894,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71678,8 +67912,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71697,8 +67930,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71716,8 +67948,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71735,8 +67966,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71754,8 +67984,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71773,8 +68002,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71792,8 +68020,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71811,8 +68038,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71830,8 +68056,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71849,8 +68074,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71868,8 +68092,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71887,8 +68110,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71906,8 +68128,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71925,8 +68146,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71944,8 +68164,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71963,8 +68182,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -71982,8 +68200,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72001,8 +68218,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72020,8 +68236,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72039,8 +68254,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72058,8 +68272,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72077,8 +68290,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72096,8 +68308,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72115,8 +68326,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72134,8 +68344,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72153,8 +68362,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72172,8 +68380,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72191,8 +68398,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72210,8 +68416,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72229,8 +68434,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72248,8 +68452,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72267,8 +68470,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72286,8 +68488,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72305,8 +68506,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72324,8 +68524,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72343,8 +68542,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72362,8 +68560,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72381,8 +68578,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72400,8 +68596,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72419,8 +68614,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72438,8 +68632,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72457,8 +68650,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72476,8 +68668,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72495,8 +68686,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72514,8 +68704,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72533,8 +68722,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72552,8 +68740,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72571,8 +68758,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72590,8 +68776,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72609,8 +68794,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72628,8 +68812,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72647,8 +68830,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72666,8 +68848,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72685,8 +68866,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72704,8 +68884,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72723,8 +68902,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72742,8 +68920,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72761,8 +68938,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72780,8 +68956,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72799,8 +68974,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72818,8 +68992,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72837,8 +69010,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72856,8 +69028,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72875,8 +69046,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72894,8 +69064,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72913,8 +69082,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72932,8 +69100,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72951,8 +69118,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72970,8 +69136,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -72989,8 +69154,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73008,8 +69172,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73027,8 +69190,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73046,8 +69208,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73065,8 +69226,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73084,8 +69244,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73103,8 +69262,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73122,8 +69280,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73141,8 +69298,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73160,8 +69316,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73179,8 +69334,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73198,8 +69352,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73217,8 +69370,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73236,8 +69388,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73255,8 +69406,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73274,8 +69424,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73293,8 +69442,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73312,8 +69460,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73331,8 +69478,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73350,8 +69496,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73369,8 +69514,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73388,8 +69532,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73407,8 +69550,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73426,8 +69568,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73445,8 +69586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73464,8 +69604,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73483,8 +69622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73502,8 +69640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73521,8 +69658,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73540,8 +69676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73559,8 +69694,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73578,8 +69712,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73597,8 +69730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73616,8 +69748,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73635,8 +69766,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73654,8 +69784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73673,8 +69802,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73692,8 +69820,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73711,8 +69838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73730,8 +69856,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73749,8 +69874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73768,8 +69892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73787,8 +69910,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73806,8 +69928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73825,8 +69946,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73844,8 +69964,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73863,8 +69982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73882,8 +70000,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73901,8 +70018,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73920,8 +70036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73939,8 +70054,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73958,8 +70072,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73977,8 +70090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -73996,8 +70108,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74015,8 +70126,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74034,8 +70144,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74053,8 +70162,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74072,8 +70180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74091,8 +70198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74110,8 +70216,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74129,8 +70234,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74148,8 +70252,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74167,8 +70270,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74186,8 +70288,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74205,8 +70306,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74224,8 +70324,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74243,8 +70342,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74262,8 +70360,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74281,8 +70378,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74300,8 +70396,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74319,8 +70414,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74338,8 +70432,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74357,8 +70450,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74376,8 +70468,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74395,8 +70486,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74414,8 +70504,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74433,8 +70522,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74452,8 +70540,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74471,8 +70558,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74490,8 +70576,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74509,8 +70594,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74528,8 +70612,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74547,8 +70630,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74566,8 +70648,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74585,8 +70666,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74604,8 +70684,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74623,8 +70702,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74642,8 +70720,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74661,8 +70738,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74680,8 +70756,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74699,8 +70774,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74718,8 +70792,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74737,8 +70810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74756,8 +70828,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74775,8 +70846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74794,8 +70864,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74813,8 +70882,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74832,8 +70900,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74851,8 +70918,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74870,8 +70936,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74889,8 +70954,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74908,8 +70972,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74927,8 +70990,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74946,8 +71008,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74965,8 +71026,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -74984,8 +71044,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75003,8 +71062,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75022,8 +71080,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75041,8 +71098,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75060,8 +71116,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75079,8 +71134,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75098,8 +71152,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75117,8 +71170,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75136,8 +71188,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75155,8 +71206,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75174,8 +71224,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75193,8 +71242,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75212,8 +71260,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75231,8 +71278,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75250,8 +71296,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75269,8 +71314,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75288,8 +71332,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75307,8 +71350,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75326,8 +71368,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75345,8 +71386,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75364,8 +71404,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75383,8 +71422,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75402,8 +71440,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75421,8 +71458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75440,8 +71476,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75459,8 +71494,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75478,8 +71512,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75497,8 +71530,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75516,8 +71548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75535,8 +71566,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75554,8 +71584,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75573,8 +71602,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75592,8 +71620,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75611,8 +71638,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75630,8 +71656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75649,8 +71674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75668,8 +71692,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75687,8 +71710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75706,8 +71728,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75725,8 +71746,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75744,8 +71764,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75763,8 +71782,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75782,8 +71800,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75801,8 +71818,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75820,8 +71836,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75839,8 +71854,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75858,8 +71872,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75877,8 +71890,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75896,8 +71908,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75915,8 +71926,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75934,8 +71944,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75953,8 +71962,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75972,8 +71980,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -75991,8 +71998,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76010,8 +72016,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76029,8 +72034,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76048,8 +72052,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76067,8 +72070,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76086,8 +72088,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76105,8 +72106,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76124,8 +72124,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76143,8 +72142,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76162,8 +72160,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76181,8 +72178,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76200,8 +72196,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76219,8 +72214,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76238,8 +72232,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76257,8 +72250,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76276,8 +72268,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76295,8 +72286,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76314,8 +72304,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76333,8 +72322,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76352,8 +72340,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76371,8 +72358,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76390,8 +72376,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76409,8 +72394,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76428,8 +72412,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76447,8 +72430,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76466,8 +72448,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76485,8 +72466,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76504,8 +72484,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76523,8 +72502,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76542,8 +72520,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76561,8 +72538,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76580,8 +72556,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76599,8 +72574,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76618,8 +72592,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76637,8 +72610,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76656,8 +72628,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76675,8 +72646,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76694,8 +72664,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76713,8 +72682,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76732,8 +72700,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76751,8 +72718,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76770,8 +72736,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76789,8 +72754,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76808,8 +72772,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76827,8 +72790,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76846,8 +72808,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76865,8 +72826,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76884,8 +72844,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76903,8 +72862,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76922,8 +72880,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76941,8 +72898,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76960,8 +72916,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76979,8 +72934,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -76998,8 +72952,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77017,8 +72970,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77036,8 +72988,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77055,8 +73006,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77074,8 +73024,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77093,8 +73042,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77112,8 +73060,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77131,8 +73078,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77150,8 +73096,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77169,8 +73114,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77188,8 +73132,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77207,8 +73150,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77226,8 +73168,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77245,8 +73186,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77264,8 +73204,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77283,8 +73222,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77302,8 +73240,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77321,8 +73258,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77340,8 +73276,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77359,8 +73294,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77378,8 +73312,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77397,8 +73330,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77416,8 +73348,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77435,8 +73366,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77454,8 +73384,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77473,8 +73402,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77492,8 +73420,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77511,8 +73438,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77530,8 +73456,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77549,8 +73474,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77568,8 +73492,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77587,8 +73510,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77606,8 +73528,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77625,8 +73546,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77644,8 +73564,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77663,8 +73582,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77682,8 +73600,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77701,8 +73618,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77720,8 +73636,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77739,8 +73654,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77758,8 +73672,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77777,8 +73690,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77796,8 +73708,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77815,8 +73726,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77834,8 +73744,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77853,8 +73762,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77872,8 +73780,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77891,8 +73798,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77910,8 +73816,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77929,8 +73834,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77948,8 +73852,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77967,8 +73870,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -77986,8 +73888,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78005,8 +73906,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78024,8 +73924,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78043,8 +73942,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78062,8 +73960,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78081,8 +73978,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78100,8 +73996,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78119,8 +74014,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78138,8 +74032,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78157,8 +74050,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78176,8 +74068,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78195,8 +74086,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78214,8 +74104,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78233,8 +74122,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78252,8 +74140,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78271,8 +74158,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78290,8 +74176,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78309,8 +74194,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78328,8 +74212,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78347,8 +74230,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78366,8 +74248,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78385,8 +74266,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78404,8 +74284,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78423,8 +74302,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78442,8 +74320,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78461,8 +74338,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78480,8 +74356,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78499,8 +74374,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78518,8 +74392,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78537,8 +74410,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78556,8 +74428,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78575,8 +74446,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78594,8 +74464,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78613,8 +74482,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78632,8 +74500,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78651,8 +74518,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78670,8 +74536,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78689,8 +74554,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78708,8 +74572,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78727,8 +74590,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78746,8 +74608,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78765,8 +74626,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78784,8 +74644,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78803,8 +74662,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78822,8 +74680,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78841,8 +74698,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78860,8 +74716,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78879,8 +74734,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78898,8 +74752,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78917,8 +74770,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78936,8 +74788,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78955,8 +74806,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78974,8 +74824,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -78993,8 +74842,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79012,8 +74860,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79031,8 +74878,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79050,8 +74896,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79069,8 +74914,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79088,8 +74932,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79107,8 +74950,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79126,8 +74968,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79145,8 +74986,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79164,8 +75004,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79183,8 +75022,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79202,8 +75040,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79221,8 +75058,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79240,8 +75076,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79259,8 +75094,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79278,8 +75112,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79297,8 +75130,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79316,8 +75148,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79335,8 +75166,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79354,8 +75184,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79373,8 +75202,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79392,8 +75220,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79411,8 +75238,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79430,8 +75256,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79449,8 +75274,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79468,8 +75292,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79487,8 +75310,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79506,8 +75328,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79525,8 +75346,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79544,8 +75364,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79563,8 +75382,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79582,8 +75400,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79601,8 +75418,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79620,8 +75436,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79639,8 +75454,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79658,8 +75472,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79677,8 +75490,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79696,8 +75508,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79715,8 +75526,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79734,8 +75544,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79753,8 +75562,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79772,8 +75580,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79791,8 +75598,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79810,8 +75616,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79829,8 +75634,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79848,8 +75652,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79867,8 +75670,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79886,8 +75688,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79905,8 +75706,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79924,8 +75724,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79943,8 +75742,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79962,8 +75760,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -79981,8 +75778,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80000,8 +75796,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80019,8 +75814,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80038,8 +75832,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80057,8 +75850,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80076,8 +75868,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80095,8 +75886,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80114,8 +75904,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80133,8 +75922,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80152,8 +75940,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80171,8 +75958,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80190,8 +75976,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80209,8 +75994,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80228,8 +76012,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80247,8 +76030,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80266,8 +76048,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80285,8 +76066,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80304,8 +76084,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80323,8 +76102,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80342,8 +76120,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80361,8 +76138,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80380,8 +76156,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80399,8 +76174,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80418,8 +76192,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80437,8 +76210,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80456,8 +76228,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80475,8 +76246,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80494,8 +76264,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80513,8 +76282,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80532,8 +76300,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80551,8 +76318,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80570,8 +76336,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80589,8 +76354,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80608,8 +76372,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80627,8 +76390,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80646,8 +76408,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80665,8 +76426,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80684,8 +76444,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80703,8 +76462,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80722,8 +76480,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80741,8 +76498,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80760,8 +76516,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80779,8 +76534,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80798,8 +76552,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80817,8 +76570,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80836,8 +76588,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80855,8 +76606,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80874,8 +76624,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80893,8 +76642,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80912,8 +76660,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80931,8 +76678,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80950,8 +76696,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80969,8 +76714,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -80988,8 +76732,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81007,8 +76750,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81026,8 +76768,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81045,8 +76786,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81064,8 +76804,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81083,8 +76822,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81102,8 +76840,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81121,8 +76858,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81140,8 +76876,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81159,8 +76894,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81178,8 +76912,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81197,8 +76930,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81216,8 +76948,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81235,8 +76966,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81254,8 +76984,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81273,8 +77002,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81292,8 +77020,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81311,8 +77038,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81330,8 +77056,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81349,8 +77074,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81368,8 +77092,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81387,8 +77110,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81406,8 +77128,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81425,8 +77146,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81444,8 +77164,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81463,8 +77182,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81482,8 +77200,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81501,8 +77218,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81520,8 +77236,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81539,8 +77254,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81558,8 +77272,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81577,8 +77290,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81596,8 +77308,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81615,8 +77326,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81634,8 +77344,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81653,8 +77362,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81672,8 +77380,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81691,8 +77398,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81710,8 +77416,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81729,8 +77434,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81748,8 +77452,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81767,8 +77470,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81786,8 +77488,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81805,8 +77506,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81824,8 +77524,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81843,8 +77542,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81862,8 +77560,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81881,8 +77578,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81900,8 +77596,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81919,8 +77614,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81938,8 +77632,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81957,8 +77650,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81976,8 +77668,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -81995,8 +77686,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82014,8 +77704,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82033,8 +77722,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82052,8 +77740,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82071,8 +77758,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82090,8 +77776,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82109,8 +77794,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82128,8 +77812,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82147,8 +77830,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82166,8 +77848,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82185,8 +77866,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82204,8 +77884,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82223,8 +77902,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82242,8 +77920,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82261,8 +77938,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82280,8 +77956,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82299,8 +77974,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82318,8 +77992,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82337,8 +78010,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82356,8 +78028,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82375,8 +78046,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82394,8 +78064,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82413,8 +78082,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82432,8 +78100,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82451,8 +78118,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82470,8 +78136,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82489,8 +78154,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82508,8 +78172,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82527,8 +78190,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82546,8 +78208,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82565,8 +78226,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82584,8 +78244,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82603,8 +78262,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82622,8 +78280,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82641,8 +78298,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82660,8 +78316,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82679,8 +78334,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82698,8 +78352,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82717,8 +78370,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82736,8 +78388,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82755,8 +78406,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82774,8 +78424,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82793,8 +78442,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82812,8 +78460,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82831,8 +78478,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82850,8 +78496,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82869,8 +78514,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82888,8 +78532,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82907,8 +78550,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82926,8 +78568,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82945,8 +78586,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82964,8 +78604,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -82983,8 +78622,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83002,8 +78640,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83021,8 +78658,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83040,8 +78676,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83059,8 +78694,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83078,8 +78712,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83097,8 +78730,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83116,8 +78748,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83135,8 +78766,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83154,8 +78784,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83173,8 +78802,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83192,8 +78820,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83211,8 +78838,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83230,8 +78856,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83249,8 +78874,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83268,8 +78892,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83287,8 +78910,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83306,8 +78928,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83325,8 +78946,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83344,8 +78964,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83363,8 +78982,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83382,8 +79000,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83401,8 +79018,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83420,8 +79036,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83439,8 +79054,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83458,8 +79072,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83477,8 +79090,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83496,8 +79108,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83515,8 +79126,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83534,8 +79144,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83553,8 +79162,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83572,8 +79180,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83591,8 +79198,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83610,8 +79216,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83629,8 +79234,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83648,8 +79252,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83667,8 +79270,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83686,8 +79288,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83705,8 +79306,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83724,8 +79324,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83743,8 +79342,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83762,8 +79360,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83781,8 +79378,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83800,8 +79396,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83819,8 +79414,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83838,8 +79432,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83857,8 +79450,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83876,8 +79468,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83895,8 +79486,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83914,8 +79504,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83933,8 +79522,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83952,8 +79540,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83971,8 +79558,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -83990,8 +79576,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84009,8 +79594,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84028,8 +79612,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84047,8 +79630,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84066,8 +79648,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84085,8 +79666,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84104,8 +79684,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84123,8 +79702,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84142,8 +79720,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84161,8 +79738,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84180,8 +79756,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84199,8 +79774,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84218,8 +79792,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84237,8 +79810,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84256,8 +79828,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84275,8 +79846,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84294,8 +79864,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84313,8 +79882,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84332,8 +79900,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84351,8 +79918,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84370,8 +79936,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84389,8 +79954,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84408,8 +79972,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84427,8 +79990,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84446,8 +80008,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84465,8 +80026,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84484,8 +80044,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84503,8 +80062,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84522,8 +80080,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84541,8 +80098,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84560,8 +80116,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84579,8 +80134,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84598,8 +80152,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84617,8 +80170,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84636,8 +80188,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84655,8 +80206,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84674,8 +80224,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84693,8 +80242,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84712,8 +80260,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84731,8 +80278,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84750,8 +80296,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84769,8 +80314,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84788,8 +80332,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84807,8 +80350,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84826,8 +80368,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84845,8 +80386,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84864,8 +80404,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84883,8 +80422,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84902,8 +80440,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84921,8 +80458,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84940,8 +80476,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84959,8 +80494,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84978,8 +80512,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -84997,8 +80530,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85016,8 +80548,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85035,8 +80566,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85054,8 +80584,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85073,8 +80602,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85092,8 +80620,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85111,8 +80638,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85130,8 +80656,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85149,8 +80674,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85168,8 +80692,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85187,8 +80710,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85206,8 +80728,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85225,8 +80746,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85244,8 +80764,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85263,8 +80782,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85282,8 +80800,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85301,8 +80818,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85320,8 +80836,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85339,8 +80854,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85358,8 +80872,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85377,8 +80890,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85396,8 +80908,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85415,8 +80926,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85434,8 +80944,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85453,8 +80962,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85472,8 +80980,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85491,8 +80998,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85510,8 +81016,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85529,8 +81034,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85548,8 +81052,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85567,8 +81070,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85586,8 +81088,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85605,8 +81106,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85624,8 +81124,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85643,8 +81142,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85662,8 +81160,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85681,8 +81178,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85700,8 +81196,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85719,8 +81214,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85738,8 +81232,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85757,8 +81250,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85776,8 +81268,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85795,8 +81286,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85814,8 +81304,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85833,8 +81322,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85852,8 +81340,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85871,8 +81358,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85890,8 +81376,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85909,8 +81394,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85928,8 +81412,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85947,8 +81430,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85966,8 +81448,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -85985,8 +81466,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86004,8 +81484,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86023,8 +81502,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86042,8 +81520,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86061,8 +81538,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86080,8 +81556,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86099,8 +81574,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86118,8 +81592,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86137,8 +81610,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86156,8 +81628,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86175,8 +81646,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86194,8 +81664,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86213,8 +81682,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86232,8 +81700,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86251,8 +81718,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86270,8 +81736,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86289,8 +81754,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86308,8 +81772,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86327,8 +81790,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86346,8 +81808,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86365,8 +81826,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86384,8 +81844,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86403,8 +81862,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86422,8 +81880,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86441,8 +81898,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86460,8 +81916,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86479,8 +81934,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86498,8 +81952,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86517,8 +81970,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86536,8 +81988,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86555,8 +82006,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86574,8 +82024,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86593,8 +82042,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86612,8 +82060,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86631,8 +82078,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86650,8 +82096,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86669,8 +82114,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86688,8 +82132,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86707,8 +82150,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86726,8 +82168,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86745,8 +82186,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86764,8 +82204,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86783,8 +82222,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86802,8 +82240,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86821,8 +82258,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86840,8 +82276,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86859,8 +82294,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86878,8 +82312,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86897,8 +82330,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86916,8 +82348,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86935,8 +82366,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86954,8 +82384,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86973,8 +82402,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -86992,8 +82420,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87011,8 +82438,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87030,8 +82456,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87049,8 +82474,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87068,8 +82492,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87087,8 +82510,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87106,8 +82528,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87125,8 +82546,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87144,8 +82564,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87163,8 +82582,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87182,8 +82600,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87201,8 +82618,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87220,8 +82636,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87239,8 +82654,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87258,8 +82672,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87277,8 +82690,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87296,8 +82708,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87315,8 +82726,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87334,8 +82744,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87353,8 +82762,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87372,8 +82780,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87391,8 +82798,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87410,8 +82816,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87429,8 +82834,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87448,8 +82852,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87467,8 +82870,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87486,8 +82888,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87505,8 +82906,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87524,8 +82924,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87543,8 +82942,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87562,8 +82960,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87581,8 +82978,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87600,8 +82996,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87619,8 +83014,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87638,8 +83032,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87657,8 +83050,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87676,8 +83068,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87695,8 +83086,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87714,8 +83104,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87733,8 +83122,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87752,8 +83140,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87771,8 +83158,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87790,8 +83176,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87809,8 +83194,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87828,8 +83212,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87847,8 +83230,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87866,8 +83248,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87885,8 +83266,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87904,8 +83284,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87923,8 +83302,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87942,8 +83320,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87961,8 +83338,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87980,8 +83356,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -87999,8 +83374,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88018,8 +83392,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88037,8 +83410,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88056,8 +83428,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88075,8 +83446,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88094,8 +83464,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88113,8 +83482,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88132,8 +83500,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88151,8 +83518,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88170,8 +83536,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88189,8 +83554,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88208,8 +83572,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88227,8 +83590,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88246,8 +83608,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88265,8 +83626,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88284,8 +83644,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88303,8 +83662,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88322,8 +83680,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88341,8 +83698,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88360,8 +83716,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88379,8 +83734,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88398,8 +83752,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88417,8 +83770,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88436,8 +83788,7 @@ const quotesData = [
     open: 0,
     change: -0.15,
     volume: 3875,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -88455,8 +83806,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88474,8 +83824,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88493,8 +83842,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88512,8 +83860,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88531,8 +83878,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 4250,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -88550,8 +83896,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88569,8 +83914,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88588,8 +83932,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88607,8 +83950,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1542,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -88626,8 +83968,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88645,8 +83986,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88664,8 +84004,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88683,8 +84022,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88702,8 +84040,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88721,8 +84058,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 5129,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -88740,8 +84076,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88759,8 +84094,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88778,8 +84112,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88797,8 +84130,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88816,8 +84148,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 1250,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -88835,8 +84166,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88854,8 +84184,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88873,8 +84202,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 27238,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -88892,8 +84220,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88911,8 +84238,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88930,8 +84256,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88949,8 +84274,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88968,8 +84292,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -88987,8 +84310,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89006,8 +84328,7 @@ const quotesData = [
     open: 0,
     change: 0.05,
     volume: 21428,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -89025,8 +84346,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89044,8 +84364,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89063,8 +84382,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89082,8 +84400,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89101,8 +84418,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89120,8 +84436,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89139,8 +84454,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89158,8 +84472,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89177,8 +84490,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89196,8 +84508,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89215,8 +84526,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89234,8 +84544,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89253,8 +84562,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89272,8 +84580,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89291,8 +84598,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89310,8 +84616,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89329,8 +84634,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89348,8 +84652,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89367,8 +84670,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89386,8 +84688,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89405,8 +84706,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89424,8 +84724,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89443,8 +84742,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89462,8 +84760,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 6071,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -89481,8 +84778,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89500,8 +84796,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89519,8 +84814,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89538,8 +84832,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89557,8 +84850,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89576,8 +84868,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 3722,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -89595,8 +84886,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 8543,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -89614,8 +84904,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89633,8 +84922,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89652,8 +84940,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89671,8 +84958,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89690,8 +84976,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89709,8 +84994,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89728,8 +85012,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 36825,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -89747,8 +85030,7 @@ const quotesData = [
     open: 0,
     change: 0.05,
     volume: 33000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -89766,8 +85048,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 32596,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -89785,8 +85066,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89804,8 +85084,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89823,8 +85102,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89842,8 +85120,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 25000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -89861,8 +85138,7 @@ const quotesData = [
     open: 0,
     change: 0.01,
     volume: 1115,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -89880,8 +85156,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89899,8 +85174,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89918,8 +85192,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89937,8 +85210,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89956,8 +85228,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89975,8 +85246,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -89994,8 +85264,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90013,8 +85282,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90032,8 +85300,7 @@ const quotesData = [
     open: 0,
     change: -0.01,
     volume: 20000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -90051,8 +85318,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90070,8 +85336,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90089,8 +85354,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90108,8 +85372,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90127,8 +85390,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 44009,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -90146,8 +85408,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90165,8 +85426,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90184,8 +85444,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 45000,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -90203,8 +85462,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90222,8 +85480,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90241,8 +85498,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90260,8 +85516,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90279,8 +85534,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90298,8 +85552,7 @@ const quotesData = [
     open: 0,
     change: -0.05,
     volume: 5000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -90317,8 +85570,7 @@ const quotesData = [
     open: 0,
     change: -0.05,
     volume: 30000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -90336,8 +85588,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90355,8 +85606,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90374,8 +85624,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90393,8 +85642,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90412,8 +85660,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90431,8 +85678,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90450,8 +85696,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90469,8 +85714,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90488,8 +85732,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 500,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -90507,8 +85750,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90526,8 +85768,7 @@ const quotesData = [
     open: 0,
     change: 0.1,
     volume: 705,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -90545,8 +85786,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90564,8 +85804,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90583,8 +85822,7 @@ const quotesData = [
     open: 0,
     change: -0.05,
     volume: 54177,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -90602,8 +85840,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90621,8 +85858,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90640,8 +85876,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90659,8 +85894,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90678,8 +85912,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90697,8 +85930,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90716,8 +85948,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90735,8 +85966,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90754,8 +85984,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90773,8 +86002,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90792,8 +86020,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90811,8 +86038,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90830,8 +86056,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90849,8 +86074,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90868,8 +86092,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90887,8 +86110,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90906,8 +86128,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 7218,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -90925,8 +86146,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90944,8 +86164,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 344,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -90963,8 +86182,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -90982,8 +86200,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91001,8 +86218,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91020,8 +86236,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91039,8 +86254,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91058,8 +86272,7 @@ const quotesData = [
     open: 0,
     change: -0.15,
     volume: 1000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -91077,8 +86290,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91096,8 +86308,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91115,8 +86326,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 333,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -91134,8 +86344,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91153,8 +86362,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91172,8 +86380,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91191,8 +86398,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91210,8 +86416,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91229,8 +86434,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91248,8 +86452,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91267,8 +86470,7 @@ const quotesData = [
     open: 1.5,
     change: 0.15,
     volume: 5000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -91286,8 +86488,7 @@ const quotesData = [
     open: 1.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91305,8 +86506,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 49513,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -91324,8 +86524,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91343,8 +86542,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91362,8 +86560,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91381,8 +86578,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91400,8 +86596,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91419,8 +86614,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91438,8 +86632,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91457,8 +86650,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91476,8 +86668,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91495,8 +86686,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91514,8 +86704,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91533,8 +86722,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91552,8 +86740,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91571,8 +86758,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91590,8 +86776,7 @@ const quotesData = [
     open: 0,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91609,8 +86794,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91628,8 +86812,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91647,8 +86830,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91666,8 +86848,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91685,8 +86866,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91704,8 +86884,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91723,8 +86902,7 @@ const quotesData = [
     open: 1.65,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91742,8 +86920,7 @@ const quotesData = [
     open: 1.65,
     change: 0.05,
     volume: 2017,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -91761,8 +86938,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91780,8 +86956,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91799,8 +86974,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91818,8 +86992,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91837,8 +87010,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91856,8 +87028,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91875,8 +87046,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91894,8 +87064,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91913,8 +87082,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 45000,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -91932,8 +87100,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91951,8 +87118,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91970,8 +87136,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -91989,8 +87154,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92008,8 +87172,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92027,8 +87190,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92046,8 +87208,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92065,8 +87226,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1923,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -92084,8 +87244,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92103,8 +87262,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92122,8 +87280,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 11193,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -92141,8 +87298,7 @@ const quotesData = [
     open: 1.7,
     change: 0.05,
     volume: 1142,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -92160,8 +87316,7 @@ const quotesData = [
     open: 1.75,
     change: 0,
     volume: 51958,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -92179,8 +87334,7 @@ const quotesData = [
     open: 1.75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92198,8 +87352,7 @@ const quotesData = [
     open: 1.75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92217,8 +87370,7 @@ const quotesData = [
     open: 1.75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92236,8 +87388,7 @@ const quotesData = [
     open: 1.75,
     change: -0.04,
     volume: 6198,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -92255,8 +87406,7 @@ const quotesData = [
     open: 1.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92274,8 +87424,7 @@ const quotesData = [
     open: 1.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92293,8 +87442,7 @@ const quotesData = [
     open: 1.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92312,8 +87460,7 @@ const quotesData = [
     open: 1.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92331,8 +87478,7 @@ const quotesData = [
     open: 1.71,
     change: -0.01,
     volume: 94139,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -92350,8 +87496,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92369,8 +87514,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1270,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -92388,8 +87532,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92407,8 +87550,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92426,8 +87568,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92445,8 +87586,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92464,8 +87604,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92483,8 +87622,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92502,8 +87640,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92521,8 +87658,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 3128,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -92540,8 +87676,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92559,8 +87694,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92578,8 +87712,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92597,8 +87730,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92616,8 +87748,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92635,8 +87766,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92654,8 +87784,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 33125,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -92673,8 +87802,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 65058,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -92692,8 +87820,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92711,8 +87838,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 392276,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -92730,8 +87856,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92749,8 +87874,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92768,8 +87892,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92787,8 +87910,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92806,8 +87928,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92825,8 +87946,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92844,8 +87964,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92863,8 +87982,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92882,8 +88000,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92901,8 +88018,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92920,8 +88036,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 6400,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -92939,8 +88054,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92958,8 +88072,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92977,8 +88090,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -92996,8 +88108,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93015,8 +88126,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1176,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -93034,8 +88144,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93053,8 +88162,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93072,8 +88180,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1681,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -93091,8 +88198,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 400,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -93110,8 +88216,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1600,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -93129,8 +88234,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93148,8 +88252,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93167,8 +88270,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93186,8 +88288,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 53646,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -93205,8 +88306,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93224,8 +88324,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93243,8 +88342,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 2563,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -93262,8 +88360,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 32800,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -93281,8 +88378,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93300,8 +88396,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93319,8 +88414,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93338,8 +88432,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 9000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -93357,8 +88450,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93376,8 +88468,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93395,8 +88486,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93414,8 +88504,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93433,8 +88522,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93452,8 +88540,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 6536,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -93471,8 +88558,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93490,8 +88576,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93509,8 +88594,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 35500,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -93528,8 +88612,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93547,8 +88630,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93566,8 +88648,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93585,8 +88666,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93604,8 +88684,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93623,8 +88702,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93642,8 +88720,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93661,8 +88738,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93680,8 +88756,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93699,8 +88774,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93718,8 +88792,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93737,8 +88810,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93756,8 +88828,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93775,8 +88846,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93794,8 +88864,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93813,8 +88882,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93832,8 +88900,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93851,8 +88918,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93870,8 +88936,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93889,8 +88954,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93908,8 +88972,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93927,8 +88990,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93946,8 +89008,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93965,8 +89026,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -93984,8 +89044,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94003,8 +89062,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94022,8 +89080,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94041,8 +89098,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94060,8 +89116,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94079,8 +89134,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94098,8 +89152,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94117,8 +89170,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1187,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -94136,8 +89188,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 15203,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -94155,8 +89206,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94174,8 +89224,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 3620,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -94193,8 +89242,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94212,8 +89260,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94231,8 +89278,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94250,8 +89296,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94269,8 +89314,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 15000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -94288,8 +89332,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94307,8 +89350,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94326,8 +89368,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94345,8 +89386,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94364,8 +89404,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94383,8 +89422,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94402,8 +89440,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94421,8 +89458,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94440,8 +89476,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94459,8 +89494,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94478,8 +89512,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94497,8 +89530,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94516,8 +89548,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94535,8 +89566,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94554,8 +89584,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94573,8 +89602,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94592,8 +89620,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94611,8 +89638,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94630,8 +89656,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94649,8 +89674,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94668,8 +89692,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94687,8 +89710,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94706,8 +89728,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94725,8 +89746,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94744,8 +89764,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94763,8 +89782,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94782,8 +89800,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94801,8 +89818,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94820,8 +89836,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94839,8 +89854,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94858,8 +89872,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94877,8 +89890,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94896,8 +89908,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94915,8 +89926,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94934,8 +89944,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94953,8 +89962,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94972,8 +89980,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -94991,8 +89998,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95010,8 +90016,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95029,8 +90034,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95048,8 +90052,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95067,8 +90070,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95086,8 +90088,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95105,8 +90106,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 3000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -95124,8 +90124,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95143,8 +90142,7 @@ const quotesData = [
     open: 1.7,
     change: -0.01,
     volume: 5000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -95162,8 +90160,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95181,8 +90178,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95200,8 +90196,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95219,8 +90214,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95238,8 +90232,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95257,8 +90250,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95276,8 +90268,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95295,8 +90286,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95314,8 +90304,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95333,8 +90322,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95352,8 +90340,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95371,8 +90358,7 @@ const quotesData = [
     open: 1.69,
     change: 0.01,
     volume: 2823,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -95390,8 +90376,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95409,8 +90394,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95428,8 +90412,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95447,8 +90430,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95466,8 +90448,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95485,8 +90466,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95504,8 +90484,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95523,8 +90502,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95542,8 +90520,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95561,8 +90538,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1445,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -95580,8 +90556,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95599,8 +90574,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95618,8 +90592,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95637,8 +90610,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1177,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -95656,8 +90628,7 @@ const quotesData = [
     open: 1.7,
     change: -0.01,
     volume: 2305,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -95675,8 +90646,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95694,8 +90664,7 @@ const quotesData = [
     open: 1.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95713,8 +90682,7 @@ const quotesData = [
     open: 1.69,
     change: 0.01,
     volume: 15728,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -95732,8 +90700,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 155014,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -95751,8 +90718,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1167,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -95770,8 +90736,7 @@ const quotesData = [
     open: 1.7,
     change: 0.2,
     volume: 39026,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -95789,8 +90754,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95808,8 +90772,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95827,8 +90790,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95846,8 +90808,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95865,8 +90826,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95884,8 +90844,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95903,8 +90862,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95922,8 +90880,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95941,8 +90898,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95960,8 +90916,7 @@ const quotesData = [
     open: 1.7,
     change: -0.2,
     volume: 350,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -95979,8 +90934,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -95998,8 +90952,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96017,8 +90970,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96036,8 +90988,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96055,8 +91006,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96074,8 +91024,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 17167,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -96093,8 +91042,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96112,8 +91060,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96131,8 +91078,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96150,8 +91096,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 8823,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -96169,8 +91114,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96188,8 +91132,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96207,8 +91150,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1176,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -96226,8 +91168,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96245,8 +91186,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96264,8 +91204,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 5882,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -96283,8 +91222,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96302,8 +91240,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96321,8 +91258,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96340,8 +91276,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96359,8 +91294,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96378,8 +91312,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96397,8 +91330,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96416,8 +91348,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96435,8 +91366,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96454,8 +91384,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96473,8 +91402,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96492,8 +91420,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96511,8 +91438,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96530,8 +91456,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96549,8 +91474,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96568,8 +91492,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96587,8 +91510,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 24704,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -96606,8 +91528,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96625,8 +91546,7 @@ const quotesData = [
     open: 1.7,
     change: -0.01,
     volume: 508,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -96644,8 +91564,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96663,8 +91582,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96682,8 +91600,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96701,8 +91618,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96720,8 +91636,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96739,8 +91654,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96758,8 +91672,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96777,8 +91690,7 @@ const quotesData = [
     open: 1.7,
     change: 0.01,
     volume: 2335,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -96796,8 +91708,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96815,8 +91726,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96834,8 +91744,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96853,8 +91762,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96872,8 +91780,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96891,8 +91798,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 2500,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -96910,8 +91816,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96929,8 +91834,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 1900,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -96948,8 +91852,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 6772,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -96967,8 +91870,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -96986,8 +91888,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97005,8 +91906,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97024,8 +91924,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97043,8 +91942,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97062,8 +91960,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97081,8 +91978,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97100,8 +91996,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97119,8 +92014,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97138,8 +92032,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97157,8 +92050,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97176,8 +92068,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97195,8 +92086,7 @@ const quotesData = [
     open: 1.7,
     change: -0.02,
     volume: 208882,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -97214,8 +92104,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97233,8 +92122,7 @@ const quotesData = [
     open: 1.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97252,8 +92140,7 @@ const quotesData = [
     open: 11.69,
     change: 0.02,
     volume: 1016,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -97271,8 +92158,7 @@ const quotesData = [
     open: 11.69,
     change: 0,
     volume: 407,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -97290,8 +92176,7 @@ const quotesData = [
     open: 11.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97309,8 +92194,7 @@ const quotesData = [
     open: 11.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97328,8 +92212,7 @@ const quotesData = [
     open: 11.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97347,8 +92230,7 @@ const quotesData = [
     open: 11.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97366,8 +92248,7 @@ const quotesData = [
     open: 11.69,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97385,8 +92266,7 @@ const quotesData = [
     open: 11.69,
     change: 0.01,
     volume: 1359,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -97404,8 +92284,7 @@ const quotesData = [
     open: 11.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97423,8 +92302,7 @@ const quotesData = [
     open: 11.7,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97442,8 +92320,7 @@ const quotesData = [
     open: 11.7,
     change: 0.01,
     volume: 2772,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -97461,8 +92338,7 @@ const quotesData = [
     open: 11.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97480,8 +92356,7 @@ const quotesData = [
     open: 11.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97499,8 +92374,7 @@ const quotesData = [
     open: 11.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97518,8 +92392,7 @@ const quotesData = [
     open: 11.71,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97537,8 +92410,7 @@ const quotesData = [
     open: 11.71,
     change: 0.04,
     volume: 1000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -97556,8 +92428,7 @@ const quotesData = [
     open: 11.75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97575,8 +92446,7 @@ const quotesData = [
     open: 11.75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97594,8 +92464,7 @@ const quotesData = [
     open: 11.75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97613,8 +92482,7 @@ const quotesData = [
     open: 11.75,
     change: 0,
     volume: 513,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -97632,8 +92500,7 @@ const quotesData = [
     open: 11.75,
     change: 0.01,
     volume: 45274,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -97651,8 +92518,7 @@ const quotesData = [
     open: 11.76,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97670,8 +92536,7 @@ const quotesData = [
     open: 11.76,
     change: 0,
     volume: 1000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -97689,8 +92554,7 @@ const quotesData = [
     open: 11.76,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97708,8 +92572,7 @@ const quotesData = [
     open: 11.76,
     change: 0.02,
     volume: 3471,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -97727,8 +92590,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97746,8 +92608,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 1040,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -97765,8 +92626,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97784,8 +92644,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97803,8 +92662,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97822,8 +92680,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97841,8 +92698,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97860,8 +92716,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97879,8 +92734,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97898,8 +92752,7 @@ const quotesData = [
     open: 11.78,
     change: -0.03,
     volume: 46137,
-    num_trades: 24,
-    __v: 0,
+    num_trades: 24
   },
   {
     _id: {
@@ -97917,8 +92770,7 @@ const quotesData = [
     open: 11.75,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97936,8 +92788,7 @@ const quotesData = [
     open: 11.75,
     change: 0.03,
     volume: 5667,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -97955,8 +92806,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97974,8 +92824,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -97993,8 +92842,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 50821,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -98012,8 +92860,7 @@ const quotesData = [
     open: 11.78,
     change: 0.01,
     volume: 1654,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -98031,8 +92878,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98050,8 +92896,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98069,8 +92914,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 2000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -98088,8 +92932,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98107,8 +92950,7 @@ const quotesData = [
     open: 11.79,
     change: -0.01,
     volume: 2000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -98126,8 +92968,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98145,8 +92986,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98164,8 +93004,7 @@ const quotesData = [
     open: 11.78,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98183,8 +93022,7 @@ const quotesData = [
     open: 11.78,
     change: 0.01,
     volume: 3721,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -98202,8 +93040,7 @@ const quotesData = [
     open: 11.79,
     change: -0.01,
     volume: 357,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -98221,8 +93058,7 @@ const quotesData = [
     open: 11.78,
     change: 0.01,
     volume: 535,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -98240,8 +93076,7 @@ const quotesData = [
     open: 11.79,
     change: 0.01,
     volume: 5923,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -98259,8 +93094,7 @@ const quotesData = [
     open: 11.8,
     change: 0,
     volume: 12000,
-    num_trades: 23,
-    __v: 0,
+    num_trades: 23
   },
   {
     _id: {
@@ -98278,8 +93112,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98297,8 +93130,7 @@ const quotesData = [
     open: 11.8,
     change: -0.01,
     volume: 237,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -98316,8 +93148,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98335,8 +93166,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -98354,8 +93184,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98373,8 +93202,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98392,8 +93220,7 @@ const quotesData = [
     open: 11.79,
     change: -0.01,
     volume: 919,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -98411,8 +93238,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98430,8 +93256,7 @@ const quotesData = [
     open: 11.81,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98449,8 +93274,7 @@ const quotesData = [
     open: 11.78,
     change: 0.03,
     volume: 879932,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -98468,8 +93292,7 @@ const quotesData = [
     open: 11.8,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98487,8 +93310,7 @@ const quotesData = [
     open: 11.81,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98506,8 +93328,7 @@ const quotesData = [
     open: 11.81,
     change: -0.02,
     volume: 10900,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -98525,8 +93346,7 @@ const quotesData = [
     open: 11.79,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98544,8 +93364,7 @@ const quotesData = [
     open: 11.79,
     change: 0.71,
     volume: 7000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -98563,8 +93382,7 @@ const quotesData = [
     open: 12.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98582,8 +93400,7 @@ const quotesData = [
     open: 12.5,
     change: -0.5,
     volume: 50000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -98601,8 +93418,7 @@ const quotesData = [
     open: 12.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98620,8 +93436,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98639,8 +93454,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -98658,8 +93472,7 @@ const quotesData = [
     open: 12,
     change: 0.1,
     volume: 3351,
-    num_trades: 9,
-    __v: 0,
+    num_trades: 9
   },
   {
     _id: {
@@ -98677,8 +93490,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 1940,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -98696,8 +93508,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98715,8 +93526,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98734,8 +93544,7 @@ const quotesData = [
     open: 12.1,
     change: -0.1,
     volume: 897,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -98753,8 +93562,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98772,8 +93580,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98791,8 +93598,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 16416,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -98810,8 +93616,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98829,8 +93634,7 @@ const quotesData = [
     open: 12,
     change: 0.1,
     volume: 526,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -98848,8 +93652,7 @@ const quotesData = [
     open: 12.1,
     change: -0.1,
     volume: 2035,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -98867,8 +93670,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1057337,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -98886,8 +93688,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 7866,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -98905,8 +93706,7 @@ const quotesData = [
     open: 12,
     change: 0.01,
     volume: 26085,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -98924,8 +93724,7 @@ const quotesData = [
     open: 12.01,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98943,8 +93742,7 @@ const quotesData = [
     open: 12.01,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -98962,8 +93760,7 @@ const quotesData = [
     open: 12.01,
     change: -0.01,
     volume: 1124,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -98981,8 +93778,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99000,8 +93796,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 19352,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99019,8 +93814,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -99038,8 +93832,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 4578,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -99057,8 +93850,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99076,8 +93868,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99095,8 +93886,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99114,8 +93904,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99133,8 +93922,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99152,8 +93940,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 2255,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99171,8 +93958,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99190,8 +93976,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 6000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99209,8 +93994,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99228,8 +94012,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 32676,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99247,8 +94030,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99266,8 +94048,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99285,8 +94066,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99304,8 +94084,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99323,8 +94102,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99342,8 +94120,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99361,8 +94138,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99380,8 +94156,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99399,8 +94174,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 11809,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99418,8 +94192,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99437,8 +94210,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99456,8 +94228,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 65000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -99475,8 +94246,7 @@ const quotesData = [
     open: 12,
     change: 0.5,
     volume: 20963,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -99494,8 +94264,7 @@ const quotesData = [
     open: 12.5,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99513,8 +94282,7 @@ const quotesData = [
     open: 12.5,
     change: -0.5,
     volume: 1511,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -99532,8 +94300,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99551,8 +94318,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99570,8 +94336,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99589,8 +94354,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 3411,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -99608,8 +94372,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1105,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99627,8 +94390,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 8000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -99646,8 +94408,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 31304,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99665,8 +94426,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99684,8 +94444,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1520,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99703,8 +94462,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99722,8 +94480,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99741,8 +94498,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99760,8 +94516,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99779,8 +94534,7 @@ const quotesData = [
     open: 12,
     change: 0.01,
     volume: 4535,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -99798,8 +94552,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 665,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -99817,8 +94570,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99836,8 +94588,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99855,8 +94606,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99874,8 +94624,7 @@ const quotesData = [
     open: 12.1,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99893,8 +94642,7 @@ const quotesData = [
     open: 12.1,
     change: -0.01,
     volume: 1095,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -99912,8 +94660,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99931,8 +94678,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -99950,8 +94696,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 140,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -99969,8 +94714,7 @@ const quotesData = [
     open: 12,
     change: 0.02,
     volume: 720,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -99988,8 +94732,7 @@ const quotesData = [
     open: 12.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100007,8 +94750,7 @@ const quotesData = [
     open: 12.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100026,8 +94768,7 @@ const quotesData = [
     open: 12.02,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100045,8 +94786,7 @@ const quotesData = [
     open: 12.02,
     change: -0.02,
     volume: 230668,
-    num_trades: 24,
-    __v: 0,
+    num_trades: 24
   },
   {
     _id: {
@@ -100064,8 +94804,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100083,8 +94822,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100102,8 +94840,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 102715,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -100121,8 +94858,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 12626,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -100140,8 +94876,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 5166,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -100159,8 +94894,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 5574,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -100178,8 +94912,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100197,8 +94930,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 6085,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -100216,8 +94948,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100235,8 +94966,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100254,8 +94984,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100273,8 +95002,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 4316,
-    num_trades: 11,
-    __v: 0,
+    num_trades: 11
   },
   {
     _id: {
@@ -100292,8 +95020,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100311,8 +95038,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100330,8 +95056,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 506,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -100349,8 +95074,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -100368,8 +95092,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100387,8 +95110,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100406,8 +95128,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100425,8 +95146,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100444,8 +95164,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100463,8 +95182,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -100482,8 +95200,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 9421,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -100501,8 +95218,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 12469,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -100520,8 +95236,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100539,8 +95254,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100558,8 +95272,7 @@ const quotesData = [
     open: 12,
     change: 0.01,
     volume: 300,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -100577,8 +95290,7 @@ const quotesData = [
     open: 12.01,
     change: 0.01,
     volume: 536,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -100596,8 +95308,7 @@ const quotesData = [
     open: 12.02,
     change: -0.01,
     volume: 889417,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -100615,8 +95326,7 @@ const quotesData = [
     open: 12.01,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -100634,8 +95344,7 @@ const quotesData = [
     open: 12.01,
     change: -0.01,
     volume: 1845,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -100653,8 +95362,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100672,8 +95380,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100691,8 +95398,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100710,8 +95416,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 122101,
-    num_trades: 23,
-    __v: 0,
+    num_trades: 23
   },
   {
     _id: {
@@ -100729,8 +95434,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -100748,8 +95452,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 54895,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -100767,8 +95470,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100786,8 +95488,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 16823,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -100805,8 +95506,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100824,8 +95524,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100843,8 +95542,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100862,8 +95560,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 97441,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -100881,8 +95578,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 58300,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -100900,8 +95596,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 50636,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -100919,8 +95614,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100938,8 +95632,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -100957,8 +95650,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100976,8 +95668,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -100995,8 +95686,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 259,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -101014,8 +95704,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1698,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -101033,8 +95722,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101052,8 +95740,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101071,8 +95758,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101090,8 +95776,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101109,8 +95794,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101128,8 +95812,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 86974,
-    num_trades: 9,
-    __v: 0,
+    num_trades: 9
   },
   {
     _id: {
@@ -101147,8 +95830,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 752143,
-    num_trades: 13,
-    __v: 0,
+    num_trades: 13
   },
   {
     _id: {
@@ -101166,8 +95848,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101185,8 +95866,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 5066,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -101204,8 +95884,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101223,8 +95902,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 21626,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -101242,8 +95920,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 8250,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -101261,8 +95938,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101280,8 +95956,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101299,8 +95974,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 26470,
-    num_trades: 11,
-    __v: 0,
+    num_trades: 11
   },
   {
     _id: {
@@ -101318,8 +95992,7 @@ const quotesData = [
     open: 12,
     change: -10.3,
     volume: 11226,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -101337,8 +96010,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 4708,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -101356,8 +96028,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101375,8 +96046,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -101394,8 +96064,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101413,8 +96082,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101432,8 +96100,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101451,8 +96118,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101470,8 +96136,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101489,8 +96154,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 2643,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -101508,8 +96172,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101527,8 +96190,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 10397,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -101546,8 +96208,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 83498,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -101565,8 +96226,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1236,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -101584,8 +96244,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101603,8 +96262,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 120348,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -101622,8 +96280,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101641,8 +96298,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101660,8 +96316,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101679,8 +96334,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 224429,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -101698,8 +96352,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101717,8 +96370,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101736,8 +96388,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101755,8 +96406,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 94870,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -101774,8 +96424,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 4400,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -101793,8 +96442,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 66982,
-    num_trades: 11,
-    __v: 0,
+    num_trades: 11
   },
   {
     _id: {
@@ -101812,8 +96460,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101831,8 +96478,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 21005,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -101850,8 +96496,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101869,8 +96514,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101888,8 +96532,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -101907,8 +96550,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101926,8 +96568,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -101945,8 +96586,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 108106,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -101964,8 +96604,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 6828,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -101983,8 +96622,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102002,8 +96640,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 15339,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -102021,8 +96658,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 410,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -102040,8 +96676,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1026,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -102059,8 +96694,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102078,8 +96712,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 30000,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -102097,8 +96730,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102116,8 +96748,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102135,8 +96766,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 31769,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -102154,8 +96784,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102173,8 +96802,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -102192,8 +96820,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 30130,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102211,8 +96838,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102230,8 +96856,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 397,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -102249,8 +96874,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 106531,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102268,8 +96892,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102287,8 +96910,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 287,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -102306,8 +96928,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102325,8 +96946,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102344,8 +96964,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 89822,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -102363,8 +96982,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1397,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -102382,8 +97000,7 @@ const quotesData = [
     open: 12,
     change: 0.05,
     volume: 32034,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102401,8 +97018,7 @@ const quotesData = [
     open: 12.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102420,8 +97036,7 @@ const quotesData = [
     open: 12.05,
     change: -0.05,
     volume: 3684,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102439,8 +97054,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1656,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102458,8 +97072,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -102477,8 +97090,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 100183,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -102496,8 +97108,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 99817,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -102515,8 +97126,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 937,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -102534,8 +97144,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -102553,8 +97162,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102572,8 +97180,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -102591,8 +97198,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102610,8 +97216,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 11412,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -102629,8 +97234,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102648,8 +97252,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102667,8 +97270,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 5000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102686,8 +97288,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 416,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -102705,8 +97306,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102724,8 +97324,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102743,8 +97342,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102762,8 +97360,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102781,8 +97378,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102800,8 +97396,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -102819,8 +97414,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 20487,
-    num_trades: 18,
-    __v: 0,
+    num_trades: 18
   },
   {
     _id: {
@@ -102838,8 +97432,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 2542,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102857,8 +97450,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 300000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -102876,8 +97468,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 15194,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -102895,8 +97486,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 51381,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -102914,8 +97504,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 389,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -102933,8 +97522,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102952,8 +97540,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -102971,8 +97558,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 20000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -102990,8 +97576,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103009,8 +97594,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -103028,8 +97612,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103047,8 +97630,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103066,8 +97648,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103085,8 +97666,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 21244,
-    num_trades: 9,
-    __v: 0,
+    num_trades: 9
   },
   {
     _id: {
@@ -103104,8 +97684,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103123,8 +97702,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 20000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103142,8 +97720,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103161,8 +97738,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103180,8 +97756,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103199,8 +97774,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 2057,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -103218,8 +97792,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103237,8 +97810,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 749,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -103256,8 +97828,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103275,8 +97846,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 197438,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -103294,8 +97864,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103313,8 +97882,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 25000,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -103332,8 +97900,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103351,8 +97918,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 24746,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -103370,8 +97936,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 43139,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -103389,8 +97954,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103408,8 +97972,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103427,8 +97990,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103446,8 +98008,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 4624,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -103465,8 +98026,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 224440,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -103484,8 +98044,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 4083,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -103503,8 +98062,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 222190,
-    num_trades: 11,
-    __v: 0,
+    num_trades: 11
   },
   {
     _id: {
@@ -103522,8 +98080,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 30000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103541,8 +98098,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103560,8 +98116,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 30000,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -103579,8 +98134,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 25000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -103598,8 +98152,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103617,8 +98170,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 8000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103636,8 +98188,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 207833,
-    num_trades: 15,
-    __v: 0,
+    num_trades: 15
   },
   {
     _id: {
@@ -103655,8 +98206,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103674,8 +98224,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 800,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103693,8 +98242,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 113000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -103712,8 +98260,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1626,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103731,8 +98278,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1544,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103750,8 +98296,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 100000,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -103769,8 +98314,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103788,8 +98332,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 116143,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -103807,8 +98350,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 2500,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -103826,8 +98368,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103845,8 +98386,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 3497,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -103864,8 +98404,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103883,8 +98422,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103902,8 +98440,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 2179,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -103921,8 +98458,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103940,8 +98476,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -103959,8 +98494,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 3259,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -103978,8 +98512,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 76365,
-    num_trades: 11,
-    __v: 0,
+    num_trades: 11
   },
   {
     _id: {
@@ -103997,8 +98530,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 1388,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -104016,8 +98548,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104035,8 +98566,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104054,8 +98584,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104073,8 +98602,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104092,8 +98620,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 14417,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -104111,8 +98638,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104130,8 +98656,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104149,8 +98674,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 8182,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -104168,8 +98692,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104187,8 +98710,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104206,8 +98728,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 62213,
-    num_trades: 6,
-    __v: 0,
+    num_trades: 6
   },
   {
     _id: {
@@ -104225,8 +98746,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 5605,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -104244,8 +98764,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 43762,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -104263,8 +98782,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 831,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -104282,8 +98800,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104301,8 +98818,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104320,8 +98836,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104339,8 +98854,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104358,8 +98872,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104377,8 +98890,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104396,8 +98908,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104415,8 +98926,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 328087,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -104434,8 +98944,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104453,8 +98962,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 40000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -104472,8 +98980,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 58493,
-    num_trades: 9,
-    __v: 0,
+    num_trades: 9
   },
   {
     _id: {
@@ -104491,8 +98998,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 74594,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -104510,8 +99016,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104529,8 +99034,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104548,8 +99052,7 @@ const quotesData = [
     open: 12,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104567,8 +99070,7 @@ const quotesData = [
     open: 12,
     change: 1.05,
     volume: 75304,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -104586,8 +99088,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 8331,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -104605,8 +99106,7 @@ const quotesData = [
     open: 13.05,
     change: 0.3,
     volume: 1000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -104624,8 +99124,7 @@ const quotesData = [
     open: 13.05,
     change: -1.05,
     volume: 600000,
-    num_trades: 17,
-    __v: 0,
+    num_trades: 17
   },
   {
     _id: {
@@ -104643,8 +99142,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104662,8 +99160,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104681,8 +99178,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104700,8 +99196,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104719,8 +99214,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 14866,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -104738,8 +99232,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104757,8 +99250,7 @@ const quotesData = [
     open: 13.05,
     change: -0.3,
     volume: 134,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -104776,8 +99268,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104795,8 +99286,7 @@ const quotesData = [
     open: 13.05,
     change: 0.3,
     volume: 47608,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -104814,8 +99304,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104833,8 +99322,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104852,8 +99340,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104871,8 +99358,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104890,8 +99376,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104909,8 +99394,7 @@ const quotesData = [
     open: 13.05,
     change: -0.1,
     volume: 800,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -104928,8 +99412,7 @@ const quotesData = [
     open: 13.05,
     change: 0.1,
     volume: 4097,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -104947,8 +99430,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -104966,8 +99448,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 3985,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -104985,8 +99466,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105004,8 +99484,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 38695,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -105023,8 +99502,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105042,8 +99520,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105061,8 +99538,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 8526,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -105080,8 +99556,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105099,8 +99574,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 17112,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -105118,8 +99592,7 @@ const quotesData = [
     open: 13.05,
     change: -0.1,
     volume: 350,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -105137,8 +99610,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 862,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -105156,8 +99628,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105175,8 +99646,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105194,8 +99664,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105213,8 +99682,7 @@ const quotesData = [
     open: 13.05,
     change: 0.01,
     volume: 395,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -105232,8 +99700,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 1027,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -105251,8 +99718,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 180,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -105270,8 +99736,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 134479,
-    num_trades: 12,
-    __v: 0,
+    num_trades: 12
   },
   {
     _id: {
@@ -105289,8 +99754,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 11649,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -105308,8 +99772,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105327,8 +99790,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105346,8 +99808,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 1372,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -105365,8 +99826,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105384,8 +99844,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105403,8 +99862,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105422,8 +99880,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 215592,
-    num_trades: 12,
-    __v: 0,
+    num_trades: 12
   },
   {
     _id: {
@@ -105441,8 +99898,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105460,8 +99916,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 111099,
-    num_trades: 10,
-    __v: 0,
+    num_trades: 10
   },
   {
     _id: {
@@ -105479,8 +99934,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105498,8 +99952,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105517,8 +99970,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105536,8 +99988,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105555,8 +100006,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105574,8 +100024,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105593,8 +100042,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105612,8 +100060,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 1850,
-    num_trades: 5,
-    __v: 0,
+    num_trades: 5
   },
   {
     _id: {
@@ -105631,8 +100078,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105650,8 +100096,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105669,8 +100114,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 45894,
-    num_trades: 12,
-    __v: 0,
+    num_trades: 12
   },
   {
     _id: {
@@ -105688,8 +100132,7 @@ const quotesData = [
     open: 13.05,
     change: 0.5,
     volume: 6443,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -105707,8 +100150,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105726,8 +100168,7 @@ const quotesData = [
     open: 13.05,
     change: -0.3,
     volume: 1211,
-    num_trades: 2,
-    __v: 0,
+    num_trades: 2
   },
   {
     _id: {
@@ -105745,8 +100186,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105764,8 +100204,7 @@ const quotesData = [
     open: 13.05,
     change: 0.1,
     volume: 1809,
-    num_trades: 3,
-    __v: 0,
+    num_trades: 3
   },
   {
     _id: {
@@ -105783,8 +100222,7 @@ const quotesData = [
     open: 13.05,
     change: -0.2,
     volume: 258398,
-    num_trades: 21,
-    __v: 0,
+    num_trades: 21
   },
   {
     _id: {
@@ -105802,8 +100240,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105821,8 +100258,7 @@ const quotesData = [
     open: 13.05,
     change: -0.1,
     volume: 50000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -105840,8 +100276,7 @@ const quotesData = [
     open: 13.05,
     change: 0.3,
     volume: 2000,
-    num_trades: 4,
-    __v: 0,
+    num_trades: 4
   },
   {
     _id: {
@@ -105859,8 +100294,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105878,8 +100312,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105897,8 +100330,7 @@ const quotesData = [
     open: 13.05,
     change: -0.3,
     volume: 155956,
-    num_trades: 7,
-    __v: 0,
+    num_trades: 7
   },
   {
     _id: {
@@ -105916,8 +100348,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105935,8 +100366,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105954,8 +100384,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -105973,8 +100402,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 98514,
-    num_trades: 8,
-    __v: 0,
+    num_trades: 8
   },
   {
     _id: {
@@ -105992,8 +100420,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 50000,
-    num_trades: 1,
-    __v: 0,
+    num_trades: 1
   },
   {
     _id: {
@@ -106011,8 +100438,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -106030,8 +100456,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -106049,8 +100474,7 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
   {
     _id: {
@@ -106068,7 +100492,6 @@ const quotesData = [
     open: 13.05,
     change: 0,
     volume: 0,
-    num_trades: 0,
-    __v: 0,
+    num_trades: 0
   },
 ];

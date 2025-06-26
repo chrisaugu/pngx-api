@@ -1,6 +1,7 @@
 const express = require("express");
 const cron = require("node-cron");
 const path = require("path");
+const crypto = require("crypto");
 const compression = require("compression");
 // const boxen = require('boxen');
 // const ora = require('ora');
@@ -33,8 +34,8 @@ const { WORKER_SCHEDULE_TIME } = require("./constants");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "docs")));
-app.use(express.static(path.join(__dirname, "images")));
 app.use("/demo", express.static(path.join(__dirname, "demo")));
+app.use(express.static(path.join(__dirname, "images")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("trust proxy", 1 /* number of proxies between user and server */);
@@ -46,7 +47,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(compression());
+// TODO: compression middleware causes issues with some responses from sse, need to investigate further
+// app.use(compression());
 app.use(helmet());
 app.use(corsMiddleware);
 app.use(allowCrossDomain);
@@ -151,6 +153,15 @@ initDatabase()
       "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
     );
   });
+
+app.use((req, res, next) => {
+  req.ctx = {
+    userId: 123,
+    requestId: crypto.randomUUID(), // Unique ID per request
+    // db: getDatabaseConnection(), // Request-scoped DB connection
+  };
+  next();
+});
 
 /**
  * /api/docs

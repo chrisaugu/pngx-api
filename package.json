@@ -1,18 +1,20 @@
 {
-  "name": "pngx-api",
+  "name": "nuku-api",
   "version": "2.0",
   "private": true,
   "description": "Restful API that serves stock quotes from pngx.com.pg",
   "main": "./server.js",
   "scripts": {
-    "dev": "nodemon server.js --trace-warnings",
+    "start": "NODE_ENV=production node server.js",
+    "dev": "NODE_ENV=development nodemon src/server.js --trace-warnings",
     "devx": "nodemon -r dotenv/config server.js --trace-warnings",
-    "start": "node server.js",
-    "startx": "node --env-file=.env server.js",
+    "startx": "node --env-file=.env.production server.js",
     "docs": "docsify serve docs",
-    "test": "jest --detectOpenHandles",
+    "test": "NODE_ENV=test jest --detectOpenHandles",
     "pretestx": "cross-env NODE_ENV=test jest --testTimeout=5000",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "NODE_ENV=test jest --coverage",
+    "lint": "eslint src",
+    "format": "prettier --write src",
     "clinic": "clinic doctor -- node server.js",
     "clinic:flame": "clinic flame -- node server.js",
     "clinic:bubbleprof": "clinic bubbleprof -- node server.js",
@@ -20,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chrisaugu/pngx-api.git"
+    "url": "https://github.com/chrisaugu/nuku-api.git"
   },
   "keywords": [
     "PNG",
@@ -35,11 +37,12 @@
   "author": "Christian Augustyn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chrisaugu/pngx-api/issues"
+    "url": "https://github.com/chrisaugu/nuku-api/issues"
   },
-  "homepage": "https://github.com/chrisaugu/pngx-api#readme",
+  "homepage": "https://github.com/chrisaugu/nuku-api#readme",
   "dependencies": {
     "@elastic/elasticsearch": "^9.0.2",
+    "@socket.io/redis-adapter": "^8.3.0",
     "axios": "^1.10.0",
     "benchmark": "^2.1.4",
     "boxen": "^8.0.1",
@@ -84,7 +87,11 @@
     "redis": "^5.5.6",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
+    "semver": "^7.7.2",
     "serverless-http": "^3.2.0",
+    "socket.io": "^4.8.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "superagent": "^10.2.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",

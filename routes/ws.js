@@ -4,7 +4,7 @@ const { randomUUID } = require("crypto");
 const queryString = require("querystring");
 const { isUint8Array } = require("util/types");
 
-module.exports = (expressServer) => {
+module.exports = (httpServer) => {
   const ws1 = new WebSocketServer({ noServer: true });
 
   const wsServer = new WebSocketServer({
@@ -12,12 +12,15 @@ module.exports = (expressServer) => {
     path: "/ws/v1",
     // server,
     // port: 8080,
+    // rejectUnauthorized: true, // Verify SSL (set `false` for self-signed certs)
+    // headers: {               // Optional headers (if needed)
+    //   "User-Agent": "Node.js-WS"
+    // }
   });
-
   const connections = new Map();
   // let clients = new List<IWebSocketConnection>();
 
-  expressServer.on("upgrade", (request, socket, head) => {
+  httpServer.on("upgrade", (request, socket, head) => {
     // const { pathname } = new URL(request.URL, "wss://base.url");
     // if (pathname === "/foo") {
     //   ws1.handleUpgrade(request, socket, head, function done(ws) {
@@ -122,9 +125,9 @@ module.exports = (expressServer) => {
     const connection = connections[uuid];
     const metadata = connections.get(uuid);
     let data;
-    // if (isUint8Array(bytes)) {
-    //   data = new ArrayBuffer(bytes)
-    // }
+    if (isUint8Array(bytes)) {
+      data = new ArrayBuffer(bytes);
+    }
     console.log("Received message: %s", parsedMessage);
 
     if (parsedMessage.type === "authenticate") {

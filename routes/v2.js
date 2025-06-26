@@ -283,7 +283,11 @@ router.get("/company/:ticker", async function (req, res) {
 
   let company = await Company.findOne({ ticker: stockTicker });
 
-  res.json(company);
+  let data = {
+    ...data,    
+  }
+
+  res.json(data);
 });
 
 /**

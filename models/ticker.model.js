@@ -13,6 +13,8 @@ const tickerSchema = new Schema(
     high: Number,
     low: Number,
     open: Number,
+    change: Number,
+    volume: Number,
   },
   {
     timeseries: {
@@ -33,3 +35,21 @@ const Ticker = (module.exports = mongoose.model("ticker", tickerSchema));
 exports.findBySymbol = function (symbol) {
   return Ticker.find({ symbol: symbol });
 };
+
+// class MyClass {
+
+//   myMethod() {
+//     return 42;
+//   }
+
+//   static myStatic() {
+//     return 42;
+//   }
+
+//   get myVirtual() {
+//     return 42;
+//   }
+// }
+
+// const schema = new Schema();
+// schema.loadClass(MyClass);

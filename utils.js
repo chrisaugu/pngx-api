@@ -15,6 +15,7 @@ const {
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
 } = require("./constants");
+const Env = require("./config/env");
 
 const csvOptions = {
   header: true,
@@ -271,6 +272,39 @@ function issueToken(userId, secret) {
   return jwt.sign({ id: userId }, secret, { expiresIn: "1h" });
 }
 
+/**
+ * returns env-var if available else returns default value
+ * @param {*} envVar
+ * @param {*} deafult_value
+ * @returns
+ */
+function env(envVar, deafult_value) {
+  if (Env[envVar]) {
+    return Env[envVar];
+  } else {
+    return deafult_value;
+  }
+}
+
+const processLargeFile = async (file) => {
+  const totalLines = await countFileLines(file);
+  let processedLines = 0;
+
+  const readStream = createReadStream(file);
+  readStream.on("data", (chunk) => {
+    processedLines += chunk.toString().split("\n").length;
+
+    // Send progress update
+    res.write(
+      `data: ${JSON.stringify({
+        type: "progress",
+        percentage: (processedLines / totalLines) * 100,
+        message: `Processing line ${processedLines} of ${totalLines}`,
+      })}\n\n`
+    );
+  });
+};
+
 module.exports = {
   parse_csv_to_json,
   parallel,
@@ -282,4 +316,5 @@ module.exports = {
   verifySignature,
   generateSignature,
   issueToken,
+  env,
 };

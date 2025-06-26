@@ -9,6 +9,7 @@ const worker = celery.createWorker(
   Env.redis.backend
 );
 
+<<<<<<< HEAD
 // Creating an instance for MongoDB
 initDatabase()
   .on("connected", function () {
@@ -19,6 +20,33 @@ initDatabase()
   .on("error", function () {
     console.log(
       "[Celery_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+=======
+initDatabase()
+  .on("connected", async function () {
+    console.log(
+      "[Main_Thread]: Connected: Successfully connect to mongo server"
+    );
+
+    console.log(
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+    );
+    // cron.schedule("30 8 * * *", async () => {
+    SYMBOLS.forEach(async (quote) => {
+      let dbData = await fetchDataFromDB(quote);
+      let sourceData = await fetchDataFromPNGX(quote);
+
+      if (!_.isArray(dbData) && !_.isArray(sourceData)) {
+        throw new Error("dbData and sourceData must be both arrays");
+      }
+
+      run(dbData, sourceData);
+    });
+    // });
+  })
+  .on("error", function () {
+    console.log(
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+>>>>>>> develop
     );
   });
 

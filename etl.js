@@ -1,12 +1,13 @@
+const { EventEmitter } = require("node:events");
+const { format } = require("date-fns/format");
+const cron = require("node-cron");
 const _ = require("lodash");
 const { initDatabase } = require("./database");
 const { Stock, Ticker } = require("./models");
 const { get_quotes_from_pngx } = require("./tasks");
 const { normalize_data } = require("./utils");
-const { format } = require("date-fns/format");
-const cron = require("node-cron");
 const { SYMBOLS } = require("./constants");
-const { EventEmitter } = require("node:events");
+const logger = require("./libs/logger");
 
 /**
  * TODO: change the way this etl works
@@ -34,6 +35,10 @@ initDatabase()
     console.log(
       "[Main_Thread]: Connected: Successfully connect to mongo server"
     );
+
+    logger.info("Informational message");
+    logger.info("Server started on port 3000");
+    logger.error("Database connection failed");
 
     console.log(
       "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
@@ -84,7 +89,8 @@ async function fetchDataFromPNGX(quote) {
   });
 }
 
-const dataComparatorAsc = (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime();
+const dataComparatorAsc = (a, b) =>
+  new Date(a.date).getTime() - new Date(b.date).getTime();
 
 function load(data) {
   Stock.insertMany(data)
