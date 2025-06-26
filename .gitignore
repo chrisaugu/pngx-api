@@ -19,9 +19,9 @@ bin-release/
 
 *.sublime-project
 *.sublime-workspace
-package-lock.json
 node_modules
 .env
+.env.production
 *.zip
 app
 
@@ -30,3 +30,10 @@ app
 *.logs
 logs
 /lib
+*.log
+.vercel
+coverage
+certs
+.clinic
+output
+package/build

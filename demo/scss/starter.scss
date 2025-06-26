@@ -9,7 +9,6 @@
 // `$body-color` or write more CSS that override's Bootstrap's CSS like so:
 // `body { color: red; }`.
 
-
 //
 // Bring in Bootstrap
 //
@@ -31,7 +30,7 @@ $enable-shadows: true;
 // Customize some defaults
 $body-color: #333;
 $body-bg: #fff;
-$border-radius: .4rem;
+$border-radius: 0.4rem;
 $success: #7952b3;
 
 @import "bootstrap/scss/functions"; // Required
@@ -73,7 +72,6 @@ $success: #7952b3;
 @import "bootstrap/scss/utilities";
 // @import "bootstrap/scss/print";
 
-
 //
 // Custom styles
 //
@@ -89,15 +87,45 @@ body {
   fill: currentColor;
 }
 
-
 pre {
   box-sizing: border-box;
   font-size: 14px;
-  width: 100%; padding: 10px;
+  width: 100%;
+  padding: 10px;
   overflow: auto;
-  color: #00ff0a; background: #000;
+  color: #00ff0a;
+  background: #000;
 }
 
 code {
   color: red;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.buttons-container button {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Trebuchet MS", Roboto, Ubuntu,
+    sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.32px;
+  padding: 8px 24px;
+  color: rgba(19, 23, 34, 1);
+  background-color: rgba(240, 243, 250, 1);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.buttons-container button:hover {
+  background-color: rgba(224, 227, 235, 1);
+}
+
+.buttons-container button:active {
+  background-color: rgba(209, 212, 220, 1);
 }

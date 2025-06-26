@@ -1,22 +1,31 @@
-FROM node:16-alpine
+FROM node:22-alpine
 
-WORKDIR /opt/app
+ENV PORT=5000
+ENV NODE_ENV=production
 
-ENV PORT=80
+# Setting up the work directory
+WORKDIR /app/nuku-api
 
-# daemon for cron jobs
-RUN echo 'crond' > /boot.sh
-# RUN echo 'crontab .openode.cron' >> /boot.sh
-
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# RUN addgroup --system --gid 1001 nodejs
+# USER nodejs
 
 COPY package*.json ./
 
-RUN npm install --production
+# Installing dependencies
+RUN npm install
 
-# Bundle app source
+# Copying all the files in our project
 COPY . .
 
-CMD sh /boot.sh && npm start
+# Installing pm2 globally
+RUN npm install pm2 -g
+
+# Starting our application
+# CMD pm2 start process.yml && tail -f /dev/null
+
+# Exposing server port
+EXPOSE 5000
+
+# Starting our application
+# CMD [ "node", "server.js" ]
+CMD ["pm2-runtime", "server.js"]

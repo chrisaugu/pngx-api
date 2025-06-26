@@ -690,7 +690,6 @@
   };
 
   // Helpers
-
   function canvas2view (x, y, view) {
     var xRatio = view.transform.xRatio;
     var yRatio = view.transform.yRatio;

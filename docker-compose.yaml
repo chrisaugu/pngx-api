@@ -1,0 +1,141 @@
+services:
+  nuku-api:
+    container_name: nuku-api
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - nuku-redis
+      - nuku-mongodb
+      # - nuku-redis-worker
+    restart: always
+    networks:
+      - nuku-api-network
+  
+  # nuku-worker:
+  #   build: .
+  #     # context: ./nuku-redis-worker
+  #   dockerfile: ./Dockerfile
+  #   command: ["node", "worker.js"]
+  #   restart: always
+  #   depends_on:
+  #     - nuku-redis
+  
+<<<<<<< HEAD
+  nuku-redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+    networks:
+      - nuku-api-network
+
+=======
+>>>>>>> develop
+  nuku-etl:
+    container_name: nuku-etl
+    build:
+      context: .
+      dockerfile: etl.Dockerfile
+<<<<<<< HEAD
+    container_name: nuku-etl
+    # depends_on:
+      # - nuku-mongodb
+    # networks:
+    #   - nuku-api-network
+  
+=======
+    depends_on:
+      - nuku-mongodb
+    networks:
+      - nuku-api-network
+
+  nuku-stock-publisher:
+    container_name: nuku-stock-publisher
+    build:
+      context: .
+      dockerfile: publisher.Dockerfile
+    depends_on:
+      - nuku-redis
+    networks:
+      - nuku-api-network
+
+  # nuku-price-consumer-service:
+  #   depends_on:
+  #     - nuku-redis
+
+  nuku-redis:
+    image: redis:7.2.4-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - nuku-api-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+
+>>>>>>> develop
+  nuku-mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata6:/data/db
+    networks:
+      - nuku-api-network
+
+volumes:
+  dbdata6:
+
+networks:
+  nuku-api-network:
+    driver: bridge
+
+#   db:
+#     restart: always
+#     image: postgres
+#     ports:
+#       - "5432:5432"
+#     environment:
+#       - POSTGRES_USER=mastodon
+#       - POSTGRES_PASSWORD=mastodon
+#       - POSTGRES_DB=mastodon
+#       - POSTGRES_HOST_AUTH_METHOD=trust
+#     healthcheck:
+#       test: ["CMD", "pg_isready", "-U", "postgres"]
+
+#   redis:
+#     restart: always
+#     image: redis
+#     ports:
+#       - "6379:6379"
+#     healthcheck:
+#       test: ["CMD", "redis-cli", "ping"]
+
+#   mastodon:
+#     restart: always
+#     image: neetshin/mastodon-dev:4.3.0
+#     ports:
+#       - "3000:3000"
+#       - "4000:4000"
+#     depends_on:
+#       - db
+#       - redis
+#     healthcheck:
+#       test:
+#         [
+#           "CMD-SHELL",
+#           "wget -q --spider --proxy=off localhost:3000/health || exit 1",
+#         ]
+#     env_file:
+#       - .env.test
+#     environment:
+#       - RAILS_ENV=development
+#     command: >
+#       /bin/bash -c "
+#         bundle exec rails db:setup &&
+#         foreman start
+#       "
