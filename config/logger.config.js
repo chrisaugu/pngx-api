@@ -91,6 +91,27 @@ exports.winstonConfig = {
 };
 addColors(customLevels.colors);
 
+exports.apiUsageConfig = {
+  level: "info",
+  format: format.combine(
+    format.timestamp(),
+    // format.errors({ stack: true }),
+    // format.json(),
+    format.printf(info => `${info.timestamp} | ${info.level.toUpperCase()} | ${info.message}`)
+  ),
+  transports: [
+    new transports.Console({
+      // format: format.combine(
+      //   format.colorize(),
+      //   format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+      //   format.errors({ stack: true }),
+      //   consoleFormat
+      // ),
+    }),
+    new transports.File({ filename: "./logs/api-usage.log" }),
+  ],
+};
+
 exports.pinoConfig = {
   level: process.env.LOG_LEVEL || "debug",
   transport: {

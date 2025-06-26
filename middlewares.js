@@ -9,6 +9,7 @@ const path = require("path");
 const createError = require("http-errors");
 const { ALLOWED_IP_LIST, ORIGINAL_URL } = require("./config");
 const logger = require("./libs/logger").winstonLogger;
+const apiUsageLogger = require("./libs/logger").apiUsageLogger;
 
 exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
   // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
@@ -205,4 +206,16 @@ exports.versionMiddleware = function (version) {
     }
     return next("route"); // skip to the next route
   };
+};
+
+// Create a write stream for morgan (in append mode)
+const apiUsageLogStream = fs.createWriteStream(
+  path.join(__dirname, "logs", "api-usage.log"),
+  { flags: "a" }
+);
+// Log api usage
+exports.apiUsageLogMiddlware = (req, res, next) => {
+  const apiKey = req.headers['x-api-key'] || 'anonymous';
+  apiUsageLogger.info(`User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`);
+  next();
 };

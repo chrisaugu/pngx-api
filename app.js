@@ -27,6 +27,7 @@ const {
   morganCombinedMiddlware,
   morganFileMiddlware,
   morganBodyMiddlware,
+  apiUsageLogMiddlware,
 } = require("./middlewares");
 const { WORKER_SCHEDULE_TIME } = require("./constants");
 
@@ -72,6 +73,8 @@ if (process.env.NODE_ENV === "production") {
   } else {
   }
 }
+
+app.use(apiUsageLogMiddlware);
 
 app.use("/api", rateLimitMiddleware);
 app.use("/events", require("./routes/sse"));
