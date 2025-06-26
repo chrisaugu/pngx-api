@@ -1,19 +1,19 @@
+backend:
+    functions:
+        - entry: serverless.js
+          handler: handler
+          name: server
+          path: ./
+          type: aws
+    language:
+        name: js
+        packageManager: npm
+    path: .
+    scripts:
+        deploy:
+            - npm install
+        local:
+            - npm install
 name: pngx-api
 region: us-east-1
 yamlVersion: 2
-backend:
-  path: .
-  language:
-    name: js
-    packageManager: npm
-  functions:
-    - name: server
-      path: ./
-      handler: handler
-      entry: serverless.js
-      type: aws
-  scripts:
-    deploy:
-      - npm install
-    local:
-      - npm install
