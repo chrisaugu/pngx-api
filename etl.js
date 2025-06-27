@@ -7,7 +7,6 @@ const { Stock, Ticker } = require("./models");
 const { get_quotes_from_pngx } = require("./tasks");
 const { normalize_data } = require("./utils");
 const { SYMBOLS } = require("./constants");
-const logger = require("./libs/logger").winstonLogger;
 
 /**
  * TODO: change the way this etl works
@@ -32,15 +31,11 @@ const logger = require("./libs/logger").winstonLogger;
  */
 initDatabase()
   .on("connected", async function () {
-    logger.debug(
+    console.log(
       "[Main_Thread]: Connected: Successfully connect to mongo server"
     );
 
-    // logger.info("Informational message");
-    // logger.info("Server started on port 3000");
-    // logger.error("Database connection failed");
-
-    logger.debug(
+    console.log(
       "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
     );
     // cron.schedule("30 8 * * *", async () => {
@@ -57,7 +52,7 @@ initDatabase()
     // });
   })
   .on("error", function () {
-    logger.error(
+    console.error(
       "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
     );
   });
@@ -68,7 +63,7 @@ initDatabase()
  * @returns
  */
 async function fetchDataFromDB(quote) {
-  logger.debug("Fetching quotes for " + quote + " from DB");
+  console.log("Fetching quotes for " + quote + " from DB");
   return new Promise((resolve, reject) => {
     Stock.findBySymbol(quote).then(resolve).catch(reject);
   });
@@ -80,7 +75,7 @@ async function fetchDataFromDB(quote) {
  * @returns
  */
 async function fetchDataFromPNGX(quote) {
-  logger.debug("Fetching quotes for " + quote + " from PNGX");
+  console.log("Fetching quotes for " + quote + " from PNGX");
   return new Promise((resolve, reject) => {
     get_quotes_from_pngx(quote)
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
@@ -95,18 +90,18 @@ const dataComparatorAsc = (a, b) =>
 function load(data) {
   Stock.insertMany(data)
     .then(() => {
-      logger.debug("Quotes inserted into");
+      console.log("Quotes inserted into");
     })
     .catch((error) => {
-      logger.error(error);
+      console.error(error);
     });
 
   Ticker.insertMany(data)
     .then(() => {
-      logger.debug("Data inserted");
+      console.log("Data inserted");
     })
     .catch((error) => {
-      logger.error(error);
+      console.error(error);
     });
 }
 
@@ -143,7 +138,7 @@ function run(dbData = [], source = []) {
     }
   }
 
-  logger.debug(missingInDb);
+  console.log(missingInDb);
 
   if (missingInDb.length > 0) {
     load(missingInDb);
