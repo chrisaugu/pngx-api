@@ -1,0 +1,12 @@
+{
+  "name": "nuku-api-sdk",
+  "version": "1.0.0",
+  "bundleDependencies": [
+    "genezio-remote"
+  ],
+  "description": "",
+  "main": "./lib/index.js",
+  "dependencies": {
+    "genezio-remote": "1.0.0"
+  }
+}
