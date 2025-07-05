@@ -12,6 +12,7 @@ const {
   BASE_URL,
 } = require("../constants");
 const { Stock, Company, Ticker } = require("../models/index");
+const logger = require("../libs/logger").winstonLogger;
 
 /**
  * @swagger
@@ -68,8 +69,11 @@ router.get("/", function (req, res) {
 router.get("/company", function (req, res) {
   let stockTicker = req.params.ticker;
 
+  logger.info("Retrieving companies on PNGX");
+
   // Stock.findByName(stockQuote, req.)
 
+  logger.debug("Companies retrieved", COMPANIES);
   res.json(COMPANIES);
 });
 
@@ -95,9 +99,21 @@ router
    * GET
    */
   .get(async function (req, res) {
-    let companies = await Company.find({});
+    try {
+      logger.info("Retrieving companies on PNGX");
 
-    res.json(companies);
+      let companies = await Company.find({});
+
+      logger.debug("Companies retrieved", companies);
+      res.json(companies);
+    } catch (error) {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    }
   });
 // .post(async function(req, res) {
 // 	let update = req.body;
@@ -132,14 +148,26 @@ router
   .get(async function (req, res) {
     let { id } = req.params;
 
-    let company = await Company.findById(id);
+    try {
+      logger.info("Retrived company details");
+      let company = await Company.findById(id);
 
-    res.json(company);
+      logger.debug("Retrived company details", company);
+      res.json(company);
+    } catch (error) {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    }
   })
   .post(async function (req, res) {
     let update = req.body;
 
     try {
+      logger.info("Adding company");
       // const gfs = new Grid(mongoose.connection.db, mongoose.mongo);
       // const writeStream = gfs.createWriteStream({
       //   filename: req.file.originalname,
@@ -155,8 +183,15 @@ router
       // });
 
       let company = await Company.create(update);
+
+      logger.debug("Company added", company)
       res.json(company);
     } catch (error) {
+      logger.error("Error adding company", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body
+      });
       return res.json({
         status: "Error",
         message: error,
@@ -168,10 +203,17 @@ router
     let update = req.body;
 
     try {
+      logger.info("Updating company")
       let company = await Company.findByIdAndUpdate(id, update);
 
+      logger.debug("Company added", company)
       res.json(company);
     } catch (error) {
+      logger.error("Error updating company", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body
+      });
       return res.json({
         status: "Error",
         message: error,
@@ -241,7 +283,11 @@ router.get("/company/:ticker", async function (req, res) {
 
   let company = await Company.findOne({ ticker: stockTicker });
 
-  res.json(company);
+  let data = {
+    ...data,    
+  }
+
+  res.json(data);
 });
 
 /**
@@ -529,6 +575,8 @@ router.get("/stocks", function (req, res) {
   let fields = req.query.fields;
   let code = req.query.code || req.query.symbol || req.query.ticker;
 
+  logger.info("Retriving today's quotes");
+
   let query = Stock.find();
 
   var dateStr = {
@@ -598,6 +646,7 @@ router.get("/stocks", function (req, res) {
     .exec()
     .then(function (stocks) {
       if (stocks && stocks.length > 0) {
+        logger.debug("Quotes retrieved", stocks);
         res.json({
           status: 200,
           ...dateStr,
@@ -606,14 +655,20 @@ router.get("/stocks", function (req, res) {
           data: stocks,
         });
       } else {
+        logger.debug("No content");
         res.json({
           status: 204,
           reason: "No Content",
         });
       }
     })
-    .catch((err) => {
-      console.error(err);
+    .catch((error) => {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
     });
 });
 
@@ -697,12 +752,14 @@ router.get("/stocks", function (req, res) {
 router.get("/stocks/:code", function (req, res) {
   let code = req.params.code;
 
+  logger.info(`Retriving stocks for ${code}`);
+
   Stock.find({
     code: code,
   })
     .then(function (result) {
       if (result) {
-        console.log("Match found!: ", result);
+        logger.info(`${code} stocks `, result);
         res.json({
           status: 200,
           last_updated: result.date,
@@ -713,9 +770,12 @@ router.get("/stocks/:code", function (req, res) {
       }
     })
     .catch((error) => {
-      if (error) {
-        console.error("Error: " + error);
-      }
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
     });
 });
 
@@ -738,60 +798,55 @@ router.get("/stocks/:code", function (req, res) {
  * Retrieves tickers/codes for all the stocks
  */
 router.get("/tickers", async function (req, res) {
-  let tickers = await Ticker.find({});
+  logger.info("Retriving tickers");
 
-  res.json(tickers);
-});
+  try {
+    let tickers = await Ticker.find({});
 
-/**
- * @swagger
- *
- *
- * /api/v2/tickersx:
- *   get:
- *     tags:
- *      - ticker
- *     summary: Returns a sample message
- *     responses:
- *       200:
- *         description: A successful response
- */
-/**
- * GET /api/v2/tickersx
- */
-router.get("/tickersx", (req, res) => {
-  Ticker.aggregate([
-    {
-      $match: {
-        code: "BSP",
-      },
-    },
-    // {
-    // 	$group: {
-    // 		_id: {
-    // 			symbol: "$symbol",
-    // 			time: {
-    // 				$dateTrunc: {
-    // 					date: "$time",
-    // 					unit: "minute",
-    // 					binSize: 5
-    // 				},
-    // 			},
-    // 		},
-    // 		high: { $max: "$price" },
-    // 		low: { $min: "$price" },
-    // 		open: { $first: "$price" },
-    // 		close: { $last: "$price" },
-    // 	},
-    // },
-    // {
-    // 	$sort: {
-    // 		"_id.time": 1,
-    // 	},
-    // },
-  ]).then(function (tickers) {
+    logger.debug("Tickers retrieved ", tickers);
+
     res.json(tickers);
-  });
+  } catch (error) {
+    logger.error("Error retrieving stocks", {
+      error: error.message,
+      stack: error.stack,
+      params: req.params,
+      query: req.query,
+    });
+  }
+
+  // Ticker.aggregate([
+  //   {
+  //     $match: {
+  //       code: "BSP",
+  //     },
+  //   },
+  //   // {
+  //   // 	$group: {
+  //   // 		_id: {
+  //   // 			symbol: "$symbol",
+  //   // 			time: {
+  //   // 				$dateTrunc: {
+  //   // 					date: "$time",
+  //   // 					unit: "minute",
+  //   // 					binSize: 5
+  //   // 				},
+  //   // 			},
+  //   // 		},
+  //   // 		high: { $max: "$price" },
+  //   // 		low: { $min: "$price" },
+  //   // 		open: { $first: "$price" },
+  //   // 		close: { $last: "$price" },
+  //   // 	},
+  //   // },
+  //   // {
+  //   // 	$sort: {
+  //   // 		"_id.time": 1,
+  //   // 	},
+  //   // },
+  // ]).then(function (tickers) {
+  //   res.json(tickers);
+  // });
 
   // db.sales.aggregate([
   // 	// First Stage
@@ -813,5 +868,116 @@ router.get("/tickersx", (req, res) => {
   // 	}
   //    ])
 });
+
+/**
+ * /api/v2/news
+ */
+router.get("/news", async function (req, res) {
+  let page = req.query.page;
+
+  logger.info("Retrieving news");
+
+  let headers = new Headers();
+  headers.set("User-Agent", "");
+
+  // let NEWS_URL = 'https://www.pngx.com.pg/feed/';
+  let NEWS_URLS = [
+    "https://www.pngx.com.pg/wp-json/wp/v2/posts",
+    "https://www.postcourier.com.pg/wp-json/wp/v2/posts",
+    "https://www.thenational.com.pg/wp-json/wp/v2/posts",
+  ];
+  let news_posts = [];
+
+  try {
+    const jsons = await Promise.all(
+      NEWS_URLS.map(async (url) => {
+        if (page) {
+          url += "?page=" + page;
+        }
+        const r = await fetch(url, {
+          method: "GET",
+          mode: "cors",
+        });
+        return await r.json();
+      })
+    );
+
+    jsons.forEach((json) => news_posts.push(...json));
+    news_posts.sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+
+    logger.debug("Retrieved news ", news_posts);
+
+    res.json(news_posts);
+  } catch (error) {
+    logger.error("An error occurred:", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body,
+      params: req.params,
+      query: req.query,
+    });
+    res.json({ message: "An error occurred:", error });
+  }
+});
+
+let clients = [];
+let facts = [{ info: "hello", source: "world" }];
+
+function eventsHandler(req, res, next) {
+  // Set headers to keep the connection alive and tell the client we're sending event-stream data
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  const sendEvent = (data) => {
+    return res.write(`data: ${JSON.stringify(data)}\n`);
+  };
+
+  // Send an initial message
+  sendEvent("Connected to server");
+
+  const clientId = Date.now();
+
+  const newClient = {
+    id: clientId,
+    res,
+  };
+
+  clients.push(newClient);
+
+  // Simulate sending updates from the server
+  let counter = 0;
+  const intervalId = setInterval(() => {
+    counter++;
+    // Write the event stream format
+    sendEvent(`Message ${counter}`);
+  }, 2000);
+
+  // When client closes connection, stop sending events
+  req.on("close", () => {
+    console.log(`${clientId} Connection closed`);
+    clients.filter((client) => client.id !== clientId);
+
+    clearInterval(intervalId);
+    res.end();
+  });
+}
+
+function sendEventsToAll(newFact) {
+  clients.forEach((client) =>
+    client.response.write(`data: ${JSON.stringify(newFact)}\n`)
+  );
+}
+
+async function addEndpoint(request, response, next) {
+  const newFact = request.body;
+  facts.push(newFact);
+  return sendEventsToAll(newFact);
+}
+
+router.get("/feeds", eventsHandler);
+router.post("/endpoints", addEndpoint);
 
 module.exports = router;

@@ -18,11 +18,27 @@ const companySchema = new Schema(
     },
   },
   {
+    toJSON: {
+      transform(doc, rest) {
+        delete rest.__v;
+        delete rest._id;
+        delete rest.createdAt;
+        delete rest.updatedAt;
+      },
+    },
     timestamps: true,
   }
 );
 
 companySchema.index({ ticker: 1 });
+
+// companySchema.pre("find", (next) => {
+//   delete this.__v;
+//   delete this._id;
+//   delete this.$createdAt;
+//   delete this.$updatedAt;
+//   next();
+// });
 
 companySchema.methods.findByCode = function (cb) {
   return this.find({ code: this.code }, cb);

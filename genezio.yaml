@@ -1,19 +1,40 @@
+name: pngx-api
+region: us-east-1
+yamlVersion: 2
+# services:
+#     databases:
+#         - name: shivering-wolverine-db
+#           type: mongo-atlas
+#     databases:
+#         type: "mongodb"
+#         uri: ${{env.MONGO_DB_URI}}
 backend:
-    functions:
-        - entry: serverless.js
-          handler: handler
-          name: server
-          path: ./
-          type: aws
-    language:
-        name: js
-        packageManager: npm
     path: .
     scripts:
         deploy:
             - npm install
         local:
             - npm install
-name: pngx-api
-region: us-east-1
-yamlVersion: 2
+    language:
+        name: js
+        packageManager: npm
+#         runtime: nodejs20.x
+    functions:
+#         - entry: serverless.js
+#           handler: handler
+#           name: server
+#           path: ./
+#           type: aws
+        # - name: serverless
+        #   path: .
+        #   handler: handler
+        #   entry: ./serverless.js
+        #   type: aws
+        # The name (label) of the function.
+        - name: express
+          path: ./
+          # The entry point for the function.
+          entry: server.js
+          # The compatibility of the function handler.
+          type: httpServer
+        #   MONGODB_URI: ${{services.databases.shivering-wolverine-db.uri}}

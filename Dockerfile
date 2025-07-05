@@ -1,17 +1,15 @@
-FROM node:20-alpine
+FROM node:22-alpine
 
 ENV PORT=5000
 ENV NODE_ENV=production
 
 # Setting up the work directory
-WORKDIR /usr/src/nuku-api
+WORKDIR /app/nuku-api
 
 # RUN addgroup --system --gid 1001 nodejs
-# USER nextjs
+# USER nodejs
 
 COPY package*.json ./
-
-# RUN npm install -g npm@11.0.0
 
 # Installing dependencies
 RUN npm install

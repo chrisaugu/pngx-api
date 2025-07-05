@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Realtime</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/starter.css" />
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            /* Add a background color to match the chart */
+            /* background-color: #222; */
+        }
+    </style>
+</head>
+
+<body class="container-fluid py-0">
+    <!-- <marquee id="ticker-tape" style="background-color: rgb(255, 255, 255);"></marquee> -->
+    <!-- <section id="ticker-tape1" class="scroller__wrapper">
+        <div class="scroller__container">
+            <div class="scroller">
+                <div class="scroller__item">00000</div>
+            </div>
+        </div>
+    </section> -->
+
+    <div id="ticker-tape" class="ticker-container">
+        <div class="ticker-text">
+        </div>
+    </div>
+
+    <div class="container enonewsticker py-3 px-3">
+        <div class="row g-0">
+            <!--Breaking box-->
+            <div class="col-12  col-md-2  pe-md-0 ">
+                <div class="bg-primary text-white text-center titleenonewsticker py-2 px-2 d-flex">
+                    <span class="d-md-inline-block">NEWS</span>
+                </div>
+            </div>
+            <div class="col-10  col-md-9  itemsenonewsticker">
+                <div class="breaking-box position-relative px-3 py-2">
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p><span class="topicenonewsticker bg-success">Important</span> Lorem ipsum dolor sit
+                                    amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span class="topicenonewsticker bg-success">Important</span> Amet, consectetur
+                                    adipiscing elit, sed do eiusmod tempor incididunt ut eiusmod</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span class="topicenonewsticker bg-success">Important</span> Ipsum dolor sit amet,
+                                    consectetur adipiscing elit, sed do eiusmod </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end breaking news-->
+            </div>
+            <div class="col-2  col-md-1 text-center  navenonewsticker d-flex ">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-secondary" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-secondary" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center breaking-news bg-white">
+                    <div
+                        class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news">
+                        <span class="d-flex align-items-center">Read this</span>
+                    </div>
+                    <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();"
+                        onmouseout="this.start();">
+                        <a href="#">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum. </a>
+                        <span class="dot"></span>
+                        <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut </a>
+                        <span class="dot"></span>
+                        <a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse </a>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Realtime</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <ul id="messages"></ul>
+        </div>
+        <div class="col-md-6">
+            <form id="chat-form" action="">
+                <input id="input" autocomplete="off" placeholder="Type your message here..." />
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" id="text-view" />
+            <input type="button" id="send-button" value="Send!" />
+            <input type="button" id="stop-button" value="Stop" />
+            <input type="button" id="start-button" value="Start" />
+            </br>
+            <label id="status-label">Status: <span></span></label>
+            <label id="date">Date: <span></span></label>
+        </div>
+        <div class="col-md-6">
+            <textarea id="status-log"></textarea>
+        </div>
+    </div>
+
+    <table id="quotes-table" style="width: 100%;" class="table table-striped table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>Code/Symbol</th>
+                <th>Bid</th>
+                <th>Offer</th>
+                <th>Last</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>Change</th>
+                <th>Volume</th>
+                <th># Trades</th>
+            </tr>
+        </thead>
+        <!-- <tbody></tbody> -->
+    </table>
+
+    <h1>Watchlist</h1>
+    <ul id="feed"></ul>
+
+    <div class="container-fluid">
+        <div class="row">
+            <span id="selectedStock"></span>
+            <div id="stockList"></div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Candlesick Chart</h1>
+                <div id="candlestick" style="position: relative;"></div>
+            </div>
+            <div class="col-6">
+                <h1>Histogram Chart</h1>
+                <div id="histogram" style="position: relative;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Line Series Chart</h1>
+                <div id="lineseries" style="position: relative;"></div>
+            </div>
+            <div class="col-6">
+                <h1>Bar Series Chart</h1>
+                <div id="barseries" style="position: relative;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Baseline Chart</h1>
+                <div id="baseline" style="position: relative;"></div>
+            </div>
+            <div class="col-6">
+                <h1>Yield Curve Chart</h1>
+                <div id="yieldcurve" style="position: relative;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Volume/Area Series Chart</h1>
+                <div id="areaseries" style="position: relative;"></div>
+            </div>
+            <div class="col-6">
+                <h1>Bid/Offer Chart</h1>
+                <div id="bidoffer" style="position: relative;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Realtime Chart</h1>
+                <div id="realtimeChart" style="position: relative;"></div>
+            </div>
+            <div class="col-6">
+                <h1>Candlestick/Volume Chart</h1>
+                <div id="volume" style="position: relative;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/lightweight-charts@5.0.5/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <script type="text/javascript" src="./dummy-data.js"></script>
+
+    <script>
+        dayjs().format()
+
+        let myDate = [];
+        quotesData.forEach((d) => {
+            myDate.push(dayjs(d.date).format('YYYY-MM-DD'));
+            myDate.push(dayjs(d.timestamp).valueOf());
+        });
+        console.log(Object.groupBy(quotesData, (e) => e.date));
+    </script>
+
+
+    <script type="text/javascript">
+        // const socket = io({
+        //     auth: {
+        //         serverOffset: 0,
+        //     },
+        //     askTimeout: 5000,
+        //     retries: 3,
+        // // });
+        // // const socket = io("wss://data.tradingview.com", {
+        //     path: "/socket.io/websocket", // Custom WebSocket path
+        //     transports: ["websocket"],   // Force WebSocket-only mode
+        //     secure: true,                // Use WSS (SSL/TLS)
+        //     rejectUnauthorized: true,     // Enable SSL certificate validation
+        //     query: {
+        //         from: "",
+        //         date: "2025-06-24T18:28:28"
+        //     },
+        //     extraHeaders: { "Authorization": "Bearer YOUR_TOKEN" }
+        // });
+
+        // socket.on('connect', () => {
+        //     console.log('Connected to the server');
+        //     document.getElementById('status-label').lastChild.innerText = 'Connected';
+        // });
+        // socket.on("error", (err) => {
+        //     console.error("Socket error:", err);
+        // });
+        // const form = document.getElementById('chat-form');
+        // const input = document.getElementById('input');
+        // const messages = document.getElementById('messages');
+
+        // form.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     if (input.value) {
+        //         socket.emit('chat', input.value);
+        //         input.value = '';
+        //     }
+        // });
+
+        // socket.on('chat', (msg, serverOffset) => {
+        //     const item = document.createElement('li');
+        //     item.textContent = msg;
+        //     messages.appendChild(item);
+        //     window.scrollTo(0, document.body.scrollHeight);
+        //     socket.auth.serverOffset = serverOffset;
+        // });
+
+        // const toggleButton = document.getElementById('toggle-btn');
+
+        // toggleButton.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     if (socket.connected) {
+        //         toggleButton.innerText = 'Connect';
+        //         socket.disconnect();
+        //     } else {
+        //         toggleButton.innerText = 'Disconnect';
+        //         socket.connect();
+        //     }
+        // });
+
+        function emit(socket, event, arg) {
+            socket.timeout(5000).emit(event, arg, (err) => {
+                if (err) {
+                    // no ack from the server, let's retry
+                    emit(socket, event, arg);
+                }
+            });
+        }
+        // emit(socket, 'hello', 'world');
+
+    </script>
+
+    <script type="text/javascript">
+        (function () {
+            // const ws = new WebSocket("wss://data.tradingview.com/socket.io/websocket?from=&date=2025-06-24T18:28:28");
+            // ws.onopen = () => {
+            // console.log("WebSocket connected!");
+            // };
+            // ws.onmessage = (event) => {
+            // console.log("Message received:", event.data);
+            // };
+            // ws.onerror = (error) => {
+            // console.error("WebSocket error:", error);
+            // };
+            const stocks = ['BSP', 'CCP', 'CGA', 'CPL', 'KAM', 'KSL', 'NEM', 'NGP', 'NIU', 'SST', 'STO'];
+            const channel = "quotes,tickers,news";
+            // ?channel=${channel}
+            let topics = [];
+
+            topics = ['stocks:BSP', 'stocks:CCP', 'stocks:CPL', 'stocks:KAM', 'stocks:NEM'];
+            const evtSource = new EventSource(`http://localhost:5000/events?topics=${topics.join(',')}`, {
+                withCredentials: true,
+                headers: {
+                    'Authorization': 'abc',
+                    'X-Access-Token': 'abc',
+                    'X-Channel': 'events',
+                    'X-Topics': 'tickers:*',
+                    'X-API-Version': 'v1'
+                },
+            });
+            const feed = document.getElementById("feed");
+            const log = document.getElementById('status-log');
+            const tickertape = document.getElementById('ticker-tape');
+            const table = document.getElementById('quotes-table');
+            //     const treeWalker = document.createTreeWalker(table)
+
+            const liMap = {};
+            topics.join(',').replaceAll('stocks:', '').split(',').forEach(ticker => {
+                const li = document.createElement("li");
+                li.id = `stock-${ticker}`;
+                li.textContent = `${ticker}: loading...`;
+                feed.appendChild(li);
+                liMap[ticker] = li;
+
+                evtSource.addEventListener(`stocks:${ticker}`, e => {
+                    const data = JSON.parse(e.data);
+                    liMap[ticker].textContent = `${data.ticker}: K${data.price} @ ${new Date(data.timestamp).toUTCString()}`;
+                });
+            });
+
+            topics = stocks.map(r => "tickers:" + r)
+            const evtSource2 = new EventSource(`http://localhost:5000/events?topics=${topics.join(',')}`, {
+                withCredentials: true,
+                headers: {
+                    'Authorization': 'abc',
+                    'X-Access-Token': 'abc',
+                    'X-Channel': 'events',
+                    'X-Topics': 'tickers:*',
+                    'X-API-Version': 'v1'
+                },
+            });
+            const tickerTapeMap = {};
+            stocks.forEach(stock => {
+                const span = document.createElement("span");
+                span.id = `stock-${stock}`;
+                span.textContent = `${stock}: loading...`;
+                // tickertape.appendChild(span); // marquee
+
+                span.className = "ticker-itemx me-2";
+                tickertape.firstElementChild.appendChild(span);
+                // span.className = "scroller__item";
+                // tickertape.firstElementChild.firstElementChild.appendChild(span);
+                tickerTapeMap[stock] = span;
+
+                evtSource2.addEventListener(`tickers:${stock}`, (e) => {
+                    const data = JSON.parse(e.data);
+                    tickerTapeMap[stock].textContent = `${data.symbol}: K${data.open} (${Number(data.change).toFixed(0)}%) ${Number(data.change).toFixed(0) < 0.5 ? '↘️' : Number(data.change).toFixed(0) > 0.5 ? '↗️' : '➡️'} `;
+                });
+            });
+
+            topics = stocks.map(r => "quotes:" + r)
+            const evtSource3 = new EventSource(`http://localhost:5000/events?topics=${topics.join(',')}`, {
+                withCredentials: true,
+                headers: {
+                    'Authorization': 'abc',
+                    'X-Access-Token': 'abc',
+                    'X-Channel': 'events',
+                    'X-Topics': 'tickers:*',
+                    'X-API-Version': 'v1'
+                },
+            });
+            const stocklistMap = {};
+            const body = document.createElement("tbody");
+            const date = document.getElementById('date');
+            table.appendChild(body);
+            // date.innerText = `Date: ${new Date(data.date).toUTCString()}`;
+            stocks.forEach(stock => {
+                const tr = document.createElement("tr");
+                tr.id = `stock-${stock}`;
+                tr.textContent = `${stock}: loading...`;
+                body.appendChild(tr);
+                stocklistMap[stock] = tr;
+
+                evtSource3.addEventListener(`quotes:${stock}`, (e) => {
+                    const data = JSON.parse(e.data);
+                    stocklistMap[stock].innerHTML = `
+                        <td>${data.code}</td>
+                        <td>K${data.bid}</td>
+                        <td>K${data.offer}</td>
+                        <td>K${data.last}</td>
+                        <td>K${data.high}</td>
+                        <td>K${data.low}</td>
+                        <td>K${data.open}</td>
+                        <td>K${data.close}</td>
+                        <td>${Number(data.chg_today).toFixed(0)}% ${Number(data.chg_today).toFixed(0) < 0 ? '↘️' : Number(data.chg_today).toFixed(0) > 0 ? '↗️' : '➡️'}</td>
+                        <td>${data.vol_today}</td>
+                        <td>${data.num_trades}</td>
+                    `;
+                });
+            });
+
+            const startLogStream = () => {
+                // Create SSE connection
+                const eventSource = new EventSource('http://localhost:5000/events/logs/stream');
+
+                // Handle incoming messages
+                eventSource.onmessage = (event) => {
+                    const data = JSON.parse(event.data);
+                    console.log('Received log:', data);
+                    log.value += `${new Date(data.timestamp).toLocaleTimeString()} - ${data.message}\n`;
+                };
+
+                // Handle connection open
+                // eventSource.onopen = () => {
+                //     setIsConnected(true);
+                // };
+
+                // Handle errors
+                eventSource.onerror = (error) => {
+                    console.error('SSE error:', error);
+                    // setIsConnected(false);
+                    eventSource.close();
+                };
+            }
+            // startLogStream();
+
+            // evtSource.addEventListener('tickers', e => {
+            //     const data = JSON.parse(e.data);
+            // });
+
+            //     evtSource.addEventListener(channel, (e) => {
+            //         console.log("Channel update:", JSON.parse(e.data));
+            //     });
+
+            //     // news message handler
+            //     evtSource.addEventListener('news', e => {
+            //         console.log(`last ID: ${e.lastEventId}`);
+
+            //         document.getElementById('headline')
+            //             .textContent = e.data;
+
+            //     });
+
+            //     // weather message handler
+            //     evtSource.addEventListener('weather', e => {
+
+            //         const w = JSON.parse(e.data);
+
+            //         document.getElementById('weather')
+            //             .textContent = `${w.temperature} with ${w.wind} wind`;
+
+            //     });
+
+            //     // stock message handler
+            //     evtSource.addEventListener('stock', e => {
+
+            //         const s = JSON.parse(e.data);
+
+            //         document.getElementById(`stock-${s.symbol}`)
+            //             .textContent = `${s.share}: ${s.price} (${s.increase}%)`;
+
+            //     });
+
+            //     evtSource.addEventListener('error', e => {
+
+            //         if (e.eventPhase === EventSource.CLOSED) {
+            //             console.log('SSE connection closed');
+            //         }
+            //         else {
+            //             console.log('error', e);
+            //         }
+
+            //     });
+
+            //     evtSource.onopen = function () {
+            //         console.log('connection to stream has been opened');
+            //     };
+            //     evtSource.onerror = function (error) {
+            //         console.log('An error has occurred while receiving stream', error);
+            //         evtSource.close();
+            //     };
+            //     evtSource.onmessage = function (stream) {
+            //         console.log('received stream', stream);
+            //         const parsedData = JSON.parse(stream.data);
+            //         console.log(parsedData)
+            //         // log.append(document.createElement('a'))
+
+            //         const groups = Object.groupBy(parsedData, function (d) { return d.code });
+            //         for (const key in groups) {
+            //             let tr = document.createElement('tr');
+            //             let row = groups[key].map((stock) => (`
+            //                     <td>${stock.date}</td>
+            //                     <td>${stock.code}</td>
+            //                     <td>${stock.bid}</td>
+            //                     <td>${stock.offer}</td>
+            //                     <td>${stock.last}</td>
+            //                     <td>${stock.high}</td>
+            //                     <td>${stock.low}</td>
+            //                     <td>${stock.open}</td>
+            //                     <td>${stock.close}</td>
+            //                     <td>${stock.chg_today}</td>
+            //                     <td>${stock.vol_today}</td>
+            //                     <td>${stock.num_trades}</td>
+            //             `));
+            //             tr.append(row)
+
+            //             table.children.item(1).append(tr)
+            //         }
+
+            //     };
+
+            //     function renderTable(headers, rows) {
+            //         let header = ""
+            //     }
+        }());
+    </script>
+
+    <script type="text/javascript">
+        (function () {
+            let textView = document.getElementById('text-view');
+            let sendBtn = document.getElementById('send-button');
+            let stopBtn = document.getElementById('stop-button');
+            let startBtn = document.getElementById('start-button');
+            let label = document.getElementById('status-label');
+            let log = document.getElementById('status-log');
+
+            //     const WS_URL = "ws://localhost:5000/ws/v1/stocks/quotes";
+            //     const headers = ["Authorization", "abc"];
+
+            //     // const ws = new WebSocket("wss://username:password@example.com")
+            //     // the client will pull out the basic authentication access header
+            //     let socket = new WebSocket(WS_URL, headers);
+
+            //     // react
+            //     // const {sendMessage, lastMessage} = useWebSocket("wss://example.com/path", {
+            //     //     protocols: ["Authorization", "your_token_here"]
+            //     // })
+
+            //     if (socket.CLOSED) {
+            //         log.innerHTML += "Connection closed."
+            //     }
+            //     if (socket.CLOSING) {
+            //         log.innerHTML += "Connection closing."
+            //     }
+            //     if (socket.CONNECTING) {
+            //         log.innerHTML += "Connection connecting."
+            //     }
+            //     if (socket.OPEN) {
+            //         log.innerHTML += "Connection opened."
+            //     }
+
+            //     socket.onopen = function (event) {
+            //         console.log("Connection established.");
+            //         // Initialize any resources here and display some user-friendly
+            //         // messages
+            //         label.lastChild.innerHTML = "Connection established!";
+            //         // socket.send('ping')
+            //         socket.send(JSON.stringify({
+            //             'type': 'authenticate',
+            //             'token': 'abc'
+            //         }));
+            //     };
+
+            //     socket.onmessage = function (event) {
+            //         if (typeof event.data === "string") {
+            //             // If the server has sent text data, then display it.
+            //             label.innerHTML += "<br />" + event.data;
+            //         }
+            //     };
+
+            //     socket.onerror = function (event) {
+            //         label.innerHTML = "Error: " + event;
+            //     }
+
+            //     socket.onclose = function (event) {
+            //         console.log("Connection closed.");
+            //         let code = event.code;
+            //         let reason = event.reason;
+            //         let wasClean = event.wasClean;
+            //         if (wasClean) {
+            //             label.innerHTML = "Connection closed normally.";
+            //         } else {
+            //             label.innerHTML =
+            //                 "Connection closed with message " + reason + "(Code: " + code + ")";
+            //         }
+            //     };
+
+            //     sendBtn.onclick = function () {
+            //         // Send the data if the connection is open.
+            //         if (socket.readyState === WebSocket.OPEN) {
+            //             // send data to server
+            //             socket.send(JSON.stringify({
+            //                 'action': 'send',
+            //                 'type': textView.value
+            //             }));
+            //         }
+            //     }
+
+            //     stopBtn.onclick = function () {
+            //         // Send the data if the connection is open.
+            //         if (socket.readyState === WebSocket.OPEN) {
+            //             socket.close(1000, "Deliberate disconnection");
+            //         }
+            //     }
+
+            //     startBtn.onclick = function () {
+            //         if (socket.readyState === WebSocket.CLOSED) {
+            //             socket = new WebSocket("ws://localhost:5000/ws/v1");
+            //         }
+            //     }
+        }())
+    </script>
+
+    <script type="text/javascript">
+        // helpers.js
+        // Your CryptoCompare API key
+        const apiKey = "<api-key>";
+
+        // Makes requests to CryptoCompare API
+        async function makeApiRequest(path) {
+            try {
+                const url = new URL(`https://min-api.cryptocompare.com/${path}`);
+                url.searchParams.append('api_key', apiKey)
+                const response = await fetch(url.toString());
+                return response.json();
+            } catch (error) {
+                throw new Error(`CryptoCompare request error: ${error.status}`);
+            }
+        }
+
+        // Generates a symbol ID from a pair of the coins
+        function generateSymbol(exchange, fromSymbol, toSymbol) {
+            const short = `${fromSymbol}/${toSymbol}`;
+            return {
+                short,
+            };
+        }
+
+
+
+        // streaming.js
+        const socket = new WebSocket(
+            'wss://streamer.cryptocompare.com/v2?api_key=' + apiKey
+        );
+
+        const channelToSubscription = new Map();
+
+        socket.addEventListener('open', () => {
+            console.log('[socket] Connected');
+        });
+
+        socket.addEventListener('close', (reason) => {
+            console.log('[socket] Disconnected:', reason);
+        });
+
+        socket.addEventListener('error', (error) => {
+            console.log('[socket] Error:', error);
+        });
+
+        function subscribeOnStream() {
+            // To Do
+        }
+
+        function unsubscribeFromStream() {
+            // To Do
+        }
+
+        // datafeed.js
+        class Datafeed {
+            constructor(data = []) {
+                this.data = this._processData(data);
+                this.newData = this._processData(data);
+            }
+            onReady(callback) {
+                console.log('[onReady]: Method call');
+            }
+            searchSymbols(userInput, exchange, symbolType, onResultReadyCallback) {
+                console.log('[searchSymbols]: Method call');
+            }
+            resolveSymbol(symbolName, onSymbolResolvedCallback, onResolveErrorCallback, extension) {
+                console.log('[resolveSymbol]: Method call', symbolName);
+            }
+            getBars(symbolInfo, resolution, periodParams, onHistoryCallback, onErrorCallback) {
+                console.log('[getBars]: Method call', symbolInfo);
+            }
+            subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback) {
+                console.log('[subscribeBars]: Method call with subscriberUID:', subscriberUID);
+            }
+            unsubscribeBars(subscriberUID) {
+                console.log('[unsubscribeBars]: Method call with subscriberUID:', subscriberUID);
+            }
+            async getAllSymbols() {
+                const data = await makeApiRequest('data/v3/all/exchanges');
+                let allSymbols = [];
+
+                for (const exchange of configurationData.exchanges) {
+                    const pairs = data.Data[exchange.value].pairs;
+
+                    for (const leftPairPart of Object.keys(pairs)) {
+                        const symbols = pairs[leftPairPart].map(rightPairPart => {
+                            const symbol = generateSymbol(exchange.value, leftPairPart, rightPairPart);
+                            return {
+                                symbol: symbol.short,
+                                ticker: symbol.short,
+                                description: symbol.short,
+                                exchange: exchange.value,
+                                type: 'crypto',
+                            };
+                        });
+                        allSymbols = [...allSymbols, ...symbols];
+                    }
+                }
+                return allSymbols;
+            }
+            _processData(data) {
+                if (!Array.isArray(data)) {
+                    throw new Error("Data must be an array");
+                }
+                delete data['_id'];
+                return data;
+            }
+
+            between(startDate, endDate) {
+                this.newData = Object.groupBy(this.newData, (e) => e[name]);
+                return this;
+            }
+
+            groupBy(name) {
+                this.newData = Object.groupBy(this.newData, (e) => e[name]);
+                return this;
+            }
+
+            slice(start, end) {
+                this.newData = this.data.slice(start, end);
+                return this;
+            }
+
+            getBars(count) {
+                if (this.newData.length === 0) {
+                    return this.data.slice(0, count);
+                }
+                return this.newData.slice(0, count);
+            }
+
+            getCandlesticks(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    open: d.open,
+                    high: d.high,
+                    low: d.low,
+                    close: d.close
+                }));
+            }
+
+            getVolume(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.volume
+                }));
+            }
+
+            getBid(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.bid
+                }));
+            }
+
+            getOffer(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.offer
+                }));
+            }
+
+            getArea(count) {
+                return this.getBars(count).map((d) => ({
+                    time: d.date,
+                    value: d.close
+                }));
+            }
+
+            getGroupedByDay() {
+                return this.data.reduce((acc, current) => {
+                    const day = new Date(current.date).toISOString().split('T')[0];
+                    if (!acc[day]) {
+                        acc[day] = [];
+                    }
+                    acc[day].push(current);
+                    return acc;
+                }, {});
+            }
+
+            getGroupedByWeek() {
+                return this.data.reduce((acc, current) => {
+                    const date = new Date(current.date);
+                    const year = date.getFullYear();
+                    const week = this._getWeekNumber(date);
+                    const key = `${year}-W${week}`;
+                    if (!acc[key]) {
+                        acc[key] = [];
+                    }
+                    acc[key].push(current);
+                    return acc;
+                }, {});
+            }
+
+            _getWeekNumber(date) {
+                const start = new Date(date.getFullYear(), 0, 1);
+                const days = Math.floor((date - start) / (24 * 60 * 60 * 1000));
+                return Math.ceil((days + start.getDay() + 1) / 7);
+            }
+
+            groupedByMonth() {
+                return this.data.reduce((acc, current) => {
+                    const yearMonth = new Date(current.date).toISOString().slice(0, 7);
+                    if (!acc[yearMonth]) {
+                        acc[yearMonth] = [];
+                    }
+                    acc[yearMonth].push(current);
+                    return acc;
+                }, {});
+            }
+
+            groupedByYear() {
+                return this.data.reduce((acc, current) => {
+                    const year = new Date(current.date).getFullYear();
+                    if (!acc[year]) {
+                        acc[year] = [];
+                    }
+                    acc[year].push(current);
+                    return acc;
+                }, {});
+            }
+
+            getGroupedBySymbol() {
+                return Object.groupBy(this.data, (e) => e.symbol);
+            }
+
+            calculateMovingAverageSeriesData(candleData, maLength) {
+                const maData = [];
+
+                for (let i = 0; i < candleData.length; i++) {
+                    if (i < maLength) {
+                        // Provide whitespace data points until the MA can be calculated
+                        maData.push({ time: candleData[i].time });
+                    } else {
+                        // Calculate the moving average, slow but simple way
+                        let sum = 0;
+                        for (let j = 0; j < maLength; j++) {
+                            sum += candleData[i - j].close;
+                        }
+                        const maValue = sum / maLength;
+                        maData.push({ time: candleData[i].time, value: maValue });
+                    }
+                }
+
+                return maData;
+            }
+        }
+
+        function TradeviewDate(date) {
+            return {
+                year: new Date(date).getFullYear(),
+                month: new Date(date).getMonth(),
+                day: new Date(date).getDate()
+            }
+        }
+
+        const datafeed = new Datafeed(quotesData);
+        console.log(datafeed.getBars(50));
+    </script>
+
+    <script type="text/javascript">
+        (function () {
+            const stocks = ['BSP', 'CCP', 'CGA', 'CPL', 'KAM', 'KSL', 'NEM', 'NGP', 'NIU', 'SST'];
+            let ticker = "BSP";
+            const selectedStockEl = document.getElementById("selectedStock");
+            const stocklist = document.getElementById("stockList");
+            stocks.forEach(stock => {
+                const item = document.createElement('button');
+                item.className = "item";
+                item.innerText = stock;
+                item.onclick = function (e) {
+                    ticker = e.target.innerText;
+                }
+                stocklist.appendChild(item)
+            });
+            selectedStockEl.innerText = `Stock: ${ticker}`;
+
+            let stocksGroup = Object.groupBy(quotesData, (e) => e.symbol);
+
+            let candleData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                open: d.open,
+                high: d.high,
+                low: d.low,
+                close: d.close,
+                time: d.date,
+                // time: TradeviewDate(d.date),
+            }));
+            // console.log(candleData)
+
+            let volumeData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                value: d.volume,
+                time: d.date,
+                // time: new Date(d.date).getTime(),
+            }));
+            // console.log(volumeData)
+
+            let bidData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                value: d.bid,
+                time: d.date
+            }));
+            // console.log(bidData)
+            let offerData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                value: d.offer,
+                time: d.date
+            }));
+            // console.log(offerData)
+
+            let openData = stocksGroup[ticker].slice(0, 50).map(d => ({
+                value: d.open,
+                time: d.date
+            }));
+
+            let localDayData = stocksGroup[ticker].map(d => ({
+                value: d.bid,
+                time: d.date
+            }));
+
+            // Get the current users primary locale
+            const currentLocale = window.navigator.languages[1];
+            // Create a number format using Intl.NumberFormat
+            const myPriceFormatter = Intl.NumberFormat(currentLocale, {
+                style: "currency",
+                currency: "PGK",
+            }).format;
+
+            const chartOptions = Object.assign({
+                layout: {
+                    textColor: 'black',
+                    background: { type: 'solid', color: 'white' },
+                },
+                width: 700,
+                height: 300,
+                localization: {
+                    priceFormatter: myPriceFormatter,
+                },
+            });
+
+            const candleStickContainer = document.getElementById('candlestick');
+            const candleStickChart = LightweightCharts.createChart(candleStickContainer, chartOptions);
+            candleStickChart.applyOptions({
+                crosshair: {
+                    // hide the horizontal crosshair line
+                    horzLine: {
+                        visible: false,
+                        labelVisible: false,
+                    },
+                    // hide the vertical crosshair label
+                    vertLine: {
+                        labelVisible: false,
+                    },
+                },
+                // hide the grid lines
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        visible: false,
+                    },
+                },
+            });
+
+            // // Only needed within demo page
+            // window.addEventListener('resize', () => {
+            //     candleStickChart.applyOptions({ height: 200 });
+            // });
+
+            const maData = datafeed.calculateMovingAverageSeriesData(candleData, 20);
+            const maSeries = candleStickChart.addSeries(LightweightCharts.LineSeries, { color: '#2962FF', lineWidth: 1 });
+            maSeries.setData(maData);
+
+            // Candlestick
+            const candlestickSeries = candleStickChart.addSeries(LightweightCharts.CandlestickSeries, {
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderVisible: false,
+                wickUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+            });
+            // candlestickSeries.setData(tickerData);
+            candlestickSeries.setData(candleData);
+            candlestickSeries.applyOptions({
+                upColor: 'red',
+                downColor: 'blue',
+            });
+            // // Update the most recent bar
+            // areaSeries.update({ time: '2018-12-31', value: 25 });
+            // candlestickSeries.update({ time: '2018-12-31', open: 109.87, high: 114.69, low: 85.66, close: 112 });
+
+            // // Creating the new bar
+            // areaSeries.update({ time: '2019-01-01', value: 20 });
+            // candlestickSeries.update({ time: '2019-01-01', open: 112, high: 112, low: 100, close: 101 });
+            candleStickChart.timeScale().fitContent();
+
+            // histogram
+            const histogramContainer = document.getElementById('histogram');
+            const histogramChart = LightweightCharts.createChart(histogramContainer, Object.assign(chartOptions, {
+                rightPriceScale: {
+                    borderVisible: false,
+                },
+                panes: {
+                    separatorColor: '#f22c3d',
+                    separatorHoverColor: 'rgba(255, 0, 0, 0.1)',
+                    // setting this to false will disable the resize of the panes by the user
+                    enableResize: false,
+                },
+            }));
+            histogramChart.applyOptions({
+                layout: {
+                    panes: {
+                        separatorColor: '#ff0000',
+                        separatorHoverColor: '#00ff00',
+                        enableResize: false,
+                    },
+                },
+            });
+            const areaSeries2 = histogramChart.addSeries(LightweightCharts.AreaSeries, {
+                topColor: '#2962FF',
+                bottomColor: 'rgba(41, 98, 255, 0.28)',
+                lineColor: '#2962FF',
+                lineWidth: 2,
+            });
+            areaSeries2.priceScale().applyOptions({
+                scaleMargins: {
+                    // positioning the price scale for the area series
+                    top: 0.1,
+                    bottom: 0.4,
+                },
+            });
+            const histogramSeries = histogramChart.addSeries(LightweightCharts.HistogramSeries, {
+                color: '#26a69a',
+                priceFormat: {
+                    type: 'volume',
+                },
+                priceScaleId: '', // set as an overlay by setting a blank priceScaleId
+            },
+                // 1 // Pane index
+            );
+            // histogramSeries.moveToPane(2);
+            // const secondPane = histogramChart.panes()[1];
+            // secondPane.setHeight(300);
+            // secondPane.moveTo(0);
+            // histogramChart.removePane(1);
+            histogramSeries.priceScale().applyOptions({
+                // set the positioning of the volume series
+                scaleMargins: {
+                    top: 0.7, // highest point of the series will be 70% away from the top
+                    bottom: 0,
+                },
+            });
+            areaSeries2.setData(bidData);
+            histogramSeries.setData(volumeData);
+            histogramChart.timeScale().fitContent();
+
+
+            // Line Chart
+            const lineSeriesContainer = document.getElementById('lineseries');
+            const lineSeriesChart = LightweightCharts.createChart(lineSeriesContainer, chartOptions);
+
+            const intervalColors = {
+                '1D': '#2962FF',
+                '1W': 'rgb(225, 87, 90)',
+                '1M': 'rgb(242, 142, 44)',
+                '1Y': 'rgb(164, 89, 209)',
+            };
+
+            const lineSeries = lineSeriesChart.addSeries(LightweightCharts.LineSeries, {
+                // color: intervalColors['1D'],
+                color: '#2962FF',
+                lineWidth: 2,
+                // disabling built-in price lines
+                lastValueVisible: false,
+                priceLineVisible: false,
+            });
+
+            lineSeries.setData(bidData);
+
+            let minimumPrice = bidData[0].value;
+            let maximumPrice = minimumPrice;
+            for (let i = 1; i < bidData.length; i++) {
+                const price = bidData[i].value;
+                if (price > maximumPrice) {
+                    maximumPrice = price;
+                }
+                if (price < minimumPrice) {
+                    minimumPrice = price;
+                }
+            }
+            const avgPrice = (maximumPrice + minimumPrice) / 2;
+
+            const lineWidth = 2;
+            const minPriceLine = {
+                price: minimumPrice,
+                color: '#ef5350',
+                lineWidth: lineWidth,
+                lineStyle: 2, // LineStyle.Dashed
+                axisLabelVisible: true,
+                title: 'min price',
+            };
+            const avgPriceLine = {
+                price: avgPrice,
+                color: 'black',
+                lineWidth: lineWidth,
+                lineStyle: 1, // LineStyle.Dotted
+                axisLabelVisible: true,
+                title: 'ave price',
+            };
+            const maxPriceLine = {
+                price: maximumPrice,
+                color: '#26a69a',
+                lineWidth: lineWidth,
+                lineStyle: 2, // LineStyle.Dashed
+                axisLabelVisible: true,
+                title: 'max price',
+            };
+
+            lineSeries.createPriceLine(minPriceLine);
+            lineSeries.createPriceLine(avgPriceLine);
+            lineSeries.createPriceLine(maxPriceLine);
+
+            lineSeriesChart.timeScale().fitContent();
+
+            // function setChartInterval(interval) {
+            //     lineSeries.setData(seriesesData.get(interval));
+            //     lineSeries.applyOptions({
+            //         color: intervalColors[interval],
+            //     });
+            //     lineSeriesChart.timeScale().fitContent();
+            // }
+            // setChartInterval('1D');
+            // const buttonsContainer = document.createElement('div');
+            // buttonsContainer.classList.add('buttons-container');
+            // const intervals = ['1D', '1W', '1M', '1Y'];
+            // intervals.forEach(interval => {
+            //     const button = document.createElement('button');
+            //     button.innerText = interval;
+            //     button.addEventListener('click', () => setChartInterval(interval));
+            //     buttonsContainer.appendChild(button);
+            // });
+            // lineSeriesContainer.appendChild(buttonsContainer);
+
+            // const toolTipWidth = 80;
+            // const toolTipHeight = 80;
+            // const toolTipMargin = 15;
+
+            // // Create and style the tooltip html element
+            // const toolTip = document.createElement('div');
+            // toolTip.style = `width: 96px; height: 80px; position: absolute; display: none; padding: 8px; box-sizing: border-box; font-size: 12px; text-align: left; z-index: 1000; top: 12px; left: 12px; pointer-events: none; border: 1px solid; border-radius: 2px;font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`;
+            // toolTip.style.background = 'white';
+            // toolTip.style.color = 'black';
+            // toolTip.style.borderColor = '#2962FF';
+            // lineSeriesContainer.appendChild(toolTip);
+
+            // // update tooltip
+            // lineSeriesChart.subscribeCrosshairMove(param => {
+            //     if (
+            //         param.point === undefined ||
+            //         !param.time ||
+            //         param.point.x < 0 ||
+            //         param.point.x > lineSeriesContainer.clientWidth ||
+            //         param.point.y < 0 ||
+            //         param.point.y > lineSeriesContainer.clientHeight
+            //     ) {
+            //         toolTip.style.display = 'none';
+            //     } else {
+            //         // time will be in the same format that we supplied to setData.
+            //         // thus it will be YYYY-MM-DD
+            //         const dateStr = param.time;
+            //         toolTip.style.display = 'block';
+            //         const data = param.seriesData.get(areaSeries);
+            //         const price = data.value !== undefined ? data.value : data.close;
+            //         toolTip.innerHTML = `<div style="color: ${'#2962FF'}">${ticker}</div><div style="font-size: 24px; margin: 4px 0px; color: ${'black'}">
+            //                         ${Math.round(100 * price) / 100}
+            //                         </div><div style="color: ${'black'}">
+            //                         ${dateStr}
+            //                         </div>`;
+
+            //         const coordinate = areaSeries.priceToCoordinate(price);
+            //         let shiftedCoordinate = param.point.x - 50;
+            //         if (coordinate === null) {
+            //             return;
+            //         }
+            //         shiftedCoordinate = Math.max(
+            //             0,
+            //             Math.min(lineSeriesContainer.clientWidth - toolTipWidth, shiftedCoordinate)
+            //         );
+            //         const coordinateY =
+            //             coordinate - toolTipHeight - toolTipMargin > 0
+            //                 ? coordinate - toolTipHeight - toolTipMargin
+            //                 : Math.max(
+            //                     0,
+            //                     Math.min(
+            //                         lineSeriesContainer.clientHeight - toolTipHeight - toolTipMargin,
+            //                         coordinate + toolTipMargin
+            //                     )
+            //                 );
+            //         toolTip.style.left = shiftedCoordinate + 'px';
+            //         toolTip.style.top = coordinateY + 'px';
+            //     }
+            // })
+
+            // lineSeriesChart.subscribeClick(param => {
+            //     console.log(param)
+            // })
+
+            const barSeriesContainer = document.getElementById("barseries")
+            const barSeriesChart = LightweightCharts.createChart(barSeriesContainer, chartOptions)
+            const barSeries = barSeriesChart.addSeries(LightweightCharts.BarSeries, { upColor: '#26a69a', downColor: '#ef5350' });
+            barSeries.setData(tickerData);
+            barSeriesChart.timeScale().fitContent();
+
+
+            // baseline
+            const baselineContainer = document.getElementById("baseline")
+            const baselineChart = LightweightCharts.createChart(baselineContainer, chartOptions)
+            const baselineSeries = baselineChart.addSeries(LightweightCharts.BaselineSeries, {
+                baseValue: { type: 'price', price: 12 },
+                topLineColor: 'rgba( 38, 166, 154, 1)',
+                topFillColor1: 'rgba( 38, 166, 154, 0.28)',
+                topFillColor2: 'rgba( 38, 166, 154, 0.05)',
+                bottomLineColor: 'rgba( 239, 83, 80, 1)',
+                bottomFillColor1: 'rgba( 239, 83, 80, 0.05)',
+                bottomFillColor2: 'rgba( 239, 83, 80, 0.28)'
+            });
+            // baselineSeries.setData(dayData);
+            baselineSeries.setData(localDayData.slice(10, 50));
+            baselineChart.timeScale().fitContent();
+
+            function addData(chart, label, newData) {
+                // Update the most recent bar
+                // areaSeries.update({ time: '2018-12-31', value: 25 });
+                // lineSeries.update({ time: '2018-12-31', open: 109.87, high: 114.69, low: 85.66, close: 112 });
+
+                // Creating the new bar
+                // areaSeries.update({ time: '2019-01-01', value: 20 });
+                // lineSeries.update({ time: '2019-01-01', open: 112, high: 112, low: 100, close: 101 });
+            }
+
+            function removeData(chart) {
+            }
+
+            // Yield Curve Chart
+            const yieldCurveChartContainer = document.getElementById('yieldcurve');
+            const yieldCurveChart = LightweightCharts.createYieldCurveChart(yieldCurveChartContainer, Object.assign(chartOptions, {
+                // autoSize: true,
+                yieldCurve: {
+                    baseResolution: 12,
+                    minimumTimeRange: 10,
+                    startTimeRange: 3,
+                },
+                handleScroll: false,
+                handleScale: false,
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        visible: false,
+                    },
+                },
+                timeScale: {
+                    minBarSpacing: 3,
+                },
+            }));
+            const curve1 = [
+                { time: 1, value: 5.378 },
+                { time: 2, value: 5.372 },
+                { time: 3, value: 5.271 },
+                { time: 6, value: 5.094 },
+                { time: 12, value: 4.739 },
+                { time: 24, value: 4.237 },
+                { time: 36, value: 4.036 },
+                { time: 60, value: 3.887 },
+                { time: 84, value: 3.921 },
+                { time: 120, value: 4.007 },
+                { time: 240, value: 4.366 },
+                { time: 360, value: 4.29 },
+            ];
+            const curve2 = [
+                { time: 1, value: 5.381 },
+                { time: 2, value: 5.393 },
+                { time: 3, value: 5.425 },
+                { time: 6, value: 5.494 },
+                { time: 12, value: 5.377 },
+                { time: 24, value: 4.883 },
+                { time: 36, value: 4.554 },
+                { time: 60, value: 4.241 },
+                { time: 84, value: 4.172 },
+                { time: 120, value: 4.084 },
+                { time: 240, value: 4.365 },
+                { time: 360, value: 4.176 },
+            ];
+
+            const series1 = yieldCurveChart.addSeries(LightweightCharts.LineSeries, {
+                lineType: 2,
+                color: '#26c6da',
+                pointMarkersVisible: true,
+                lineWidth: 2,
+            });
+            const priceChangeMarkers = LightweightCharts.createUpDownMarkers(series1);
+            priceChangeMarkers.setData(curve1);
+
+            const series2 = yieldCurveChart.addSeries(LightweightCharts.LineSeries, {
+                lineType: 2,
+                color: 'rgb(164, 89, 209)',
+                pointMarkersVisible: true,
+                lineWidth: 1,
+            });
+            series2.setData(curve2);
+
+            yieldCurveChart.timeScale().fitContent();
+
+            yieldCurveChart.timeScale().subscribeSizeChange(() => {
+                yieldCurveChart.timeScale().fitContent();
+            });
+            setInterval(() => {
+                curve1
+                    .filter(() => Math.random() < 0.1)
+                    .forEach(data => {
+                        const shift = (Math.random() > 0.5 ? -1 : 1) * Math.random() * 0.01 * data.value;
+                        priceChangeMarkers.update(
+                            {
+                                ...data,
+                                value: data.value + shift,
+                            },
+                            true
+                        );
+                    });
+            }, 5000);
+
+
+            // volume traded
+            const areaSeriesContainer = document.getElementById('areaseries');
+            const areaSeriesChart = LightweightCharts.createChart(areaSeriesContainer, chartOptions);
+            const areaSeries = areaSeriesChart.addSeries(LightweightCharts.AreaSeries, {
+                lineColor: '#2962FF',
+                topColor: '#2962FF',
+                bottomColor: 'rgba(41, 98, 255, 0.28)',
+                lineWidth: 2,
+                crossHairMarkerVisible: false,
+            });
+            LightweightCharts.createTextWatermark(areaSeriesChart.panes()[0], {
+                horzAlign: 'center',
+                vertAlign: 'center',
+                lines: [
+                    {
+                        text: 'Nuku Stock Data',
+                        color: 'rgba(171, 71, 188, 0.5)',
+                        fontSize: 24,
+                    },
+                ],
+            });
+            areaSeries.priceScale().applyOptions({
+                scaleMargins: {
+                    top: 0.3, // leave some space for the legend
+                    bottom: 0.25,
+                },
+            });
+            areaSeriesChart.applyOptions({
+                rightPriceScale: {
+                    scaleMargins: {
+                        top: 0.3, // leave some space for the legend
+                        bottom: 0.25,
+                    },
+                },
+                crosshair: {
+                    // hide the horizontal crosshair line
+                    horzLine: {
+                        visible: false,
+                        labelVisible: false,
+                    },
+                },
+                // hide the grid lines
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        visible: false,
+                    },
+                },
+            });
+            areaSeries.setData(volumeData);
+            const legend = document.createElement('div');
+            legend.style = `position: absolute; left: 12px; top: 12px; z-index: 1; font-size: 14px; font-family: sans-serif; line-height: 18px; font-weight: 300;`;
+            areaSeriesContainer.appendChild(legend);
+            const getLastBar = series => {
+                const lastIndex = series.dataByIndex(Number.MAX_SAFE_INTEGER, -1);
+                return series.dataByIndex(lastIndex);
+            };
+            const formatPrice = price => (Math.round(price * 100) / 100).toFixed(2);
+            const setTooltipHtml = (name, date, price) => {
+                legend.innerHTML = `<div style="font-size: 24px; margin: 4px 0px;">${name}</div><div style="font-size: 22px; margin: 4px 0px;">${price}</div><div>${date}</div>`;
+            };
+            const updateLegend = param => {
+                const validCrosshairPoint = !(
+                    param === undefined || param.time === undefined || param.point.x < 0 || param.point.y < 0
+                );
+                const bar = validCrosshairPoint ? param.seriesData.get(areaSeries) : getLastBar(areaSeries);
+                // time is in the same format that you supplied to the setData method,
+                // which in this case is YYYY-MM-DD
+                const time = bar.time;
+                const price = bar.value !== undefined ? bar.value : bar.close;
+                const formattedPrice = formatPrice(price);
+                setTooltipHtml(ticker, time, formattedPrice);
+            };
+            areaSeriesChart.subscribeCrosshairMove(updateLegend);
+            updateLegend(undefined);
+            // areaSeriesChart.subscribeCrosshairMove((param) => {
+            //     let priceFormatted = '';
+            //     console.log(param)
+            //     if (param.time) {
+            //         const dataPoint = param.seriesData.get(areaSeries);
+            //         const price = data.value !== undefined ? data.value : data.close;
+            //         priceFormatted = price.toFixed(2);
+            //     }
+            //     // legend is a html element which has already been created
+            //     legend.innerHTML = `${ticker} <strong>${priceFormatted}</strong>`;
+            // });
+            areaSeriesChart.timeScale().fitContent();
+
+
+            // Realtime Chart
+            const realtimeChartContainer = document.getElementById('realtimeChart');
+            const realtimeChart = LightweightCharts.createChart(realtimeChartContainer, Object.assign(chartOptions, {
+                // layout: {
+                //     background: { color: '#222' },
+                //     textColor: '#DDD',
+                // },
+                // grid: {
+                //     vertLines: { color: '#444' },
+                //     horzLines: { color: '#444' },
+                // },
+            }));
+            const series = realtimeChart.addSeries(LightweightCharts.CandlestickSeries, {
+                color: '#2962FF',
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderVisible: false,
+                wickUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+            });
+            // // Setting the border color for the vertical axis
+            // realtimeChart.priceScale().applyOptions({
+            //     borderColor: "#71649C",
+            // });
+
+            // // Setting the border color for the horizontal axis
+            // realtimeChart.timeScale().applyOptions({
+            //     borderColor: "#71649C",
+            // });
+
+            // // Adjust the starting bar width (essentially the horizontal zoom)
+            // realtimeChart.timeScale().applyOptions({
+            //     barSpacing: 10,
+            // });
+
+            // // Changing the font
+            // realtimeChart.applyOptions({
+            //     layout: {
+            //     fontFamily: "'Roboto', sans-serif",
+            //     },
+            // });
+
+            // Apply the custom priceFormatter to the realtimeChart
+            realtimeChart.applyOptions({
+                localization: {
+                    priceFormatter: myPriceFormatter,
+                },
+            });
+
+            // // Customizing the Crosshair
+            // realtimeChart.applyOptions({
+            //     crosshair: {
+            //     // Change mode from default 'magnet' to 'normal'.
+            //     // Allows the crosshair to move freely without snapping to datapoints
+            //     mode: LightweightCharts.CrosshairMode.Normal,
+
+            //     // Vertical crosshair line (showing Date in Label)
+            //     vertLine: {
+            //         width: 8,
+            //         color: "#C3BCDB44",
+            //         style: LightweightCharts.LineStyle.Solid,
+            //         labelBackgroundColor: "#9B7DFF",
+            //     },
+
+            //     // Horizontal crosshair line (showing Price in Label)
+            //     horzLine: {
+            //         color: "#9B7DFF",
+            //         labelBackgroundColor: "#9B7DFF",
+            //     },
+            //     },
+            // });
+
+            // // Generate sample data to use within a candlestick series
+            // // const candleStickData = generateCandlestickData().map((datapoint) => {
+            // //     // map function is changing the color for the individual
+            // //     // candlestick points that close above 205
+            // //     if (datapoint.close < 205) return datapoint;
+            // //     // we are adding 'color' and 'wickColor' properties to the datapoint.
+            // //     return { ...datapoint, color: "orange", wickColor: "orange" };
+            // // });
+
+            // // Convert the candlestick data for use with a line series
+            // // const lineData = candleStickData.map((datapoint) => ({
+            // //     time: datapoint.time,
+            // //     value: (datapoint.close + datapoint.open) / 2,
+            // // }));
+
+            // // Add an area series to the chart,
+            // // Adding this before we add the candlestick chart
+            // // so that it will appear beneath the candlesticks
+            // const areaSeries2 = realtimeChart.addSeries(LightweightCharts.AreaSeries, {
+            //     lastValueVisible: false, // hide the last value marker for this series
+            //     crosshairMarkerVisible: false, // hide the crosshair marker for this series
+            //     lineColor: "transparent", // hide the line
+            //     topColor: "rgba(56, 33, 110,0.6)",
+            //     bottomColor: "rgba(56, 33, 110, 0.1)",
+            // });
+            // // Set the data for the Area Series
+            // // areaSeries.setData(lineData);
+
+            // // Create the Main Series (Candlesticks)
+            // // const mainSeries = realtimeChart.addSeries(LightweightCharts.CandlestickSeries);
+            // // Set the data for the Main Series
+            // // mainSeries.setData(candleStickData);
+
+            // // Changing the Candlestick colors
+            // series.applyOptions({
+            //     wickUpColor: "rgb(54, 116, 217)",
+            //     upColor: "rgb(54, 116, 217)",
+            //     wickDownColor: "rgb(225, 50, 85)",
+            //     downColor: "rgb(225, 50, 85)",
+            //     borderVisible: false,
+            // });
+
+            // // Adjust the options for the priceScale of the mainSeries
+            // series.priceScale().applyOptions({
+            //     autoScale: false, // disables auto scaling based on visible content
+            //     scaleMargins: {
+            //         top: 0.1,
+            //         bottom: 0.2,
+            //     },
+            // });
+            // // Adding a window resize event handler to resize the chart when
+            // // the window size changes.
+            // // Note: for more advanced examples (when the chart doesn't fill the entire window)
+            // // you may need to use ResizeObserver -> https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
+            // window.addEventListener("resize", () => {
+            //     realtimeChart.resize(window.innerWidth, window.innerHeight);
+            // });
+
+
+
+            let randomFactor = 25 + Math.random() * 25;
+            const samplePoint = (i) => (
+                i *
+                (0.5 +
+                    Math.sin(i / 1) * 0.2 +
+                    Math.sin(i / 2) * 0.4 +
+                    Math.sin(i / randomFactor) * 0.8 +
+                    Math.sin(i / 50) * 0.5) +
+                200 +
+                i * 2);
+
+            function generateData(
+                numberOfCandles = 500,
+                updatesPerCandle = 5,
+                startAt = 100
+            ) {
+                const createCandle = (val, time) => ({
+                    time,
+                    open: val,
+                    high: val,
+                    low: val,
+                    close: val,
+                });
+
+                const updateCandle = (candle, val) => ({
+                    time: candle.time,
+                    close: val,
+                    open: candle.open,
+                    low: Math.min(candle.low, val),
+                    high: Math.max(candle.high, val),
+                });
+
+                randomFactor = 25 + Math.random() * 25;
+                const date = new Date(Date.UTC(2018, 0, 1, 12, 0, 0, 0));
+                const numberOfPoints = numberOfCandles * updatesPerCandle;
+                const initialData = [];
+                const realtimeUpdates = [];
+                let lastCandle;
+                let previousValue = samplePoint(-1);
+                for (let i = 0; i < numberOfPoints; ++i) {
+                    if (i % updatesPerCandle === 0) {
+                        date.setUTCDate(date.getUTCDate() + 1);
+                    }
+                    const time = date.getTime() / 1000;
+                    let value = samplePoint(i);
+                    const diff = (value - previousValue) * Math.random();
+                    value = previousValue + diff;
+                    previousValue = value;
+                    if (i % updatesPerCandle === 0) {
+                        const candle = createCandle(value, time);
+                        lastCandle = candle;
+                        if (i >= startAt) {
+                            realtimeUpdates.push(candle);
+                        }
+                    } else {
+                        const newCandle = updateCandle(lastCandle, value);
+                        lastCandle = newCandle;
+                        if (i >= startAt) {
+                            realtimeUpdates.push(newCandle);
+                        } else if ((i + 1) % updatesPerCandle === 0) {
+                            initialData.push(newCandle);
+                        }
+                    }
+                }
+
+                return {
+                    initialData,
+                    realtimeUpdates,
+                };
+            }
+            const data = generateData(2500, 20, 1000);
+
+            // series.setData(data.initialData);
+            realtimeChart.timeScale().fitContent();
+            realtimeChart.timeScale().scrollToPosition(5);
+
+            // simulate real-time data
+            function* getNextRealtimeUpdate(realtimeData) {
+                for (const dataPoint of realtimeData) {
+                    yield dataPoint;
+                }
+                return null;
+            }
+            const streamingDataProvider = getNextRealtimeUpdate(data.realtimeUpdates);
+
+            // const intervalID = setInterval(() => {
+            //     const update = streamingDataProvider.next();
+            //     if (update.done) {
+            //         clearInterval(intervalID);
+            //         return;
+            //     }
+            //     series.update(update.value);
+            // }, 100);
+
+            function transformData(data) {
+                let time = new Date(data.date).getTime();
+                let close = parseInt(data.close);
+                let open = parseInt(data.open);
+                let low = parseInt(data.low);
+                let high = parseInt(data.high);
+
+                return {
+                    time,
+                    close,
+                    open,
+                    low,
+                    high
+                }
+            }
+
+            const evtSource = new EventSource(`http://localhost:5000/events?topics=tickers:${ticker}`, {
+                withCredentials: true,
+                headers: {
+                    'Authorization': 'abc',
+                    'X-Access-Token': 'abc',
+                    'X-Channel': 'events',
+                    'X-Topics': 'tickers:*',
+                    'X-API-Version': 'v1'
+                },
+            });
+            evtSource.addEventListener(`tickers:${ticker}`, (e) => {
+                const data = JSON.parse(e.data);
+                series.update(transformData(data));
+            });
+
+            const buttonsContainer1 = document.createElement('div');
+            buttonsContainer1.classList.add('buttons-container');
+            const button = document.createElement('button');
+            button.innerText = 'Go to realtime';
+            button.addEventListener('click', () => realtimeChart.timeScale().scrollToRealTime());
+            buttonsContainer1.appendChild(button);
+            realtimeChartContainer.appendChild(buttonsContainer1);
+
+            // realtimeChart.timeScale().subscribeVisibleLogicalRangeChange(logicalRange => {
+            //     if (logicalRange.from < 10) {
+            //         // load more data
+            //         const numberBarsToLoad = Math.abs(50 - logicalRange.from);
+            //         const data = datafeed.getBars(numberBarsToLoad);
+            //         setTimeout(() => {
+            //             series.setData(data);
+            //         }, 250); // add a loading delay
+            //     }
+            // });
+
+            // const datesForMarkers = [data[data.length - 39], data[data.length - 19]];
+            // let indexOfMinPrice = 0;
+            // for (let i = 1; i < datesForMarkers.length; i++) {
+            //     if (datesForMarkers[i].high < datesForMarkers[indexOfMinPrice].high) {
+            //         indexOfMinPrice = i;
+            //     }
+            // }
+            const markers = [
+                {
+                    time: { year: 2018, month: 12, day: 23 },
+                    position: 'aboveBar',
+                    color: '#f68410',
+                    shape: 'circle',
+                    text: 'A',
+                },
+                // {
+                //     time: data[data.length - 48].time,
+                //     position: 'aboveBar',
+                //     color: '#f68410',
+                //     shape: 'circle',
+                //     text: 'D',
+                // },
+            ];
+            // for (let i = 0; i < datesForMarkers.length; i++) {
+            //     if (i !== indexOfMinPrice) {
+            //         markers.push({
+            //             time: datesForMarkers[i].time,
+            //             position: 'aboveBar',
+            //             color: '#e91e63',
+            //             shape: 'arrowDown',
+            //             text: 'Sell @ ' + Math.floor(datesForMarkers[i].high + 2),
+            //         });
+            //     } else {
+            //         markers.push({
+            //             time: datesForMarkers[i].time,
+            //             position: 'belowBar',
+            //             color: '#2196F3',
+            //             shape: 'arrowUp',
+            //             text: 'Buy @ ' + Math.floor(datesForMarkers[i].low - 2),
+            //         });
+            //     }
+            // }
+            LightweightCharts.createSeriesMarkers(series, markers);
+            realtimeChart.timeScale().fitContent();
+
+            // bid and offer
+            const bidofferContainer = document.getElementById('bidoffer');
+            const bidofferChart = LightweightCharts.createYieldCurveChart(bidofferContainer, Object.assign(chartOptions, {
+
+            }));
+            // bidofferChart.applyOptions({
+            //     rightPriceScale: {
+            //         visible: true,
+            //     },
+            //     leftPriceScale: {
+            //         visible: true,
+            //     },
+            // });
+            const bidSeries = bidofferChart.addSeries(LightweightCharts.LineSeries, {
+                // lineType: 2,
+                color: 'red',
+                // pointMarkersVisible: true,
+                // lineWidth: 2,
+            });
+            const offerSeries = bidofferChart.addSeries(LightweightCharts.LineSeries, {
+                // lineType: 2,
+                color: '#26c6da',
+                // pointMarkersVisible: true,
+                // lineWidth: 2,
+            });
+            const openSeries = bidofferChart.addSeries(LightweightCharts.LineSeries, {
+                // lineType: 2,
+                color: '#26c6da',
+                // pointMarkersVisible: true,
+                // lineWidth: 2,
+            });
+            bidSeries.setData(bidData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
+            offerSeries.setData(offerData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
+            openSeries.setData(openData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
+            bidofferChart.timeScale().fitContent();
+
+
+            // candlestick with volume
+            const candlestickContainer = document.getElementById('volume');
+            const candlestickChart = LightweightCharts.createChart(candlestickContainer, Object.assign(chartOptions, {
+                layout: {
+                    textColor: 'black',
+                    background: { type: 'solid', color: 'white' },
+                    panes: {
+                        separatorColor: '#f22c3d',
+                        separatorHoverColor: 'rgba(255, 0, 0, 0.1)',
+                        // setting this to false will disable the resize of the panes by the user
+                        enableResize: false,
+                    },
+                },
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        visible: false,
+                    },
+                },
+                timeScale: {
+                    minBarSpacing: 3,
+                },
+            }));
+            // const volumeSeries = candlestickChart.addSeries(LightweightCharts.BarSeries, {
+            //     upColor: '#26a69a',
+            //     downColor: '#ef5350',
+            //     borderVisible: false,
+            //     wickUpColor: '#26a69a',
+            //     wickDownColor: '#ef5350',
+            // });
+            const candlestickSeries1 = candlestickChart.addSeries(LightweightCharts.CandlestickSeries, {
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderVisible: false,
+                wickUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+                upColor: '#26a69a', downColor: '#ef5350', borderVisible: false,
+                wickUpColor: '#26a69a', wickDownColor: '#ef5350',
+            }, 1);
+            const areaSeries1 = candlestickChart.addSeries(LightweightCharts.AreaSeries, {
+                topColor: '#2962FF',
+                bottomColor: 'rgba(41, 98, 255, 0.28)',
+                lineColor: '#2962FF',
+                lineWidth: 2,
+            });
+            areaSeries1.setData(volumeData);
+            // volumeSeries.setData(volumeData);
+            candlestickSeries1.setData(candleData);
+            const candlesPane = candlestickChart.panes()[1];
+            candlesPane.moveTo(0);
+            candlesPane.setHeight(150);
+            candlestickChart.timeScale().fitContent();
+        }())
+    </script>
+</body>
+
+</html>

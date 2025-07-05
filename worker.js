@@ -1,28 +1,54 @@
 const mongoose = require("mongoose");
 const celery = require("celery-node");
-require("dotenv").config();
 const tasks = require("./tasks");
+const { initDatabase } = require("./database");
+const Env = require("./config/env");
 
 const worker = celery.createWorker(
-  process.env.REDIS_URL,
-  "redis://127.0.0.1:6379"
+  Env.redis.broker,
+  Env.redis.backend
 );
 
+<<<<<<< HEAD
 // Creating an instance for MongoDB
-mongoose.set("strictQuery", false).connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-mongoose.connection.on("connected", function () {
-  console.log(
-    "[Celery_Worker]: Connected: Successfully connect to mongo server on the worker"
-  );
-});
-mongoose.connection.on("error", function () {
-  console.log(
-    "[Celery_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
-  );
-});
+initDatabase()
+  .on("connected", function () {
+    console.log(
+      "[Celery_Worker]: Connected: Successfully connect to mongo server on the worker"
+    );
+  })
+  .on("error", function () {
+    console.log(
+      "[Celery_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+=======
+initDatabase()
+  .on("connected", async function () {
+    console.log(
+      "[Main_Thread]: Connected: Successfully connect to mongo server"
+    );
+
+    console.log(
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+    );
+    // cron.schedule("30 8 * * *", async () => {
+    SYMBOLS.forEach(async (quote) => {
+      let dbData = await fetchDataFromDB(quote);
+      let sourceData = await fetchDataFromPNGX(quote);
+
+      if (!_.isArray(dbData) && !_.isArray(sourceData)) {
+        throw new Error("dbData and sourceData must be both arrays");
+      }
+
+      run(dbData, sourceData);
+    });
+    // });
+  })
+  .on("error", function () {
+    console.log(
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+>>>>>>> develop
+    );
+  });
 
 // registering all tasks
 worker.register("tasks.data_fetcher", tasks.data_fetcher);

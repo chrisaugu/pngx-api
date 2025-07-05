@@ -18,6 +18,14 @@ const quoteSchema = new Schema(
     num_trades: Number,
   },
   {
+    toJSON: {
+      transform(doc, rest) {
+        delete rest.__v;
+        delete rest._id;
+        delete rest.createdAt;
+        delete rest.updatedAt;
+      },
+    },
     timestamps: {
       currentTime: () => Math.floor(Date.now() / 1000),
     },
@@ -34,4 +42,13 @@ quoteSchema.statics.findBySymbol = function (symbol) {
   });
 };
 
-const Quote = (module.exports = mongoose.model("quote", quoteSchema));
+const Quote = mongoose.model("quote", quoteSchema);
+
+// Quote.watch().on("change", (data) => {
+//   console.log('Changed', data);
+// });
+
+// // Insert a doc, will trigger the change stream handler above
+// await Quote.create({ name: "Axl Rose" });
+
+module.exports = Quote;
