@@ -18,7 +18,9 @@
     "clinic": "clinic doctor -- node server.js",
     "clinic:flame": "clinic flame -- node server.js",
     "clinic:bubbleprof": "clinic bubbleprof -- node server.js",
-    "autocannon": "autocannon -c 100 -d 10 http://localhost:5000"
+    "autocannon": "autocannon -c 100 -d 10 http://localhost:5000",
+    "package": "openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
+    "packages": "npx @openapitools/openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/"
   },
   "repository": {
     "type": "git",

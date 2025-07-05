@@ -35,3 +35,4 @@ certs
 .clinic
 output
 package/build
+sdk

@@ -1,5 +1,10 @@
 const Redis = require("ioredis");
 const redis = new Redis();
+// client = new Redis(process.env.UPSTASH_REDIS_URL);
+
+// await this.client.set('user', name);
+// const result = await this.client.get('user');
+// return JSON.stringify(result);
 
 redis.on("error", async (err) => {
   console.error("Redis error:", err);
