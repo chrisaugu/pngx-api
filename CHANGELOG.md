@@ -1,5 +1,10 @@
-## ...develop
+## API Changelog  
+### v2 (2024-07-01)  
+- [BREAKING] Removed `full_name` from `/users`.  
+- Added `first_name` and `last_name`.  
 
+### v1 (2023-01-01)  
+- Initial release.  
 
 ### 🚀 Enhancements
 

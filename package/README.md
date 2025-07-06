@@ -1,4 +1,4 @@
-# PNGX-API NPM Library
+# NUKU-API NPM Library
 This is a small JavaScript library package for retrieving stocks info from PNGX.com website
 
 The library is built using TypeScript
