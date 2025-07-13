@@ -63,6 +63,7 @@ function make_async_request(url, options) {
   });
 
   return new Promise(function (resolve, reject) {
+    logger.debug(`Making request to ${url} with options:`, options);
     fetch(url, options)
       // .retry(2)
       // .on('progress', event => {
@@ -78,14 +79,15 @@ function make_async_request(url, options) {
       // .withCredentials()
       // .redirects(2)
       .then((response) => {
-        // if (!response.ok) {
-        //   logger.error(`Error: ${response.status} - ${response.statusText}`);
-        //   throw new Error(`HTTP error! status: ${response.status}`);
-        // }
+        if (!response.ok) {
+          logger.error(`Error: ${response.status} - ${response.statusText}`);
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         // return response.text();
         if (response.status >= 200 && response.status < 300) {
           return response.text()
         }
+        logger.debug(`Making request to ${url} with options:`, options);
         // if the response is not
         // reject if the response is not 2xx
         throw new Error(`HTTP error! status: ${response.status}`);

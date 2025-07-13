@@ -24,8 +24,8 @@ router.get("/", function (req, res) {
     status: 200,
     message: "Ok",
     data: {
-      api: "PNGX API",
-      time: new Date().toDateString(),
+      api: "NUKU API",
+      timestamp: new Date().getTime(),
       symbols: SYMBOLS,
     },
   });

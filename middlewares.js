@@ -220,3 +220,16 @@ exports.apiUsageLogMiddlware = (req, res, next) => {
   apiUsageLogger.info(`User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`);
   next();
 };
+
+/**
+ * this function applies to all /api/v2 routes
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+exports.globalProperties = function(req, res, next) {
+  let limit = req.query['limit'];
+  if (limit) {
+
+  }
+}

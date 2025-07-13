@@ -105,6 +105,7 @@ d
 | Error Codes | Status | Meaning |
 |--|--|--|
 | 300 | Multiple Choices |  |
+| 301 | Moved Permanently |  |
 | 400 | Bad Request |  |
 | 500 | Internal Server Error |  |
 
@@ -147,12 +148,12 @@ curl -i -H 'Accept: application/json' https://example.com/api
 ### Get latest stocks data
 Update an existing pet by Id
 
-`GET /api/v1/stocks`
+`GET /api/v2/stocks`
 
 > Request
 
 ```https
-    curl -i -H 'Accept: application/json' https://example.com/api/v1/stocks
+    curl -i -H 'Accept: application/json' https://example.com/api/v2/stocks
 ```
 
 > Params
@@ -181,11 +182,11 @@ Update an existing pet by Id
 ### Get a historical stock data
 Update an existing pet by Id
 
-`GET /api/v1/historicals/:symbol`
+`GET /api/v2/historicals/:symbol`
 
 > Request
 
-`curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/BSP`
+`curl -i -H 'Accept: application/json' https://example.com/api/v2/historicals/BSP`
 
 > Params
 
@@ -220,11 +221,11 @@ Update an existing pet by Id
 ### Get a non-existent Quote
 <!-- Update an existing pet by Id -->
 
-`GET /api/v1/historicals/:symbol`
+`GET /api/v2/historicals/:symbol`
 
 > Request
 
-    curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/HIL
+    curl -i -H 'Accept: application/json' https://example.com/api/v2/historicals/HIL
 
 > Response
 
@@ -261,26 +262,52 @@ Get news
     [{}]
 ```
 
+### Market Status
+Get the current market status for local exchanges (whether exchanges are open or close).
+`GET /api/v2/market/status`
+> Request
+
+```sh
+curl -i -H 'Accept: application/json' https://example.com/api/v2/market/status
+```
+> Response
+
+```json
+{
+    "marketStatus": "open",
+    "session": "pre-market",
+    "timezone": "Pacific/Port_Moresby",
+    "t": 1735680000000,
+    "source": "PNGX",
+    "lastUpdated": "2023-10-01T00:00:00Z",
+    "exchange": "PG",
+    "holiday": null,
+    "isOpen": false
+}
+```
+
 ### Real-time Events
 #### Watchlist
-
 
 #### Tickers
 `/events?topics=tickers:BSP`
 
+> Request:
 ```sh
 {
-    event:topic,
-    data:message
+    event: topic,
+    data: message
 }
 ```
+
+> Request:
 ```json
 {
-    'Authorization': 'abc',
-    'X-Access-Token': 'abc',
-    'X-Channel': 'events',
-    'X-Topics': 'tickers:*',
-    'X-API-Version': 'v1'
+    "Authorization": "abc",
+    "X-Access-Token": "abc",
+    "X-Channel": "events",
+    "X-Topics": "tickers:*",
+    "X-API-Version": "v1"
 }
 ```
 

@@ -1,7 +1,46 @@
 ## API Changelog  
+
+
+## Unreleased
+### v2.1.0 (2025-03-08)
+- removed `_id` when displaying stocks, tickers, indices, companies
+- replaced `symbol` with `code` to be consistent with PNGX terminology
+- moved `/historicals/:code` to `/stocks/historicals/:code`
+- moved `/historicals/:code/essentials` to `/stocks/historicals/:code/essentials`
+- moved `/tickers` to `/stocks/tickers`
+- added `/stocks/tickers/:code` endpoint to get ticker data for a specific stock
+- added `/stocks/:code/ohlcv` endpoint to get OHLCV data for a specific stock
+- added `/stocks/:code/ohlcv/history` endpoint to get historical OHLCV data for stocks
+- added `indices` model to represent indices information
+- added `/indices` endpoint to get all indices
+- added `/indices/:code` endpoint to get a specific index
+- added `/market/status` endpoint to get the current market status
+- added `/market/status/history` endpoint to get historical market status
+- [BREAKING] Renamed `time` to `timestamp` in `/api/v[1|2]`
+
+
 ### v2 (2024-07-01)  
 - [BREAKING] Removed `full_name` from `/users`.  
-- Added `first_name` and `last_name`.  
+- Added `first_name` and `last_name`.
+- Added `/api/v2/companies` endpoint to get all companies.  
+- Added `/api/v2/stocks` endpoint to get all stocks.
+- Added `/api/v2/tickers` endpoint to get all tickers.  
+- Added `/api/v2/tickers/:symbol` endpoint to get a specific ticker.
+- Added `ticker` as a timeseries model to `quote` model.  
+- Added `company` model to represent company information.
+- Fixed error codes for better clarity.  
+- Segregated existing routes into `v1.js` and `v2.js` files
+- Existing routes in the initial release were moved to `v1.js` file and are accessible under the route `/api/v1`.
+- Codes in `server.js` were segregated into:
+  - `app.js` - for application logic,
+  - `server.js` - for running the server,
+  - `database.js` - for handling database connections,
+  - `routes/index.js`, `routes/v1.js` and `routes/v2.js` - for handling routes,
+  - `models/*` - for handling models,
+  - `middlewares.js` - for handling middlewares,
+  - `utils.js` - for handling utility functions,
+  - `constants.js` - for keeping constants in one place, and
+  - `serverless.js` - for running serverless app.
 
 ### v1 (2023-01-01)  
 - Initial release.  

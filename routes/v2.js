@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const Grid = require("gridfs-stream");
 const fs = require("fs");
 const router = express.Router();
+const { isToday } = require("date-fns/isToday");
+const { isWeekend } = require("date-fns/isWeekend");
 const {
   SYMBOLS,
   OLD_SYMBOLS,
@@ -10,8 +12,9 @@ const {
   PNGX_DATA_URL,
   PNGX_URL,
   BASE_URL,
+  LOCAL_TIMEZONE,
 } = require("../constants");
-const { Stock, Company, Ticker } = require("../models/index");
+const { Stock, Company, Ticker, Indices } = require("../models/index");
 const logger = require("../libs/logger").winstonLogger;
 
 /**
@@ -20,7 +23,7 @@ const logger = require("../libs/logger").winstonLogger;
  *
  * /api/v2/:
  *   get:
- *     summary: Returns list of stock codes/symbols
+ *     summary: Returns list of stock codes
  *     responses:
  *       200:
  *         description: A successful response
@@ -33,9 +36,9 @@ router.get("/", function (req, res) {
     status: 200,
     message: `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
     data: {
-      api: "PNGX API",
-      time: new Date().toDateString(),
-      symbols: SYMBOLS,
+      api: "NUKU API",
+      timestamp: new Date().getTime(),
+      codes: SYMBOLS,
     },
   });
 });
@@ -54,7 +57,7 @@ router.get("/", function (req, res) {
  *     parameters:
  *       - name: code
  *         in: path
- *         description: code symbol
+ *         description: unique code representing a stock in PNGX
  *         required: true
  *         schema:
  *           type: string
@@ -184,13 +187,13 @@ router
 
       let company = await Company.create(update);
 
-      logger.debug("Company added", company)
+      logger.debug("Company added", company);
       res.json(company);
     } catch (error) {
       logger.error("Error adding company", {
         error: error.message,
         stack: error.stack,
-        body: req.body
+        body: req.body,
       });
       return res.json({
         status: "Error",
@@ -203,16 +206,16 @@ router
     let update = req.body;
 
     try {
-      logger.info("Updating company")
+      logger.info("Updating company");
       let company = await Company.findByIdAndUpdate(id, update);
 
-      logger.debug("Company added", company)
+      logger.debug("Company added", company);
       res.json(company);
     } catch (error) {
       logger.error("Error updating company", {
         error: error.message,
         stack: error.stack,
-        body: req.body
+        body: req.body,
       });
       return res.json({
         status: "Error",
@@ -251,19 +254,6 @@ router
  *       200:
  *         description: A successful response
  *
- */
-router.route("/companies/:code/code").get(async function (req, res) {
-  let { code } = req.params;
-
-  let company = await Company.findOne({ ticker: new RegExp(code, "i") });
-
-  res.json(company);
-});
-
-/**
- * @swagger
- *
- *
  * /api/v2/company/{code}:
  *   get:
  *     tags:
@@ -274,18 +264,26 @@ router.route("/companies/:code/code").get(async function (req, res) {
  *         description: A successful response
  */
 /**
- * GET /api/v2/company/:ticker
+ * GET /api/v2/company/:code
  * Get a specific company info using stock quote
  * @param :ticker unique ticker of the comapny
  */
-router.get("/company/:ticker", async function (req, res) {
+router.route("/companies/:code/code").get(async function (req, res) {
+  let { code } = req.params;
+
+  let company = await Company.findOne({ ticker: new RegExp(code, "i") });
+
+  res.json(company);
+});
+
+router.get("/company/:code", async function (req, res) {
   let stockTicker = req.params.ticker;
 
   let company = await Company.findOne({ ticker: stockTicker });
 
   let data = {
-    ...data,    
-  }
+    ...data,
+  };
 
   res.json(data);
 });
@@ -294,22 +292,22 @@ router.get("/company/:ticker", async function (req, res) {
  * @swagger
  *
  *
- * /api/v2/historicals/{symbol}:
+ * /api/v2/historicals/{code}:
  *   get:
  *     tags:
  *      - historical
- *     summary: Returns past quotes for a symbol
+ *     summary: Returns past quotes for a code
  *     responses:
  *       200:
  *         description: A successful response
  *       300:
- *         description: Symbol required
+ *         description: Code required
  *       400:
- *         description: Symbol not found
+ *         description: Code not found
  *       500:
  *         description: Server error
  *     parameters:
- *       - name: symbol
+ *       - name: code
  *         in: path
  *         description: Date
  *         required: true
@@ -318,14 +316,14 @@ router.get("/company/:ticker", async function (req, res) {
  *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
  *       - name: date
  *         in: path
- *         description: symbol
+ *         description: code
  *         schema:
  *            type: date
  */
 /**
- * GET /api/historicals/:symbol
- * see also /api/v2/stocks/:symbol/historicals
- * @param :symbol unique symbol of the stock
+ * GET /api/stocks/historicals/:code
+ * see also /api/v2/stocks/:code/historicals
+ * @param :code unique code of the stock
  * @param ?date={date}
  * @param ?start={date}
  * @param ?end={date}
@@ -334,14 +332,17 @@ router.get("/company/:ticker", async function (req, res) {
  * @param ?skip=1
  * @param ?fields=[]
  */
-router.get("/historicals/:symbol", function (req, res) {
-  if (!req.params.symbol) {
-    return res.status(300).json({
-      status: 300,
-      message: "`symbol` is required",
+router.get("/historicals/:code", (req, res) => {
+  res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}`);
+});
+router.get("/stocks/historicals/:code", function (req, res) {
+  if (!req.params.code) {
+    return res.status(400).json({
+      status: 400,
+      message: "`code` is required",
     });
   }
-  let symbol = req.params.symbol;
+  let code = req.params.code;
   let date = req.query.date;
   let start = req.query.start;
   let end = req.query.end;
@@ -351,7 +352,7 @@ router.get("/historicals/:symbol", function (req, res) {
   let fields = req.query.fields;
 
   let stock = Stock.find();
-  stock.where({ code: symbol });
+  stock.where({ code: code });
   stock.select("date code close high low open vol_today");
 
   var dateStr = {
@@ -424,7 +425,7 @@ router.get("/historicals/:symbol", function (req, res) {
           status: 200,
           // ...dateStr,
           last_updated: stocks[0].date,
-          symbol: symbol,
+          symbol: code,
           total_count: count,
           historical: stocks,
 
@@ -472,7 +473,7 @@ router.get("/historicals/:symbol", function (req, res) {
  * @swagger
  *
  *
- * /api/v2/historicals/:symbol/essentials:
+ * /api/v2/stocks/historicals/:code/essentials:
  *   get:
  *     tags:
  *      - quote
@@ -482,15 +483,18 @@ router.get("/historicals/:symbol", function (req, res) {
  *         description: A successful response
  */
 /**
- * GET /api/v2/historicals/:symbol/essentials
+ * GET /api/v2/stocks/historicals/:code/essentials
  * Retrieves
- * @param {string} :symbol
+ * @param {string} :code
  */
-router.get("/historicals/:symbol/essentials", function (req, res) {
-  let symbol = req.params.symbol;
+router.get("/historicals/:code/essentials", (req, res) => {
+  res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}/essentials`);
+});
+router.get("/stocks/historicals/:code/essentials", function (req, res) {
+  let code = req.params.code;
 
   let stock = Stock.find({});
-  // stock.where({ 'code': symbol });
+  // stock.where({ 'code': code });
   // stock.select('date bid offer code close high low open vol_today');
 
   stock
@@ -780,6 +784,92 @@ router.get("/stocks/:code", function (req, res) {
 });
 
 /**
+ * OHLCV
+ */
+router.get("/stocks/:code/ohlcv/", async function (req, res) {
+  const code = req.params.code;
+
+  Stock.find({ code: code }).then((stocks) => {
+    let history = stocks
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .map((stock) => ({
+        date: stock.date,
+        open: stock.open,
+        high: stock.high,
+        low: stock.low,
+        close: stock.close,
+        volume: stock.vol_today,
+      }));
+
+    if (history) {
+      res.status(200).json({
+        status: "success",
+        results: history.length,
+        data: history,
+      });
+    }
+  });
+});
+
+/**
+ * /api/stocks/ohlcv/history
+ * OHLCV
+ */
+router.get("/stocks/:code/ohlcv/history", async function (req, res) {
+  const code = req.params.code;
+  const limit = parseInt(req.query["limit"]) || 100;
+  const sort = parseInt(req.query["sort"]) || 1;
+  const skip = parseInt(req.query["skip"]) || 0;
+
+  // const filters = req.query;
+  // const filteredUsers = data.filter((user) => {
+  //   let isValid = true;
+  //   for (key in filters) {
+  //     console.log(key, user[key], filters[key]);
+  //     isValid = isValid && user[key] == filters[key];
+  //   }
+  //   return isValid;
+  // });
+
+  let query = Stock.find({ code: code });
+
+  if (limit) {
+    query.limit(limit);
+  }
+
+  if (sort) {
+    query.sort({ date: sort });
+  }
+
+  if (skip) {
+    query.skip(skip);
+  }
+
+  query.exec().then((stocks) => {
+    let history = stocks.map((stock) => ({
+      open: stock.open,
+      high: stock.high,
+      low: stock.low,
+      close: stock.close,
+      volume: stock.vol_today,
+    }));
+
+    if (history) {
+      res.status(200).json({
+        status: "success",
+        results: history.length,
+        data: { history },
+        meta: {
+          limit,
+          sort,
+          skip,
+        },
+      });
+    }
+  });
+});
+
+/**
  * @swagger
  *
  *
@@ -794,10 +884,13 @@ router.get("/stocks/:code", function (req, res) {
  *         description: A successful response
  */
 /**
- * GET /api/v2/tickers
+ * GET /api/v2/stocks/tickers
  * Retrieves tickers/codes for all the stocks
  */
-router.get("/tickers", async function (req, res) {
+router.get("/tickers", (req, res) => {
+  res.redirect(301, "/api/v2/stocks/tickers");
+});
+router.get("/stocks/tickers", async function (req, res) {
   logger.info("Retriving tickers");
 
   try {
@@ -867,6 +960,26 @@ router.get("/tickers", async function (req, res) {
   // 	  $sort : { totalSaleAmount: -1 }
   // 	}
   //    ])
+});
+
+/**
+ *
+ */
+router.get("/tickers/:code", (req, res) => {
+  res.redirect(301, `/api/v2/stocks/tickers/${req.params.code}`);
+});
+router.get("/stocks/tickers/:code", async (req, res) => {
+  const code = req.params.code;
+
+  // Ticker.find({ code: code }).then((ticker) => {
+  //   console.log(ticker)
+
+  //   // if (ticker) {
+  res.status(200).json({
+    ticker: "hel",
+  });
+  // }
+  // });
 });
 
 /**
@@ -979,5 +1092,96 @@ async function addEndpoint(request, response, next) {
 
 router.get("/feeds", eventsHandler);
 router.post("/endpoints", addEndpoint);
+
+/**
+ *
+ */
+router.get("/market/status", async (req, res) => {
+  try {
+    const holidays = require("../data/trade_holidays.json");
+
+    // if current day matches holiday's date
+    const status = holidays.find((holiday) => isToday(new Date(holiday.date)));
+    const is_weekend = isWeekend(new Date());
+
+    const data = {
+      marketStatus: is_weekend ? "close" : "open",
+      lastUpdated:
+        new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+      exchange: "PG",
+      holiday: status != null,
+      isOpen: !is_weekend ? status != null : false,
+      session: "pre-market",
+      timezone: LOCAL_TIMEZONE,
+      t: new Date().getTime(),
+      source: "PNGX",
+      status,
+    };
+
+    if (data) {
+      res.status(200).json(data);
+    } else {
+      res.status(404).json({ error: "Market status not found" });
+    }
+  } catch (error) {
+    logger.error("Error fetching market status:", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body,
+    });
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+/**
+ *
+ */
+router.get("/market/holidays", async (req, res) => {
+  try {
+    const holidays = require("../data/trade_holidays.json");
+    res.status(200).json(holidays);
+  } catch (error) {
+    logger.error("Error fetching market holidays:", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body,
+    });
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+/**
+ *
+ */
+router.get("/indices", (req, res) => {
+  Indices.find({}).then((indices) => {
+    res.json({
+      status: "success",
+      results: indices.length,
+      data: indices,
+    });
+  });
+});
+
+/**
+ *
+ */
+router.get("/indices/:code", (req, res) => {
+  const code = req.params["code"];
+  if (!code) {
+    return res.status(401).json({
+      error: "NOT Code",
+      message: "",
+    });
+  }
+
+  Indices.find({}).then((index) => {
+    res.json({
+      status: "success",
+      results: index.length,
+      data: { index },
+    });
+  });
+});
 
 module.exports = router;

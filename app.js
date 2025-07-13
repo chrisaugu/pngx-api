@@ -152,10 +152,8 @@ initDatabase()
     });
   })
   .on("error", function () {
-    logger.error(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
-    );
-  });
+    logger.error("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+  });;
 
 app.use((req, res, next) => {
   req.ctx = {

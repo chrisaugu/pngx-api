@@ -99,29 +99,29 @@
 
     <h1>Realtime</h1>
 
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row row-cols-4">
+        <div class="col">
             <ul id="messages"></ul>
         </div>
-        <div class="col-md-6">
+        <div class="col">
             <form id="chat-form" action="">
                 <input id="input" autocomplete="off" placeholder="Type your message here..." />
                 <button>Send</button>
             </form>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
+    
+        <div class="col">
             <input type="text" id="text-view" />
             <input type="button" id="send-button" value="Send!" />
             <input type="button" id="stop-button" value="Stop" />
             <input type="button" id="start-button" value="Start" />
-            </br>
-            <label id="status-label">Status: <span></span></label>
-            <label id="date">Date: <span></span></label>
         </div>
-        <div class="col-md-6">
+        <div class="col">
+            <div class="flex">
+                <label id="status-label">Status: <span></span></label>
+                <label id="date">Date: <span></span></label>
+            </div>
+            </br>
             <textarea id="status-log"></textarea>
         </div>
     </div>
@@ -212,7 +212,7 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 
-    <script type="text/javascript" src="./dummy-data.js"></script>
+    <script type="text/javascript" src="./assets/dummy-data.js"></script>
 
     <script>
         dayjs().format()

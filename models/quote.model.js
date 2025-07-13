@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const quoteSchema = new Schema(
+const QuoteSchema = new Schema(
   {
     date: Date,
     code: String,
@@ -31,18 +31,22 @@ const quoteSchema = new Schema(
     },
   }
 );
-quoteSchema.index({ code: 1, date: 1 });
-quoteSchema.methods.findSimilarTypes = function (cb) {
+QuoteSchema.index({ code: 1, date: 1 });
+QuoteSchema.methods.findSimilarTypes = function (cb) {
   return mongoose.model("quote").find({ code: this.code }).then(cb);
 };
 
-quoteSchema.statics.findBySymbol = function (symbol) {
+QuoteSchema.statics.findBySymbol = function (symbol) {
   return this.find({
     code: symbol,
   });
 };
+// Static method for finding by code
+QuoteSchema.statics.findByCode = function (code) {
+  return this.find({ code });
+};
 
-const Quote = mongoose.model("quote", quoteSchema);
+const Quote = mongoose.model("quote", QuoteSchema);
 
 // Quote.watch().on("change", (data) => {
 //   console.log('Changed', data);
