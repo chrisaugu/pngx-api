@@ -1154,34 +1154,59 @@ router.get("/market/holidays", async (req, res) => {
  *
  */
 router.get("/indices", (req, res) => {
-  Indices.find({}).then((indices) => {
-    res.json({
-      status: "success",
-      results: indices.length,
-      data: indices,
+  Indices.find({})
+    .then((indices) => {
+      res.json({
+        status: "success",
+        results: indices.length,
+        data: indices,
+      });
+    })
+    .catch((error) => {
+      logger.error("Error fetching market holidays:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({ error: "Internal server error" });
     });
-  });
 });
 
 /**
  *
  */
-router.get("/indices/:code", (req, res) => {
+router.get("/indices/:code", async (req, res) => {
   const code = req.params["code"];
+
   if (!code) {
+    logger.error("Index code not provided");
+
     return res.status(401).json({
-      error: "NOT Code",
-      message: "",
+      error: "No Code",
+      message: "Provide a code",
     });
   }
 
-  Indices.find({}).then((index) => {
-    res.json({
-      status: "success",
-      results: index.length,
-      data: { index },
+  logger.info("Retrieving stocks in index " + code);
+
+  await Indices.findBySymbol(code)
+    .then((index) => {
+      logger.debug("Index retrieved");
+
+      res.json({
+        status: "success",
+        results: index.length,
+        data: { index },
+      });
+    })
+    .catch((error) => {
+      logger.error("Error fetching market holidays:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({ error: "Internal server error" });
     });
-  });
 });
 
 module.exports = router;

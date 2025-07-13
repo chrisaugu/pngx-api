@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
  * this model is used to store tickers of stocks. It is a time-series data. The collection is populated by
  * etl process which runs on a cron job every morning.
  */
-const tickerSchema = new Schema(
+const TickerSchema = new Schema(
   {
     date: Date,
     symbol: String,
@@ -25,12 +25,12 @@ const tickerSchema = new Schema(
     autoCreate: false,
   }
 );
-tickerSchema.index({
+TickerSchema.index({
   symbol: 1,
   date: 1,
 });
 
-const Ticker = mongoose.model("ticker", tickerSchema);
+const Ticker = mongoose.model("ticker", TickerSchema);
 
 exports.findBySymbol = function (symbol) {
   return Ticker.find({ symbol: symbol });

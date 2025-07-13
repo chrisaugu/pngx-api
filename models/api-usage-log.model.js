@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UsageModel = new mongoose.Schema({
+const ApiUsageSchema = new mongoose.Schema({
     // api_key: { type: String, required: true },
     // user_id: { type: String, required: true },
     ip_address: { type: String, required: true },
@@ -16,5 +16,5 @@ const UsageModel = new mongoose.Schema({
     collection: 'api_usage_log'
 });
 
-const ApiUsageLog = mongoose.model('ApiUsageLog', UsageModel);
+const ApiUsageLog = mongoose.model('ApiUsageLog', ApiUsageSchema);
 module.exports = ApiUsageLog;

@@ -3,23 +3,8 @@ const { Schema } = mongoose;
 
 const IndexSchema = new Schema(
   {
-    date: Date,
-    code: String,
-    short_name: String,
-    bid: Number,
-    offer: Number,
-    last: Number,
-    close: Number,
-    high: Number,
-    low: Number,
-    open: Number,
-    chg_today: Number,
-    vol_today: Number,
-    num_trades: Number,
-  },
-  {
     // Core identification
-    symbol: {
+    code: {
       type: String,
       required: true,
       unique: true,
@@ -108,14 +93,14 @@ IndexSchema.methods.findSimilarTypes = function (cb) {
   return mongoose.model("indices").find({ code: this.code }).then(cb);
 };
 
-IndexSchema.statics.findBySymbol = function (symbol) {
+IndexSchema.statics.findBySymbol = function (code) {
   return this.find({
-    code: symbol,
+    code: code,
   });
 };
 
 // Indexes for performance
-IndexSchema.index({ symbol: 1 });
+IndexSchema.index({ code: 1 });
 IndexSchema.index({ name: "text" });
 IndexSchema.index({ exchange: 1, isActive: 1 });
 
@@ -134,7 +119,7 @@ IndexSchema.pre("save", function (next) {
     );
     if (Math.abs(totalWeight - 100) > 0.01) {
       console.warn(
-        `Index ${this.symbol} components weights sum to ${totalWeight}%`
+        `Index ${this.code} components weights sum to ${totalWeight}%`
       );
     }
   }
@@ -162,7 +147,7 @@ module.exports = Indices;
 async function main() {
   // Create a new index
   const sp500 = new Indices({
-    symbol: "^GSPC",
+    code: "^GSPC",
     name: "S&P 500",
     exchange: "NYSE",
     components: [
@@ -179,7 +164,7 @@ async function main() {
 
   // Query usage
   const nyseIndices = await Indices.findByExchange("NYSE");
-  const index = await Indices.findOne({ symbol: "^GSPC" });
+  const index = await Indices.findOne({ code: "^GSPC" });
   console.log(index); // Virtual property
 }
-main();
+// main();
