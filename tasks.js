@@ -79,13 +79,13 @@ function make_async_request(url, options) {
       // .withCredentials()
       // .redirects(2)
       .then((response) => {
-        if (!response.ok) {
-          logger.error(`Error: ${response.status} - ${response.statusText}`);
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        // if (!response.ok) {
+        //   logger.error(`Error: ${response.status} - ${response.statusText}`);
+        //   throw new Error(`HTTP error! status: ${response.status}`);
+        // }
         // return response.text();
         if (response.status >= 200 && response.status < 300) {
-          return response.text()
+          return response.text();
         }
         logger.debug(`Making request to ${url} with options:`, options);
         // if the response is not
@@ -97,6 +97,7 @@ function make_async_request(url, options) {
         resolve(json);
       })
       .catch((error) => {
+        logger.error(`Error: ${error}`);
         reject(error);
       });
   });
@@ -174,7 +175,9 @@ async function data_fetcher() {
         // iterate through the dataset and add each data element to the db
         do {
           let quote = quotes[index]; // latest quote
-          logger.debug(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
+          logger.debug(
+            `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
+          );
 
           // check if the quote for that particular company at that particular date already exists
           Stock.findOne({
@@ -195,7 +198,9 @@ async function data_fetcher() {
                 stock
                   .save()
                   .then(() => {
-                    logger.debug(`Added quote for ${quote.date.toLocaleDateString()} \n`);
+                    logger.debug(
+                      `Added quote for ${quote.date.toLocaleDateString()} \n`
+                    );
 
                     totalAdded++;
                   })
@@ -217,7 +222,7 @@ async function data_fetcher() {
       .catch((error) => {
         logger.error("Error fetching quotes for " + symbol, {
           error: error.message,
-          stack: error.stack
+          stack: error.stack,
         });
       });
   }
@@ -252,7 +257,6 @@ async function stock_fetcher() {
 }
 exports.stock_fetcher = stock_fetcher;
 
-
 exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
   Stock.find({
     // _id: mongoose.mongo.ObjectId("633a925da76dd590ada1d70c"),
@@ -272,7 +276,9 @@ exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
     .then((res) => {
       logger.info("Updated date format for " + res.length + " records");
       res.forEach((data) => {
-        logger.info(`Updated date for ${data.code} on ${data.date.toLocaleDateString()}`);
+        logger.info(
+          `Updated date for ${data.code} on ${data.date.toLocaleDateString()}`
+        );
       });
     });
 };
