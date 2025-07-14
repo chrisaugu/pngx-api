@@ -11,7 +11,7 @@ const dotenv = require("dotenv");
 // }
 
 // const result = dotenv.config({ path: envPath });
-// const result = dotenv.config();
+dotenv.config();
 // if (result.error) {
 //   throw result.error;
 // }
