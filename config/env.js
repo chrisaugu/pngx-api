@@ -11,12 +11,12 @@ const dotenv = require("dotenv");
 // }
 
 // const result = dotenv.config({ path: envPath });
-const result = dotenv.config();
-if (result.error) {
-  throw result.error;
-}
+// const result = dotenv.config();
+// if (result.error) {
+//   throw result.error;
+// }
 
-const { parsed: envs } = result;
+// const { parsed: envs } = result;
 
 const Env = {
   redis: {
@@ -26,7 +26,7 @@ const Env = {
   mongodb: {
     uri: process.env.MONGODB_URI,
   },
-  ...envs,
+  ...process.env,
 };
 
 module.exports = Env;
