@@ -11,12 +11,12 @@ const dotenv = require("dotenv");
 // }
 
 // const result = dotenv.config({ path: envPath });
-// if (result.error) {
-//   throw result.error;
-// }
+const result = dotenv.config();
+if (result.error) {
+  throw result.error;
+}
 
-// const { parsed: envs } = result;
-const { parsed: envs } = dotenv.config();
+const { parsed: envs } = result;
 
 const Env = {
   redis: {
