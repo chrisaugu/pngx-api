@@ -26,6 +26,9 @@ COPY . .
 # Exposing server port
 EXPOSE 5000
 
+# HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
+#     CMD curl -f http://localhost:5000/health || exit 1
+
 # Starting our application
 CMD [ "node", "server.js" ]
 # CMD ["pm2-runtime", "server.js"]

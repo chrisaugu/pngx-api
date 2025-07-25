@@ -95,11 +95,15 @@ app.use("/events", require("./routes/sse"));
 
 initDatabase()
   .on("connected", function () {
-    logger.debug("[Main_Thread]: Connected: Successfully connect to mongo server");
+    logger.debug(
+      "[Main_Thread]: Connected: Successfully connect to mongo server"
+    );
     /**
      * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
-    logger.debug("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
+    logger.debug(
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+    );
     cron.schedule(WORKER_SCHEDULE_TIME, () => {
       const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(process.cwd(), "thread_workers.js");
@@ -152,8 +156,10 @@ initDatabase()
     });
   })
   .on("error", function () {
-    logger.error("[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
-  });;
+    logger.error(
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+    );
+  });
 
 app.use((req, res, next) => {
   req.ctx = {
@@ -173,6 +179,9 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
  * /api
  */
 app.use("/api", require("./routes/index"));
+app.get("/health", (req, res) => {
+  res.send("OK");
+});
 app.get("/ip", (request, response) => response.send(request.ip));
 
 app.use(startMonitoring);

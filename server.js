@@ -30,7 +30,7 @@ websocket(server);
 // socket(server);
 
 // listen on the port
-server.listen(Env.PORT, /*"localhost",*/ onListen);
+server.listen(Env.PORT, "0.0.0.0", /*"localhost",*/ onListen);
 server.on("error", onError);
 server.on("end", onStop);
 
