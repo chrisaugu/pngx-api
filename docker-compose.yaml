@@ -23,15 +23,15 @@ services:
   #   depends_on:
   #     - nuku-redis
   
-  nuku-etl:
-    container_name: nuku-etl
-    build:
-      context: .
-      dockerfile: etl.Dockerfile
-    depends_on:
-      - nuku-mongodb
-    networks:
-      - nuku-api-network
+  # nuku-etl:
+  #   container_name: nuku-etl
+  #   build:
+  #     context: .
+  #     dockerfile: etl.Dockerfile
+  #   depends_on:
+  #     - nuku-mongodb
+  #   networks:
+  #     - nuku-api-network
 
   # nuku-stock-publisher:
   #   container_name: nuku-stock-publisher
@@ -47,32 +47,32 @@ services:
   #   depends_on:
   #     - nuku-redis
 
-  nuku-redis:
-    # image: redis
-    image: redis:7.2.4-alpine
-    ports:
-      - "6379:6379"
-    networks:
-      - nuku-api-network
-    restart: always
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+#   nuku-redis:
+#     # image: redis
+#     image: redis:7.2.4-alpine
+#     ports:
+#       - "6379:6379"
+#     networks:
+#       - nuku-api-network
+#     restart: always
+#     healthcheck:
+#       test: ["CMD", "redis-cli", "ping"]
 
-  nuku-mongodb:
-    image: mongo
-    ports:
-      - '27017:27017'
-    volumes:
-      - dbdata6:/data/db
-    networks:
-      - nuku-api-network
+#   nuku-mongodb:
+#     image: mongo
+#     ports:
+#       - '27017:27017'
+#     volumes:
+#       - nuku-storage:/data/db
+#     networks:
+#       - nuku-api-network
 
-volumes:
-  dbdata6:
+# volumes:
+#   nuku-storage:
 
-networks:
-  nuku-api-network:
-    driver: bridge
+# networks:
+#   nuku-api-network:
+#     driver: bridge
 
 #   db:
 #     restart: always
