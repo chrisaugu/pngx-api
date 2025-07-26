@@ -1,7 +1,11 @@
-FROM node:22.16.0-alpine
+FROM node:20-alpine
+
+WORKDIR /usr/src/nuku-api
+
+# FROM node:22-alpine
 
 # Setting up the work directory
-WORKDIR /app/nuku-api
+# WORKDIR /app/nuku-api
 
 # RUN addgroup --system --gid 1001 nodejs
 # USER nodejs
@@ -15,7 +19,10 @@ RUN npm install
 COPY . .
 
 # Installing pm2 globally
-RUN npm install pm2 -g
+# RUN npm install pm2 -g
+
+# Starting our application
+# CMD pm2 start process.yml && tail -f /dev/null
 
 # Define environment variables (default values if not provided at runtime)
 ENV NODE_ENV=production
@@ -28,6 +35,5 @@ EXPOSE $PORT
 #     CMD curl -f http://localhost:5000/health || exit 1
 
 # Starting our application
-# CMD [ "node", "server.js" ]
-# CMD pm2 start process.yml && tail -f /dev/null
-CMD ["pm2-runtime", "server.js"]
+CMD [ "node", "server.js" ]
+# CMD ["pm2-runtime", "server.js"]
