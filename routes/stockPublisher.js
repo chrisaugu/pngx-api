@@ -1,7 +1,7 @@
-const Redis = require("ioredis");
 const { getStockData, getQuotes, getTickers } = require("./mockStockApi");
+const { createRedisIoClient } = require("../libs/redis");
 
-const publisher = new Redis(6379);
+const publisher = createRedisIoClient();
 const TIMEOUT = 2000;
 
 publisher.on("error", async (err) => {

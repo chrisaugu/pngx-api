@@ -1,10 +1,8 @@
 const Queue = require("bull");
+const { redisConfig } = require("./config/redis");
 
 const myQueue = new Queue("myQueueName", {
-  redis: {
-    port: 6379,
-    host: "127.0.0.1",
-  },
+  redis: redisConfig,
 });
 
 myQueue.process(async (job) => {
