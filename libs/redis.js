@@ -6,13 +6,13 @@ const { redisConfig } = require("../config/redis");
 
 exports.createRedisClient = async () => {
   const redisClient = createClient(redisConfig.url);
-  
+
   // redisClient.on("connect", () => {
   //   logger.info("✅ Redis client connected successfully");
   // });
 
   redisClient.on("error", async (err) => {
-    logger.error('❌ Redis connection error:', err);
+    logger.error("❌ Redis connection error:", err);
     await redisClient.quit();
     process.exit();
   });
@@ -24,6 +24,11 @@ exports.createRedisClient = async () => {
   // });
 
   // await redisClient.connect();
+
+  // await redisClient.set("foo", "bar");
+  // const result = await redisClient.get("foo");
+  // console.log(result); // >>> bar
+
 
   return redisClient;
 };
