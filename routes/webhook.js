@@ -5,11 +5,12 @@
 const { Router } = require("express");
 const axios = require("axios");
 const Queue = require("bull");
-const webhookQueue = new Queue("webhook", "redis://127.0.0.1:6379");
 const { verifySignature, generateSignature } = require("../utils");
 const { Webhook } = require("../models");
 const Env = require("../config/env");
 const logger = require("../libs/logger").winstonLogger;
+
+const webhookQueue = new Queue("webhook", Env.redis.broker);
 
 const router = Router();
 

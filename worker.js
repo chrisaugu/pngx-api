@@ -4,23 +4,8 @@ const tasks = require("./tasks");
 const { initDatabase } = require("./database");
 const Env = require("./config/env");
 
-const worker = celery.createWorker(
-  Env.redis.broker,
-  Env.redis.backend
-);
+const worker = celery.createWorker(Env.redis.broker, Env.redis.backend);
 
-<<<<<<< HEAD
-// Creating an instance for MongoDB
-initDatabase()
-  .on("connected", function () {
-    console.log(
-      "[Celery_Worker]: Connected: Successfully connect to mongo server on the worker"
-    );
-  })
-  .on("error", function () {
-    console.log(
-      "[Celery_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
-=======
 initDatabase()
   .on("connected", async function () {
     console.log(
@@ -46,7 +31,6 @@ initDatabase()
   .on("error", function () {
     console.log(
       "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
->>>>>>> develop
     );
   });
 
