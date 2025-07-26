@@ -147,7 +147,7 @@ exports.get_quotes_from_pngx = get_quotes_from_pngx;
  * Fetches Quotes from PNGX.com.pg
  */
 async function data_fetcher() {
-  // console.debug(`Fetching csv data from ${PNGX_URL}\n`);
+  console.debug(`Fetching csv data from ${PNGX_URL}\n`);
 
   console.time("timer"); //start time with name = timer
   const startTime = new Date();
@@ -179,9 +179,9 @@ async function data_fetcher() {
         // iterate through the dataset and add each data element to the db
         do {
           let quote = quotes[index]; // latest quote
-          // console.debug(
-          //   `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
-          // );
+          console.debug(
+            `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
+          );
 
           // check if the quote for that particular company at that particular date already exists
           Stock.findOne({

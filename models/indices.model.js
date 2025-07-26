@@ -88,7 +88,11 @@ const IndexSchema = new Schema(
   }
 );
 
+// Indexes for performance
 IndexSchema.index({ code: 1, date: 1 });
+IndexSchema.index({ name: "text" });
+IndexSchema.index({ exchange: 1, isActive: 1 });
+
 IndexSchema.methods.findSimilarTypes = function (cb) {
   return mongoose.model("indices").find({ code: this.code }).then(cb);
 };
@@ -98,11 +102,6 @@ IndexSchema.statics.findBySymbol = function (code) {
     code: code,
   });
 };
-
-// Indexes for performance
-IndexSchema.index({ code: 1 });
-IndexSchema.index({ name: "text" });
-IndexSchema.index({ exchange: 1, isActive: 1 });
 
 // Virtual for percentage change
 IndexSchema.virtual("percentChange").get(function () {
