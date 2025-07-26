@@ -1,8 +1,5 @@
 FROM node:22-alpine
 
-# ENV PORT=5000
-# ENV NODE_ENV=production
-
 # Setting up the work directory
 WORKDIR /app/nuku-api
 
@@ -28,6 +25,12 @@ EXPOSE 5000
 
 # HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
 #     CMD curl -f http://localhost:5000/health || exit 1
+
+# Define environment variables (default values if not provided at runtime)
+ENV NODE_ENV=production
+ENV PORT=5000
+# ENV DB_HOST=localhost
+# ENV DB_PORT=27017
 
 # Starting our application
 CMD [ "node", "server.js" ]
