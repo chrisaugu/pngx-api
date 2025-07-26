@@ -1,7 +1,7 @@
 FROM node:22-alpine
 
-ENV PORT=5000
-ENV NODE_ENV=production
+# ENV PORT=5000
+# ENV NODE_ENV=production
 
 # Setting up the work directory
 WORKDIR /app/nuku-api
