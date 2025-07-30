@@ -20,7 +20,8 @@
     "clinic:bubbleprof": "clinic bubbleprof -- node server.js",
     "autocannon": "autocannon -c 100 -d 10 http://localhost:5000",
     "package": "openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
-    "packages": "npx @openapitools/openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/"
+    "packages": "npx @openapitools/openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
+    "commit": "cz"
   },
   "repository": {
     "type": "git",
@@ -110,11 +111,24 @@
     "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@types/supertest": "^6.0.3",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "git-commit-msg-linter": "^5.0.8",
     "jest": "^30.0.2",
     "nodemon": "^3.1.10",
     "rollup": "^4.44.0",
     "rollup-plugin-dts": "^6.2.1",
     "sinon": "^21.0.0",
     "supertest": "^7.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   }
 }
