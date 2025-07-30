@@ -70,12 +70,19 @@
     "gridfs-stream": "^1.1.1",
     "helmet": "^8.1.0",
     "http-errors": "^2.0.0",
+<<<<<<< HEAD
     "ioredis": "^5.6.1",
     "ip": "^2.0.1",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "marked": "^15.0.12",
     "mongoose": "^8.16.0",
+=======
+    "ioredis": "^5.4.1",
+    "ip": "^1.1.8",
+    "mongoose": "^8.8.4",
+    "marked": "^14.1.4",
+>>>>>>> snyk-upgrade-b8cdfaceb03524ee7967649a2076bb45
     "morgan": "^1.10.0",
     "needle": "^3.3.1",
     "node-cron": "^4.1.1",
