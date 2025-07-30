@@ -1,6 +1,4 @@
-const Redis = require("ioredis");
-const redis = new Redis();
-// client = new Redis(process.env.UPSTASH_REDIS_URL);
+const redis = require("./libs/redis").createRedisIoClient();
 
 // await this.client.set('user', name);
 // const result = await this.client.get('user');

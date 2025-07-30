@@ -316,7 +316,7 @@
             let topics = [];
 
             topics = ['stocks:BSP', 'stocks:CCP', 'stocks:CPL', 'stocks:KAM', 'stocks:NEM'];
-            const evtSource = new EventSource(`http://localhost:5000/events?topics=${topics.join(',')}`, {
+            const evtSource = new EventSource(`/events?topics=${topics.join(',')}`, {
                 withCredentials: true,
                 headers: {
                     'Authorization': 'abc',
@@ -347,7 +347,7 @@
             });
 
             topics = stocks.map(r => "tickers:" + r)
-            const evtSource2 = new EventSource(`http://localhost:5000/events?topics=${topics.join(',')}`, {
+            const evtSource2 = new EventSource(`/events?topics=${topics.join(',')}`, {
                 withCredentials: true,
                 headers: {
                     'Authorization': 'abc',
@@ -377,7 +377,7 @@
             });
 
             topics = stocks.map(r => "quotes:" + r)
-            const evtSource3 = new EventSource(`http://localhost:5000/events?topics=${topics.join(',')}`, {
+            const evtSource3 = new EventSource(`/events?topics=${topics.join(',')}`, {
                 withCredentials: true,
                 headers: {
                     'Authorization': 'abc',
@@ -419,7 +419,7 @@
 
             const startLogStream = () => {
                 // Create SSE connection
-                const eventSource = new EventSource('http://localhost:5000/events/logs/stream');
+                const eventSource = new EventSource('/events/logs/stream');
 
                 // Handle incoming messages
                 eventSource.onmessage = (event) => {
@@ -1693,7 +1693,7 @@
                 }
             }
 
-            const evtSource = new EventSource(`http://localhost:5000/events?topics=tickers:${ticker}`, {
+            const evtSource = new EventSource(`/events?topics=tickers:${ticker}`, {
                 withCredentials: true,
                 headers: {
                     'Authorization': 'abc',

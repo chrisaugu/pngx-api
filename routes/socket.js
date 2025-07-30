@@ -2,7 +2,7 @@ const { Server } = require("socket.io");
 const sqlite3 = require("sqlite3");
 // const { open } = require("sqlite");
 const { createAdapter } = require("@socket.io/redis-adapter");
-const { createClient } = require("redis");
+const { createRedisClient } = require("../libs/redis");
 
 // const db = await open({
 //   filename: "chat.db",
@@ -17,7 +17,7 @@ const { createClient } = require("redis");
 //       content TEXT
 //   );
 // `);
-const pubClient = createClient({ host: "localhost", port: 6379 });
+const pubClient = createRedisClient();
 const subClient = pubClient.duplicate();
 
 /**

@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { BASE_URL } = require("../constants");
 const { versionMiddleware } = require("../middlewares");
-const Redis = require("ioredis");
-const redis = new Redis(6379);
 const logger = require("../libs/logger").winstonLogger;
+const redis = require("../libs/redis").createRedisIoClient;
 
 router.get("/", (req, res) => {
   res.status(200).json({

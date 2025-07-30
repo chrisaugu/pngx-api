@@ -3,11 +3,11 @@ const https = require("https");
 const os = require("os");
 const fs = require("fs");
 const path = require("path");
+const debug = require("debug")("NUKU-API");
 const app = require("./app");
 const Env = require("./config/env");
-const websocket = require("./routes/ws");
-const socket = require("./routes/socket");
-const debug = require("debug")("NUKU-API");
+// const websocket = require("./routes/ws");
+// const socket = require("./routes/socket");
 const logger = require("./libs/logger").winstonLogger;
 
 let server;
@@ -26,11 +26,11 @@ server = http.createServer(app);
 // }
 
 // attach websocket to the server
-websocket(server);
+// websocket(server);
 // socket(server);
 
 // listen on the port
-server.listen(Env.PORT, /*"localhost",*/ onListen);
+server.listen(Env.PORT, /*"0.0.0.0", "localhost",*/ onListen);
 server.on("error", onError);
 server.on("end", onStop);
 
