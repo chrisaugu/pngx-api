@@ -6,8 +6,6 @@ _The First Unofficial PNGX API, Ever_
 
 NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and processes stock data directly from PNGX. It was formerly part of [CrisBot](https://github.com/crisbotio), now a standalone API.
 
-[![Docker Image CI](https://github.com/chrisaugu/pngx-api/actions/workflows/docker-image.yml/badge.svg)](https://github.com/chrisaugu/pngx-api/actions/workflows/docker-image.yml)
-
 ## For complete documentation visit [https://chrisaugu.github.io/pngx-api/](https://chrisaugu.github.io/pngx-api/).
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrisaugu/pngx-api)
@@ -18,6 +16,11 @@ NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and process
 ![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
 ![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript)
 [![Build Status](https://travis-ci.org/chrisaugu/pngx-api.png)](https://travis-ci.org/chrisaugu/pngx-api)
+[![Docker Image CI](https://github.com/chrisaugu/pngx-api/actions/workflows/docker-image.yml/badge.svg)](https://github.com/chrisaugu/pngx-api/actions/workflows/docker-image.yml)
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+
 
 ## 📋 Table of Contents
 - [Description](#description)
@@ -56,7 +59,8 @@ The API retrieve, store, and process financial data directly from [PNGX](http://
 - Current listed stock info
 - Near-realtime stock updates
 - End-of-day data
-- RESTful API format
+- RESTful API 
+- JSON format
 
 ## 📱 Screenshots
 <p align="left">
