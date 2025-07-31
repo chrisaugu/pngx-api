@@ -50,7 +50,7 @@ The API retrieve, store, and process stock data directly from [PNGX](http://www.
 | SST | Steamships Trading Company Limited |
 | STO | Santos Limited |
 
-## 🛣️ Roadmap
+## Roadmap
 We continuously make NUKU-API the only place where all users can obtain the necessary financial data. If you have any questions or ideas about improvement, [contribute](#-contributing).
 
 ## 🔗 API Reference
@@ -496,7 +496,7 @@ Want to contribute? Great!
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Make sure you read [Contributing Guide](Contributing.md) before making your contributions.
+Make sure you read [Contributing Guide](CONTRIBUTING.md) before making your contributions.
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 - [Commit Message Convention](COMMIT_MESSAGE_CONVENTION.md)
