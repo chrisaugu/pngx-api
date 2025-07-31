@@ -20,7 +20,8 @@
     "clinic:bubbleprof": "clinic bubbleprof -- node server.js",
     "autocannon": "autocannon -c 100 -d 10 http://localhost:5000",
     "package": "openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
-    "packages": "npx @openapitools/openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/"
+    "packages": "npx @openapitools/openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
+    "commit": "cz"
   },
   "repository": {
     "type": "git",
@@ -52,7 +53,7 @@
     "bull": "^4.16.5",
     "bullmq": "^5.55.0",
     "celery-node": "^0.5.9",
-    "compression": "^1.8.0",
+    "compression": "^1.8.1",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "csv-parser": "^3.2.0",
@@ -75,7 +76,7 @@
     "lodash": "^4.17.21",
     "marked": "^15.0.12",
     "mongoose": "^8.16.0",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.1",
     "needle": "^3.3.1",
     "node-cron": "^4.1.1",
     "node-fetch": "^3.3.2",
@@ -96,7 +97,7 @@
     "socket.io": "^4.8.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
-    "superagent": "^10.2.1",
+    "superagent": "^10.2.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "vnstock-js": "^0.5.1",
@@ -110,11 +111,24 @@
     "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@types/supertest": "^6.0.3",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "git-commit-msg-linter": "^5.0.8",
     "jest": "^30.0.2",
     "nodemon": "^3.1.10",
     "rollup": "^4.44.0",
     "rollup-plugin-dts": "^6.2.1",
     "sinon": "^21.0.0",
     "supertest": "^7.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   }
 }

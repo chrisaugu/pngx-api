@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'git@github.com:user/repo.git'
+                git branch: 'main', url: 'git@github.com:chrisaugu/pngx-api.git'
             }
         }
 
