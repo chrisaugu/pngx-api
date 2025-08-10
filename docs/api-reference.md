@@ -40,8 +40,7 @@ Dates are in ISO 8601 format i.e. `YYYY-MM-DD` or `YYYY-MM-DDTHH:mm:ssZ`
 | 400 | Bad Request |  |
 | 404 | Not Found | Record requested is no longer available |
 | 500 | Internal Server Error |  |
-
-Update an existing pet by Id
+| 503 | Service Unavailable |  |
 
 ` GET /api`
 
@@ -164,7 +163,7 @@ Get historical stock data for a specific ticker symbol
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|symbol|param|string| yes |ticker symbol of the prefered stock|
+|symbol|param|string| yes |ticker symbol of the preferred stock|
 
 > Query Params
 
@@ -289,7 +288,7 @@ curl -i -H 'Accept: application/json' https://example.com/api/v2/market/status
 You can create webhooks to subscribe to specific events that occur on NUKU-API.
 
 #### Register Webhook
-Register your callback function via the API to be notified the stock market events.
+Register your callback function via the API to be notified of stock market events.
 
 To register a webhook, send a `POST` request to [Register Webhook Callback](https://api.nuku-api.com.pg/api/v2/webhook) with a JSON body containing your webhook URL, the event type you want to be notified about, and an optional workflow `ID`.
 
@@ -401,10 +400,11 @@ curl --request DELETE \
      --url https://api.nuku-api.com.pg/api/webhook/webhook_id \
      --header 'accept: application/json'
 ```
-
-You will receive a response with the details for all webhooks.
+You will receive a response indicating the success of the operation.
 ```json
 {
-    "success": true
+    "status": "success",
+    "success": true,
+    "message": "Webhook removed successfully"
 }
 ```
