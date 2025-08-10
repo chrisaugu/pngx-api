@@ -1,10 +1,19 @@
-## Changelog  
+## API Changelog
 
+Keys
+===========
+Added – for new features,
+Deprecated – for deprecated features that will be removed in future versions,
+Removed – for removed functions,
+Fixed – for fixed bugs and refactoring.
 
-## Unreleased
-### v2.1.0 (2025-03-08)
+## Release Notes
+
+<!-- ### v2.1.0 (2025-03-08)
 - removed `_id` when displaying stocks, tickers, indices, companies
+- removed `__v` when displaying stocks, tickers, indices, companies
 - replaced `symbol` with `code` to be consistent with PNGX terminology
+- remove `createdAt` and `updatedAt` when displaying stocks, tickers, indices, companies
 - moved `/historicals/:code` to `/stocks/historicals/:code`
 - moved `/historicals/:code/essentials` to `/stocks/historicals/:code/essentials`
 - moved `/tickers` to `/stocks/tickers`
@@ -16,13 +25,13 @@
 - added `/indices/:code` endpoint to get a specific index
 - added `/market/status` endpoint to get the current market status
 - added `/market/status/history` endpoint to get historical market status
-- [BREAKING] Renamed `time` to `timestamp` in `/api/v[1|2]`
+- [BREAKING] Renamed `time` to `timestamp` in `/api/v[1|2]` -->
 
 
-### v2 (2024-07-01)  
-- [BREAKING] Removed `full_name` from `/users`.  
-- Added `first_name` and `last_name`.
-- Added `/api/v2/companies` endpoint to get all companies.  
+<!-- ### v2.0.0 (2024-07-01)   -->
+<!-- - [BREAKING] Removed `full_name` from `/users`.   -->
+<!-- - Added `first_name` and `last_name`. -->
+<!-- - Added `/api/v2/companies` endpoint to get all companies.  
 - Added `/api/v2/stocks` endpoint to get all stocks.
 - Added `/api/v2/tickers` endpoint to get all tickers.  
 - Added `/api/v2/tickers/:symbol` endpoint to get a specific ticker.
@@ -40,20 +49,16 @@
   - `middlewares.js` - for handling middlewares,
   - `utils.js` - for handling utility functions,
   - `constants.js` - for keeping constants in one place, and
-  - `serverless.js` - for running serverless app.
-
-### v1 (2023-01-01)  
-- Initial release.  
+  - `serverless.js` - for running serverless app. -->
 
 ### 🚀 Enhancements
-
 - **api:** Created an NPM lib for JavaScript ([d43dcb3](https://github.com/chrisaugu/pngx-api/commit/d43dcb3))
 - Added `etl.js` - a process that fetches data from PNGX.com.pg and compare it against the database and save any data from PNGX that are missing from db.
-- Added `webhook.js` - to allow external connections into the system to receive payloads
-- Added `ws.js` - websocket addon to receive stock data in real-time
-- Added `sse.js` - websocket addon to send events to clients
+<!-- - Added `webhook.js` - to allow external connections into the system to receive payloads -->
+<!-- - Added `ws.js` - websocket addon to receive stock data in real-time -->
+<!-- - Added `sse.js` - websocket addon to send events to clients -->
 
-### 🩹 Fixes
+<!-- ### 🩹 Fixes
 
 - Uncomment loop to iterate through the dataset and add all the data to the db ([77d96bd](https://github.com/chrisaugu/pngx-api/commit/77d96bd))
 - Comment loop out ([8582d17](https://github.com/chrisaugu/pngx-api/commit/8582d17))
@@ -70,28 +75,8 @@
 
 - Made changes to the documentation ([0cbe2cf](https://github.com/chrisaugu/pngx-api/commit/0cbe2cf))
 - **api:** Updated the docs ([d76cce4](https://github.com/chrisaugu/pngx-api/commit/d76cce4))
-- Updated Readme file ([e11c0ab](https://github.com/chrisaugu/pngx-api/commit/e11c0ab))
+- Updated Readme file ([e11c0ab](https://github.com/chrisaugu/pngx-api/commit/e11c0ab)) -->
 
-### ❤️ Contributors
-
-- Snyk-bot <snyk-bot@snyk.io>
-- Christian Augustyn ([@chrisaugu](http://github.com/chrisaugu))
-
-
-
-
-Unreleased
-==========
-Remove `_id` when displaying stocks, tickers, indices, companies
-Remove `__v` when displaying stocks, tickers, indices, companies
-Remove `createdAt` and `updatedAt` when displaying stocks, tickers, indices, companies
-
-New Release
-===========
-Added – for new features,
-Deprecated – for deprecated features that will be removed in future versions,
-Removed – for removed functions,
-Fixed – for fixed bugs and refactoring.
 
 2.0.1 / 2025-03-08
 ==================
@@ -100,6 +85,22 @@ Fixed – for fixed bugs and refactoring.
   * changed WORKDIR in Dockerfile to /app/nuku-api
   * Extracted ENV-VARs to /config/env.js
   * Removed support for https on server.js to give space for nginx-lb to implement https
+  * removed `_id` when displaying stocks, tickers, indices, companies
+  * removed `__v` when displaying stocks, tickers, indices, companies
+  * replaced `symbol` with `code` to be consistent with PNGX terminology
+  * remove `createdAt` and `updatedAt` when displaying stocks, tickers, indices, companies
+  * moved `/historicals/:code` to `/stocks/historicals/:code`
+  * moved `/historicals/:code/essentials` to `/stocks/historicals/:code/essentials`
+  * moved `/tickers` to `/stocks/tickers`
+  * added `/stocks/tickers/:code` endpoint to get ticker data for a specific stock
+  * added `/stocks/:code/ohlcv` endpoint to get OHLCV data for a specific stock
+  * added `/stocks/:code/ohlcv/history` endpoint to get historical OHLCV data for stocks
+  * added `indices` model to represent indices information
+  * added `/indices` endpoint to get all indices
+  * added `/indices/:code` endpoint to get a specific index
+  * added `/market/status` endpoint to get the current market status
+  * added `/market/status/history` endpoint to get historical market status
+  * **[BREAKING]** Renamed `time` to `timestamp` in `/api/v[1|2]`
 
 2.0.0 / 2024-12-29
 ==================
@@ -221,7 +222,13 @@ Fixed – for fixed bugs and refactoring.
   * deps: qs@6.5.2
   * deps: safe-buffer@5.1.2 -->
 
+
 1.0.0 / 2021-01-03
 ==================
-
   * Initial release
+
+
+### ❤️ Contributors
+
+- Snyk-bot <snyk-bot@snyk.io>
+- Christian Augustyn ([@chrisaugu](http://github.com/chrisaugu))
