@@ -184,10 +184,11 @@ async function data_fetcher() {
           );
 
           // check if the quote for that particular company at that particular date already exists
-          Stock.findOne({
-            date: quote.date,
-            code: quote.code,
-          })
+          Stock
+            .findOne({
+              'date': quote.date,
+              'code': quote.code,
+            })
             .then((result) => {
               if (result) {
                 recordExist = true;
