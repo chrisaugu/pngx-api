@@ -24,6 +24,10 @@ node_modules
 .env.production
 *.zip
 app
+<<<<<<< HEAD
+=======
+logs/*
+>>>>>>> develop
 
 .openode
 
@@ -37,3 +41,7 @@ certs
 .clinic
 output
 package/build
+<<<<<<< HEAD
+=======
+sdk
+>>>>>>> develop

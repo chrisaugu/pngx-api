@@ -1,6 +1,6 @@
+import test, { describe } from 'node:test';
 import { getDataFromServer, getHistoricals, getStock, getStocks, getTicker, getTickers } from '../src';
 
-<<<<<<< HEAD
 // getHistoricals('bsp');
 // getStock('bsp')
 // getDataFromServer('BSP').then(res => {
@@ -14,17 +14,12 @@ import { getDataFromServer, getHistoricals, getStock, getStocks, getTicker, getT
 //     })
 // });
 
-describe('retrieving data from localhost', () => {
-=======
 describe('fetches stocks for the current day', () => {
->>>>>>> develop
     test('should return full data in json', async () => {
         const result = await getStocks();
         expect(result).toBe('expected value');
     })
 });
-<<<<<<< HEAD
-=======
 
 describe('fetches stock for BSP', () => {
     test('should return full data in json', async () => {
@@ -61,7 +56,6 @@ describe('fetches data from www.pngx.com.pg', () => {
     })
 });
 
->>>>>>> develop
 
 // test('fetches data from an API', async () => {
 //     // mock the fetch function to return a fake response

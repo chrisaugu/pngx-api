@@ -4,10 +4,7 @@ import tasks from "./tasks";
 import { initDatabase } from "./database";
 import Env from "./config/env";
 
-const worker = celery.createWorker(
-  Env.redis.broker,
-  Env.redis.backend
-);
+const worker = celery.createWorker(Env.redis.broker, Env.redis.backend);
 
 initDatabase()
   .on("connected", async function () {

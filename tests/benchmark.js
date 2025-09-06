@@ -1,5 +1,5 @@
-const Benchmark = require("benchmark");
-const suite = new Benchmark.Suite();
+import { Suite } from "benchmark";
+const suite = new Suite();
 
 // Add tests
 suite

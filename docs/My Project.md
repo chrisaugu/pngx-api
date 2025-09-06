@@ -27,7 +27,7 @@ Base URLs:
 
 # Authentication
 
-# PNGX-API/pet
+# NUKU-API/pet
 
 <a id="opIdupdatePet"></a>
 
@@ -437,7 +437,7 @@ string
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[ApiResponse](#schemaapiresponse)|
 
-# PNGX-API/store
+# NUKU-API/store
 
 <a id="opIdgetInventory"></a>
 
@@ -599,7 +599,7 @@ For valid response try integer IDs with value < 1000. Anything above 1000 or non
 
 ### Responses Data Schema
 
-# PNGX-API/user
+# NUKU-API/user
 
 <a id="opIdcreateUser"></a>
 
@@ -891,7 +891,7 @@ This can only be done by the logged in user.
 
 ### Responses Data Schema
 
-# PNGX-API/stocks
+# NUKU-API/stocks
 
 <a id="opIdgetStockById"></a>
 

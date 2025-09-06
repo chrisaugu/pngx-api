@@ -21,7 +21,7 @@ const COMPANIES = Object.freeze({
   BSPHA: "Bank South Pacific Notes",
 });
 
-const OLD_SYMBOLS = ["KPE", "HIG", "KPL", "IDC", "IOC", "OSH", "BSPHA"];
+const OLD_SYMBOLS = ["COY", "NCM", "KPE", "HIG", "KPL", "IDC", "IOC", "OSH", "BSPHA"];
 
 const SYMBOLS = Object.keys(COMPANIES).filter((c) => !OLD_SYMBOLS.includes(c));
 

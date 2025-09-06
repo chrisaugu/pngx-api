@@ -1,3 +1,4 @@
+<<<<<<< HEAD:routes/ws.ts
 import http from "http";
 import https from "https";
 import { WebSocketServer, WebSocket } from "ws";
@@ -7,6 +8,23 @@ import { parse } from "querystring";
 import { isUint8Array } from "util/types";
 
 export default (httpServer: http.Server | https.Server) => {
+=======
+const http = require("http");
+const https = require("https");
+const { WebSocketServer, WebSocket } = require("ws");
+const url = require("url");
+const { randomUUID } = require("crypto");
+const queryString = require("querystring");
+const { isUint8Array } = require("util/types");
+
+/**
+ * Set up a WebSocket server on an existing HTTP or HTTPS server.
+ * This function initializes a WebSocket server that listens for WebSocket connections
+ * @param {http.Server | https.Server} httpServer 
+ * @returns {WebSocket.Server}
+ */
+module.exports = (httpServer) => {
+>>>>>>> develop:routes/ws.js
   const ws1 = new WebSocketServer({ noServer: true });
 
   const wsServer = new WebSocketServer({

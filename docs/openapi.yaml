@@ -4,66 +4,116 @@ info:
   version: 1.0.0
   description: |-
     API for managing webhook integrations with NUKU-API
-    This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
+    This is a sample Stock Store Server based on the OpenAPI 3.0 specification.  You can find out more about
     Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
     You can now help us improve the API whether it's by making changes to the definition itself or to the code.
     That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
 
-    _If you're looking for the Swagger 2.0/OAS 2.0 version of Petstore, then click [here](https://editor.swagger.io/?url=https://petstore.swagger.io/v2/swagger.yaml). Alternatively, you can load via the `Edit > Load Petstore OAS 2.0` menu option!_
-    
     Some useful links:
-    - [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
-    - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
-  termsOfService: https://pngx-api.christianaugustyn.me/docs/terms/
+    - [The Stock Store repository](https://github.com/swagger-api/swagger-petstore)
+    - [The source API definition for the Stock Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
+    **Versioning Policy**:  
+    - Non-breaking changes (new endpoints/fields) are added to the current version.  
+    - Breaking changes require a new version (`v1` → `v2`).  
+    - [Changelog](#tag/Changelog)  
+  termsOfService: http://api.nuku.com/docs/terms/
   contact:
     email: apiteam@pngx-api.christianaugustyn.me
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
+
 externalDocs:
   description: Find out more about Swagger
-  url: http://swagger.io
+  url: http://api.nuku.com/v1
+
 servers:
   - url: https://api.nuku-api.com.pg/api/v1
+    description: Version 1 (Deprecated, use v2)
   - url: https://api.nuku-api.com.pg/api/v2
+    description: Version 2 (Latest)
+
 tags:
-  - name: pet
-    description: Everything about your Pets
-    externalDocs:
-      description: Find out more
-      url: http://swagger.io
   - name: store
-    description: Access to Petstore orders
+    description: Access to Stockstore orders
     externalDocs:
       description: Find out more about our store
-      url: http://swagger.io
+      url: http://api.nuku.com/v1
+  
   - name: user
     description: Operations about user
+  
   - name: stocks
     description: Operations about stocks
+    externalDocs:
+      description: Find out more
+      url: http://api.nuku.com/v1
+  
   - name: Webhooks
     description: Manage webhook subscriptions
+  
+  - name: Changelog
+    description: |
+      ## API Versions  
+      ### v2 (2024-01-01)  
+      - [BREAKING] Replaced `full_name` with `first_name` and `last_name`.  
+      ### v1 (2023-01-01)  
+      - Initial release.  
 
+  # --- Paths for V1 (Deprecated) ---
 paths:
+  /v1/users:
+    get:
+      tags: [Users]
+      summary: Get users (v1 - Deprecated)
+      deprecated: true  # Mark as deprecated
+      responses:
+        200:
+          description: Success (v1 response)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User_v1"
+          headers:
+            Deprecation:
+              schema: { type: boolean, example: true }
+            Sunset:
+              schema: { type: string, example: "2024-12-31T00:00:00Z" }
+        400:
+          description: "Error: Use v2"
+
+  # --- Paths for V2 (Current) ---
+  /v2/users:
+    get:
+      tags: [Users]
+      summary: Get users (v2)
+      responses:
+        200:
+          description: Success (v2 response)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User_v2"
+
   /pet:
     put:
       tags:
         - pet
       summary: Update an existing pet
       description: Update an existing pet by Id
-      operationId: updatePet
+      operationId: updateStock
       requestBody:
         description: Update an existent pet in the store
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Stock'
           application/xml:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Stock'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Stock'
         required: true
       responses:
         '200':
@@ -71,18 +121,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/Stock'
         '400':
           description: Invalid ID supplied
         '404':
-          description: Pet not found
+          description: Stock not found
         '405':
           description: Validation exception
       security:
-        - petstore_auth:
+        - api_key_auth:
             - write:pets
             - read:pets
     post:
@@ -90,19 +137,13 @@ paths:
         - pet
       summary: Add a new pet to the store
       description: Add a new pet to the store
-      operationId: addPet
+      operationId: addStock
       requestBody:
         description: Create a new pet in the store
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Pet'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Stock'
         required: true
       responses:
         '200':
@@ -110,23 +151,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/Stock'
         '405':
           description: Invalid input
       security:
-        - petstore_auth:
+        - api_key_auth:
             - write:pets
             - read:pets
   /pet/findByStatus:
     get:
       tags:
         - pet
-      summary: Finds Pets by status
+      summary: Finds Stocks by status
       description: Multiple status values can be provided with comma separated strings
-      operationId: findPetsByStatus
+      operationId: findStocksByStatus
       parameters:
         - name: status
           in: query
@@ -148,25 +186,25 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Pet'          
+                  $ref: '#/components/schemas/Stock'          
             application/xml:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: '#/components/schemas/Stock'
         '400':
           description: Invalid status value
       security:
-        - petstore_auth:
+        - api_key_auth:
             - write:pets
             - read:pets
   /pet/findByTags:
     get:
       tags:
         - pet
-      summary: Finds Pets by tags
+      summary: Finds Stocks by tags
       description: Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
-      operationId: findPetsByTags
+      operationId: findStocksByTags
       parameters:
         - name: tags
           in: query
@@ -185,16 +223,16 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Pet'          
+                  $ref: '#/components/schemas/Stock'          
             application/xml:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: '#/components/schemas/Stock'
         '400':
           description: Invalid tag value
       security:
-        - petstore_auth:
+        - api_key_auth:
             - write:pets
             - read:pets
   /pet/{petId}:
@@ -203,7 +241,7 @@ paths:
         - pet
       summary: Find pet by ID
       description: Returns a single pet
-      operationId: getPetById
+      operationId: getStockById
       parameters:
         - name: petId
           in: path
@@ -218,25 +256,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'          
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/Stock'
         '400':
           description: Invalid ID supplied
         '404':
-          description: Pet not found
+          description: Stock not found
       security:
-        - ApiKeyAuth: []
-        - petstore_auth:
-            - write:pets
-            - read:pets
+        - api_key_auth: []
     post:
       tags:
         - pet
       summary: Updates a pet in the store with form data
       description: ''
-      operationId: updatePetWithForm
+      operationId: updateStockWithForm
       parameters:
         - name: petId
           in: path
@@ -259,7 +291,7 @@ paths:
         '405':
           description: Invalid input
       security:
-        - petstore_auth:
+        - api_key_auth:
             - write:pets
             - read:pets
     delete:
@@ -267,7 +299,7 @@ paths:
         - pet
       summary: Deletes a pet
       description: delete a pet
-      operationId: deletePet
+      operationId: deleteStock
       parameters:
         - name: api_key
           in: header
@@ -277,7 +309,7 @@ paths:
             type: string
         - name: petId
           in: path
-          description: Pet id to delete
+          description: Stock id to delete
           required: true
           schema:
             type: integer
@@ -286,7 +318,7 @@ paths:
         '400':
           description: Invalid pet value
       security:
-        - petstore_auth:
+        - api_key_auth:
             - write:pets
             - read:pets
   /pet/{petId}/uploadImage:
@@ -324,7 +356,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
       security:
-        - petstore_auth:
+        - api_key_auth:
             - write:pets
             - read:pets
   /store/inventory:
@@ -345,7 +377,7 @@ paths:
                   type: integer
                   format: int32
       security:
-        - ApiKeyAuth: []
+        - api_key_auth: []
   /store/order:
     post:
       tags:
@@ -706,8 +738,71 @@ paths:
         '404':
           description: Webhook not found
 
+  /spacecrafts/{spacecraftId}:
+    parameters:
+      - name: spacecraftId
+        description: The unique identifier of the spacecraft
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/SpacecraftId'
+    get:
+      summary: Read a spacecraft
+      responses:
+        '200':
+          description: The spacecraft corresponding to the provided `spacecraftId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Spacecraft'
+        404:
+          description: No spacecraft found for the provided `spacecraftId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
 components:
   schemas:
+    SpacecraftId:
+      description: The unique identifier of a spacecraft
+      type: string
+    Spacecraft:
+      type: object
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          $ref: '#/components/schemas/SpacecraftId'
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - capsule
+            - probe
+            - satellite
+            - spaceplane
+            - station
+        description:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
+
     Order:
       type: object
       properties:
@@ -877,7 +972,7 @@ components:
           type: string
       xml:
         name: tag
-    Pet:
+    Stock:
       required:
         - name
         - photoUrls
@@ -1005,17 +1100,34 @@ components:
         createdAt:
           type: string
           format: date-time
+    
+    # V1 Schema (Legacy)
+    User_v1:
+      type: object
+      properties:
+        id: { type: integer }
+        full_name: { type: string }  # Removed in v2
+      required: [id, full_name]
+
+    # V2 Schema (Current)
+    User_v2:
+      type: object
+      properties:
+        id: { type: integer }
+        first_name: { type: string }  # New in v2
+        last_name: { type: string }   # New in v2
+      required: [id, first_name, last_name]
 
   requestBodies:
-    Pet:
-      description: Pet object that needs to be added to the store
+    Stock:
+      description: Stock object that needs to be added to the store
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: '#/components/schemas/Stock'
         application/xml:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: '#/components/schemas/Stock'
     UserArray:
       description: List of user object
       content:
@@ -1024,19 +1136,16 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/User'
+  
   securitySchemes:
-    petstore_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
-          scopes:
-            write:pets: modify pets in your account
-            read:pets: read your pets
-    ApiKeyAuth:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+    api_key_auth:
       type: apiKey
       name: X-API-Key
       in: header
 
 security:
-  - ApiKeyAuth: []
+  - api_key_auth: []

@@ -1,15 +1,24 @@
-# PNGX-API NPM Library
+# NUKU-API NPM Library
 This is a small JavaScript library package for retrieving stocks info from PNGX.com website
+This npm package provides utilities to work with the Indian stock market, including functions to determine market holidays, expiry dates for futures and options, and market open/close status.
+A lightweight NPM package for fetching Vietnam stock market data from VCI.
 
 The library is built using TypeScript
 
 https://medium.com/@the_nick_morgan/creating-an-npm-package-with-typescript-c38b97a793cf
 https://medium.com/nerd-for-tech/testing-typescript-with-jest-290eaee9479d
 
+https://github.com/nodef/extra-fyers
+https://github.com/toolboxco/signalx/
+https://zerodha.com/about/
+https://www.npmjs.com/package/inves-broker
+https://www.financialdatasets.ai/pricing
+https://vnstocks.com/docs/vnstock/thong-ke-gia-lich-su
+https://github.com/thinh-vu/vnstock/
+
 npm run build
 
 npm run test
-
 
 
 Types of schedules supported by _Schedule_:
@@ -19,6 +28,23 @@ Types of schedules supported by _Schedule_:
 * Schedule the company ping pong tournment
 
 ####For complete documentation visit [http://bunkat.github.io/schedule/](http://bunkat.github.io/schedule/).
+
+## Installation
+Using npm:
+
+    $ npm install @nuku/client-js
+
+## Building
+
+To build the minified javascript files for _schedule_, run `npm install` to install dependencies and then:
+	
+    $ make build
+
+## Running tests
+
+To run the tests for _schedule_, run `npm install` to install dependencies and then:
+
+	$ make test
 
 
 ## Installation

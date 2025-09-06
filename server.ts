@@ -1,37 +1,21 @@
+import 'dotenv/config';
+import fs from "fs";
 import http from "http";
 import https from "https";
-import os from "os";
-import fs from "fs";
-import path from "path";
-import express from "express";
-import setRateLimit from 'express-rate-limit';
-import request from 'request';
-import mongoose from 'mongoose';
-import morgan from 'morgan';
-import cron from 'node-cron';
-import cors from "cors";
-import marked from 'marked';
-import dateFns from 'date-fns';
-import { zonedTimeToUtc, utcToZonedTime, format } from 'date-fns-tz';
-import moment from 'moment';
-import momentTimezone from 'moment-timezone';
-import createError from 'http-errors';
-import ip from 'ip';
-import boxen from 'boxen';
-import 'dotenv/config';
 import ora from 'ora';
-import helmet from 'helmet';
+import os from "os";
+import path from "path";
 import app from "./app";
 import Env from "./config/env";
-import websocket from "./routes/ws";
-import socket from "./routes/socket";
 const debug = require("debug")("NUKU-API");
 const logger = require("./libs/logger").winstonLogger;
 
-const spinner = ora('Connecting to the database...').start()
-
 // replaces all instance of app with server
 let server: http.Server | https.Server;
+
+const spinner = ora('Connecting to the database...').start()
+// const websocket = require("./routes/ws");
+// const socket = require("./routes/socket");
 
 logger.debug("Starting NUKU API server...");
 if (Env.NODE_ENV === "dev") {
@@ -47,11 +31,11 @@ if (Env.NODE_ENV === "dev") {
 }
 
 // attach websocket to the server
-websocket(server);
+// websocket(server);
 // socket(server);
 
 // listen on the port
-server.listen(Env.PORT, /*"localhost",*/ onListen);
+server.listen(Env.PORT, /*"0.0.0.0", "localhost",*/ onListen);
 server.on("error", onError);
 server.on("end", onStop);
 
