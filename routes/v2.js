@@ -69,7 +69,7 @@ router.get("/", function (req, res) {
  * Get a specific company info using stock quote
  * @param :ticker unique ticker of the comapny
  */
-router.get("/company", function (req, res) {
+router.get("/company/:ticker", function (req, res) {
   let stockTicker = req.params.ticker;
 
   logger.info("Retrieving companies on PNGX");
@@ -886,6 +886,7 @@ router.get("/stocks/:code/ohlcv/history", async function (req, res) {
 /**
  * GET /api/v2/stocks/tickers
  * Retrieves tickers/codes for all the stocks
+ * @deprecated use /api/v2/stocks/tickers
  */
 router.get("/tickers", (req, res) => {
   res.redirect(301, "/api/v2/stocks/tickers");
@@ -964,6 +965,7 @@ router.get("/stocks/tickers", async function (req, res) {
 
 /**
  *
+ * @deprecated
  */
 router.get("/tickers/:code", (req, res) => {
   res.redirect(301, `/api/v2/stocks/tickers/${req.params.code}`);
@@ -971,15 +973,15 @@ router.get("/tickers/:code", (req, res) => {
 router.get("/stocks/tickers/:code", async (req, res) => {
   const code = req.params.code;
 
-  // Ticker.find({ code: code }).then((ticker) => {
-  //   console.log(ticker)
+  Ticker.find({ code: code }).then((ticker) => {
+    console.log(ticker)
 
-  //   // if (ticker) {
-  res.status(200).json({
-    ticker: "hel",
+    if (ticker) {
+      res.status(200).json({
+        ticker
+      });
+    }
   });
-  // }
-  // });
 });
 
 /**
