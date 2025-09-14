@@ -4,11 +4,13 @@ const Stock = require("./quote.model");
 const Indices = require("./indices.model");
 const Ticker = require("./ticker.model");
 const Webhook = require("./webhook.model");
+const NewsSource = require("./news-source.model");
 
 module.exports = {
   Ticker,
   Stock,
   Indices,
   Company,
-  Webhook
+  Webhook,
+  NewsSource
 };
