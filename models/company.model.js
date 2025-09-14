@@ -40,14 +40,42 @@ companySchema.index({ ticker: 1 });
 //   next();
 // });
 
-companySchema.methods.findByCode = function (cb) {
+/**
+ * Update company data by ticker code/symbol
+ * @param {*} cb 
+ * @returns 
+ * @usage: company.updateData((err, res) => {})
+ */
+companySchema.methods.updateData = function (cb) {
   return this.find({ code: this.code }, cb);
 };
 
-companySchema.query.byName = function (name) {
+/**
+ * byName query helper
+ * @param {*} name 
+ * @returns 
+ * @usage: Company.find().byName('name').exec((err, res) => {})
+ */
+companySchema.query.byName = function(name) {
   return this.where({ name: new RegExp(name, "i") });
 };
 
+/**
+ * find company by ticker code/symbol
+ * @param {*} cb 
+ * @returns 
+ * @usage: Company.findByCode((err, res) => {})
+ */
+companySchema.statics.findByCode = function (cb) {
+  return this.find({ code: this.code }, cb);
+};
+
+/**
+ * find company by name
+ * @param {*} name 
+ * @returns 
+ * @usage: Company.findByName('name').then((res) => {}).catch((err) => {})
+ */
 companySchema.statics.findByName = function (name) {
   return this.find({ name: new RegExp(name, "i") });
 };

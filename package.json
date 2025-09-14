@@ -12,7 +12,12 @@
     "docs": "docsify serve docs",
     "test": "NODE_ENV=test jest --detectOpenHandles",
     "pretestx": "cross-env NODE_ENV=test jest --testTimeout=5000",
-    "test:coverage": "NODE_ENV=test jest --coverage",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "test:e2e": "jest tests/e2e",
+    "test:watch": "jest --watch",
+    "test:coverage": "NODE_ENV=test jest --coverage --passWithNoTests",
+    
     "lint": "eslint src",
     "format": "prettier --write src",
     "clinic": "clinic doctor -- node server.js",
@@ -119,7 +124,8 @@
     "rollup": "^4.44.0",
     "rollup-plugin-dts": "^6.2.1",
     "sinon": "^21.0.0",
-    "supertest": "^7.1.1"
+    "supertest": "^7.1.1",
+    "mongodb-memory-server": "^10.2.0"
   },
   "config": {
     "commitizen": {

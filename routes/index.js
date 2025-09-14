@@ -28,7 +28,6 @@ router.get("/health", async (_req, res, _next) => {
     });
   } catch (e) {
     healthcheck.message = e;
-    // res.status(503).json({ redis: "unavailable" });
     logger.error("Error creating user", {
       error: e.message,
       stack: e.stack,
@@ -36,6 +35,7 @@ router.get("/health", async (_req, res, _next) => {
     });
     res.json(healthcheck);
     res.status(503).send();
+    // res.status(503).json({ redis: "unavailable" });
   }
 });
 router.get("/health", versionMiddleware("3.0.0"), async (_req, res, _next) => {
