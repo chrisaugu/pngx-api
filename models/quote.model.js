@@ -31,7 +31,9 @@ const QuoteSchema = new Schema(
     },
   }
 );
+
 QuoteSchema.index({ code: 1, date: 1 });
+
 QuoteSchema.methods.findSimilarTypes = function (cb) {
   return mongoose.model("quote").find({ code: this.code }).then(cb);
 };
