@@ -33,7 +33,7 @@ const LOCAL_TIMEZONE_FORMAT = "yyyy-MM-dd"; // HH:mm:ss zzz'; // 2014-10-25 12:4
 
 const WORKER_SCHEDULE_TIME = "30 8 * * *";
 
-const BASE_URL = "https://nuku.zeabur.app/";
+const BASE_URL = "https://nuku.zeabur.app";
 
 module.exports = {
   SYMBOLS,
