@@ -16,6 +16,7 @@ const {
 } = require("../constants");
 const { Stock, Company, Ticker, Indices, NewsSource } = require("../models/index");
 const logger = require("../libs/logger").winstonLogger;
+const base_url = new URL(BASE_URL);
 
 /**
  * @swagger
@@ -34,7 +35,7 @@ const logger = require("../libs/logger").winstonLogger;
 router.get("/", function (req, res) {
   res.status(200).json({
     status: 200,
-    message: `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
+    message: `Welcome to the Nuku API! Documentation is available at ${base_url.protocol}//${base_url.host}/docs/`,
     data: {
       api: "NUKU API",
       timestamp: new Date().getTime(),
@@ -1091,22 +1092,22 @@ router.post("/news/sources", function (req, res) {
   });
 
   source
-  .save()
-  .then((result) => {
-    logger.debug("News Source added: ", result)
-    res.sendStatus(201);
-  })
-  .catch((error) => {
-    logger.error("Error adding news source:", {
-      error: error.message,
-      stack: error.stack,
-      body: req.body,
-    });
-    res.status(500).json({ 
-      status: 500,
-      message: "Error occurred while adding news source. Please try again"
-    });
-  })
+    .save()
+    .then((result) => {
+      logger.debug("News Source added: ", result)
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      logger.error("Error adding news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while adding news source. Please try again"
+      });
+    })
 });
 router.get("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
@@ -1125,7 +1126,7 @@ router.get("/news/sources/:newsSourceId", function (req, res) {
         stack: error.stack,
         body: req.body,
       });
-      res.status(500).json({ 
+      res.status(500).json({
         error: "Internal server error",
         message: "Error occurred while retrieving news source. Please try again"
       });
@@ -1145,22 +1146,22 @@ router.put("/news/sources/:newsSourceId", function (req, res) {
   }
 
   NewsSource
-  .findByIdAndUpdate(newsSourceId, payload)
-  .then((result) => {
-    logger.debug("News Source updated: ", result)
-    res.json(result);
-  })
-  .catch((error) => {
-    logger.error("Error updating news source:", {
-      error: error.message,
-      stack: error.stack,
-      body: req.body,
+    .findByIdAndUpdate(newsSourceId, payload)
+    .then((result) => {
+      logger.debug("News Source updated: ", result)
+      res.json(result);
+    })
+    .catch((error) => {
+      logger.error("Error updating news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while updating news source. Please try again"
+      });
     });
-    res.status(500).json({ 
-      status: 500,
-      message: "Error occurred while updating news source. Please try again"
-    });
-  });
 });
 router.patch("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
@@ -1176,43 +1177,43 @@ router.patch("/news/sources/:newsSourceId", function (req, res) {
   }
 
   NewsSource
-  .findByIdAndUpdate(newsSourceId, payload)
-  .then((result) => {
-    logger.debug("News Source updated: ", result)
-    res.json(result);
-  })
-  .catch((error) => {
-    logger.error("Error updating news source:", {
-      error: error.message,
-      stack: error.stack,
-      body: req.body,
+    .findByIdAndUpdate(newsSourceId, payload)
+    .then((result) => {
+      logger.debug("News Source updated: ", result)
+      res.json(result);
+    })
+    .catch((error) => {
+      logger.error("Error updating news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while updating news source. Please try again"
+      });
     });
-    res.status(500).json({ 
-      status: 500,
-      message: "Error occurred while updating news source. Please try again"
-    });
-  });
 });
 router.delete("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
 
   NewsSource
-  .findByIdAndDelete(newsSourceId)
-  .then((result) => {
-    logger.debug("News Source retrieved: ", result)
-    res.json(result);
-  })
-  .catch((error) => {
-    logger.error("Error deleting news source:", {
-      error: error.message,
-      stack: error.stack,
-      body: req.body,
+    .findByIdAndDelete(newsSourceId)
+    .then((result) => {
+      logger.debug("News Source retrieved: ", result)
+      res.json(result);
+    })
+    .catch((error) => {
+      logger.error("Error deleting news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while deleting news source. Please try again"
+      });
     });
-    res.status(500).json({ 
-      status: 500,
-      message: "Error occurred while deleting news source. Please try again"
-    });
-  });
 });
 
 
