@@ -1,7 +1,16 @@
 {
-  "projectName": "<insert the repo's name>",
-  "projectOwner": "<insert the repo's owner/orgs>",
+  "projectName": "pngx-api",
+  "projectOwner": "chrisaugu",
+  "repoType": "github",
+  "repoHost": "https://github.com",
   "files": [
-    "CONTRIBUTORS.md"
-  ]
+    "CONTRIBUTORS.md",
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "jshint",
+  "contributors": [],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
 }
