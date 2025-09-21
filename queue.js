@@ -1,4 +1,4 @@
-const Queue = require("bull");
+const Queue = require("bullmq");
 const { redisConfig } = require("./config/redis");
 
 const myQueue = new Queue("myQueueName", {
@@ -7,7 +7,7 @@ const myQueue = new Queue("myQueueName", {
 
 myQueue.process(async (job) => {
   console.log(job.data);
-  
+
   switch (job.data.type) {
     case "register":
       // Process the user registration
