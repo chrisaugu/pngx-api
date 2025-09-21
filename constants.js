@@ -24,6 +24,11 @@ const COMPANIES = Object.freeze({
 const OLD_SYMBOLS = ["COY", "NCM", "KPE", "HIG", "KPL", "IDC", "IOC", "OSH", "BSPHA"];
 
 const SYMBOLS = Object.keys(COMPANIES).filter((c) => !OLD_SYMBOLS.includes(c));
+const CHANNELS = [
+  "tickers",
+  ""
+];
+const TOPICS = SYMBOLS.map((code) => "tickers:" + code);
 
 const PNGX_URL = "https://www.pngx.com.pg";
 const PNGX_DATA_URL = `${PNGX_URL}/data/`;
@@ -45,4 +50,6 @@ module.exports = {
   LOCAL_TIMEZONE_FORMAT,
   BASE_URL,
   WORKER_SCHEDULE_TIME,
+  CHANNELS,
+  TOPICS
 };

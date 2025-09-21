@@ -2,6 +2,7 @@ const http = require("http");
 const https = require("https");
 const { WebSocketServer, WebSocket } = require("ws");
 const url = require("url");
+const jwt = require('jsonwebtoken');
 const { randomUUID } = require("crypto");
 const queryString = require("querystring");
 const { isUint8Array } = require("util/types");
@@ -13,12 +14,10 @@ const { isUint8Array } = require("util/types");
  * @returns {WebSocket.Server}
  */
 module.exports = (httpServer) => {
-  const ws1 = new WebSocketServer({ noServer: true });
-
   const wsServer = new WebSocketServer({
     noServer: true,
     path: "/ws/v1",
-    // server,
+    server: httpServer,
     // port: 8080,
     // rejectUnauthorized: true, // Verify SSL (set `false` for self-signed certs)
     // headers: {               // Optional headers (if needed)
@@ -63,7 +62,13 @@ module.exports = (httpServer) => {
     const connectionParams = queryString.parse(params);
     const ip = request.socket.remoteAddress;
     // const ip = request.headers["X-Forwarded-For"].split(",")[0].trim();
+    const token = req.headers['sec-websocket-protocol'];
+    const user = authenticateToken(token);
 
+    // if (!user) {
+    //   ws.close(); // Close connection if authentication fails
+    //   return;
+    // }
     console.log(ip);
 
     const uuid = randomUUID();
@@ -125,6 +130,13 @@ module.exports = (httpServer) => {
       return true;
     }
   };
+
+  function authenticateToken(token) {
+    return jwt.verify(token, 'your-secret-key', (err, user) => {
+      if (err) return null;
+      return user;
+    });
+  }
 
   const handleMessage = (bytes, uuid) => {
     // Convert the bytes (buffer) into a string using utf-8 encoding.

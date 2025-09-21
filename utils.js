@@ -305,6 +305,71 @@ const processLargeFile = async (file) => {
   });
 };
 
+/**
+ * 
+ * @param {*} priceArray 
+ * @returns 
+ * @see https://medium.com/@mcraepetrey/algorithms-in-javascript-solving-the-stock-market-problem-2ca3321f9eda
+ */
+const stockMarket = (priceArray) => {
+
+  // first check to make sure there's more than 1 value in the stock list!
+  if (priceArray.length < 2) {
+    return -1;
+  }
+
+  // initialize the "current minimum" or initial "buy" price - our first opportunity to buy!
+  let currentMin = priceArray[0];
+
+  // initialize the maxProfit at -1, which will be the return if our stock price list allows for no profit
+  let maxProfit = -1;
+
+  // loop through the array starting with the value at the 1st index (we're skipping the 0th index since that has been claimed as our initial "buy" price and can never be our "sell" price
+  for (let i = 1; i < priceArray.length; i++) {
+
+    const currentPrice = priceArray[i];
+
+    // initially assume the "current price" is the "sell" price - and determine a potential profit based on that transaction
+    const currentProfit = currentPrice - currentMin;
+
+    // if this potential profit is greater than the "max profit" we've been tracking, re-assign the max profit to this current profit
+    if (currentProfit > maxProfit) {
+      maxProfit = currentProfit;
+    }
+
+    // we're also still hunting for the best purchase price, so we're comparing each price in the array to the "current min"
+    if (currentPrice < currentMin) {
+      currentMin = currentPrice;
+    }
+
+  }
+
+  // after looping through every value in the array, we return the maximum profit!
+  return maxProfit;
+
+}
+
+function rateLimitedRequest(url, callback) {
+  const requestQueue = [];
+  let lastRequestTime = 0;
+
+  return () => {
+    const now = Date.now();
+    const delay = Math.max(0, lastRequestTime + 1000 - now); // 1 request per second
+
+    requestQueue.push({ url, callback });
+
+    setTimeout(() => {
+      const { url, callback } = requestQueue.shift();
+      axios.get(url)
+        .then(response => callback(null, response.data))
+        .catch(error => callback(error));
+
+      lastRequestTime = Date.now();
+    }, delay);
+  }
+}
+
 module.exports = {
   parse_csv_to_json,
   parallel,
