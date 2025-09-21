@@ -503,6 +503,19 @@ Make sure you read [Contributing Guide](CONTRIBUTING.md) before making your cont
 
 [List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
 
+[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ### 🧑‍💻Develop
 Let's start development!
 
