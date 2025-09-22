@@ -1032,14 +1032,28 @@ router.get("/news", async function (req, res) {
       })
     );
 
-    jsons.forEach((json) => news_posts.push(...json));
-    news_posts.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
+    jsons
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+      .forEach((json) => news_posts.push(...json));
 
-    logger.debug("Retrieved news ", news_posts);
+    let updated = news_posts.map(news => {
+      let source = news.guid.rendered.split('?')[0];
 
-    res.json(news_posts);
+      return {
+        id: news.id,
+        date: news.date,
+        source: source,
+        link: news.link,
+        title: news.title.rendered,
+        content: news.content.rendered,
+        excerpt: news.excerpt.rendered,
+        image: news?.jetpack_featured_media_url || "" // ?? `${source}wp-json/wp/v2/media/${news.id}`,
+      }
+    })
+
+    logger.debug("Retrieved news ", updated);
+
+    res.json(updated);
   } catch (error) {
     logger.error("An error occurred:", {
       error: error.message,
