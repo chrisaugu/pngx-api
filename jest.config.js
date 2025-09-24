@@ -11,10 +11,10 @@ module.exports = {
   moduleFileExtensions: ["js", "json", "node"],
   testPathIgnorePatterns: ["/package", "/sdk", ""],
   testTimeout: 30000,
-  setupFilesAfterEnv: ['./tests/setup.js'],
+  setupFilesAfterEnv: ["./tests/setup.js"],
   collectCoverageFrom: [
-    'routes/**/*.js',
-    'models/**/*.js',
-    '!**/node_modules/**',
+    "routes/**/*.js",
+    "models/**/*.js",
+    "!**/node_modules/**",
   ],
 };

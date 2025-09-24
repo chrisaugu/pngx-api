@@ -16,6 +16,7 @@ const {
   LOCAL_TIMEZONE_FORMAT,
 } = require("./constants");
 const Env = require("./config/env");
+const logger = require("./libs/logger").winstonLogger;
 
 const csvOptions = {
   header: true,
@@ -57,9 +58,9 @@ function format_date(date) {
       )
     )
   ) {
-    let parseDate = parse(date, "dd/MM/yyyy", new Date());
+    const parseDate = parse(date, "dd/MM/yyyy", new Date());
     // fixing timezone issues on clever-cloud.io
-    let localTime = formatInTimeZone(
+    const localTime = formatInTimeZone(
       parseDate,
       LOCAL_TIMEZONE,
       LOCAL_TIMEZONE_FORMAT
@@ -76,8 +77,8 @@ function format_date(date) {
 }
 
 function normalize_data(data) {
-  let quote = {};
-  let formattedDate = format_date(data["Date"]);
+  const quote = {};
+  const formattedDate = format_date(data["Date"]);
 
   quote["date"] = formattedDate;
   quote["code"] = data["Short Name"];
@@ -105,7 +106,7 @@ function normalize_data(data) {
 function convertStringToNumber(str) {
   if (_.isString(str)) {
     if (str.includes(",")) {
-      let num = Number(str.split(",").join(""));
+      const num = Number(str.split(",").join(""));
       return num;
     } else {
       return Number(str);
@@ -129,7 +130,7 @@ async function parallel(arr, fn, threads = 2) {
  * Parses CSV format to JSON format for easy manipulation of data
  */
 function parse_csv_to_json2(body) {
-  console.log("parsing csv to json");
+  logger.debug("parsing csv to json");
   var i = [];
   // split the data into array by whitespaces
   // var o = body.split(/\r\n|\n/);
@@ -162,13 +163,13 @@ function parse_csv_to_json2(body) {
 function parse_csv_to_json(csv) {
   // Parse local CSV file
   // Stream big file in worker thread
-  let { errors, data, meta } = Papa.parse(csv, {
+  const { errors, data, meta } = Papa.parse(csv, {
     ...csvOptions,
     // step: function(results) {
     // 	results['data'] = normalize_data(results.data)
     // },
     // chunk: function(chunks) {
-    // 	console.log(chunks)
+    // 	logger.debug(chunks)
     // },
     // complete: function (results) {
     //   // Remove empty columns
@@ -183,7 +184,7 @@ function parse_csv_to_json(csv) {
     //     return newRow;
     //   });
 
-    //   console.log(cleanedData);
+    //   logger.debug(cleanedData);
     // },
     // complete: function (results) {
     //   // Filter out empty columns (by checking the header row)
@@ -198,14 +199,14 @@ function parse_csv_to_json(csv) {
     //   // Rebuild cleaned data
     //   const cleanedData = data.map((row) => validIndexes.map((i) => row[i]));
 
-    //   console.log(cleanedData);
+    //   logger.debug(cleanedData);
     //   return cleanedData;
     // },
     // transformHeader: function (header) {
     //   if (header.trim() !== "") return header;
     // },
     // complete: function (results) {
-    //   console.log(results.data);
+    //   logger.debug(results.data);
     // },
   });
 
@@ -222,7 +223,7 @@ function parse_csv_to_json(csv) {
  */
 const keyGenerator = (request, _response) => {
   if (!request.ip) {
-    console.error("Warning: request.ip is missing!");
+    logger.error("Warning: request.ip is missing!");
     return request.socket.remoteAddress;
   }
 
@@ -231,7 +232,7 @@ const keyGenerator = (request, _response) => {
 
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    let r = (Math.random() * 16) | 0,
+    const r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
@@ -253,7 +254,8 @@ const verifySignature = (secret, payload, signature) => {
 };
 
 function generateSignature(secret, method, url, timestamp, body) {
-  if (!secret || !payload || !signature) throw new Error("Secret, payload or signature is missing.");
+  if (!secret || !payload || !signature)
+    throw new Error("Secret, payload or signature is missing.");
 
   const hmac = crypto.createHmac("SHA256", secret);
   if (body) {
@@ -306,13 +308,12 @@ const processLargeFile = async (file) => {
 };
 
 /**
- * 
- * @param {*} priceArray 
- * @returns 
+ *
+ * @param {*} priceArray
+ * @returns
  * @see https://medium.com/@mcraepetrey/algorithms-in-javascript-solving-the-stock-market-problem-2ca3321f9eda
  */
 const stockMarket = (priceArray) => {
-
   // first check to make sure there's more than 1 value in the stock list!
   if (priceArray.length < 2) {
     return -1;
@@ -326,7 +327,6 @@ const stockMarket = (priceArray) => {
 
   // loop through the array starting with the value at the 1st index (we're skipping the 0th index since that has been claimed as our initial "buy" price and can never be our "sell" price
   for (let i = 1; i < priceArray.length; i++) {
-
     const currentPrice = priceArray[i];
 
     // initially assume the "current price" is the "sell" price - and determine a potential profit based on that transaction
@@ -341,13 +341,11 @@ const stockMarket = (priceArray) => {
     if (currentPrice < currentMin) {
       currentMin = currentPrice;
     }
-
   }
 
   // after looping through every value in the array, we return the maximum profit!
   return maxProfit;
-
-}
+};
 
 function rateLimitedRequest(url, callback) {
   const requestQueue = [];
@@ -361,13 +359,14 @@ function rateLimitedRequest(url, callback) {
 
     setTimeout(() => {
       const { url, callback } = requestQueue.shift();
-      axios.get(url)
-        .then(response => callback(null, response.data))
-        .catch(error => callback(error));
+      axios
+        .get(url)
+        .then((response) => callback(null, response.data))
+        .catch((error) => callback(error));
 
       lastRequestTime = Date.now();
     }, delay);
-  }
+  };
 }
 
 module.exports = {

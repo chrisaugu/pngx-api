@@ -4,7 +4,9 @@ module.exports.redisConfig = {
   username: "default" || "redis",
   password: "62XYZ42fkK3BXuF2qMdccTH94UltWWkQ" || "secret",
   socket: {
-    host: "redis-19155.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com" || "localhost",
+    host:
+      "redis-19155.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com" ||
+      "localhost",
     port: 19155 || 6379,
   },
   port: 6379,

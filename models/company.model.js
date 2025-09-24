@@ -42,8 +42,8 @@ companySchema.index({ ticker: 1 });
 
 /**
  * Update company data by ticker code/symbol
- * @param {*} cb 
- * @returns 
+ * @param {*} cb
+ * @returns
  * @usage: company.updateData((err, res) => {})
  */
 companySchema.methods.updateData = function (cb) {
@@ -52,18 +52,18 @@ companySchema.methods.updateData = function (cb) {
 
 /**
  * byName query helper
- * @param {*} name 
- * @returns 
+ * @param {*} name
+ * @returns
  * @usage: Company.find().byName('name').exec((err, res) => {})
  */
-companySchema.query.byName = function(name) {
+companySchema.query.byName = function (name) {
   return this.where({ name: new RegExp(name, "i") });
 };
 
 /**
  * find company by ticker code/symbol
- * @param {*} cb 
- * @returns 
+ * @param {*} cb
+ * @returns
  * @usage: Company.findByCode((err, res) => {})
  */
 companySchema.statics.findByCode = function (cb) {
@@ -72,8 +72,8 @@ companySchema.statics.findByCode = function (cb) {
 
 /**
  * find company by name
- * @param {*} name 
- * @returns 
+ * @param {*} name
+ * @returns
  * @usage: Company.findByName('name').then((res) => {}).catch((err) => {})
  */
 companySchema.statics.findByName = function (name) {

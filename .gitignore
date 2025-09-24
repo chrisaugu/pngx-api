@@ -36,3 +36,4 @@ certs
 output
 package/build
 sdk
+.postman

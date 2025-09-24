@@ -41,5 +41,3 @@ describe("Route with External Dependency", () => {
       });
   });
 });
-
-

@@ -17,8 +17,8 @@ initDatabase()
     );
     // cron.schedule("30 8 * * *", async () => {
     SYMBOLS.forEach(async (quote) => {
-      let dbData = await fetchDataFromDB(quote);
-      let sourceData = await fetchDataFromPNGX(quote);
+      const dbData = await fetchDataFromDB(quote);
+      const sourceData = await fetchDataFromPNGX(quote);
 
       if (!_.isArray(dbData) && !_.isArray(sourceData)) {
         throw new Error("dbData and sourceData must be both arrays");

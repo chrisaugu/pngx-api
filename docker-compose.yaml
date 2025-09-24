@@ -1,10 +1,11 @@
 services:
   healthcheck:
-    test: ["CMD-SHELL", "curl -f http://localhost:${PORT:-5000}/health || exit 1"]
+    test:
+      ["CMD-SHELL", "curl -f http://localhost:${PORT:-5000}/health || exit 1"]
     interval: 10s
     timeout: 5s
     retries: 3
-    
+
   nuku-api:
     container_name: nuku-api
     build:
@@ -19,7 +20,7 @@ services:
     restart: always
     networks:
       - nuku-api-network
-  
+
   # nuku-worker:
   #   build: .
   #     # context: ./nuku-redis-worker
@@ -28,7 +29,7 @@ services:
   #   restart: always
   #   depends_on:
   #     - nuku-redis
-  
+
   # nuku-etl:
   #   container_name: nuku-etl
   #   build:
@@ -52,7 +53,6 @@ services:
   # nuku-price-consumer-service:
   #   depends_on:
   #     - nuku-redis
-
 #   nuku-redis:
 #     # image: redis
 #     image: redis:7.2.4-alpine

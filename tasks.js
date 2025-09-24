@@ -112,11 +112,11 @@ const fetchWithRetry = async (url, options) => {
  * hello
  */
 function get_quotes_from_pngx(code) {
-  let options = {};
+  const options = {};
 
   return new Promise(function (resolve, reject) {
     if (undefined !== typeof code) {
-      let url = PNGX_DATA_URL + code + ".csv";
+      const url = PNGX_DATA_URL + code + ".csv";
       make_async_request(url, options)
         .then(function (response) {
           // resolve(typeof callback == 'function' ? new callback(response) : response);
@@ -155,7 +155,7 @@ async function data_fetcher() {
 
   for (var i = 0; i < SYMBOLS.length; i++) {
     reqTimes++;
-    let symbol = SYMBOLS[i];
+    const symbol = SYMBOLS[i];
     console.debug("Fetching quotes for " + symbol + " ...");
     /**
      * insert new data from pngx into the local database
@@ -169,7 +169,7 @@ async function data_fetcher() {
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
       .then((quotes) => {
         // console.debug("Fetched quotes for " + symbol);
-        let totalCount = quotes.length,
+        const totalCount = quotes.length,
           totalAdded = 0,
           index = totalCount - 1,
           recordExist = false;
@@ -178,7 +178,7 @@ async function data_fetcher() {
 
         // iterate through the dataset and add each data element to the db
         do {
-          let quote = quotes[index]; // latest quote
+          const quote = quotes[index]; // latest quote
           console.debug(
             `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
           );
@@ -198,7 +198,7 @@ async function data_fetcher() {
                 console.debug("Results not found");
                 console.debug("Adding quote for " + symbol + " ...");
 
-                let stock = new Stock(quote);
+                const stock = new Stock(quote);
                 stock
                   .save()
                   .then(() => {
@@ -246,7 +246,7 @@ async function data_fetcher() {
 exports.data_fetcher = data_fetcher;
 
 async function check_if_exist_in_database(code, date) {
-  let result = await Stock.findOne({
+  const result = await Stock.findOne({
     date: date,
     code: code,
   });
@@ -256,10 +256,14 @@ async function check_if_exist_in_database(code, date) {
 exports.check_if_exist_in_database = check_if_exist_in_database;
 
 async function stock_fetcher() {
-  let result = await Stock.find();
+  const result = await Stock.find();
   return result;
 }
 exports.stock_fetcher = stock_fetcher;
+
+exports.news_fetcher = async () => {
+  return result;
+};
 
 exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
   Stock.find({

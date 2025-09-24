@@ -22,14 +22,14 @@ setInterval(() => {
 }, TIMEOUT);
 
 setInterval(async () => {
-  let tickers = await getTickers();
+  const tickers = await getTickers();
   tickers.forEach((ticker) => {
     publisher.publish(`tickers:${ticker.symbol}`, JSON.stringify(ticker));
   });
 }, TIMEOUT);
 
 setInterval(async () => {
-  let quotes = await getQuotes();
+  const quotes = await getQuotes();
   // publisher.publish("quotes:*", JSON.stringify({ ticker: "PNGX", price: 12.45 }));
   quotes.forEach((quote) => {
     publisher.publish(`quotes:${quote.code}`, JSON.stringify(quote));

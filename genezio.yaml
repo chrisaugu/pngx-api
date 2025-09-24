@@ -9,32 +9,32 @@ yamlVersion: 2
 #         type: "mongodb"
 #         uri: ${{env.MONGO_DB_URI}}
 backend:
-    path: .
-    scripts:
-        deploy:
-            - npm install
-        local:
-            - npm install
-    language:
-        name: js
-        packageManager: npm
-#         runtime: nodejs20.x
-    functions:
-#         - entry: serverless.js
-#           handler: handler
-#           name: server
-#           path: ./
-#           type: aws
-        # - name: serverless
-        #   path: .
-        #   handler: handler
-        #   entry: ./serverless.js
-        #   type: aws
-        # The name (label) of the function.
-        - name: express
-          path: ./
-          # The entry point for the function.
-          entry: server.js
-          # The compatibility of the function handler.
-          type: httpServer
-        #   MONGODB_URI: ${{services.databases.shivering-wolverine-db.uri}}
+  path: .
+  scripts:
+    deploy:
+      - npm install
+    local:
+      - npm install
+  language:
+    name: js
+    packageManager: npm
+  #         runtime: nodejs20.x
+  functions:
+    #         - entry: serverless.js
+    #           handler: handler
+    #           name: server
+    #           path: ./
+    #           type: aws
+    # - name: serverless
+    #   path: .
+    #   handler: handler
+    #   entry: ./serverless.js
+    #   type: aws
+    # The name (label) of the function.
+    - name: express
+      path: ./
+      # The entry point for the function.
+      entry: server.js
+      # The compatibility of the function handler.
+      type: httpServer
+    #   MONGODB_URI: ${{services.databases.shivering-wolverine-db.uri}}

@@ -14,8 +14,19 @@ const {
   BASE_URL,
   LOCAL_TIMEZONE,
 } = require("../constants");
-const { Stock, Company, Ticker, Indices, NewsSource } = require("../models/index");
+const {
+  Stock,
+  Company,
+  Ticker,
+  Indices,
+  NewsSource,
+} = require("../models/index");
 const logger = require("../libs/logger").winstonLogger;
+const { Worker, isMainThread } = require("node:worker_threads");
+const path = require("path");
+const { cache } = require("../middlewares");
+
+const childWorkerPath = path.resolve(process.cwd(), "./jobs/news.js");
 const base_url = new URL(BASE_URL);
 
 /**
@@ -71,7 +82,7 @@ router.get("/", function (req, res) {
  * @param :ticker unique ticker of the comapny
  */
 router.get("/company/:ticker", function (req, res) {
-  let stockTicker = req.params.ticker;
+  const stockTicker = req.params.ticker;
 
   logger.info("Retrieving companies on PNGX");
 
@@ -106,7 +117,7 @@ router
     try {
       logger.info("Retrieving companies on PNGX");
 
-      let companies = await Company.find({});
+      const companies = await Company.find({});
 
       logger.debug("Companies retrieved", companies);
       res.json(companies);
@@ -150,24 +161,24 @@ router
 router
   .route("/companies/:code")
   .get(async function (req, res) {
-    let { code } = req.params;
+    const { code } = req.params;
 
     try {
       logger.info("Retrived company details");
-      let company = await Company.findByCode(code, function (err, company) {
+      const company = await Company.findByCode(code, function (err, company) {
         if (err) {
           logger.error("Error retrieving stocks", {
             error: err.message,
             stack: err.stack,
             params: req.params,
             query: req.query,
-          })
+          });
           return res.status(500).json({
             status: 500,
             message: "Internal Server Error",
-          })
+          });
         }
-        return company
+        return company;
       });
 
       logger.debug("Retrived company details", company);
@@ -182,7 +193,7 @@ router
     }
   })
   .post(async function (req, res) {
-    let update = req.body;
+    const update = req.body;
 
     try {
       logger.info("Adding company");
@@ -200,7 +211,7 @@ router
       //   });
       // });
 
-      let company = await Company.create(update);
+      const company = await Company.create(update);
 
       logger.debug("Company added", company);
       res.json(company);
@@ -217,12 +228,12 @@ router
     }
   })
   .put(async function (req, res) {
-    let { id } = req.params;
-    let update = req.body;
+    const { id } = req.params;
+    const update = req.body;
 
     try {
       logger.info("Updating company");
-      let company = await Company.findByIdAndUpdate(id, update);
+      const company = await Company.findByIdAndUpdate(id, update);
 
       logger.debug("Company added", company);
       res.json(company);
@@ -284,19 +295,19 @@ router
  * @param :ticker unique ticker of the comapny
  */
 router.route("/companies/:code/code").get(async function (req, res) {
-  let { code } = req.params;
+  const { code } = req.params;
 
-  let company = await Company.findOne({ ticker: new RegExp(code, "i") });
+  const company = await Company.findOne({ ticker: new RegExp(code, "i") });
 
   res.json(company);
 });
 
 router.get("/company/:code", async function (req, res) {
-  let stockTicker = req.params.ticker;
+  const stockTicker = req.params.ticker;
 
-  let company = await Company.findOne({ ticker: stockTicker });
+  const company = await Company.findOne({ ticker: stockTicker });
 
-  let data = {
+  const data = {
     ...data,
   };
 
@@ -357,16 +368,16 @@ router.get("/stocks/historicals/:code", function (req, res) {
       message: "`code` is required",
     });
   }
-  let code = req.params.code;
-  let date = req.query.date;
-  let start = req.query.start;
-  let end = req.query.end;
-  let limit = parseInt(req.query.limit);
-  let sort = parseInt(req.query.sort);
-  let skip = parseInt(req.query.skip);
-  let fields = req.query.fields;
+  const code = req.params.code;
+  const date = req.query.date;
+  const start = req.query.start;
+  const end = req.query.end;
+  const limit = parseInt(req.query.limit);
+  const sort = parseInt(req.query.sort);
+  const skip = parseInt(req.query.skip);
+  const fields = req.query.fields;
 
-  let stock = Stock.find();
+  const stock = Stock.find();
   stock.where({ code: code });
   stock.select("date code close high low open vol_today");
 
@@ -506,9 +517,9 @@ router.get("/historicals/:code/essentials", (req, res) => {
   res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}/essentials`);
 });
 router.get("/stocks/historicals/:code/essentials", function (req, res) {
-  let code = req.params.code;
+  const code = req.params.code;
 
-  let stock = Stock.find({});
+  const stock = Stock.find({});
   // stock.where({ 'code': code });
   // stock.select('date bid offer code close high low open vol_today');
 
@@ -516,9 +527,9 @@ router.get("/stocks/historicals/:code/essentials", function (req, res) {
     .exec()
     .then(function (stocks) {
       const count = stocks.length;
-      let dates = [];
-      let bids = [];
-      let offers = [];
+      const dates = [];
+      const bids = [];
+      const offers = [];
 
       if (stocks && stocks.length > 0) {
         stocks.forEach(function (stock) {
@@ -588,15 +599,15 @@ router.get("/stocks", function (req, res) {
   let date = req.query.date;
   let start = req.query.start;
   let end = req.query.end;
-  let limit = parseInt(req.query.limit) || SYMBOLS.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
-  let sort = parseInt(req.query.sort);
-  let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
-  let fields = req.query.fields;
-  let code = req.query.code || req.query.symbol || req.query.ticker;
+  const limit = parseInt(req.query.limit) || SYMBOLS.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
+  const sort = parseInt(req.query.sort);
+  const skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
+  const fields = req.query.fields;
+  const code = req.query.code || req.query.symbol || req.query.ticker;
 
   logger.info("Retriving today's quotes");
 
-  let query = Stock.find();
+  const query = Stock.find();
 
   var dateStr = {
     date: new Date().toDateString(),
@@ -606,7 +617,7 @@ router.get("/stocks", function (req, res) {
     if (Number.isInteger(Number(date))) {
       date = Number(date);
     }
-    let $date = new Date(date);
+    const $date = new Date(date);
 
     dateStr["date"] = $date.toDateString();
     query.where({ date: $date });
@@ -617,7 +628,7 @@ router.get("/stocks", function (req, res) {
     if (Number.isInteger(Number(start))) {
       start = Number(start);
     }
-    let $start = new Date(start);
+    const $start = new Date(start);
     console.log($start);
 
     Object.assign(dateStr["date"], { start: $start.toDateString() });
@@ -628,7 +639,7 @@ router.get("/stocks", function (req, res) {
     if (Number.isInteger(Number(end))) {
       end = Number(end);
     }
-    let $end = new Date(end);
+    const $end = new Date(end);
 
     Object.assign(dateStr["date"], { end: $end.toDateString() });
     query.where({ date: { $lte: $end } });
@@ -769,7 +780,7 @@ router.get("/stocks", function (req, res) {
  * @param :code - a unique code that represents the quote/stock of a public company on PNGX
  */
 router.get("/stocks/:code", function (req, res) {
-  let code = req.params.code;
+  const code = req.params.code;
 
   logger.info(`Retriving stocks for ${code}`);
 
@@ -805,7 +816,7 @@ router.get("/stocks/:code/ohlcv/", async function (req, res) {
   const code = req.params.code;
 
   Stock.find({ code: code }).then((stocks) => {
-    let history = stocks
+    const history = stocks
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .map((stock) => ({
         date: stock.date,
@@ -846,7 +857,7 @@ router.get("/stocks/:code/ohlcv/history", async function (req, res) {
   //   return isValid;
   // });
 
-  let query = Stock.find({ code: code });
+  const query = Stock.find({ code: code });
 
   if (limit) {
     query.limit(limit);
@@ -861,7 +872,7 @@ router.get("/stocks/:code/ohlcv/history", async function (req, res) {
   }
 
   query.exec().then((stocks) => {
-    let history = stocks.map((stock) => ({
+    const history = stocks.map((stock) => ({
       open: stock.open,
       high: stock.high,
       low: stock.low,
@@ -910,7 +921,7 @@ router.get("/stocks/tickers", async function (req, res) {
   logger.info("Retriving tickers");
 
   try {
-    let tickers = await Ticker.find({});
+    const tickers = await Ticker.find({});
 
     logger.debug("Tickers retrieved ", tickers);
 
@@ -989,11 +1000,11 @@ router.get("/stocks/tickers/:code", async (req, res) => {
   const code = req.params.code;
 
   Ticker.find({ code: code }).then((ticker) => {
-    console.log(ticker)
+    console.log(ticker);
 
     if (ticker) {
       res.status(200).json({
-        ticker
+        ticker,
       });
     }
   });
@@ -1002,113 +1013,89 @@ router.get("/stocks/tickers/:code", async (req, res) => {
 /**
  * /api/v2/news
  */
-router.get("/news", async function (req, res) {
-  let page = req.query.page;
-
-  logger.info("Retrieving news");
-
-  let headers = new Headers();
-  headers.set("User-Agent", "");
-
-  // let NEWS_URL = 'https://www.pngx.com.pg/feed/';
-  let NEWS_URLS = [
-    "https://www.pngx.com.pg/wp-json/wp/v2/posts",
-    "https://www.postcourier.com.pg/wp-json/wp/v2/posts",
-    "https://www.thenational.com.pg/wp-json/wp/v2/posts",
-  ];
-  let news_posts = [];
+router.get("/news", cache(10), async function (req, res) {
+  const page = req.query.page;
 
   try {
-    const jsons = await Promise.all(
-      NEWS_URLS.map(async (url) => {
-        if (page) {
-          url += "?page=" + page;
+    if (isMainThread) {
+      logger.info("[Main_Thread]: Retrieving news");
+
+      const payload = {
+        page: page,
+      };
+
+      const worker = new Worker(childWorkerPath);
+      worker.postMessage(payload);
+
+      worker.on("message", (result) => {
+        logger.debug("completed: ", result);
+        logger.debug("Retrieved news ", result);
+        return res.json(result);
+      });
+
+      worker.on("error", (error) => {
+        logger.error(`Error occured`, error);
+        throw new Error(`Error occured`, error);
+      });
+
+      worker.on("exit", (exitCode) => {
+        if (exitCode !== 0) {
+          logger.error(`Worker stopped with exit code ${exitCode}`);
+          throw new Error(`Worker stopped with exit code ${exitCode}`);
         }
-        const r = await fetch(url, {
-          method: "GET",
-          mode: "cors",
-        });
-        return await r.json();
-      })
-    );
-
-    jsons
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-      .forEach((json) => news_posts.push(...json));
-
-    let updated = news_posts.map(news => {
-      let source = news.guid.rendered.split('?')[0];
-
-      return {
-        id: news.id,
-        date: news.date,
-        source: source,
-        link: news.link,
-        title: news.title.rendered,
-        content: news.content.rendered,
-        excerpt: news.excerpt.rendered,
-        image: news?.jetpack_featured_media_url || "" // ?? `${source}wp-json/wp/v2/media/${news.id}`,
-      }
-    })
-
-    logger.debug("Retrieved news ", updated);
-
-    res.json(updated);
+      });
+    }
   } catch (error) {
-    logger.error("An error occurred:", {
+    logger.error("An error whilte fetching news:", {
       error: error.message,
       stack: error.stack,
-      body: req.body,
-      params: req.params,
-      query: req.query,
     });
-    res.json({ message: "An error occurred:", error });
+
+    res.json({ message: "An error whilte fetching news:", error });
   }
 });
 router.get("/news/sources", function (req, res) {
-  NewsSource
-    .find({})
+  NewsSource.find({})
     .then((result) => {
-
       res.status(200).json({
         status: 200,
-        data: result
+        data: result,
       });
     })
-    .catch(err => {
-      logger
+    .catch((err) => {
+      logger;
       res.json({
         status: 1,
-        reason: ''
+        reason: "",
       });
     });
 });
 router.post("/news/sources", function (req, res) {
   const { name, url } = req.body;
-  logger.debug("Adding news source: ", name, url)
+  logger.debug("Adding news source: ", name, url);
 
   if (!name) {
     return res.status(300).json({
       status: 300,
-      message: "Name must be of type 'string' and cannot be empty"
-    })
+      message: "Name must be of type 'string' and cannot be empty",
+    });
   }
   if (!url) {
     return res.status(300).json({
       status: 300,
-      message: "URL must be of type 'string' and cannot be empty"
-    })
+      message: "URL must be of type 'string' and cannot be empty",
+    });
   }
 
   const source = new NewsSource({
     name,
-    url
+    url,
   });
 
   source
     .save()
     .then((result) => {
-      logger.debug("News Source added: ", result)
+      logger.debug("News Source added: ", result);
       res.sendStatus(201);
     })
     .catch((error) => {
@@ -1119,19 +1106,18 @@ router.post("/news/sources", function (req, res) {
       });
       res.status(500).json({
         status: 500,
-        message: "Error occurred while adding news source. Please try again"
+        message: "Error occurred while adding news source. Please try again",
       });
-    })
+    });
 });
 router.get("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
 
-  logger.debug("Retrieving News Source: ", newsSourceId)
+  logger.debug("Retrieving News Source: ", newsSourceId);
 
-  NewsSource
-    .findById(newsSourceId)
+  NewsSource.findById(newsSourceId)
     .then((result) => {
-      logger.debug("News Source retrieved: ", result)
+      logger.debug("News Source retrieved: ", result);
       res.json(result);
     })
     .catch((error) => {
@@ -1142,27 +1128,27 @@ router.get("/news/sources/:newsSourceId", function (req, res) {
       });
       res.status(500).json({
         error: "Internal server error",
-        message: "Error occurred while retrieving news source. Please try again"
+        message:
+          "Error occurred while retrieving news source. Please try again",
       });
     });
 });
 router.put("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
   const { name, url } = req.body;
-  let payload = {};
+  const payload = {};
 
   if (!name) {
-    payload['name'] = name;
+    payload["name"] = name;
   }
 
   if (!url) {
-    payload['url'] = url;
+    payload["url"] = url;
   }
 
-  NewsSource
-    .findByIdAndUpdate(newsSourceId, payload)
+  NewsSource.findByIdAndUpdate(newsSourceId, payload)
     .then((result) => {
-      logger.debug("News Source updated: ", result)
+      logger.debug("News Source updated: ", result);
       res.json(result);
     })
     .catch((error) => {
@@ -1173,27 +1159,26 @@ router.put("/news/sources/:newsSourceId", function (req, res) {
       });
       res.status(500).json({
         status: 500,
-        message: "Error occurred while updating news source. Please try again"
+        message: "Error occurred while updating news source. Please try again",
       });
     });
 });
 router.patch("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
   const { name, url } = req.body;
-  let payload = {};
+  const payload = {};
 
   if (!name) {
-    payload['name'] = name;
+    payload["name"] = name;
   }
 
   if (!url) {
-    payload['url'] = url;
+    payload["url"] = url;
   }
 
-  NewsSource
-    .findByIdAndUpdate(newsSourceId, payload)
+  NewsSource.findByIdAndUpdate(newsSourceId, payload)
     .then((result) => {
-      logger.debug("News Source updated: ", result)
+      logger.debug("News Source updated: ", result);
       res.json(result);
     })
     .catch((error) => {
@@ -1204,17 +1189,16 @@ router.patch("/news/sources/:newsSourceId", function (req, res) {
       });
       res.status(500).json({
         status: 500,
-        message: "Error occurred while updating news source. Please try again"
+        message: "Error occurred while updating news source. Please try again",
       });
     });
 });
 router.delete("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
 
-  NewsSource
-    .findByIdAndDelete(newsSourceId)
+  NewsSource.findByIdAndDelete(newsSourceId)
     .then((result) => {
-      logger.debug("News Source retrieved: ", result)
+      logger.debug("News Source retrieved: ", result);
       res.json(result);
     })
     .catch((error) => {
@@ -1225,14 +1209,13 @@ router.delete("/news/sources/:newsSourceId", function (req, res) {
       });
       res.status(500).json({
         status: 500,
-        message: "Error occurred while deleting news source. Please try again"
+        message: "Error occurred while deleting news source. Please try again",
       });
     });
 });
 
-
-let clients = [];
-let facts = [{ info: "hello", source: "world" }];
+const clients = [];
+const facts = [{ info: "hello", source: "world" }];
 
 function eventsHandler(req, res, next) {
   // Set headers to keep the connection alive and tell the client we're sending event-stream data
@@ -1347,7 +1330,7 @@ router.get("/market/holidays", async (req, res) => {
 });
 
 /**
- * 
+ *
  */
 router.get("/indices", (req, res) => {
   Indices.find({})

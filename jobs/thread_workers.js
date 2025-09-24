@@ -10,10 +10,14 @@ const { initDatabase } = require("../database");
 // Creating an instance for MongoDB
 initDatabase()
   .on("connected", function () {
-    console.log("[Threads_Worker]: Connected: Successfully connect to mongo server on the worker");
+    console.log(
+      "[Threads_Worker]: Connected: Successfully connect to mongo server on the worker"
+    );
   })
   .on("error", function () {
-    console.log("[Threads_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+    console.log(
+      "[Threads_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+    );
   });
 
 // if (isMainThread) {
@@ -28,8 +32,8 @@ initDatabase()
 // }
 
 (async () => {
-  let result = await data_fetcher();
-  parentPort.postMessage('completed');
+  const result = await data_fetcher();
+  parentPort.postMessage("completed");
 })();
 
 // var num = parseInt(prompt("enter num"));

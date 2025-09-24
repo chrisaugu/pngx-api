@@ -1,0 +1,18 @@
+# Ignore artifacts:
+.clinic
+.github
+.postman
+.vercel
+.well-known
+coverage
+demo
+docs
+images
+logs
+node_modules
+package
+sdk
+tests
+
+# Ignore all HTML files:
+**/*.html

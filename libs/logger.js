@@ -2,7 +2,11 @@ const winston = require("winston");
 const pino = require("pino");
 const { randomUUID } = require("node:crypto");
 const { ElasticsearchTransport } = require("winston-elasticsearch");
-const { winstonConfig, pinoConfig, apiUsageConfig } = require("../config/logger.config");
+const {
+  winstonConfig,
+  pinoConfig,
+  apiUsageConfig,
+} = require("../config/logger.config");
 
 // creates a new Winston Logger
 const winstonLogger = new winston.createLogger(winstonConfig);

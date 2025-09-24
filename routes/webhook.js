@@ -122,14 +122,14 @@ stock.delisted | Stock has been delisted from an exchange.
  */
 router.get("/webhooks", async (req, res) => {
   try {
-    const webhooks = await Webhook.find().select('-secret');
+    const webhooks = await Webhook.find().select("-secret");
     res.json(webhooks);
   } catch (error) {
     logger.error("Error occurred", {
       error: error.message,
       stack: error.stack,
       query: req.query,
-      params: req.params
+      params: req.params,
     });
     res.status(500).send("Server Error");
   }
@@ -144,7 +144,7 @@ router.post("/webhooks", async (req, res) => {
     logger.error("Error occurred", {
       error: error.message,
       stack: error.stack,
-      body: req.body
+      body: req.body,
     });
     res.status(500).send("Server Error");
   }
@@ -162,7 +162,7 @@ router.get("/webhooks/:id", async (req, res) => {
       error: error.message,
       stack: error.stack,
       query: req.query,
-      params: req.params
+      params: req.params,
     });
     res.status(500).send("Server Error");
   }
@@ -183,7 +183,7 @@ router.put("/webhooks/:id", async (req, res) => {
     logger.error("Error occurred", {
       error: error.message,
       stack: error.stack,
-      body: req.body
+      body: req.body,
     });
     res.status(500).send("Server Error");
   }
@@ -204,7 +204,7 @@ router.patch("/webhooks/:id", async (req, res) => {
     logger.error("Error occurred", {
       error: error.message,
       stack: error.stack,
-      body: req.body
+      body: req.body,
     });
     res.status(500).send("Server Error");
   }
@@ -251,7 +251,7 @@ router.post("/generate-event", async (req, res) => {
 
     // Send POST request to each webhook endpoint
     for (const webhook of webhooks) {
-      webhookPayload['id'] = `evt_${webhook.id}`
+      webhookPayload["id"] = `evt_${webhook.id}`;
       await axios.post(webhook?.url, webhookPayload);
     }
 
@@ -262,21 +262,27 @@ router.post("/generate-event", async (req, res) => {
     logger.error("Error generating event and triggering webhook:", {
       error: error.message,
       stack: error.stack,
-      body: req.body
+      body: req.body,
     });
     res.status(500).json({ error: "Internal server error" });
   }
 });
 
 function formatWebhook(webhook) {
-  return ([
-    { label: 'ID', value: webhook.id },
-    { label: 'Event', value: webhook.event },
-    { label: 'URL', value: webhook.url },
-    { label: 'Created at', value: new Date(webhook.createdAt).toLocaleString() },
-    { label: 'Updated at', value: new Date(webhook.updatedAt).toLocaleString() },
-  ]);
-};
+  return [
+    { label: "ID", value: webhook.id },
+    { label: "Event", value: webhook.event },
+    { label: "URL", value: webhook.url },
+    {
+      label: "Created at",
+      value: new Date(webhook.createdAt).toLocaleString(),
+    },
+    {
+      label: "Updated at",
+      value: new Date(webhook.updatedAt).toLocaleString(),
+    },
+  ];
+}
 
 router.post("/webhook-endpoint", (req, res) => {
   const signature = req.headers["x-signature"];
@@ -325,6 +331,5 @@ function sendWebhook(eventData) {
     )
     .catch((error) => console.error("Failed to send webhook:", error));
 }
-
 
 module.exports = router;

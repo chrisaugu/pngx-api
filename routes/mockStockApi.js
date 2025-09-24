@@ -39,9 +39,9 @@ async function getTickers() {
   // }
 
   return SYMBOLS.map((ticker) => {
-    let close = getRandomPrice();
-    let open = getRandomPrice();
-    let change = open - close;
+    const close = getRandomPrice();
+    const open = getRandomPrice();
+    const change = open - close;
 
     return {
       date: new Date().toISOString(),
@@ -65,9 +65,9 @@ async function getQuotes() {
   // }
 
   return SYMBOLS.map((quote) => {
-    let close = getRandomPrice();
-    let open = getRandomPrice();
-    let change = open - close;
+    const close = getRandomPrice();
+    const open = getRandomPrice();
+    const change = open - close;
 
     return {
       date: new Date().toISOString(),
@@ -86,17 +86,16 @@ async function getQuotes() {
   });
 }
 
-
 let randomFactor = 25 + Math.random() * 25;
-const samplePoint = (i) => (
+const samplePoint = (i) =>
   i *
-  (0.5 +
+    (0.5 +
       Math.sin(i / 1) * 0.2 +
       Math.sin(i / 2) * 0.4 +
       Math.sin(i / randomFactor) * 0.8 +
       Math.sin(i / 50) * 0.5) +
   200 +
-  i * 2);
+  i * 2;
 
 function generateData(
   numberOfCandles = 500,
@@ -104,19 +103,19 @@ function generateData(
   startAt = 100
 ) {
   const createCandle = (val, time) => ({
-      time,
-      open: val,
-      high: val,
-      low: val,
-      close: val,
+    time,
+    open: val,
+    high: val,
+    low: val,
+    close: val,
   });
 
   const updateCandle = (candle, val) => ({
-      time: candle.time,
-      close: val,
-      open: candle.open,
-      low: Math.min(candle.low, val),
-      high: Math.max(candle.high, val),
+    time: candle.time,
+    close: val,
+    open: candle.open,
+    low: Math.min(candle.low, val),
+    high: Math.max(candle.high, val),
   });
 
   randomFactor = 25 + Math.random() * 25;
@@ -127,34 +126,34 @@ function generateData(
   let lastCandle;
   let previousValue = samplePoint(-1);
   for (let i = 0; i < numberOfPoints; ++i) {
-      if (i % updatesPerCandle === 0) {
-          date.setUTCDate(date.getUTCDate() + 1);
+    if (i % updatesPerCandle === 0) {
+      date.setUTCDate(date.getUTCDate() + 1);
+    }
+    const time = date.getTime() / 1000;
+    let value = samplePoint(i);
+    const diff = (value - previousValue) * Math.random();
+    value = previousValue + diff;
+    previousValue = value;
+    if (i % updatesPerCandle === 0) {
+      const candle = createCandle(value, time);
+      lastCandle = candle;
+      if (i >= startAt) {
+        realtimeUpdates.push(candle);
       }
-      const time = date.getTime() / 1000;
-      let value = samplePoint(i);
-      const diff = (value - previousValue) * Math.random();
-      value = previousValue + diff;
-      previousValue = value;
-      if (i % updatesPerCandle === 0) {
-          const candle = createCandle(value, time);
-          lastCandle = candle;
-          if (i >= startAt) {
-              realtimeUpdates.push(candle);
-          }
-      } else {
-          const newCandle = updateCandle(lastCandle, value);
-          lastCandle = newCandle;
-          if (i >= startAt) {
-              realtimeUpdates.push(newCandle);
-          } else if ((i + 1) % updatesPerCandle === 0) {
-              initialData.push(newCandle);
-          }
+    } else {
+      const newCandle = updateCandle(lastCandle, value);
+      lastCandle = newCandle;
+      if (i >= startAt) {
+        realtimeUpdates.push(newCandle);
+      } else if ((i + 1) % updatesPerCandle === 0) {
+        initialData.push(newCandle);
       }
+    }
   }
 
   return {
-      initialData,
-      realtimeUpdates,
+    initialData,
+    realtimeUpdates,
   };
 }
 const data = generateData(2500, 20, 1000);
@@ -162,21 +161,20 @@ const data = generateData(2500, 20, 1000);
 // simulate real-time data
 function* getNextRealtimeUpdate(realtimeData) {
   for (const dataPoint of realtimeData) {
-      yield dataPoint;
+    yield dataPoint;
   }
   return null;
 }
 const streamingDataProvider = getNextRealtimeUpdate(data.realtimeUpdates);
 
-
-  // const intervalID = setInterval(() => {
-  //     const update = streamingDataProvider.next();
-  //     if (update.done) {
-  //         clearInterval(intervalID);
-  //         return;
-  //     }
-  //     series.update(update.value);
-  // }, 100);
+// const intervalID = setInterval(() => {
+//     const update = streamingDataProvider.next();
+//     if (update.done) {
+//         clearInterval(intervalID);
+//         return;
+//     }
+//     series.update(update.value);
+// }, 100);
 
 module.exports = {
   getStockData,
