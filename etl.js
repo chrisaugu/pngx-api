@@ -40,8 +40,8 @@ initDatabase()
     );
     // cron.schedule("30 8 * * *", async () => {
     SYMBOLS.forEach(async (quote) => {
-      let dbData = await fetchDataFromDB(quote);
-      let sourceData = await fetchDataFromPNGX(quote);
+      const dbData = await fetchDataFromDB(quote);
+      const sourceData = await fetchDataFromPNGX(quote);
 
       if (!_.isArray(dbData) && !_.isArray(sourceData)) {
         throw new Error("dbData and sourceData must be both arrays");
@@ -117,8 +117,8 @@ function run(dbData = [], source = []) {
   );
 
   for (let i = 0; i < source.length; i++) {
-    let sourceItem = source[i];
-    let key = format(sourceItem["date"], "yyyy-MM-dd");
+    const sourceItem = source[i];
+    const key = format(sourceItem["date"], "yyyy-MM-dd");
     const dbItem = dbDataMap.get(key);
     if (dbItem) {
       //   source.filter((d) => d.date != dbItem.date);

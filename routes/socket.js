@@ -23,7 +23,7 @@ const subClient = pubClient.duplicate();
 /**
  * Set up a Socket.IO server on an existing HTTP or HTTPS server.
  * This function initializes a Socket.IO server that listens for WebSocket connections
- * @param {http.Server | https.Server} httpServer 
+ * @param {http.Server | https.Server} httpServer
  * @returns {WebSocket.Server}
  */
 module.exports = (httpServer) => {
@@ -76,7 +76,7 @@ module.exports = (httpServer) => {
     // socket.broadcast.emit("hi");
 
     socket.on("chat", async (msg) => {
-      let result = {lastID: 1};
+      const result = { lastID: 1 };
       // try {
       //   // store the message in the database
       //   result = await db.run("INSERT INTO messages (content) VALUES (?)", msg);

@@ -1,114 +1,114 @@
 [
-    {
-        "date": "Wednesday 1 January 2025",
-        "description": "New Years Day",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Wednesday 26 February 2025",
-        "description": "National Remembrance Day of late Former Prime Minister, Great Grand Chief Rt. Hon. Sir Michael Thomas Somare.",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Thursday 17 April 2025",
-        "description": "",
-        "business_day": "Yes",
-        "trading_day": "Yes Market closes at 2.00pm",
-        "settlement_activity": "Yes"
-    },
-    {
-        "date": "Friday 18 April 2025",
-        "description": "Good Friday",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Monday 21 April 2025",
-        "description": "Easter Monday",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Tuesday 17 June 2025",
-        "description": "King's Birthday",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Wednesday 23 July 2025",
-        "description": "National Remembrance Day",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Tuesday 26 August 2025",
-        "description": "National Repentance Day",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Monday 15 September 2025",
-        "description": "",
-        "business_day": "Yes",
-        "trading_day": "Yes Market closes at 2.00pm",
-        "settlement_activity": "Yes"
-    },
-    {
-        "date": "Tuesday 16 September 2025",
-        "description": "Independence Day",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Wednesday 24 December 2025",
-        "description": "Christmas Eve",
-        "business_day": "Yes",
-        "trading_day": "Yes Market closes at 2.00pm",
-        "settlement_activity": "Yes"
-    },
-    {
-        "date": "Thursday 25 December 2025",
-        "description": "Christmas Day",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Friday 26 December 2025",
-        "description": "Boxing Day",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Wednesday 31 December 2025",
-        "description": "New Years Eve",
-        "business_day": "Yes",
-        "trading_day": "Yes Market closes at 2.00pm",
-        "settlement_activity": "Yes"
-    },
-    {
-        "date": "Thursday 1 January 2026",
-        "description": "New Years Day",
-        "business_day": "No",
-        "trading_day": "No Market closed",
-        "settlement_activity": "No"
-    },
-    {
-        "date": "Friday 2 January 2026",
-        "description": "",
-        "business_day": "Yes",
-        "trading_day": "Yes Market closes at 2.00pm",
-        "settlement_activity": "Yes"
-    }
+  {
+    "date": "Wednesday 1 January 2025",
+    "description": "New Years Day",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Wednesday 26 February 2025",
+    "description": "National Remembrance Day of late Former Prime Minister, Great Grand Chief Rt. Hon. Sir Michael Thomas Somare.",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Thursday 17 April 2025",
+    "description": "",
+    "business_day": "Yes",
+    "trading_day": "Yes Market closes at 2.00pm",
+    "settlement_activity": "Yes"
+  },
+  {
+    "date": "Friday 18 April 2025",
+    "description": "Good Friday",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Monday 21 April 2025",
+    "description": "Easter Monday",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Tuesday 17 June 2025",
+    "description": "King's Birthday",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Wednesday 23 July 2025",
+    "description": "National Remembrance Day",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Tuesday 26 August 2025",
+    "description": "National Repentance Day",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Monday 15 September 2025",
+    "description": "",
+    "business_day": "Yes",
+    "trading_day": "Yes Market closes at 2.00pm",
+    "settlement_activity": "Yes"
+  },
+  {
+    "date": "Tuesday 16 September 2025",
+    "description": "Independence Day",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Wednesday 24 December 2025",
+    "description": "Christmas Eve",
+    "business_day": "Yes",
+    "trading_day": "Yes Market closes at 2.00pm",
+    "settlement_activity": "Yes"
+  },
+  {
+    "date": "Thursday 25 December 2025",
+    "description": "Christmas Day",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Friday 26 December 2025",
+    "description": "Boxing Day",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Wednesday 31 December 2025",
+    "description": "New Years Eve",
+    "business_day": "Yes",
+    "trading_day": "Yes Market closes at 2.00pm",
+    "settlement_activity": "Yes"
+  },
+  {
+    "date": "Thursday 1 January 2026",
+    "description": "New Years Day",
+    "business_day": "No",
+    "trading_day": "No Market closed",
+    "settlement_activity": "No"
+  },
+  {
+    "date": "Friday 2 January 2026",
+    "description": "",
+    "business_day": "Yes",
+    "trading_day": "Yes Market closes at 2.00pm",
+    "settlement_activity": "Yes"
+  }
 ]

@@ -28,7 +28,6 @@ exports.createRedisClient = async () => {
   // const result = await redisClient.get("foo");
   // console.log(result); // >>> bar
 
-
   return redisClient;
 };
 

@@ -6,11 +6,11 @@ const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
 const createError = require("http-errors");
-const mcache = require('memory-cache');
+const mcache = require("memory-cache");
 const { ALLOWED_IP_LIST, ORIGINAL_URL } = require("./config");
 const logger = require("./libs/logger").winstonLogger;
 const apiUsageLogger = require("./libs/logger").apiUsageLogger;
-const createRedisClient = require('./libs/redis').createRedisClient;
+const createRedisClient = require("./libs/redis").createRedisClient;
 
 exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
   // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
@@ -239,29 +239,28 @@ exports.apiUsageLogMiddlware = (req, res, next) => {
  * @param {*} next
  */
 exports.globalProperties = function (req, res, next) {
-  let limit = req.query["limit"];
+  const limit = req.query["limit"];
   if (limit) {
   }
 };
 
 /**
  * cache response for the number of time specified in duration
- * @param {number} duration 
- * @returns 
+ * @param {number} duration
+ * @returns
  */
 exports.cache = (duration) => (req, res, next) => {
-  let key = '__express__'+ req.originalUrl || req.url;
-  let cachedBody = mcache.get(key);
+  const key = "__express__" + req.originalUrl || req.url;
+  const cachedBody = mcache.get(key);
   if (cachedBody) {
     res.send(cachedBody);
     return;
-  }
-  else {
+  } else {
     res.sendResponse = res.send;
     res.send = (body) => {
       mcache.put(key, body, duration * 1000);
       res.sendResponse(body);
-    }
+    };
     next();
   }
-}
+};

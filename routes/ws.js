@@ -2,7 +2,7 @@ const http = require("http");
 const https = require("https");
 const { WebSocketServer, WebSocket } = require("ws");
 const url = require("url");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const { randomUUID } = require("crypto");
 const queryString = require("querystring");
 const { isUint8Array } = require("util/types");
@@ -10,7 +10,7 @@ const { isUint8Array } = require("util/types");
 /**
  * Set up a WebSocket server on an existing HTTP or HTTPS server.
  * This function initializes a WebSocket server that listens for WebSocket connections
- * @param {http.Server | https.Server} httpServer 
+ * @param {http.Server | https.Server} httpServer
  * @returns {WebSocket.Server}
  */
 module.exports = (httpServer) => {
@@ -62,7 +62,7 @@ module.exports = (httpServer) => {
     const connectionParams = queryString.parse(params);
     const ip = request.socket.remoteAddress;
     // const ip = request.headers["X-Forwarded-For"].split(",")[0].trim();
-    const token = req.headers['sec-websocket-protocol'];
+    const token = req.headers["sec-websocket-protocol"];
     const user = authenticateToken(token);
 
     // if (!user) {
@@ -132,7 +132,7 @@ module.exports = (httpServer) => {
   };
 
   function authenticateToken(token) {
-    return jwt.verify(token, 'your-secret-key', (err, user) => {
+    return jwt.verify(token, "your-secret-key", (err, user) => {
       if (err) return null;
       return user;
     });

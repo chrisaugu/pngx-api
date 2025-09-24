@@ -1,4 +1,3 @@
-
 const dayData = [
   { time: "2018-10-19", value: 26.19 },
   { time: "2018-10-22", value: 25.87 },

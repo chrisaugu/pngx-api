@@ -19,7 +19,7 @@ const options = {
         url: "https://www.apache.org/licenses/LICENSE-2.0.html",
       },
       version: "2.0.0",
-    },  
+    },
     // host: "nuku-api.christianaugustyn.me/api",
     basePath: "/v2",
     // servers: [
@@ -981,7 +981,7 @@ const options = {
       description: "Find out more about Swagger",
       url: "http://swagger.io",
     },
-  
+
     // paths: {
     //   "/webhook": {
     //     post: {

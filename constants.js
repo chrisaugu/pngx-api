@@ -21,13 +21,20 @@ const COMPANIES = Object.freeze({
   BSPHA: "Bank South Pacific Notes",
 });
 
-const OLD_SYMBOLS = ["COY", "NCM", "KPE", "HIG", "KPL", "IDC", "IOC", "OSH", "BSPHA"];
+const OLD_SYMBOLS = [
+  "COY",
+  "NCM",
+  "KPE",
+  "HIG",
+  "KPL",
+  "IDC",
+  "IOC",
+  "OSH",
+  "BSPHA",
+];
 
 const SYMBOLS = Object.keys(COMPANIES).filter((c) => !OLD_SYMBOLS.includes(c));
-const CHANNELS = [
-  "tickers",
-  ""
-];
+const CHANNELS = ["tickers", ""];
 const TOPICS = SYMBOLS.map((code) => "tickers:" + code);
 
 const PNGX_URL = "https://www.pngx.com.pg";
@@ -51,5 +58,5 @@ module.exports = {
   BASE_URL,
   WORKER_SCHEDULE_TIME,
   CHANNELS,
-  TOPICS
+  TOPICS,
 };

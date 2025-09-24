@@ -4,11 +4,11 @@ const path = require("path");
 const fs = require("fs");
 const crypto = require("crypto");
 const compression = require("compression");
-const Cabin = require('cabin');
+const Cabin = require("cabin");
 // const requestId = require('express-request-id');
-const requestReceived = require('request-received');
-const responseTime = require('response-time');
-const { Signale } = require('signale');
+const requestReceived = require("request-received");
+const responseTime = require("response-time");
+const { Signale } = require("signale");
 // const boxen = require('boxen');
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
@@ -54,14 +54,14 @@ app.use((req, res, next) => {
   next();
 });
 
-const queueFile = path.join(__dirname, 'queue.json');
+const queueFile = path.join(__dirname, "queue.json");
 if (!fs.existsSync(queueFile)) fs.writeFileSync(queueFile, JSON.stringify([]));
 
 // initialize cabin
 const cabin = new Cabin({
   axe: {
-    logger: new Signale()
-  }
+    logger: new Signale(),
+  },
 });
 
 // TODO: compression middleware causes issues with some responses from sse, need to investigate further
@@ -135,7 +135,10 @@ initDatabase()
     );
     cron.schedule(WORKER_SCHEDULE_TIME, () => {
       const { Worker, isMainThread } = require("node:worker_threads");
-      const childWorkerPath = path.resolve(process.cwd(), "./jobs/thread_workers.js");
+      const childWorkerPath = path.resolve(
+        process.cwd(),
+        "./jobs/thread_workers.js"
+      );
 
       // const workerPromises = [];
       // for (let i = 0; i < THREAD_COUNT; i++) {
@@ -150,7 +153,7 @@ initDatabase()
 
       try {
         if (isMainThread) {
-          let worker = new Worker(childWorkerPath);
+          const worker = new Worker(childWorkerPath);
 
           worker.once("message", (result) => {
             logger.debug("completed: ", result);

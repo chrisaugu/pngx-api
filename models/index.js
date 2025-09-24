@@ -12,5 +12,5 @@ module.exports = {
   Indices,
   Company,
   Webhook,
-  NewsSource
+  NewsSource,
 };

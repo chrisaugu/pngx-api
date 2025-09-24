@@ -10,11 +10,10 @@ const Env = require("./config/env");
 // const socket = require("./routes/socket");
 const logger = require("./libs/logger").winstonLogger;
 
-let server;
 
 logger.debug("Starting NUKU API server...");
 // if (Env.NODE_ENV === "dev") {
-server = http.createServer(app);
+const server = http.createServer(app);
 // } else {
 //   // stream data
 //   const options = {
@@ -42,8 +41,8 @@ function onListen() {
   const interfaces = os.networkInterfaces();
   const getNetworkAddress = () => {
     for (const name of Object.keys(interfaces)) {
-      for (const interface of interfaces[name]) {
-        const { address, family, internal } = interface;
+      for (const internetInterface of interfaces[name]) {
+        const { address, family, internal } = internetInterface;
         if (family === "IPv4" && !internal) {
           return address;
         }
@@ -108,7 +107,7 @@ process.on("uncaughtException", (err) => {
   process.exit(1); // exit application
 });
 
-process.on('unhandledRejection', (ex) => {
+process.on("unhandledRejection", (ex) => {
   logger.error(`Unhandled Rejection: ${ex.message}`, ex);
   process.exit(1);
 });
