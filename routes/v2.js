@@ -16,6 +16,11 @@ const {
 } = require("../constants");
 const { Stock, Company, Ticker, Indices, NewsSource } = require("../models/index");
 const logger = require("../libs/logger").winstonLogger;
+const { Worker, isMainThread } = require("node:worker_threads");
+const path = require("path");
+const { cache } = require("../middlewares");
+
+const childWorkerPath = path.resolve(process.cwd(), "./jobs/news.js");
 const base_url = new URL(BASE_URL);
 
 /**
@@ -1002,67 +1007,45 @@ router.get("/stocks/tickers/:code", async (req, res) => {
 /**
  * /api/v2/news
  */
-router.get("/news", async function (req, res) {
+router.get("/news", cache(10), async function (req, res) {
   let page = req.query.page;
 
-  logger.info("Retrieving news");
-
-  let headers = new Headers();
-  headers.set("User-Agent", "");
-
-  // let NEWS_URL = 'https://www.pngx.com.pg/feed/';
-  let NEWS_URLS = [
-    "https://www.pngx.com.pg/wp-json/wp/v2/posts",
-    "https://www.postcourier.com.pg/wp-json/wp/v2/posts",
-    "https://www.thenational.com.pg/wp-json/wp/v2/posts",
-  ];
-  let news_posts = [];
-
   try {
-    const jsons = await Promise.all(
-      NEWS_URLS.map(async (url) => {
-        if (page) {
-          url += "?page=" + page;
+    if (isMainThread) {
+      logger.info("[Main_Thread]: Retrieving news");
+
+      const payload = {
+        page: page
+      };
+
+      let worker = new Worker(childWorkerPath);
+      worker.postMessage(payload);
+
+      worker.on("message", (result) => {
+        logger.debug("completed: ", result);
+        logger.debug("Retrieved news ", result);
+        return res.json(result);
+      });
+
+      worker.on("error", (error) => {
+        logger.error(`Error occured`, error);
+        throw new Error(`Error occured`, error);
+      });
+
+      worker.on("exit", (exitCode) => {
+        if (exitCode !== 0) {
+          logger.error(`Worker stopped with exit code ${exitCode}`);
+          throw new Error(`Worker stopped with exit code ${exitCode}`);
         }
-        const r = await fetch(url, {
-          method: "GET",
-          mode: "cors",
-        });
-        return await r.json();
-      })
-    );
-
-    jsons
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-      .forEach((json) => news_posts.push(...json));
-
-    let updated = news_posts.map(news => {
-      let source = news.guid.rendered.split('?')[0];
-
-      return {
-        id: news.id,
-        date: news.date,
-        source: source,
-        link: news.link,
-        title: news.title.rendered,
-        content: news.content.rendered,
-        excerpt: news.excerpt.rendered,
-        image: news?.jetpack_featured_media_url || "" // ?? `${source}wp-json/wp/v2/media/${news.id}`,
-      }
-    })
-
-    logger.debug("Retrieved news ", updated);
-
-    res.json(updated);
+      });
+    }
   } catch (error) {
-    logger.error("An error occurred:", {
+    logger.error("An error whilte fetching news:", {
       error: error.message,
       stack: error.stack,
-      body: req.body,
-      params: req.params,
-      query: req.query,
     });
-    res.json({ message: "An error occurred:", error });
+
+    res.json({ message: "An error whilte fetching news:", error });
   }
 });
 router.get("/news/sources", function (req, res) {

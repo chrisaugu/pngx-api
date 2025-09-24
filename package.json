@@ -86,6 +86,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "marked": "^15.0.12",
+    "memory-cache": "^0.2.0",
     "mongoose": "^8.16.0",
     "morgan": "^1.10.1",
     "needle": "^3.3.1",

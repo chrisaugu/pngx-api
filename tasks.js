@@ -261,6 +261,10 @@ async function stock_fetcher() {
 }
 exports.stock_fetcher = stock_fetcher;
 
+exports.news_fetcher = async () => {
+  return result;
+}
+
 exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
   Stock.find({
     // _id: mongoose.mongo.ObjectId("633a925da76dd590ada1d70c"),
