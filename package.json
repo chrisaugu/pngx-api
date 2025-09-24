@@ -19,14 +19,19 @@
     "test:watch": "jest --watch",
     "test:coverage": "NODE_ENV=test jest --coverage --passWithNoTests",
     "lint": "eslint ./",
-    "format": "prettier --write ./",
+    "format": "prettier ./ --write",
+    "format:check": "prettier . --check",
     "clinic": "clinic doctor -- node server.js",
     "clinic:flame": "clinic flame -- node server.js",
     "clinic:bubbleprof": "clinic bubbleprof -- node server.js",
     "autocannon": "autocannon -c 100 -d 10 http://localhost:5000",
     "package": "openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
     "packages": "npx @openapitools/openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
-    "commit": "cz"
+    "commit": "cz",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "repository": {
     "type": "git",
@@ -132,8 +137,11 @@
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
     "git-commit-msg-linter": "^5.0.8",
+    "husky": "^9.1.7",
     "jest": "^30.0.2",
+    "lint-staged": "^16.2.0",
     "mongodb-memory-server": "^10.2.0",
     "nodemon": "^3.1.10",
     "rollup": "^4.44.0",

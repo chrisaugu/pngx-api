@@ -10,7 +10,6 @@ const Env = require("./config/env");
 // const socket = require("./routes/socket");
 const logger = require("./libs/logger").winstonLogger;
 
-
 logger.debug("Starting NUKU API server...");
 // if (Env.NODE_ENV === "dev") {
 const server = http.createServer(app);

@@ -1,4 +1,5 @@
 import { defineConfig } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 const ignores = [
   ".clinic",
@@ -14,18 +15,23 @@ const ignores = [
   "node_modules/**",
   "package/**",
   "sdk/**",
-  "tests/**"
+  "tests/**",
 ];
 
 export default defineConfig([
+  eslintConfigPrettier,
   // { ignores: ["**/*.js", "**/*.cjs", "**/*.mjs"] },
   {
     files: ["**/*.js"],
     rules: {
-      semi: "error",
+      // semi: "error",
       "prefer-const": "error",
       // "no-console": "error",
+      // indent: "error"
     },
     ignores,
+    // extends: [
+    //   "prettier"
+    // ]
   },
 ]);
