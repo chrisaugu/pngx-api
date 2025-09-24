@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const celery = require("celery-node");
-const tasks = require("./tasks");
-const { initDatabase } = require("./database");
-const Env = require("./config/env");
+const tasks = require("../tasks");
+const { initDatabase } = require("../database");
+const Env = require("../config/env");
 
 const worker = celery.createWorker(Env.redis.broker, Env.redis.backend);
 

@@ -1,8 +1,14 @@
 const express = require("express");
 const cron = require("node-cron");
 const path = require("path");
+const fs = require("fs");
 const crypto = require("crypto");
 const compression = require("compression");
+const Cabin = require('cabin');
+// const requestId = require('express-request-id');
+const requestReceived = require('request-received');
+const responseTime = require('response-time');
+const { Signale } = require('signale');
 // const boxen = require('boxen');
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
@@ -48,6 +54,16 @@ app.use((req, res, next) => {
   next();
 });
 
+const queueFile = path.join(__dirname, 'queue.json');
+if (!fs.existsSync(queueFile)) fs.writeFileSync(queueFile, JSON.stringify([]));
+
+// initialize cabin
+const cabin = new Cabin({
+  axe: {
+    logger: new Signale()
+  }
+});
+
 // TODO: compression middleware causes issues with some responses from sse, need to investigate further
 // app.use(compression());
 app.use(helmet());
@@ -75,6 +91,19 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(apiUsageLogMiddlware);
+
+// adds request received hrtime and date symbols to request object
+// (which is used by Cabin internally to add `request.timestamp` to logs
+app.use(requestReceived);
+
+// adds `X-Response-Time` header to responses
+app.use(responseTime());
+
+// adds or re-uses `X-Request-Id` header
+// app.use(requestId());
+
+// use the cabin middleware (adds request-based logging and helpers)
+app.use(cabin.middleware);
 
 app.use("/api", rateLimitMiddleware);
 app.use("/events", require("./routes/sse"));
@@ -106,7 +135,7 @@ initDatabase()
     );
     cron.schedule(WORKER_SCHEDULE_TIME, () => {
       const { Worker, isMainThread } = require("node:worker_threads");
-      const childWorkerPath = path.resolve(process.cwd(), "thread_workers.js");
+      const childWorkerPath = path.resolve(process.cwd(), "./jobs/thread_workers.js");
 
       // const workerPromises = [];
       // for (let i = 0; i < THREAD_COUNT; i++) {
@@ -140,7 +169,7 @@ initDatabase()
           });
         }
       } catch (error) {
-        logger.error("Error creating user", {
+        logger.error("Error fetching stock quotes", {
           error: error.message,
           stack: error.stack,
           // body: req.body

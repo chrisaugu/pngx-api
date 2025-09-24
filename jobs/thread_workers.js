@@ -4,8 +4,8 @@ const {
   workerData,
   parentPort,
 } = require("node:worker_threads");
-const { stock_fetcher, data_fetcher } = require("./tasks");
-const { initDatabase } = require("./database");
+const { stock_fetcher, data_fetcher } = require("../tasks");
+const { initDatabase } = require("../database");
 
 // Creating an instance for MongoDB
 initDatabase()

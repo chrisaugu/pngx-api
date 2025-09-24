@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
 const createError = require("http-errors");
+const mcache = require('memory-cache');
 const { ALLOWED_IP_LIST, ORIGINAL_URL } = require("./config");
 const logger = require("./libs/logger").winstonLogger;
 const apiUsageLogger = require("./libs/logger").apiUsageLogger;
@@ -242,3 +243,25 @@ exports.globalProperties = function (req, res, next) {
   if (limit) {
   }
 };
+
+/**
+ * cache response for the number of time specified in duration
+ * @param {number} duration 
+ * @returns 
+ */
+exports.cache = (duration) => (req, res, next) => {
+  let key = '__express__'+ req.originalUrl || req.url;
+  let cachedBody = mcache.get(key);
+  if (cachedBody) {
+    res.send(cachedBody);
+    return;
+  }
+  else {
+    res.sendResponse = res.send;
+    res.send = (body) => {
+      mcache.put(key, body, duration * 1000);
+      res.sendResponse(body);
+    }
+    next();
+  }
+}
