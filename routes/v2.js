@@ -1372,11 +1372,19 @@ router.get("/indices/:code", async (req, res) => {
     .then((index) => {
       logger.debug("Index retrieved");
 
-      res.json({
-        status: "success",
-        results: index.length,
-        data: { index },
-      });
+      if (Array.isArray(index) && index.length > 0) {
+        res.json({
+          status: "success",
+          results: index.length,
+          data: index[0],
+        });
+      } else {
+        res.json({
+          status: "success",
+          results: 1,
+          data: index,
+        });
+      }
     })
     .catch((error) => {
       logger.error("Error fetching market holidays:", {
