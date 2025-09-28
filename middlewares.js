@@ -264,3 +264,70 @@ exports.cache = (duration) => (req, res, next) => {
     next();
   }
 };
+
+/**
+ * cache response using redis
+ * @returns
+ */
+exports.cacheMiddleware = async (duration = 1) => {
+  const client = await createRedisClient();
+
+  // Define a caching function
+  function cacheData(key, data) {
+    // Store data in Redis
+    client.set(key, data, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Cached data for key ${key}`);
+      }
+    });
+  }
+
+  // Define a function to retrieve cached data
+  function getCachedData(key) {
+    // Retrieve data from Redis
+    client.get(key, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Retrieved cached data for key ${key}`);
+        return reply;
+      }
+    });
+  }
+
+  // Define a function to invalidate cached data
+  function invalidateCachedData(key) {
+    // Remove data from Redis
+    client.del(key, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Invalidated cached data for key ${key}`);
+      }
+    });
+  }
+
+  return (req, res, next) => {
+    const key = req.originalUrl;
+
+    client.get(key, (err, data) => {
+      if (err) throw err;
+
+      if (data) {
+        res.send(JSON.parse(data)); // Serve cached data
+        return;
+      } else {
+        res.sendResponse = res.send;
+        res.send = (body) => {
+          // Cache data for 1 hour (3600 seconds)
+          client.setex(key, duration * 1000, JSON.stringify(body));
+          res.sendResponse(body);
+        };
+        return;
+        // next(); // Proceed to route handler if no cache
+      }
+    });
+  };
+};

@@ -24,7 +24,7 @@ const {
 const logger = require("../libs/logger").winstonLogger;
 const { Worker, isMainThread } = require("node:worker_threads");
 const path = require("path");
-const { cache } = require("../middlewares");
+const { cache, cacheMiddleware } = require("../middlewares");
 
 const childWorkerPath = path.resolve(process.cwd(), "./jobs/news.js");
 const base_url = new URL(BASE_URL);
