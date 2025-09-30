@@ -1030,7 +1030,7 @@ router.get("/news", cache(10), async function (req, res) {
       worker.on("message", (result) => {
         logger.debug("completed: ", result);
         logger.debug("Retrieved news ", result);
-        return res.json(result);
+        return res.send(result);
       });
 
       worker.on("error", (error) => {
