@@ -1,5 +1,5 @@
-const express = require("express");
-const router = express.Router();
+const { Router } = require("express");
+const router = Router();
 const { SYMBOLS } = require("../constants");
 const { Stock } = require("../models/index");
 

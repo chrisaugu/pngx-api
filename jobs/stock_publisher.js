@@ -1,4 +1,13 @@
 const { parentPort } = require("node:worker_threads");
+const {
+  getStockData,
+  getQuotes,
+  getTickers,
+} = require("../routes/mockStockApi");
+const { createRedisIoClient } = require("../libs/redis");
+
+const publisher = createRedisIoClient();
+const TIMEOUT = 2000;
 // const pRetry, { AbortError } = require('p-retry');
 
 const run = async () => {
@@ -15,7 +24,7 @@ const run = async () => {
 // console.log(await pRetry(run, { retries: 5 }));
 
 const actualJob = () => {
-  // do something here
+  console.log("HEllo");
 };
 
 actualJob();
@@ -38,3 +47,35 @@ if (parentPort) parentPort.postMessage("done");
 //         if (message === 'cancel') return cancel();
 //     });
 // }
+
+publisher.on("error", async (err) => {
+  console.error("Redis error:", err);
+  await publisher.quit();
+  process.exit();
+});
+process.on("SIGINT", async () => {
+  await publisher.quit();
+  process.exit();
+});
+
+setInterval(() => {
+  const stocks = getStockData();
+  stocks.forEach((stock) => {
+    publisher.publish(`stocks:${stock.ticker}`, JSON.stringify(stock));
+  });
+}, TIMEOUT);
+
+setInterval(async () => {
+  const tickers = await getTickers();
+  tickers.forEach((ticker) => {
+    publisher.publish(`tickers:${ticker.symbol}`, JSON.stringify(ticker));
+  });
+}, TIMEOUT);
+
+setInterval(async () => {
+  const quotes = await getQuotes();
+  // publisher.publish("quotes:*", JSON.stringify({ ticker: "PNGX", price: 12.45 }));
+  quotes.forEach((quote) => {
+    publisher.publish(`quotes:${quote.code}`, JSON.stringify(quote));
+  });
+}, TIMEOUT);

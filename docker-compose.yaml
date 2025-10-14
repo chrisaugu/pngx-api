@@ -13,10 +13,10 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - "5000:5000"
-    depends_on:
-      - nuku-redis
-      - nuku-mongodb
-      # - nuku-worker
+    # depends_on:
+    #   - nuku-redis
+    # - nuku-mongodb
+    # - nuku-worker
     restart: always
     networks:
       - nuku-api-network
@@ -73,13 +73,6 @@ services:
 #     networks:
 #       - nuku-api-network
 
-# volumes:
-#   nuku-storage:
-
-# networks:
-#   nuku-api-network:
-#     driver: bridge
-
 #   db:
 #     restart: always
 #     image: postgres
@@ -101,27 +94,9 @@ services:
 #     healthcheck:
 #       test: ["CMD", "redis-cli", "ping"]
 
-#   mastodon:
-#     restart: always
-#     image: neetshin/mastodon-dev:4.3.0
-#     ports:
-#       - "3000:3000"
-#       - "4000:4000"
-#     depends_on:
-#       - db
-#       - redis
-#     healthcheck:
-#       test:
-#         [
-#           "CMD-SHELL",
-#           "wget -q --spider --proxy=off localhost:3000/health || exit 1",
-#         ]
-#     env_file:
-#       - .env.test
-#     environment:
-#       - RAILS_ENV=development
-#     command: >
-#       /bin/bash -c "
-#         bundle exec rails db:setup &&
-#         foreman start
-#       "
+# volumes:
+#   nuku-storage:
+
+# networks:
+#   nuku-api-network:
+#     driver: bridge

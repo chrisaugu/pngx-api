@@ -37,7 +37,7 @@ const logger = require("../libs/logger").winstonLogger;
 //   parentPort.postMessage(btoa(source.toUpperCase()));
 // }
 
-(async () => {
+async function start() {
   logger.debug("[Worker Thread]: Fetching news");
 
   // let result = await news_fetcher();
@@ -108,5 +108,10 @@ const logger = require("../libs/logger").winstonLogger;
     };
   });
 
-  parentPort.postMessage(updated);
-})();
+  if (parentPort) {
+    parentPort.postMessage(updated);
+    parentPort.postMessage("done");
+  }
+}
+
+start().catch(logger.error);

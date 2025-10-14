@@ -331,3 +331,83 @@ exports.cacheMiddleware = async (duration = 1) => {
     });
   };
 };
+
+exports.rateLimitedRequest = (url, callback) => {
+  const requestQueue = [];
+  let lastRequestTime = 0;
+
+  return () => {
+    const now = Date.now();
+    const delay = Math.max(0, lastRequestTime + 1000 - now); // 1 request per second
+
+    requestQueue.push({ url, callback });
+
+    setTimeout(() => {
+      const { url, callback } = requestQueue.shift();
+      axios
+        .get(url)
+        .then((response) => callback(null, response.data))
+        .catch((error) => callback(error));
+
+      lastRequestTime = Date.now();
+    }, delay);
+  };
+};
+
+// Cache middleware
+const cacheData = (expireTime = 3600) => {
+  return async (req, res, next) => {
+    // Skip caching for non-GET requests
+    if (req.method !== "GET") {
+      return next();
+    }
+
+    // Create a cache key based on the full URL
+    const cacheKey = `students:${req.originalUrl}`;
+
+    try {
+      // Check if cache exists
+      const cachedData = await redisClient.get(cacheKey);
+
+      if (cachedData) {
+        console.log(`Cache hit for ${cacheKey}`);
+        return res.json(JSON.parse(cachedData));
+      }
+
+      console.log(`Cache miss for ${cacheKey}`);
+
+      // If not in cache, continue but modify res.json
+      res.originalJson = res.json;
+      res.json = function (data) {
+        // Store in cache before sending response
+        redisClient
+          .set(cacheKey, JSON.stringify(data), { EX: expireTime })
+          .catch((err) => console.error("Redis cache error:", err));
+
+        // Continue with the original response
+        return res.originalJson(data);
+      };
+
+      next();
+    } catch (err) {
+      console.error("Cache middleware error:", err);
+      next();
+    }
+  };
+};
+
+// Clear cache helper
+const clearCache = async (pattern) => {
+  try {
+    const keys = await redisClient.keys(pattern);
+    if (keys.length > 0) {
+      console.log(`Clearing cache keys matching: ${pattern}`);
+      await Promise.all(keys.map((key) => redisClient.del(key)));
+    }
+  } catch (err) {
+    console.error("Error clearing cache:", err);
+  }
+};
+
+// Clear the list cache when a new student is added
+// await clearCache('students:/api/students*');

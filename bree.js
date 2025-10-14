@@ -3,6 +3,7 @@ const Cabin = require("cabin");
 const Graceful = require("@ladjs/graceful");
 const { Signale } = require("signale");
 const { winstonLogger: logger } = require("./libs/logger");
+const { QUOTE_FETCH_WORKER_SCHEDULE_TIME } = require("./constants");
 
 // initialize cabin
 const cabin = new Cabin({
@@ -24,10 +25,21 @@ const bree = new Bree({
     // },
     {
       name: "stock-consumer",
-      // interval: 'at 8:30 am every day',
-      //     interval: '10s',
+      interval: "at 8:30 am every day",
+      // interval: '10s',
+      // cron: QUOTE_FETCH_WORKER_SCHEDULE_TIME.toString(),
       // path: 'jobs/stock-consumer.js',
+      // worker: {
+      //   "workerData": {
+      //     "foo": "bar"
+      //   }
+      // }
     },
+    // {
+    //   name: "news_aggregator",
+    //   interval: '20s',
+    //   timeout: '5s',
+    // }
   ],
   errorHandler: (error, workerMetadata) => {
     // workerMetadata will be populated with extended worker information only if
