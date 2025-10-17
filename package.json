@@ -60,7 +60,7 @@
     "@ladjs/graceful": "^5.0.0",
     "@socket.io/redis-adapter": "^8.3.0",
     "@zero65tech/indian-stock-market": "^4.4.1",
-    "axios": "^1.10.0",
+    "axios": "^1.12.0",
     "benchmark": "^2.1.4",
     "boxen": "^8.0.1",
     "bree": "^9.2.4",
