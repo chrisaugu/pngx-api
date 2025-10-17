@@ -43,7 +43,7 @@ const PNGX_DATA_URL = `${PNGX_URL}/data/`;
 const LOCAL_TIMEZONE = "Pacific/Port_Moresby";
 const LOCAL_TIMEZONE_FORMAT = "yyyy-MM-dd"; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)
 
-const WORKER_SCHEDULE_TIME = "30 8 * * *";
+const QUOTE_FETCH_WORKER_SCHEDULE_TIME = "30 8 * * *";
 
 const BASE_URL = "https://nuku.zeabur.app";
 
@@ -56,7 +56,7 @@ module.exports = {
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
   BASE_URL,
-  WORKER_SCHEDULE_TIME,
+  QUOTE_FETCH_WORKER_SCHEDULE_TIME,
   CHANNELS,
   TOPICS,
 };

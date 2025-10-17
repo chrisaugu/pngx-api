@@ -44,8 +44,8 @@ function date_split(date) {
 }
 
 /**
- * This function takes in date of any format and spits out the desired format `yyyy/MM/dd` used here
- * @param {*} date
+ * This function takes in date of dd/MM/yyyy format and spits out the Date
+ * @param {String} date
  * @returns Date
  */
 function format_date(date) {
@@ -65,7 +65,7 @@ function format_date(date) {
       LOCAL_TIMEZONE,
       LOCAL_TIMEZONE_FORMAT
     );
-    return new Date(localTime);
+    return new Date(parseDate);
   }
   // rest of the quotes 2019/11/18 - yyyy/MM/dd
   // else if (date.match(/\d{2,4}-\d{1,2}-\d{1,2}/)) {
@@ -347,28 +347,6 @@ const stockMarket = (priceArray) => {
   return maxProfit;
 };
 
-function rateLimitedRequest(url, callback) {
-  const requestQueue = [];
-  let lastRequestTime = 0;
-
-  return () => {
-    const now = Date.now();
-    const delay = Math.max(0, lastRequestTime + 1000 - now); // 1 request per second
-
-    requestQueue.push({ url, callback });
-
-    setTimeout(() => {
-      const { url, callback } = requestQueue.shift();
-      axios
-        .get(url)
-        .then((response) => callback(null, response.data))
-        .catch((error) => callback(error));
-
-      lastRequestTime = Date.now();
-    }, delay);
-  };
-}
-
 module.exports = {
   parse_csv_to_json,
   parallel,
@@ -381,4 +359,5 @@ module.exports = {
   generateSignature,
   issueToken,
   env,
+  convertStringToNumber,
 };

@@ -264,3 +264,150 @@ exports.cache = (duration) => (req, res, next) => {
     next();
   }
 };
+
+/**
+ * cache response using redis
+ * @returns
+ */
+exports.cacheMiddleware = async (duration = 1) => {
+  const client = await createRedisClient();
+
+  // Define a caching function
+  function cacheData(key, data) {
+    // Store data in Redis
+    client.set(key, data, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Cached data for key ${key}`);
+      }
+    });
+  }
+
+  // Define a function to retrieve cached data
+  function getCachedData(key) {
+    // Retrieve data from Redis
+    client.get(key, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Retrieved cached data for key ${key}`);
+        return reply;
+      }
+    });
+  }
+
+  // Define a function to invalidate cached data
+  function invalidateCachedData(key) {
+    // Remove data from Redis
+    client.del(key, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Invalidated cached data for key ${key}`);
+      }
+    });
+  }
+
+  return (req, res, next) => {
+    const key = req.originalUrl;
+
+    client.get(key, (err, data) => {
+      if (err) throw err;
+
+      if (data) {
+        res.send(JSON.parse(data)); // Serve cached data
+        return;
+      } else {
+        res.sendResponse = res.send;
+        res.send = (body) => {
+          // Cache data for 1 hour (3600 seconds)
+          client.setex(key, duration * 1000, JSON.stringify(body));
+          res.sendResponse(body);
+        };
+        return;
+        // next(); // Proceed to route handler if no cache
+      }
+    });
+  };
+};
+
+exports.rateLimitedRequest = (url, callback) => {
+  const requestQueue = [];
+  let lastRequestTime = 0;
+
+  return () => {
+    const now = Date.now();
+    const delay = Math.max(0, lastRequestTime + 1000 - now); // 1 request per second
+
+    requestQueue.push({ url, callback });
+
+    setTimeout(() => {
+      const { url, callback } = requestQueue.shift();
+      axios
+        .get(url)
+        .then((response) => callback(null, response.data))
+        .catch((error) => callback(error));
+
+      lastRequestTime = Date.now();
+    }, delay);
+  };
+};
+
+// Cache middleware
+const cacheData = (expireTime = 3600) => {
+  return async (req, res, next) => {
+    // Skip caching for non-GET requests
+    if (req.method !== "GET") {
+      return next();
+    }
+
+    // Create a cache key based on the full URL
+    const cacheKey = `students:${req.originalUrl}`;
+
+    try {
+      // Check if cache exists
+      const cachedData = await redisClient.get(cacheKey);
+
+      if (cachedData) {
+        console.log(`Cache hit for ${cacheKey}`);
+        return res.json(JSON.parse(cachedData));
+      }
+
+      console.log(`Cache miss for ${cacheKey}`);
+
+      // If not in cache, continue but modify res.json
+      res.originalJson = res.json;
+      res.json = function (data) {
+        // Store in cache before sending response
+        redisClient
+          .set(cacheKey, JSON.stringify(data), { EX: expireTime })
+          .catch((err) => console.error("Redis cache error:", err));
+
+        // Continue with the original response
+        return res.originalJson(data);
+      };
+
+      next();
+    } catch (err) {
+      console.error("Cache middleware error:", err);
+      next();
+    }
+  };
+};
+
+// Clear cache helper
+const clearCache = async (pattern) => {
+  try {
+    const keys = await redisClient.keys(pattern);
+    if (keys.length > 0) {
+      console.log(`Clearing cache keys matching: ${pattern}`);
+      await Promise.all(keys.map((key) => redisClient.del(key)));
+    }
+  } catch (err) {
+    console.error("Error clearing cache:", err);
+  }
+};
+
+// Clear the list cache when a new student is added
+// await clearCache('students:/api/students*');

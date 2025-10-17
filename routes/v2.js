@@ -1,8 +1,11 @@
 const express = require("express");
+const router = express.Router();
+const { Worker, isMainThread } = require("node:worker_threads");
+const path = require("path");
+const axios = require("axios");
 const mongoose = require("mongoose");
 const Grid = require("gridfs-stream");
 const fs = require("fs");
-const router = express.Router();
 const { isToday } = require("date-fns/isToday");
 const { isWeekend } = require("date-fns/isWeekend");
 const {
@@ -22,9 +25,10 @@ const {
   NewsSource,
 } = require("../models/index");
 const logger = require("../libs/logger").winstonLogger;
-const { Worker, isMainThread } = require("node:worker_threads");
-const path = require("path");
-const { cache } = require("../middlewares");
+const { cache, cacheMiddleware } = require("../middlewares");
+// const { iexApiToken, iexSandboxToken } = require("../../config/keys");
+const iexApiToken = "",
+  iexSandboxToken = "";
 
 const childWorkerPath = path.resolve(process.cwd(), "./jobs/news.js");
 const base_url = new URL(BASE_URL);
@@ -1030,7 +1034,7 @@ router.get("/news", cache(10), async function (req, res) {
       worker.on("message", (result) => {
         logger.debug("completed: ", result);
         logger.debug("Retrieved news ", result);
-        return res.json(result);
+        return res.send(result);
       });
 
       worker.on("error", (error) => {
@@ -1372,11 +1376,19 @@ router.get("/indices/:code", async (req, res) => {
     .then((index) => {
       logger.debug("Index retrieved");
 
-      res.json({
-        status: "success",
-        results: index.length,
-        data: { index },
-      });
+      if (Array.isArray(index) && index.length > 0) {
+        res.json({
+          status: "success",
+          results: index.length,
+          data: index[0],
+        });
+      } else {
+        res.json({
+          status: "success",
+          results: 1,
+          data: index,
+        });
+      }
     })
     .catch((error) => {
       logger.error("Error fetching market holidays:", {
@@ -1386,6 +1398,74 @@ router.get("/indices/:code", async (req, res) => {
       });
       res.status(500).json({ error: "Internal server error" });
     });
+});
+
+router.get("/batch/:symbols", (req, res) => {
+  axios
+    .get(
+      `https://${
+        process.env.NODE_ENV === "production" ? "cloud" : "sandbox"
+      }.iexapis.com/stable/stock/market/batch?symbols=${
+        req.params.symbols
+      }&filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&types=quote&token=${iexApiToken}`
+    )
+    .then((stocks) => res.json(stocks.data))
+    .catch((err) => {
+      return res.status(err.response.status).json({
+        noStocksFound: err.response.data,
+      });
+    });
+});
+
+router.get("/lookup/:symbol", (req, res) => {
+  axios
+    .get(
+      `https://${
+        process.env.NODE_ENV === "production" ? "cloud" : "sandbox"
+      }.iexapis.com/stable/stock/${
+        req.params.symbol
+      }/quote?filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&token=${iexApiToken}`
+    )
+    .then((stock) => res.json(stock.data))
+    .catch((err) =>
+      res.status(err.response.status).json({
+        noStockFound: err.response.data,
+        symbol: req.params.symbol.toUpperCase(),
+      })
+    );
+});
+
+router.get("/chart/:symbol/:range", (req, res) => {
+  const rangeSubUrl = {
+    "1d": "1d/?filter=date,minute,close",
+    "5dm": "5dm/?filter=date,minute,close",
+    "1mm": "1mm/?filter=date,minute,close",
+    "3m": "3m/?filter=date,close",
+    "6m": "6m/?filter=date,close",
+    "1y": "1Y/?filter=date,close",
+    "2y": "2y/?filter=date,close",
+    "5y": "5y/?filter=date,close",
+  };
+
+  axios
+    .get(
+      `https://sandbox.iexapis.com/stable/stock/${req.params.symbol}/chart/${
+        rangeSubUrl[req.params.range]
+      }&token=${iexSandboxToken}`
+    )
+    .then((chart) =>
+      res.json({
+        symbol: req.params.symbol,
+        range: req.params.range,
+        chart: chart.data,
+      })
+    )
+    .catch((err) =>
+      res.status(err.response.status).json({
+        noChartFound: err.response.data,
+        symbol: req.params.symbol.toUpperCase(),
+      })
+    );
 });
 
 module.exports = router;

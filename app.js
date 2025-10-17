@@ -35,7 +35,7 @@ const {
   morganBodyMiddlware,
   apiUsageLogMiddlware,
 } = require("./middlewares");
-const { WORKER_SCHEDULE_TIME } = require("./constants");
+const { QUOTE_FETCH_WORKER_SCHEDULE_TIME } = require("./constants");
 
 // Creating express app
 const app = express();
@@ -133,7 +133,7 @@ initDatabase()
     logger.debug(
       "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
     );
-    cron.schedule(WORKER_SCHEDULE_TIME, () => {
+    cron.schedule(QUOTE_FETCH_WORKER_SCHEDULE_TIME, () => {
       const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(
         process.cwd(),

@@ -1,8 +1,7 @@
-// Fixture Example in Express.js
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const app = require("../app");
-const { loadFixtures, clearFixtures } = require("./fixtures.testx");
+// const { loadFixtures, clearFixtures } = require("./fixtures.testx");
 
 chai.use(chaiHttp);
 const expect = chai.expect;

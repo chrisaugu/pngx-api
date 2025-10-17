@@ -1,5 +1,4 @@
 const request = require("request");
-const superagent = require("superagent");
 const _ = require("lodash");
 const needle = require("needle");
 const Papa = require("papaparse");
@@ -24,7 +23,7 @@ exports.fetch_data_from_pngx = function fetch_data_from_pngx(url) {
 function hello() {
   const results = [];
 
-  const csvDatasetUrl = "https://www.pngx.com.pg/data/BSP.csv";
+  const csvDatasetUrl = PNGX_DATA_URL + "/BSP.csv";
 
   needle
     .get(csvDatasetUrl)
@@ -169,8 +168,8 @@ async function data_fetcher() {
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
       .then((quotes) => {
         // console.debug("Fetched quotes for " + symbol);
-        const totalCount = quotes.length,
-          totalAdded = 0,
+        const totalCount = quotes.length;
+        let totalAdded = 0,
           index = totalCount - 1,
           recordExist = false;
 

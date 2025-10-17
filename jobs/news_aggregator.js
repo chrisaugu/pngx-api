@@ -37,7 +37,7 @@ const logger = require("../libs/logger").winstonLogger;
 //   parentPort.postMessage(btoa(source.toUpperCase()));
 // }
 
-(async () => {
+async function start() {
   logger.debug("[Worker Thread]: Fetching news");
 
   // let result = await news_fetcher();
@@ -60,22 +60,38 @@ const logger = require("../libs/logger").winstonLogger;
   ];
   const news_posts = [];
 
-  const jsons = await Promise.all(
+  const requests = await Promise.allSettled(
     NEWS_URLS.map(async (url) => {
       if (page) {
         url += "?page=" + page;
       }
-      const r = await fetch(url, {
+      const response = await fetch(url, {
         method: "GET",
-        mode: "cors",
+        redirect: "follow",
+        headers: {
+          "User-Agent": "NukuAPI-UserAgent/1.0",
+        },
       });
-      return await r.json();
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+      // return response.text();
     })
   );
 
-  jsons
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+  // filter only fulfilled requests
+  requests
+    .filter((result) => result.status === "fulfilled")
+    .map((result) => result.value)
     .forEach((json) => news_posts.push(...json));
+
+  // if (!requests)
+
+  news_posts.sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
 
   const updated = news_posts.map((news) => {
     const source = news.guid.rendered.split("?")[0];
@@ -92,5 +108,10 @@ const logger = require("../libs/logger").winstonLogger;
     };
   });
 
-  parentPort.postMessage(updated);
-})();
+  if (parentPort) {
+    parentPort.postMessage(updated);
+    parentPort.postMessage("done");
+  }
+}
+
+start().catch(logger.error);

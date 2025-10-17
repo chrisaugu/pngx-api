@@ -80,8 +80,13 @@ const IndexSchema = new Schema(
       transform(doc, rest) {
         delete rest.__v;
         delete rest._id;
+        delete rest.id;
         delete rest.createdAt;
         delete rest.updatedAt;
+        rest.components = rest.components.map((c) => ({
+          stockSymbol: c.stockSymbol,
+          weight: c.weight,
+        }));
       },
     },
     timestamps: true,

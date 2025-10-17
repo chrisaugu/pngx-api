@@ -1,8 +1,8 @@
-const { format, transports, config, addColors } = require("winston");
 require("winston-daily-rotate-file");
 const pino = require("pino");
+// const chalk = require("chalk");
+const { format, transports, config, addColors } = require("winston");
 
-// Custom log format for console
 const consoleFormat = format.printf(({ level, message, timestamp, stack }) => {
   return `${timestamp} [${level.toString()}]: ${stack || message}`;
 });
