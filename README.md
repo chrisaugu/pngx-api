@@ -372,8 +372,10 @@ curl -i -H 'Accept: application/json' https://example.com/api/v2/market/status
 
 ## How to integrate with third-parties
 
-### Webhook
+### Webhooks
 
+Webhooks allow external services to be notified when certain events happen. When the specified events happen, we'll send a POST request to each of the URLs you provide.
+We will also send events from this repository to your organization webhooks.
 You can create webhooks to subscribe to specific events that occur on NUKU-API.
 
 #### Register Webhook

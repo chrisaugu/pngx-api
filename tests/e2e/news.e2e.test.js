@@ -3,13 +3,13 @@ const mongoose = require("mongoose");
 const app = require("../../app");
 
 describe("News E2E", () => {
-  beforeAll(async () => {
-    await mongoose.connect(global.__MONGO_URI__, {});
-  });
+  // beforeAll(async () => {
+  //   await mongoose.connect(global.__MONGO_URI__, {});
+  // });
 
-  afterAll(async () => {
-    await mongoose.connection.close();
-  });
+  // afterAll(async () => {
+  //   await mongoose.connection.close();
+  // });
 
   describe("News Source Management Flow", () => {
     it("should complete full CRUD flow for news sources", async () => {

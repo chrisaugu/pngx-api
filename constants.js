@@ -34,11 +34,11 @@ const OLD_SYMBOLS = [
 ];
 
 const SYMBOLS = Object.keys(COMPANIES).filter((c) => !OLD_SYMBOLS.includes(c));
-const CHANNELS = ["tickers", ""];
+const CHANNELS = ["tickers"];
 const TOPICS = SYMBOLS.map((code) => "tickers:" + code);
 
 const PNGX_URL = "https://www.pngx.com.pg";
-const PNGX_DATA_URL = `${PNGX_URL}/data/`;
+const PNGX_DATA_URL = `${PNGX_URL}/data`;
 
 const LOCAL_TIMEZONE = "Pacific/Port_Moresby";
 const LOCAL_TIMEZONE_FORMAT = "yyyy-MM-dd"; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)

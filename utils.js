@@ -161,6 +161,7 @@ function parse_csv_to_json2(body) {
 }
 
 function parse_csv_to_json(csv) {
+  if (!csv) throw Error("CSV file is needed to continue");
   // Parse local CSV file
   // Stream big file in worker thread
   const { errors, data, meta } = Papa.parse(csv, {

@@ -3,6 +3,11 @@ const router = Router();
 const { SYMBOLS } = require("../constants");
 const { Stock } = require("../models/index");
 
+function deprecationMiddleware(req, res, next) {
+  res.set("Deprecation", "@1688169599");
+  next();
+}
+
 /**
  * @swagger
  *
@@ -11,6 +16,7 @@ const { Stock } = require("../models/index");
  *   tags:
  *    - company
  *   get:
+ *     deprecated: true
  *     summary: Returns list of stock codes/symbols
  *     responses:
  *       200:
@@ -20,6 +26,8 @@ const { Stock } = require("../models/index");
  * GET /api/v1/
  */
 router.get("/", function (req, res) {
+  res.set("Deprecation", "@1688169599");
+
   res.status(200).json({
     status: 200,
     message: "Ok",

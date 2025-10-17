@@ -5,14 +5,14 @@ const chaiHttp = require("chai-http");
 const superagent = require("superagent");
 const supertest = require("supertest");
 const mongoose = require("mongoose");
-const app = require("../app");
+const app = require("../../app");
 
 chai.use(chaiHttp);
 const expect = chai.expect;
 
 /* Connecting to the database before each test. */
 beforeEach(async () => {
-  await mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(global.__MONGO_URI__);
 });
 
 /* Closing database connection after each test. */

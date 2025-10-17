@@ -22,11 +22,13 @@ app.use(express.json());
 app.use("/api/v2", newsRoutes);
 
 // Mock logger
-jest.mock("../../utils/logger", () => ({
-  info: jest.fn(),
-  debug: jest.fn(),
-  error: jest.fn(),
-}));
+// jest.mock("../../utils/logger", () => ({
+//   info: jest.fn(),
+//   debug: jest.fn(),
+//   error: jest.fn(),
+// }));
+
+jest.mock('chai');
 
 // Mock fetch
 global.fetch = jest.fn();

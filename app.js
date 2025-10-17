@@ -134,6 +134,7 @@ initDatabase()
       "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
     );
     cron.schedule(QUOTE_FETCH_WORKER_SCHEDULE_TIME, () => {
+      // cron.schedule("*/1 * * * *", () => {
       const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(
         process.cwd(),
@@ -215,6 +216,41 @@ app.get("/health", (req, res) => {
   res.send("OK");
 });
 app.get("/ip", (request, response) => response.send(request.ip));
+
+var pets = [
+  { id: 1, name: "Tobi" },
+  { id: 2, name: "Jane" },
+  { id: 3, name: "Loki" },
+];
+var petActions = {
+  index: function (req, res) {
+    res.send(pets);
+  },
+  show: function (req, res) {
+    var pet = pets.find((p) => p.id == req.params.pet);
+    if (pet) {
+      res.send(pet);
+    } else {
+      res.status(404).send("Pet not found");
+    }
+  },
+  create: function (req, res) {
+    // ... logic to create a new pet
+    res.status(201).send("Pet created");
+  },
+  update: function (req, res) {
+    // ... logic to update a pet
+    res.send("Pet updated");
+  },
+  destroy: function (req, res) {
+    // ... logic to delete a pet
+    res.status(204).send();
+  },
+};
+// app.resource('pets', petActions);
+
+// res.set('Accept', 'application/json');
+// res.set({ Accept: 'text/plain', 'X-API-Key': 'tobi' });
 
 app.use(startMonitoring);
 app.get("/metrics", async (req, res) => {
