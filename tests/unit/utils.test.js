@@ -16,10 +16,10 @@ describe("Utils tests", () => {
     });
 
     it("should return ", () => {
-        let data = normalize_data();
+        let data = {};
+        let normalized_data = normalize_data(data);
 
-        expect(data).toBe({
-
+        expect(normalize_data).toBe({
         })
     })
 });

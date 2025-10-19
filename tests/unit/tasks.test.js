@@ -8,12 +8,11 @@ const {
 
 jest.mock('../../constants');
 jest.mock('../../libs/logger', () => ({
-    winstonLogger: fn()
-}));
-jest.mock("../../utils/logger", () => ({
-    info: jest.fn(),
-    debug: jest.fn(),
-    error: jest.fn(),
+    winstonLogger: jest.fn().mockImplementation(() => ({
+        info: jest.fn(),
+        debug: jest.fn(),
+        error: jest.fn(),
+    }))
 }));
 jest.mock('../../utils');
 jest.mock('../../models', () => ({
@@ -26,5 +25,5 @@ jest.mock('needle');
 jest.mock('papaparse');
 
 // describe("Tasks test", () => {
-    // expect("", () => { })
+// expect("", () => { })
 // })

@@ -98,11 +98,11 @@ const fetchWithRetry = async (url, options) => {
     }
     return response;
   } catch (error) {
-    if (retries < MAX_RETRIES) {
-      retries++;
-      console.log(`Retry attempt ${retries}`);
-      return fetchWithRetry(url, options);
-    }
+    // if (retries < MAX_RETRIES) {
+    //   retries++;
+    //   console.log(`Retry attempt ${retries}`);
+    //   return fetchWithRetry(url, options);
+    // }
     throw error;
   }
 };
@@ -115,7 +115,7 @@ function get_quotes_from_pngx(code) {
 
   return new Promise(function (resolve, reject) {
     if (undefined !== typeof code) {
-      const url = PNGX_DATA_URL + code + ".csv";
+      const url = PNGX_DATA_URL + "/" + code + ".csv";
       make_async_request(url, options)
         .then(function (response) {
           // resolve(typeof callback == 'function' ? new callback(response) : response);
@@ -126,7 +126,7 @@ function get_quotes_from_pngx(code) {
         });
     } else {
       for (let j = 0; j < SYMBOLS.length; j++) {
-        options["url"] = PNGX_DATA_URL + SYMBOLS[j] + ".csv";
+        options["url"] = PNGX_DATA_URL + "/" + SYMBOLS[j] + ".csv";
 
         make_async_request(options)
           .then(function (response) {
