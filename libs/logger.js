@@ -10,7 +10,6 @@ const {
   apiUsageConfig,
 } = require("../config/logger.config");
 
-// creates a new Winston Logger
 const winstonLogger = new winston.createLogger(winstonConfig);
 // exports.winstonLogger = winstonLogger;
 
@@ -22,7 +21,6 @@ const esTransport = new ElasticsearchTransport({
 });
 
 winstonLogger.add(esTransport);
-// winstonLogger.info('Informational message');
 // winstonLogger.info("User login successful", { user_id: "12345" });
 // winstonLogger.error("Failed to fetch user data", { user_id: "12345", error: "Database unavailable" });
 
@@ -122,8 +120,7 @@ const logFormat = (loggerLabel) =>
     label({ label: loggerLabel }),
     printf(
       (info) =>
-        `${info.timestamp} ${chalk.cyan(info.label)} ${info.level}: ${
-          info.message
+        `${info.timestamp} ${chalk.cyan(info.label)} ${info.level}: ${info.message
         }`
     )
   );
