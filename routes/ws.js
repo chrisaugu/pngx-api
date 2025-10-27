@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const { randomUUID } = require("crypto");
 const queryString = require("querystring");
 const { isUint8Array } = require("util/types");
+const logger = require("../libs/logger").winstonLogger;
 
 /**
  * Set up a WebSocket server on an existing HTTP or HTTPS server.
@@ -15,7 +16,6 @@ const { isUint8Array } = require("util/types");
  */
 module.exports = (httpServer) => {
   const wsServer = new WebSocketServer({
-    noServer: true,
     path: "/ws/v1",
     server: httpServer,
     // port: 8080,
@@ -24,7 +24,7 @@ module.exports = (httpServer) => {
     //   "User-Agent": "Node.js-WS"
     // }
   });
-  const connections = new Map();
+  const clients = new Map();
   // let clients = new List<IWebSocketConnection>();
 
   httpServer.on("upgrade", (request, socket, head) => {
@@ -57,19 +57,48 @@ module.exports = (httpServer) => {
   });
 
   wsServer.on("connection", (connection /*stream*/, request, client) => {
-    console.log("A new client connected");
+    logger.info("A new client connected");
     const [_path, params] = request?.url?.split("?");
     const connectionParams = queryString.parse(params);
     const ip = request.socket.remoteAddress;
     // const ip = request.headers["X-Forwarded-For"].split(",")[0].trim();
     const token = req.headers["sec-websocket-protocol"];
+    if (!token) {
+      ws.close(1008, "Token required");
+      return;
+    }
     const user = authenticateToken(token);
 
-    // if (!user) {
-    //   ws.close(); // Close connection if authentication fails
-    //   return;
-    // }
-    console.log(ip);
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      ws.close(1008, "Authentication required");
+      return;
+    }
+
+    // const token = authHeader.split(' ')[1];
+
+    // const parameters = url.parse(req.url, true).query;
+    // const token = parameters.token;
+
+    if (!user) {
+      ws.close(1008, "Invalid or expired token"); // Close connection if authentication fails
+      return;
+    }
+    logger.info(ip);
+    ws.user = decoded; // Attach user data to the WebSocket object
+    logger.info(`Client connected: ${ws.user.username}`);
+    // Proceed with WebSocket communication
+
+    const username = decoded.username;
+    clients.set(username, ws);
+
+    ws.send(
+      JSON.stringify({
+        type: "system",
+        message: "Welcome to the WebSocket server!",
+        username,
+      })
+    );
 
     const uuid = randomUUID();
     const color = Math.floor(Math.random() * 360);
@@ -90,27 +119,27 @@ module.exports = (httpServer) => {
       num_trades: 0,
     };
 
-    connections.set(connection, metadata);
-    connections[uuid] = connection;
-
+    // clients.set(connection, metadata);
+    clients.set(uuid, connection);
     connection.isAlive = true;
 
     connection.ping("ping", () => {
-      console.log("PING");
+      logger.info("PING");
     });
     connection.on("pong", heartbeat, () => {
       connection.isAlive = true;
-      console.log("PONG");
+      logger.info("PONG");
     });
 
     // Event listener for incoming messages
     connection.on("message", (bytes) => handleMessage(bytes, uuid));
+
     // Event listener for client disconnection
     connection.on("close", () => handleClose(uuid));
   });
 
   wsServer.on("error", (error) => {
-    console.error("Error: " + error.message);
+    logger.error("Error: " + error.message);
   });
 
   const interval = setInterval(function ping() {
@@ -132,6 +161,10 @@ module.exports = (httpServer) => {
   };
 
   function authenticateToken(token) {
+    if (!token) {
+      return null;
+    }
+
     return jwt.verify(token, "your-secret-key", (err, user) => {
       if (err) return null;
       return user;
@@ -139,45 +172,67 @@ module.exports = (httpServer) => {
   }
 
   const handleMessage = (bytes, uuid) => {
-    // Convert the bytes (buffer) into a string using utf-8 encoding.
-    const obj = bytes.toString();
-    const parsedMessage = JSON.parse(obj);
-    const connection = connections[uuid];
-    const metadata = connections.get(uuid);
-    let data;
-    if (isUint8Array(bytes)) {
-      data = new ArrayBuffer(bytes);
-    }
-    console.log("Received message: %s", parsedMessage);
+    try {
+      // Convert the bytes (buffer) into a string using utf-8 encoding.
+      const obj = bytes.toString();
+      const parsedMessage = JSON.parse(obj);
+      logger.info("Received message: %s", parsedMessage);
 
-    if (parsedMessage.type === "authenticate") {
-      connection.authenticated = authenticate(parsedMessage.token);
-      return;
-    }
+      const connection = clients.get(uuid);
+      const metadata = clients.get(uuid);
+      let data;
+      if (isUint8Array(bytes)) {
+        data = new ArrayBuffer(bytes);
+      }
 
-    if (connection.authenticated) {
-      // Broadcast the message to all connected clients
-      wsServer.clients.forEach((client) => {
-        if (client.isAlive === false) return client.terminate();
-        // broadcasting message to all connected clients, excluding itself
-        if (client !== socket && client.readyState === WebSocket.OPEN) {
-          client.isAlive = false;
-          // client.ping();
-          client.send(parsedMessage);
+      if (parsedMessage.type === "authenticate") {
+        connection.authenticated = authenticate(parsedMessage.token);
+        return;
+      }
+
+      if (parsedMessage.type === "message") {
+        const recipientWs = clients.get(parsedMessage.to);
+        if (recipientWs && recipientWs.readyState === WebSocket.OPEN) {
+          recipientWs.send(
+            JSON.stringify({
+              type: "message",
+              from: username,
+              content: parsedMessage.content,
+            })
+          );
+        } else {
+          ws.send(
+            JSON.stringify({ type: "error", message: "Recipient not found" })
+          );
         }
-      });
+      }
 
-      [...wsServer.clients.keys()].forEach((client) => {
-        client.send(outbound);
-      });
-    } else {
-      connection.terminate();
+      if (connection.authenticated) {
+        // Broadcast the message to all connected clients
+        wsServer.clients.forEach((client) => {
+          if (client.isAlive === false) return client.terminate();
+          // broadcasting message to all connected clients, excluding itself
+          if (client !== socket && client.readyState === WebSocket.OPEN) {
+            client.isAlive = false;
+            client.ping();
+            client.send(parsedMessage);
+          }
+        });
+
+        [...wsServer.clients.keys()].forEach((client) => {
+          client.send(outbound);
+        });
+      } else {
+        connection.terminate();
+      }
+    } catch (error) {
+      logger.error("Invalid JSON:", message);
     }
   };
 
   const handleClose = (uuid) => {
-    console.log("A client disconnected. Reconnecting...");
-    delete connections[uuid];
+    logger.info("A client disconnected. Reconnecting...");
+    clients.delete(uuid);
     wsServer.clients.delete(uuid);
 
     // setTimeout(this, 1000);
@@ -185,7 +240,7 @@ module.exports = (httpServer) => {
   };
 
   const onSocketError = (err) => {
-    console.error(err);
+    logger.error(err);
   };
 
   const heartbeat = () => {

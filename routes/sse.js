@@ -139,7 +139,7 @@ async function eventsHandler(req, res) {
 
   // // When client closes connection, stop sending events
   // req.on("close", () => {
-  //   console.log(`${clientId} Connection closed`);
+  //   logger.info(`${clientId} Connection closed`);
   //   // clients.filter((client) => client.id !== clientId);
   //   clients.delete(clientId);
 

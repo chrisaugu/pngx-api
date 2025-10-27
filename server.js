@@ -6,8 +6,8 @@ const path = require("path");
 const debug = require("debug")("NUKU-API");
 const app = require("./app");
 const Env = require("./config/env");
-// const websocket = require("./routes/ws");
-// const socket = require("./routes/socket");
+const websocket = require("./routes/ws");
+const socket = require("./routes/socket");
 const logger = require("./libs/logger").winstonLogger;
 
 logger.debug("Starting NUKU API server...");
@@ -24,8 +24,8 @@ const server = http.createServer(app);
 // }
 
 // attach websocket to the server
-// websocket(server);
-// socket(server);
+websocket(server);
+socket(server);
 
 // listen on the port
 server.listen(Env.PORT, /*"0.0.0.0", "localhost",*/ onListen);

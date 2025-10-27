@@ -109,7 +109,7 @@
                 <button>Send</button>
             </form>
         </div>
-    
+
         <div class="col">
             <input type="text" id="text-view" />
             <input type="button" id="send-button" value="Send!" />
@@ -225,8 +225,25 @@
         console.log(Object.groupBy(quotesData, (e) => e.date));
     </script>
 
-
     <script type="text/javascript">
+        // isTokenExpired(token) {
+        //     try {
+        //         const decodedToken = jwtDecode(token);
+        //         this.user = decodedToken;
+        //         const currentTime = Math.floor(new Date().getTime() / 1000);
+        //         return decodedToken.exp < currentTime;
+        //     } catch (error) {
+        //         console.error('Error decoding token:', error);
+        //         return true;
+        //     }
+        // }
+        // isLoggedIn(): boolean {
+        //     const token = localStorage.getItem('authToken');
+        //     if (token) {
+        //         return !this.isTokenExpired(token);
+        //     }
+        //     return false;
+        // }
         // const socket = io({
         //     auth: {
         //         serverOffset: 0,

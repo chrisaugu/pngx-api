@@ -18,7 +18,7 @@ const { createRedisClient } = require("../libs/redis");
 //   );
 // `);
 const pubClient = createRedisClient();
-const subClient = pubClient.duplicate();
+// const subClient = pubClient.duplicate();
 
 /**
  * Set up a Socket.IO server on an existing HTTP or HTTPS server.
