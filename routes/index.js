@@ -72,7 +72,7 @@ router.use("/v1", require("./v1"));
 /**
  * /api/v2
  */
-router.use("/v2", [require("./v2"), require("./webhook")]);
+router.use("/v2", [require("./v2"), require("./webhooks")]);
 
 router.all("/*splat", (req, res) => {
   logger.error("Unknown request URL", {

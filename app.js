@@ -212,7 +212,7 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 app.use("/webhook", require("./routes/webhooks"));
 
-app.use("/sse", require("./routes/sse"));
+app.use("/events", require("./routes/sse"));
 
 app.get("/health", (req, res) => {
   res.send("OK");
