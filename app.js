@@ -105,9 +105,6 @@ app.use(responseTime());
 // use the cabin middleware (adds request-based logging and helpers)
 app.use(cabin.middleware);
 
-app.use("/api", rateLimitMiddleware);
-app.use("/events", require("./routes/sse"));
-
 // middleware to check data is present in cache
 // app.use(checkCache);
 
@@ -204,17 +201,23 @@ app.use((req, res, next) => {
 });
 
 /**
+ * /api
+ */
+app.use("/api", rateLimitMiddleware, require("./routes/index"));
+
+/**
  * /api/docs
  */
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-/**
- * /api
- */
-app.use("/api", require("./routes/index"));
+app.use("/webhook", require("./routes/webhooks"));
+
+app.use("/sse", require("./routes/sse"));
+
 app.get("/health", (req, res) => {
   res.send("OK");
 });
+
 app.get("/ip", (request, response) => response.send(request.ip));
 
 var pets = [
@@ -253,6 +256,7 @@ var petActions = {
 // res.set({ Accept: 'text/plain', 'X-API-Key': 'tobi' });
 
 app.use(startMonitoring);
+
 app.get("/metrics", async (req, res) => {
   res.set("Content-Type", client.register.contentType);
   // Log the time taken to process the request

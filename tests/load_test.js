@@ -4,7 +4,7 @@ import { Trend } from "k6/metrics";
 import http from "k6/http";
 import { check, sleep, group } from "k6";
 
-const myTrend = new Trend("my_trend");
+// const myTrend = new Trend("my_trend");
 
 // export let options = {
 //     duration : '1m',
@@ -20,16 +20,16 @@ export const options = {
   thresholds: {
     http_req_duration: ["p(95)<500"], // 95% of requests under 500ms
     http_req_failed: ["rate<0.01"], // Less than 1% failures
-    my_trend: ["avg<200"], // Custom threshold for the custom metric
+    // my_trend: ["avg<200"], // Custom threshold for the custom metric
   },
 };
 
 export default function () {
   const responses = {
-    // stocks: http.get('http://localhost:5000/api/v2/stocks'),
+    stocks: http.get('http://localhost:5000/api/v2/stocks'),
     // companies: http.get('http://localhost:5000/api/v2/companies'),
     // notifications: http.get('http://localhost:5000/api/v2/notifications'),
-    news: http.get("http://localhost:5000/api/v2/news"),
+    // news: http.get("http://localhost:5000/api/v2/news"),
   };
 
   // Check each endpoint individually
@@ -38,21 +38,21 @@ export default function () {
   //     'companies endpoint < 500ms': (r) => r.timings.duration < 500,
   // });
 
-  // check(responses.stocks, {
-  //     'stocks endpoint status 200': (r) => r.status === 200,
-  //     'stocks endpoint < 500ms': (r) => r.timings.duration < 500,
-  // });
+  check(responses.stocks, {
+      'stocks endpoint status 200': (r) => r.status === 200,
+      'stocks endpoint < 500ms': (r) => r.timings.duration < 500,
+  });
 
   // check(responses.notifications, {
   //     'notifications endpoint status 200': (r) => r.status === 200,
   //     'notifications endpoint < 500ms': (r) => r.timings.duration < 500,
   // });
 
-  check(responses.news, {
-    "news endpoint status is 200": (r) => r.status === 200,
-    "news endpoint < 500ms": (r) => r.timings.duration < 500,
-  });
-  myTrend.add(responses.news.timings.duration);
+  // check(responses.news, {
+  //   "news endpoint status is 200": (r) => r.status === 200,
+  //   "news endpoint < 500ms": (r) => r.timings.duration < 500,
+  // });
+  // myTrend.add(responses.news.timings.duration);
 
   // group('Public endpoints', function () {
   //     let res = http.get('https://test.k6.io/public/crocodiles/1/');

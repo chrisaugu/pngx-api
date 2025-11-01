@@ -30,7 +30,10 @@ const { cache, cacheMiddleware } = require("../middlewares");
 const iexApiToken = "",
   iexSandboxToken = "";
 
-const childWorkerPath = path.resolve(process.cwd(), "./jobs/news.js");
+const childWorkerPath = path.resolve(
+  process.cwd(),
+  "./jobs/news_aggregator.js"
+);
 const base_url = new URL(BASE_URL);
 
 /**

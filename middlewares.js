@@ -261,7 +261,7 @@ exports.cache = (duration) => (req, res, next) => {
       mcache.put(key, body, duration * 1000);
       res.sendResponse(body);
     };
-    next();
+    // next();
   }
 };
 
