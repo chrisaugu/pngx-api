@@ -72,7 +72,7 @@
     "@changesets/cli": "^2.29.7",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "@elastic/elasticsearch": "^9.0.2",
+    "@elastic/elasticsearch": "^9.1.1",
     "@ladjs/graceful": "^5.0.0",
     "@socket.io/redis-adapter": "^8.3.0",
     "@zero65tech/indian-stock-market": "^4.4.1",
