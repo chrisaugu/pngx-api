@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
-const Env = require("./config/env");
+import mongoose from "mongoose";
+import Env from "./config/env";
 
 const dbOptions = {};
 
-module.exports.initDatabase = function () {
+export const initDatabase = function () {
   // return new Promise((resolve, reject) => {
   // Creating an instance for MongoDB
   mongoose.set("strictQuery", false).connect(Env.mongodb.uri, dbOptions);

@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+import { IQuote } from "../types/nuku";
 
-const QuoteSchema = new Schema(
+const QuoteSchema = new mongoose.Schema<IQuote>(
   {
     date: Date,
     code: String,
@@ -32,7 +32,7 @@ const QuoteSchema = new Schema(
   }
 );
 QuoteSchema.index({ code: 1, date: 1 });
-QuoteSchema.methods.findSimilarTypes = function (cb) {
+QuoteSchema.methods.findSimilarTypes = function (cb: ((value: any[]) => Promise<void>)) {
   return mongoose.model("quote").find({ code: this.code }).then(cb);
 };
 
@@ -55,4 +55,4 @@ const Quote = mongoose.model("quote", QuoteSchema);
 // // Insert a doc, will trigger the change stream handler above
 // await Quote.create({ name: "Axl Rose" });
 
-module.exports = Quote;
+export default Quote;

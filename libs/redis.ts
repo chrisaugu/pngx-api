@@ -1,10 +1,10 @@
-const Redis = require("ioredis");
-const { createClient } = require("redis");
+import Redis from "ioredis";
+import { createClient } from "redis";
 
 const logger = require("./logger").winstonLogger;
-const { redisConfig } = require("../config/redis");
+import { redisConfig } from "../config/redis";
 
-exports.createRedisClient = async () => {
+export const createRedisClient = async () => {
   const redisClient = createClient(redisConfig.url);
 
   // redisClient.on("connect", () => {
@@ -33,7 +33,7 @@ exports.createRedisClient = async () => {
   return redisClient;
 };
 
-exports.createRedisIoClient = () => {
+export const createRedisIoClient = () => {
   const ioRedisClient = new Redis(redisConfig.url);
   // client = new Redis(process.env.UPSTASH_REDIS_URL);
   // Or when creating the client

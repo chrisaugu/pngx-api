@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
+import { SYMBOLS } from "../../constants";
+import { Stock } from "../../models/index";
+
 const router = express.Router();
-const { SYMBOLS } = require("../constants");
-const { Stock } = require("../models/index");
 
 /**
  * @swagger

@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+import { ITicker } from "../types/nuku";
 
 /**
  * this model is used to store tickers of stocks. It is a time-series data. The collection is populated by
  * etl process which runs on a cron job every morning.
  */
-const TickerSchema = new Schema(
+const TickerSchema = new mongoose.Schema<ITicker>(
   {
     date: Date,
     symbol: String,
@@ -32,7 +32,7 @@ TickerSchema.index({
 
 const Ticker = mongoose.model("ticker", TickerSchema);
 
-exports.findBySymbol = function (symbol) {
+export const findBySymbol = function (symbol: string) {
   return Ticker.find({ symbol: symbol });
 };
 
@@ -70,4 +70,4 @@ exports.findBySymbol = function (symbol) {
 // const schema = new Schema();
 // schema.loadClass(MyClass);
 
-module.exports = Ticker;
+export default Ticker;

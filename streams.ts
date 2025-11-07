@@ -1,13 +1,9 @@
-<<<<<<< HEAD:streams.ts
-import Redis from "ioredis";
-const redis = new Redis();
-=======
-const redis = require("./libs/redis").createRedisIoClient();
+import { createRedisIoClient } from "./libs/redis";
+const redis = createRedisIoClient();
 
 // await this.client.set('user', name);
 // const result = await this.client.get('user');
 // return JSON.stringify(result);
->>>>>>> develop:streams.js
 
 redis.on("error", async (err) => {
   console.error("Redis error:", err);
@@ -15,7 +11,7 @@ redis.on("error", async (err) => {
   process.exit();
 });
 
-const processMessage = (message) => {
+const processMessage = (message: any[]) => {
   console.log("Id: %s. Data: %O", message[0], message[1]);
 };
 

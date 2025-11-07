@@ -20,8 +20,10 @@ const COMPANIES = Object.freeze({
   KPE: "Kina Petroleum Corporation",
   BSPHA: "Bank South Pacific Notes",
 });
+export type Companies = keyof typeof COMPANIES;
 
-const OLD_SYMBOLS = ["COY", "NCM", "KPE", "HIG", "KPL", "IDC", "IOC", "OSH", "BSPHA"];
+const OLD_SYMBOLS = ["COY", "NCM", "KPE", "HIG", "KPL", "IDC", "IOC", "OSH", "BSPHA"] as const;
+export type OldCompanies = typeof OLD_SYMBOLS[number];
 
 const SYMBOLS = Object.keys(COMPANIES).filter((c) => !OLD_SYMBOLS.includes(c));
 
@@ -35,7 +37,7 @@ const WORKER_SCHEDULE_TIME = "30 8 * * *";
 
 const BASE_URL = new URL("https://nuku1-btlxx2lu.b4a.run/");
 
-module.exports = {
+export {
   SYMBOLS,
   OLD_SYMBOLS,
   COMPANIES,

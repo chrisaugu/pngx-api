@@ -1,20 +1,12 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const Grid = require("gridfs-stream");
-const fs = require("fs");
+import express, { NextFunction, Request, Response } from "express";
+import mongoose from "mongoose";
+import Grid from "gridfs-stream";
+import fs from "fs";
 const router = express.Router();
-const { isToday } = require("date-fns/isToday");
-const { isWeekend } = require("date-fns/isWeekend");
-const {
-  SYMBOLS,
-  OLD_SYMBOLS,
-  COMPANIES,
-  PNGX_DATA_URL,
-  PNGX_URL,
-  BASE_URL,
-  LOCAL_TIMEZONE,
-} = require("../constants");
-const { Stock, Company, Ticker, Indices } = require("../models/index");
+import { isToday } from "date-fns/isToday";
+import { isWeekend } from "date-fns/isWeekend";
+import { SYMBOLS, OLD_SYMBOLS, COMPANIES, PNGX_DATA_URL, PNGX_URL, BASE_URL, LOCAL_TIMEZONE } from "../../constants";
+import { Stock, Company, Ticker, Indices } from "../../models";
 const logger = require("../libs/logger").winstonLogger;
 
 /**
@@ -109,7 +101,7 @@ router
 
       logger.debug("Companies retrieved", companies);
       res.json(companies);
-    } catch (error) {
+    } catch (error: any) {
       logger.error("Error retrieving stocks", {
         error: error.message,
         stack: error.stack,
@@ -125,7 +117,7 @@ router
 // 		let company = await Company.create(update);
 
 // 		res.json(company);
-// 	} catch (error) {
+// 	} catch (error: any) {
 // 		return res.json({
 // 			status: "Error",
 // 			message: error
@@ -157,7 +149,7 @@ router
 
       logger.debug("Retrived company details", company);
       res.json(company);
-    } catch (error) {
+    } catch (error: any) {
       logger.error("Error retrieving stocks", {
         error: error.message,
         stack: error.stack,
@@ -189,7 +181,7 @@ router
 
       logger.debug("Company added", company);
       res.json(company);
-    } catch (error) {
+    } catch (error: any) {
       logger.error("Error adding company", {
         error: error.message,
         stack: error.stack,
@@ -211,7 +203,7 @@ router
 
       logger.debug("Company added", company);
       res.json(company);
-    } catch (error) {
+    } catch (error: any) {
       logger.error("Error updating company", {
         error: error.message,
         stack: error.stack,
@@ -233,8 +225,8 @@ router
 // 			status: "Error",
 // 			message: error
 // 		});
-// 	} catch (error) {
-// 		// throw new Error(error);
+// 	} catch (error: any) {
+// 		// throw new Error(error: any);
 // 		return res.json({
 // 			status: "Error",
 // 			message: error
@@ -666,7 +658,7 @@ router.get("/stocks", function (req, res) {
         });
       }
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error retrieving stocks", {
         error: error.message,
         stack: error.stack,
@@ -773,7 +765,7 @@ router.get("/stocks/:code", function (req, res) {
         res.sendStatus(204);
       }
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error retrieving stocks", {
         error: error.message,
         stack: error.stack,
@@ -899,7 +891,7 @@ router.get("/stocks/tickers", async function (req, res) {
     logger.debug("Tickers retrieved ", tickers);
 
     res.json(tickers);
-  } catch (error) {
+  } catch (error: any) {
     logger.error("Error retrieving stocks", {
       error: error.message,
       stack: error.stack,
@@ -999,7 +991,7 @@ router.get("/news", async function (req, res) {
     "https://www.postcourier.com.pg/wp-json/wp/v2/posts",
     "https://www.thenational.com.pg/wp-json/wp/v2/posts",
   ];
-  let news_posts = [];
+  let news_posts: Array<any> = [];
 
   try {
     const jsons = await Promise.all(
@@ -1023,7 +1015,7 @@ router.get("/news", async function (req, res) {
     logger.debug("Retrieved news ", news_posts);
 
     res.json(news_posts);
-  } catch (error) {
+  } catch (error: any) {
     logger.error("An error occurred:", {
       error: error.message,
       stack: error.stack,
@@ -1035,16 +1027,16 @@ router.get("/news", async function (req, res) {
   }
 });
 
-let clients = [];
+let clients: Array<any> = [];
 let facts = [{ info: "hello", source: "world" }];
 
-function eventsHandler(req, res, next) {
+function eventsHandler(req: Request, res: Response, next: NextFunction) {
   // Set headers to keep the connection alive and tell the client we're sending event-stream data
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
 
-  const sendEvent = (data) => {
+  const sendEvent = (data: any) => {
     return res.write(`data: ${JSON.stringify(data)}\n`);
   };
 
@@ -1078,13 +1070,13 @@ function eventsHandler(req, res, next) {
   });
 }
 
-function sendEventsToAll(newFact) {
+function sendEventsToAll(newFact: any) {
   clients.forEach((client) =>
     client.response.write(`data: ${JSON.stringify(newFact)}\n`)
   );
 }
 
-async function addEndpoint(request, response, next) {
+async function addEndpoint(request: Request, response: Response, next: NextFunction) {
   const newFact = request.body;
   facts.push(newFact);
   return sendEventsToAll(newFact);
@@ -1098,7 +1090,7 @@ router.post("/endpoints", addEndpoint);
  */
 router.get("/market/status", async (req, res) => {
   try {
-    const holidays = require("../data/trade_holidays.json");
+    const holidays = require("../../data/trade_holidays.json");
 
     // if current day matches holiday's date
     const status = holidays.find((holiday) => isToday(new Date(holiday.date)));
@@ -1123,7 +1115,7 @@ router.get("/market/status", async (req, res) => {
     } else {
       res.status(404).json({ error: "Market status not found" });
     }
-  } catch (error) {
+  } catch (error: any) {
     logger.error("Error fetching market status:", {
       error: error.message,
       stack: error.stack,
@@ -1140,7 +1132,7 @@ router.get("/market/holidays", async (req, res) => {
   try {
     const holidays = require("../data/trade_holidays.json");
     res.status(200).json(holidays);
-  } catch (error) {
+  } catch (error: any) {
     logger.error("Error fetching market holidays:", {
       error: error.message,
       stack: error.stack,
@@ -1162,7 +1154,7 @@ router.get("/indices", (req, res) => {
         data: indices,
       });
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error fetching market holidays:", {
         error: error.message,
         stack: error.stack,
@@ -1199,7 +1191,7 @@ router.get("/indices/:code", async (req, res) => {
         data: { index },
       });
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error fetching market holidays:", {
         error: error.message,
         stack: error.stack,

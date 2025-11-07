@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const WebhookSchema = new mongoose.Schema(
+const WebhookSchema = new mongoose.Schema<IWebhook>(
   {
     url: {
       type: String,
@@ -47,4 +47,4 @@ const WebhookSchema = new mongoose.Schema(
 );
 
 const Webhook = mongoose.model("webhook", WebhookSchema);
-module.exports = Webhook;
+export default Webhook;

@@ -1,6 +1,7 @@
-const { model, Schema } = require("mongoose");
+import { model, Schema } from "mongoose";
+import { ICompany } from "../types/nuku";
 
-const companySchema = new Schema(
+const companySchema = new Schema<ICompany>(
   {
     name: String,
     ticker: String,
@@ -40,16 +41,18 @@ companySchema.index({ ticker: 1 });
 //   next();
 // });
 
-companySchema.methods.findByCode = function (cb) {
+companySchema.methods.findByCode = (cb: any) => {
   return this.find({ code: this.code }, cb);
 };
 
-companySchema.query.byName = function (name) {
+companySchema.query.byName = (name: string) => {
   return this.where({ name: new RegExp(name, "i") });
 };
 
-companySchema.statics.findByName = function (name) {
+companySchema.statics.findByName = (name) => {
   return this.find({ name: new RegExp(name, "i") });
 };
 
-const Company = (module.exports = model("company", companySchema));
+const Company = model("company", companySchema);
+
+export default Company;

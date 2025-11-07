@@ -1,11 +1,11 @@
-const Company = require("./company.model");
+import Company from "./company.model";
 // TODO: rename Stock to Quote for consistency in Stock terminologies
-const Stock = require("./quote.model");
-const Indices = require("./indices.model");
-const Ticker = require("./ticker.model");
-const Webhook = require("./webhook.model");
+import Stock from "./quote.model";
+import Indices from "./indices.model";
+import Ticker from "./ticker.model";
+import Webhook from "./webhook.model";
 
-module.exports = {
+export {
   Ticker,
   Stock,
   Indices,

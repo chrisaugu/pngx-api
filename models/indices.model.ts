@@ -1,113 +1,129 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+import mongoose from "mongoose";
+import { IIndex } from "../types/nuku";
 
-const IndexSchema = new Schema(
-  {
-    // Core identification
-    code: {
-      type: String,
-      required: true,
-      unique: true,
-      uppercase: true,
-      trim: true,
-      maxlength: 10,
-    },
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-
-    // Composition data
-    components: [
-      {
-        stockSymbol: {
-          type: String,
-          required: true,
-          uppercase: true,
-          trim: true,
-        },
-        weight: {
-          type: Number,
-          min: 0,
-          max: 100,
-        },
-      },
-    ],
-
-    // Pricing information
-    currentValue: {
-      type: Number,
-      min: 0,
-    },
-    previousClose: Number,
-    open: Number,
-    high: Number,
-    low: Number,
-
-    // Metadata
-    exchange: {
-      type: String,
-      enum: ["PNGX", "OTHER"],
-    },
-    currency: {
-      type: String,
-      default: "PGK",
-      enum: ["PGK", "USD", "EUR", "GBP", "JPY", "INR", "CNY"],
-    },
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
-
-    // Timestamps
-    lastUpdated: {
-      type: Date,
-      default: Date.now,
-    },
-    history: [
-      {
-        date: Date,
-        value: Number,
-        volume: Number,
-      },
-    ],
+const IndexSchema = new mongoose.Schema<IIndex>({
+  // Core identification
+  code: {
+    type: String,
+    required: true,
+    unique: true,
+    uppercase: true,
+    trim: true,
+    maxlength: 10,
   },
-  {
-    toObject: { virtuals: true },
-    toJSON: {
-      virtuals: true,
-      transform(doc, rest) {
-        delete rest.__v;
-        delete rest._id;
-        delete rest.createdAt;
-        delete rest.updatedAt;
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+
+  // Composition data
+  components: [
+    {
+      stockSymbol: {
+        type: String,
+        required: true,
+        uppercase: true,
+        trim: true,
+      },
+      weight: {
+        type: Number,
+        min: 0,
+        max: 100,
       },
     },
-    timestamps: true,
+  ],
+
+  // Pricing information
+  currentValue: {
+    type: Number,
+    min: 0,
+  },
+  previousClose: Number,
+  open: Number,
+  high: Number,
+  low: Number,
+
+  // Metadata
+  exchange: {
+    type: String,
+    enum: ["PNGX", "OTHER"],
+  },
+  currency: {
+    type: String,
+    default: "PGK",
+    enum: ["PGK", "USD", "EUR", "GBP", "JPY", "INR", "CNY"],
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+
+  // Timestamps
+  lastUpdated: {
+    type: Date,
+    default: Date.now,
+  },
+  history: [
+    {
+      date: Date,
+      value: Number,
+      volume: Number,
+    },
+  ],
+}, {
+  toObject: { virtuals: true },
+  toJSON: {
+    virtuals: true,
+    transform(doc, rest) {
+      delete rest.__v;
+      delete rest._id;
+      delete rest.createdAt;
+      delete rest.updatedAt;
+    },
+  },
+  timestamps: true,
+  methods: {
+    findSimilarTypes: function (cb: (value: any[]) => Promise<void>) {
+      return this.model('indices').find({ code: this.code }).then(cb);
+    },
+
+    // Instance method for getting recent performance
+    getRecentPerformance: function (days = 30) {
+      const cutoffDate = new Date();
+      cutoffDate.setDate(cutoffDate.getDate() - days);
+
+      return this.history
+        .filter((entry) => entry.date >= cutoffDate)
+        .sort((a, b) => b.date - a.date);
+    }
+  },
+  statics: {
+    findBySymbol: function (code) {
+      return this.find({
+        code: code,
+      });
+    },
+    // Static method for finding by exchange
+    findByExchange: function (exchange) {
+      return this.find({ exchange });
+    }
+  },
+  virtuals: {
+    // Virtual for percentage change
+    percentChange: {
+      get() {
+        if (!this.previousClose || !this.currentValue) return null;
+        return ((this.currentValue - this.previousClose) / this.previousClose) * 100;
+      }
+    }
   }
-);
+});
 
 // Indexes for performance
 IndexSchema.index({ code: 1, date: 1 });
 IndexSchema.index({ name: "text" });
 IndexSchema.index({ exchange: 1, isActive: 1 });
-
-IndexSchema.methods.findSimilarTypes = function (cb) {
-  return mongoose.model("indices").find({ code: this.code }).then(cb);
-};
-
-IndexSchema.statics.findBySymbol = function (code) {
-  return this.find({
-    code: code,
-  });
-};
-
-// Virtual for percentage change
-IndexSchema.virtual("percentChange").get(function () {
-  if (!this.previousClose || !this.currentValue) return null;
-  return ((this.currentValue - this.previousClose) / this.previousClose) * 100;
-});
 
 // Pre-save hook for data validation
 IndexSchema.pre("save", function (next) {
@@ -125,23 +141,8 @@ IndexSchema.pre("save", function (next) {
   next();
 });
 
-// Static method for finding by exchange
-IndexSchema.statics.findByExchange = function (exchange) {
-  return this.find({ exchange });
-};
-
-// Instance method for getting recent performance
-IndexSchema.methods.getRecentPerformance = function (days = 30) {
-  const cutoffDate = new Date();
-  cutoffDate.setDate(cutoffDate.getDate() - days);
-
-  return this.history
-    .filter((entry) => entry.date >= cutoffDate)
-    .sort((a, b) => b.date - a.date);
-};
-
 const Indices = mongoose.model("indices", IndexSchema);
-module.exports = Indices;
+export default Indices;
 
 async function main() {
   // Create a new index

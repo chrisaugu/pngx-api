@@ -1,6 +1,6 @@
 const Env = require("./env");
 
-module.exports.redisConfig = {
+export const redisConfig = {
   username: "default" || "redis",
   password: "62XYZ42fkK3BXuF2qMdccTH94UltWWkQ" || "secret",
   socket: {

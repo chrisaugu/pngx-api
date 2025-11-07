@@ -6,8 +6,9 @@ import csv from "csv-parser";
 import needle from "needle";
 import { format, parse, formatDate } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
-import { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT } from "./constants";
+import { SYMBOLS, OLD_SYMBOLS, PNGX_DATA_URL, PNGX_URL, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT } from "./constants";
 import Env from "./config/env";
+import { IQuote } from "./types/nuku";
 
 const csvOptions = {
   header: true,
@@ -17,7 +18,7 @@ const csvOptions = {
   worker: true,
 };
 
-function date_split(date) {
+function date_split(date: string) {
   const regex = /^\d{4}[-/]\d{2}[-/]\d{2}$/;
   const regex2 = /^\d{4}[-/]\d{2}[-/]\d{2}$/;
 
@@ -67,8 +68,22 @@ function format_date(date) {
   }
 }
 
-function normalize_data(data) {
-  let quote = {};
+function normalize_data(data: any) {
+  let quote: IQuote = {
+    date: new Date(),
+    code: "",
+    short_name: "",
+    bid: 0,
+    offer: 0,
+    last: 0,
+    close: 0,
+    high: 0,
+    low: 0,
+    open: 0,
+    chg_today: 0,
+    vol_today: 0,
+    num_trades: 0
+  };
   let formattedDate = format_date(data["Date"]);
 
   quote["date"] = formattedDate;
@@ -94,7 +109,7 @@ function normalize_data(data) {
  * @param {String} str
  * @returns {Number}
  */
-function convertStringToNumber(str) {
+function convertStringToNumber(str: string): number {
   if (_.isString(str)) {
     if (str.includes(",")) {
       let num = Number(str.split(",").join(""));
@@ -297,7 +312,35 @@ const processLargeFile = async (file) => {
   });
 };
 
-module.exports = {
+export const sleep = (delay: number) =>
+  new Promise<void>((resolve, reject) =>
+    setTimeout(() => resolve, delay * 1000),
+  );
+
+// Generate random callbackId
+export function generateCallbackId(): string {
+  return Math.random().toString(36).substring(2, 9);
+}
+
+/**
+ * explode req.query objects into map
+ * @param queryObj 
+ * @returns 
+ * @todo 
+ * type queryMap = {
+            filter: 'sms' | 'email' | 'push'
+            sort: [-1, 1]
+        }
+ */
+export function toQueryMap(queryObj: any) {
+  return new Map(Object.entries(queryObj));
+}
+
+export async function generateSessionId() {
+  return Math.random().toString(36).substring(2, 9);
+}
+
+export {
   parse_csv_to_json,
   parallel,
   normalize_data,

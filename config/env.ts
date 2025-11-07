@@ -1,5 +1,5 @@
-const path = require("path");
-const dotenv = require("dotenv");
+import path from "path";
+import dotenv from "dotenv";
 
 // const env = process.env.NODE_ENV || "development";
 
@@ -20,13 +20,13 @@ dotenv.config();
 
 const Env = {
   redis: {
-    broker: process.env.REDIS_URL,
-    backend: process.env.REDIS_BACKEND_URL,
+    broker: process.env.REDIS_URL!,
+    backend: process.env.REDIS_BACKEND_URL!,
   },
   mongodb: {
-    uri: process.env.MONGODB_URI,
+    uri: process.env.MONGODB_URI!,
   },
   ...process.env,
 };
 
-module.exports = Env;
+export default Env;

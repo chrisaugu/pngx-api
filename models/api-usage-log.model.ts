@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import { IAPIUsage } from '../types/nuku';
 
-const ApiUsageSchema = new mongoose.Schema({
+const ApiUsageSchema = new mongoose.Schema<IAPIUsage>({
     // api_key: { type: String, required: true },
     // user_id: { type: String, required: true },
     ip_address: { type: String, required: true },
@@ -17,4 +18,4 @@ const ApiUsageSchema = new mongoose.Schema({
 });
 
 const ApiUsageLog = mongoose.model('ApiUsageLog', ApiUsageSchema);
-module.exports = ApiUsageLog;
+export default ApiUsageLog;
