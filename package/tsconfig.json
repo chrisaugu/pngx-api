@@ -3,14 +3,20 @@
     "moduleResolution": "node",
     "removeComments": false,
     "sourceMap": true,
-    "target": "es2018",
-    "outDir": "build/compiled",
+    "target": "ES6",
+    "module": "esnext",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "declaration": true,
     "strict": true,
-    "module": "esnext",
     "noEmitOnError": true,
-    "lib": ["es2017"],
-    "esModuleInterop": false
+    "lib": ["es6", "dom"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node", "jest"],
+    "allowJs": true
   },
-  "include": ["src"]
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

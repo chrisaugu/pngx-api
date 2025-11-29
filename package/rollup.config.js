@@ -1,24 +1,35 @@
 import typescript from "@rollup/plugin-typescript";
+import { defineConfig } from "rollup";
 import dts from "rollup-plugin-dts";
 
-const config = [
-  {
-    input: "build/compiled/index.js",
-    output: {
-      file: "nuku-api.js",
-      format: "cjs",
+export default defineConfig({
+  input: "src/index.ts",
+  output: [
+    {
+      file: 'dist/index.cjs.js',
+      format: 'cjs',
+      exports: 'named',
       sourcemap: true,
     },
-    external: ["axios", "os", "url"],
-    plugins: [typescript()],
-  },
-  {
-    input: "build/compiled/index.d.ts",
-    output: {
-      file: "nuku-api.d.ts",
-      format: "es",
+    {
+      file: 'dist/index.esm.js',
+      // file: "dist/index.js",
+      format: 'esm'
     },
-    plugins: [dts()],
-  },
-];
-export default config;
+    {
+      file: 'dist/index.umd.js',
+      format: 'umd',
+      name: 'NukuAPI'
+    },
+    {
+      file: 'dist/index.amd.js',
+      format: 'amd',
+      name: 'NukuAPI'
+    }
+  ],
+  external: ["axios", "os", "url"],
+  plugins: [
+    typescript(),
+    // dts()
+  ],
+});
