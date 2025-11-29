@@ -1,5 +1,8 @@
 import { readFile, writeFile } from "fs";
 import path from "path";
+// const { readFile, writeFile } = require('fs');
+// const path = require('path');
+
 const versionFile = path.resolve("version.txt");
 
 readFile(versionFile, "utf8", (err, data) => {

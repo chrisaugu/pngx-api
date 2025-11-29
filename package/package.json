@@ -2,8 +2,9 @@
   "name": "@chrisaugu/nuku-api-lib",
   "version": "1.0.0",
   "description": "NUKU API NPM library",
+  "typex": "commonjs",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -16,6 +17,8 @@
     "build": "rollup -c",
     "jest": "jest --watch",
     "test": "run-s test:unit",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "test:unit": "jest",
     "prepublishOnly": "npm run build"
   },
