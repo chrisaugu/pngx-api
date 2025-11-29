@@ -1,3 +1,3 @@
-const NukuClient = require('@chrisaugu/nuku-api-lib/');
+const NukuClient = require('../dist/index.cjs');
 
 console.log(NukuClient.getStocks());

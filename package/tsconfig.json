@@ -3,19 +3,18 @@
     "moduleResolution": "node",
     "removeComments": false,
     "sourceMap": true,
-    "target": "ES6",
+    "target": "es6",
     "module": "esnext",
-    "rootDir": "./src",
+    "rootDir": ".",
     "outDir": "./dist",
     "declaration": true,
     "strict": true,
     "noEmitOnError": true,
-    "lib": ["es6", "dom"],
+    "lib": ["es6"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node", "jest"],
-    "allowJs": true
+    "types": ["node", "jest"]
   },
   "include": ["src/**/*", "tests/**/*"],
   "exclude": ["node_modules", "dist"]

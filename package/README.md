@@ -50,7 +50,7 @@ NukuAPI.getStocks().then(console.log);
 
 ### Node.js/CommonJS
 ```javascript
-const NukuAPI = require('@chrisaugu/nuku-api-lib');
+const * as NukuAPI = require('@chrisaugu/nuku-api-lib');
 
 // Get all stocks
 NukuAPI.getStocks().then(console.log);
@@ -59,7 +59,7 @@ NukuAPI.getStocks().then(console.log);
 ### React
 ```jsx
 import React, { useEffect, useState } from 'react';
-import NukuAPI from '@chrisaugu/nuku-api-lib';
+import * as NukuAPI from '@chrisaugu/nuku-api-lib';
 
 function StockComponent() {
   const [stocks, setStocks] = useState([]);
