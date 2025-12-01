@@ -25,6 +25,7 @@ const {
   NewsSource,
 } = require("../models/index");
 const logger = require("../libs/logger").winstonLogger;
+const redis = require("../libs/redis").createRedisIoClient;
 const { cache, cacheMiddleware } = require("../middlewares");
 // const { iexApiToken, iexSandboxToken } = require("../../config/keys");
 const iexApiToken = "",
@@ -60,6 +61,36 @@ router.get("/", function (req, res) {
       codes: SYMBOLS,
     },
   });
+});
+
+// Health check endpoint
+router.get("/health", async (_req, res, _next) => {
+  // optional: add further things to check (e.g. connecting to dababase)
+  const healthcheck = {
+    uptime: process.uptime(),
+    message: "OK",
+    timestamp: Date.now(),
+    environment: "production",
+    status: "healthy",
+  };
+
+  try {
+    await redis.ping();
+    res.status(200).json({
+      ...healthcheck,
+      redis: "healthy",
+    });
+  } catch (e) {
+    healthcheck.message = e;
+    logger.error("Error creating user", {
+      error: e.message,
+      stack: e.stack,
+      body: _req.body,
+    });
+    res.json(healthcheck);
+    res.status(503).send();
+    // res.status(503).json({ redis: "unavailable" });
+  }
 });
 
 /**
