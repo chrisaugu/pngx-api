@@ -54,6 +54,7 @@ The API retrieve, store, and process stock data directly from [PNGX](http://www.
 | NGP    | NGIP Agmark Limited                |
 | NIU    | Niuminco Group Limited             |
 | SST    | Steamships Trading Company Limited |
+| PLC    | Pacific Lime and Cement Limited    |
 | STO    | Santos Limited                     |
 
 ## Roadmap
