@@ -214,6 +214,7 @@ app.use("/webhook", require("./routes/webhooks"));
 
 app.use("/events", require("./routes/sse"));
 
+// health check for docker
 app.get("/health", (req, res) => {
   res.send("OK");
 });

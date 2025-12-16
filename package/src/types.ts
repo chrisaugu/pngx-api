@@ -72,16 +72,3 @@ export type TTicker = TQuote & {};
 //   low: 74.125,
 //   close: 74.357498
 // }
-
-export type TAPIRequest = {};
-
-export type TAPIResponse<T> = {
-  status: number;
-  message: string;
-  symbols: string;
-  api: string;
-  time: number;
-  date: Date;
-  last_updated: Date;
-  data: T[];
-};

@@ -1,10 +1,19 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 export default {
-  testEnvironment: "node",
+  preset: 'ts-jest',
+  testEnvironment: 'node',
   transform: {
-    "^.+.tsx?$": ["ts-jest", {}],
+    "^.+.ts?$": ["ts-jest", {}],
   },
-  // transform: {'^.+\\.ts?$': 'ts-jest'},
-  testRegex: "/tests/.*\\.(test|spec)?\\.(ts|tsx)$",
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  testRegex: "/tests/.*\\.(test|spec)?\\.(ts)$",
+  moduleFileExtensions: ['ts', 'js'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(your-module)/)'
+  ],
+  collectCoverageFrom: [
+    'src/**/*.ts',
+    '!src/**/*.d.ts'
+  ],
+  clearMocks: true,
+  coverageDirectory: 'coverage'
 };

@@ -27,6 +27,7 @@ function deprecationMiddleware(req, res, next) {
  */
 router.get("/", function (req, res) {
   res.set("Deprecation", "@1688169599");
+  res.setHeader("Sunset", "@1688169599");
 
   res.status(200).json({
     status: 200,

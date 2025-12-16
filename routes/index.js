@@ -20,6 +20,8 @@ router.get("/health", async (_req, res, _next) => {
     uptime: process.uptime(),
     message: "OK",
     timestamp: Date.now(),
+    environment: "production",
+    status: "healthy",
   };
 
   try {
