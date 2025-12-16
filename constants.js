@@ -16,6 +16,7 @@ const COMPANIES = Object.freeze({
   IOC: "InterOil Limited",
   IDC: "Indochine Mining Limited",
   KPL: "Kina Petroleum Limited",
+  PLC: "Pacific Lime and Cement Limited",
   HIG: "Highlands Pacific Limited",
   KPE: "Kina Petroleum Corporation",
   BSPHA: "Bank South Pacific Notes",
