@@ -1,6 +1,6 @@
 {
   "name": "nuku-api",
-  "version": "2.0",
+  "version": "2.0.1",
   "private": true,
   "description": "Restful API that serves stock quotes from pngx.com.pg",
   "main": "./server.js",

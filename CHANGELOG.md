@@ -77,6 +77,10 @@ Fixed – for fixed bugs and refactoring.
 - **api:** Updated the docs ([d76cce4](https://github.com/chrisaugu/pngx-api/commit/d76cce4))
 - Updated Readme file ([e11c0ab](https://github.com/chrisaugu/pngx-api/commit/e11c0ab)) -->
 
+# 2.0.2 / 2025-12-17
+
+- added PLC to COMPANIES constants
+
 # 2.0.1 / 2025-03-08
 
 - added nginx
