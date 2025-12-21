@@ -3,6 +3,7 @@ const _ = require("lodash");
 const fs = require("node:fs");
 const { initDatabase } = require("./database");
 const { Company } = require("./models");
+const { trim_code_name } = require("./utils");
 
 // import fs from "fs";
 // import path from "path";
@@ -79,28 +80,30 @@ initDatabase()
       "[Main_Thread]: Connected: Successfully connect to mongo server"
     );
 
-    fs.readdirSync("./images/logos/").forEach(async (logo) => {
-      console.log(logo);
-      const company = await Company.findOne({
-        ticker: logo.split(".")[0].toUpperCase(),
-      });
-      if (company) {
-        const logoBuffer = fs.readFileSync(`./images/logos/${logo}`);
-        if (logoBuffer) {
-          if (company["logo"]) {
-            company["logo"] = {
-              data: logoBuffer,
-              contentType: "image/png",
-            };
-          }
-          var base64Flag = "data:image/jpeg;base64,";
-          var imageStr = arrayBufferToBase64(company.logo.data);
+    // fs.readdirSync("./images/logos/").forEach(async (logo) => {
+    //   console.log(logo);
+    //   const company = await Company.findOne({
+    //     ticker: logo.split(".")[0].toUpperCase(),
+    //   });
+    //   if (company) {
+    //     const logoBuffer = fs.readFileSync(`./images/logos/${logo}`);
+    //     if (logoBuffer) {
+    //       if (company["logo"]) {
+    //         company["logo"] = {
+    //           data: logoBuffer,
+    //           contentType: "image/png",
+    //         };
+    //       }
+    //       var base64Flag = "data:image/jpeg;base64,";
+    //       var imageStr = arrayBufferToBase64(company.logo.data);
 
-          //   console.log(base64Flag + imageStr);
-          company.save();
-        }
-      }
-    });
+    //       //   console.log(base64Flag + imageStr);
+    //       company.save();
+    //     }
+    //   }
+    // });
+
+    await trim_code_name();
   })
   .on("error", function () {
     console.log(

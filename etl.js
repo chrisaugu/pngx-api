@@ -4,9 +4,12 @@ const cron = require("node-cron");
 const _ = require("lodash");
 const { initDatabase } = require("./database");
 const { Stock, Ticker } = require("./models");
-const { get_quotes_from_pngx } = require("./tasks");
+const {
+  get_quotes_from_pngx,
+  get_quotes_from_internet_archive,
+} = require("./tasks");
 const { normalize_data } = require("./utils");
-const { SYMBOLS } = require("./constants");
+const { SYMBOLS, ALL_COMPANIES } = require("./constants");
 
 /**
  * TODO: change the way this etl works
@@ -39,9 +42,10 @@ initDatabase()
       "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
     );
     // cron.schedule("30 8 * * *", async () => {
-    SYMBOLS.forEach(async (quote) => {
+    ALL_COMPANIES.forEach(async (quote) => {
       const dbData = await fetchDataFromDB(quote);
-      const sourceData = await fetchDataFromPNGX(quote);
+      // const sourceData = await fetchDataFromPNGX(quote);
+      const sourceData = await fetchDataFromInternetArchive(quote);
 
       if (!_.isArray(dbData) && !_.isArray(sourceData)) {
         throw new Error("dbData and sourceData must be both arrays");
@@ -78,6 +82,16 @@ async function fetchDataFromPNGX(quote) {
   console.log("Fetching quotes for " + quote + " from PNGX");
   return new Promise((resolve, reject) => {
     get_quotes_from_pngx(quote)
+      .then((quotes) => quotes.map((quote) => normalize_data(quote)))
+      .then(resolve)
+      .catch(reject);
+  });
+}
+
+async function fetchDataFromInternetArchive(quote) {
+  console.log("Fetching quotes for " + quote + " from Internet Archive");
+  return new Promise((resolve, reject) => {
+    get_quotes_from_internet_archive(quote)
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
       .then(resolve)
       .catch(reject);
@@ -216,3 +230,5 @@ class ETL {
 // let etl = new ETL();
 // etl.addSources(["https://www.pngx.com.pg/data"]);
 // etl.run();
+
+// https://web.archive.org/web/20191211162040/http://www.pngx.com.pg/data/CCP.csv

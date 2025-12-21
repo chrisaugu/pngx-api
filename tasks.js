@@ -11,6 +11,7 @@ const {
   COMPANIES,
   PNGX_DATA_URL,
   PNGX_URL,
+  PNGX_DATA_INTERNET_ARCHIVE_URL,
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
 } = require("./constants");
@@ -141,6 +142,39 @@ function get_quotes_from_pngx(code) {
   });
 }
 exports.get_quotes_from_pngx = get_quotes_from_pngx;
+
+function get_quotes_from_internet_archive(code) {
+  const options = {};
+
+  return new Promise(function (resolve, reject) {
+    if (undefined !== typeof code) {
+      const url = PNGX_DATA_INTERNET_ARCHIVE_URL + "/" + code + ".csv";
+      make_async_request(url, options)
+        .then(function (response) {
+          // resolve(typeof callback == 'function' ? new callback(response) : response);
+          resolve(response);
+        })
+        .catch(function (error) {
+          reject(error);
+        });
+    } else {
+      for (let j = 0; j < SYMBOLS.length; j++) {
+        options["url"] =
+          PNGX_DATA_INTERNET_ARCHIVE_URL + "/" + SYMBOLS[j] + ".csv";
+
+        make_async_request(options)
+          .then(function (response) {
+            // resolve(typeof callback == 'function' ? new callback(response) : response);
+            resolve(response);
+          })
+          .catch(function (error) {
+            reject(error);
+          });
+      }
+    }
+  });
+}
+exports.get_quotes_from_internet_archive = get_quotes_from_internet_archive;
 
 /**
  * Fetches Quotes from PNGX.com.pg

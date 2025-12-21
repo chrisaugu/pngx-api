@@ -16,6 +16,7 @@ const {
   LOCAL_TIMEZONE_FORMAT,
 } = require("./constants");
 const Env = require("./config/env");
+const { Stock } = require("./models");
 const logger = require("./libs/logger").winstonLogger;
 
 const csvOptions = {
@@ -81,8 +82,8 @@ function normalize_data(data) {
   const formattedDate = format_date(data["Date"]);
 
   quote["date"] = formattedDate;
-  quote["code"] = data["Short Name"];
-  quote["short_name"] = data["Short Name"];
+  quote["code"] = data["Short Name"].trim();
+  quote["short_name"] = data["Short Name"].trim();
   quote["bid"] = convertStringToNumber(data["Bid"]);
   quote["offer"] = convertStringToNumber(data["Offer"]);
   quote["last"] = convertStringToNumber(data["Last"]);
@@ -308,6 +309,16 @@ const processLargeFile = async (file) => {
   });
 };
 
+const trim_code_name = async () => {
+  let stocks = await Stock.find();
+  for (let stock of stocks) {
+    stock.short_name = stock.short_name.trim();
+    stock.code = stock.code.trim();
+    stock.save();
+  }
+  console.log("Updated");
+};
+
 /**
  *
  * @param {*} priceArray
@@ -361,4 +372,5 @@ module.exports = {
   issueToken,
   env,
   convertStringToNumber,
+  trim_code_name,
 };
