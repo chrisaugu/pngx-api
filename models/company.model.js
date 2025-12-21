@@ -12,10 +12,7 @@ const companySchema = new Schema(
     esteblished_date: Date,
     outstanding_shares: Number,
     pngx_profile_url: String,
-    logo: {
-      data: Buffer,
-      contentType: String,
-    },
+    logo_src: String,
   },
   {
     toJSON: {
