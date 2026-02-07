@@ -13,6 +13,8 @@ const companySchema = new Schema(
     outstanding_shares: Number,
     pngx_profile_url: String,
     logo_src: String,
+    // internet_address: String,
+    // registered_office_address: String
   },
   {
     toJSON: {
