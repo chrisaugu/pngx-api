@@ -48,7 +48,7 @@
     "changeset:release": "yarn build && yarn prettier --write '{packages,example}/*/{package.json,CHANGELOG.md}' '.changeset/*.json' && changeset publish",
     "console": "ts-node"
   },
-  "lint-staged": {
+  "xlint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
   "repository": {
