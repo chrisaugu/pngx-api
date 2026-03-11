@@ -48,6 +48,8 @@ const QUOTE_FETCH_WORKER_SCHEDULE_TIME = "30 8 * * *";
 
 const BASE_URL = "https://nuku.zeabur.app";
 
+const DB_NAME = "pngx-db";
+
 module.exports = {
   SYMBOLS,
   OLD_SYMBOLS,
@@ -60,4 +62,5 @@ module.exports = {
   QUOTE_FETCH_WORKER_SCHEDULE_TIME,
   CHANNELS,
   TOPICS,
+  DB_NAME
 };

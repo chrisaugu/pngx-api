@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const QuoteSchema = new Schema(
   {
-    date: Date,
+    date: Schema.Types.Date,
     code: String,
     short_name: String,
     bid: Number,

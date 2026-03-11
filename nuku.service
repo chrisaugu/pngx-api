@@ -1,0 +1,15 @@
+[Unit]
+Description=NukuAPI
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/chrisaugu/projects/personal/pngx-api
+ExecStart=/usr/bin/node /home/chrisaugu/projects/personal/pngx-api/server.js
+Restart=always
+KillMode=control-group
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

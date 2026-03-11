@@ -53,6 +53,7 @@ services:
   # nuku-price-consumer-service:
   #   depends_on:
   #     - nuku-redis
+
 #   nuku-redis:
 #     # image: redis
 #     image: redis:7.2.4-alpine
@@ -86,17 +87,9 @@ services:
 #     healthcheck:
 #       test: ["CMD", "pg_isready", "-U", "postgres"]
 
-#   redis:
-#     restart: always
-#     image: redis
-#     ports:
-#       - "6379:6379"
-#     healthcheck:
-#       test: ["CMD", "redis-cli", "ping"]
+volumes:
+  nuku-storage:
 
-# volumes:
-#   nuku-storage:
-
-# networks:
-#   nuku-api-network:
-#     driver: bridge
+networks:
+  nuku-api-network:
+    driver: bridge

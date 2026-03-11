@@ -87,8 +87,6 @@ async function start() {
     .map((result) => result.value)
     .forEach((json) => news_posts.push(...json));
 
-  // if (!requests)
-
   news_posts.sort(
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
   );

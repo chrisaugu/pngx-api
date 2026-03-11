@@ -31,6 +31,7 @@ const MAX_TIME_DIFFERENCE = +Env.MAX_TIME_DIFFERENCE || 60;
  * stock.earnings_report_released
 
 Event Name | Description
+|----------|-----------|
 stock.price_threshold_hit | A stock crosses a user-defined price (up or down).
 stock.price_updated | Regular stock price updates (throttled).
 stock.volume_spike | Volume anomaly detected (e.g., 3× 30-day average).

@@ -76,6 +76,11 @@ router.use("/v1", require("./v1"));
  */
 router.use("/v2", [require("./v2"), require("./webhooks")]);
 
+/**
+ * /api/v3
+ */
+router.use("/v3", [require("./v3"), require("./webhooks")]);
+
 router.all("/*splat", (req, res) => {
   logger.error("Unknown request URL", {
     message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${base_url.protocol}//${base_url.host}/docs/`,

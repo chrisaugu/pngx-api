@@ -30,7 +30,8 @@ NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and process
 - [Tech](#tech)
 - [Dependencies](##dependencies)
 - [Contributing](#contributing)
-- [Author Info](author-info)
+- [Security](#security)
+- [Author Info](#author-info)
 - [License](#license)
 - [Copyright](#copyright)
 
@@ -578,6 +579,33 @@ LOG_DESTINATION = ./logs.txt
 LOG_LEVEL = 'error'
 ```
 
+#### Running the service as systemd
+```sh
+sudo cp ./nuku.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable nuku.service # enable on boot
+sudo systemctl start nuku.service
+sudo systemctl status nuku.service
+journalctl -u nuku.service -f
+sudo systemctl restart nuku.service
+sudo systemctl stop nuku.service
+```
+
+#### Running etl.service on timer
+```sh
+# Enable and start the timer
+sudo systemctl enable --now backup.timer
+
+# List active timers
+systemctl list-timers
+
+# Check timer details
+systemctl status backup.timer
+
+# Stop and disable
+sudo systemctl disable --now backup.timer
+```
+
 TOAST UI products are open source, so you can create a pull request(PR) after you fix issues.
 Run npm scripts and develop yourself with the following process.
 
@@ -636,6 +664,10 @@ The original author of NUKU-API is [Christian Augustyn](https://github.com/chris
 
 Wonder how NUKU-API has been changing for years [CHANGELOG](./CHANGELOG.md)
 
+## 🔐 Security
+
+For information about reporting security vulnerabilities, see the [SECURITY.md](SECURITY.md) file.
+
 ## 📜 License
 
 This software is licensed under the [MIT License](./LICENSE) © [Christian Augustyn](https://github.com/chrisaugu).
@@ -649,15 +681,7 @@ This software is licensed under the [MIT License](./LICENSE) © [Christian Augus
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [pngx-api]: https://github.com/chrisaugu/pngx-api
 [MongoDB]: https://www.mongodb.com
-[git-repo-url]: https://github.com/chrisaugu/pngx-api.git
-[john gruber]: http://daringfireball.net
-[df1]: http://daringfireball.net/projects/markdown/
-[markdown-it]: https://github.com/markdown-it/markdown-it
-[Ace Editor]: http://ace.ajax.org
 [node.js]: http://nodejs.org
 [Twitter Bootstrap]: http://twitter.github.com/bootstrap/
 [jQuery]: http://jquery.com
-[@tjholowaychuk]: http://twitter.com/tjholowaychuk
 [express]: http://expressjs.com
-[AngularJS]: http://angularjs.org
-[Gulp]: http://gulpjs.com

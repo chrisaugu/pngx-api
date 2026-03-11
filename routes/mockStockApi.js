@@ -89,11 +89,11 @@ async function getQuotes() {
 let randomFactor = 25 + Math.random() * 25;
 const samplePoint = (i) =>
   i *
-    (0.5 +
-      Math.sin(i / 1) * 0.2 +
-      Math.sin(i / 2) * 0.4 +
-      Math.sin(i / randomFactor) * 0.8 +
-      Math.sin(i / 50) * 0.5) +
+  (0.5 +
+    Math.sin(i / 1) * 0.2 +
+    Math.sin(i / 2) * 0.4 +
+    Math.sin(i / randomFactor) * 0.8 +
+    Math.sin(i / 50) * 0.5) +
   200 +
   i * 2;
 

@@ -4,8 +4,6 @@ const { Worker, isMainThread } = require("node:worker_threads");
 const path = require("path");
 const axios = require("axios");
 const mongoose = require("mongoose");
-const Grid = require("gridfs-stream");
-const fs = require("fs");
 const { isToday } = require("date-fns/isToday");
 const { isWeekend } = require("date-fns/isWeekend");
 const {
@@ -16,17 +14,17 @@ const {
   PNGX_URL,
   BASE_URL,
   LOCAL_TIMEZONE,
-} = require("../constants");
+} = require("../../constants");
 const {
   Stock,
   Company,
   Ticker,
   Indices,
   NewsSource,
-} = require("../models/index");
-const logger = require("../libs/logger").winstonLogger;
-const redis = require("../libs/redis").createRedisIoClient;
-const { cache, cacheMiddleware } = require("../middlewares");
+} = require("../../models/index");
+const logger = require("../../libs/logger").winstonLogger;
+const redis = require("../../libs/redis").createRedisIoClient;
+const { cache, cacheMiddleware } = require("../../middlewares");
 // const { iexApiToken, iexSandboxToken } = require("../../config/keys");
 const iexApiToken = "",
   iexSandboxToken = "";
@@ -38,10 +36,39 @@ const childWorkerPath = path.resolve(
 const base_url = new URL(BASE_URL);
 
 /**
+ * List of routes to be released in v3
+ * HTTPS
+ * /api/v3/markets
+ * /api/v3/markets/status
+ * /api/v3/markets/holidays
+ * /api/v3/markets/stocks/tickers
+ * /api/v3/markets/stocks/quotes
+ * /api/v3/markets/stocks/quotes/batch/:codes .i.e. BSP,CPL,CCP
+ * /api/v3/markets/stocks/quotes/lookup/:code
+ * /api/v3/markets/stocks/quotes/chart/:code/:range
+ * /api/v3/markets/stocks/historicals/:code
+ * /api/v3/markets/indices
+ * /api/v3/markets/indices/:code
+ * /api/v3/markets/news?filter=:code
+ * /api/v3/companies/:code
+ * /api/v3/webhooks
+ * /api/v3/webhooks/:webhookId
+ * 
+ * WSS
+ * /s/api/v1/stocks/quotes -> stream indices to clients 
+ * /s/api/v1/indices -> stream indices to clients
+ * /s/
+ * 
+ * SSE
+ * /api/v3/events/stocks/quotes/new -> send new stocks to systems
+ * /api/v3/events/stocks
+ */
+
+/**
  * @swagger
  *
  *
- * /api/v2/:
+ * /api/v3/:
  *   get:
  *     summary: Returns list of stock codes
  *     responses:
@@ -49,7 +76,7 @@ const base_url = new URL(BASE_URL);
  *         description: A successful response
  */
 /**
- * GET /api/v2/
+ * GET /api/v3/
  */
 router.get("/", function (req, res) {
   res.status(200).json({
@@ -93,270 +120,13 @@ router.get("/health", async (_req, res, _next) => {
   }
 });
 
-/**
- * @swagger
- *
- * /api/v2/company/{code}:
- *   get:
- *     tags:
- *      - company
- *     summary: Returns a sample message
- *     responses:
- *       200:
- *         description: A successful response
- *     parameters:
- *       - name: code
- *         in: path
- *         description: unique code representing a stock in PNGX
- *         required: true
- *         schema:
- *           type: string
- *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
- *
- */
-/**
- * GET /api/v2/company/:ticker
- * Get a specific company info using stock quote
- * @param :ticker unique ticker of the comapny
- */
-router.get("/company/:ticker", function (req, res) {
-  const stockTicker = req.params.ticker;
-
-  logger.info("Retrieving companies on PNGX");
-
-  // Stock.findByName(stockQuote, req.)
-
-  logger.debug("Companies retrieved", COMPANIES);
-  res.json(COMPANIES);
-});
-
-/**
- * @swagger
- *
- * /api/v2/companies:
- *   get:
- *     tags:
- *      - company
- *     summary: Returns a sample message
- *     responses:
- *       200:
- *         description: A successful response
- *
- */
-/**
- * /api/v2/companies
- */
-router
-  .route("/companies")
-  /**
-   * GET
-   */
-  .get(async function (req, res) {
-    try {
-      logger.info("Retrieving companies on PNGX");
-
-      const companies = await Company.find({});
-
-      logger.debug("Companies retrieved", companies);
-      res.json(companies);
-    } catch (error) {
-      logger.error("Error retrieving stocks", {
-        error: error.message,
-        stack: error.stack,
-        params: req.params,
-        query: req.query,
-      });
-    }
-  });
-// .post(async function(req, res) {
-// 	let update = req.body;
-
-// 	try {
-// 		let company = await Company.create(update);
-
-// 		res.json(company);
-// 	} catch (error) {
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// })
-
-/**
- * @swagger
- *
- * /api/v2/companies/:id:
- *   get:
- *     tags:
- *      - company
- *     summary: Returns a sample message
- *     responses:
- *       200:
- *         description: A successful response
- *
- */
-router
-  .route("/companies/:code")
-  .get(async function (req, res) {
-    const { code } = req.params;
-
-    try {
-      logger.info("Retrived company details");
-      const company = await Company.findByCode(code, function (err, company) {
-        if (err) {
-          logger.error("Error retrieving stocks", {
-            error: err.message,
-            stack: err.stack,
-            params: req.params,
-            query: req.query,
-          });
-          return res.status(500).json({
-            status: 500,
-            message: "Internal Server Error",
-          });
-        }
-        return company;
-      });
-
-      logger.debug("Retrived company details", company);
-      res.json(company);
-    } catch (error) {
-      logger.error("Error retrieving stocks", {
-        error: error.message,
-        stack: error.stack,
-        params: req.params,
-        query: req.query,
-      });
-    }
-  })
-  .post(async function (req, res) {
-    const update = req.body;
-
-    try {
-      logger.info("Adding company");
-      // const gfs = new Grid(mongoose.connection.db, mongoose.mongo);
-      // const writeStream = gfs.createWriteStream({
-      //   filename: req.file.originalname,
-      //   mode: "w",
-      //   content_type: req.file.mimetype,
-      // });
-      // fs.createReadStream(req.file.path).pipe(writeStream);
-      // writeStream.on("close", (file) => {
-      //   fs.unlink(req.file.path, (err) => {
-      //     if (err) throw err;
-      //     return res.json({ file });
-      //   });
-      // });
-
-      const company = await Company.create(update);
-
-      logger.debug("Company added", company);
-      res.json(company);
-    } catch (error) {
-      logger.error("Error adding company", {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-      });
-      return res.json({
-        status: "Error",
-        message: error,
-      });
-    }
-  })
-  .put(async function (req, res) {
-    const { id } = req.params;
-    const update = req.body;
-
-    try {
-      logger.info("Updating company");
-      const company = await Company.findByIdAndUpdate(id, update);
-
-      logger.debug("Company added", company);
-      res.json(company);
-    } catch (error) {
-      logger.error("Error updating company", {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-      });
-      return res.json({
-        status: "Error",
-        message: error,
-      });
-    }
-  });
-// .delete(async function(req, res) {
-// 	let {id} = req.params;
-
-// 	try {
-// 		await Company.findOneAndDelete(id);
-
-// 		return res.statusCode(204).json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	} catch (error) {
-// 		// throw new Error(error);
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// });
-
-/**
- * @swagger
- *
- * /api/v2/companies/:code/code:
- *   get:
- *     tags:
- *      - company
- *     summary: Returns a sample message
- *     responses:
- *       200:
- *         description: A successful response
- *
- * /api/v2/company/{code}:
- *   get:
- *     tags:
- *      - company
- *     summary: Returns a sample message
- *     responses:
- *       200:
- *         description: A successful response
- */
-/**
- * GET /api/v2/company/:code
- * Get a specific company info using stock quote
- * @param :ticker unique ticker of the comapny
- */
-router.route("/companies/:code/code").get(async function (req, res) {
-  const { code } = req.params;
-
-  const company = await Company.findOne({ ticker: new RegExp(code, "i") });
-
-  res.json(company);
-});
-
-router.get("/company/:code", async function (req, res) {
-  const stockTicker = req.params.ticker;
-
-  const company = await Company.findOne({ ticker: stockTicker });
-
-  const data = {
-    ...data,
-  };
-
-  res.json(data);
-});
+router.use('/companies', require('./companies'));
 
 /**
  * @swagger
  *
  *
- * /api/v2/historicals/{code}:
+ * /api/v3/historicals/{code}:
  *   get:
  *     tags:
  *      - historical
@@ -386,7 +156,7 @@ router.get("/company/:code", async function (req, res) {
  */
 /**
  * GET /api/stocks/historicals/:code
- * see also /api/v2/stocks/:code/historicals
+ * see also /api/v3/stocks/:code/historicals
  * @param :code unique code of the stock
  * @param ?date={date}
  * @param ?start={date}
@@ -397,7 +167,7 @@ router.get("/company/:code", async function (req, res) {
  * @param ?fields=[]
  */
 router.get("/historicals/:code", (req, res) => {
-  res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}`);
+  res.redirect(301, `/api/v3/stocks/historicals/${req.params.code}`);
 });
 router.get("/stocks/historicals/:code", function (req, res) {
   if (!req.params.code) {
@@ -537,7 +307,7 @@ router.get("/stocks/historicals/:code", function (req, res) {
  * @swagger
  *
  *
- * /api/v2/stocks/historicals/:code/essentials:
+ * /api/v3/stocks/historicals/:code/essentials:
  *   get:
  *     tags:
  *      - quote
@@ -547,12 +317,12 @@ router.get("/stocks/historicals/:code", function (req, res) {
  *         description: A successful response
  */
 /**
- * GET /api/v2/stocks/historicals/:code/essentials
+ * GET /api/v3/stocks/historicals/:code/essentials
  * Retrieves
  * @param {string} :code
  */
 router.get("/historicals/:code/essentials", (req, res) => {
-  res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}/essentials`);
+  res.redirect(301, `/api/v3/stocks/historicals/${req.params.code}/essentials`);
 });
 router.get("/stocks/historicals/:code/essentials", function (req, res) {
   const code = req.params.code;
@@ -604,7 +374,7 @@ router.get("/stocks/historicals/:code/essentials", function (req, res) {
  * @swagger
  *
  *
- * /api/v2/stocks:
+ * /api/v3/stocks:
  *   get:
  *     tags:
  *      - quote
@@ -614,7 +384,7 @@ router.get("/stocks/historicals/:code/essentials", function (req, res) {
  *         description: A successful response
  */
 /**
- * GET /api/v2/stocks
+ * GET /api/v3/stocks
  * Retrieve quotes for all the companies for the current day
  * Retrieve PNGX stock quotes stored in the my own database
  * Retrieve Stock Quotes directly from PNGX website
@@ -627,9 +397,9 @@ router.get("/stocks/historicals/:code/essentials", function (req, res) {
  * @query skip -
  * @query fields - i.e. fields=id,name,address,contact
  *
- * @param: /api/v2/stocks?code=CODE, retreive quotes from a specific company for the current day
- * @param: /api/v2/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
- * @param: /api/v2/stocks?code=CODE&date_from=DATE&date_to=DATE
+ * @param: /api/v3/stocks?code=CODE, retreive quotes from a specific company for the current day
+ * @param: /api/v3/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
+ * @param: /api/v3/stocks?code=CODE&date_from=DATE&date_to=DATE
  *
  * Date form
  */
@@ -744,7 +514,7 @@ router.get("/stocks", function (req, res) {
 //  * @swagger
 //  *
 //  *
-//  * /api/v2/stocks:
+//  * /api/v3/stocks:
 //  *   post:
 //  *     tags:
 //  *      - quote
@@ -754,7 +524,7 @@ router.get("/stocks", function (req, res) {
 //  *         description: A successful response
 //  */
 // /**
-//  * POST /api/v2/stocks
+//  * POST /api/v3/stocks
 //  * Add new quote
 //  */
 // router.post("/stocks", function (req, res) {
@@ -803,7 +573,7 @@ router.get("/stocks", function (req, res) {
  * @swagger
  *
  *
- * /api/v2/stocks/:code:
+ * /api/v3/stocks/:code:
  *   get:
  *     tags:
  *      - quote
@@ -813,7 +583,7 @@ router.get("/stocks", function (req, res) {
  *         description: A successful response
  */
 /**
- * GET /api/v2/stocks/:code
+ * GET /api/v3/stocks/:code
  * Get a specific quote by code
  * @param :code - a unique code that represents the quote/stock of a public company on PNGX
  */
@@ -822,9 +592,10 @@ router.get("/stocks/:code", function (req, res) {
 
   logger.info(`Retriving stocks for ${code}`);
 
-  Stock.find({
-    code: code,
-  })
+  Stock
+    .find({
+      code: code,
+    })
     .then(function (result) {
       if (result) {
         logger.info(`${code} stocks `, result);
@@ -853,26 +624,28 @@ router.get("/stocks/:code", function (req, res) {
 router.get("/stocks/:code/ohlcv/", async function (req, res) {
   const code = req.params.code;
 
-  Stock.find({ code: code }).then((stocks) => {
-    const history = stocks
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .map((stock) => ({
-        date: stock.date,
-        open: stock.open,
-        high: stock.high,
-        low: stock.low,
-        close: stock.close,
-        volume: stock.vol_today,
-      }));
+  Stock
+    .find({ code: code })
+    .then((stocks) => {
+      const history = stocks
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .map((stock) => ({
+          date: stock.date,
+          open: stock.open,
+          high: stock.high,
+          low: stock.low,
+          close: stock.close,
+          volume: stock.vol_today,
+        }));
 
-    if (history) {
-      res.status(200).json({
-        status: "success",
-        results: history.length,
-        data: history,
-      });
-    }
-  });
+      if (history) {
+        res.status(200).json({
+          status: "success",
+          results: history.length,
+          data: history,
+        });
+      }
+    });
 });
 
 /**
@@ -937,7 +710,7 @@ router.get("/stocks/:code/ohlcv/history", async function (req, res) {
  * @swagger
  *
  *
- * /api/v2/tickers:
+ * /api/v3/tickers:
  *   get:
  *     tags:
  *      - ticker
@@ -948,12 +721,12 @@ router.get("/stocks/:code/ohlcv/history", async function (req, res) {
  *         description: A successful response
  */
 /**
- * GET /api/v2/stocks/tickers
+ * GET /api/v3/stocks/tickers
  * Retrieves tickers/codes for all the stocks
- * @deprecated use /api/v2/stocks/tickers
+ * @deprecated use /api/v3/stocks/tickers
  */
 router.get("/tickers", (req, res) => {
-  res.redirect(301, "/api/v2/stocks/tickers");
+  res.redirect(301, "/api/v3/stocks/tickers");
 });
 router.get("/stocks/tickers", async function (req, res) {
   logger.info("Retriving tickers");
@@ -1032,7 +805,7 @@ router.get("/stocks/tickers", async function (req, res) {
  * @deprecated
  */
 router.get("/tickers/:code", (req, res) => {
-  res.redirect(301, `/api/v2/stocks/tickers/${req.params.code}`);
+  res.redirect(301, `/api/v3/stocks/tickers/${req.params.code}`);
 });
 router.get("/stocks/tickers/:code", async (req, res) => {
   const code = req.params.code;
@@ -1048,209 +821,7 @@ router.get("/stocks/tickers/:code", async (req, res) => {
   });
 });
 
-/**
- * /api/v2/news
- */
-router.get("/news", cache(10), async function (req, res) {
-  const page = req.query.page;
 
-  try {
-    if (isMainThread) {
-      logger.info("[Main_Thread]: Retrieving news");
-
-      const payload = {
-        page: page,
-      };
-
-      const worker = new Worker(childWorkerPath);
-      worker.postMessage(payload);
-
-      worker.on("message", (result) => {
-        logger.debug("completed: ", result);
-        logger.debug("Retrieved news ", result);
-        return res.send(result);
-      });
-
-      worker.on("error", (error) => {
-        logger.error(`Error occured`, error);
-        throw new Error(`Error occured`, error);
-      });
-
-      worker.on("exit", (exitCode) => {
-        if (exitCode !== 0) {
-          logger.error(`Worker stopped with exit code ${exitCode}`);
-          throw new Error(`Worker stopped with exit code ${exitCode}`);
-        }
-      });
-    }
-  } catch (error) {
-    logger.error("An error whilte fetching news:", {
-      error: error.message,
-      stack: error.stack,
-    });
-
-    res.json({ message: "An error whilte fetching news:", error });
-  }
-});
-router.get("/news/sources", function (req, res) {
-  NewsSource.find({})
-    .then((result) => {
-      res.status(200).json({
-        status: 200,
-        data: result,
-      });
-    })
-    .catch((err) => {
-      logger;
-      res.json({
-        status: 1,
-        reason: "",
-      });
-    });
-});
-router.post("/news/sources", function (req, res) {
-  const { name, url } = req.body;
-  logger.debug("Adding news source: ", name, url);
-
-  if (!name) {
-    return res.status(300).json({
-      status: 300,
-      message: "Name must be of type 'string' and cannot be empty",
-    });
-  }
-  if (!url) {
-    return res.status(300).json({
-      status: 300,
-      message: "URL must be of type 'string' and cannot be empty",
-    });
-  }
-
-  const source = new NewsSource({
-    name,
-    url,
-  });
-
-  source
-    .save()
-    .then((result) => {
-      logger.debug("News Source added: ", result);
-      res.sendStatus(201);
-    })
-    .catch((error) => {
-      logger.error("Error adding news source:", {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-      });
-      res.status(500).json({
-        status: 500,
-        message: "Error occurred while adding news source. Please try again",
-      });
-    });
-});
-router.get("/news/sources/:newsSourceId", function (req, res) {
-  const { newsSourceId } = req.params;
-
-  logger.debug("Retrieving News Source: ", newsSourceId);
-
-  NewsSource.findById(newsSourceId)
-    .then((result) => {
-      logger.debug("News Source retrieved: ", result);
-      res.json(result);
-    })
-    .catch((error) => {
-      logger.error("Error retrieving news source:", {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-      });
-      res.status(500).json({
-        error: "Internal server error",
-        message:
-          "Error occurred while retrieving news source. Please try again",
-      });
-    });
-});
-router.put("/news/sources/:newsSourceId", function (req, res) {
-  const { newsSourceId } = req.params;
-  const { name, url } = req.body;
-  const payload = {};
-
-  if (!name) {
-    payload["name"] = name;
-  }
-
-  if (!url) {
-    payload["url"] = url;
-  }
-
-  NewsSource.findByIdAndUpdate(newsSourceId, payload)
-    .then((result) => {
-      logger.debug("News Source updated: ", result);
-      res.json(result);
-    })
-    .catch((error) => {
-      logger.error("Error updating news source:", {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-      });
-      res.status(500).json({
-        status: 500,
-        message: "Error occurred while updating news source. Please try again",
-      });
-    });
-});
-router.patch("/news/sources/:newsSourceId", function (req, res) {
-  const { newsSourceId } = req.params;
-  const { name, url } = req.body;
-  const payload = {};
-
-  if (!name) {
-    payload["name"] = name;
-  }
-
-  if (!url) {
-    payload["url"] = url;
-  }
-
-  NewsSource.findByIdAndUpdate(newsSourceId, payload)
-    .then((result) => {
-      logger.debug("News Source updated: ", result);
-      res.json(result);
-    })
-    .catch((error) => {
-      logger.error("Error updating news source:", {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-      });
-      res.status(500).json({
-        status: 500,
-        message: "Error occurred while updating news source. Please try again",
-      });
-    });
-});
-router.delete("/news/sources/:newsSourceId", function (req, res) {
-  const { newsSourceId } = req.params;
-
-  NewsSource.findByIdAndDelete(newsSourceId)
-    .then((result) => {
-      logger.debug("News Source retrieved: ", result);
-      res.json(result);
-    })
-    .catch((error) => {
-      logger.error("Error deleting news source:", {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-      });
-      res.status(500).json({
-        status: 500,
-        message: "Error occurred while deleting news source. Please try again",
-      });
-    });
-});
 
 const clients = [];
 const facts = [{ info: "hello", source: "world" }];
@@ -1315,7 +886,7 @@ router.post("/endpoints", addEndpoint);
  */
 router.get("/market/status", async (req, res) => {
   try {
-    const holidays = require("../data/trade_holidays.json");
+    const holidays = require("../../data/trade_holidays.json");
 
     // if current day matches holiday's date
     const status = holidays.find((holiday) => isToday(new Date(holiday.date)));
@@ -1355,7 +926,7 @@ router.get("/market/status", async (req, res) => {
  */
 router.get("/market/holidays", async (req, res) => {
   try {
-    const holidays = require("../data/trade_holidays.json");
+    const holidays = require("../../data/trade_holidays.json");
     res.status(200).json(holidays);
   } catch (error) {
     logger.error("Error fetching market holidays:", {

@@ -46,6 +46,7 @@ const { Company } = require("./models");
 // } catch (error) {
 //   console.error(`Error: ${error.message}`);
 // }
+
 // async function readJSONFile(filename) {
 //     try {
 //       const data = await fs.readFile(filename, "utf8");
@@ -55,6 +56,7 @@ const { Company } = require("./models");
 //       return [];
 //     }
 //   }
+
 // async function main() {
 //   try {
 //     const names = await readJSONFile("names.json");

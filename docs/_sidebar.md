@@ -1,5 +1,6 @@
 - [Home](/)
 - [API Reference](api-reference.md)
+- [Roadmap](roadmap.md)
 - [Contributing](contributing.md)
 - [Changelog](changelog.md)
 - [License](license.md)

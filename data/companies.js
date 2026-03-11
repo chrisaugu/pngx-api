@@ -32,16 +32,5 @@ module.exports = [
     date_listed: Date,
     esteblished_date: Date,
     outstanding_shares: Number,
-  },
-  {
-    name: String,
-    ticker: String,
-    description: String,
-    industry: String,
-    sector: String,
-    key_people: Array,
-    date_listed: Date,
-    esteblished_date: Date,
-    outstanding_shares: Number,
-  },
+  }
 ];

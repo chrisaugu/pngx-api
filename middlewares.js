@@ -55,8 +55,7 @@ exports.error404Handler = function error404Handler(error, req, res, next) {
 
 exports.errorHandler = function errorHandler(err, req, res, next) {
   logger.error(
-    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
-      req.method
+    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method
     } - ${req.ip}`
   );
 
@@ -79,9 +78,7 @@ exports.errorHandler = function errorHandler(err, req, res, next) {
 };
 
 exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
-  logger.error(
-    `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`
-  );
+  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
   logger.error("Error occurred", {
     error: err.message,
     stack: err.stack,
@@ -411,3 +408,31 @@ const clearCache = async (pattern) => {
 
 // Clear the list cache when a new student is added
 // await clearCache('students:/api/students*');
+
+const methodMappers = {
+  "GET": "Fetching",
+  "POST": "Adding",
+  "PUT": "Updating",
+  "DELETE": "Deleting"
+}
+exports.logAuditTrails = (req, res, next) => {
+  try {
+    const originalJson = res.json;
+    res.json = async function (body) {
+      await AuditTrail.create({
+        url: req.originalUrl,
+        activity: methodMappers[req.method] + ' ' + req.originalUrl.split("/")[req.originalUrl.split("/").length - 1] || "",
+        params: JSON.stringify(req.params),
+        query: JSON.stringify(req.query),
+        payload: JSON.stringify(req.body),
+        response: JSON.stringify(body)
+      });
+      return originalJson.call(this, body);
+    }
+    next();
+  } catch (error) {
+    console.log(">>>>> an error occurred logging audit trail >>>>>>>>");
+    console.log(error.message);
+    next();
+  }
+}

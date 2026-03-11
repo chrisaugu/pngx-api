@@ -1,118 +1,78 @@
-# Contributing
+# Contributing to NUKU-API (formerly PNGX-API)
 
-Considering that this project is actively maintained, contributions of all types are welcome.
+First off, thank you for considering contributing to NUKU-API! It's people like you that make NUKU-API such a great tool for the community.
 
-## Opening issues
+## Where to Start?
 
-Open a new issue when:
+1. **Bug Reports & Feature Requests:** Please use the [GitHub Issue Tracker](https://github.com/chrisaugu/pngx-api/issues) to report bugs or request new features.
+2. **Discussions:** Feel free to open a discussion or an issue if you're unsure about a feature or want feedback before starting to code.
 
-- you notice an unwanted behavior
-- you want a new feature implemented
-- you have just some doubts
+## Development Environment Setup
 
-To open a new issue, please use the provided issue template and fill it out as much as possible.
-If you are interested to an existing issue, feel free to comment the issue or subscribe to it.
+To set up the project locally for development, follow these steps:
 
-## Submitting pull requests
+### Prerequisites
 
-If you want to fix a bug or implement a new feature, feel free to submit a new pull request.
-To submit a pull request, you have to fork this repository and fill the PR template.
-When you want to submit a pull request, remember to:
+* [Node.js](https://nodejs.org/) (version 22 or higher recommended)
+* [MongoDB](https://www.mongodb.com/) (running locally or a remote URI)
 
-- follow this project's code style
-- run `./gradlew clean check`
+### Installation
 
-## Contributing
-
-This project is under active development and the code will likely change pretty significantly.
-
-**At the moment, we only plan to prioritize reviewing external contributions for bugs or security fixes.**
-
-If you want to add a new feature or change the behavior of an existing one, please open an issue proposing the feature and get approval from an OpenAI team member before spending time building it.
-
-**New contributions that don't go through this process may be closed** if they aren't aligned with our current roadmap or conflict with other priorities/upcoming features.
-
-### Development workflow
-
-- Create a _topic branch_ from `main` - e.g. `feat/interactive-prompt`.
-- Keep your changes focused. Multiple unrelated fixes should be opened as separate PRs.
-- Following the [development setup](#development-workflow) instructions above, ensure your change is free of lint warnings and test failures.
-
-### Writing high-impact code changes
-
-1. **Start with an issue.** Open a new one or comment on an existing discussion so we can agree on the solution before code is written.
-2. **Add or update tests.** Every new feature or bug-fix should come with test coverage that fails before your change and passes afterwards. 100% coverage is not required, but aim for meaningful assertions.
-3. **Document behaviour.** If your change affects user-facing behaviour, update the README, inline help (`codex --help`), or relevant example projects.
-4. **Keep commits atomic.** Each commit should compile and the tests should pass. This makes reviews and potential rollbacks easier.
-
-### Opening a pull request
-
-- Fill in the PR template (or include similar information) - **What? Why? How?**
-- Run **all** checks locally (`cargo test && cargo clippy --tests && cargo fmt -- --config imports_granularity=Item`). CI failures that could have been caught locally slow down the process.
-- Make sure your branch is up-to-date with `main` and that you have resolved merge conflicts.
-- Mark the PR as **Ready for review** only when you believe it is in a merge-able state.
-
-### Review process
-
-1. One maintainer will be assigned as a primary reviewer.
-2. If your PR adds a new feature that was not previously discussed and approved, we may choose to close your PR (see [Contributing](#contributing)).
-3. We may ask for changes - please do not take this personally. We value the work, but we also value consistency and long-term maintainability.
-4. When there is consensus that the PR meets the bar, a maintainer will squash-and-merge.
-
-### Community values
-
-- **Be kind and inclusive.** Treat others with respect; we follow the [Contributor Covenant](https://www.contributor-covenant.org/).
-- **Assume good intent.** Written communication is hard - err on the side of generosity.
-- **Teach & learn.** If you spot something confusing, open an issue or PR with improvements.
-
-### Getting help
-
-If you run into problems setting up the project, would like feedback on an idea, or just want to say _hi_ - please open a Discussion or jump into the relevant issue. We are happy to help.
-
-Together we can make Codex CLI an incredible tool. **Happy hacking!** :rocket:
-
-### Contributor license agreement (CLA)
-
-All contributors **must** accept the CLA. The process is lightweight:
-
-1. Open your pull request.
-2. Paste the following comment (or reply `recheck` if you've signed before):
-
-   ```text
-   I have read the CLA Document and I hereby sign the CLA
+1. **Fork the repository** to your own GitHub account and then clone it to your local device:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/pngx-api.git
+   cd pngx-api
+   ```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Set up Environment Variables**:
+   Copy `.env.example` to `.env` and fill in the required variables (especially your MongoDB URI).
+   ```bash
+   cp .env.example .env
    ```
 
-3. The CLA-Assistant bot records your signature in the repo and marks the status check as passed.
+### Running the App Locally
 
-No special Git commands, email attachments, or commit footers required.
+To start the server in development mode:
 
-#### Quick fixes
-
-| Scenario          | Command                                          |
-| ----------------- | ------------------------------------------------ |
-| Amend last commit | `git commit --amend -s --no-edit && git push -f` |
-
-The **DCO check** blocks merges until every commit in the PR carries the footer (with squash this is just the one).
-
-### Releasing `codex`
-
-_For admins only._
-
-Make sure you are on `main` and have no local changes. Then run:
-
-```shell
-VERSION=0.2.0  # Can also be 0.2.0-alpha.1 or any valid Rust version.
-./codex-rs/scripts/create_github_release.sh "$VERSION"
+```bash
+npm start
 ```
 
-This will make a local commit on top of `main` with `version` set to `$VERSION` in `codex-rs/Cargo.toml` (note that on `main`, we leave the version as `version = "0.0.0"`).
+### Running Tests
 
-This will push the commit using the tag `rust-v${VERSION}`, which in turn kicks off [the release workflow](../.github/workflows/rust-release.yml). This will create a new GitHub Release named `$VERSION`.
+We value testing. Please ensure your changes are covered by tests or that all existing tests pass before submitting a PR.
+To run the test suite:
 
-If everything looks good in the generated GitHub Release, uncheck the **pre-release** box so it is the latest release.
+```bash
+npm test
+```
 
-Create a PR to update [`Formula/c/codex.rb`](https://github.com/Homebrew/homebrew-core/blob/main/Formula/c/codex.rb) on Homebrew.
+## Pull Request Process
 
-### Security & responsible AI
+1. Create a descriptive branch name (`feature/my-new-feature` or `bugfix/issue-123`).
+2. Implement your changes and add relevant tests.
+3. Ensure your code passes linting:
+   ```bash
+   npm run lint
+   ```
+4. Update any relevant documentation (e.g., `README.md`, `docs/README.md`, or OpenAPI specs).
+5. Open a Pull Request on GitHub. Be sure to fill out the PR template describing **What**, **Why**, and **How**.
+6. A maintainer will review your PR. We may request changes, but we're happy to help you get it merged!
 
-Have you discovered a vulnerability or have concerns about model output? Please e-mail **security@openai.com** and we will respond promptly.
+## Code Style
+
+This project uses `eslint` and `prettier` to maintain a consistent coding style.
+Before committing your code, you can run linting to ensure everything is nicely formatted.
+
+## Security
+
+If you discover any security-related issues, please do NOT open a public issue. Check the [SECURITY.md](SECURITY.md) guidelines for how to report them securely.
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+Happy coding! 🚀

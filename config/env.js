@@ -25,6 +25,10 @@ const Env = {
   },
   mongodb: {
     uri: process.env.MONGODB_URI,
+    collection: {
+      quotes: 'quotes',
+
+    }
   },
   ...process.env,
 };

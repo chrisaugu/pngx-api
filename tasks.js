@@ -98,11 +98,11 @@ const fetchWithRetry = async (url, options) => {
     }
     return response;
   } catch (error) {
-    // if (retries < MAX_RETRIES) {
-    //   retries++;
-    //   console.log(`Retry attempt ${retries}`);
-    //   return fetchWithRetry(url, options);
-    // }
+    if (retries < MAX_RETRIES) {
+      retries++;
+      console.log(`Retry attempt ${retries}`);
+      return fetchWithRetry(url, options);
+    }
     throw error;
   }
 };
@@ -265,11 +265,12 @@ exports.news_fetcher = async () => {
 };
 
 exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
-  Stock.find({
-    // _id: mongoose.mongo.ObjectId("633a925da76dd590ada1d70c"),
-    // date: new Date("10/03/2022"),
-    code: "STO",
-  })
+  Stock
+    .find({
+      // _id: mongoose.mongo.ObjectId("633a925da76dd590ada1d70c"),
+      // date: new Date("10/03/2022"),
+      code: "STO",
+    })
     .then((res) => {
       return Promise.all(
         res.map((data) => {

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run ETL service every day at 8:30am
+
+[Timer]
+OnCalendar=*-*-* 00:00:00
+Persistent=true
+Unit=etl.service
+
+[Install]
+WantedBy=timers.target

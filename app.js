@@ -13,6 +13,7 @@ const { Signale } = require("signale");
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
 const helmet = require("helmet");
+const auditLog = require('audit-log');
 const { specs, swaggerUi } = require("./config/swagger.config");
 const { winstonLogger: logger, pinoLogger } = require("./libs/logger");
 const { startMonitoring, client } = require("./libs/monitoring");
@@ -61,7 +62,7 @@ if (!fs.existsSync(queueFile)) fs.writeFileSync(queueFile, JSON.stringify([]));
 const cabin = new Cabin({
   axe: {
     logger: new Signale(),
-  },
+  }
 });
 
 // TODO: compression middleware causes issues with some responses from sse, need to investigate further
@@ -89,7 +90,6 @@ if (process.env.NODE_ENV === "production") {
   } else {
   }
 }
-
 app.use(apiUsageLogMiddlware);
 
 // adds request received hrtime and date symbols to request object
@@ -118,6 +118,64 @@ app.use(cabin.middleware);
 //   });
 //   next();
 // });
+
+// auditLog.addTransport("mongoose", { connectionString: "mongodb://localhost:27017/pngx-db" });
+// either or both -- up to you where your messages are sent!
+auditLog.addTransport("console");
+auditLog.logEvent('user id or something', 'maybe script name or function', 'what just happened', 'the affected target name perhaps', 'target id', 'additional info, JSON, etc.');
+auditLog.logEvent(95049, 'AppServer', 'Shutdown', 'Production-3 Instance', 'ec2-255-255-255-255', 'Terminated from web console.');
+auditLog.log({
+  logType: 'Warning',
+  text: 'An error occurred and you should fix it.',
+  datetime: '2013-01-31 13:15:02',
+  traceData: '...'
+});
+// const auditLogExpress = auditLog.getPlugin('express', {
+//   userIdPath: ['user', '_id'],
+//   whiteListPaths: [/^\/some\/particular\/path.*$/]
+// });
+// app.use(auditLogExpress.middleware)
+
+// git@github.com:coderooz/Mongoose-Structured-Audit-Logger.git
+// import { createErrorLogger } from "@/lib/createErrorLogger";
+// import { logAudit } from "@/lib/auditLogger";
+// import { attachAuditLogging } from "@/lib/attachAuditLogging";
+// import { logAudit } from "@/lib/auditLogger";
+// import AuditLog from "@/models/AuditLog";
+// import { AuditLogger } from "@/types/logging";
+
+// export const logAudit: AuditLogger = async (event) => {
+//   await AuditLog.create({
+//     action: event.action,
+//     user: event.userId,
+//     details: event.details ?? {}
+//   });
+// };
+// attachAuditLogging(ContentSchema, {
+//   logger: logAudit,
+//   hooks: [
+//     {
+//       hook: "create",
+//       action: "content.created",
+//       getActorId: (doc) => doc.author,
+//       getDetails: (doc) => ({
+//         title: doc.title,
+//         slug: doc.slug
+//       })
+//     }
+//   ]
+// });
+// export const ErrorLogging = createErrorLogger(logAudit);
+// try {
+//   await updateContent(id, data);
+// } catch (error) {
+//   await ErrorLogging({
+//     error,
+//     user: session.user.id,
+//     context: "updateContent",
+//     metadata: { contentId: id }
+//   });
+// }
 
 initDatabase()
   .on("connected", function () {
@@ -221,12 +279,12 @@ app.get("/health", (req, res) => {
 
 app.get("/ip", (request, response) => response.send(request.ip));
 
-var pets = [
+let pets = [
   { id: 1, name: "Tobi" },
   { id: 2, name: "Jane" },
   { id: 3, name: "Loki" },
 ];
-var petActions = {
+let petActions = {
   index: function (req, res) {
     res.send(pets);
   },
@@ -239,17 +297,14 @@ var petActions = {
     }
   },
   create: function (req, res) {
-    // ... logic to create a new pet
     res.status(201).send("Pet created");
   },
   update: function (req, res) {
-    // ... logic to update a pet
     res.send("Pet updated");
   },
   destroy: function (req, res) {
-    // ... logic to delete a pet
     res.status(204).send();
-  },
+  }
 };
 // app.resource('pets', petActions);
 
@@ -262,9 +317,7 @@ app.get("/metrics", async (req, res) => {
   res.set("Content-Type", client.register.contentType);
   // Log the time taken to process the request
   const diff = process.hrtime(req.startTime);
-  console.log(
-    `Request took ${diff[0]} seconds and ${diff[1] / 1e6} milliseconds`
-  );
+  console.log(`Request took ${diff[0]} seconds and ${diff[1] / 1e6} milliseconds`);
   res.end(await client.register.metrics());
 });
 

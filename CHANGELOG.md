@@ -7,6 +7,12 @@ Deprecated – for deprecated features that will be removed in future versions,
 Removed – for removed functions,
 Fixed – for fixed bugs and refactoring.
 
+# 3.0.0 / 2026-02-28
+
+- Added retry logic to `tasks.js`
+- Bump version to v3
+- [BREAKING] Renamed `time` to `timestamp` in `/api/v[1|2]`
+
 ## Release Notes
 
 <!-- ### v2.1.0 (2025-03-08)
@@ -52,6 +58,7 @@ Fixed – for fixed bugs and refactoring.
 
 ### 🚀 Enhancements
 
+- **docs:** Enhanced open-source documentation including `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`
 - **api:** Created an NPM lib for JavaScript ([d43dcb3](https://github.com/chrisaugu/pngx-api/commit/d43dcb3))
 - Added `etl.js` - a process that fetches data from PNGX.com.pg and compare it against the database and save any data from PNGX that are missing from db.
   <!-- - Added `webhook.js` - to allow external connections into the system to receive payloads -->

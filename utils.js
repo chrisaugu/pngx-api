@@ -76,11 +76,27 @@ function format_date(date) {
   }
 }
 
+/**
+ * 
+ * @param {Date} date 
+ */
+function formatDate2(date) {
+  let strippedDate = null;
+  if (typeof date == "string") {
+    strippedDate = date.split('T')[0];
+  }
+  if (date instanceof Date) {
+    strippedDate = date.toISOString().split('T')[0];
+  }
+  // format(strippedDate, "yyyy-MM-dd")
+  return strippedDate;
+}
+
 function normalize_data(data) {
   const quote = {};
   const formattedDate = format_date(data["Date"]);
 
-  quote["date"] = formattedDate;
+  quote["date"] = data["Date"];
   quote["code"] = data["Short Name"];
   quote["short_name"] = data["Short Name"];
   quote["bid"] = convertStringToNumber(data["Bid"]);
@@ -353,6 +369,7 @@ module.exports = {
   parallel,
   normalize_data,
   format_date,
+  formatDate: formatDate2,
   date_split,
   keyGenerator,
   uuidv4,

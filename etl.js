@@ -1,12 +1,15 @@
 const { EventEmitter } = require("node:events");
 const { format } = require("date-fns/format");
+const { formatInTimeZone } = require("date-fns-tz")
 const cron = require("node-cron");
 const _ = require("lodash");
 const { initDatabase } = require("./database");
 const { Stock, Ticker } = require("./models");
 const { get_quotes_from_pngx } = require("./tasks");
-const { normalize_data } = require("./utils");
+const { normalize_data, formatDate } = require("./utils");
 const { SYMBOLS } = require("./constants");
+
+// const datetime = formatInTimeZone("2020-04-07T14:00:00.000Z", 'Pacific/Port_Moresby')
 
 /**
  * TODO: change the way this etl works
@@ -40,6 +43,7 @@ initDatabase()
     );
     // cron.schedule("30 8 * * *", async () => {
     SYMBOLS.forEach(async (quote) => {
+      // let quote = "BSP"
       const dbData = await fetchDataFromDB(quote);
       const sourceData = await fetchDataFromPNGX(quote);
 
@@ -48,6 +52,7 @@ initDatabase()
       }
 
       run(dbData, sourceData);
+      // removeDuplicates(dbData);
     });
     // });
   })
@@ -145,6 +150,76 @@ function run(dbData = [], source = []) {
   }
 }
 
+Set.prototype.difference = (data) => {
+
+}
+
+/**
+ * Create a set by, get the set of origincal
+ * Filter by date, code, _id
+ * Date and code will be the same but _id will be different
+ * @param {[]} dbData
+ */
+function removeDuplicates(dbData = []) {
+  const duplicates = [];
+  const missingInDb = [];
+  const uniqueInSource = [];
+  dbData.sort(dataComparatorAsc);
+
+  const uniqueQuotes = Array.from(new Map(dbData.map(quote => [quote._id, quote])).values());
+  // const dbMap = new Map(dbData.map((item) => [`${item.code}:${formatDate(item.date)}`, String(item._id)]));
+  // const dbMap = new Map(dbData.map((item) => String(item._id)));
+  // const dbSet = new Set(dbData.map(item => String(item._id)));
+  // const dbMapSet = new Set(dbMap.values());
+  // const dbDataMap = new Map(dbData.map((item) => [`${item.code}:${formatDate(item.date)}:${item._id}`, item]));
+  // const uniqueArrayOfObjects = [...new Map(dbData.map(item => [formatDate(item.date), item])).values()];
+
+  // const dbMap = new Map();
+  // dbData.map(item => dbMap.set(`${item.code}:${formatDate(item.date)}`, String(item._id)))
+  // console.log(dbSet.difference(dbMapSet))
+
+  const elementCounts = new Map();
+  dbData.forEach(item => {
+    const count = (elementCounts.get(formatDate(item.date)) || 0) + 1;
+    elementCounts.set(formatDate(item.date), count);
+
+    // If the count reaches 2, it's a new duplicate to add to our list
+    if (count > 1) {
+      duplicates.push(item);
+    }
+  });
+
+  console.log(duplicates);
+
+  // for (let i = 0; i < dbData.length; i++) {
+  //   const sourceItem = dbData[i];
+  //   const key = formatDate(sourceItem["date"]);
+  //   const dbItem = dbDataMap.get(key);
+  //   if (dbItem) {
+  //     // Compare all properties to check if it's an exact duplicate
+  //     const isExactDuplicate = Object.keys(sourceItem).every(
+  //       (prop) =>
+  //         JSON.stringify(sourceItem[prop]) === JSON.stringify(dbItem[prop])
+  //     );
+
+  //     if (isExactDuplicate) {
+  //       duplicates.push(sourceItem);
+  //     } else {
+  //       uniqueInSource.push(sourceItem);
+  //     }
+  //   } else {
+  //     missingInDb.push(sourceItem);
+  //   }
+  // }
+
+  // console.log("Unique:", uniqueInSource.length);
+  // console.log("Duplicates:", duplicates.length);
+
+  // if (missingInDb.length > 0) {
+  //   load(missingInDb);
+  // }
+}
+
 /**
  * This etc process uses event-emitter to invoke methods
  */
@@ -180,7 +255,7 @@ class ETL {
   /**
    * Fetch csv
    */
-  #_fetch() {}
+  #_fetch() { }
 
   /**
    * Extract csv data from data data-source
@@ -212,7 +287,6 @@ class ETL {
     this.#event.emit("load", data);
   }
 }
-
 // let etl = new ETL();
 // etl.addSources(["https://www.pngx.com.pg/data"]);
 // etl.run();

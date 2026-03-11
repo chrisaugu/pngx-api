@@ -21,8 +21,9 @@ NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and process
 
 - [Description](#description)
 - [API Reference](#api-reference)
-- [Tech](#tech)
-- [Dependencies](##dependencies)
+- [Tech & Tools](#tech-amp-tools)
+- [Roadmap](#roadmap)
+- [Dependencies](#dependencies)
 - [Contributing](#contributing)
 - [Author Info](author-info)
 - [License](#license)
@@ -53,6 +54,11 @@ The API retrieve, store, and process stock data directly from [PNGX](http://www.
 ## 🛣️ Roadmap
 
 We continuously make NUKU-API the only place where all users can obtain the necessary financial data. If you have any questions or ideas about improvement, [contribute](#-contributing).
+
+## 🔗 API Reference & OpenAPI Specification
+
+The complete API specification is available in the `openapi.yaml` file located in this directory. 
+You can view or download the OpenAPI spec here: [openapi.yaml](./openapi.yaml).
 
 ## 🛠️ Tech & Tools
 

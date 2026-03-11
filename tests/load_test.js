@@ -39,8 +39,8 @@ export default function () {
   // });
 
   check(responses.stocks, {
-      'stocks endpoint status 200': (r) => r.status === 200,
-      'stocks endpoint < 500ms': (r) => r.timings.duration < 500,
+    'stocks endpoint status 200': (r) => r.status === 200,
+    'stocks endpoint < 500ms': (r) => r.timings.duration < 500,
   });
 
   // check(responses.notifications, {

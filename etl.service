@@ -1,0 +1,15 @@
+[Unit]
+Description=Daily ETL job
+
+[Service]
+User=root
+Group=root
+Type=oneshot
+ExecStart=/usr/bin/node /home/chrisaugu/projects/personal/pngx-api/etl.js
+WorkingDirectory=/home/chrisaugu/projects/personal/pngx-api
+Restart=always
+KillMode=control-group
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

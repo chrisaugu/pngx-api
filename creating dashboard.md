@@ -1,0 +1,1 @@
+https://self-service-dashboard.com/app/

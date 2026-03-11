@@ -1,5 +1,7 @@
 const crypto = require("crypto");
 const { MongoClient } = require("mongodb");
+const { DB_NAME } = require("./constants");
+require('dotenv/config')
 
 // function hashCollection(db, name) {
 //     const cursor = db[name].find({}, { _id: 1 }).sort({ _id: 1 });
@@ -8,9 +10,8 @@ const { MongoClient } = require("mongodb");
 //     return hash.digest("hex");
 // }
 
-// const srcDB = new Mongo("mongodb://localhost:27017").getDB("pngx-db");
-// const destDB = new Mongo("mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@cgk1.clusters.zeabur.com:32312").getDB("pngx-db");
-
+// const srcDB = new Mongo("mongodb://localhost:27017").getDB(DB_NAME);
+// const destDB = new Mongo(process.env.MONGODB_URI).getDB(DB_NAME);
 // srcDB.getCollectionNames().forEach(name => {
 //     const srcHash = hashCollection(srcDB, name);
 //     const destHash = hashCollection(destDB, name);
@@ -18,10 +19,8 @@ const { MongoClient } = require("mongodb");
 // });
 
 async function verify() {
-  const src = new MongoClient("mongodb://localhost:27017");
-  const dest = new MongoClient(
-    "mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@cgk1.clusters.zeabur.com:32312/?authSource=admin"
-  );
+  const src = new MongoClient(process.env.MONGODB_URI_LOCAL);
+  const dest = new MongoClient(process.env.MONGODB_URI_PROD);
 
   console.log("Connecting");
 
@@ -30,13 +29,12 @@ async function verify() {
 
   console.log("Connected");
 
-  const srcDB = src.db("pngx-db");
-  const destDB = dest.db("pngx-db");
+  const srcDB = src.db(DB_NAME);
+  const destDB = dest.db(DB_NAME);
 
   console.log("Retrieving collections");
 
   const collections = await srcDB.listCollections().toArray();
-
   for (const { name } of collections) {
     const srcDocs = await srcDB
       .collection(name)
