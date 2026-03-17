@@ -81,7 +81,7 @@
     "@zero65tech/indian-stock-market": "^4.4.1",
     "agenda": "^5.0.0",
     "agendash": "^4.0.0",
-    "axios": "^1.12.0",
+    "axios": "^1.13.2",
     "benchmark": "^2.1.4",
     "boxen": "^8.0.1",
     "bree": "^9.2.4",
