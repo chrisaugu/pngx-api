@@ -6,6 +6,10 @@ const WebhookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    clientId: {
+      type: String,
+      // required: true
+    },
     headers: {
       type: Object,
       default: {},
@@ -43,8 +47,34 @@ const WebhookSchema = new mongoose.Schema(
       },
     },
     timestamps: true,
-  }
+  },
 );
 
 const Webhook = mongoose.model("webhook", WebhookSchema);
 module.exports = Webhook;
+
+const WebhookLogSchema = new mongoose.Schema({
+  WebhookId: {
+    type: String,
+    required: true,
+  },
+  Event: {
+    type: String,
+    required: true,
+  },
+  Status: {
+    type: String,
+    default: "",
+  },
+  Payload: {
+    type: Object,
+    default: {},
+  },
+  CreatedAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+const WebhookLog = mongoose.model("webhook-log", WebhookLogSchema);
+
+exports.WebhookLog = WebhookLog;

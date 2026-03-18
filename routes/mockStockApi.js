@@ -5,12 +5,12 @@ const { SYMBOLS } = require("../constants");
 initDatabase()
   .on("connected", function () {
     console.log(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
+      "[Main_Thread]: Connected: Successfully connect to mongo server",
     );
   })
   .on("error", function () {
     console.log(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
     );
   });
 
@@ -89,18 +89,18 @@ async function getQuotes() {
 let randomFactor = 25 + Math.random() * 25;
 const samplePoint = (i) =>
   i *
-  (0.5 +
-    Math.sin(i / 1) * 0.2 +
-    Math.sin(i / 2) * 0.4 +
-    Math.sin(i / randomFactor) * 0.8 +
-    Math.sin(i / 50) * 0.5) +
+    (0.5 +
+      Math.sin(i / 1) * 0.2 +
+      Math.sin(i / 2) * 0.4 +
+      Math.sin(i / randomFactor) * 0.8 +
+      Math.sin(i / 50) * 0.5) +
   200 +
   i * 2;
 
 function generateData(
   numberOfCandles = 500,
   updatesPerCandle = 5,
-  startAt = 100
+  startAt = 100,
 ) {
   const createCandle = (val, time) => ({
     time,

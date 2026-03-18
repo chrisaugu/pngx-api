@@ -30,6 +30,16 @@ services:
   #   depends_on:
   #     - nuku-redis
 
+  # nuku-etl-scheduler:
+  #   container_name: nuku-etl-scheduler
+  #   build:
+  #     context: .
+  #     dockerfile: etl-scheduler.Dockerfile
+  #   depends_on:
+  #     - nuku-mongodb
+  #   networks:
+  #     - nuku-api-network
+
   # nuku-etl:
   #   container_name: nuku-etl
   #   build:
@@ -50,9 +60,21 @@ services:
   #   networks:
   #     - nuku-api-network
 
+  # nuku-financial-statement-model:
+  #   container_name: nuku-financial-statement-model
+  #   build:
+  #     context: .
+  #     dockerfile: publisher.Dockerfile
+  #   depends_on:
+  #     - nuku-redis
+  #   networks:
+  #     - nuku-api-network
+
   # nuku-price-consumer-service:
   #   depends_on:
   #     - nuku-redis
+  #   networks:
+  #     - nuku-api-network
 
 #   nuku-redis:
 #     # image: redis

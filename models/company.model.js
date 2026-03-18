@@ -2,20 +2,33 @@ const { model, Schema } = require("mongoose");
 
 const companySchema = new Schema(
   {
-    name: String,
+    company_name: String,
     ticker: String,
+    code: String,
     description: String,
     industry: String,
     sector: String,
     key_people: Array,
     date_listed: Date, // ipo
     esteblished_date: Date,
+    is_foreign_entity: Boolean,
+    share_registry: String,
+    head_office: String,
     outstanding_shares: Number,
     pngx_profile_url: String,
+    logo_url: String,
     logo: {
       data: Buffer,
       contentType: String,
     },
+    market_cap_history: [
+      {
+        date: Date, // ISODate("2026-03-18"),
+        value: Number, // 520000000,
+        shares_outstanding: Number, // 260000000,
+        price: Number, // 2.0,
+      },
+    ],
   },
   {
     toJSON: {
@@ -27,7 +40,7 @@ const companySchema = new Schema(
       },
     },
     timestamps: true,
-  }
+  },
 );
 
 companySchema.index({ ticker: 1 });

@@ -396,12 +396,12 @@ router.get("/stocks/historicals/:code/essentials", function (req, res) {
  * @query sort -
  * @query skip -
  * @query fields - i.e. fields=id,name,address,contact
+
+ * @param: /api/v1/stocks?code=CODE, retrieve quotes from a specific company for the current day
+ * @param: /api/v1/stocks?code=CODE&date=now, retrieve quotes from a specific company for a specific day
+ * @param: /api/v1/stocks?code=CODE&date_from=DATE&date_to=DATE
  *
- * @param: /api/v3/stocks?code=CODE, retreive quotes from a specific company for the current day
- * @param: /api/v3/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
- * @param: /api/v3/stocks?code=CODE&date_from=DATE&date_to=DATE
- *
- * Date form
+ * Date format: YYYY-MM-DD
  */
 router.get("/stocks", function (req, res) {
   let date = req.query.date;

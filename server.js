@@ -12,6 +12,7 @@ const socket = require("./routes/socket");
 const logger = require("./libs/logger").winstonLogger;
 const cluster = require("cluster");
 const totalCPUs = os.cpus().length;
+const { logError, isOperationalError } = require("./errorHandler");
 
 /**
  * Nuku HTTP Server
@@ -51,6 +52,14 @@ class Server {
 
     this.#hostname = "0.0.0.0";
     this.#port = Env.PORT;
+
+    this.notify({
+      error: "err.message",
+      stack: "err.stack",
+      type: "uncaughtException",
+      timestamp: new Date().toISOString(),
+      server: process.env.SERVER_NAME || "unknown",
+    });
   }
 
   onListen = () => {
@@ -83,10 +92,10 @@ class Server {
     let log = "\n--------------------------------------------------\n";
 
     if (localAddress) {
-      log += `Server running on port ${localAddress}\n`;
+      log += `Server running on ${localAddress}\n`;
     }
     if (networkAddress) {
-      log += `Server running on port ${networkAddress}`;
+      log += `Server running on ${networkAddress}`;
     }
 
     log += "\n--------------------------------------------------\n";
@@ -94,7 +103,7 @@ class Server {
     // console.debug(log);
 
     // console.debug(boxen(`Server running on ${localAddress}`));
-    logger.debug(`Server running on port ${localAddress}`);
+    logger.debug(`Server running on ${localAddress}`);
   };
 
   onError = (error) => {
@@ -107,8 +116,31 @@ class Server {
     this.#app.destroy();
   };
 
-  onClose = () => {
+  onClose = async () => {
     debug("SIGINT signal received: closing HTTP server");
+
+    // // 1. Stop accepting new requests
+    // await server.close();
+
+    // // 2. Close database connections
+    // await mongoose.disconnect();
+    // await redis.disconnect();
+
+    // // 3. Flush logs
+    // await logger.flush();
+
+    // // 4. Complete any in-progress tasks
+    // await jobQueue.drain();
+
+    this.notify({
+      error: "err.message",
+      stack: "err.stack",
+      type: "uncaughtException",
+      timestamp: new Date().toISOString(),
+      server: process.env.SERVER_NAME || "unknown",
+    });
+
+    // console.log('Graceful shutdown completed');
     if (this.#server) {
       this.#server.close(() => {
         debug("HTTP server closed");
@@ -116,6 +148,22 @@ class Server {
       });
     }
   };
+
+  /**
+   *
+   * @param {{
+   * type: string,
+   * error: string,
+   * server: string
+   * timestamp: string
+   * }} errorData
+   */
+  async notify(errorData = {}) {
+    // await fetch('https://ntfy.sh/nuku_api_server_down_alerts', {
+    //   method: 'POST',
+    //   body: `🚨 *CRASH ALERT*\nType: ${errorData.type}\nError: ${errorData.error}\nServer: ${errorData.server}\nTime: ${errorData.timestamp}`
+    // });
+  }
 
   attachServerEvents = (serverEvents) => {
     serverEvents(this.#server);
@@ -137,14 +185,46 @@ class Server {
       debug("Message: " + message);
     });
 
+    // const Sentry = require("@sentry/node");
+
+    // Sentry.init({ dsn: "your-dsn" });
+
     process.on("uncaughtException", (err) => {
       logger.error("There was an uncaught error", err);
-      process.exit(1); // exit application
+      // Sentry.captureException(err);
+      // Wait for Sentry to flush (important!)
+      // Sentry.flush(2000).then(() => {
+      //   process.exit(1);
+      // });
+      logError(err);
+
+      this.notify({
+        error: err.message,
+        stack: err.stack,
+        type: "uncaughtException",
+        timestamp: new Date().toISOString(),
+        server: process.env.SERVER_NAME || "unknown",
+      });
+
+      if (!isOperationalError(err)) {
+        process.exit(1);
+      }
     });
 
-    process.on("unhandledRejection", (ex) => {
-      logger.error(`Unhandled Rejection: ${ex.message}`, ex);
-      process.exit(1);
+    // if the Promise is rejected this will catch it
+    process.on("unhandledRejection", (err, promise) => {
+      throw err;
+      // logger.error(`Unhandled Rejection: ${err.message}`, err);
+
+      // this.notify({
+      //   error: err.message,
+      //   stack: err.stack,
+      //   type: 'unhandledRejection',
+      //   timestamp: new Date().toISOString(),
+      //   server: process.env.SERVER_NAME || 'unknown'
+      // });
+
+      // process.exit(1);
     });
 
     process.on("SIGTERM", this.onClose);

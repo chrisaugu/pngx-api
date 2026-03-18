@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webhook</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/treeview.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+    <div class="container-fluid py-4">
+        <h1 class="text-primary mb-4 text-center">Create Webhook</h1>
+        <div class="row g-4">
+            <aside class="col-12 col-lg-3">
+                <div class="border rounded p-3 h-100">
+                    <h2 class="h5 mb-3">Webhooks</h2>
+                    <ul id="webhook-list" class="list-group list-group-flush"></ul>
+                </div>
+            </aside>
+            <main class="col-12 col-lg-6">
+                <form id="webhook-form" class="mx-auto" style="max-width: 520px">
+                    <div class="mb-3">
+                        <label for="url" class="form-label">Request URL</label>
+                        <input id="url" name="url" placeholder="https://example.com/webhooks" type="url"
+                            class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="secret" class="form-label">Secret</label>
+                        <input id="secret" name="secret" placeholder="Enter the secret" type="password"
+                            class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="headers" class="form-label">Headers (JSON)</label>
+                        <textarea id="headers" name="headers" placeholder='{"X-Custom-Header":"value"}'
+                            class="form-control" rows="3"></textarea>
+                        <!-- <div id="headers" class="input-group">
+                            <input id="key" name="key" placeholder="X-Custom-Header" type="text"
+                                class="form-control input-sm" />
+                            <input id="value" name="value" placeholder="value" type="text"
+                                class="form-control input-sm" />
+                        </div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="events" id="events-label" class="form-label">Events (comma-separated)</label>
+                        <input id="events" name="events" placeholder="user.created, user.updated" type="text"
+                            class="form-control" required />
+                        <!-- <div id="events-tree"></div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea id="description" name="description" placeholder="description" type="text"
+                            class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input id="isActive" name="isActive" type="checkbox" class="form-check-input" checked />
+                        <label for="isActive" class="form-check-label">Active</label>
+                    </div>
+                    <button class="btn btn-success w-100" type="submit">Add</button>
+                    <div id="form-status" class="mt-3 text-center" role="status" aria-live="polite"></div>
+                </form>
+            </main>
+            <aside class="col-12 col-lg-3">
+                <div class="border rounded p-3 h-100">
+                    <h2 class="h5 mb-3">Events</h2>
+                    <ul id="events-list" class="list-group list-group-flush"></ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/treeview.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            const $form = $('#webhook-form');
+            const $status = $('#form-status');
+            const $isActive = $('#isActive');
+            const $webhookList = $('#webhook-list');
+            const $eventList = $('#events-list');
+
+            const parseHeaders = (value) => {
+                // value.split('\n').filter(line => line !== '' && line).map(line => line.split('='));
+
+                const trimmed = value.trim();
+                if (!trimmed) return {};
+                try {
+                    return JSON.parse(trimmed);
+                } catch (error) {
+                    throw new Error('Headers must be valid JSON.');
+                }
+            };
+
+            const testWebhook = (webhookId) => {
+                $.ajax({
+                    url: `/webhooks/${webhookId}`,
+                    method: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        renderWebhooks(Array.isArray(data) ? data : []);
+                    },
+                    error: function () {
+                        $webhookList
+                            .empty()
+                            .append(
+                                '<li class="list-group-item text-danger">Failed to load webhooks.</li>'
+                            );
+                        $eventList
+                            .empty()
+                            .append(
+                                '<li class="list-group-item text-danger">Failed to load events.</li>'
+                            );
+                    }
+                });
+            };
+
+            const renderWebhooks = (webhooks) => {
+                $webhookList.empty();
+                $eventList.empty();
+
+                if (!webhooks.length) {
+                    $webhookList.append(
+                        '<li class="list-group-item">No webhooks yet.</li>'
+                    );
+                    $eventList.append(
+                        '<li class="list-group-item">No events yet.</li>'
+                    );
+                    return;
+                }
+
+                const eventSet = new Set();
+                webhooks.forEach((webhook) => {
+                    const url = webhook.url || 'unknown url';
+                    const description = webhook.description
+                        ? ` - ${webhook.description}`
+                        : '';
+                    const isActive = webhook.isActive !== false;
+                    $webhookList.append(
+                        `<li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="me-2">
+                        <div class="fw-semibold">${url}</div>
+                        <div class="small text-muted">${description || 'No description'}</div>
+                      </div>
+                      <span class="badge ${isActive ? 'bg-success' : 'bg-secondary'}">${isActive ? 'Active' : 'Inactive'}</span>
+                      <button id="test" x-webhook-id='${webhook._id}' class='btn btn-sm btn-primary'>Test</button>
+                    </li>`
+                    );
+                    (webhook.events || []).forEach((eventName) => {
+                        if (eventName) eventSet.add(eventName);
+                    });
+                });
+
+                const events = Array.from(eventSet).sort();
+                if (!events.length) {
+                    $eventList.append(
+                        '<li class="list-group-item">No events yet.</li>'
+                    );
+                    return;
+                }
+                events.forEach((eventName) => {
+                    $eventList.append(
+                        `<li class="list-group-item">
+                            <input id="${eventName}" type="checkbox"/>
+                            <label for="${eventName}">${eventName}</label>
+                        </li>`
+                    );
+                });
+            };
+
+            const loadWebhooks = () => {
+                $.ajax({
+                    url: '/webhooks',
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        renderWebhooks(Array.isArray(data) ? data : []);
+                    },
+                    error: function () {
+                        $webhookList
+                            .empty()
+                            .append(
+                                '<li class="list-group-item text-danger">Failed to load webhooks.</li>'
+                            );
+                        $eventList
+                            .empty()
+                            .append(
+                                '<li class="list-group-item text-danger">Failed to load events.</li>'
+                            );
+                    }
+                });
+            };
+
+            loadWebhooks();
+
+            $('#test').click(function (event) {
+                console.log(event);
+                testWebhook(webhook._id);
+            });
+
+            $eventList.on('change', 'input[type="checkbox"]', (event) => {
+
+                if ($(this).is(':checked')) {
+                    $('#events').value('dd')
+                    // output.value = names.join(', ');
+                } else {
+                    // Actions when unchecked
+                }
+            });
+
+            $form.on('submit', function (event) {
+                event.preventDefault();
+                $status.text('').removeClass('text-danger text-success');
+
+                const payload = {
+                    url: String($('#url').val() || ''),
+                    events: String($('#events').val() || '')
+                        .split(',')
+                        .map((e) => e.trim())
+                        .filter(Boolean),
+                    secret: String($('#secret').val() || ''),
+                    description: String($('#description').val() || ''),
+                    isActive: $isActive.is(':checked'),
+                    headers: {}
+                };
+
+                try {
+                    payload.headers = parseHeaders(String($('#headers').val() || ''));
+                } catch (error) {
+                    $status
+                        .text(error.message)
+                        .removeClass('text-success')
+                        .addClass('text-danger');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/webhooks',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    data: JSON.stringify(payload),
+                    success: function () {
+                        $status
+                            .text('Webhook created successfully.')
+                            .removeClass('text-danger')
+                            .addClass('text-success');
+                        $form[0].reset();
+                        $isActive.prop('checked', true);
+                        loadWebhooks();
+                    },
+                    error: function (xhr) {
+                        const errorText =
+                            xhr && xhr.responseText
+                                ? xhr.responseText
+                                : 'Failed to create webhook.';
+                        $status
+                            .text(errorText)
+                            .removeClass('text-success')
+                            .addClass('text-danger');
+                    }
+                });
+            });
+        });
+
+        // $(document).ready(function () {
+        //     $('.card').css('margin-top', 30);
+        //     $('.btn').click(function (e) {
+        //         e.preventDefault();
+        //         let input = $('input').val();
+        //         let temp_html = '';
+        //         for (i = 0; i < input; i++) {
+        //             temp_html += '<div class="row"><div class="col-md-4"><div class="form-group"><label>Fullname</label><input type="text" name="fullname[]" class="form-control" placeholder="Fullname" required=""></div></div><div class="col-md-4"><div class="form-group"><label>Email Address</label><input type="email" name="email[]" class="form-control" placeholder="Email address" required=""></div></div><div class="col-md-4"><div class="form-group"><label>Mobile Number</label><input type="text" name="phone[]" class="form-control" placeholder="Phone number" required=""></div></div></div>';
+        //         }
+        //         $('.forms').append(temp_html);
+        //     });
+        // });
+
+        const events = [
+            {
+                id: '1',
+                name: 'User',
+                children: [
+                    {
+                        id: '1.1',
+                        name: 'Reports',
+                        children: [
+                            { id: '1.1.1', name: 'Q1 Sales' },
+                            { id: '1.1.2', name: 'Q2 Marketing' }
+                        ]
+                    },
+                    {
+                        id: '1.2',
+                        name: 'Proposals',
+                        children: [
+                            { id: '1.2.1', name: 'New Client A' },
+                            { id: '1.2.2', name: 'Project Beta' }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: '2',
+                name: 'Order',
+                children: [
+                    { id: '2.1', name: 'Created' },
+                    { id: '2.2', name: 'Assigned' },
+                    { id: '2.3', name: 'Completed' },
+                    { id: '2.4', name: 'Cancelled' }
+                ]
+            },
+            {
+                id: '3',
+                name: 'Payment',
+                children: [
+                    { id: '3.1', name: 'Created' },
+                    { id: '3.2', name: 'Done' },
+                    { id: '3.3', name: 'Cancelled' }
+                ]
+            },
+            {
+                id: '4',
+                name: 'Ticket',
+                children: [
+                    { id: '4.1', name: 'Created' },
+                    { id: '4.2', name: 'Assigned' },
+                    { id: '4.3', name: 'Completed' },
+                    { id: '4.4', name: 'Cancelled' }
+                ]
+            },
+            {
+                id: '5',
+                name: 'Task',
+                children: [
+                    { id: '4.1', name: 'Created' },
+                    { id: '4.2', name: 'Assigned' },
+                    { id: '4.3', name: 'Completed' },
+                    { id: '4.4', name: 'Cancelled' }
+                ]
+            }
+        ];
+
+        // new Treeview({
+        //     containerId: 'events-tree',
+        //     data: events,
+        //     searchEnabled: false,
+        //     initiallyExpanded: true,
+        //     multiSelectEnabled: true,
+        //     checkboxSelectionEnabled: true, // Enable checkbox selection
+        //     showSelectAllButton: true,
+        //     onSelectionChange: (selectedNodes) => {
+        //         const names = selectedNodes.map(n => `"${n.name}"`);
+        //         const label = document.getElementById('events-label');
+        //         const output = document.getElementById('events');
+        //         const count = names.length;
+        //         const nodeWord = count === 1 ? 'Event' : 'Events';
+        //         const countLabel = `${count} ${nodeWord} selected`
+        //         label.textContent = `Select ${countLabel}:`;
+        //         output.value = names.join(', ');
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stock Ticker - SSE Marquee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0b1a2e, #1a2f3f);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .ticker-container {
+            background: #0f212e;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 1200px;
+            border: 1px solid #2a4b5c;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #9bb7c9;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #2a4b5c;
+            padding-bottom: 15px;
+        }
+
+        .ticker-display {
+            background: #102a36;
+            border-radius: 12px;
+            padding: 20px 15px;
+            border: 1px solid #2e5f72;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.8);
+            margin-bottom: 25px;
+        }
+
+        marquee {
+            font-size: 2.2rem;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            color: #c1e4ff;
+            text-shadow: 0 0 8px #3e8fb0;
+            letter-spacing: 1px;
+            padding: 5px 0;
+        }
+
+        .status-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d1f29;
+            padding: 15px 20px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            border: 1px solid #2c5568;
+        }
+
+        #status {
+            color: #b3daf5;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #status.connected {
+            color: #9effb4;
+        }
+
+        #status.connected::before {
+            content: "●";
+            color: #2ecc71;
+            font-size: 1.4rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        #status.disconnected {
+            color: #ffb0b0;
+        }
+
+        #status.disconnected::before {
+            content: "●";
+            color: #e74c3c;
+            font-size: 1.4rem;
+        }
+
+        .last-update {
+            color: #7d9eb5;
+            font-size: 0.9rem;
+            background: #16313e;
+            padding: 5px 12px;
+            border-radius: 30px;
+            border: 1px solid #2d6075;
+        }
+
+        .market-summary {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .summary-card {
+            background: #0f2835;
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 10px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #2e657b;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .summary-label {
+            color: #7ca3b9;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .summary-value {
+            color: #d7ecff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .summary-value.up {
+            color: #4ade80;
+        }
+
+        .summary-value.down {
+            color: #f87171;
+        }
+
+        .up {
+            color: #4ade80;
+        }
+
+        .down {
+            color: #f87171;
+        }
+
+        .message-log {
+            background: #0b1f29;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #235b6e;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .log-header {
+            color: #88b8d1;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        #logList {
+            list-style: none;
+        }
+
+        .log-item {
+            color: #c0dbea;
+            font-size: 0.9rem;
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            background: #12303e;
+            border-radius: 6px;
+            border-left: 3px solid #2e86c1;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ticker-container">
+        <h1>📈 LIVE STREAM · MARKET TICKER</h1>
+
+        <!-- Main Marquee Ticker -->
+        <div class="ticker-display">
+            <marquee id="stockMarquee" behavior="scroll" direction="left" scrollamount="8" loop="infinite"
+                onmouseover="this.stop()" onmouseout="this.start()">
+                ⏳ Initializing live data stream...
+            </marquee>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-panel">
+            <div id="status" class="disconnected">Establishing secure connection...</div>
+            <div class="last-update" id="timestamp">--:--:--</div>
+        </div>
+
+        <!-- Mini Summary Cards -->
+        <div class="market-summary" id="summaryCards">
+            <div class="summary-card">
+                <div class="summary-label">S&P 500</div>
+                <div class="summary-value" id="spx">---</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">NASDAQ</div>
+                <div class="summary-value" id="ixic">---</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">DXY</div>
+                <div class="summary-value" id="dxy">---</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">VIX</div>
+                <div class="summary-value" id="vix">---</div>
+            </div>
+        </div>
+
+        <!-- Recent Updates Log -->
+        <div class="message-log">
+            <div class="log-header">📋 RECENT TICKER UPDATES</div>
+            <ul id="logList">
+                <li class="log-item">Awaiting market data...</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            // Check for EventSource support
+            if (!window.EventSource) {
+                document.body.innerHTML = `
+                    <div style="background:#300; color:#faa; padding:40px; text-align:center; border-radius:20px;">
+                        <h2>⚠️ Browser Not Supported</h2>
+                        <p>Your browser does not support Server-Sent Events. Please upgrade to a modern browser.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // DOM references
+            const marqueeEl = document.getElementById('stockMarquee');
+            const statusEl = document.getElementById('status');
+            const timestampEl = document.getElementById('timestamp');
+            const logList = document.getElementById('logList');
+
+            // Summary elements
+            const spxEl = document.getElementById('spx');
+            const ixicEl = document.getElementById('ixic');
+            const dxyEl = document.getElementById('dxy');
+            const vixEl = document.getElementById('vix');
+
+            // Use a public SSE test endpoint that delivers frequent updates
+            // This free service simulates real-time data (ideal for demo)
+            const eventSource = new EventSource('https://sse.dev/test');
+
+            // Track connection state
+            let reconnectAttempt = 0;
+
+            // Helper: add log entry (keep last 8)
+            function addLog(message) {
+                const li = document.createElement('li');
+                li.className = 'log-item';
+                li.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+                logList.insertBefore(li, logList.firstChild);
+
+                while (logList.children.length > 8) {
+                    logList.removeChild(logList.lastChild);
+                }
+            }
+
+            // Format price with change indicator (simulated)
+            function formatStockLine(data) {
+                // data is a raw string from SSE
+                // we'll create a realistic stock ticker line
+                const stocks = [
+                    { sym: 'AAPL', price: (170 + Math.random() * 10).toFixed(2), chg: (Math.random() * 2 - 1).toFixed(2) },
+                    { sym: 'MSFT', price: (330 + Math.random() * 15).toFixed(2), chg: (Math.random() * 2.5 - 1).toFixed(2) },
+                    { sym: 'GOOGL', price: (140 + Math.random() * 8).toFixed(2), chg: (Math.random() * 1.8 - 0.9).toFixed(2) },
+                    { sym: 'AMZN', price: (145 + Math.random() * 12).toFixed(2), chg: (Math.random() * 2.2 - 1.1).toFixed(2) },
+                    { sym: 'TSLA', price: (210 + Math.random() * 25).toFixed(2), chg: (Math.random() * 4 - 2).toFixed(2) },
+                    { sym: 'META', price: (310 + Math.random() * 20).toFixed(2), chg: (Math.random() * 3 - 1.5).toFixed(2) },
+                    { sym: 'NVDA', price: (790 + Math.random() * 30).toFixed(2), chg: (Math.random() * 5 - 2.5).toFixed(2) }
+                ];
+
+                // Pick a few to display in marquee
+                const selected = stocks.slice(0, 5);
+                return selected.map(s =>
+                    `${s.sym} $${s.price} ${parseFloat(s.chg) >= 0 ? '▲' : '▼'} ${s.chg}%`
+                ).join(' · ') + ' · ' + new Date().toLocaleTimeString();
+            }
+
+            // Update summary cards with random-ish but plausible numbers
+            function updateSummaries() {
+                const spxBase = 4850 + Math.random() * 80;
+                const spxChg = (Math.random() * 2 - 1).toFixed(2);
+                spxEl.textContent = spxBase.toFixed(2);
+                spxEl.className = `summary-value ${parseFloat(spxChg) >= 0 ? 'up' : 'down'}`;
+
+                const ixicBase = 16200 + Math.random() * 300;
+                ixicEl.textContent = ixicBase.toFixed(2);
+
+                const dxyBase = 103.5 + (Math.random() * 2 - 1);
+                dxyEl.textContent = dxyBase.toFixed(2);
+
+                const vixBase = 13.5 + Math.random() * 6;
+                vixEl.textContent = vixBase.toFixed(2);
+            }
+
+            // --- EventSource handlers ---
+            eventSource.onopen = function () {
+                statusEl.className = 'connected';
+                statusEl.textContent = 'Live · Connected';
+                reconnectAttempt = 0;
+                addLog('✅ Connection established');
+            };
+
+            eventSource.onmessage = function (e) {
+                // Update timestamp
+                timestampEl.textContent = new Date().toLocaleTimeString();
+
+                // Get raw data (though sse.dev sends timestamps, we'll create ticker text)
+                const rawData = e.data || 'ping';
+
+                // Build dynamic stock line
+                const tickerLine = formatStockLine(rawData);
+                marqueeEl.textContent = tickerLine;
+
+                // Update mini summary cards with fresh numbers
+                updateSummaries();
+
+                // Log the raw event (first few chars)
+                const shortData = rawData.length > 30 ? rawData.substring(0, 30) + '…' : rawData;
+                addLog(`📊 ${shortData}`);
+            };
+
+            eventSource.addEventListener('custom', function (e) {
+                // Optional: handle custom events if server sends them
+                addLog(`✨ Custom: ${e.data}`);
+            });
+
+            eventSource.onerror = function () {
+                statusEl.className = 'disconnected';
+                statusEl.textContent = 'Disconnected · reconnecting...';
+                addLog('⚠️ Connection lost, retrying...');
+
+                // Auto reconnect is built into EventSource, but we can show retry count
+                reconnectAttempt++;
+                if (reconnectAttempt > 3) {
+                    addLog('🔄 Multiple reconnect attempts...');
+                }
+            };
+
+            // Graceful shutdown if page unloads (optional)
+            window.addEventListener('beforeunload', function () {
+                eventSource.close();
+            });
+
+            // Set an initial marquee message
+            marqueeEl.textContent = 'Loading live stock data...';
+        })();
+    </script>
+</body>
+
+</html>

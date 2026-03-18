@@ -13,9 +13,10 @@ const { Signale } = require("signale");
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
 const helmet = require("helmet");
-const auditLog = require('audit-log');
+const auditLog = require("audit-log");
 const { specs, swaggerUi } = require("./config/swagger.config");
 const { winstonLogger: logger, pinoLogger } = require("./libs/logger");
+// const httpLogger = require("./libs/httpLogger");
 const { startMonitoring, client } = require("./libs/monitoring");
 require("./constants");
 require("./models/index");
@@ -62,7 +63,7 @@ if (!fs.existsSync(queueFile)) fs.writeFileSync(queueFile, JSON.stringify([]));
 const cabin = new Cabin({
   axe: {
     logger: new Signale(),
-  }
+  },
 });
 
 // TODO: compression middleware causes issues with some responses from sse, need to investigate further
@@ -76,6 +77,7 @@ app.use(allowMethodOverride);
 app.use(error404Handler);
 app.use(errorHandler);
 app.use(errorLogHandler);
+// app.use(httpLogger);
 
 // Morgan configuration
 app.use(morganFileMiddlware);
@@ -121,15 +123,15 @@ app.use(cabin.middleware);
 
 // auditLog.addTransport("mongoose", { connectionString: "mongodb://localhost:27017/pngx-db" });
 // either or both -- up to you where your messages are sent!
-auditLog.addTransport("console");
-auditLog.logEvent('user id or something', 'maybe script name or function', 'what just happened', 'the affected target name perhaps', 'target id', 'additional info, JSON, etc.');
-auditLog.logEvent(95049, 'AppServer', 'Shutdown', 'Production-3 Instance', 'ec2-255-255-255-255', 'Terminated from web console.');
-auditLog.log({
-  logType: 'Warning',
-  text: 'An error occurred and you should fix it.',
-  datetime: '2013-01-31 13:15:02',
-  traceData: '...'
-});
+// auditLog.addTransport("console");
+// auditLog.logEvent('user id or something', 'maybe script name or function', 'what just happened', 'the affected target name perhaps', 'target id', 'additional info, JSON, etc.');
+// auditLog.logEvent(95049, 'AppServer', 'Shutdown', 'Production-3 Instance', 'ec2-255-255-255-255', 'Terminated from web console.');
+// auditLog.log({
+//   logType: 'Warning',
+//   text: 'An error occurred and you should fix it.',
+//   datetime: '2013-01-31 13:15:02',
+//   traceData: '...'
+// });
 // const auditLogExpress = auditLog.getPlugin('express', {
 //   userIdPath: ['user', '_id'],
 //   whiteListPaths: [/^\/some\/particular\/path.*$/]
@@ -180,20 +182,20 @@ auditLog.log({
 initDatabase()
   .on("connected", function () {
     logger.debug(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
+      "[Main_Thread]: Connected: Successfully connect to mongo server",
     );
     /**
      * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
     logger.debug(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock",
     );
     cron.schedule(QUOTE_FETCH_WORKER_SCHEDULE_TIME, () => {
       // cron.schedule("*/1 * * * *", () => {
       const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(
         process.cwd(),
-        "./jobs/thread_workers.js"
+        "./jobs/thread_workers.js",
       );
 
       // const workerPromises = [];
@@ -245,7 +247,7 @@ initDatabase()
   })
   .on("error", function () {
     logger.error(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
     );
   });
 
@@ -279,34 +281,34 @@ app.get("/health", (req, res) => {
 
 app.get("/ip", (request, response) => response.send(request.ip));
 
-let pets = [
-  { id: 1, name: "Tobi" },
-  { id: 2, name: "Jane" },
-  { id: 3, name: "Loki" },
-];
-let petActions = {
-  index: function (req, res) {
-    res.send(pets);
-  },
-  show: function (req, res) {
-    var pet = pets.find((p) => p.id == req.params.pet);
-    if (pet) {
-      res.send(pet);
-    } else {
-      res.status(404).send("Pet not found");
-    }
-  },
-  create: function (req, res) {
-    res.status(201).send("Pet created");
-  },
-  update: function (req, res) {
-    res.send("Pet updated");
-  },
-  destroy: function (req, res) {
-    res.status(204).send();
-  }
-};
-// app.resource('pets', petActions);
+// let pets = [
+//   { id: 1, name: "Tobi" },
+//   { id: 2, name: "Jane" },
+//   { id: 3, name: "Loki" },
+// ];
+// let webhookActions = {
+//   index: function (req, res) {
+//     res.send(pets);
+//   },
+//   show: function (req, res) {
+//     var pet = pets.find((p) => p.id == req.params.pet);
+//     if (pet) {
+//       res.send(pet);
+//     } else {
+//       res.status(404).send("Pet not found");
+//     }
+//   },
+//   create: function (req, res) {
+//     res.status(201).send("Pet created");
+//   },
+//   update: function (req, res) {
+//     res.send("Pet updated");
+//   },
+//   destroy: function (req, res) {
+//     res.status(204).send();
+//   }
+// };
+// app.resource('pets', webhookActions);
 
 // res.set('Accept', 'application/json');
 // res.set({ Accept: 'text/plain', 'X-API-Key': 'tobi' });
@@ -317,7 +319,9 @@ app.get("/metrics", async (req, res) => {
   res.set("Content-Type", client.register.contentType);
   // Log the time taken to process the request
   const diff = process.hrtime(req.startTime);
-  console.log(`Request took ${diff[0]} seconds and ${diff[1] / 1e6} milliseconds`);
+  console.log(
+    `Request took ${diff[0]} seconds and ${diff[1] / 1e6} milliseconds`,
+  );
   res.end(await client.register.metrics());
 });
 

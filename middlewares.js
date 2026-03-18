@@ -7,7 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const createError = require("http-errors");
 const mcache = require("memory-cache");
-const { ALLOWED_IP_LIST, ORIGINAL_URL } = require("./config");
+const { ALLOWED_IP_LIST, ALLOWED_ORIGINS } = require("./config");
 const logger = require("./libs/logger").winstonLogger;
 const apiUsageLogger = require("./libs/logger").apiUsageLogger;
 const createRedisClient = require("./libs/redis").createRedisClient;
@@ -20,7 +20,7 @@ exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
   // res.header('Access-Control-Allow-Headers', allowHeaders);
   res.header(
     "Access-Control-Expose-Headers",
-    "X-Parse-Job-Status-Id, X-Parse-Push-Status-Id"
+    "X-Parse-Job-Status-Id, X-Parse-Push-Status-Id",
   ); // intercept OPTIONS method
 
   if ("OPTIONS" == req.method) {
@@ -31,11 +31,91 @@ exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
 };
 
 exports.corsMiddleware = cors({
-  origin: ORIGINAL_URL,
-  allowedHeaders: ["sessionId", "Content-Type"],
-  exposedHeaders: ["sessionId"],
+  origin: ALLOWED_ORIGINS,
+  allowedHeaders: [
+    "sessionId",
+    "Content-Type",
+    "Authorization",
+    "X-Request-ID",
+  ],
+  exposedHeaders: ["sessionId", "X-Total-Count", "X-Page-Count"],
   methods: "GET,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  maxAge: 86400,
 });
+
+exports.corsDynamicMiddleware = function corsDynamicMiddleware(req, res, next) {
+  const corsOptions = {
+    origin: function (origin, callback) {
+      // In development, allow no origin (same-origin requests)
+      if (process.env.NODE_ENV === "development" && !origin) {
+        return callback(null, true);
+      }
+
+      // Allow requests with no origin (mobile apps, curl, Postman)
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      // In production, check against allowed list
+      const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",") || [];
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+
+      // Check against allowed patterns
+      const allowedPatterns = [
+        /^https:\/\/.*\.nuku\.app$/, // Any subdomain of nuku.app
+        /^https:\/\/nuku\.app$/, // Main domain
+        /^http:\/\/localhost:\d+$/, // Any localhost port (dev)
+      ];
+
+      const isAllowed = allowedPatterns.some((pattern) => pattern.test(origin));
+
+      if (isAllowed) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Origin ${origin} not allowed by CORS`));
+      }
+    },
+    credentials: true,
+  };
+
+  return cors(corsOptions);
+};
+
+function manualMiddleware(req, res, next) {
+  // Set the allowed origin
+  const allowedOrigins = ["https://myapp.com", "https://admin.myapp.com"];
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
+  // Allow credentials
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  // Allow specific methods
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS",
+  );
+
+  // Allow specific headers
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  // Handle preflight requests
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Max-Age", "86400");
+    return res.status(204).end();
+  }
+
+  next();
+}
 
 exports.allowMethodOverride = function allowMethodOverride(req, res, next) {
   if (req.method === "POST" && req.body._method) {
@@ -55,8 +135,9 @@ exports.error404Handler = function error404Handler(error, req, res, next) {
 
 exports.errorHandler = function errorHandler(err, req, res, next) {
   logger.error(
-    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method
-    } - ${req.ip}`
+    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
+      req.method
+    } - ${req.ip}`,
   );
 
   // render the error page
@@ -78,7 +159,9 @@ exports.errorHandler = function errorHandler(err, req, res, next) {
 };
 
 exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
-  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+  logger.error(
+    `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`,
+  );
   logger.error("Error occurred", {
     error: err.message,
     stack: err.stack,
@@ -89,7 +172,7 @@ exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
 // Create a write stream for morgan (in append mode)
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "logs", "access.log"),
-  { flags: "a" }
+  { flags: "a" },
 );
 
 // Use winston for morgan logging
@@ -140,10 +223,9 @@ exports.morganBodyMiddlware = morgan(
   {
     skip: (req) => req.method !== "POST" && req.method !== "PUT",
     stream: morganStream,
-  }
+  },
 );
 
-const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
 exports.rateLimitMiddleware = setRateLimit({
   windowMs: 1 * 1000, // 1 second
   max: 100,
@@ -218,13 +300,13 @@ exports.versionMiddleware = function (version) {
 // Create a write stream for morgan (in append mode)
 const apiUsageLogStream = fs.createWriteStream(
   path.join(__dirname, "logs", "api-usage.log"),
-  { flags: "a" }
+  { flags: "a" },
 );
 // Log api usage
 exports.apiUsageLogMiddlware = (req, res, next) => {
   const apiKey = req.headers["x-api-key"] || "anonymous";
   apiUsageLogger.info(
-    `User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`
+    `User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`,
   );
   next();
 };
@@ -410,29 +492,33 @@ const clearCache = async (pattern) => {
 // await clearCache('students:/api/students*');
 
 const methodMappers = {
-  "GET": "Fetching",
-  "POST": "Adding",
-  "PUT": "Updating",
-  "DELETE": "Deleting"
-}
+  GET: "Fetching",
+  POST: "Adding",
+  PUT: "Updating",
+  DELETE: "Deleting",
+};
 exports.logAuditTrails = (req, res, next) => {
   try {
     const originalJson = res.json;
     res.json = async function (body) {
       await AuditTrail.create({
         url: req.originalUrl,
-        activity: methodMappers[req.method] + ' ' + req.originalUrl.split("/")[req.originalUrl.split("/").length - 1] || "",
+        activity:
+          methodMappers[req.method] +
+            " " +
+            req.originalUrl.split("/")[req.originalUrl.split("/").length - 1] ||
+          "",
         params: JSON.stringify(req.params),
         query: JSON.stringify(req.query),
         payload: JSON.stringify(req.body),
-        response: JSON.stringify(body)
+        response: JSON.stringify(body),
       });
       return originalJson.call(this, body);
-    }
+    };
     next();
   } catch (error) {
     console.log(">>>>> an error occurred logging audit trail >>>>>>>>");
     console.log(error.message);
     next();
   }
-}
+};

@@ -75,7 +75,9 @@ setInterval(async () => {
 setInterval(async () => {
   const quotes = await getQuotes();
   // publisher.publish("quotes:*", JSON.stringify({ ticker: "PNGX", price: 12.45 }));
-  quotes.forEach((quote) => {
-    publisher.publish(`quotes:${quote.code}`, JSON.stringify(quote));
-  });
+  // quotes.forEach((quote) => {
+  //   publisher.publish(`quotes:${quote.code}`, JSON.stringify(quote));
+  // });
+  publisher.publish(`quotes:*`, JSON.stringify(quotes));
+  // publisher.publish(`tickers:*`, JSON.stringify(quotes));
 }, TIMEOUT);

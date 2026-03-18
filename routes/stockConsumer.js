@@ -2,7 +2,6 @@ const { SYMBOLS, TOPICS, CHANNELS } = require("../constants");
 const { createRedisIoClient } = require("../libs/redis");
 
 const subscriber = createRedisIoClient();
-
 subscriber.on("error", async (err) => {
   console.error("Redis error:", err);
   await subscriber.quit();

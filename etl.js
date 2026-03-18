@@ -1,6 +1,6 @@
 const { EventEmitter } = require("node:events");
 const { format } = require("date-fns/format");
-const { formatInTimeZone } = require("date-fns-tz")
+const { formatInTimeZone } = require("date-fns-tz");
 const cron = require("node-cron");
 const _ = require("lodash");
 const { initDatabase } = require("./database");
@@ -8,6 +8,7 @@ const { Stock, Ticker } = require("./models");
 const { get_quotes_from_pngx } = require("./tasks");
 const { normalize_data, formatDate } = require("./utils");
 const { SYMBOLS } = require("./constants");
+require("dotenv/config");
 
 // const datetime = formatInTimeZone("2020-04-07T14:00:00.000Z", 'Pacific/Port_Moresby')
 
@@ -35,11 +36,11 @@ const { SYMBOLS } = require("./constants");
 initDatabase()
   .on("connected", async function () {
     console.log(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
+      "[Main_Thread]: Connected: Successfully connect to mongo server",
     );
 
     console.log(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock",
     );
     // cron.schedule("30 8 * * *", async () => {
     SYMBOLS.forEach(async (quote) => {
@@ -58,7 +59,7 @@ initDatabase()
   })
   .on("error", function () {
     console.error(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
     );
   });
 
@@ -118,7 +119,7 @@ function run(dbData = [], source = []) {
   source.sort(dataComparatorAsc);
 
   const dbDataMap = new Map(
-    dbData.map((item) => [format(item.date, "yyyy-MM-dd"), item])
+    dbData.map((item) => [format(item.date, "yyyy-MM-dd"), item]),
   );
 
   for (let i = 0; i < source.length; i++) {
@@ -130,7 +131,7 @@ function run(dbData = [], source = []) {
       // Compare all properties to check if it's an exact duplicate
       const isExactDuplicate = Object.keys(sourceItem).every(
         (prop) =>
-          JSON.stringify(sourceItem[prop]) === JSON.stringify(dbItem[prop])
+          JSON.stringify(sourceItem[prop]) === JSON.stringify(dbItem[prop]),
       );
 
       if (isExactDuplicate) {
@@ -150,9 +151,7 @@ function run(dbData = [], source = []) {
   }
 }
 
-Set.prototype.difference = (data) => {
-
-}
+Set.prototype.difference = (data) => {};
 
 /**
  * Create a set by, get the set of origincal
@@ -166,7 +165,9 @@ function removeDuplicates(dbData = []) {
   const uniqueInSource = [];
   dbData.sort(dataComparatorAsc);
 
-  const uniqueQuotes = Array.from(new Map(dbData.map(quote => [quote._id, quote])).values());
+  const uniqueQuotes = Array.from(
+    new Map(dbData.map((quote) => [quote._id, quote])).values(),
+  );
   // const dbMap = new Map(dbData.map((item) => [`${item.code}:${formatDate(item.date)}`, String(item._id)]));
   // const dbMap = new Map(dbData.map((item) => String(item._id)));
   // const dbSet = new Set(dbData.map(item => String(item._id)));
@@ -179,7 +180,7 @@ function removeDuplicates(dbData = []) {
   // console.log(dbSet.difference(dbMapSet))
 
   const elementCounts = new Map();
-  dbData.forEach(item => {
+  dbData.forEach((item) => {
     const count = (elementCounts.get(formatDate(item.date)) || 0) + 1;
     elementCounts.set(formatDate(item.date), count);
 
@@ -255,7 +256,7 @@ class ETL {
   /**
    * Fetch csv
    */
-  #_fetch() { }
+  #_fetch() {}
 
   /**
    * Extract csv data from data data-source

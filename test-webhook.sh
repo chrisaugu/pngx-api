@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BASE_URL="http://localhost:5000"
 # # Define the payload
 # payload='{"event":"user.created","data":{"id":"1","full_name":"Faizan","email":"faizan.ahmad.info@gmail.com","contact":"+923338184261"}}'
 
@@ -30,9 +31,9 @@
 #   -H "x-webhook-token: $webhook_token" \
 #   -H "x-timestamp: $timestamp" \
 #   -d "$payload" \
-#   "http://localhost:5000/api/webhook"
+#   "$BASE_URL/api/webhook"
 
-# curl -X POST -H "Content-Type: application/json" -d '{"title":"The Catcher in the Rye","author":"J.D. Salinger","publishedYear":1951,"isAvailable":true,"genres":["Fiction","Coming-of-age"]}' http://localhost:5000/api/books
+# curl -X POST -H "Content-Type: application/json" -d '{"title":"The Catcher in the Rye","author":"J.D. Salinger","publishedYear":1951,"isAvailable":true,"genres":["Fiction","Coming-of-age"]}' $BASE_URL/api/books
 
 # # Register webhook
 # curl -X POST \
@@ -41,10 +42,10 @@
 #     -H "x-webhook-token: $webhook_token" \
 #     -H "x-timestamp: $timestamp" \
 #     -d "$payload" \
-#     "http://localhost:5000/api/webhooks"
-# curl --location 'http://localhost:5000/api/webhooks' \
+#     "$BASE_URL/api/webhooks"
+# curl --location '$BASE_URL/api/webhooks' \
 curl --request POST \
-     --url http://localhost:5000/api/webhooks \
+     --url $BASE_URL/api/webhooks \
      --header 'accept: application/json' \
      --header 'content-type: application/json' \
      --header 'x-signature: abc' \
@@ -53,7 +54,7 @@ curl --request POST \
      --header 'accept: application/json' \
      --header 'Content-Type: application/json' \
      --data '{
-        "url": "http://localhost:5000/api/webhook",
+        "url": "$BASE_URL/api/webhook",
         "headers": {
             "x-signature": "abc",
             "x-timestamp": 1745712000000,
@@ -69,7 +70,7 @@ curl --request POST \
 curl -X GET \
      -H "Accept: application/json" \
      -H "Content-Type: application/json" \
-     "http://localhost:5000/api/webhooks"
+     "$BASE_URL/api/webhooks"
 
 # Update Webhook
 curl -X PUT \
@@ -79,7 +80,7 @@ curl -X PUT \
      -H 'x-timestamp: 1745712000000' \
      -H 'x-webhook-token: abc' \
      -d '{
-        "url": "http://localhost:5000/api/webhook",
+        "url": "$BASE_URL/api/webhook",
         "headers": {
             "x-signature": "abc",
             "x-timestamp": 1745712000000,
@@ -90,11 +91,11 @@ curl -X PUT \
         "isActive": true,
         "description": "hello"
     }'
-    "http://localhost:5000/api/webhooks/{webhook-id}"
+    "$BASE_URL/api/webhooks/{webhook-id}"
 
 
 # Delete Webhook
 curl -X DELETE \
      -H "Accept: application/json" \
      -H "Content-Type: application/json" \
-     "http://localhost:5000/api/webhooks/{webhook-id}"
+     "/api/webhooks/{webhook-id}"

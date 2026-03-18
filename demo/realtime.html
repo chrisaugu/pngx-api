@@ -17,7 +17,9 @@
 </head>
 
 <body class="container-fluid py-0">
-    <!-- <marquee id="ticker-tape" style="background-color: rgb(255, 255, 255);"></marquee> -->
+    <marquee id="ticker-tape" style="background-color: rgb(255, 255, 255);" behavior="scroll" direction="left"
+        scrollamount="8" loop="infinite" onmouseover="this.stop()" onmouseout="this.start()">
+    </marquee>
     <!-- <section id="ticker-tape1" class="scroller__wrapper">
         <div class="scroller__container">
             <div class="scroller">
@@ -26,10 +28,10 @@
         </div>
     </section> -->
 
-    <div id="ticker-tape" class="ticker-container">
+    <!-- <div id="ticker-tape" class="ticker-container">
         <div class="ticker-text">
         </div>
-    </div>
+    </div> -->
 
     <div class="container enonewsticker py-3 px-3">
         <div class="row g-0">
@@ -363,6 +365,27 @@
                 });
             });
 
+            // Format price with change indicator (simulated)
+            function formatStockLine(data) {
+                // data is a raw string from SSE
+                // we'll create a realistic stock ticker line
+                const stocks = [
+                    { sym: 'AAPL', price: (170 + Math.random() * 10).toFixed(2), chg: (Math.random() * 2 - 1).toFixed(2) },
+                    { sym: 'MSFT', price: (330 + Math.random() * 15).toFixed(2), chg: (Math.random() * 2.5 - 1).toFixed(2) },
+                    { sym: 'GOOGL', price: (140 + Math.random() * 8).toFixed(2), chg: (Math.random() * 1.8 - 0.9).toFixed(2) },
+                    { sym: 'AMZN', price: (145 + Math.random() * 12).toFixed(2), chg: (Math.random() * 2.2 - 1.1).toFixed(2) },
+                    { sym: 'TSLA', price: (210 + Math.random() * 25).toFixed(2), chg: (Math.random() * 4 - 2).toFixed(2) },
+                    { sym: 'META', price: (310 + Math.random() * 20).toFixed(2), chg: (Math.random() * 3 - 1.5).toFixed(2) },
+                    { sym: 'NVDA', price: (790 + Math.random() * 30).toFixed(2), chg: (Math.random() * 5 - 2.5).toFixed(2) }
+                ];
+
+                // Pick a few to display in marquee
+                const selected = stocks.slice(0, 5);
+                return selected.map(s =>
+                    `${s.sym} $${s.price} ${parseFloat(s.chg) >= 0 ? '▲' : '▼'} ${s.chg}%`
+                ).join(' · ') + ' · ' + new Date().toLocaleTimeString();
+            }
+
             topics = stocks.map(r => "tickers:" + r)
             const evtSource2 = new EventSource(`/events?topics=${topics.join(',')}`, {
                 withCredentials: true,
@@ -379,17 +402,41 @@
                 const span = document.createElement("span");
                 span.id = `stock-${stock}`;
                 span.textContent = `${stock}: loading...`;
-                // tickertape.appendChild(span); // marquee
 
-                span.className = "ticker-itemx me-2";
-                tickertape.firstElementChild.appendChild(span);
+                span.style.marginRight = "20px";
+                span.className = "ticker-item";
+
+                if (tickertape) {
+                    tickertape.appendChild(span);
+                }
+                // tickertape.firstElementChild.appendChild(span);
                 // span.className = "scroller__item";
                 // tickertape.firstElementChild.firstElementChild.appendChild(span);
+
                 tickerTapeMap[stock] = span;
 
                 evtSource2.addEventListener(`tickers:${stock}`, (e) => {
                     const data = JSON.parse(e.data);
-                    tickerTapeMap[stock].textContent = `${data.symbol}: K${data.open} (${Number(data.change).toFixed(0)}%) ${Number(data.change).toFixed(0) < 0.5 ? '↘️' : Number(data.change).toFixed(0) > 0.5 ? '↗️' : '➡️'} `;
+                    // tickertape.textContent = data;
+                    // Build dynamic stock line
+                    // const tickerLine = `${data.symbol}: K${data.open} (${Number(data.change).toFixed(0)}%) ${Number(data.change).toFixed(0) < 0.5 ? '↘️' : Number(data.change).toFixed(0) > 0.5 ? '↗️' : '➡️'} `;
+                    // const tickerLine = formatStockLine(rawData);
+                    // marqueeEl.textContent = tickerLine;
+
+                    const changePercent = Number(data.change).toFixed(0);
+                    let arrow = '➡️';
+                    let color = 'white';
+
+                    if (changePercent < 0) {
+                        arrow = '↘️';
+                        color = '#ff6b6b';
+                    } else if (changePercent > 0) {
+                        arrow = '↗️';
+                        color = '#69db7e';
+                    }
+
+                    tickerTapeMap[stock].textContent = `${data.symbol}: K${data.open} (${changePercent}%) ${arrow} `;
+                    span.style.color = color;
                 });
             });
 
@@ -450,6 +497,10 @@
                 //     setIsConnected(true);
                 // };
 
+                // Graceful shutdown if page unloads (optional)
+                window.addEventListener('beforeunload', function () {
+                    eventSource.close();
+                });
                 // Handle errors
                 eventSource.onerror = (error) => {
                     console.error('SSE error:', error);

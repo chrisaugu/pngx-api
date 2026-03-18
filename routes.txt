@@ -1,0 +1,46 @@
+GET /api/v1/dividends
+
+/dividends:
+  GET: List all dividends with filtering options
+  POST: Add new dividend announcement (admin)
+
+/dividends/{ticker}:
+  GET: Get all dividends for a specific company
+
+/dividends/{ticker}/latest:
+  GET: Get most recent dividend announcement
+
+/dividends/{ticker}/{date}:
+  GET: Get dividend for specific period/date
+
+
+/dividend-yield/{ticker}:
+  GET: Calculate current dividend yield for companies
+  GET /api/v1/dividend-yield/KSL?current_price=2.00
+
+{
+  "ticker": "KSL",
+  "current_price": 2.00,
+  "currency": "PGK",
+  "dividend_yield": {
+    "trailing_12m": {
+      "total_dividends": 0.371,
+      "yield": "18.55%"
+    },
+    "forward_estimate": {
+      "annual_dividend": 0.386,
+      "yield": "19.30%"
+    },
+    "details": {
+      "last_dividend": {
+        "amount": 0.193,
+        "payment_date": "2026-04-15"
+      },
+      "previous_dividend": {
+        "amount": 0.178,
+        "payment_date": "2025-09-20"
+      },
+      "frequency": "Semi-annual"
+    }
+  }
+}
