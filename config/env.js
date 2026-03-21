@@ -1,21 +1,22 @@
 const path = require("path");
 const dotenv = require("dotenv");
 
-const env = process.env.NODE_ENV || "development";
+// const env = process.env.NODE_ENV || "development";
 
-let envPath;
-if (env === "production") {
-  envPath = path.resolve(process.cwd(), `.env.${env}`);
-} else {
-  envPath = path.resolve(process.cwd(), `.env`);
-}
+// let envPath;
+// if (env === "production") {
+//   envPath = path.resolve(process.cwd(), `.env.${env}`);
+// } else {
+//   envPath = path.resolve(process.cwd(), `.env`);
+// }
 
-const result = dotenv.config({ path: envPath });
-if (result.error) {
-  throw result.error;
-}
+// const result = dotenv.config({ path: envPath });
+dotenv.config();
+// if (result.error) {
+//   throw result.error;
+// }
 
-const { parsed: envs } = result;
+// const { parsed: envs } = result;
 
 const Env = {
   redis: {
@@ -25,7 +26,7 @@ const Env = {
   mongodb: {
     uri: process.env.MONGODB_URI,
   },
-  ...envs,
+  ...process.env,
 };
 
 module.exports = Env;

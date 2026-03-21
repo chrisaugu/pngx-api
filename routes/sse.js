@@ -1,12 +1,12 @@
 const { Router, json } = require("express");
-const Redis = require("ioredis");
 const jwt = require("jsonwebtoken");
 const logger = require("../libs/logger").winstonLogger;
 const { SYMBOLS } = require("../constants");
+const { createRedisIoClient } = require("../libs/redis");
 
 const router = Router();
-const redis = new Redis(6379); // for publishing
-const subscriber = new Redis(6379); // for consuming
+const redis = createRedisIoClient(); // for publishing
+const subscriber = createRedisIoClient(); // for consuming
 
 subscriber.on("error", async (err) => {
   logger.error("Redis error:", err);
@@ -24,14 +24,6 @@ process.on("SIGINT", async () => {
   await redis.quit();
   process.exit();
 });
-
-// // Or when creating the client
-// const redis = new Redis({
-//   retryStrategy: (times) => {
-//     const delay = Math.min(times * 50, 2000);
-//     return delay;
-//   }
-// });
 
 // use redis to store clients
 const clients = new Set();
@@ -147,7 +139,7 @@ async function eventsHandler(req, res) {
 
   // // When client closes connection, stop sending events
   // req.on("close", () => {
-  //   console.log(`${clientId} Connection closed`);
+  //   logger.info(`${clientId} Connection closed`);
   //   // clients.filter((client) => client.id !== clientId);
   //   clients.delete(clientId);
 

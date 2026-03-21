@@ -81,11 +81,11 @@ initDatabase()
 
     fs.readdirSync("./images/logos/").forEach(async (logo) => {
       console.log(logo);
-      let company = await Company.findOne({
+      const company = await Company.findOne({
         ticker: logo.split(".")[0].toUpperCase(),
       });
       if (company) {
-        let logoBuffer = fs.readFileSync(`./images/logos/${logo}`);
+        const logoBuffer = fs.readFileSync(`./images/logos/${logo}`);
         if (logoBuffer) {
           if (company["logo"]) {
             company["logo"] = {
@@ -96,7 +96,7 @@ initDatabase()
           var base64Flag = "data:image/jpeg;base64,";
           var imageStr = arrayBufferToBase64(company.logo.data);
 
-        //   console.log(base64Flag + imageStr);
+          //   console.log(base64Flag + imageStr);
           company.save();
         }
       }

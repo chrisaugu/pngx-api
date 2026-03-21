@@ -1,68 +1,157 @@
-# PNGX-API NPM Library
-This is a small JavaScript library package for retrieving stocks info from PNGX.com website
+## NUKU-API Library
 
-The library is built using TypeScript
+A lightweight JavaScript/TypeScript library for retrieving stock market data using NUKU-API Rest API.
 
-https://medium.com/@the_nick_morgan/creating-an-npm-package-with-typescript-c38b97a793cf
-https://medium.com/nerd-for-tech/testing-typescript-with-jest-290eaee9479d
+## Table of Contents
 
-npm run build
-
-npm run test
-
-
-
-Types of schedules supported by _Schedule_:
-
-* Schedule a set of work items across developers with different schedules
-* Manage elevator reservations for an apartment building
-* Schedule the company ping pong tournment
-
-####For complete documentation visit [http://bunkat.github.io/schedule/](http://bunkat.github.io/schedule/).
-
+- [NUKU-API Library](#nuku-api-library)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+  - [Node.js](#nodejs)
+  - [Browser](#browser)
+- [Usage](#usage)
+  - [Node.js/ES Modules](#nodejses-modules)
+  - [Node.js/CommonJS](#nodejscommonjs)
+  - [React](#react)
+  - [Browser](#browser-1)
+- [API Reference](#api-reference)
+- [Building](#building)
+- [Testing](#testing)
+- [Versioning](#versioning)
+- [Contributing](#contributing)
+  - [Bug Reports and Feature Requests](#bug-reports-and-feature-requests)
+- [Change Log](#change-log)
+  - [v1.0.0](#v100)
+- [License](#license)
+- [Documentation](#documentation)
+- [Support](#support)
 
 ## Installation
-Using npm:
 
-    $ npm install schedulejs
+### Node.js
+```bash
+npm install @chrisaugu/nuku-api-lib
+```
 
-Using bower:
+### Browser
+```html
+<script src="path-to-library/nuku-api.min.js"></script>
+```
 
-    $ bower install later
-    $ bower install schedule
+## Usage
+
+### Node.js/ES Modules
+```javascript
+import NukuAPI from '@chrisaugu/nuku-api-lib';
+
+// Get all stocks
+NukuAPI.getStocks().then(console.log);
+```
+
+### Node.js/CommonJS
+```javascript
+const * as NukuAPI = require('@chrisaugu/nuku-api-lib');
+
+// Get all stocks
+NukuAPI.getStocks().then(console.log);
+```
+
+### React
+```jsx
+import React, { useEffect, useState } from 'react';
+import * as NukuAPI from '@chrisaugu/nuku-api-lib';
+
+function StockComponent() {
+  const [stocks, setStocks] = useState([]);
+
+  useEffect(() => {
+    NukuAPI.getStocks().then(setStocks);
+  }, []);
+
+  return (
+    <div>
+      {stocks.map(stock => (
+        <div key={stock.code}>{stock.code}: {stock.bid}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+### Browser
+```javascript
+// After including the script tag
+NukuAPI.getStocks().then(console.log);
+```
+
+## API Reference
+
+Go to [API Documentation](https://nuku.zeabur.app/docs/)
+
 
 ## Building
 
-To build the minified javascript files for _schedule_, run `npm install` to install dependencies and then:
+To build the library from source:
 
-    $ make build
+```bash
+# Install dependencies
+npm install
 
-## Running tests
+# Build the project
+npm run build
+```
 
-To run the tests for _schedule_, run `npm install` to install dependencies and then:
+This will generate minified JavaScript files in the `dist/` directory.
 
-    $ make test
+## Testing
+
+To run the test suite:
+
+```bash
+# Install dependencies (if not already installed)
+npm install
+
+# Run tests
+npm run test
+```
 
 ## Versioning
 
-Releases will be numbered with the following format:
+This project follows [Semantic Versioning](http://semver.org/):
+- **MAJOR** version for breaking changes
+- **MINOR** version for new features (backward compatible)
+- **PATCH** version for bug fixes
 
-`<major>.<minor>.<patch>`
+## Contributing
 
-And constructed with the following guidelines:
+We welcome contributions! Please follow these steps:
 
-* Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bumps the minor (and resets the patch)
-* Bug fixes and misc changes bumps the patch
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-For more information on SemVer, please visit [http://semver.org/](http://semver.org/).
-
-## Bug tracker
-
-Have a bug or a feature request? [Please open a new issue](https://github.com/bunkat/schedule/issues).
+### Bug Reports and Feature Requests
+Found a bug or have a feature request? [Please open a new issue](https://github.com/chrisaugu/pngx-api/issues).
 
 ## Change Log
 
-### Schedule v0.6.0
+### v1.0.0
+- First documented release
+- Basic stock data retrieval functionality
+- TypeScript support
 
-* First documented release.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Documentation
+
+For complete documentation, visit [http://chrisaugu.github.io/pngx-api/package/](http://chrisaugu.github.io/pngx-api/package/)
+
+## Support
+
+For support and questions:
+- Open an issue on [GitHub](https://github.com/chrisaugu/pngx-api/issues)
+- Check the [documentation](http://chrisaugu.github.io/pngx-api/package/)

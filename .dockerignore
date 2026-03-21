@@ -9,5 +9,8 @@ Dockerfile
 .vscode
 .vercel
 package
-nuku-redis-worker
 data
+.postman
+.clinic
+sdk
+coverage

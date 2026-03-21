@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mongodump --config ./mongo.conf --out=./mongodump
+mongorestore --config ./mongo.conf ./mongodump/pngx-db
+rm -rdf mongodump
+
+# mongodump --config ./mongo.conf
+# mongorestore --config ./mongo.conf

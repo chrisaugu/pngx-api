@@ -134,12 +134,14 @@
           },
         ];
       } else {
-        return [{
-          columns: [],
-          types: {},
-          names: {},
-          colors: {}
-        }];
+        return [
+          {
+            columns: [],
+            types: {},
+            names: {},
+            colors: {},
+          },
+        ];
       }
     }
 
@@ -177,7 +179,7 @@
 
     function drawChart(data) {
       clearCharts();
-      console.log(data)
+      console.log(data);
 
       var chartsContainer = document.getElementById("charts-container");
       charts = data.map(function (data, i) {

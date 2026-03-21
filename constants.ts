@@ -16,24 +16,37 @@ const COMPANIES = Object.freeze({
   IOC: "InterOil Limited",
   IDC: "Indochine Mining Limited",
   KPL: "Kina Petroleum Limited",
+  PLC: "Pacific Lime and Cement Limited",
   HIG: "Highlands Pacific Limited",
   KPE: "Kina Petroleum Corporation",
   BSPHA: "Bank South Pacific Notes",
 });
 
-const OLD_SYMBOLS = ["KPE", "HIG", "KPL", "IDC", "IOC", "OSH", "BSPHA"];
+const OLD_SYMBOLS = [
+  "COY",
+  "NCM",
+  "KPE",
+  "HIG",
+  "KPL",
+  "IDC",
+  "IOC",
+  "OSH",
+  "BSPHA",
+];
 
 const SYMBOLS = Object.keys(COMPANIES).filter((c) => !OLD_SYMBOLS.includes(c));
+const CHANNELS = ["tickers"];
+const TOPICS = SYMBOLS.map((code) => "tickers:" + code);
 
 const PNGX_URL = "https://www.pngx.com.pg";
-const PNGX_DATA_URL = `${PNGX_URL}/data/`;
+const PNGX_DATA_URL = `${PNGX_URL}/data`;
 
 const LOCAL_TIMEZONE = "Pacific/Port_Moresby";
 const LOCAL_TIMEZONE_FORMAT = "yyyy-MM-dd"; // HH:mm:ss zzz'; // 2014-10-25 12:46:20 GMT+2 (Papua New Guinea)
 
-const WORKER_SCHEDULE_TIME = "30 8 * * *";
+const QUOTE_FETCH_WORKER_SCHEDULE_TIME = "30 8 * * *";
 
-const BASE_URL = new URL("https://nuku1-btlxx2lu.b4a.run/");
+const BASE_URL = "https://nuku.zeabur.app";
 
 module.exports = {
   SYMBOLS,
@@ -44,5 +57,7 @@ module.exports = {
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
   BASE_URL,
-  WORKER_SCHEDULE_TIME,
+  QUOTE_FETCH_WORKER_SCHEDULE_TIME,
+  CHANNELS,
+  TOPICS,
 };

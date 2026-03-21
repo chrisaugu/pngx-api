@@ -24,6 +24,10 @@ node_modules
 .env.production
 *.zip
 app
+<<<<<<< HEAD
+=======
+logs/*
+>>>>>>> 313c81e2cacce1814c34d322a25545785fa9346a
 
 .openode
 
@@ -37,3 +41,8 @@ certs
 .clinic
 output
 package/build
+<<<<<<< HEAD
+=======
+sdk
+.postman
+>>>>>>> 313c81e2cacce1814c34d322a25545785fa9346a

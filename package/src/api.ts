@@ -1,17 +1,33 @@
-import { parse } from 'csv-parse';
-import { TAPIResponse } from "./types";
-import { METHODS } from 'http';
+import { TCompany, TQuote, TTicker } from "./types";
 
-// const DATA_URL = 'https://www.pngx.com.pg/data';
-// const API_URL = `https://api.nuku-api.io/api/v1`;
-const API_URL = `http://locahost:5000/api/v1`;
+const API_VERSION = "v2";
+const API_URL = `https://nuku.zeabur.app/api/${API_VERSION}`;
+// const API_URL = `http://localhost:5000/api/${API_VERSION}`;
 
-enum Servers {
-  PNGX = "pngx",
-  NUKUAPI = "nuku"
-}
+var NUKU_HEADERS = new Headers();
+NUKU_HEADERS.append("api_key", "OB030miTWcDD58KR8yeLIAMK9j9hVaYQ");
 
-const fetcher = async (url: string, options: any) => await fetch(`${API_URL}/${url}`, options)
+var requestOptions: RequestInit = {
+  method: "GET",
+  redirect: "follow",
+  headers: NUKU_HEADERS,
+};
+
+export type TAPIRequest = {};
+
+export type TAPIResponse<T> = {
+  status: number;
+  message: string;
+  symbols: string;
+  api: string;
+  time: number;
+  date: Date;
+  last_updated: Date;
+  data: T;
+};
+
+// utility function for fetching data
+export const fetcher = (url: string, options?: any): Promise<any> => fetch(`${API_URL}${url}`, options).then(r => r.json());
 
 type TQuery = {
   date?: string;
@@ -20,28 +36,20 @@ type TQuery = {
   limit?: number;
   sort?: number;
   skip?: number;
-  fields?: []
-}
+  fields?: [];
+};
 
 /**
+ * getHistoricals
  * /api/historicals/:symbol
- * @param symbol 
- * @param query 
- * @returns 
+ * Fetch historical data for given symbol
+ * Makes HTTP call to https://api.nuku.com.pg/v2/historical/{symbol}
+ * @param {string} symbol
+ * @param query
+ * @returns {Promise<TQuote[]>}
  */
-export async function getHistoricals(
-  symbol: string,
-  query?: TQuery
-) {
-  let {
-  date,
-  start,
-  end,
-  limit,
-  sort,
-  skip,
-  fields
-  } = query || {};
+export async function getHistoricals(symbol: string, query?: TQuery): Promise<TQuote[]> {
+  let { date, start, end, limit, sort, skip, fields } = query || {};
 
   let options = {
     // "body": null,
@@ -57,88 +65,96 @@ export async function getHistoricals(
       limit,
       sort,
       skip,
-      fields
-    }
+      fields,
+    };
   }
 
-  let res = await fetcher(`/historicals/${symbol}`, options)
+  let res = await fetcher(`/historicals/${symbol}`, options);
 
-  return res.json()
+  return res;
 }
 
 /**
- * 
- * @param options 
- * @returns 
+ * Get stocks for the current day
+ * @param {TQuery} options
+ * @returns {Promise<TQuote[]>}
  */
-export async function getStocks(options?: TQuery) {
+export async function getStocks(options?: TQuery): Promise<TQuote[]> {
   let res = await fetcher(`/stocks`, options);
 
-  return res.json;
+  return res.data;
 }
 
 /**
- * 
- * @param symbol 
- * @param options 
- * @returns 
+ * Get a single stock by symbol
+ * @param symbol
+ * @param options
+ * @returns {Promise<TQuote>}
  */
-export async function getStock(symbol: string, options?: TQuery) {
+export async function getStock(symbol: string, options?: TQuery): Promise<TQuote> {
   let opt = {
-    METHOD: 'GET',
-  }
+    METHOD: "GET",
+  };
 
   let res = await fetcher(`/stocks/${symbol}`, opt);
 
-  return res.json();
+  return res.data;
 }
 
+/**
+ * Get list of companies currently listed on PNGX
+ * @param options
+ * @returns {Promise<TCompany[]>}
+ */
+export async function getCompanies(options?: TQuery): Promise<TCompany[]> {
+  let res = await fetcher(`/companies`);
 
-export async function getCompanies(options?: TQuery) {
-  let opt = {
-    METHOD: 'GET',
-  }
-
-  let res = await fetcher(`/companies`, opt);
-
-  return res.json();
+  return res;
 }
 
-export async function getCompany(symbol: string, options?: TQuery) {
-  let res = await fetcher(`/companies/${symbol}`, options);
+// /**
+//  * Get a single company by symbol
+//  * @param symbol
+//  * @param options
+//  * @returns {Promise<TCompany>}
+//  */
+// export async function getCompany(symbol: string, options?: TQuery): Promise<TCompany> {
+//   let res = await fetcher(`/companies/${symbol}`, options);
 
-  return res.json();
-}
+//   return res;
+// }
 
-export async function getTickers(options?: TQuery) {
+/**
+ * List stock tickers for all companies currently listed on PNGX
+ * Retrieves a list of stock tickers for all companies currently listed on PNGX
+ * 
+ * @param {TQuery} [options] - Optional query parameters for filtering, pagination, etc.
+ * @returns {Promise<TTicker[]>} Promise that resolves to an array of ticker objects
+ * 
+ * @example
+ * // Get all tickers
+ * const tickers = await getTickers();
+ * 
+ * @example
+ * // Get tickers with pagination
+ * const tickers = await getTickers({ page: 1, limit: 50 });
+ * 
+ * @throws {Error} When the API request fails or returns an error
+ */
+export async function getTickers(options?: TQuery): Promise<TTicker[]> {
   let res = await fetcher(`/tickers`, options);
 
-  return res.json();
+  return res.data;
 }
 
-export async function getTicker(symbol: string, options?: TQuery) {
-  let res = await fetcher(`/companies/${symbol}`, options);
+/**
+ * Get a single ticker given symbol
+ * @param symbol
+ * @param options
+ * @returns {Promise<TTicker[]>}
+ */
+export async function getTicker(symbol: string, options?: TQuery): Promise<TTicker[]> {
+  let res = await fetcher(`/tickers/${symbol}`, options);
 
-  return res.json();
-}
-
-export async function getDataFromServer(symbol: string, options?: TQuery) {
-  // let res = await fetch(`${DATA_URL}/${symbol}.csv`);
-  // let data = await res.text();
-  let data;
-  
-  const requestOptions: RequestInit = {
-    method: "GET"
-  };
-
-  fetch("https://www.pngx.com.pg/data/BSP.csv", requestOptions)
-  .then((response) => response.text())
-  .then((result) => data = parse(result))
-  .catch((error) => console.error(error));
-  
-  // let d = parse(data);
-
-  console.log(data)
-
-  return data;
+  return res.ticker as TTicker[];
 }

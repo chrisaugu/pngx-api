@@ -16,7 +16,7 @@ exports.fetch_data_from_pngx = function fetch_data_from_pngx(url) {
 function hello() {
   const results = [];
 
-  const csvDatasetUrl = "https://www.pngx.com.pg/data/BSP.csv";
+  const csvDatasetUrl = PNGX_DATA_URL + "/BSP.csv";
 
   needle
     .get(csvDatasetUrl)
@@ -37,7 +37,7 @@ function hello() {
     //   )
     .on("data", (data) => results.push(normalize_data(data)))
     .on("end", async () => {
-      logger.info(results);
+      // console.log(results);
     });
 }
 
@@ -55,53 +55,60 @@ function make_async_request(url, options) {
   });
 
   return new Promise(function (resolve, reject) {
-    fetch(url, options)
-      // .retry(2)
-      // .on('progress', event => {
-      // 	/* the event is:
-      // 	{
-      // 	  direction: "upload" or "download"
-      // 	  percent: 0 to 100 // may be missing if file size is unknown
-      // 	  total: // total file size, may be missing
-      // 	  loaded: // bytes downloaded or uploaded so far
-      // 	} */
-      // 	logger.info(event)
-      // })
-      // .withCredentials()
-      // .redirects(2)
-      .then((response) => {
-        if (!response.ok) {
-          console.error(`Error: ${response.status} - ${response.statusText}`);
-          throw new Error(`HTTP error! status: ${response.status}`);
+    // console.debug(`Making request to ${url} with options:`, options);
+
+    fetchWithRetry(url, options)
+      .then(async (response) => {
+        if (response.status >= 200 && response.status < 300) {
+          return response.text();
         }
-        return response.text();
-        // if (response.status >= 200 && response.status < 300) {
-        //   return response.text()
-        // }
+        console.debug(`Making request to ${url} with options:`, options);
         // if the response is not
         // reject if the response is not 2xx
-        // throw new Error(response.statusText)
+        throw new Error(`HTTP error! status: ${url} ${response.status}`);
       })
       .then((csv) => parse_csv_to_json(csv))
       .then((json) => {
         resolve(json);
       })
       .catch((error) => {
+        // console.error(`Failed to fetch data: ${error}`);
         reject(error);
       });
   });
 }
 exports.make_async_request = make_async_request;
 
+const fetchWithRetry = async (url, options) => {
+  const MAX_RETRIES = 3;
+  let retries = 0;
+
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      // console.error(`Error: ${response.status} - ${response.statusText}`);
+      throw new Error(`HTTP error! status: ${url} ${response.status}`);
+    }
+    return response;
+  } catch (error) {
+    // if (retries < MAX_RETRIES) {
+    //   retries++;
+    //   console.log(`Retry attempt ${retries}`);
+    //   return fetchWithRetry(url, options);
+    // }
+    throw error;
+  }
+};
+
 /**
  * hello
  */
 function get_quotes_from_pngx(code) {
-  let options = {};
+  const options = {};
 
   return new Promise(function (resolve, reject) {
     if (undefined !== typeof code) {
-      let url = PNGX_DATA_URL + code + ".csv";
+      const url = PNGX_DATA_URL + "/" + code + ".csv";
       make_async_request(url, options)
         .then(function (response) {
           // resolve(typeof callback == 'function' ? new callback(response) : response);
@@ -112,7 +119,7 @@ function get_quotes_from_pngx(code) {
         });
     } else {
       for (let j = 0; j < SYMBOLS.length; j++) {
-        options["url"] = PNGX_DATA_URL + SYMBOLS[j] + ".csv";
+        options["url"] = PNGX_DATA_URL + "/" + SYMBOLS[j] + ".csv";
 
         make_async_request(options)
           .then(function (response) {
@@ -132,7 +139,7 @@ exports.get_quotes_from_pngx = get_quotes_from_pngx;
  * Fetches Quotes from PNGX.com.pg
  */
 async function data_fetcher() {
-  logger.info(`Fetching csv data from ${PNGX_URL}\n`);
+  console.debug(`Fetching csv data from ${PNGX_URL}\n`);
 
   console.time("timer"); //start time with name = timer
   const startTime = new Date();
@@ -140,8 +147,8 @@ async function data_fetcher() {
 
   for (var i = 0; i < SYMBOLS.length; i++) {
     reqTimes++;
-    let symbol = SYMBOLS[i];
-    logger.info("Fetching quotes for " + symbol + " ...");
+    const symbol = SYMBOLS[i];
+    console.debug("Fetching quotes for " + symbol + " ...");
     /**
      * insert new data from pngx into the local database
      * get csv data from pngx.com
@@ -153,9 +160,9 @@ async function data_fetcher() {
     await get_quotes_from_pngx(symbol)
       .then((quotes) => quotes.map((quote) => normalize_data(quote)))
       .then((quotes) => {
-        logger.info("Fetched quotes for " + symbol);
-        let totalCount = quotes.length,
-          totalAdded = 0,
+        // console.debug("Fetched quotes for " + symbol);
+        const totalCount = quotes.length;
+        let totalAdded = 0,
           index = totalCount - 1,
           recordExist = false;
 
@@ -163,8 +170,10 @@ async function data_fetcher() {
 
         // iterate through the dataset and add each data element to the db
         do {
-          let quote = quotes[index]; // latest quote
-          logger.info(`Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`);
+          const quote = quotes[index]; // latest quote
+          console.debug(
+            `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
+          );
 
           // check if the quote for that particular company at that particular date already exists
           Stock.findOne({
@@ -174,23 +183,25 @@ async function data_fetcher() {
             .then((result) => {
               if (result) {
                 recordExist = true;
-                logger.info("Results found");
-                logger.info("Skip ...");
+                console.debug("Results found");
+                console.debug("Skip ...");
               } else {
                 recordExist = false;
-                logger.info("Results not found");
-                logger.info("Adding quote for " + symbol + " ...");
+                console.debug("Results not found");
+                console.debug("Adding quote for " + symbol + " ...");
 
-                let stock = new Stock(quote);
+                const stock = new Stock(quote);
                 stock
                   .save()
                   .then(() => {
-                    logger.info(`Added quote for ${quote.date.toLocaleDateString()} \n`);
+                    console.debug(
+                      `Added quote for ${quote.date.toLocaleDateString()} \n`
+                    );
 
                     totalAdded++;
                   })
                   .catch((error) => {
-                    logger.info(error + "\n");
+                    console.error(error + "\n");
                   });
               }
             })
@@ -201,33 +212,33 @@ async function data_fetcher() {
           index--;
         } while (recordExist && index >= 0);
 
-        logger.debug(`${totalAdded}/${totalCount} quotes were added.`);
-        logger.debug("stop\n");
+        console.debug(`${totalAdded}/${totalCount} quotes were added.`);
+        console.debug("stop\n");
       })
       .catch((error) => {
-        logger.error("Error fetching quotes for " + symbol, {
+        console.error("Error fetching quotes for " + symbol, {
           error: error.message,
-          stack: error.stack
+          stack: error.stack,
         });
       });
   }
 
-  logger.debug("Date Request Summary");
-  logger.debug(`Data fetched from ${PNGX_DATA_URL}\n`);
+  console.debug("Date Request Summary");
+  console.debug(`Data fetched from ${PNGX_DATA_URL}\n`);
   console.timeEnd("timer"); // end timer and log time difference
   const endTime = new Date();
   const timeDiff = parseInt(
     (Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60
   );
-  logger.debug("Start time " + startTime);
-  logger.debug("End time " + timeDiff + " secs\n");
-  logger.debug("Time difference " + timeDiff + " secs\n");
-  logger.debug("Total request time: " + reqTimes);
+  console.debug("Start time " + startTime);
+  console.debug("End time " + timeDiff + " secs\n");
+  console.debug("Time difference " + timeDiff + " secs\n");
+  console.debug("Total request time: " + reqTimes);
 }
 exports.data_fetcher = data_fetcher;
 
 async function check_if_exist_in_database(code, date) {
-  let result = await Stock.findOne({
+  const result = await Stock.findOne({
     date: date,
     code: code,
   });
@@ -237,11 +248,14 @@ async function check_if_exist_in_database(code, date) {
 exports.check_if_exist_in_database = check_if_exist_in_database;
 
 async function stock_fetcher() {
-  let result = await Stock.find();
+  const result = await Stock.find();
   return result;
 }
 exports.stock_fetcher = stock_fetcher;
 
+exports.news_fetcher = async () => {
+  return result;
+};
 
 exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
   Stock.find({
@@ -260,9 +274,11 @@ exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
       );
     })
     .then((res) => {
-      logger.info("Updated date format for " + res.length + " records");
+      console.log("Updated date format for " + res.length + " records");
       res.forEach((data) => {
-        logger.info(`Updated date for ${data.code} on ${data.date.toLocaleDateString()}`);
+        console.log(
+          `Updated date for ${data.code} on ${data.date.toLocaleDateString()}`
+        );
       });
     });
 };

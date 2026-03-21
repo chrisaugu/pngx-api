@@ -1,8 +1,8 @@
 const { Server } = require("socket.io");
 const sqlite3 = require("sqlite3");
-// const { open } = require("sqlite");
+const { open } = require("sqlite");
 const { createAdapter } = require("@socket.io/redis-adapter");
-const { createClient } = require("redis");
+const { createRedisClient } = require("../libs/redis");
 
 // const db = await open({
 //   filename: "chat.db",
@@ -17,9 +17,15 @@ const { createClient } = require("redis");
 //       content TEXT
 //   );
 // `);
-const pubClient = createClient({ host: "localhost", port: 6379 });
-const subClient = pubClient.duplicate();
+const pubClient = createRedisClient();
+// const subClient = pubClient.duplicate();
 
+/**
+ * Set up a Socket.IO server on an existing HTTP or HTTPS server.
+ * This function initializes a Socket.IO server that listens for WebSocket connections
+ * @param {http.Server | https.Server} httpServer
+ * @returns {WebSocket.Server}
+ */
 module.exports = (httpServer) => {
   const io = new Server(httpServer, {
     path: "/socket.io/websocket",
@@ -70,7 +76,7 @@ module.exports = (httpServer) => {
     // socket.broadcast.emit("hi");
 
     socket.on("chat", async (msg) => {
-      let result = {lastID: 1};
+      const result = { lastID: 1 };
       // try {
       //   // store the message in the database
       //   result = await db.run("INSERT INTO messages (content) VALUES (?)", msg);

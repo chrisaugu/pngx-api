@@ -2,13 +2,14 @@ const express = require("express");
 const router = express.Router();
 const { BASE_URL } = require("../constants");
 const { versionMiddleware } = require("../middlewares");
-const Redis = require("ioredis");
-const redis = new Redis(6379);
 const logger = require("../libs/logger").winstonLogger;
+const redis = require("../libs/redis").createRedisIoClient;
+
+const base_url = new URL(BASE_URL);
 
 router.get("/", (req, res) => {
   res.status(200).json({
-    message: `Welcome to the Nuku API! Documentation is available at ${BASE_URL.protocol}//${BASE_URL.host}/api/docs/`,
+    message: `Welcome to the Nuku API! Documentation is available at ${base_url.protocol}//${base_url.host}/api/docs/`,
   });
 });
 
@@ -19,6 +20,8 @@ router.get("/health", async (_req, res, _next) => {
     uptime: process.uptime(),
     message: "OK",
     timestamp: Date.now(),
+    environment: "production",
+    status: "healthy",
   };
 
   try {
@@ -29,7 +32,6 @@ router.get("/health", async (_req, res, _next) => {
     });
   } catch (e) {
     healthcheck.message = e;
-    // res.status(503).json({ redis: "unavailable" });
     logger.error("Error creating user", {
       error: e.message,
       stack: e.stack,
@@ -37,6 +39,7 @@ router.get("/health", async (_req, res, _next) => {
     });
     res.json(healthcheck);
     res.status(503).send();
+    // res.status(503).json({ redis: "unavailable" });
   }
 });
 router.get("/health", versionMiddleware("3.0.0"), async (_req, res, _next) => {
@@ -71,19 +74,17 @@ router.use("/v1", require("./v1"));
 /**
  * /api/v2
  */
-router.use("/v2", require("./v2"));
-
-router.use(require('./webhook'));
+router.use("/v2", [require("./v2"), require("./webhooks")]);
 
 router.all("/*splat", (req, res) => {
   logger.error("Unknown request URL", {
-    message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${BASE_URL.protocol}//${BASE_URL.host}/docs/`,
+    message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${base_url.protocol}//${base_url.host}/docs/`,
     type: "invalid_request_error",
     code: "unknown_url",
   });
   res.status(404).json({
     error: {
-      message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${BASE_URL.protocol}//${BASE_URL.host}/api/docs/`,
+      message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${base_url.protocol}//${base_url.host}/api/docs/`,
       type: "invalid_request_error",
       code: "unknown_url",
     },

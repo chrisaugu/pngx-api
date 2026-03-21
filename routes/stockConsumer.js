@@ -1,9 +1,7 @@
-const Redis = require("ioredis");
-const { SYMBOLS } = require("../constants");
+const { SYMBOLS, TOPICS, CHANNELS } = require("../constants");
+const { createRedisIoClient } = require("../libs/redis");
 
-const subscriber = new Redis(6379);
-const channel = "tickers";
-const topics = SYMBOLS.map((code) => "tickers:" + code);
+const subscriber = createRedisIoClient();
 
 subscriber.on("error", async (err) => {
   console.error("Redis error:", err);
@@ -15,23 +13,23 @@ process.on("SIGINT", async () => {
   process.exit();
 });
 
-if (topics) {
-  const sub = new Redis(6379);
-  for (const topic of topics) {
+if (TOPICS) {
+  const sub = createRedisIoClient();
+  for (const topic of TOPICS) {
     sub.subscribe(topic);
   }
 
   sub.on("message", writer);
 
   //   req.on("close", () => {
-  //     topics.forEach((topic) => sub.unsubscribe(topic));
+  //     TOPICS.forEach((topic) => sub.unsubscribe(topic));
   //     res.end();
   //   });
 }
 
 // one channel
 // if (channel) {
-//   const sub = new Redis(6379);
+//   const sub = createRedisIoClient();
 //   sub.subscribe(channel);
 
 //   sub.on("message", (_, message) => {

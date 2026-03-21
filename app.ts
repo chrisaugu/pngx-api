@@ -1,8 +1,14 @@
 const express = require("express");
 const cron = require("node-cron");
 const path = require("path");
+const fs = require("fs");
 const crypto = require("crypto");
 const compression = require("compression");
+const Cabin = require("cabin");
+// const requestId = require('express-request-id');
+const requestReceived = require("request-received");
+const responseTime = require("response-time");
+const { Signale } = require("signale");
 // const boxen = require('boxen');
 // const ora = require('ora');
 // const spinner = ora('Connecting to the database...').start();
@@ -27,8 +33,9 @@ const {
   morganCombinedMiddlware,
   morganFileMiddlware,
   morganBodyMiddlware,
+  apiUsageLogMiddlware,
 } = require("./middlewares");
-const { WORKER_SCHEDULE_TIME } = require("./constants");
+const { QUOTE_FETCH_WORKER_SCHEDULE_TIME } = require("./constants");
 
 // Creating express app
 const app = express();
@@ -45,6 +52,16 @@ app.disable("x-powered-by");
 app.use((req, res, next) => {
   req.startTime = process.hrtime();
   next();
+});
+
+const queueFile = path.join(__dirname, "queue.json");
+if (!fs.existsSync(queueFile)) fs.writeFileSync(queueFile, JSON.stringify([]));
+
+// initialize cabin
+const cabin = new Cabin({
+  axe: {
+    logger: new Signale(),
+  },
 });
 
 // TODO: compression middleware causes issues with some responses from sse, need to investigate further
@@ -73,8 +90,20 @@ if (process.env.NODE_ENV === "production") {
   }
 }
 
-app.use("/api", rateLimitMiddleware);
-app.use("/events", require("./routes/sse"));
+app.use(apiUsageLogMiddlware);
+
+// adds request received hrtime and date symbols to request object
+// (which is used by Cabin internally to add `request.timestamp` to logs
+app.use(requestReceived);
+
+// adds `X-Response-Time` header to responses
+app.use(responseTime());
+
+// adds or re-uses `X-Request-Id` header
+// app.use(requestId());
+
+// use the cabin middleware (adds request-based logging and helpers)
+app.use(cabin.middleware);
 
 // middleware to check data is present in cache
 // app.use(checkCache);
@@ -92,14 +121,22 @@ app.use("/events", require("./routes/sse"));
 
 initDatabase()
   .on("connected", function () {
-    logger.debug("[Main_Thread]: Connected: Successfully connect to mongo server");
+    logger.debug(
+      "[Main_Thread]: Connected: Successfully connect to mongo server"
+    );
     /**
      * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
-    logger.debug("Stocks info will be updated every morning at 30 minutes past 8 o'clock");
-    cron.schedule(WORKER_SCHEDULE_TIME, () => {
+    logger.debug(
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+    );
+    cron.schedule(QUOTE_FETCH_WORKER_SCHEDULE_TIME, () => {
+      // cron.schedule("*/1 * * * *", () => {
       const { Worker, isMainThread } = require("node:worker_threads");
-      const childWorkerPath = path.resolve(process.cwd(), "thread_workers.js");
+      const childWorkerPath = path.resolve(
+        process.cwd(),
+        "./jobs/thread_workers.js"
+      );
 
       // const workerPromises = [];
       // for (let i = 0; i < THREAD_COUNT; i++) {
@@ -114,7 +151,7 @@ initDatabase()
 
       try {
         if (isMainThread) {
-          let worker = new Worker(childWorkerPath);
+          const worker = new Worker(childWorkerPath);
 
           worker.once("message", (result) => {
             logger.debug("completed: ", result);
@@ -133,7 +170,7 @@ initDatabase()
           });
         }
       } catch (error) {
-        logger.error("Error creating user", {
+        logger.error("Error fetching stock quotes", {
           error: error.message,
           stack: error.stack,
           // body: req.body
@@ -164,17 +201,63 @@ app.use((req, res, next) => {
 });
 
 /**
+ * /api
+ */
+app.use("/api", rateLimitMiddleware, require("./routes/index"));
+
+/**
  * /api/docs
  */
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-/**
- * /api
- */
-app.use("/api", require("./routes/index"));
+app.use("/webhook", require("./routes/webhooks"));
+
+app.use("/events", require("./routes/sse"));
+
+// health check for docker
+app.get("/health", (req, res) => {
+  res.send("OK");
+});
+
 app.get("/ip", (request, response) => response.send(request.ip));
 
+var pets = [
+  { id: 1, name: "Tobi" },
+  { id: 2, name: "Jane" },
+  { id: 3, name: "Loki" },
+];
+var petActions = {
+  index: function (req, res) {
+    res.send(pets);
+  },
+  show: function (req, res) {
+    var pet = pets.find((p) => p.id == req.params.pet);
+    if (pet) {
+      res.send(pet);
+    } else {
+      res.status(404).send("Pet not found");
+    }
+  },
+  create: function (req, res) {
+    // ... logic to create a new pet
+    res.status(201).send("Pet created");
+  },
+  update: function (req, res) {
+    // ... logic to update a pet
+    res.send("Pet updated");
+  },
+  destroy: function (req, res) {
+    // ... logic to delete a pet
+    res.status(204).send();
+  },
+};
+// app.resource('pets', petActions);
+
+// res.set('Accept', 'application/json');
+// res.set({ Accept: 'text/plain', 'X-API-Key': 'tobi' });
+
 app.use(startMonitoring);
+
 app.get("/metrics", async (req, res) => {
   res.set("Content-Type", client.register.contentType);
   // Log the time taken to process the request

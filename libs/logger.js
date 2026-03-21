@@ -1,24 +1,31 @@
 const winston = require("winston");
+const { format, transports } = require("winston");
+const { combine, colorize, label, printf, splat, timestamp } = format;
 const pino = require("pino");
 const { randomUUID } = require("node:crypto");
 const { ElasticsearchTransport } = require("winston-elasticsearch");
-const { winstonConfig, pinoConfig } = require("../config/logger.config");
+const {
+  winstonConfig,
+  pinoConfig,
+  apiUsageConfig,
+} = require("../config/logger.config");
 
-// creates a new Winston Logger
 const winstonLogger = new winston.createLogger(winstonConfig);
-exports.winstonLogger = winstonLogger;
+// exports.winstonLogger = winstonLogger;
+
+const apiUsageLogger = new winston.createLogger(apiUsageConfig);
+// exports.apiUsageLogger = apiUsageLogger;
 
 const esTransport = new ElasticsearchTransport({
   clientOpts: { node: "http://localhost:9200" },
 });
 
 winstonLogger.add(esTransport);
-// winstonLogger.info('Informational message');
 // winstonLogger.info("User login successful", { user_id: "12345" });
 // winstonLogger.error("Failed to fetch user data", { user_id: "12345", error: "Database unavailable" });
 
 const pinoLogger = pino(pinoConfig);
-exports.pinoLogger = pinoLogger;
+// exports.pinoLogger = pinoLogger;
 // pinoLogger.debug("A debug message with structured data.", { user: "JohnDoe" });
 
 const httpLogger = require("pino-http")({
@@ -94,6 +101,7 @@ const httpLogger = require("pino-http")({
     };
   },
 });
+exports.httpLogger = httpLogger;
 
 function handle(req, res) {
   pinoLogger(req, res);
@@ -103,3 +111,34 @@ function handle(req, res) {
   );
   res.end("hello world");
 }
+
+const logFormat = (loggerLabel) =>
+  combine(
+    timestamp(),
+    splat(),
+    colorize(),
+    label({ label: loggerLabel }),
+    printf(
+      (info) =>
+        `${info.timestamp} ${chalk.cyan(info.label)} ${info.level}: ${info.message
+        }`
+    )
+  );
+const createLoggerWithLabel = (label) =>
+  winston.createLogger({
+    level: process.env.LOG_LEVEL || "info",
+    transports: [new transports.Console({})],
+    format: logFormat(label),
+  });
+
+module.exports = {
+  gateway: createLoggerWithLabel("[NUKU:gateway]"),
+  policy: createLoggerWithLabel("[NUKU:policy]"),
+  config: createLoggerWithLabel("[NUKU:config]"),
+  db: createLoggerWithLabel("[NUKU:db]"),
+  admin: createLoggerWithLabel("[NUKU:admin]"),
+  plugins: createLoggerWithLabel("[NUKU:plugins]"),
+  pinoLogger,
+  winstonLogger,
+  apiUsageLogger,
+};

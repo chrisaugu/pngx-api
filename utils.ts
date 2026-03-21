@@ -1,3 +1,4 @@
+<<<<<<< HEAD:utils.ts
 import _ from "lodash";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
@@ -8,6 +9,27 @@ import { format, parse, formatDate } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
 import { SYMBOLS, OLD_SYMBOLS, LISTED_COMPANIES, PNGX_DATA_URL, PNGX_URL, LOCAL_TIMEZONE, LOCAL_TIMEZONE_FORMAT } from "./constants";
 import Env from "./config/env";
+=======
+const _ = require("lodash");
+const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
+const Papa = require("papaparse");
+const csv = require("csv-parser");
+const needle = require("needle");
+const { format, parse, formatDate } = require("date-fns");
+const { formatInTimeZone } = require("date-fns-tz");
+const {
+  SYMBOLS,
+  OLD_SYMBOLS,
+  LISTED_COMPANIES,
+  PNGX_DATA_URL,
+  PNGX_URL,
+  LOCAL_TIMEZONE,
+  LOCAL_TIMEZONE_FORMAT,
+} = require("./constants");
+const Env = require("./config/env");
+const logger = require("./libs/logger").winstonLogger;
+>>>>>>> 313c81e2cacce1814c34d322a25545785fa9346a:utils.js
 
 const csvOptions = {
   header: true,
@@ -35,8 +57,8 @@ function date_split(date) {
 }
 
 /**
- * This function takes in date of any format and spits out the desired format `yyyy/MM/dd` used here
- * @param {*} date
+ * This function takes in date of dd/MM/yyyy format and spits out the Date
+ * @param {String} date
  * @returns Date
  */
 function format_date(date) {
@@ -49,14 +71,14 @@ function format_date(date) {
       )
     )
   ) {
-    let parseDate = parse(date, "dd/MM/yyyy", new Date());
+    const parseDate = parse(date, "dd/MM/yyyy", new Date());
     // fixing timezone issues on clever-cloud.io
-    let localTime = formatInTimeZone(
+    const localTime = formatInTimeZone(
       parseDate,
       LOCAL_TIMEZONE,
       LOCAL_TIMEZONE_FORMAT
     );
-    return new Date(localTime);
+    return new Date(parseDate);
   }
   // rest of the quotes 2019/11/18 - yyyy/MM/dd
   // else if (date.match(/\d{2,4}-\d{1,2}-\d{1,2}/)) {
@@ -68,8 +90,8 @@ function format_date(date) {
 }
 
 function normalize_data(data) {
-  let quote = {};
-  let formattedDate = format_date(data["Date"]);
+  const quote = {};
+  const formattedDate = format_date(data["Date"]);
 
   quote["date"] = formattedDate;
   quote["code"] = data["Short Name"];
@@ -97,7 +119,7 @@ function normalize_data(data) {
 function convertStringToNumber(str) {
   if (_.isString(str)) {
     if (str.includes(",")) {
-      let num = Number(str.split(",").join(""));
+      const num = Number(str.split(",").join(""));
       return num;
     } else {
       return Number(str);
@@ -121,7 +143,7 @@ async function parallel(arr, fn, threads = 2) {
  * Parses CSV format to JSON format for easy manipulation of data
  */
 function parse_csv_to_json2(body) {
-  console.log("parsing csv to json");
+  logger.debug("parsing csv to json");
   var i = [];
   // split the data into array by whitespaces
   // var o = body.split(/\r\n|\n/);
@@ -152,15 +174,16 @@ function parse_csv_to_json2(body) {
 }
 
 function parse_csv_to_json(csv) {
+  if (!csv) throw Error("CSV file is needed to continue");
   // Parse local CSV file
   // Stream big file in worker thread
-  let { errors, data, meta } = Papa.parse(csv, {
+  const { errors, data, meta } = Papa.parse(csv, {
     ...csvOptions,
     // step: function(results) {
     // 	results['data'] = normalize_data(results.data)
     // },
     // chunk: function(chunks) {
-    // 	console.log(chunks)
+    // 	logger.debug(chunks)
     // },
     // complete: function (results) {
     //   // Remove empty columns
@@ -175,7 +198,7 @@ function parse_csv_to_json(csv) {
     //     return newRow;
     //   });
 
-    //   console.log(cleanedData);
+    //   logger.debug(cleanedData);
     // },
     // complete: function (results) {
     //   // Filter out empty columns (by checking the header row)
@@ -190,14 +213,14 @@ function parse_csv_to_json(csv) {
     //   // Rebuild cleaned data
     //   const cleanedData = data.map((row) => validIndexes.map((i) => row[i]));
 
-    //   console.log(cleanedData);
+    //   logger.debug(cleanedData);
     //   return cleanedData;
     // },
     // transformHeader: function (header) {
     //   if (header.trim() !== "") return header;
     // },
     // complete: function (results) {
-    //   console.log(results.data);
+    //   logger.debug(results.data);
     // },
   });
 
@@ -214,7 +237,7 @@ function parse_csv_to_json(csv) {
  */
 const keyGenerator = (request, _response) => {
   if (!request.ip) {
-    console.error("Warning: request.ip is missing!");
+    logger.error("Warning: request.ip is missing!");
     return request.socket.remoteAddress;
   }
 
@@ -223,7 +246,7 @@ const keyGenerator = (request, _response) => {
 
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    let r = (Math.random() * 16) | 0,
+    const r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
@@ -245,7 +268,8 @@ const verifySignature = (secret, payload, signature) => {
 };
 
 function generateSignature(secret, method, url, timestamp, body) {
-  if (!secret || !payload || !signature) throw new Error("Secret, payload or signature is missing.");
+  if (!secret || !payload || !signature)
+    throw new Error("Secret, payload or signature is missing.");
 
   const hmac = crypto.createHmac("SHA256", secret);
   if (body) {
@@ -297,6 +321,46 @@ const processLargeFile = async (file) => {
   });
 };
 
+/**
+ *
+ * @param {*} priceArray
+ * @returns
+ * @see https://medium.com/@mcraepetrey/algorithms-in-javascript-solving-the-stock-market-problem-2ca3321f9eda
+ */
+const stockMarket = (priceArray) => {
+  // first check to make sure there's more than 1 value in the stock list!
+  if (priceArray.length < 2) {
+    return -1;
+  }
+
+  // initialize the "current minimum" or initial "buy" price - our first opportunity to buy!
+  let currentMin = priceArray[0];
+
+  // initialize the maxProfit at -1, which will be the return if our stock price list allows for no profit
+  let maxProfit = -1;
+
+  // loop through the array starting with the value at the 1st index (we're skipping the 0th index since that has been claimed as our initial "buy" price and can never be our "sell" price
+  for (let i = 1; i < priceArray.length; i++) {
+    const currentPrice = priceArray[i];
+
+    // initially assume the "current price" is the "sell" price - and determine a potential profit based on that transaction
+    const currentProfit = currentPrice - currentMin;
+
+    // if this potential profit is greater than the "max profit" we've been tracking, re-assign the max profit to this current profit
+    if (currentProfit > maxProfit) {
+      maxProfit = currentProfit;
+    }
+
+    // we're also still hunting for the best purchase price, so we're comparing each price in the array to the "current min"
+    if (currentPrice < currentMin) {
+      currentMin = currentPrice;
+    }
+  }
+
+  // after looping through every value in the array, we return the maximum profit!
+  return maxProfit;
+};
+
 module.exports = {
   parse_csv_to_json,
   parallel,
@@ -309,4 +373,5 @@ module.exports = {
   generateSignature,
   issueToken,
   env,
+  convertStringToNumber,
 };

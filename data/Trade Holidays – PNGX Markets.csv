@@ -1,0 +1,17 @@
+date,description,business_day,trading_day,settlement_activity
+Wednesday 1 January 2025,New Years Day,No,No Market closed,No
+Wednesday 26 February 2025,"National Remembrance Day of late Former Prime Minister, Great Grand Chief Rt. Hon. Sir Michael Thomas Somare.",No,No Market closed,No
+Thursday 17 April 2025,,Yes,Yes Market closes at 2.00pm,Yes
+Friday 18 April 2025,Good Friday,No,No Market closed,No
+Monday 21 April 2025,Easter Monday,No,No Market closed,No
+Tuesday 17 June 2025,King's Birthday,No,No Market closed,No
+Wednesday 23 July 2025,National Remembrance Day,No,No Market closed,No
+Tuesday 26 August 2025,National Repentance Day,No,No Market closed,No
+Monday 15 September 2025,,Yes,Yes Market closes at 2.00pm,Yes
+Tuesday 16 September 2025,Independence Day,No,No Market closed,No
+Wednesday 24 December 2025,Christmas Eve,Yes,Yes Market closes at 2.00pm,Yes
+Thursday 25 December 2025,Christmas Day,No,No Market closed,No
+Friday 26 December 2025,Boxing Day,No,No Market closed,No
+Wednesday 31 December 2025,New Years Eve,Yes,Yes Market closes at 2.00pm,Yes
+Thursday 1 January 2026,New Years Day,No,No Market closed,No
+Friday 2 January 2026,,Yes,Yes Market closes at 2.00pm,Yes

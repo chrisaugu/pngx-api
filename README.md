@@ -1,8 +1,12 @@
-[![NUKU-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](/) 
+[![NUKU-API Logo](https://raw.githubusercontent.com/chrisaugu/pngx-api/master/images/banner.png)](/)
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # NUKU-API (formerly PNGX-API)
-
-_The First Unofficial PNGX API, Ever_
 
 NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and processes stock data directly from PNGX. It was formerly part of [CrisBot](https://github.com/crisbotio), now a standalone API.
 
@@ -16,8 +20,11 @@ NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and process
 ![GitHub contributors](https://img.shields.io/github/contributors/chrisaugu/pngx-api)
 ![](https://img.shields.io/badge/logo-javascript-blue?logo=javascript)
 [![Build Status](https://travis-ci.org/chrisaugu/pngx-api.png)](https://travis-ci.org/chrisaugu/pngx-api)
+[![Docker Image CI](https://github.com/chrisaugu/pngx-api/actions/workflows/docker-image.yml/badge.svg)](https://github.com/chrisaugu/pngx-api/actions/workflows/docker-image.yml)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## 📋 Table of Contents
+
 - [Description](#description)
 - [API Reference](#api-reference)
 - [Tech](#tech)
@@ -30,52 +37,40 @@ NUKU-API (formerly PNGX-API) is a RESTFul API that retrieves, stores and process
 ---
 
 ## 📜 Description
-The API retrieve, store, and process financial data directly from [PNGX](http://www.pngx.com.pg).
+
+The API retrieve, store, and process stock data directly from [PNGX](http://www.pngx.com.pg).
 
 ### Companies listed on PNGX
 
-| Symbol | Company |
-| :----- | :------ |
-| BSP | BSP Financial Group Limited |
-| CCP | Credit Corporation (PNG) Ltd |
-| CGA | PNG Air Limited |
-| COY | Coppermoly Limited |
-| CPL | CPL Group |
-| KAM | Kina Asset Management Limited |
-| KSL | Kina Securities Limited |
-| NEM | Newmont Corporation |
-| NGP | NGIP Agmark Limited |
-| NIU | Niuminco Group Limited |
-| SST | Steamships Trading Company Limited |
-| STO | Santos Limited |
-
-## ✨Features
-- Historical data
-- Current listed stock info
-- Near-realtime stock updates
-- End-of-day data
-- RESTful API format
-
-## 📱 Screenshots
-<p align="left">
-<!-- <img src="/images/upcomingmatches.png" width="30%"/> 
-<img src="/images/pastscores.png" width="30%"/> 
-<img src="/images/leaguetable.png" width="30%"/>
-<img src="/images/topscorers.png" width="30%"/>-->
-</p>
----
+| Symbol | Company                            |
+| :----- | :--------------------------------- |
+| BSP    | BSP Financial Group Limited        |
+| CCP    | Credit Corporation (PNG) Ltd       |
+| CGA    | PNG Air Limited                    |
+| CPL    | CPL Group                          |
+| KAM    | Kina Asset Management Limited      |
+| KSL    | Kina Securities Limited            |
+| NEM    | Newmont Corporation                |
+| NGP    | NGIP Agmark Limited                |
+| NIU    | Niuminco Group Limited             |
+| SST    | Steamships Trading Company Limited |
+| STO    | Santos Limited                     |
 
 ## Roadmap
-We continuously make NUKU-API the only place where all users can obtain the necessary financial data. If you have any questions or ideas about improvement, [contact us](https://fantastix.netlify.app/#contact).
+
+We continuously make NUKU-API the only place where all users can obtain the necessary financial data. If you have any questions or ideas about improvement, [contribute](#-contributing).
 
 ## 🔗 API Reference
+
 ### Endpoints
-API endpoints are prefixed with `http[s]://api.pngx-api.com.pg`.
-WebSocket endpoints are prefixed with `ws[s]://ws.pngx-api.com.pg`. Websocket is only available from >= v2
+
+API endpoints are prefixed with `http[s]://example.com/api`.
+WebSocket endpoints are prefixed with `ws[s]://example.com/ws`. Websocket is only available from >= v2
 
 > v1.0.0
 
 Base URL:
+
 ```
 GET /api/v1
 ```
@@ -83,35 +78,38 @@ GET /api/v1
 > v2.0.0
 
 Base URL:
+
 ```https
 GET /api/v2
 WS /ws/v2
 ```
 
 ### Parameters
+
 #### How to separate params
-Parameters are ampersand(&) separated
+
+Parameters are `ampersand(&)` separated i.e.
 `?symbol=BSP&interval=5min`
 
 #### Exchange
-`symbol:exchange_name`
+
+`symbol:exchange_name` =
 `?BSP:PNGX`
 
 #### Dates
-d
+
+Dates are in ISO 8601 format i.e. `YYYY-MM-DD` or `YYYY-MM-DDTHH:mm:ssZ`
 
 #### Errors
 
-| Error Codes | Status | Meaning |
-|--|--|--|
-| 300 | Multiple Choices |  |
-| 400 | Bad Request |  |
-| 500 | Internal Server Error |  |
+| Error Codes | Status                | Meaning                                 |
+| ----------- | --------------------- | --------------------------------------- |
+| 300         | Multiple Choices      |                                         |
+| 301         | Moved Permanently     |                                         |
+| 400         | Bad Request           |                                         |
+| 404         | Not Found             | Record requested is no longer available |
+| 500         | Internal Server Error |                                         |
 
-### API Health
-`GET /api/v2/health`
-
-### Get ticker symbols
 Update an existing pet by Id
 
 ` GET /api`
@@ -124,14 +122,63 @@ curl -i -H 'Accept: application/json' https://example.com/api
 
 > Params
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-<!-- | `apiKey` | `string` | **Required**. Your API key | -->
-<!-- | `seasonId` | `string` | **Required**.League Id e.g Premier League| -->
-<!-- | `dateFrom` | `string` | **Required**.| -->
-<!-- | `dateTo` | `string` | **Required**.| -->
+| Parameter | Type       | Description |
+| :-------- | :--------- | :---------- | -------------------------- | --- |
+| <!--      | `apiKey`   | `string`    | **Required**. Your API key | --> |
+| <!--      | `dateFrom` | `string`    | **Required**.              | --> |
+| <!--      | `dateTo`   | `string`    | **Required**.              | --> |
+
+### API Health
+
+Check the health of the API
+
+`GET /api/v2/health`
+
+### Get all ticker symbols
+
+Get all ticker symbols available on PNGX
+
+`GET /api/v2/tickers`
+
+> Request
+
+```https
+curl -i -H 'Accept: application/json' https://example.com/api/v2/tickers
+```
 
 > Response
+
+```
+    HTTP/1.1 200 OK
+    Date: Sat, 02 Oct 2021 03:25:07 GMT
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+    Content-Length: 85
+
+    {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","SST"]}
+```
+
+### Get ticker data
+
+Get ticker data for a specific ticker symbol
+
+`GET /api/v2/tickers/:symbol`
+
+> Params
+
+| Parameter | Type     | Description                              |
+| --------- | -------- | ---------------------------------------- |
+| `symbol`  | `string` | **Required**. Ticker symbol of the stock |
+
+> Request
+
+```sh
+curl -i -H 'Accept: application/json' https://example.com/api/v2/tickers/BSP
+```
+
+> Response
+
 ```
     HTTP/1.1 200 OK
     Date: Sat, 02 Oct 2021 03:25:07 GMT
@@ -145,24 +192,25 @@ curl -i -H 'Accept: application/json' https://example.com/api
 ```
 
 ### Get latest stocks data
+
 Update an existing pet by Id
 
-`GET /api/v1/stocks`
+`GET /api/v2/stocks`
 
 > Request
 
-```https
-    curl -i -H 'Accept: application/json' https://example.com/api/v1/stocks
+```sh
+curl -i -H 'Accept: application/json' https://example.com/api/v2/stocks
 ```
 
 > Params
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-<!-- | `apiKey` | `string` | **Required**. Your API key |
-| `seasonId` | `string` | **Required**.League Id e.g Premier League|
-| `dateFrom` | `string` | **Required**.|
-| `dateTo` | `string` | **Required**.| -->
+| Parameter  | Type     | Description                               |
+| :--------- | :------- | :---------------------------------------- | -------------------------- |
+| <!--       | `apiKey` | `string`                                  | **Required**. Your API key |
+| `seasonId` | `string` | **Required**.League Id e.g Premier League |
+| `dateFrom` | `string` | **Required**.                             |
+| `dateTo`   | `string` | **Required**.                             | -->                        |
 
 > Response
 
@@ -179,30 +227,30 @@ Update an existing pet by Id
 ```
 
 ### Get a historical stock data
-Update an existing pet by Id
 
-`GET /api/v1/historicals/:symbol`
+Get historical stock data for a specific ticker symbol
+
+`GET /api/v2/historicals/:symbol`
 
 > Request
 
-`curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/BSP`
+`curl -i -H 'Accept: application/json' https://example.com/api/v2/historicals/BSP`
 
 > Params
 
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|symbol|param|string| yes |ticker symbol of the prefered stock|
+| Name   | Location | Type   | Required | Description                         |
+| ------ | -------- | ------ | -------- | ----------------------------------- |
+| symbol | param    | string | yes      | ticker symbol of the prefered stock |
 
 > Query Params
 
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|date|query|date| no |none|
-|start|query|date| no |none|
-|end|query|date| no |none|
-|field|query|array| no |none|
-|start|body|integer| no |none|
-
+| Name  | Location | Type    | Required | Description |
+| ----- | -------- | ------- | -------- | ----------- |
+| date  | query    | date    | no       | none        |
+| start | query    | date    | no       | none        |
+| end   | query    | date    | no       | none        |
+| field | query    | array   | no       | none        |
+| start | body     | integer | no       | none        |
 
 > Response
 
@@ -213,18 +261,20 @@ Update an existing pet by Id
     Connection: close
     Content-Type: application/json
     Content-Length: 85
-    
+
     {"symbol": "BSP", "historical": [{}]}
 ```
 
-### Get a non-existent Quote
-<!-- Update an existing pet by Id -->
+### Get a non-existent historical stock data
 
-`GET /api/v1/historicals/:symbol`
+`GET /api/v2/historicals/:symbol`
 
 > Request
+> Request a non-existent symbol
 
-    curl -i -H 'Accept: application/json' https://example.com/api/v1/historicals/HIL
+```sh
+curl -i -H 'Accept: application/json' https://example.com/api/v2/historicals/HIL
+```
 
 > Response
 
@@ -240,13 +290,16 @@ Update an existing pet by Id
 ```
 
 ### Get news
+
 Get news
 
 `GET /api/v2/news`
 
 > Request
 
-    curl -i -H 'Accept: application/json' https://example.com/api/v2/news
+```bash
+curl -i -H 'Accept: application/json' https://example.com/api/v2/news
+```
 
 > Response
 
@@ -261,44 +314,82 @@ Get news
     [{}]
 ```
 
-### Real-time Events
-#### Watchlist
+### Market Status
 
+Get the current market status for local exchanges (whether exchanges are open or close).
+`GET /api/v2/market/status`
 
-#### Tickers
-`/events?topics=tickers:BSP`
+> Request
 
 ```sh
-{
-    event:topic,
-    data:message
-}
+curl -i -H 'Accept: application/json' https://example.com/api/v2/market/status
 ```
+
+> Response
+
 ```json
 {
-    'Authorization': 'abc',
-    'X-Access-Token': 'abc',
-    'X-Channel': 'events',
-    'X-Topics': 'tickers:*',
-    'X-API-Version': 'v1'
+  "marketStatus": "open",
+  "session": "pre-market",
+  "timezone": "Pacific/Port_Moresby",
+  "t": 1735680000000,
+  "source": "PNGX",
+  "lastUpdated": "2023-10-01T00:00:00Z",
+  "exchange": "PG",
+  "holiday": null,
+  "isOpen": false
 }
 ```
 
+### Real-time Events
+
+#### Watchlist
+
+#### Tickers
+
+`/events?topics=tickers:BSP`
+
+> Request:
+
+```json
+{
+  "event": "topic",
+  "data": "message"
+}
+```
+
+> Request:
+
+```json
+{
+  "Authorization": "abc",
+  "X-Access-Token": "abc",
+  "X-Channel": "events",
+  "X-Topics": "tickers:*",
+  "X-API-Version": "v1"
+}
+```
 
 ## How to integrate with third-parties
-### Webhook
+
+### Webhooks
+
+Webhooks allow external services to be notified when certain events happen. When the specified events happen, we'll send a POST request to each of the URLs you provide.
+We will also send events from this repository to your organization webhooks.
 You can create webhooks to subscribe to specific events that occur on NUKU-API.
 
 #### Register Webhook
+
 Register your callback function via the API to be notified the stock market events.
 
-To register a webhook, send a POST request to [Register Webhook Callback](https://api.nuku-api.com.pg/api/v2/webhook) with a JSON body containing your webhook URL, the event type you want to be notified about, and an optional workflow ID.
+To register a webhook, send a `POST` request to [Register Webhook Callback](https://api.nuku-api.com.pg/api/v2/webhook) with a JSON body containing your webhook URL, the event type you want to be notified about, and an optional workflow `ID`.
 
 For example:
+
 ```json
 {
-    "eventTypes": [""],
-    "endpointUrl": "<https://www.example.com/api/callback>",
+  "eventTypes": [""],
+  "endpointUrl": "<https://www.example.com/api/callback>"
 }
 ```
 
@@ -314,7 +405,9 @@ curl --request POST \
         }
     '
 ```
+
 You will receive a response with the details of your registered webhook:
+
 ```json
 {
   "status": "success",
@@ -327,75 +420,81 @@ You will receive a response with the details of your registered webhook:
 ```
 
 #### View Webhook
+
 You can view the details of a webhook endpoint via the API.
+
 ```sh
 curl --request GET \
      --url https://api.nuku-api.com.pg/api/webhook/webhook_id \
      --header 'accept: application/json'
 ```
-To view a webhook, send a GET request to https://api.nuku-api.com.pg/api/webhook/<webhook_id>.
+
+To view a webhook, send a `GET` request to `https://api.nuku-api.com.pg/api/webhook/<webhook_id>`.
 
 You will receive a response with the details of the webhook.
+
 ```json
 {
-	"status": "success",
-	"data": {
-		"id": "<webhook_id>",
-		"url": "<https://mywebsite.com/webhook>",
-		"eventType": "workflowRun.completed"
-	}
+  "status": "success",
+  "data": {
+    "id": "<webhook_id>",
+    "url": "<https://mywebsite.com/webhook>",
+    "eventType": "workflowRun.completed"
+  }
 }
 ```
 
 #### Get All Webhooks
+
 ```sh
 curl --request GET \
      --url 'https://api.nuku-api.com.pg/api/webhook?size=10&page=0' \
      --header 'accept: application/json'
 ```
-To view all webhooks registered for your workspace, send a GET request to https://api.nuku-api.com.pg/api/webhook.
+
+To view all webhooks registered for your workspace, send a `GET` request to `https://api.nuku-api.com.pg/api/webhook`.
 
 You will receive a response with the details for all webhooks.
+
 ```json
 {
-    "total": 2,
-    "data":
-    [
-        {
-            "id": "<webhook_id>",
-            "url": "<https://mywebsite.com/webhook>",
-            "eventType": "workflowRun.completed",
-            "workflowId": "<workflow_id>"
-        },
-        {
-            "id": "<webhook_id>",
-            "url": "<https://mywebsite.com/webhook>",
-            "eventType": "workflowRun.started",
-            "workflowId": null
-        },
-        {
-            "_id": "680c958aa4fd958428e03da6",
-            "url": "http://localhost:5000/api/webhook",
-            "headers": {
-                "x-cs-signature": "abc",
-                "x-cs-timestamp": 1745712000000,
-                "x-webhook-token": "abc"
-            },
-            "events": [
-                "subscribe"
-            ],
-            "secret": "secr3t",
-            "isActive": true,
-            "description": "hello",
-            "createdAt": "2025-04-26T08:12:58.977Z"
-        },
-    ]
+  "total": 2,
+  "data": [
+    {
+      "id": "<webhook_id>",
+      "url": "<https://mywebsite.com/webhook>",
+      "eventType": "workflowRun.completed",
+      "workflowId": "<workflow_id>"
+    },
+    {
+      "id": "<webhook_id>",
+      "url": "<https://mywebsite.com/webhook>",
+      "eventType": "workflowRun.started",
+      "workflowId": null
+    },
+    {
+      "_id": "680c958aa4fd958428e03da6",
+      "url": "http://localhost:5000/api/webhook",
+      "headers": {
+        "x-cs-signature": "abc",
+        "x-cs-timestamp": 1745712000000,
+        "x-webhook-token": "abc"
+      },
+      "events": ["subscribe"],
+      "secret": "secr3t",
+      "isActive": true,
+      "description": "hello",
+      "createdAt": "2025-04-26T08:12:58.977Z"
+    }
+  ]
 }
 ```
 
 #### Remove Webhook
+
 You can remove a webhook endpoint via the API.
 To remove a webhook, send a DELETE request to https://api.nuku-api.com.pg/api/webhook/<webhook_id>.
+
 ```sh
 curl --request DELETE \
      --url https://api.nuku-api.com.pg/api/webhook/webhook_id \
@@ -403,25 +502,19 @@ curl --request DELETE \
 ```
 
 You will receive a response with the details for all webhooks.
+
 ```json
 {
-    "success": true
+  "success": true
 }
 ```
-
-
-## Logging
-```sh
-LOG_DESTINATION = ./logs.txt
-LOG_LEVEL = 'error'
-```
-
 
 ## 🛠️ Tech & Tools
 
 The entire application is written in JavaScript and runs on NodeJS environment.
 
 ### Dependencies
+
 **Nuku** uses a number of open source projects to work properly:
 
 - [Moment.js] - Moment.js to manipulate date
@@ -434,6 +527,7 @@ The entire application is written in JavaScript and runs on NodeJS environment.
 - [Express] - fast node.js network app framework [@tjholowaychuk]
 - [Gulp] - the streaming build system
 - [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
+
 * CORS
 * Mongoose
 * NodeCron
@@ -441,9 +535,8 @@ The entire application is written in JavaScript and runs on NodeJS environment.
 * Request
 * FS
 
-
 And of course NUKU-API itself is open source with a [public repository](https://github.com/chrisaugu/pngx-api)
- on GitHub.
+on GitHub.
 
 ## 👩‍💻 Contributing
 
@@ -451,9 +544,44 @@ Want to contribute? Great!
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Make sure you read [Contributing Guide](CONTRIBUTING.md) before making your contributions.
 
-Please make sure to update tests as appropriate.
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Commit Message Convention](COMMIT_MESSAGE_CONVENTION.md)
+
+[List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
+
+### 🧑‍💻Develop
+
+Let's start development!
+
+#### Logging
+
+```sh
+LOG_DESTINATION = ./logs.txt
+LOG_LEVEL = 'error'
+```
+
+TOAST UI products are open source, so you can create a pull request(PR) after you fix issues.
+Run npm scripts and develop yourself with the following process.
+
+#### Setup
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -461,97 +589,56 @@ Please make sure to update tests as appropriate.
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-Make sure you read [Contributing Guide](Contributing.md) before making your contributions.
+#### Pull Request
 
-[List of all contributors](https://github.com/chrisaugu/pngx-api/graphs/contributors)
+Before PR, check to test lastly and then check any errors.
+If it has no error, commit and then push it!
 
-- [Code of Conduct](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CODE_OF_CONDUCT.md)
-- [Contributing Guidelines](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/CONTRIBUTING.md)
-- [Commit Message Convention](https://github.com/nhn/tui.calendar/blob/calendar@2.1.3/docs/COMMIT_MESSAGE_CONVENTION.md)
+#### 🔧 Pull Request Steps
 
-
-## 🔧 Pull Request Steps
-
-TOAST UI products are open source, so you can create a pull request(PR) after you fix issues.
-Run npm scripts and develop yourself with the following process.
-
-
-### Setup
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Fork `master` branch into your personal repository.
-Clone it to local computer. Install node modules.
-Before starting development, you should check to have any errors.
 
-``` sh
+```sh
 git clone https://github.com/{your-personal-repo}/[[repo name]].git
 cd [[repo name]]
 npm install
 ```
 
-### Develop
+Clone it to local computer. Install node modules.
+Before starting development, you should check to have any errors.
 
-Let's start development!
+### Running tests
 
-### Pull Request
+Please make sure to update tests as appropriate.
 
-Before PR, check to test lastly and then check any errors.
-If it has no error, commit and then push it!
+To run the tests for \_schedule\_, run \`npm install\` to install dependencies and then:
 
-For more information on PR's step, please see links of Contributing section.
+```sh
+npm run test
+```
 
-## Bug tracker
+For more information on PR's step, please see links of [Contributing](#contributing) section.
+
+## 🐛 Bug tracker
 
 Have a bug or a feature request? [Please open a new issue](https://github.com/chrisaugu/pngx-api/issues).
-
-
-## Installation
-Using npm:
-
-    $ npm install @nuku/client-js
-
-## Building
-
-To build the minified javascript files for _schedule_, run `npm install` to install dependencies and then:
-	
-    $ make build
-
-## Running tests
-
-To run the tests for _schedule_, run `npm install` to install dependencies and then:
-
-	$ make test
-
-## Versioning
-
-Releases will be numbered with the following format:
-
-`<major>.<minor>.<patch>`
-
-And constructed with the following guidelines:
-
-* Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bumps the minor (and resets the patch)
-* Bug fixes and misc changes bumps the patch
-
-For more information on SemVer, please visit [http://semver.org/](http://semver.org/).
-
 
 ## 🧑 Author Info
 
 The original author of NUKU-API is [Christian Augustyn](https://github.com/chrisaugu)
+
 - Linkedin - [LinkedIn: Christian Augustyn](https://www.linkedin.com/in/christianaugustyn/)
 - Website - [Christian Augustyn](https://www.christianaugustyn.me)
 
-
 ## 🧾 Changelog
-Wonder how NUKU-API has been changing for years
-[CHANGELOG](./CHANGELOG.md)
 
+Wonder how NUKU-API has been changing for years [CHANGELOG](./CHANGELOG.md)
 
-<!-- ## 📝 License -->
 ## 📜 License
-This software is licensed under the [MIT License](./LICENSE) © [Christian Augustyn](https://github.com/chrisaugu).
 
+This software is licensed under the [MIT License](./LICENSE) © [Christian Augustyn](https://github.com/chrisaugu).
 
 **Free Software, Hell Yeah!**
 
@@ -559,21 +646,18 @@ This software is licensed under the [MIT License](./LICENSE) © [Christian Augus
 
 &copy; 2023, Christian Augustyn.
 
-
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-   [pngx-api]: <https://github.com/chrisaugu/pngx-api>
-   [MongoDB]: <https://www.mongodb.com>
-   [git-repo-url]: <https://github.com/chrisaugu/pngx-api.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
+[//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
+[pngx-api]: https://github.com/chrisaugu/pngx-api
+[MongoDB]: https://www.mongodb.com
+[git-repo-url]: https://github.com/chrisaugu/pngx-api.git
+[john gruber]: http://daringfireball.net
+[df1]: http://daringfireball.net/projects/markdown/
+[markdown-it]: https://github.com/markdown-it/markdown-it
+[Ace Editor]: http://ace.ajax.org
+[node.js]: http://nodejs.org
+[Twitter Bootstrap]: http://twitter.github.com/bootstrap/
+[jQuery]: http://jquery.com
+[@tjholowaychuk]: http://twitter.com/tjholowaychuk
+[express]: http://expressjs.com
+[AngularJS]: http://angularjs.org
+[Gulp]: http://gulpjs.com

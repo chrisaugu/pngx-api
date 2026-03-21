@@ -1,16 +1,22 @@
-const express = require("express");
-const router = express.Router();
+const { Router } = require("express");
+const router = Router();
 const { SYMBOLS } = require("../constants");
 const { Stock } = require("../models/index");
+
+function deprecationMiddleware(req, res, next) {
+  res.set("Deprecation", "@1688169599");
+  next();
+}
 
 /**
  * @swagger
  *
  *
  * /api/v1/:
- *   tags: 
+ *   tags:
  *    - company
  *   get:
+ *     deprecated: true
  *     summary: Returns list of stock codes/symbols
  *     responses:
  *       200:
@@ -20,12 +26,15 @@ const { Stock } = require("../models/index");
  * GET /api/v1/
  */
 router.get("/", function (req, res) {
+  res.set("Deprecation", "@1688169599");
+  res.setHeader("Sunset", "@1688169599");
+
   res.status(200).json({
     status: 200,
     message: "Ok",
     data: {
-      api: "PNGX API",
-      time: new Date().toDateString(),
+      api: "NUKU API",
+      timestamp: new Date().getTime(),
       symbols: SYMBOLS,
     },
   });
@@ -62,16 +71,16 @@ router.get("/", function (req, res) {
  * @param :code unique symbol of the stock
  */
 router.get("/historicals/:code", function (req, res) {
-  let code = req.params.code;
-  let date = req.query.date;
-  let start = req.query.start;
-  let end = req.query.end;
-  let limit = parseInt(req.query.limit);
-  let sort = parseInt(req.query.sort);
-  let skip = parseInt(req.query.skip);
-  let fields = req.query.fields;
+  const code = req.params.code;
+  const date = req.query.date;
+  const start = req.query.start;
+  const end = req.query.end;
+  const limit = parseInt(req.query.limit);
+  const sort = parseInt(req.query.sort);
+  const skip = parseInt(req.query.skip);
+  const fields = req.query.fields;
 
-  let stock = Stock.find();
+  const stock = Stock.find();
   stock.where({ code: code });
   stock.select("date code close high low open vol_today");
 
@@ -236,13 +245,13 @@ router.get("/stocks", function (req, res) {
   let date = req.query.date;
   let start = req.query.start;
   let end = req.query.end;
-  let limit = parseInt(req.query.limit) || SYMBOLS.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
-  let sort = parseInt(req.query.sort);
-  let skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
-  let fields = req.query.fields;
-  let code = req.query.code || req.query.symbol || req.query.ticker;
+  const limit = parseInt(req.query.limit) || SYMBOLS.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
+  const sort = parseInt(req.query.sort);
+  const skip = parseInt(req.query.skip); // skip number of days behind: 3: go 3 days behind
+  const fields = req.query.fields;
+  const code = req.query.code || req.query.symbol || req.query.ticker;
 
-  let query = Stock.find();
+  const query = Stock.find();
 
   var dateStr = {
     date: new Date().toDateString(),
@@ -252,7 +261,7 @@ router.get("/stocks", function (req, res) {
     if (Number.isInteger(Number(date))) {
       date = Number(date);
     }
-    let $date = new Date(date);
+    const $date = new Date(date);
 
     dateStr["date"] = $date.toDateString();
     query.where({ date: $date });
@@ -263,7 +272,7 @@ router.get("/stocks", function (req, res) {
     if (Number.isInteger(Number(start))) {
       start = Number(start);
     }
-    let $start = new Date(start);
+    const $start = new Date(start);
 
     Object.assign(dateStr["date"], { start: $start.toDateString() });
     query.where({ date: { $gte: $start } });
@@ -273,7 +282,7 @@ router.get("/stocks", function (req, res) {
     if (Number.isInteger(Number(end))) {
       end = Number(end);
     }
-    let $end = new Date(end);
+    const $end = new Date(end);
 
     Object.assign(dateStr["date"], { end: $end.toDateString() });
     query.where({ date: { $lte: $end } });

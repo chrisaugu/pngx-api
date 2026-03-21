@@ -1,14 +1,16 @@
 const cors = require("cors");
 const semver = require("semver");
-const redis = require("redis");
 const rateLimiter = require("ratelimiter");
 const setRateLimit = require("express-rate-limit");
 const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
 const createError = require("http-errors");
+const mcache = require("memory-cache");
 const { ALLOWED_IP_LIST, ORIGINAL_URL } = require("./config");
 const logger = require("./libs/logger").winstonLogger;
+const apiUsageLogger = require("./libs/logger").apiUsageLogger;
+const createRedisClient = require("./libs/redis").createRedisClient;
 
 exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
   // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
@@ -52,7 +54,11 @@ exports.error404Handler = function error404Handler(error, req, res, next) {
 };
 
 exports.errorHandler = function errorHandler(err, req, res, next) {
-  logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+  logger.error(
+    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
+      req.method
+    } - ${req.ip}`
+  );
 
   // render the error page
   res.status(err.status || 500);
@@ -73,7 +79,9 @@ exports.errorHandler = function errorHandler(err, req, res, next) {
 };
 
 exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
-  logger.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+  logger.error(
+    `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`
+  );
   logger.error("Error occurred", {
     error: err.message,
     stack: err.stack,
@@ -91,8 +99,9 @@ const accessLogStream = fs.createWriteStream(
 const morganFormat =
   ":method :url :status :res[content-length] - :response-time ms";
 
-  // Custom morgan format
-const morganFormatx = ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" - :response-time ms';
+// Custom morgan format
+const morganFormatx =
+  ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" - :response-time ms';
 // ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"'
 
 // Stream morgan output to winston
@@ -101,7 +110,7 @@ const morganStream = {
 };
 
 // Morgan token for request body (for POST/PUT requests)
-morgan.token('body', (req) => {
+morgan.token("body", (req) => {
   return JSON.stringify(req.body);
 });
 
@@ -120,21 +129,22 @@ exports.morganCombinedMiddlware = morgan("combined", {
   stream: morganStream,
   skip: function (req, res) {
     // Skip logging for health check endpoint
-    return req.path === "/health" || req.method === 'OPTIONS'
+    return req.path === "/health" || req.method === "OPTIONS";
   },
 });
-exports.morganMiddlware = morgan(morganFormat,
-  { stream: morganStream }
-);
+exports.morganMiddlware = morgan(morganFormat, { stream: morganStream });
 // Also log to file
 exports.morganFileMiddlware = morgan(morganFormat, {
-  stream: accessLogStream
+  stream: accessLogStream,
 });
 // For POST/PUT requests, log the body too
-exports.morganBodyMiddlware = morgan(':method :url :status :res[content-length] - :response-time ms :body', {
-  skip: (req) => req.method !== 'POST' && req.method !== 'PUT',
-  stream: morganStream
-});
+exports.morganBodyMiddlware = morgan(
+  ":method :url :status :res[content-length] - :response-time ms :body",
+  {
+    skip: (req) => req.method !== "POST" && req.method !== "PUT",
+    stream: morganStream,
+  }
+);
 
 const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
 exports.rateLimitMiddleware = setRateLimit({
@@ -173,8 +183,9 @@ exports.rateLimit = function rateLimit(req, res, next) {
     res.send(429, "Rate limit exceeded, retry in " + ms(delta, { long: true }));
   });
 };
+
 var emailBasedRatelimit = rateLimiter({
-  db: redis.createClient(),
+  db: createRedisClient(),
   duration: 60000,
   max: 10,
   id: function (context) {
@@ -183,7 +194,7 @@ var emailBasedRatelimit = rateLimiter({
 });
 
 var ipBasedRatelimit = rateLimiter({
-  db: redis.createClient(),
+  db: createRedisClient(),
   duration: 60000,
   max: 10,
   id: function (context) {
@@ -206,3 +217,197 @@ exports.versionMiddleware = function (version) {
     return next("route"); // skip to the next route
   };
 };
+
+// Create a write stream for morgan (in append mode)
+const apiUsageLogStream = fs.createWriteStream(
+  path.join(__dirname, "logs", "api-usage.log"),
+  { flags: "a" }
+);
+// Log api usage
+exports.apiUsageLogMiddlware = (req, res, next) => {
+  const apiKey = req.headers["x-api-key"] || "anonymous";
+  apiUsageLogger.info(
+    `User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`
+  );
+  next();
+};
+
+/**
+ * this function applies to all /api/v2 routes
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.globalProperties = function (req, res, next) {
+  const limit = req.query["limit"];
+  if (limit) {
+  }
+};
+
+/**
+ * cache response for the number of time specified in duration
+ * @param {number} duration
+ * @returns
+ */
+exports.cache = (duration) => (req, res, next) => {
+  const key = "__express__" + req.originalUrl || req.url;
+  const cachedBody = mcache.get(key);
+  if (cachedBody) {
+    res.send(cachedBody);
+    return;
+  } else {
+    res.sendResponse = res.send;
+    res.send = (body) => {
+      mcache.put(key, body, duration * 1000);
+      res.sendResponse(body);
+    };
+    // next();
+  }
+};
+
+/**
+ * cache response using redis
+ * @returns
+ */
+exports.cacheMiddleware = async (duration = 1) => {
+  const client = await createRedisClient();
+
+  // Define a caching function
+  function cacheData(key, data) {
+    // Store data in Redis
+    client.set(key, data, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Cached data for key ${key}`);
+      }
+    });
+  }
+
+  // Define a function to retrieve cached data
+  function getCachedData(key) {
+    // Retrieve data from Redis
+    client.get(key, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Retrieved cached data for key ${key}`);
+        return reply;
+      }
+    });
+  }
+
+  // Define a function to invalidate cached data
+  function invalidateCachedData(key) {
+    // Remove data from Redis
+    client.del(key, (err, reply) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Invalidated cached data for key ${key}`);
+      }
+    });
+  }
+
+  return (req, res, next) => {
+    const key = req.originalUrl;
+
+    client.get(key, (err, data) => {
+      if (err) throw err;
+
+      if (data) {
+        res.send(JSON.parse(data)); // Serve cached data
+        return;
+      } else {
+        res.sendResponse = res.send;
+        res.send = (body) => {
+          // Cache data for 1 hour (3600 seconds)
+          client.setex(key, duration * 1000, JSON.stringify(body));
+          res.sendResponse(body);
+        };
+        return;
+        // next(); // Proceed to route handler if no cache
+      }
+    });
+  };
+};
+
+exports.rateLimitedRequest = (url, callback) => {
+  const requestQueue = [];
+  let lastRequestTime = 0;
+
+  return () => {
+    const now = Date.now();
+    const delay = Math.max(0, lastRequestTime + 1000 - now); // 1 request per second
+
+    requestQueue.push({ url, callback });
+
+    setTimeout(() => {
+      const { url, callback } = requestQueue.shift();
+      axios
+        .get(url)
+        .then((response) => callback(null, response.data))
+        .catch((error) => callback(error));
+
+      lastRequestTime = Date.now();
+    }, delay);
+  };
+};
+
+// Cache middleware
+const cacheData = (expireTime = 3600) => {
+  return async (req, res, next) => {
+    // Skip caching for non-GET requests
+    if (req.method !== "GET") {
+      return next();
+    }
+
+    // Create a cache key based on the full URL
+    const cacheKey = `students:${req.originalUrl}`;
+
+    try {
+      // Check if cache exists
+      const cachedData = await redisClient.get(cacheKey);
+
+      if (cachedData) {
+        console.log(`Cache hit for ${cacheKey}`);
+        return res.json(JSON.parse(cachedData));
+      }
+
+      console.log(`Cache miss for ${cacheKey}`);
+
+      // If not in cache, continue but modify res.json
+      res.originalJson = res.json;
+      res.json = function (data) {
+        // Store in cache before sending response
+        redisClient
+          .set(cacheKey, JSON.stringify(data), { EX: expireTime })
+          .catch((err) => console.error("Redis cache error:", err));
+
+        // Continue with the original response
+        return res.originalJson(data);
+      };
+
+      next();
+    } catch (err) {
+      console.error("Cache middleware error:", err);
+      next();
+    }
+  };
+};
+
+// Clear cache helper
+const clearCache = async (pattern) => {
+  try {
+    const keys = await redisClient.keys(pattern);
+    if (keys.length > 0) {
+      console.log(`Clearing cache keys matching: ${pattern}`);
+      await Promise.all(keys.map((key) => redisClient.del(key)));
+    }
+  } catch (err) {
+    console.error("Error clearing cache:", err);
+  }
+};
+
+// Clear the list cache when a new student is added
+// await clearCache('students:/api/students*');

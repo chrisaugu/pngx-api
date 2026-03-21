@@ -1,5 +1,9 @@
 import Redis from "ioredis";
-const redis = new Redis();
+const redis = require("./libs/redis").createRedisIoClient();
+
+// await this.client.set('user', name);
+// const result = await this.client.get('user');
+// return JSON.stringify(result);
 
 redis.on("error", async (err) => {
   console.error("Redis error:", err);

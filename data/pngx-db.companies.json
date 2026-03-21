@@ -1,192 +1,170 @@
-[{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3ab"
+[
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3ab"
+    },
+    "name": "BSP Financial Group Limited",
+    "ticker": "BSP",
+    "description": "A leading financial institution in Papua New Guinea offering comprehensive banking services.",
+    "industry": "Banking and Finance",
+    "sector": "Financials",
+    "key_people": ["Robin Fleming (CEO)", "Sir Kostas Constantinou (Chairman)"],
+    "date_listed": "2003-08-27",
+    "established_date": "1957-01-01",
+    "outstanding_shares": 467500000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/bsp-financial-group-limited"
   },
-  "name": "BSP Financial Group Limited",
-  "ticker": "BSP",
-  "description": "A leading financial institution in Papua New Guinea offering comprehensive banking services.",
-  "industry": "Banking and Finance",
-  "sector": "Financials",
-  "key_people": [
-    "Robin Fleming (CEO)",
-    "Sir Kostas Constantinou (Chairman)"
-  ],
-  "date_listed": "2003-08-27",
-  "established_date": "1957-01-01",
-  "outstanding_shares": 467500000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/bsp-financial-group-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3ac"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3ac"
+    },
+    "name": "Credit Corporation (PNG) Limited",
+    "ticker": "CCP",
+    "description": "Provides asset financing, investments, and insurance services.",
+    "industry": "Finance",
+    "sector": "Financials",
+    "key_people": ["Peter Aitsi (Chairman)", "Danny Robinson (CEO)"],
+    "date_listed": "2000-08-24",
+    "established_date": "1978-01-01",
+    "outstanding_shares": 347850000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/credit-corporation-png-limited"
   },
-  "name": "Credit Corporation (PNG) Limited",
-  "ticker": "CCP",
-  "description": "Provides asset financing, investments, and insurance services.",
-  "industry": "Finance",
-  "sector": "Financials",
-  "key_people": [
-    "Peter Aitsi (Chairman)",
-    "Danny Robinson (CEO)"
-  ],
-  "date_listed": "2000-08-24",
-  "established_date": "1978-01-01",
-  "outstanding_shares": 347850000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/credit-corporation-png-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3ad"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3ad"
+    },
+    "name": "PNG Air Limited",
+    "ticker": "CGA",
+    "description": "Operates domestic and regional airline services in Papua New Guinea.",
+    "industry": "Aviation",
+    "sector": "Transportation",
+    "key_people": ["Stan Joyce (Chairman)", "Anthony Pereira (CEO)"],
+    "date_listed": "2008-06-25",
+    "established_date": "1987-01-01",
+    "outstanding_shares": 140000000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/png-air-limited"
   },
-  "name": "PNG Air Limited",
-  "ticker": "CGA",
-  "description": "Operates domestic and regional airline services in Papua New Guinea.",
-  "industry": "Aviation",
-  "sector": "Transportation",
-  "key_people": [
-    "Stan Joyce (Chairman)",
-    "Anthony Pereira (CEO)"
-  ],
-  "date_listed": "2008-06-25",
-  "established_date": "1987-01-01",
-  "outstanding_shares": 140000000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/png-air-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3ae"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3ae"
+    },
+    "name": "City Pharmacy Limited",
+    "ticker": "CPL",
+    "description": "Operates retail pharmacies and related health businesses.",
+    "industry": "Industrial",
+    "sector": "Consumer Staples",
+    "key_people": ["Mahesh Patel (Chairman)"],
+    "date_listed": "2002-02-20",
+    "established_date": "1987-01-01",
+    "outstanding_shares": 134520000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/city-pharmacy-limited"
   },
-  "name": "City Pharmacy Limited",
-  "ticker": "CPL",
-  "description": "Operates retail pharmacies and related health businesses.",
-  "industry": "Industrial",
-  "sector": "Consumer Staples",
-  "key_people": [
-    "Mahesh Patel (Chairman)"
-  ],
-  "date_listed": "2002-02-20",
-  "established_date": "1987-01-01",
-  "outstanding_shares": 134520000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/city-pharmacy-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3af"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3af"
+    },
+    "name": "Kina Asset Management Limited",
+    "ticker": "KAM",
+    "description": "Manages diversified investment portfolios for investors.",
+    "industry": "Investment",
+    "sector": "Financials",
+    "key_people": [
+      "Isikeli Taureka (Chairman)",
+      "Johnson Kalo (Company Secretary)"
+    ],
+    "date_listed": "2008-07-07",
+    "established_date": "2008-01-01",
+    "outstanding_shares": 50000000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/kina-asset-management-limited"
   },
-  "name": "Kina Asset Management Limited",
-  "ticker": "KAM",
-  "description": "Manages diversified investment portfolios for investors.",
-  "industry": "Investment",
-  "sector": "Financials",
-  "key_people": [
-    "Isikeli Taureka (Chairman)",
-    "Johnson Kalo (Company Secretary)"
-  ],
-  "date_listed": "2008-07-07",
-  "established_date": "2008-01-01",
-  "outstanding_shares": 50000000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/kina-asset-management-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3b0"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3b0"
+    },
+    "name": "Kina Securities Limited",
+    "ticker": "KSL",
+    "description": "A diversified financial services provider offering banking and wealth management solutions.",
+    "industry": "Banking and Finance",
+    "sector": "Financials",
+    "key_people": ["Greg Pawson (CEO)", "Isikeli Taureka (Chairman)"],
+    "date_listed": "2015-07-29",
+    "established_date": "1985-01-01",
+    "outstanding_shares": 142350000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/kina-securities-limited"
   },
-  "name": "Kina Securities Limited",
-  "ticker": "KSL",
-  "description": "A diversified financial services provider offering banking and wealth management solutions.",
-  "industry": "Banking and Finance",
-  "sector": "Financials",
-  "key_people": [
-    "Greg Pawson (CEO)",
-    "Isikeli Taureka (Chairman)"
-  ],
-  "date_listed": "2015-07-29",
-  "established_date": "1985-01-01",
-  "outstanding_shares": 142350000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/kina-securities-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3b1"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3b1"
+    },
+    "name": "NGIP Agmark Limited",
+    "ticker": "NGP",
+    "description": "Engages in agriculture and logistics businesses in Papua New Guinea.",
+    "industry": "Agriculture and Industrial",
+    "sector": "Industrials",
+    "key_people": ["Chris Allport (Chairman)"],
+    "date_listed": "2009-08-25",
+    "established_date": "1967-01-01",
+    "outstanding_shares": 214000000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/ngip-agmark-limited"
   },
-  "name": "NGIP Agmark Limited",
-  "ticker": "NGP",
-  "description": "Engages in agriculture and logistics businesses in Papua New Guinea.",
-  "industry": "Agriculture and Industrial",
-  "sector": "Industrials",
-  "key_people": [
-    "Chris Allport (Chairman)"
-  ],
-  "date_listed": "2009-08-25",
-  "established_date": "1967-01-01",
-  "outstanding_shares": 214000000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/ngip-agmark-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3b2"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3b2"
+    },
+    "name": "Newmont Corporation",
+    "ticker": "NEM",
+    "description": "A global leader in mining, particularly gold and copper production.",
+    "industry": "Mining and Exploration",
+    "sector": "Materials",
+    "key_people": ["Tom Palmer (President and CEO)"],
+    "date_listed": "2023-10-26",
+    "established_date": "1921-01-01",
+    "outstanding_shares": 1600000000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/newmont-corporation"
   },
-  "name": "Newmont Corporation",
-  "ticker": "NEM",
-  "description": "A global leader in mining, particularly gold and copper production.",
-  "industry": "Mining and Exploration",
-  "sector": "Materials",
-  "key_people": [
-    "Tom Palmer (President and CEO)"
-  ],
-  "date_listed": "2023-10-26",
-  "established_date": "1921-01-01",
-  "outstanding_shares": 1600000000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/newmont-corporation"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3b3"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3b3"
+    },
+    "name": "Niuminco Group Limited",
+    "ticker": "NIU",
+    "description": "Focused on exploration and development of mineral resources in PNG.",
+    "industry": "Mining and Exploration",
+    "sector": "Materials",
+    "key_people": ["David Sproule (Chairman)"],
+    "date_listed": "2013-10-29",
+    "established_date": "2011-01-01",
+    "outstanding_shares": 500000000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/niuminco-group-limited"
   },
-  "name": "Niuminco Group Limited",
-  "ticker": "NIU",
-  "description": "Focused on exploration and development of mineral resources in PNG.",
-  "industry": "Mining and Exploration",
-  "sector": "Materials",
-  "key_people": [
-    "David Sproule (Chairman)"
-  ],
-  "date_listed": "2013-10-29",
-  "established_date": "2011-01-01",
-  "outstanding_shares": 500000000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/niuminco-group-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3b4"
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3b4"
+    },
+    "name": "Santos Limited",
+    "ticker": "STO",
+    "description": "Explores, develops, and produces oil and natural gas.",
+    "industry": "Oil and Gas",
+    "sector": "Energy",
+    "key_people": ["Kevin Gallagher (CEO)"],
+    "date_listed": "2021-12-13",
+    "established_date": "1954-01-01",
+    "outstanding_shares": 2000000000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/santos-limited"
   },
-  "name": "Santos Limited",
-  "ticker": "STO",
-  "description": "Explores, develops, and produces oil and natural gas.",
-  "industry": "Oil and Gas",
-  "sector": "Energy",
-  "key_people": [
-    "Kevin Gallagher (CEO)"
-  ],
-  "date_listed": "2021-12-13",
-  "established_date": "1954-01-01",
-  "outstanding_shares": 2000000000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/santos-limited"
-},
-{
-  "_id": {
-    "$oid": "6750313f56b1dee9f10bd3b5"
-  },
-  "name": "Steamships Trading Company Limited",
-  "ticker": "SST",
-  "description": "Provides diverse services including logistics, property, and hotels.",
-  "industry": "Industrial",
-  "sector": "Industrials",
-  "key_people": [
-    "Geoffrey Cundle (Chairman)"
-  ],
-  "date_listed": "1999-04-06",
-  "established_date": "1918-01-01",
-  "outstanding_shares": 300000000,
-  "pngx_profile_url": "https://www.pngx.com.pg/companies/steamships-trading-company-limited"
-}]
+  {
+    "_id": {
+      "$oid": "6750313f56b1dee9f10bd3b5"
+    },
+    "name": "Steamships Trading Company Limited",
+    "ticker": "SST",
+    "description": "Provides diverse services including logistics, property, and hotels.",
+    "industry": "Industrial",
+    "sector": "Industrials",
+    "key_people": ["Geoffrey Cundle (Chairman)"],
+    "date_listed": "1999-04-06",
+    "established_date": "1918-01-01",
+    "outstanding_shares": 300000000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/steamships-trading-company-limited"
+  }
+]
