@@ -82,8 +82,8 @@ function normalize_data(data) {
   const formattedDate = format_date(data["Date"]);
 
   quote["date"] = formattedDate;
-  quote["code"] = data["Short Name"].trim();
-  quote["short_name"] = data["Short Name"].trim();
+  quote["code"] = data["Short Name"]?.trim();
+  quote["short_name"] = data["Short Name"]?.trim();
   quote["bid"] = convertStringToNumber(data["Bid"]);
   quote["offer"] = convertStringToNumber(data["Offer"]);
   quote["last"] = convertStringToNumber(data["Last"]);
