@@ -20,6 +20,7 @@ const COMPANIES = Object.freeze({
   HIG: "Highlands Pacific Limited",
   KPE: "Kina Petroleum Corporation",
   BSPHA: "Bank South Pacific Notes",
+  KSL361: "Kina Securities Limited",
 });
 
 const OLD_SYMBOLS = [
