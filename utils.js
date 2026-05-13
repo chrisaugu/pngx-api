@@ -312,6 +312,7 @@ const processLargeFile = async (file) => {
 const trim_code_name = async () => {
   let stocks = await Stock.find();
   for (let stock of stocks) {
+    console.log(stock);
     stock.short_name = stock.short_name.trim();
     stock.code = stock.code.trim();
     stock.save();

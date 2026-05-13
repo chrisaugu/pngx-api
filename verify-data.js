@@ -20,7 +20,7 @@ const { MongoClient } = require("mongodb");
 async function verify() {
   const src = new MongoClient("mongodb://localhost:27017");
   const dest = new MongoClient(
-    "mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@cgk1.clusters.zeabur.com:32312/?authSource=admin"
+    "mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@43.173.30.237:31076/?authSource=admin"
   );
 
   console.log("Connecting");
