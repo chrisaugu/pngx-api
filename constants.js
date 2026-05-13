@@ -28,6 +28,7 @@ const COMPANIES = Object.freeze({
   MOS: "Mosaic Oil NL",
   OML: "Orogen Minerals Ltd",
   IDC: "Indochine Mining Limited",
+  KSL361: "Kina Securities Limited",
 });
 
 const OLD_SYMBOLS = [
