@@ -118,7 +118,7 @@ stock.delisted | Stock has been delisted from an exchange.
 // );
 
 /**
- * system's webhook endpoint
+ * Get webhooks
  */
 router.get("/webhooks", async (req, res) => {
   try {
@@ -135,6 +135,9 @@ router.get("/webhooks", async (req, res) => {
   }
 });
 
+/**
+ * Create new webhook
+ */
 router.post("/webhooks", async (req, res) => {
   try {
     const newWebhook = new Webhook(req.body);
@@ -150,6 +153,9 @@ router.post("/webhooks", async (req, res) => {
   }
 });
 
+/**
+ * Get webhook
+ */
 router.get("/webhooks/:id", async (req, res) => {
   try {
     const webhook = await Webhook.findById(req.params.id);
@@ -168,6 +174,9 @@ router.get("/webhooks/:id", async (req, res) => {
   }
 });
 
+/**
+ * Update webhook
+ */
 router.put("/webhooks/:id", async (req, res) => {
   try {
     const updatedWebhook = await Webhook.findByIdAndUpdate(
@@ -189,6 +198,9 @@ router.put("/webhooks/:id", async (req, res) => {
   }
 });
 
+/**
+ * Patch webhook
+ */
 router.patch("/webhooks/:id", async (req, res) => {
   try {
     const updatedWebhook = await Webhook.findByIdAndUpdate(
@@ -210,6 +222,9 @@ router.patch("/webhooks/:id", async (req, res) => {
   }
 });
 
+/**
+ * Delete webhook
+ */
 router.delete("/webhooks/:id", async (req, res) => {
   try {
     const deletedWebhook = await Webhook.findByIdAndDelete(req.params.id);
@@ -226,6 +241,9 @@ router.delete("/webhooks/:id", async (req, res) => {
   }
 });
 
+/**
+ * Generate webhook
+ */
 router.post("/generate-event", async (req, res) => {
   try {
     const { event, data } = req.body;

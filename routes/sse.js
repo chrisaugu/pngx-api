@@ -1,3 +1,4 @@
+const crypto = require("node:crypto");
 const { Router, json } = require("express");
 const jwt = require("jsonwebtoken");
 const logger = require("../libs/logger").winstonLogger;
@@ -28,6 +29,30 @@ process.on("SIGINT", async () => {
 // use redis to store clients
 const clients = new Set();
 const facts = [];
+const topicCounts = new Map();
+
+async function addTopic(topic) {
+  const count = topicCounts.get(topic) || 0;
+
+  if (count === 0) {
+    await subscriber.subscribe(topic);
+  }
+
+  topicCounts.set(topic, count + 1);
+}
+
+async function removeTopic(topic) {
+  const count = topicCounts.get(topic);
+
+  if (!count) return;
+
+  if (count === 1) {
+    await subscriber.unsubscribe(topic);
+    topicCounts.delete(topic);
+  } else {
+    topicCounts.set(topic, count - 1);
+  }
+}
 
 /**
  *
@@ -58,6 +83,24 @@ const facts = [];
  *
  *
  */
+
+subscriber.on("message", (topic, message) => {
+  for (const client of clients) {
+    if (!client.topics.has(topic)) continue;
+
+    client.res.write(`event: ${topic}\n`);
+    client.res.write(`data: ${message}\n\n`);
+    // res.write(`id: ${clientId}\n`);
+    // res.write(`retry: 10000\n`); // retry after 10 seconds
+    // res.write(`event: ${topic}\n`);
+    // res.write(`data: ${message}\n\n`);
+  }
+});
+// subscriber.on("message", (_, message) => {
+//   res.write(`event: ${channel}\n`);
+//   res.write(`data: ${message}\n\n`);
+// });
+
 // topic-based channel
 async function eventsHandler(req, res) {
   res.setHeader("Content-Type", "text/event-stream");
@@ -68,7 +111,7 @@ async function eventsHandler(req, res) {
 
   logger.info("SSE connection established");
 
-  const topics = req.query.topics?.split(",") || [];
+  const topics = new Set(req.query.topics?.split(",") || []);
   const channel = req.query.channel; // quotes,tickers,news
   // const channel2 = req.headers["X-Channel"];
 
@@ -81,33 +124,40 @@ async function eventsHandler(req, res) {
   //   // const userId = payload.id;
   // }
 
-  const clientId = Date.now();
+  // const MAX_CACHE = 1000;
+
+  // cache.push(event);
+
+  // if (cache.length > MAX_CACHE) {
+  //   cache.shift();
+  // }
 
   const newClient = {
-    id: clientId,
+    id: crypto.randomUUID(),
+    topics,
     res,
   };
 
   clients.add(newClient);
 
-  logger.info(`New client connected: ${clientId}`);
+  logger.info(`New client connected: ${newClient.id}`);
 
   // many topics
   if (topics) {
+    // subscribe once globally
     for (const topic of topics) {
-      await subscriber.subscribe(topic);
+      await addTopic(topic);
     }
 
-    subscriber.on("message", (topic, message) => {
-      res.write(`id: ${clientId}\n`);
-      res.write(`retry: 10000\n`); // retry after 10 seconds
-      res.write(`event: ${topic}\n`);
-      res.write(`data: ${message}\n\n`);
-    });
+    req.on("close", async () => {
+      logger.info(`Client ${newClient.id} disconnected`);
+      // topics.forEach((topic) => subscriber.unsubscribe(topic));
 
-    req.on("close", () => {
-      logger.info(`Client ${clientId} disconnected`);
-      topics.forEach((topic) => subscriber.unsubscribe(topic));
+      for (const topic of topics) {
+        await removeTopic(topic);
+      }
+
+      clients.delete(newClient);
       res.end();
     });
   }
@@ -117,13 +167,10 @@ async function eventsHandler(req, res) {
     subscriber.subscribe(channel);
     logger.info(`Subscribed to channel: ${channel}`);
 
-    subscriber.on("message", (_, message) => {
-      res.write(`event: ${channel}\n`);
-      res.write(`data: ${message}\n\n`);
-    });
-
     req.on("close", () => {
-      logger.info(`Client ${clientId} disconnected from channel: ${channel}`);
+      logger.info(
+        `Client ${newClient.id} disconnected from channel: ${channel}`
+      );
       subscriber.unsubscribe(channel);
       res.end();
     });
@@ -139,9 +186,9 @@ async function eventsHandler(req, res) {
 
   // // When client closes connection, stop sending events
   // req.on("close", () => {
-  //   logger.info(`${clientId} Connection closed`);
-  //   // clients.filter((client) => client.id !== clientId);
-  //   clients.delete(clientId);
+  //   logger.info(`${newClient.id} Connection closed`);
+  //   // clients.filter((client) => client.id !== newClient.id);
+  //   clients.delete(newClient.id);
 
   //   sub.unsubscribe(channel);
   //   sub.quit();
@@ -152,6 +199,14 @@ async function eventsHandler(req, res) {
   // });
 }
 
+function broadcast(event) {
+  const data = `data: ${JSON.stringify(event)}\n\n`;
+
+  for (const client of clients) {
+    client.write(data);
+  }
+}
+
 const sendEvent = (clientId, data) => {
   res.write(`id: ${clientId}\n`);
   return res.write(`data: ${JSON.stringify(data)}\n\n`);
@@ -159,9 +214,8 @@ const sendEvent = (clientId, data) => {
 
 function sendEventsToAll(newFact) {
   logger.info("Sending new fact to all clients:", newFact);
-  clients.forEach((client) =>
-    client.res.write(`data: ${JSON.stringify(newFact)}\n\n`)
-  );
+  const data = `data: ${JSON.stringify(event)}\n\n`;
+  clients.forEach((client) => client.res.write(data));
 }
 
 async function addFact(request, response, next) {
