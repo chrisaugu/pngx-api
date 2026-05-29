@@ -865,7 +865,9 @@ router.get("/stocks/:code/:date", function (req, res) {
   }
 
   // Check if date falls on a weekend or a public holiday
-  const isHoliday = holidays.find((a, b) => (isSameDay(date, a.date) ? 1 : -1));
+  const isHoliday = holidays.find((a, b) =>
+    isSameDay(new Date(date), new Date(a.date))
+  );
   if (isHoliday) {
     return res.json({
       status: 400,
@@ -881,9 +883,11 @@ router.get("/stocks/:code/:date", function (req, res) {
 
   logger.debug(`Retriving stocks for ${code}`);
 
+  console.log(date);
+
   Stock.find({
     code: code,
-    date: date,
+    date: new Date(date),
   })
     .then(function (result) {
       if (result) {
