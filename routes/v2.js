@@ -31,6 +31,9 @@ const { cache, cacheMiddleware } = require("../middlewares");
 const iexApiToken = "",
   iexSandboxToken = "";
 
+const holidays = require("../data/trade_holidays.json");
+const { isSameDay } = require("date-fns/isSameDay");
+
 const childWorkerPath = path.resolve(
   process.cwd(),
   "./jobs/news_aggregator.js"
@@ -848,9 +851,66 @@ router.get("/stocks/:code", function (req, res) {
 });
 
 /**
+ * Get quote for a particular stock given date
+ */
+router.get("/stocks/:code/:date", function (req, res) {
+  const code = req.params.code;
+  const date = req.params.date;
+
+  if (!code || !date) {
+    return res.json({
+      status: 400,
+      message: "code and date is required",
+    });
+  }
+
+  // Check if date falls on a weekend or a public holiday
+  const isHoliday = holidays.find((a, b) => (isSameDay(date, a.date) ? 1 : -1));
+  if (isHoliday) {
+    return res.json({
+      status: 400,
+      message: "Date falls on a holiday. Pick a different date",
+    });
+  }
+  if (isWeekend(date)) {
+    return res.json({
+      status: 400,
+      message: "Date falls on a weekend. Pick a different date",
+    });
+  }
+
+  logger.debug(`Retriving stocks for ${code}`);
+
+  Stock.find({
+    code: code,
+    date: date,
+  })
+    .then(function (result) {
+      if (result) {
+        logger.info(`${code} stocks `, result);
+        res.json({
+          status: 200,
+          last_updated: result.date,
+          data: result,
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((error) => {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    });
+});
+
+/**
  * OHLCV
  */
-router.get("/stocks/:code/ohlcv/", async function (req, res) {
+router.get("/stocks/:code/ohlcv", async function (req, res) {
   const code = req.params.code;
 
   Stock.find({ code: code }).then((stocks) => {
@@ -1315,8 +1375,6 @@ router.post("/endpoints", addEndpoint);
  */
 router.get("/market/status", async (req, res) => {
   try {
-    const holidays = require("../data/trade_holidays.json");
-
     // if current day matches holiday's date
     const status = holidays.find((holiday) => isToday(new Date(holiday.date)));
     const is_weekend = isWeekend(new Date());
@@ -1355,7 +1413,6 @@ router.get("/market/status", async (req, res) => {
  */
 router.get("/market/holidays", async (req, res) => {
   try {
-    const holidays = require("../data/trade_holidays.json");
     res.status(200).json(holidays);
   } catch (error) {
     logger.error("Error fetching market holidays:", {
