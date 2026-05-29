@@ -44,6 +44,7 @@ The API retrieve, store, and process stock data directly from [PNGX](http://www.
 | CPL    | CPL Group                          |
 | KAM    | Kina Asset Management Limited      |
 | KSL    | Kina Securities Limited            |
+| KSL361 | Kina Securities Limited            |
 | NEM    | Newmont Corporation                |
 | NGP    | NGIP Agmark Limited                |
 | NIU    | Niuminco Group Limited             |

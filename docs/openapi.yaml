@@ -660,6 +660,64 @@ paths:
         "404":
           description: Stocks not found
 
+  /stocks/{code}/{date}:
+    get:
+      tags:
+        - stocks
+      summary: Get quote for a stock for a specific date
+      description: Get a single stock quote for a specific trading date.
+      operationId: getStockQuoteByCodeAndDate
+      parameters:
+        - name: code
+          in: path
+          description: Ticker code of the preferred stock.
+          required: true
+          schema:
+            type: string
+            example: BSP
+        - name: date
+          in: path
+          description: Trading date in YYYY-MM-DD format.
+          required: true
+          schema:
+            type: string
+            format: date
+            example: "2026-05-29"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  last_updated:
+                    type: string
+                    format: date-time
+                    example: "2026-05-29T00:00:00.000Z"
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Stocks"
+        "400":
+          description: Date falls on a weekend or holiday
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 400
+                  message:
+                    type: string
+                    example: Date falls on a weekend. Pick a different date
+        "204":
+          description: No quote found for the supplied code and date
+
   /webhook:
     post:
       tags: [Webhooks]

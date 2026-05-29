@@ -50,6 +50,7 @@ The API retrieve, store, and process stock data directly from [PNGX](http://www.
 | CPL    | CPL Group                          |
 | KAM    | Kina Asset Management Limited      |
 | KSL    | Kina Securities Limited            |
+| KSL361 | Kina Securities Limited            |
 | NEM    | Newmont Corporation                |
 | NGP    | NGIP Agmark Limited                |
 | NIU    | Niuminco Group Limited             |
@@ -225,6 +226,75 @@ curl -i -H 'Accept: application/json' https://example.com/api/v2/stocks
 
     {"symbols":["BSP","CCP","CGA","COY","CPL","KAM","KSL","NCM","NGP","NIU","OSH","S
     ST"]}
+```
+
+### Get quote for a stock for a specific date
+
+Get a single stock quote for a specific trading date.
+
+`GET /api/v2/stocks/:code/:date`
+
+> Request
+
+```sh
+curl -i -H 'Accept: application/json' https://example.com/api/v2/stocks/BSP/2026-05-29
+```
+
+> Params
+
+| Name | Location | Type   | Required | Description                                    |
+| ---- | -------- | ------ | -------- | ---------------------------------------------- |
+| code | param    | string | yes      | Ticker code of the preferred stock, e.g. `BSP` |
+| date | param    | date   | yes      | Trading date in `YYYY-MM-DD` format            |
+
+> Response
+
+```http
+    HTTP/1.1 200 OK
+    Date: Fri, 29 May 2026 03:25:07 GMT
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+```
+
+```json
+{
+  "status": 200,
+  "last_updated": "2026-05-29T00:00:00.000Z",
+  "data": [
+    {
+      "date": "2026-05-29T00:00:00.000Z",
+      "code": "BSP",
+      "short_name": "BSP",
+      "bid": 17.5,
+      "offer": 17.75,
+      "last": 17.5,
+      "close": 17.5,
+      "high": 17.5,
+      "low": 17.5,
+      "open": 17.5,
+      "chg_today": 0,
+      "vol_today": 1000,
+      "num_trades": 1
+    }
+  ]
+}
+```
+
+> Error Responses
+
+```json
+{
+  "status": 400,
+  "message": "Date falls on a holiday. Pick a different date"
+}
+```
+
+```json
+{
+  "status": 400,
+  "message": "Date falls on a weekend. Pick a different date"
+}
 ```
 
 ### Get a historical stock data

@@ -77,6 +77,15 @@ Fixed – for fixed bugs and refactoring.
 - **api:** Updated the docs ([d76cce4](https://github.com/chrisaugu/pngx-api/commit/d76cce4))
 - Updated Readme file ([e11c0ab](https://github.com/chrisaugu/pngx-api/commit/e11c0ab)) -->
 
+# 2.0.4 / 2026-05-30
+
+- added `GET /api/v2/stocks/:code/:date` endpoint to get a stock quote for a specific trading date
+- updated API documentation for dated stock quote responses and weekend/holiday validation errors
+
+# 2.0.3 / 2026-05-14
+
+- Added KSL361 to COMPANIES constrants
+
 # 2.0.2 / 2025-12-17
 
 - added PLC to COMPANIES constants
