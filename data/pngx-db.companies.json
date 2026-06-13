@@ -166,5 +166,26 @@
     "established_date": "1918-01-01",
     "outstanding_shares": 300000000,
     "pngx_profile_url": "https://www.pngx.com.pg/companies/steamships-trading-company-limited"
+  },
+  {
+    "name": "Pacific Lime and Cement Limited",
+    "ticker": "PLC",
+    "description": "Pacific Lime and Cement is a mining and exploration company dedicated to development of natural resources projects in Papua New Guinea..",
+    "industry": "Mining and Exploration",
+    "sector": "Materials",
+    "key_people": [
+      "Richard Pegum (Executive Chairman)",
+      "Mr. Paul Levi Mulder (Managing Director)",
+      "Mr, Timothy Crossley (Executive Director)",
+      "Mr. Musje Werror (Executive Director)",
+      "Mr. Wong Fang Shyan (Non-Executive Director)",
+      "Mr. Chris Indermaur (Independent Director)",
+      "Mr. Kerry Parker Chief (Financial Officer)"
+    ],
+    "date_listed": "2025-12-15T00:00:00.000Z",
+    "established_date": "1957-01-01",
+    "outstanding_shares": 467500000,
+    "pngx_profile_url": "https://www.pngx.com.pg/companies/pacific-lime-and-cement-limited",
+    "logo_src": "https://i0.wp.com/www.pngx.com.pg/wp-content/uploads/2025/12/plc_log.png"
   }
 ]

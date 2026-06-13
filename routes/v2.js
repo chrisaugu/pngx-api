@@ -170,21 +170,21 @@ router
         query: req.query,
       });
     }
+  })
+  .post(async function (req, res) {
+    let update = req.body;
+
+    try {
+      let company = await Company.create(update);
+
+      res.json(company);
+    } catch (error) {
+      return res.json({
+        status: "Error",
+        message: error,
+      });
+    }
   });
-// .post(async function(req, res) {
-// 	let update = req.body;
-
-// 	try {
-// 		let company = await Company.create(update);
-
-// 		res.json(company);
-// 	} catch (error) {
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// })
 
 /**
  * @swagger
@@ -882,8 +882,6 @@ router.get("/stocks/:code/:date", function (req, res) {
   }
 
   logger.debug(`Retriving stocks for ${code}`);
-
-  console.log(date);
 
   Stock.find({
     code: code,

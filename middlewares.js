@@ -10,7 +10,7 @@ const mcache = require("memory-cache");
 const { ALLOWED_IP_LIST, ORIGINAL_URL } = require("./config");
 const logger = require("./libs/logger").winstonLogger;
 const apiUsageLogger = require("./libs/logger").apiUsageLogger;
-const createRedisClient = require("./libs/redis").createRedisClient;
+const getRedisClient = require("./libs/redis").getRedisClient;
 
 exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
   // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
@@ -185,7 +185,7 @@ exports.rateLimit = function rateLimit(req, res, next) {
 };
 
 var emailBasedRatelimit = rateLimiter({
-  db: createRedisClient(),
+  db: getRedisClient(),
   duration: 60000,
   max: 10,
   id: function (context) {
@@ -194,7 +194,7 @@ var emailBasedRatelimit = rateLimiter({
 });
 
 var ipBasedRatelimit = rateLimiter({
-  db: createRedisClient(),
+  db: getRedisClient(),
   duration: 60000,
   max: 10,
   id: function (context) {
@@ -270,7 +270,7 @@ exports.cache = (duration) => (req, res, next) => {
  * @returns
  */
 exports.cacheMiddleware = async (duration = 1) => {
-  const client = await createRedisClient();
+  const client = await getRedisClient();
 
   // Define a caching function
   function cacheData(key, data) {
