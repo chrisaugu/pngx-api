@@ -60,6 +60,8 @@ async function start() {
   ];
   const news_posts = [];
 
+  console.log(NEWS_URLS);
+
   const requests = await Promise.allSettled(
     NEWS_URLS.map(async (url) => {
       if (page) {

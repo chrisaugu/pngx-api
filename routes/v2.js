@@ -34,7 +34,7 @@ const iexApiToken = "",
 const holidays = require("../data/trade_holidays.json");
 const { isSameDay } = require("date-fns/isSameDay");
 
-const childWorkerPath = path.resolve(
+const childNewsWorkerPath = path.resolve(
   process.cwd(),
   "./jobs/news_aggregator.js"
 );
@@ -716,22 +716,14 @@ router.get("/stocks", function (req, res) {
   query
     .exec()
     .then(function (stocks) {
-      if (stocks && stocks.length > 0) {
-        logger.debug("Quotes retrieved", stocks);
-        res.json({
-          status: 200,
-          ...dateStr,
-          last_updated: stocks[0].date,
-          count: stocks.length,
-          data: stocks,
-        });
-      } else {
-        logger.debug("No content");
-        res.json({
-          status: 204,
-          reason: "No Content",
-        });
-      }
+      logger.debug("Quotes retrieved", stocks);
+      res.json({
+        status: 200,
+        ...dateStr,
+        last_updated: stocks[0]?.date,
+        count: stocks.length,
+        data: stocks,
+      });
     })
     .catch((error) => {
       logger.error("Error retrieving stocks", {
@@ -1110,6 +1102,30 @@ router.get("/stocks/tickers/:code", async (req, res) => {
   });
 });
 
+function fetchNews() {
+  return new Promise((resolve, reject) => {
+    logger.info("[Main_Thread]: Retrieving news");
+
+    const payload = {
+      page,
+    };
+
+    const worker = new Worker(childNewsWorkerPath);
+    worker.postMessage(payload);
+
+    worker.on("message", resolve);
+
+    worker.on("error", reject);
+
+    worker.on("exit", (exitCode) => {
+      if (exitCode !== 0) {
+        logger.error(`Worker stopped with exit code ${exitCode}`);
+        reject(new Error(`Worker stopped with exit code ${exitCode}`));
+      }
+    });
+  });
+}
+
 /**
  * /api/v2/news
  */
@@ -1118,32 +1134,16 @@ router.get("/news", cache(10), async function (req, res) {
 
   try {
     if (isMainThread) {
-      logger.info("[Main_Thread]: Retrieving news");
-
-      const payload = {
-        page: page,
-      };
-
-      const worker = new Worker(childWorkerPath);
-      worker.postMessage(payload);
-
-      worker.on("message", (result) => {
-        logger.debug("completed: ", result);
-        logger.debug("Retrieved news ", result);
-        return res.send(result);
-      });
-
-      worker.on("error", (error) => {
-        logger.error(`Error occured`, error);
-        throw new Error(`Error occured`, error);
-      });
-
-      worker.on("exit", (exitCode) => {
-        if (exitCode !== 0) {
-          logger.error(`Worker stopped with exit code ${exitCode}`);
-          throw new Error(`Worker stopped with exit code ${exitCode}`);
-        }
-      });
+      fetchNews()
+        .then((result) => {
+          logger.debug("Completed: ", result);
+          logger.debug("Retrieved news ", result);
+          return res.send(result);
+        })
+        .catch((error) => {
+          logger.error(`Error occured`, error);
+          throw new Error(`Error occured`, error);
+        });
     }
   } catch (error) {
     logger.error("An error whilte fetching news:", {
