@@ -66,7 +66,17 @@ const cabin = new Cabin({
 
 // TODO: compression middleware causes issues with some responses from sse, need to investigate further
 // app.use(compression());
-app.use(helmet());
+// app.use(helmet({
+//   contentSecurityPolicy: {
+//     directives: {
+//       "img-src": ["'self'", "data:", "https://apollo-server-landing-page.cdn.apollographql.com"],
+//       "script-src": ["'self'", "data:", "https://embeddable-sandbox.cdn.apollographql.com"],
+//       "frame-ancestors": ["'self'", "", "https://sandbox.embed.apollographql.com"]
+//     },
+//   },
+//   contentSecurityPolicy: false,
+//   xDownloadOptions: false,
+// }));
 app.use(corsMiddleware);
 app.use(allowCrossDomain);
 app.use(allowMethodOverride);
@@ -122,20 +132,20 @@ app.use(cabin.middleware);
 initDatabase()
   .on("connected", function () {
     logger.debug(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
+      "[Main_Thread]: Connected: Successfully connect to mongo server",
     );
     /**
      * Schedule task to requests data from PNGX datasets every 30 minutes past 8 o'clock
      */
     logger.debug(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock",
     );
     cron.schedule(QUOTE_FETCH_WORKER_SCHEDULE_TIME, () => {
       // cron.schedule("*/1 * * * *", () => {
       const { Worker, isMainThread } = require("node:worker_threads");
       const childWorkerPath = path.resolve(
         process.cwd(),
-        "./jobs/thread_workers.js"
+        "./jobs/thread_workers.js",
       );
 
       // const workerPromises = [];
@@ -187,7 +197,7 @@ initDatabase()
   })
   .on("error", function () {
     logger.error(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
     );
   });
 
@@ -210,14 +220,9 @@ app.use("/api", rateLimitMiddleware, require("./routes/index"));
  */
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
+// Attach Apps
 app.use("/webhook", require("./routes/webhooks"));
-
 app.use("/events", require("./routes/sse"));
-
-// health check for docker
-app.get("/health", (req, res) => {
-  res.send("OK");
-});
 
 app.get("/ip", (request, response) => response.send(request.ip));
 
@@ -263,7 +268,7 @@ app.get("/metrics", async (req, res) => {
   // Log the time taken to process the request
   const diff = process.hrtime(req.startTime);
   console.log(
-    `Request took ${diff[0]} seconds and ${diff[1] / 1e6} milliseconds`
+    `Request took ${diff[0]} seconds and ${diff[1] / 1e6} milliseconds`,
   );
   res.end(await client.register.metrics());
 });

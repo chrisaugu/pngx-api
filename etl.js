@@ -35,17 +35,16 @@ const { SYMBOLS, ALL_COMPANIES } = require("./constants");
 initDatabase()
   .on("connected", async function () {
     console.log(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
+      "[Main_Thread]: Connected: Successfully connect to mongo server",
     );
 
     console.log(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock",
     );
-    // cron.schedule("30 8 * * *", async () => {
-    SYMBOLS.forEach(async (quote) => {
+    ALL_COMPANIES.forEach(async (quote) => {
       const dbData = await fetchDataFromDB(quote);
-      const sourceData = await fetchDataFromPNGX(quote);
-      // const sourceData = await fetchDataFromInternetArchive(quote);
+      // const sourceData = await fetchDataFromPNGX(quote);
+      const sourceData = await fetchDataFromInternetArchive(quote);
 
       if (!_.isArray(dbData) && !_.isArray(sourceData)) {
         throw new Error("dbData and sourceData must be both arrays");
@@ -53,11 +52,10 @@ initDatabase()
 
       run(dbData, sourceData);
     });
-    // });
   })
   .on("error", function () {
     console.error(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
     );
   });
 
@@ -127,7 +125,7 @@ function run(dbData = [], source = []) {
   source.sort(dataComparatorAsc);
 
   const dbDataMap = new Map(
-    dbData.map((item) => [format(item.date, "yyyy-MM-dd"), item])
+    dbData.map((item) => [format(item.date, "yyyy-MM-dd"), item]),
   );
 
   for (let i = 0; i < source.length; i++) {
@@ -139,7 +137,7 @@ function run(dbData = [], source = []) {
       // Compare all properties to check if it's an exact duplicate
       const isExactDuplicate = Object.keys(sourceItem).every(
         (prop) =>
-          JSON.stringify(sourceItem[prop]) === JSON.stringify(dbItem[prop])
+          JSON.stringify(sourceItem[prop]) === JSON.stringify(dbItem[prop]),
       );
 
       if (isExactDuplicate) {

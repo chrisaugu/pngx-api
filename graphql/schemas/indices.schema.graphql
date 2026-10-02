@@ -1,0 +1,18 @@
+type Indices {
+  id: ID!
+  code: String!
+  name: String!
+  components: [String]
+  currentValue: Float
+  previousClose: Float
+  open: Float
+  high: Float
+  low: Float
+  exchange: String
+  currency: String
+  isActive: Boolean
+  lastUpdated: String
+  history: [String]
+  createdAt: String
+  updatedAt: String
+}

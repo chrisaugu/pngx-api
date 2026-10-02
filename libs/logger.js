@@ -107,7 +107,7 @@ function handle(req, res) {
   pinoLogger(req, res);
   req.log.info("something else");
   res.log.info(
-    "just in case you need access to logging when only the response is in scope"
+    "just in case you need access to logging when only the response is in scope",
   );
   res.end("hello world");
 }
@@ -120,9 +120,10 @@ const logFormat = (loggerLabel) =>
     label({ label: loggerLabel }),
     printf(
       (info) =>
-        `${info.timestamp} ${chalk.cyan(info.label)} ${info.level}: ${info.message
-        }`
-    )
+        `${info.timestamp} ${chalk.cyan(info.label)} ${info.level}: ${
+          info.message
+        }`,
+    ),
   );
 const createLoggerWithLabel = (label) =>
   winston.createLogger({

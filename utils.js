@@ -55,8 +55,8 @@ function format_date(date) {
   if (
     date.match(
       new RegExp(
-        "^((0[1-9]|[12][0-9]|3[01])/(01|03|05|07|08|10|12)/([0-9]{4}))|((0[1-9]|[12][0-9]|30)/(04|06|09|11)/([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])/02/([0-9]{4}))|(29/02/([0-9]{2}(0[48]|[2468][048]|[13579][26])|([048][048]|[13579][26])00))$"
-      )
+        "^((0[1-9]|[12][0-9]|3[01])/(01|03|05|07|08|10|12)/([0-9]{4}))|((0[1-9]|[12][0-9]|30)/(04|06|09|11)/([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])/02/([0-9]{4}))|(29/02/([0-9]{2}(0[48]|[2468][048]|[13579][26])|([048][048]|[13579][26])00))$",
+      ),
     )
   ) {
     const parseDate = parse(date, "dd/MM/yyyy", new Date());
@@ -64,7 +64,7 @@ function format_date(date) {
     const localTime = formatInTimeZone(
       parseDate,
       LOCAL_TIMEZONE,
-      LOCAL_TIMEZONE_FORMAT
+      LOCAL_TIMEZONE_FORMAT,
     );
     return new Date(parseDate);
   }
@@ -251,7 +251,7 @@ const verifySignature = (secret, payload, signature) => {
 
   return crypto.timingSafeEqual(
     Buffer.from(digest, "utf-8"),
-    Buffer.from(signature, "utf-8")
+    Buffer.from(signature, "utf-8"),
   );
 };
 
@@ -304,14 +304,14 @@ const processLargeFile = async (file) => {
         type: "progress",
         percentage: (processedLines / totalLines) * 100,
         message: `Processing line ${processedLines} of ${totalLines}`,
-      })}\n\n`
+      })}\n\n`,
     );
   });
 };
 
 const trim_code_name = async () => {
-  let stocks = await Stock.find();
-  for (let stock of stocks) {
+  const stocks = await Stock.find();
+  for (const stock of stocks) {
     console.log(stock);
     stock.short_name = stock.short_name.trim();
     stock.code = stock.code.trim();
@@ -322,10 +322,11 @@ const trim_code_name = async () => {
 
 /**
  *
- * @param {*} priceArray
+ * @param {Array<number>} priceArray
  * @returns
  * @see https://medium.com/@mcraepetrey/algorithms-in-javascript-solving-the-stock-market-problem-2ca3321f9eda
  */
+// @flow
 const stockMarket = (priceArray) => {
   // first check to make sure there's more than 1 value in the stock list!
   if (priceArray.length < 2) {

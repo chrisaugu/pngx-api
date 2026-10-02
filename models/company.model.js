@@ -26,7 +26,7 @@ const companySchema = new Schema(
       },
     },
     timestamps: true,
-  }
+  },
 );
 
 companySchema.index({ ticker: 1 });
@@ -79,4 +79,6 @@ companySchema.statics.findByName = function (name) {
   return this.find({ name: new RegExp(name, "i") });
 };
 
-const Company = (module.exports = model("company", companySchema));
+const Company = model("companies", companySchema);
+
+module.exports = Company;

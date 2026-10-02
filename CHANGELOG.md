@@ -77,6 +77,10 @@ Fixed – for fixed bugs and refactoring.
 - **api:** Updated the docs ([d76cce4](https://github.com/chrisaugu/pngx-api/commit/d76cce4))
 - Updated Readme file ([e11c0ab](https://github.com/chrisaugu/pngx-api/commit/e11c0ab)) -->
 
+# 2.0.5 / 2026-09-21
+
+- added support for graphql
+
 # 2.0.4 / 2026-05-30
 
 - added `GET /api/v2/stocks/:code/:date` endpoint to get a stock quote for a specific trading date

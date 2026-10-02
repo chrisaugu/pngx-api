@@ -84,6 +84,8 @@ Base URL:
 ```https
 GET /api/v2
 WS /ws/v2
+SSE /events
+GraphQL /graphql
 ```
 
 ### Parameters
@@ -411,6 +413,67 @@ curl -i -H 'Accept: application/json' https://example.com/api/v2/market/status
   "isOpen": false
 }
 ```
+
+## GraphQL API
+
+### Request Format
+
+```graphql
+query GetHistoricalQuotes($code: String, $start: String, $end: String) {
+  quoteByCode(code: $code, start: $start, end: $end) {
+    data {
+      date
+      code
+      bid
+      offer
+      open
+      close
+      vol_today
+      chg_today
+      num_trades
+    }
+    success
+    errors {
+      code
+      message
+    }
+  }
+}
+```
+
+### Response Format
+
+```json
+{
+  "data": {
+    "quoteByCode": {
+      "data": {
+        "date": "2026-09-24T14:00:00.000Z",
+        "code": "BSP",
+        "bid": 27.8,
+        "offer": 27.95,
+        "open": 27.95,
+        "close": 27.95,
+        "vol_today": 0,
+        "chg_today": 0,
+        "num_trades": 0
+      },
+      "success": true,
+      "errors": null
+    }
+  }
+}
+```
+
+### GetQuoteByCode
+
+`query GetQuoteByCode($code: String, $start: String, $end: String)`
+
+| Name  | Type   | Description                         | Required |
+| ----- | ------ | ----------------------------------- | -------- |
+| code  | String | ticker symbol of the prefered stock | yes      |
+| start | String | start date in `YYYY-MM-DD` format   | no       |
+| end   | String | end date in `YYYY-MM-DD` format     | no       |
 
 ### Real-time Events
 

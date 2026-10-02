@@ -20,7 +20,7 @@ exports.allowCrossDomain = function allowCrossDomain(req, res, next) {
   // res.header('Access-Control-Allow-Headers', allowHeaders);
   res.header(
     "Access-Control-Expose-Headers",
-    "X-Parse-Job-Status-Id, X-Parse-Push-Status-Id"
+    "X-Parse-Job-Status-Id, X-Parse-Push-Status-Id",
   ); // intercept OPTIONS method
 
   if ("OPTIONS" == req.method) {
@@ -57,7 +57,7 @@ exports.errorHandler = function errorHandler(err, req, res, next) {
   logger.error(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
       req.method
-    } - ${req.ip}`
+    } - ${req.ip}`,
   );
 
   // render the error page
@@ -80,7 +80,7 @@ exports.errorHandler = function errorHandler(err, req, res, next) {
 
 exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
   logger.error(
-    `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`
+    `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`,
   );
   logger.error("Error occurred", {
     error: err.message,
@@ -92,7 +92,7 @@ exports.errorLogHandler = function errorLogHandler(err, req, res, next) {
 // Create a write stream for morgan (in append mode)
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "logs", "access.log"),
-  { flags: "a" }
+  { flags: "a" },
 );
 
 // Use winston for morgan logging
@@ -143,7 +143,7 @@ exports.morganBodyMiddlware = morgan(
   {
     skip: (req) => req.method !== "POST" && req.method !== "PUT",
     stream: morganStream,
-  }
+  },
 );
 
 const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
@@ -202,13 +202,6 @@ var ipBasedRatelimit = rateLimiter({
   },
 });
 
-exports.corsMiddleware = cors({
-  origin: "http://localhost:3000",
-  allowedHeaders: ["sessionId", "Content-Type"],
-  exposedHeaders: ["sessionId"],
-  methods: "GET,PUT,PATCH,POST,DELETE",
-});
-
 exports.versionMiddleware = function (version) {
   return function (req, res, next) {
     if (semver.gte(req.headers["x-version"], version)) {
@@ -221,13 +214,13 @@ exports.versionMiddleware = function (version) {
 // Create a write stream for morgan (in append mode)
 const apiUsageLogStream = fs.createWriteStream(
   path.join(__dirname, "logs", "api-usage.log"),
-  { flags: "a" }
+  { flags: "a" },
 );
 // Log api usage
 exports.apiUsageLogMiddlware = (req, res, next) => {
   const apiKey = req.headers["x-api-key"] || "anonymous";
   apiUsageLogger.info(
-    `User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`
+    `User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`,
   );
   next();
 };

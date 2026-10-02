@@ -1,15 +1,13 @@
 const Env = require("./env");
 
 module.exports.redisConfig = {
-  username: "default" || "redis",
-  password: "62XYZ42fkK3BXuF2qMdccTH94UltWWkQ" || "secret",
+  username: Env.redis.user || "redis",
+  password: Env.redis.password || "secret",
   socket: {
-    host:
-      "redis-19155.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com" ||
-      "localhost",
-    port: 19155 || 6379,
+    host: Env.redis.host || "localhost",
+    port: Env.redis.port || 6379,
   },
-  port: 6379,
-  host: "localhost",
-  url: process.env.REDIS_URL || "redis://127.0.0.2:6379",
+  port: Env.redis.port || 6379,
+  host: Env.redis.host || "localhost",
+  url: Env.redis.url || "redis://127.0.0.1:6379",
 };

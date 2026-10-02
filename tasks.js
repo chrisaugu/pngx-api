@@ -8,6 +8,7 @@ const { parse_csv_to_json, normalize_data } = require("./utils");
 const {
   SYMBOLS,
   OLD_SYMBOLS,
+  ALL_COMPANIES,
   COMPANIES,
   PNGX_DATA_URL,
   PNGX_URL,
@@ -63,7 +64,7 @@ function make_async_request(url, options) {
   });
 
   return new Promise(function (resolve, reject) {
-    // console.debug(`Making request to ${url} with options:`, options);
+    console.debug(`Making request to ${url} with options:`, options);
 
     fetchWithRetry(url, options)
       .then(async (response) => {
@@ -75,6 +76,7 @@ function make_async_request(url, options) {
         // reject if the response is not 2xx
         throw new Error(`HTTP error! status: ${url} ${response.status}`);
       })
+      // .then((csv) => console.log(csv))
       .then((csv) => parse_csv_to_json(csv))
       .then((json) => {
         resolve(json);
@@ -89,7 +91,7 @@ exports.make_async_request = make_async_request;
 
 const fetchWithRetry = async (url, options) => {
   const MAX_RETRIES = 3;
-  let retries = 0;
+  const retries = 0;
 
   try {
     const response = await fetch(url, options);
@@ -104,6 +106,7 @@ const fetchWithRetry = async (url, options) => {
     //   console.log(`Retry attempt ${retries}`);
     //   return fetchWithRetry(url, options);
     // }
+    console.error(error);
     throw error;
   }
 };
@@ -213,7 +216,7 @@ async function data_fetcher() {
         do {
           const quote = quotes[index]; // latest quote
           console.debug(
-            `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`
+            `Querying db for existing quote for ${symbol} on ${quote.date.toLocaleDateString()} ...`,
           );
 
           // check if the quote for that particular company at that particular date already exists
@@ -236,7 +239,7 @@ async function data_fetcher() {
                   .save()
                   .then(() => {
                     console.debug(
-                      `Added quote for ${quote.date.toLocaleDateString()} \n`
+                      `Added quote for ${quote.date.toLocaleDateString()} \n`,
                     );
 
                     totalAdded++;
@@ -269,7 +272,7 @@ async function data_fetcher() {
   console.timeEnd("timer"); // end timer and log time difference
   const endTime = new Date();
   const timeDiff = parseInt(
-    (Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60
+    (Math.abs(endTime.getTime() - startTime.getTime()) / 1000) % 60,
   );
   console.debug("Start time " + startTime);
   console.debug("End time " + timeDiff + " secs\n");
@@ -311,14 +314,14 @@ exports.fixDateFormatOnProdDB = function fixDateFormatOnProdDB() {
           // data.date = new Date(data.date)
           // data.save()
           return data;
-        })
+        }),
       );
     })
     .then((res) => {
       console.log("Updated date format for " + res.length + " records");
       res.forEach((data) => {
         console.log(
-          `Updated date for ${data.code} on ${data.date.toLocaleDateString()}`
+          `Updated date for ${data.code} on ${data.date.toLocaleDateString()}`,
         );
       });
     });

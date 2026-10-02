@@ -30,8 +30,15 @@ export default defineConfig([
       // indent: "error"
     },
     ignores,
-    // extends: [
-    //   "prettier"
-    // ]
+    root: true,
+    parser: "flow-eslint",
+    plugins: ["jest", "ft-flow"],
+    extends: ["prettier", "eslint:recommended", "plugin:ft-flow/recommended"],
   },
 ]);
+module.exports = {
+  root: true,
+  parser: "flow-eslint",
+  plugins: ["ft-flow"],
+  extends: ["eslint:recommended", "plugin:ft-flow/recommended"],
+};
