@@ -2,7 +2,7 @@
 
 # NUKU API
 
-NUKU API (formerly PNGX-API) is a Node.js service for accessing Papua New Guinea stock market data. It collects and serves company, ticker, quote, historical, news, and market information through REST, GraphQL, and real-time interfaces.
+NUKU API (formerly PNGX-API) is an API service for accessing Papua New Guinea stock market data. It collects and serves company, ticker, quote, historical, news, and market information through REST, GraphQL, and real-time interfaces.
 
 - **REST API:** `/api/v2`
 - **GraphQL:** `/graphql`
