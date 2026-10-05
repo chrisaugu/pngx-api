@@ -1,16 +1,16 @@
-const { initDatabase } = require("../database");
-const { Stock, Ticker } = require("../models/index");
-const { SYMBOLS } = require("../constants");
+const { initDatabase } = require("./database");
+const { Stock, Ticker } = require("./models/index");
+const { SYMBOLS } = require("./constants");
 
 initDatabase()
   .on("connected", function () {
     console.log(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
+      "[Main_Thread]: Connected: Successfully connect to mongo server",
     );
   })
   .on("error", function () {
     console.log(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
     );
   });
 
@@ -54,6 +54,22 @@ async function getTickers() {
       volume: getRandomNumber(),
     };
   });
+}
+
+async function generateCandlestickData(code) {
+  let candleStickData = [];
+
+  for (let i = 0; i < 365; i++) {
+    candleStickData.push({
+      date: new Date().toDateString(),
+      open: getRandomPrice(),
+      high: getRandomPrice(),
+      low: getRandomPrice(),
+      close: getRandomPrice(),
+    });
+  }
+
+  return candleStickData;
 }
 
 async function getQuotes() {
@@ -100,7 +116,7 @@ const samplePoint = (i) =>
 function generateData(
   numberOfCandles = 500,
   updatesPerCandle = 5,
-  startAt = 100
+  startAt = 100,
 ) {
   const createCandle = (val, time) => ({
     time,

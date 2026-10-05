@@ -74,6 +74,7 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
         <div class="row no-gutters">
             <div class="col-md-12">
@@ -201,6 +202,12 @@
             <div class="col-6">
                 <h1>Candlestick/Volume Chart</h1>
                 <div id="volume" style="position: relative;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h1>Range switcher</h1>
+                <div id="range-switcher" style="position: relative;"></div>
             </div>
         </div>
     </div>
@@ -902,6 +909,23 @@
             }
         }
 
+        function transformData(data) {
+            let time = new Date(data.date).getTime();
+            // time: TradeviewDate(d.date),
+            let close = parseInt(data.close);
+            let open = parseInt(data.open);
+            let low = parseInt(data.low);
+            let high = parseInt(data.high);
+
+            return {
+                time,
+                close,
+                open,
+                low,
+                high
+            }
+        }
+
         const datafeed = new Datafeed(quotesData);
         console.log(datafeed.getBars(50));
     </script>
@@ -925,14 +949,7 @@
 
             let stocksGroup = Object.groupBy(quotesData, (e) => e.symbol);
 
-            let candleData = stocksGroup[ticker].slice(0, 50).map(d => ({
-                open: d.open,
-                high: d.high,
-                low: d.low,
-                close: d.close,
-                time: d.date,
-                // time: TradeviewDate(d.date),
-            }));
+            let candleData = stocksGroup[ticker].slice(0, 50).map(transformData);
             // console.log(candleData)
 
             let volumeData = stocksGroup[ticker].slice(0, 50).map(d => ({
@@ -1113,8 +1130,8 @@
             };
 
             const lineSeries = lineSeriesChart.addSeries(LightweightCharts.LineSeries, {
-                // color: intervalColors['1D'],
-                color: '#2962FF',
+                color: intervalColors['1D'],
+                // color: '#2962FF',
                 lineWidth: 2,
                 // disabling built-in price lines
                 lastValueVisible: false,
@@ -1492,25 +1509,13 @@
             // realtimeChart.priceScale().applyOptions({
             //     borderColor: "#71649C",
             // });
-
             // // Setting the border color for the horizontal axis
-            // realtimeChart.timeScale().applyOptions({
-            //     borderColor: "#71649C",
-            // });
-
             // // Adjust the starting bar width (essentially the horizontal zoom)
             // realtimeChart.timeScale().applyOptions({
+            //     borderColor: "#71649C",
             //     barSpacing: 10,
             // });
 
-            // // Changing the font
-            // realtimeChart.applyOptions({
-            //     layout: {
-            //     fontFamily: "'Roboto', sans-serif",
-            //     },
-            // });
-
-            // Apply the custom priceFormatter to the realtimeChart
             realtimeChart.applyOptions({
                 localization: {
                     priceFormatter: myPriceFormatter,
@@ -1590,15 +1595,9 @@
             //         bottom: 0.2,
             //     },
             // });
-            // // Adding a window resize event handler to resize the chart when
-            // // the window size changes.
-            // // Note: for more advanced examples (when the chart doesn't fill the entire window)
-            // // you may need to use ResizeObserver -> https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
             // window.addEventListener("resize", () => {
             //     realtimeChart.resize(window.innerWidth, window.innerHeight);
             // });
-
-
 
             let randomFactor = 25 + Math.random() * 25;
             const samplePoint = (i) => (
@@ -1694,22 +1693,6 @@
             //     series.update(update.value);
             // }, 100);
 
-            function transformData(data) {
-                let time = new Date(data.date).getTime();
-                let close = parseInt(data.close);
-                let open = parseInt(data.open);
-                let low = parseInt(data.low);
-                let high = parseInt(data.high);
-
-                return {
-                    time,
-                    close,
-                    open,
-                    low,
-                    high
-                }
-            }
-
             const evtSource = new EventSource(`/events?topics=tickers:${ticker}`, {
                 withCredentials: true,
                 headers: {
@@ -1789,10 +1772,10 @@
             LightweightCharts.createSeriesMarkers(series, markers);
             realtimeChart.timeScale().fitContent();
 
+
             // bid and offer
             const bidofferContainer = document.getElementById('bidoffer');
             const bidofferChart = LightweightCharts.createYieldCurveChart(bidofferContainer, Object.assign(chartOptions, {
-
             }));
             // bidofferChart.applyOptions({
             //     rightPriceScale: {
@@ -1824,6 +1807,7 @@
             offerSeries.setData(offerData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
             openSeries.setData(openData.map(d => ({ time: TradeviewDate(d.time), value: d.value })));
             bidofferChart.timeScale().fitContent();
+
 
 
             // candlestick with volume
@@ -1880,7 +1864,87 @@
             candlesPane.moveTo(0);
             candlesPane.setHeight(150);
             candlestickChart.timeScale().fitContent();
-        }())
+        }());
+
+        const chartOptions = {
+            layout: {
+                textColor: 'black',
+                background: { type: 'solid', color: 'white' },
+            },
+            height: 200,
+        };
+        const container = document.getElementById('range-switcher');
+        const chart = LightweightCharts.createChart(container, chartOptions);
+
+        window.addEventListener('resize', () => {
+            chart.applyOptions({ height: 200 });
+        });
+
+        const intervalColors = {
+            '1D': '#2962FF',
+            '1W': 'rgb(225, 87, 90)',
+            '1M': 'rgb(242, 142, 44)',
+            '1Y': 'rgb(164, 89, 209)',
+        };
+
+        const lineSeries = chart.addSeries(LightweightCharts.LineSeries, { color: intervalColors['1D'] });
+
+        function setChartInterval(interval) {
+            lineSeries.setData(seriesesData.get(interval));
+            lineSeries.applyOptions({
+                color: intervalColors[interval],
+            });
+            chart.timeScale().fitContent();
+        }
+
+        setChartInterval('1D');
+
+        const styles = `
+            .buttons-container {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+            }
+            .buttons-container button {
+                all: initial;
+                font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu,
+                    sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 510;
+                line-height: 24px; /* 150% */
+                letter-spacing: -0.32px;
+                padding: 8px 24px;
+                color: rgba(19, 23, 34, 1);
+                background-color: rgba(240, 243, 250, 1);
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .buttons-container button:hover {
+                background-color: rgba(224, 227, 235, 1);
+            }
+
+            .buttons-container button:active {
+                background-color: rgba(209, 212, 220, 1);
+            }
+        `;
+
+        const stylesElement = document.createElement('style');
+        stylesElement.innerHTML = styles;
+        container.appendChild(stylesElement);
+
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
+        const intervals = ['1D', '1W', '1M', '1Y'];
+        intervals.forEach(interval => {
+            const button = document.createElement('button');
+            button.innerText = interval;
+            button.addEventListener('click', () => setChartInterval(interval));
+            buttonsContainer.appendChild(button);
+        });
+
+        container.appendChild(buttonsContainer);
     </script>
 </body>
 

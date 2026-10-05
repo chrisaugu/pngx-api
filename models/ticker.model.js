@@ -43,7 +43,7 @@ exports.findBySymbol = function (symbol) {
 // // Insert a doc, will trigger the change stream handler above
 // await Ticker.create({
 //   date: new Date(),
-//   symbol: 'AAPL',
+//   symbol: 'BSP',
 //   close: 150.00,
 //   high: 155.00,
 //   low: 145.00,

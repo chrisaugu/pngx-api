@@ -1,9 +1,5 @@
 const { parentPort } = require("node:worker_threads");
-const {
-  getStockData,
-  getQuotes,
-  getTickers,
-} = require("../routes/mockStockApi");
+const { getStockData, getQuotes, getTickers } = require("../mockStockApi");
 const { createRedisIoClient } = require("../libs/redis");
 
 const publisher = createRedisIoClient();

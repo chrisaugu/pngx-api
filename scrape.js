@@ -9,21 +9,21 @@ const fs = require("fs");
 
 (async () => {
   const config = {
-    baseSiteUrl: `https://www.some-news-site.com/`,
-    startUrl: `https://www.some-news-site.com/`,
+    baseSiteUrl: `https://www.pngx.com.pg/about-pngx/trading-calendar/`,
+    startUrl: `https://www.pngx.com.pg/about-pngx/trading-calendar/`,
     filePath: "./images/",
-    concurrency: 10, //Maximum concurrent jobs. More than 10 is not recommended.Default is 3.
-    maxRetries: 3, //The scraper will try to repeat a failed request few times(excluding 404). Default is 5.
-    logPath: "./logs/", //Highly recommended: Creates a friendly JSON for each operation object, with all the relevant data.
+    concurrency: 10, // Maximum concurrent jobs. More than 10 is not recommended.Default is 3.
+    maxRetries: 3, // The scraper will try to repeat a failed request few times(excluding 404). Default is 5.
+    logPath: "./logs/", // Highly recommended: Creates a friendly JSON for each operation object, with all the relevant data.
   };
 
-  const scraper = new Scraper(config); //Create a new Scraper instance, and pass config to it.
+  const scraper = new Scraper(config); // Create a new Scraper instance, and pass config to it.
 
-  //Now we create the "operations" we need:
+  // Now we create the "operations" we need:
 
-  const root = new Root(); //The root object fetches the startUrl, and starts the process.
+  const root = new Root(); // The root object fetches the startUrl, and starts the process.
 
-  //Any valid cheerio selector can be passed. For further reference: https://cheerio.js.org/
+  // Any valid cheerio selector can be passed. For further reference: https://cheerio.js.org/
   const category = new OpenLinks(".category", { name: "category" }); //Opens each category page.
 
   const article = new OpenLinks("article a", { name: "article" }); //Opens each article page.

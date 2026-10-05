@@ -90,7 +90,7 @@ const IndexSchema = new Schema(
       },
     },
     timestamps: true,
-  }
+  },
 );
 
 // Indexes for performance
@@ -119,11 +119,11 @@ IndexSchema.pre("save", function (next) {
   if (this.components && this.components.length > 0) {
     const totalWeight = this.components.reduce(
       (sum, comp) => sum + (comp.weight || 0),
-      0
+      0,
     );
     if (Math.abs(totalWeight - 100) > 0.01) {
       console.warn(
-        `Index ${this.code} components weights sum to ${totalWeight}%`
+        `Index ${this.code} components weights sum to ${totalWeight}%`,
       );
     }
   }
@@ -155,7 +155,7 @@ async function main() {
   //   name: "S&P 500",
   //   exchange: "NYSE",
   //   components: [
-  //     { stockSymbol: "AAPL", weight: 6.1 },
+  //     { stockSymbol: "BSP", weight: 6.1 },
   //     { stockSymbol: "MSFT", weight: 5.8 },
   //     // ... other components
   //   ],

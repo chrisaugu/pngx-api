@@ -39,6 +39,7 @@ const Env = {
   },
   MAX_TIME_DIFFERENCE: process.env.MAX_TIME_DIFFERENCE,
   WEBHOOK_TOKEN: process.env.WEBHOOK_TOKEN,
+  CACHE_DURATION: process.env.CACHE_DURATION,
 };
 
 module.exports = Env;

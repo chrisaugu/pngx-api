@@ -146,7 +146,6 @@ exports.morganBodyMiddlware = morgan(
   },
 );
 
-const allowlist = ["192.168.0.56", "192.168.0.21", "localhost", "127.0.0.1"];
 exports.rateLimitMiddleware = setRateLimit({
   windowMs: 1 * 1000, // 1 second
   max: 100,
@@ -164,7 +163,9 @@ exports.rateLimitMiddleware = setRateLimit({
 
 exports.rateLimit = function rateLimit(req, res, next) {
   var id = req.user._id;
-  var limit = new rateLimiter({ id: id, db: db });
+  const redisClient = getRedisClient();
+
+  var limit = new rateLimiter({ id, db: redisClient });
   limit.get(function (err, limit) {
     if (err) return next(err);
 
@@ -173,7 +174,7 @@ exports.rateLimit = function rateLimit(req, res, next) {
     res.set("X-RateLimit-Reset", limit.reset);
 
     // all good
-    debug("remaining %s/%s %s", limit.remaining - 1, limit.total, id);
+    logger.debug("remaining %s/%s %s", limit.remaining - 1, limit.total, id);
     if (limit.remaining) return next();
 
     // not good
@@ -201,6 +202,28 @@ var ipBasedRatelimit = rateLimiter({
     return context.ip;
   },
 });
+
+exports.rateLimitedRequest = (url, callback) => {
+  const requestQueue = [];
+  let lastRequestTime = 0;
+
+  return () => {
+    const now = Date.now();
+    const delay = Math.max(0, lastRequestTime + 1000 - now); // 1 request per second
+
+    requestQueue.push({ url, callback });
+
+    setTimeout(() => {
+      const { url, callback } = requestQueue.shift();
+      axios
+        .get(url)
+        .then((response) => callback(null, response.data))
+        .catch((error) => callback(error));
+
+      lastRequestTime = Date.now();
+    }, delay);
+  };
+};
 
 exports.versionMiddleware = function (version) {
   return function (req, res, next) {
@@ -238,24 +261,38 @@ exports.globalProperties = function (req, res, next) {
 };
 
 /**
- * cache response for the number of time specified in duration
+ * cache response for the number of time specified in duration.
+ * Default 60 seconds
  * @param {number} duration
  * @returns
  */
-exports.cache = (duration) => (req, res, next) => {
-  const key = "__express__" + req.originalUrl || req.url;
-  const cachedBody = mcache.get(key);
-  if (cachedBody) {
-    res.send(cachedBody);
-    return;
-  } else {
-    res.sendResponse = res.send;
-    res.send = (body) => {
-      mcache.put(key, body, duration * 1000);
-      res.sendResponse(body);
-    };
-    // next();
-  }
+exports.cache = (duration = 60) => {
+  // const mcache = await getRedisClient();
+  const TTL = duration * 1000;
+
+  return (req, res, next) => {
+    if (req.method !== "GET") {
+      return next();
+    }
+
+    const key = "__express__" + req.originalUrl || req.url;
+    const cachedBody = mcache.get(key);
+    if (cachedBody) {
+      res.setHeader("X-Cache", "HIT");
+      res.json(cachedBody);
+      return;
+    } else {
+      res.setHeader("X-Cache", "MISS");
+      res.jsonResponse = res.json;
+
+      res.json = (body) => {
+        mcache.put(key, body, TTL);
+
+        res.jsonResponse(body);
+      };
+      next();
+    }
+  };
 };
 
 /**
@@ -267,7 +304,6 @@ exports.cacheMiddleware = async (duration = 1) => {
 
   // Define a caching function
   function cacheData(key, data) {
-    // Store data in Redis
     client.set(key, data, (err, reply) => {
       if (err) {
         console.error(err);
@@ -279,7 +315,6 @@ exports.cacheMiddleware = async (duration = 1) => {
 
   // Define a function to retrieve cached data
   function getCachedData(key) {
-    // Retrieve data from Redis
     client.get(key, (err, reply) => {
       if (err) {
         console.error(err);
@@ -292,7 +327,6 @@ exports.cacheMiddleware = async (duration = 1) => {
 
   // Define a function to invalidate cached data
   function invalidateCachedData(key) {
-    // Remove data from Redis
     client.del(key, (err, reply) => {
       if (err) {
         console.error(err);
@@ -309,46 +343,25 @@ exports.cacheMiddleware = async (duration = 1) => {
       if (err) throw err;
 
       if (data) {
-        res.send(JSON.parse(data)); // Serve cached data
+        res.json(JSON.parse(data));
         return;
       } else {
-        res.sendResponse = res.send;
-        res.send = (body) => {
+        res.jsonResponse = res.json;
+        res.json = (body) => {
           // Cache data for 1 hour (3600 seconds)
           client.setex(key, duration * 1000, JSON.stringify(body));
-          res.sendResponse(body);
+          res.jsonResponse(body);
         };
-        return;
-        // next(); // Proceed to route handler if no cache
+        next(); // Proceed to route handler if no cache
       }
     });
   };
 };
 
-exports.rateLimitedRequest = (url, callback) => {
-  const requestQueue = [];
-  let lastRequestTime = 0;
-
-  return () => {
-    const now = Date.now();
-    const delay = Math.max(0, lastRequestTime + 1000 - now); // 1 request per second
-
-    requestQueue.push({ url, callback });
-
-    setTimeout(() => {
-      const { url, callback } = requestQueue.shift();
-      axios
-        .get(url)
-        .then((response) => callback(null, response.data))
-        .catch((error) => callback(error));
-
-      lastRequestTime = Date.now();
-    }, delay);
-  };
-};
-
 // Cache middleware
-const cacheData = (expireTime = 3600) => {
+const cacheData = async (expireTime = 3600) => {
+  const client = await getRedisClient();
+
   return async (req, res, next) => {
     // Skip caching for non-GET requests
     if (req.method !== "GET") {
@@ -360,7 +373,7 @@ const cacheData = (expireTime = 3600) => {
 
     try {
       // Check if cache exists
-      const cachedData = await redisClient.get(cacheKey);
+      const cachedData = await client.get(cacheKey);
 
       if (cachedData) {
         console.log(`Cache hit for ${cacheKey}`);
@@ -373,7 +386,7 @@ const cacheData = (expireTime = 3600) => {
       res.originalJson = res.json;
       res.json = function (data) {
         // Store in cache before sending response
-        redisClient
+        client
           .set(cacheKey, JSON.stringify(data), { EX: expireTime })
           .catch((err) => console.error("Redis cache error:", err));
 
@@ -391,11 +404,12 @@ const cacheData = (expireTime = 3600) => {
 
 // Clear cache helper
 const clearCache = async (pattern) => {
+  const client = await getRedisClient();
   try {
-    const keys = await redisClient.keys(pattern);
+    const keys = await client.keys(pattern);
     if (keys.length > 0) {
       console.log(`Clearing cache keys matching: ${pattern}`);
-      await Promise.all(keys.map((key) => redisClient.del(key)));
+      await Promise.all(keys.map((key) => client.del(key)));
     }
   } catch (err) {
     console.error("Error clearing cache:", err);

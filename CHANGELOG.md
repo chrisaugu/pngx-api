@@ -2,10 +2,10 @@
 
 # Keys
 
-Added – for new features,
-Deprecated – for deprecated features that will be removed in future versions,
-Removed – for removed functions,
-Fixed – for fixed bugs and refactoring.
+- `Added` – for new features,
+- `Deprecated` – for deprecated features that will be removed in future versions,
+- `Removed` – for removed functions,
+- `Fixed` – for fixed bugs and refactoring.
 
 ## Release Notes
 
@@ -79,7 +79,15 @@ Fixed – for fixed bugs and refactoring.
 
 # 2.0.5 / 2026-09-21
 
+- added ADY to COMPANIES constants
 - added support for graphql
+- refreshed the README with setup, configuration, deployment, and API usage documentation
+- Webhooks endpoints are prefixed with `http[s]://nuku.com/api/v2/webhook`.
+- Server-Sent Events endpoints are prefixed with `http[s]://nuku.com/events`.
+- GraphQL endpoints are prefixed with `http[s]://nuku.com/graphql`.
+- WebSocket endpoints are prefixed with `ws[s]://nuku.com/ws`. Websocket is only available from >= v2
+- Cached API responses
+- Changed `ticker` to `symbol` in company model
 
 # 2.0.4 / 2026-05-30
 

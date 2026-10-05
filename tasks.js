@@ -25,7 +25,7 @@ exports.fetch_data_from_pngx = function fetch_data_from_pngx(url) {
 function hello() {
   const results = [];
 
-  const csvDatasetUrl = PNGX_DATA_URL + "/BSP.csv";
+  const csvDatasetUrl = PNGX_DATA_URL + "/BSP.csv?ssl=1";
 
   needle
     .get(csvDatasetUrl)
@@ -119,7 +119,7 @@ function get_quotes_from_pngx(code) {
 
   return new Promise(function (resolve, reject) {
     if (undefined !== typeof code) {
-      const url = PNGX_DATA_URL + "/" + code + ".csv";
+      const url = PNGX_DATA_URL + "/" + code + ".csv?ssl=1";
       make_async_request(url, options)
         .then(function (response) {
           // resolve(typeof callback == 'function' ? new callback(response) : response);
@@ -130,7 +130,7 @@ function get_quotes_from_pngx(code) {
         });
     } else {
       for (let j = 0; j < SYMBOLS.length; j++) {
-        options["url"] = PNGX_DATA_URL + "/" + SYMBOLS[j] + ".csv";
+        options["url"] = PNGX_DATA_URL + "/" + SYMBOLS[j] + ".csv?ssl=1";
 
         make_async_request(options)
           .then(function (response) {
@@ -151,7 +151,7 @@ function get_quotes_from_internet_archive(code) {
 
   return new Promise(function (resolve, reject) {
     if (undefined !== typeof code) {
-      const url = PNGX_DATA_INTERNET_ARCHIVE_URL + "/" + code + ".csv";
+      const url = PNGX_DATA_INTERNET_ARCHIVE_URL + "/" + code + ".csv?ssl=1";
       make_async_request(url, options)
         .then(function (response) {
           // resolve(typeof callback == 'function' ? new callback(response) : response);
@@ -163,7 +163,7 @@ function get_quotes_from_internet_archive(code) {
     } else {
       for (let j = 0; j < SYMBOLS.length; j++) {
         options["url"] =
-          PNGX_DATA_INTERNET_ARCHIVE_URL + "/" + SYMBOLS[j] + ".csv";
+          PNGX_DATA_INTERNET_ARCHIVE_URL + "/" + SYMBOLS[j] + ".csv?ssl=1";
 
         make_async_request(options)
           .then(function (response) {

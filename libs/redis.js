@@ -12,11 +12,11 @@ exports.getRedisClient = async () => {
     });
 
     redisClient.on("connect", () => {
-      logger.info("✅ Redis client connected successfully");
+      logger.info("Redis client connected successfully");
     });
 
     redisClient.on("error", async (err) => {
-      logger.error("❌ Redis connection error:", err);
+      logger.error("Redis connection error:", err);
       await redisClient.quit();
       process.exit();
     });

@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const QuoteSchema = new Schema(
   {
     date: Date,
-    code: String,
+    code: String, // code: ticker or symbol
     short_name: String,
-    bid: Number,
-    offer: Number,
-    last: Number,
-    close: Number,
+    bid: Number, // bid: the highest price the buyer is willing to pay
+    offer: Number, // offer: the lowest price the seller is will to accept
+    last: Number, // last: the actual price of the most recent completed transaction
+    close: Number, //
     high: Number,
     low: Number,
     open: Number,
@@ -59,7 +59,7 @@ const Quote = mongoose.model("quote", QuoteSchema);
 // await Quote.create({ name: "Axl Rose" });
 // await Quote.create({
 //   date: new Date(),
-//   symbol: 'AAPL',
+//   symbol: 'BSP',
 //   close: 150.00,
 //   high: 155.00,
 //   low: 145.00,

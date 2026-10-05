@@ -1,4 +1,5 @@
 const COMPANIES = Object.freeze({
+  ADY: "Adyton Resource Corporation",
   BSP: "BSP Financial Group Limited",
   CCP: "Credit Corporation (PNG) Ltd",
   CGA: "PNG Air Limited",
@@ -58,7 +59,8 @@ const PNGX_URL = "https://www.pngx.com.pg";
 const PNGX_DATA_URL = `${PNGX_URL}/data`;
 
 const PNGX_INTERNET_ARCHIVE_URL =
-  "https://web.archive.org/web/20180425083441/http://www.pngx.com.pg";
+  "https://web.archive.org/web/20260821103144/http://www.pngx.com.pg";
+// "https://web.archive.org/web/20180425083441/http://www.pngx.com.pg";
 const PNGX_DATA_INTERNET_ARCHIVE_URL = `${PNGX_INTERNET_ARCHIVE_URL}/data`;
 
 const LOCAL_TIMEZONE = "Pacific/Port_Moresby";

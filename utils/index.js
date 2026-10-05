@@ -14,10 +14,10 @@ const {
   PNGX_URL,
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
-} = require("./constants");
-const Env = require("./config/env");
-const { Stock } = require("./models");
-const logger = require("./libs/logger").winstonLogger;
+} = require("../constants");
+const Env = require("../config/env");
+const { Stock } = require("../models");
+const logger = require("../libs/logger").winstonLogger;
 
 const csvOptions = {
   header: true,
@@ -78,6 +78,9 @@ function format_date(date) {
 }
 
 function normalize_data(data) {
+  /**
+   * @type {Quote}
+   */
   const quote = {};
   const formattedDate = format_date(data["Date"]);
 
@@ -91,9 +94,15 @@ function normalize_data(data) {
   quote["high"] = convertStringToNumber(data["High"]);
   quote["low"] = convertStringToNumber(data["Low"]);
   quote["open"] = convertStringToNumber(data["Open"]);
-  quote["chg_today"] = convertStringToNumber(data["Chg. Today"]);
-  quote["vol_today"] = convertStringToNumber(data["Vol. Today"]);
-  quote["num_trades"] = convertStringToNumber(data["Num. Trades"]);
+  quote["chg_today"] = convertStringToNumber(
+    data["Chg. Today"] || data["Chg.Today"],
+  );
+  quote["vol_today"] = convertStringToNumber(
+    data["Vol. Today"] || data["Vol.Today"],
+  );
+  quote["num_trades"] = convertStringToNumber(
+    data["Num. Trades"] || data["Num.Trades"],
+  );
 
   return quote;
 }
@@ -212,7 +221,10 @@ function parse_csv_to_json(csv) {
     // },
   });
 
-  if (errors.length > 0) throw new Error(errors);
+  if (errors.length > 0) {
+    console.error(errors);
+    throw new Error(errors);
+  }
 
   return data;
 }

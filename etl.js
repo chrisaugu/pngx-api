@@ -41,10 +41,10 @@ initDatabase()
     console.log(
       "Stocks info will be updated every morning at 30 minutes past 8 o'clock",
     );
-    ALL_COMPANIES.forEach(async (quote) => {
+    SYMBOLS.forEach(async (quote) => {
       const dbData = await fetchDataFromDB(quote);
-      // const sourceData = await fetchDataFromPNGX(quote);
-      const sourceData = await fetchDataFromInternetArchive(quote);
+      const sourceData = await fetchDataFromPNGX(quote);
+      // const sourceData = await fetchDataFromInternetArchive(quote);
 
       if (!_.isArray(dbData) && !_.isArray(sourceData)) {
         throw new Error("dbData and sourceData must be both arrays");

@@ -64,7 +64,7 @@ export type TTicker = TQuote & {};
 
 // {
 //   date: ISODate("2020-01-03T05:00:00.000Z"),
-//   symbol: 'AAPL',
+//   symbol: 'BSP',
 //   volume: 146322800,
 //   open: 74.287498,
 //   adjClose: 73.486023,

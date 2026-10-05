@@ -3,7 +3,7 @@ const { model, Schema } = require("mongoose");
 const companySchema = new Schema(
   {
     name: String,
-    ticker: String,
+    symbol: String,
     description: String,
     industry: String,
     sector: String,
@@ -11,9 +11,10 @@ const companySchema = new Schema(
     date_listed: Date, // ipo
     esteblished_date: Date,
     outstanding_shares: Number,
+    exempt_foregin_entity: Boolean,
     pngx_profile_url: String,
     logo_src: String,
-    // internet_address: String,
+    internet_address: String,
     // registered_office_address: String
   },
   {
@@ -29,7 +30,7 @@ const companySchema = new Schema(
   },
 );
 
-companySchema.index({ ticker: 1 });
+companySchema.index({ symbol: 1 });
 
 // companySchema.pre("find", (next) => {
 //   delete this.__v;
@@ -40,7 +41,7 @@ companySchema.index({ ticker: 1 });
 // });
 
 /**
- * Update company data by ticker code/symbol
+ * Update company data by symbol code/symbol
  * @param {*} cb
  * @returns
  * @usage: company.updateData((err, res) => {})
@@ -60,7 +61,7 @@ companySchema.query.byName = function (name) {
 };
 
 /**
- * find company by ticker code/symbol
+ * find company by symbol code/symbol
  * @param {*} cb
  * @returns
  * @usage: Company.findByCode((err, res) => {})
