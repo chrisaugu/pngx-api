@@ -1,0 +1,4 @@
+devDeps: {
+"another-local-tool": "file:/Users/username/projects/another-local-tool",
+    "my-local-utility": "file:../packages/my-local-utility",
+}
