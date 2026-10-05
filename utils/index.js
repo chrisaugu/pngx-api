@@ -94,14 +94,14 @@ function normalize_data(data) {
   quote["high"] = convertStringToNumber(data["High"]);
   quote["low"] = convertStringToNumber(data["Low"]);
   quote["open"] = convertStringToNumber(data["Open"]);
-  quote["chg_today"] = convertStringToNumber(
-    data["Chg. Today"] || data["Chg.Today"],
-  );
+  quote["chg_today"] =
+    convertStringToNumber(data["Chg. Today"]) ??
+    convertStringToNumber(data["Chg.Today"]);
   quote["vol_today"] = convertStringToNumber(
-    data["Vol. Today"] || data["Vol.Today"],
+    data["Vol. Today"] ?? data["Vol.Today"],
   );
   quote["num_trades"] = convertStringToNumber(
-    data["Num. Trades"] || data["Num.Trades"],
+    data["Num. Trades"] ?? data["Num.Trades"],
   );
 
   return quote;
