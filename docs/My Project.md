@@ -926,6 +926,57 @@ Get todays stocks
 | 400              | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | Invalid ID supplied  | Inline                  |
 | 404              | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)   | Stocks not found     | Inline                  |
 
+<a id="opIdgetStockQuoteByCodeAndDate"></a>
+
+## GET Get quote for a stock for a specific date
+
+GET /stocks/{code}/{date}
+
+Get a single stock quote for a specific trading date.
+
+### Parameters
+
+| Name | In   | Type         | Required | Description                         |
+| ---- | ---- | ------------ | -------- | ----------------------------------- |
+| code | path | string       | true     | Ticker code of the preferred stock. |
+| date | path | string(date) | true     | Trading date in YYYY-MM-DD format.  |
+
+> Response Examples
+
+> 200 Response
+
+```json
+{
+  "status": 200,
+  "last_updated": "2026-05-29T00:00:00.000Z",
+  "data": [
+    {
+      "date": "2026-05-29T00:00:00.000Z",
+      "code": "BSP",
+      "short_name": "BSP",
+      "bid": 17.5,
+      "offer": 17.75,
+      "last": 17.5,
+      "close": 17.5,
+      "high": 17.5,
+      "low": 17.5,
+      "open": 17.5,
+      "chg_today": 0,
+      "vol_today": 1000,
+      "num_trades": 1
+    }
+  ]
+}
+```
+
+### Responses
+
+| HTTP Status Code | Meaning                                                          | Description                                   | Data schema |
+| ---------------- | ---------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| 200              | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)          | successful operation                          | Inline      |
+| 400              | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | Date falls on a weekend or holiday            | Inline      |
+| 204              | [No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)  | No quote found for the supplied code and date | Inline      |
+
 ### Responses Data Schema
 
 # Data Schema

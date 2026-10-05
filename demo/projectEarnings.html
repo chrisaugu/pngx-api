@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Project Earnings | Dividend Reinvestment Projector</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container-lg px-3 px-md-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="mb-1">📈 Project Earnings</h1>
+                <p class="text-muted mt-1">Dividend Reinvestment Model • Compounding Growth Projection</p>
+            </div>
+            <div class="mt-2 mt-sm-0">
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">💰 PNG Kina (K)</span>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Control Panel -->
+            <div class="col-lg-4">
+                <div class="card-custom p-4 h-100">
+                    <div class="fw-semibold fs-5 mb-3">⚙️ Projection Parameters</div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">📅 Investment Horizon (years)</label>
+                        <input type="range" id="yearsSlider" class="range-slider" min="1" max="25" value="10" step="1">
+                        <div class="d-flex justify-content-between mt-2">
+                            <span class="small text-secondary">1 year</span>
+                            <span class="fw-bold text-primary" id="yearsValue">10 years</span>
+                            <span class="small text-secondary">25 years</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">💰 Initial Capital (Cap) — K</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white">K</span>
+                            <input type="number" id="initialCap" class="form-control" value="2000" step="100">
+                        </div>
+                        <div class="form-text">Initial investment pool (cap). Dividends get reinvested.</div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <label class="form-label fw-semibold">💵 Price Per Share (PPS)</label>
+                            <select id="ppsInput" class="form-control"></select>
+                        </div>
+                        <!-- <div class="col-6">
+                            <label class="form-label fw-semibold">💵 Price Per Share (PPS)</label>
+                            <input type="number" id="ppsInput" class="form-control" value="25" step="1">
+                        </div> -->
+                        <div class="col-6">
+                            <label class="form-label fw-semibold">📊 Dividend Per Share (DPS)</label>
+                            <input type="number" id="dpsInput" class="form-control" value="1.88" step="0.05">
+                        </div>
+                    </div>
+
+                    <button id="runProjectionBtn" class="btn btn-primary-soft w-100 mb-3 shadow-sm">
+                        🚀 Run Earnings Projection
+                    </button>
+                    <div class="small text-secondary mt-2">
+                        <i class="bi bi-info-circle"></i> Model: Each year, dividends are reinvested to purchase
+                        additional shares at fixed PPS. Capital grows with accumulated dividends.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts & Stats -->
+            <div class="col-lg-8">
+                <div class="card-custom p-3 p-md-4">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                        <h5 class="fw-semibold mb-0">📊 Cumulative Earnings & Capital Growth</h5>
+                        <span class="badge-earnings px-3 py-1">Dividend Reinvestment</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="earningsChart" width="800" height="400"
+                            style="max-height: 400px; width: 100%;"></canvas>
+                    </div>
+
+                    <!-- Key Metrics Row -->
+                    <div class="row g-3 mt-3" id="statsContainer">
+                        <div class="col-md-4">
+                            <div class="stat-card text-center">
+                                <div class="stat-label">TOTAL EARNINGS (after n years)</div>
+                                <div class="stat-value" id="totalEarningsDisplay">K 0</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card text-center">
+                                <div class="stat-label">FINAL CAPITAL (Cap)</div>
+                                <div class="stat-value" id="finalCapDisplay">K 0</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card text-center">
+                                <div class="stat-label">TOTAL SHARES OWNED</div>
+                                <div class="stat-value" id="finalSharesDisplay">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-meta text-center">
+                        📌 Projection based on fixed PPS and DPS, dividends fully reinvested annually. Real-world
+                        returns may vary.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional: Year-by-year breakdown table (compact) -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card-custom p-3 p-md-4">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap mb-2">
+                        <h5 class="fw-semibold mb-0">📋 Year-by-Year Breakdown</h5>
+                        <small class="text-secondary">Dividends paid & cumulative cap</small>
+                    </div>
+                    <div style="max-height: 280px; overflow-y: auto;" class="table-responsive">
+                        <table class="table table-sm table-hover align-middle" id="detailsTable">
+                            <thead class="table-light sticky-top">
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Shares Owned</th>
+                                    <th>Dividend Paid (K)</th>
+                                    <th>Capital (K)</th>
+                                    <th>Cumulative Earnings (K)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">Run projection to see details</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stock Selector & Stats -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-7">
+                <div class="glass-panel p-3">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                        <div class="fw-semibold small">🔍 SYMBOL</div>
+                        <div id="stockButtonGroup" class="stock-picker d-flex flex-wrap">
+                            <!-- dynamic stocks from JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="glass-panel p-3" id="statsPanel">
+                    <div class="row text-center g-2">
+                        <div class="col-4">
+                            <div class="stat-badge">Last Price</div>
+                            <div class="stat-number" id="lastPrice">K --</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-badge">Change (today)</div>
+                            <div class="stat-number" id="changePercent">-- %</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-badge">Volume</div>
+                            <div class="stat-number" id="volumeTotal">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chart Card -->
+        <div class="chart-card mb-4">
+            <div class="d-flex justify-content-between align-items-center flex-wrap mb-3 px-2 pt-1">
+                <div class="d-flex gap-2 align-items-center">
+                    <span class="badge bg-primary bg-opacity-25 text-info px-3 py-2 rounded-pill">📈 Candlestick</span>
+                    <span class="badge bg-dark px-3 py-2 rounded-pill">Historical OHLC</span>
+                </div>
+                <div class="range-selector mt-2 mt-sm-0" id="timeRangeGroup">
+                    <button data-range="1M" class="range-btn">1 Month</button>
+                    <button data-range="3M" class="range-btn">3 Months</button>
+                    <button data-range="6M" class="range-btn active">6 Months</button>
+                    <button data-range="1Y" class="range-btn">1 Year</button>
+                    <button data-range="ALL" class="range-btn">All Data</button>
+                </div>
+            </div>
+            <div id="historicalChartContainer"
+                style="width: 100%; height: 480px; border-radius: 1.2rem; background: #070b14;"></div>
+        </div>
+
+        <!-- Volume & additional info card -->
+        <div class="row g-3">
+            <div class="col-lg-12">
+                <div class="glass-panel p-3">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-2">
+                        <h6 class="mb-0 fw-semibold"><i class="bi bi-bar-chart-steps"></i> 📊 Price & Volume
+                            Correlation</h6>
+                        <small class="text-secondary">Select any stock to view its historical sequence</small>
+                    </div>
+                    <div id="volumeChartContainer" style="width: 100%; height: 180px; border-radius: 1rem;"></div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="glass-panel p-3 footer-note d-flex justify-content-between flex-wrap">
+                    <span>📅 Data based on historical quotes from PNGX stocks (dummy-data.js). Candlestick intervals
+                        reflect daily aggregates.</span>
+                    <span class="text-info">⚡ Real-time simulation mode (static historical replay)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let quotesData = window.quotesData = [];
+        let quotesDataGlobal = quotesData = [];
+        let prices = [];
+        let symbols = [];
+
+        // ---------- Core Projection Engine (based on projectEarnings logic) ----------
+        // Original signature: projectEarnings(rounds, cap = 2000)
+        // But we need full yearly data: shares, dividends, cap, cumulative earnings.
+        // We'll implement enhanced version that returns an array of yearly snapshots.
+
+        function computeProjection(rounds, initialCap, pps, dps) {
+            // rounds = number of years (integer >=1)
+            let cap = initialCap;
+            let sharesNum = Math.floor(cap / pps);   // initial shares based on initial capital
+            let cumulativeEarnings = 0;
+            const yearlyData = [];
+
+            // Start of year 0 (initial state)
+            yearlyData.push({
+                year: 0,
+                shares: sharesNum,
+                dividendPaid: 0,
+                capital: cap,
+                cumulativeEarnings: 0,
+                yearlyDividend: 0
+            });
+
+            for (let i = 1; i <= rounds; i++) {
+                // Dividend paid this year = dps * sharesNum
+                let divPaid = dps * sharesNum;
+                cumulativeEarnings += divPaid;
+
+                // Add dividends to capital (reinvested)
+                cap += divPaid;
+
+                // Increase shares: new shares = dividend paid / pps (could be fractional, but we keep float for accuracy)
+                let additionalShares = divPaid / pps;
+                sharesNum = sharesNum + additionalShares;
+
+                yearlyData.push({
+                    year: i,
+                    shares: parseFloat(sharesNum.toFixed(4)),
+                    dividendPaid: parseFloat(divPaid.toFixed(2)),
+                    capital: parseFloat(cap.toFixed(2)),
+                    cumulativeEarnings: parseFloat(cumulativeEarnings.toFixed(2)),
+                    yearlyDividend: parseFloat(divPaid.toFixed(2))
+                });
+            }
+            return yearlyData;
+        }
+
+        let chartInstance = null;
+
+        // Helper to format currency K
+        function formatK(value) {
+            return 'K ' + value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function fetchCurrentPrices() {
+            fetch('/api/v2/stocks')
+                .then(res => res.json())
+                .then((res) => {
+                    prices = res.data;
+                    symbols = prices.map(stock => stock.code);
+                })
+                .then(() => {
+                    updatePPS(prices)
+                })
+                .catch((e) => {
+                    console.error("Error: " + e);
+                });
+        }
+
+        function fetchCurrentPrice(code) {
+            return prices.find(price => price.code == code);
+        }
+
+        function fetchHistoricalPrices(code) {
+            let prices = [];
+            fetch(`/api/v2/historicals/${code}`)
+                .then(res => res.json())
+                .then((res) => {
+                    prices = res.historical;
+                })
+                .catch((e) => {
+                    console.error("Error: " + e);
+                });
+        }
+
+        function updatePPS(prices) {
+            const selectDropdown = document.getElementById('ppsInput');
+            prices.forEach(stock => {
+                const newOption = new Option(`${stock.code} (K${stock.bid})`, stock.bid);
+                selectDropdown.add(newOption);
+            });
+        }
+
+        function renderProjection(years, cap, pps, dps) {
+            const rounds = parseInt(years, 10);
+            if (isNaN(rounds) || rounds < 1) return;
+
+            const projectionData = computeProjection(rounds, cap, pps, dps);
+
+            // Prepare datasets: x = years (1..rounds), series: cumulativeEarnings, capital, yearlyDividendPaid
+            const labels = projectionData.slice(1).map(d => `Year ${d.year}`);
+            const cumulativeEarningsVals = projectionData.slice(1).map(d => d.cumulativeEarnings);
+            const capitalVals = projectionData.slice(1).map(d => d.capital);
+            const yearlyDividendVals = projectionData.slice(1).map(d => d.yearlyDividend);
+
+            // Update summary stats
+            const finalEntry = projectionData[projectionData.length - 1];
+            document.getElementById('totalEarningsDisplay').innerHTML = formatK(finalEntry.cumulativeEarnings);
+            document.getElementById('finalCapDisplay').innerHTML = formatK(finalEntry.capital);
+            document.getElementById('finalSharesDisplay').innerHTML = finalEntry.shares.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            // Update year-by-year table
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            for (let i = 1; i < projectionData.length; i++) {
+                const d = projectionData[i];
+                const row = tbody.insertRow();
+                row.insertCell(0).innerHTML = `<span class="fw-medium">${d.year}</span>`;
+                row.insertCell(1).innerHTML = d.shares.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                row.insertCell(2).innerHTML = formatK(d.dividendPaid);
+                row.insertCell(3).innerHTML = formatK(d.capital);
+                row.insertCell(4).innerHTML = formatK(d.cumulativeEarnings);
+            }
+
+            // Chart rendering
+            const ctx = document.getElementById('earningsChart').getContext('2d');
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: '💰 Cumulative Earnings (Dividends Reinvested)',
+                            data: cumulativeEarningsVals,
+                            borderColor: '#2c6e9e',
+                            backgroundColor: 'rgba(44, 110, 158, 0.05)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.2,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            pointBackgroundColor: '#1e4a76',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 1.5,
+                            yAxisID: 'y',
+                        },
+                        {
+                            label: '🏦 Total Capital (Cap + Reinvested Dividends)',
+                            data: capitalVals,
+                            borderColor: '#16a34a',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2.5,
+                            borderDash: [6, 6],
+                            tension: 0.2,
+                            pointRadius: 2,
+                            pointHoverRadius: 5,
+                            pointBackgroundColor: '#15803d',
+                            yAxisID: 'y',
+                        },
+                        {
+                            label: '📆 Annual Dividend Paid (K)',
+                            data: yearlyDividendVals,
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            borderWidth: 2,
+                            fill: false,
+                            type: 'bar',
+                            yAxisID: 'y1',
+                            barPercentage: 0.65,
+                            categoryPercentage: 0.8,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    let label = context.dataset.label || '';
+                                    let val = context.raw;
+                                    if (context.dataset.label.includes('Annual Dividend')) {
+                                        return `${label}: ${formatK(val)}`;
+                                    }
+                                    return `${label}: ${formatK(val)}`;
+                                }
+                            },
+                            backgroundColor: '#0f172a',
+                            titleColor: '#f1f5f9',
+                            bodyColor: '#cbd5e1',
+                            borderColor: '#334155',
+                            borderWidth: 1
+                        },
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 12,
+                                font: { size: 12, weight: '500' }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Amount (Kina)',
+                                color: '#334155',
+                                font: { weight: '500', size: 12 }
+                            },
+                            grid: { color: '#e9eef3' },
+                            ticks: { callback: (val) => 'K ' + val.toLocaleString() }
+                        },
+                        y1: {
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Annual Dividend (K)',
+                                color: '#f59e0b',
+                                font: { weight: '500', size: 12 }
+                            },
+                            grid: { drawOnChartArea: false },
+                            ticks: { callback: (val) => 'K ' + val.toLocaleString() }
+                        },
+                        x: {
+                            title: { display: true, text: 'Projection Year', color: '#475569' },
+                            ticks: { maxRotation: 35, autoSkip: true }
+                        }
+                    },
+                    elements: {
+                        line: { borderJoin: 'round' }
+                    }
+                }
+            });
+
+            // Additional small console output (optional)
+            console.log(`Projection for ${rounds} years | Final Cap: K${finalEntry.capital} | Total earnings: K${finalEntry.cumulativeEarnings}`);
+        }
+
+        // Initialize and wire UI
+        function getInputValues() {
+            let years = parseInt(document.getElementById('yearsSlider').value, 10);
+            let cap = parseFloat(document.getElementById('initialCap').value);
+            let pps = parseFloat(document.getElementById('ppsInput').value);
+            let dps = parseFloat(document.getElementById('dpsInput').value);
+
+            if (isNaN(cap) || cap <= 0) cap = 2000;
+            if (isNaN(pps) || pps <= 0) pps = 25;
+            if (isNaN(dps) || dps <= 0) dps = 1.88;
+            if (isNaN(years) || years < 1) years = 10;
+
+            document.getElementById('initialCap').value = cap;
+            document.getElementById('ppsInput').value = pps;
+            document.getElementById('dpsInput').value = dps;
+
+            return { years, cap, pps, dps };
+        }
+
+        function updateProjectionFromUI() {
+            const { years, cap, pps, dps } = getInputValues();
+            renderProjection(years, cap, pps, dps);
+            document.getElementById('yearsValue').innerText = `${years} year${years !== 1 ? 's' : ''}`;
+        }
+
+        // Event listeners
+        document.getElementById('runProjectionBtn').addEventListener('click', () => {
+            updateProjectionFromUI();
+        });
+
+        document.getElementById('yearsSlider').addEventListener('input', (e) => {
+            const val = e.target.value;
+            document.getElementById('yearsValue').innerText = `${val} year${val != 1 ? 's' : ''}`;
+            updateProjectionFromUI();
+        });
+
+        document.getElementById('initialCap').addEventListener('change', updateProjectionFromUI);
+        document.getElementById('ppsInput').addEventListener('change', updateProjectionFromUI);
+        document.getElementById('dpsInput').addEventListener('change', updateProjectionFromUI);
+
+        // initial default render (10 years, cap 2000, pps 25, dps 1.88)
+        // Also to match original "projectEarnings" style we show detailed graph
+        window.addEventListener('load', () => {
+            fetchCurrentPrices();
+            updateProjectionFromUI();
+
+            // Optional: Animate or small demonstration of projectEarnings function call in console (original style)
+            console.log("Original projectEarnings function demo (matches reinvestment logic)");
+            window.demoOriginal = function (rounds, cap) {
+                let ppsVal = parseFloat(document.getElementById('ppsInput').value) || 25;
+                let dpsVal = parseFloat(document.getElementById('dpsInput').value) || 1.88;
+                let localCap = cap || 2000;
+                let shares = Math.floor(localCap / ppsVal);
+                for (let i = 1; i <= rounds; i++) {
+                    let divPaid = dpsVal * shares;
+                    localCap += divPaid;
+                    shares = shares + (divPaid / ppsVal);
+                    console.log(`Round ${i}: Cap=K${localCap.toFixed(2)}, Shares=${shares.toFixed(2)}, Div=K${divPaid.toFixed(2)}`);
+                }
+                return { finalCap: localCap, finalShares: shares };
+            };
+            console.log("🔁 Original-inspired projection ready. Use window.demoOriginal(years, cap) in console.");
+        });
+
+        // Additional: Provide tooltip that the function projectEarnings has been extended with full visualization.
+        // And we added parameter controls to match the requirement: "use the function projectEarnings to calculate earnings project over n years and display in graph"
+        // Actually computeProjection above uses same core formula as original projectEarnings but extended for yearly data.
+        // To adhere strictly to original semantics, we can also attach a wrapper.
+        function projectEarnings(rounds, cap = 2000) {
+            // reads global current PPS & DPS from inputs? But for standalone usage we fetch from UI or defaults.
+            const pps = parseFloat(document.getElementById('ppsInput')?.value) || 25;
+            const dps = parseFloat(document.getElementById('dpsInput')?.value) || 1.88;
+            let localCap = cap;
+            let sharesNum = Math.floor(localCap / pps);
+            let cumulativeDiv = 0;
+            for (let i = 1; i <= rounds; i++) {
+                let divPaid = dps * sharesNum;
+                cumulativeDiv += divPaid;
+                localCap += divPaid;
+                sharesNum = sharesNum + (divPaid / pps);
+                if (window.console) console.log(`[projectEarnings] Year ${i}: Div=K${divPaid.toFixed(2)}, Cap=K${localCap.toFixed(2)}, Shares=${sharesNum.toFixed(2)}`);
+            }
+            return { finalCapital: localCap, totalEarnings: cumulativeDiv, finalShares: sharesNum };
+        }
+
+        // Expose to global so that the function is directly usable as the requirement suggests
+        window.projectEarnings = projectEarnings;
+
+        // Also integrate any extra dynamic: When parameters change, we call computeProjection based on original pattern.
+        document.getElementById('initialCap').dispatchEvent(new Event('change'));
+
+        // Function to generate realistic OHLCV data for multiple symbols if not present.
+        function generateMockQuotesData() {
+            const startDate = dayjs('2023-01-01');
+            const endDate = dayjs('2025-06-13');
+            const daysDiff = endDate.diff(startDate, 'day');
+            const data = [];
+
+            for (let sym of symbols) {
+                let basePrice = 0;
+                if (sym === 'BSP') basePrice = 22.5;
+                else if (sym === 'CCP') basePrice = 18.3;
+                else if (sym === 'CGA') basePrice = 4.7;
+                else if (sym === 'CPL') basePrice = 8.9;
+                else if (sym === 'KAM') basePrice = 12.4;
+                else if (sym === 'NEM') basePrice = 33.1;
+                else if (sym === 'SST') basePrice = 6.2;
+                else if (sym === 'STO') basePrice = 15.7;
+                else if (sym === 'NGP') basePrice = 9.5;
+                else basePrice = 11.2;
+
+                let trend = 0;
+                for (let i = 0; i <= daysDiff; i++) {
+                    const currentDate = startDate.add(i, 'day');
+                    if (currentDate.day() === 0 || currentDate.day() === 6) continue; // skip weekends
+
+                    const volatility = 0.025;
+                    const change = (Math.random() - 0.5) * volatility;
+                    trend += (Math.random() - 0.48) * 0.008;
+                    let close = basePrice + trend + (Math.sin(i / 35) * 1.2);
+                    close = Math.max(0.5, close);
+                    const open = close * (1 + (Math.random() - 0.5) * 0.015);
+                    const high = Math.max(open, close) * (1 + Math.random() * 0.02);
+                    const low = Math.min(open, close) * (1 - Math.random() * 0.018);
+                    const volume = Math.floor(15000 + Math.random() * 85000);
+                    const bid = open * 0.998;
+                    const offer = close * 1.002;
+                    const chg_today = ((close - open) / open) * 100;
+
+                    data.push({
+                        symbol: sym,
+                        date: currentDate.format('YYYY-MM-DD'),
+                        timestamp: currentDate.valueOf(),
+                        open: parseFloat(open.toFixed(2)),
+                        high: parseFloat(high.toFixed(2)),
+                        low: parseFloat(low.toFixed(2)),
+                        close: parseFloat(close.toFixed(2)),
+                        volume: volume,
+                        bid: parseFloat(bid.toFixed(2)),
+                        offer: parseFloat(offer.toFixed(2)),
+                        chg_today: parseFloat(chg_today.toFixed(2)),
+                        num_trades: Math.floor(volume / 400)
+                    });
+                }
+            }
+            return data;
+        }
+
+        // Load data: prioritize existing dummy-data.js global "quotesData" else generate mock.
+        if (typeof window.quotesData !== 'undefined' && Array.isArray(window.quotesData) && window.quotesData.length > 0) {
+            quotesDataGlobal = window.quotesData;
+            console.log(`✅ Loaded external dummy-data.js: ${quotesDataGlobal.length} records`);
+        } else {
+            console.warn("⚠️ quotesData not found, generating realistic synthetic dataset for charts.");
+            quotesDataGlobal = generateMockQuotesData();
+        }
+
+        // Group by symbol
+        const groupedBySymbol = new Map();
+        quotesDataGlobal.forEach(record => {
+            const sym = record.symbol;
+            if (!groupedBySymbol.has(sym)) groupedBySymbol.set(sym, []);
+            groupedBySymbol.get(sym).push(record);
+        });
+
+        // Sort records by date for each symbol
+        for (let [sym, records] of groupedBySymbol.entries()) {
+            records.sort((a, b) => new Date(a.date) - new Date(b.date));
+            groupedBySymbol.set(sym, records);
+        }
+
+        const availableStocks = Array.from(groupedBySymbol.keys()).sort();
+        let currentSymbol = availableStocks.includes('BSP') ? 'BSP' : availableStocks[0];
+        let currentRange = '6M';   // default
+
+        // Lightweight Charts instances
+        let mainChart = null;
+        let volumeChart = null;
+        let candlestickSeries = null;
+        let volumeSeries = null;
+
+        // Helper: filter data by range
+        function filterDataByRange(data, range) {
+            if (!data.length) return [];
+            if (range === 'ALL') return [...data];
+            const now = dayjs();
+            let startDate;
+            switch (range) {
+                case '1M': startDate = now.subtract(1, 'month'); break;
+                case '3M': startDate = now.subtract(3, 'month'); break;
+                case '6M': startDate = now.subtract(6, 'month'); break;
+                case '1Y': startDate = now.subtract(1, 'year'); break;
+                default: startDate = now.subtract(6, 'month');
+            }
+            return data.filter(d => dayjs(d.date).isAfter(startDate) || dayjs(d.date).isSame(startDate));
+        }
+
+        // Transform to lightweight-charts format
+        function transformToCandlesticks(data) {
+            return data.map(d => ({
+                time: d.date,   // YYYY-MM-DD format works nicely
+                open: d.open,
+                high: d.high,
+                low: d.low,
+                close: d.close
+            }));
+        }
+
+        function transformToVolume(data) {
+            return data.map(d => ({
+                time: d.date,
+                value: d.volume,
+                color: d.close >= d.open ? '#26a69a' : '#ef5350'
+            }));
+        }
+
+        // Update statistics panel based on latest data point
+        function updateStats(data) {
+            if (!data.length) return;
+            const latest = data[data.length - 1];
+            const prevClose = data.length > 1 ? data[data.length - 2].close : latest.open;
+            const change = latest.close - prevClose;
+            const changePercent = (change / prevClose) * 100;
+            document.getElementById('lastPrice').innerHTML = `K ${latest.close.toFixed(2)}`;
+            document.getElementById('changePercent').innerHTML = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(2)}%`;
+            document.getElementById('volumeTotal').innerHTML = latest.volume.toLocaleString();
+            // style color for change
+            const changeSpan = document.getElementById('changePercent');
+            if (changePercent >= 0) changeSpan.style.color = '#4ade80'; else changeSpan.style.color = '#f87171';
+        }
+
+        // Full chart rendering
+        function renderCharts() {
+            const records = groupedBySymbol.get(currentSymbol);
+            if (!records || records.length === 0) return;
+
+            let filtered = filterDataByRange(records, currentRange);
+            if (filtered.length === 0) filtered = records.slice(-30); // fallback
+
+            const candleData = transformToCandlesticks(filtered);
+            const volumeData = transformToVolume(filtered);
+
+            // Update stats using filtered data
+            updateStats(filtered);
+
+            // Initialize or reinitialize charts
+            const container = document.getElementById('historicalChartContainer');
+            const volumeContainer = document.getElementById('volumeChartContainer');
+
+            if (mainChart) {
+                mainChart.remove();
+                mainChart = null;
+            }
+            if (volumeChart) {
+                volumeChart.remove();
+                volumeChart = null;
+            }
+
+            // Main chart (candlestick)
+            mainChart = LightweightCharts.createChart(container, {
+                width: container.clientWidth,
+                height: 480,
+                layout: {
+                    background: { color: '#070b14' },
+                    textColor: '#cbd5e6',
+                },
+                grid: {
+                    vertLines: { color: '#1e2a44' },
+                    horzLines: { color: '#1e2a44' },
+                },
+                crosshair: {
+                    mode: LightweightCharts.CrosshairMode.Normal,
+                    vertLine: { color: '#3b82f6', width: 1, style: 2 },
+                    horzLine: { color: '#3b82f6', width: 1, style: 2 },
+                },
+                rightPriceScale: { borderColor: '#334155', scaleMargins: { top: 0.1, bottom: 0.2 } },
+                timeScale: { borderColor: '#334155', timeVisible: true, secondsVisible: false, tickMarkFormatter: (time) => dayjs(time).format('MMM D') }
+            });
+
+            candlestickSeries = mainChart.addSeries(LightweightCharts.CandlestickSeries, {
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderVisible: false,
+                wickUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+                borderColor: '#2c3e50',
+            });
+            candlestickSeries.setData(candleData);
+
+            // Volume chart (below - new chart instance)
+            volumeChart = LightweightCharts.createChart(volumeContainer, {
+                width: volumeContainer.clientWidth,
+                height: 180,
+                layout: {
+                    background: { color: '#0f172a' },
+                    textColor: '#94a3b8',
+                },
+                grid: {
+                    vertLines: { color: '#1e2a44' },
+                    horzLines: { color: '#1e2a44' },
+                },
+                crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+                rightPriceScale: { visible: false },
+                timeScale: { visible: false, borderVisible: false },
+            });
+
+            volumeSeries = volumeChart.addSeries(LightweightCharts.HistogramSeries, {
+                color: '#26a69a',
+                priceFormat: { type: 'volume' },
+                priceScaleId: '',
+            });
+
+            // assign custom colors for volume (green/red)
+            const coloredVolumeData = volumeData.map(v => ({
+                time: v.time,
+                value: v.value,
+                color: v.color
+            }));
+            volumeSeries.setData(coloredVolumeData);
+
+            // sync crosshair movement between charts
+            mainChart.subscribeCrosshairMove(param => {
+                const time = param.time;
+                if (time) {
+                    const priceData = param.seriesData.get(candlestickSeries);
+                    if (priceData) {
+                        const volPoint = coloredVolumeData.find(v => v.time === time);
+                        if (volPoint) {
+                            // optional highlight
+                        }
+                    }
+                    volumeChart.setCrosshairPosition(param.point?.x ?? 0, 0, param.logical);
+                } else {
+                    volumeChart.clearCrosshairPosition();
+                }
+            });
+
+            volumeChart.subscribeCrosshairMove(param => {
+                if (param.time) {
+                    mainChart.setCrosshairPosition(param.point?.x ?? 0, 0, param.logical);
+                } else {
+                    mainChart.clearCrosshairPosition();
+                }
+            });
+
+            // fit content
+            mainChart.timeScale().fitContent();
+            volumeChart.timeScale().fitContent();
+
+            // Resize listener
+            const resizeObserver = new ResizeObserver(() => {
+                if (mainChart && container) {
+                    mainChart.applyOptions({ width: container.clientWidth });
+                    mainChart.timeScale().fitContent();
+                }
+                if (volumeChart && volumeContainer) {
+                    volumeChart.applyOptions({ width: volumeContainer.clientWidth });
+                    volumeChart.timeScale().fitContent();
+                }
+            });
+            resizeObserver.observe(container);
+            resizeObserver.observe(volumeContainer);
+        }
+
+        // build stock selector buttons
+        function buildStockSelector() {
+            const container = document.getElementById('stockButtonGroup');
+            container.innerHTML = '';
+            availableStocks.forEach(sym => {
+                const btn = document.createElement('button');
+                btn.innerText = sym;
+                btn.classList.add('stock-btn');
+                if (sym === currentSymbol) btn.classList.add('active');
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.stock-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentSymbol = sym;
+                    renderCharts();
+                });
+                container.appendChild(btn);
+            });
+        }
+
+        // Range selector handler
+        function initRangeButtons() {
+            const btns = document.querySelectorAll('#timeRangeGroup .range-btn');
+            btns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    btns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentRange = btn.getAttribute('data-range');
+                    renderCharts();
+                });
+            });
+        }
+
+        // Additional: market summary tooltip or dynamic header color
+        function setInitialLoad() {
+            buildStockSelector();
+            initRangeButtons();
+            renderCharts();
+        }
+
+        // Add a simple loading indicator removal
+        window.addEventListener('load', () => {
+            setInitialLoad();
+            // optional background console
+            console.log(`📈 Historical chart ready | Stocks: ${availableStocks.join(', ')} | using ${quotesDataGlobal.length} data points`);
+        });
+
+        // manual handle resize if window changes orientation (optional)
+        window.addEventListener('resize', () => {
+            if (mainChart) {
+                const container = document.getElementById('historicalChartContainer');
+                mainChart.applyOptions({ width: container.clientWidth });
+                mainChart.timeScale().fitContent();
+            }
+            if (volumeChart) {
+                const volContainer = document.getElementById('volumeChartContainer');
+                volumeChart.applyOptions({ width: volContainer.clientWidth });
+                volumeChart.timeScale().fitContent();
+            }
+        });
+    </script>
+
+    <style>
+        * {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            padding: 24px 20px 40px 20px;
+        }
+
+        .card-custom {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9eef3;
+            transition: all 0.2s;
+        }
+
+        .card-header-custom {
+            background: transparent;
+            border-bottom: 1px solid #eef2f8;
+            padding: 1.2rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.2px;
+        }
+
+        .btn-primary-soft {
+            background: #1e3a8a;
+            border: none;
+            padding: 10px 24px;
+            font-weight: 500;
+            border-radius: 44px;
+            transition: 0.2s;
+        }
+
+        .btn-primary-soft:hover {
+            background: #0f2b6d;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline-secondary-custom {
+            border-radius: 44px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+
+        .projection-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #2d3a4f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-card {
+            background: #f1f5f9;
+            border-radius: 24px;
+            padding: 1rem 1rem;
+            transition: all 0.2s;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .stat-value {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        .range-slider {
+            width: 100%;
+            accent-color: #2563eb;
+        }
+
+        .footer-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            min-height: 380px;
+        }
+
+        .badge-earnings {
+            background: #e6f0ff;
+            color: #1e40af;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #0c4a6e, #1e3a8a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .stat-value {
+                font-size: 1.3rem;
+            }
+
+            .projection-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        .table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            border-bottom-width: 1px;
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+            padding: 0.6rem 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .range-slider:focus {
+            outline: none;
+        }
+
+        .btn-primary-soft:active {
+            transform: scale(0.97);
+        }
+
+        .stat-card:hover {
+            background: #eef3ff;
+        }
+
+        canvas {
+            border-radius: 20px;
+        }
+
+        .chart-card {
+            background: #0f172ad9;
+            border-radius: 1.75rem;
+            padding: 1rem;
+            border: 1px solid #2d3a5e;
+        }
+
+        .stock-picker {
+            background: #1e293b;
+            border-radius: 60px;
+            padding: 4px;
+            border: 1px solid #334155;
+        }
+
+        .stock-btn {
+            border-radius: 40px;
+            padding: 6px 20px;
+            font-weight: 500;
+            background: transparent;
+            color: #cbd5e6;
+            border: none;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .stock-btn.active {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .stock-btn:hover:not(.active) {
+            background: #334155;
+            color: #f1f5f9;
+        }
+
+        .info-stats {
+            background: #0f172a;
+            border-radius: 1.2rem;
+            padding: 0.75rem 1rem;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .stat-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f8fafc;
+            line-height: 1.2;
+        }
+
+        .range-selector {
+            background: #1e293b;
+            border-radius: 48px;
+            padding: 4px;
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .range-btn {
+            background: transparent;
+            border: none;
+            padding: 5px 18px;
+            border-radius: 40px;
+            color: #cbd5e6;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .range-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .footer-note {
+            border-top: 1px solid #1e2a44;
+            font-size: 0.7rem;
+            color: #5b6e8c;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+
+            .stat-number {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</body>
+
+</html>

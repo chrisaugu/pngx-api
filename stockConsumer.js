@@ -1,5 +1,5 @@
-const { SYMBOLS, TOPICS, CHANNELS } = require("../constants");
-const { createRedisIoClient } = require("../libs/redis");
+const { SYMBOLS, TOPICS, CHANNELS } = require("./constants");
+const { createRedisIoClient } = require("./libs/redis");
 
 const subscriber = createRedisIoClient();
 

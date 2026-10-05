@@ -60,6 +60,8 @@ async function start() {
   ];
   const news_posts = [];
 
+  console.log(NEWS_URLS);
+
   const requests = await Promise.allSettled(
     NEWS_URLS.map(async (url) => {
       if (page) {
@@ -78,7 +80,7 @@ async function start() {
       }
       return response.json();
       // return response.text();
-    })
+    }),
   );
 
   // filter only fulfilled requests
@@ -90,7 +92,7 @@ async function start() {
   // if (!requests)
 
   news_posts.sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
   );
 
   const updated = news_posts.map((news) => {

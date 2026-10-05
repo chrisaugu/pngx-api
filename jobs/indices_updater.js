@@ -1,4 +1,4 @@
-let up = {
+const up = {
   code: "PNGXD",
   name: "PNGXD",
   components: [

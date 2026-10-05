@@ -23,7 +23,7 @@ const TickerSchema = new Schema(
       granularity: "hours",
     },
     autoCreate: false,
-  }
+  },
 );
 TickerSchema.index({
   symbol: 1,
@@ -43,7 +43,7 @@ exports.findBySymbol = function (symbol) {
 // // Insert a doc, will trigger the change stream handler above
 // await Ticker.create({
 //   date: new Date(),
-//   symbol: 'AAPL',
+//   symbol: 'BSP',
 //   close: 150.00,
 //   high: 155.00,
 //   low: 145.00,
@@ -53,21 +53,20 @@ exports.findBySymbol = function (symbol) {
 // });
 
 // class MyClass {
-
 //   myMethod() {
 //     return 42;
 //   }
-
 //   static myStatic() {
 //     return 42;
 //   }
-
 //   get myVirtual() {
 //     return 42;
 //   }
 // }
-
 // const schema = new Schema();
 // schema.loadClass(MyClass);
+// console.log(schema.methods); // { myMethod: [Function: myMethod] }
+// console.log(schema.statics); // { myStatic: [Function: myStatic] }
+// console.log(schema.virtuals); // { myVirtual: VirtualType { ... } }
 
 module.exports = Ticker;

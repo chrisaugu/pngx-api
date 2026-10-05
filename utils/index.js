@@ -14,9 +14,10 @@ const {
   PNGX_URL,
   LOCAL_TIMEZONE,
   LOCAL_TIMEZONE_FORMAT,
-} = require("./constants");
-const Env = require("./config/env");
-const logger = require("./libs/logger").winstonLogger;
+} = require("../constants");
+const Env = require("../config/env");
+const { Stock } = require("../models");
+const logger = require("../libs/logger").winstonLogger;
 
 const csvOptions = {
   header: true,
@@ -54,8 +55,8 @@ function format_date(date) {
   if (
     date.match(
       new RegExp(
-        "^((0[1-9]|[12][0-9]|3[01])/(01|03|05|07|08|10|12)/([0-9]{4}))|((0[1-9]|[12][0-9]|30)/(04|06|09|11)/([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])/02/([0-9]{4}))|(29/02/([0-9]{2}(0[48]|[2468][048]|[13579][26])|([048][048]|[13579][26])00))$"
-      )
+        "^((0[1-9]|[12][0-9]|3[01])/(01|03|05|07|08|10|12)/([0-9]{4}))|((0[1-9]|[12][0-9]|30)/(04|06|09|11)/([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])/02/([0-9]{4}))|(29/02/([0-9]{2}(0[48]|[2468][048]|[13579][26])|([048][048]|[13579][26])00))$",
+      ),
     )
   ) {
     const parseDate = parse(date, "dd/MM/yyyy", new Date());
@@ -63,7 +64,7 @@ function format_date(date) {
     const localTime = formatInTimeZone(
       parseDate,
       LOCAL_TIMEZONE,
-      LOCAL_TIMEZONE_FORMAT
+      LOCAL_TIMEZONE_FORMAT,
     );
     return new Date(parseDate);
   }
@@ -77,12 +78,15 @@ function format_date(date) {
 }
 
 function normalize_data(data) {
+  /**
+   * @type {Quote}
+   */
   const quote = {};
   const formattedDate = format_date(data["Date"]);
 
   quote["date"] = formattedDate;
-  quote["code"] = data["Short Name"];
-  quote["short_name"] = data["Short Name"];
+  quote["code"] = data["Short Name"]?.trim();
+  quote["short_name"] = data["Short Name"]?.trim();
   quote["bid"] = convertStringToNumber(data["Bid"]);
   quote["offer"] = convertStringToNumber(data["Offer"]);
   quote["last"] = convertStringToNumber(data["Last"]);
@@ -90,9 +94,15 @@ function normalize_data(data) {
   quote["high"] = convertStringToNumber(data["High"]);
   quote["low"] = convertStringToNumber(data["Low"]);
   quote["open"] = convertStringToNumber(data["Open"]);
-  quote["chg_today"] = convertStringToNumber(data["Chg. Today"]);
-  quote["vol_today"] = convertStringToNumber(data["Vol. Today"]);
-  quote["num_trades"] = convertStringToNumber(data["Num. Trades"]);
+  quote["chg_today"] = convertStringToNumber(
+    data["Chg. Today"] || data["Chg.Today"],
+  );
+  quote["vol_today"] = convertStringToNumber(
+    data["Vol. Today"] || data["Vol.Today"],
+  );
+  quote["num_trades"] = convertStringToNumber(
+    data["Num. Trades"] || data["Num.Trades"],
+  );
 
   return quote;
 }
@@ -211,7 +221,10 @@ function parse_csv_to_json(csv) {
     // },
   });
 
-  if (errors.length > 0) throw new Error(errors);
+  if (errors.length > 0) {
+    console.error(errors);
+    throw new Error(errors);
+  }
 
   return data;
 }
@@ -250,7 +263,7 @@ const verifySignature = (secret, payload, signature) => {
 
   return crypto.timingSafeEqual(
     Buffer.from(digest, "utf-8"),
-    Buffer.from(signature, "utf-8")
+    Buffer.from(signature, "utf-8"),
   );
 };
 
@@ -303,17 +316,29 @@ const processLargeFile = async (file) => {
         type: "progress",
         percentage: (processedLines / totalLines) * 100,
         message: `Processing line ${processedLines} of ${totalLines}`,
-      })}\n\n`
+      })}\n\n`,
     );
   });
 };
 
+const trim_code_name = async () => {
+  const stocks = await Stock.find();
+  for (const stock of stocks) {
+    console.log(stock);
+    stock.short_name = stock.short_name.trim();
+    stock.code = stock.code.trim();
+    stock.save();
+  }
+  console.log("Updated");
+};
+
 /**
  *
- * @param {*} priceArray
+ * @param {Array<number>} priceArray
  * @returns
  * @see https://medium.com/@mcraepetrey/algorithms-in-javascript-solving-the-stock-market-problem-2ca3321f9eda
  */
+// @flow
 const stockMarket = (priceArray) => {
   // first check to make sure there's more than 1 value in the stock list!
   if (priceArray.length < 2) {
@@ -361,4 +386,5 @@ module.exports = {
   issueToken,
   env,
   convertStringToNumber,
+  trim_code_name,
 };

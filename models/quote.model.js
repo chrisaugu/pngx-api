@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const QuoteSchema = new Schema(
   {
     date: Date,
-    code: String,
+    code: String, // code: ticker or symbol
     short_name: String,
-    bid: Number,
-    offer: Number,
-    last: Number,
-    close: Number,
+    bid: Number, // bid: the highest price the buyer is willing to pay
+    offer: Number, // offer: the lowest price the seller is will to accept
+    last: Number, // last: the actual price of the most recent completed transaction
+    close: Number, //
     high: Number,
     low: Number,
     open: Number,
@@ -29,7 +29,7 @@ const QuoteSchema = new Schema(
     timestamps: {
       currentTime: () => Math.floor(Date.now() / 1000),
     },
-  }
+  },
 );
 
 QuoteSchema.index({ code: 1, date: 1 });
@@ -43,6 +43,7 @@ QuoteSchema.statics.findBySymbol = function (symbol) {
     code: symbol,
   });
 };
+
 // Static method for finding by code
 QuoteSchema.statics.findByCode = function (code) {
   return this.find({ code });
@@ -54,7 +55,34 @@ const Quote = mongoose.model("quote", QuoteSchema);
 //   console.log('Changed', data);
 // });
 
-// // Insert a doc, will trigger the change stream handler above
+// Insert a doc, will trigger the change stream handler above
 // await Quote.create({ name: "Axl Rose" });
+// await Quote.create({
+//   date: new Date(),
+//   symbol: 'BSP',
+//   close: 150.00,
+//   high: 155.00,
+//   low: 145.00,
+//   open: 148.00,
+//   change: 5.00,
+//   volume: 1000000,
+// });
+
+// class MyClass {
+//   myMethod() {
+//     return 42;
+//   }
+//   static myStatic() {
+//     return 42;
+//   }
+//   get myVirtual() {
+//     return 42;
+//   }
+// }
+// const schema = new Schema();
+// schema.loadClass(MyClass);
+// console.log(schema.methods); // { myMethod: [Function: myMethod] }
+// console.log(schema.statics); // { myStatic: [Function: myStatic] }
+// console.log(schema.virtuals); // { myVirtual: VirtualType { ... } }
 
 module.exports = Quote;

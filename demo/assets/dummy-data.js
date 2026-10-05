@@ -83752,3 +83752,17 @@ const quotesData = [
     num_trades: 0,
   },
 ];
+
+const candleStickData = quotesData.map((d) => {
+  return {
+    time: d.date,
+    open: d.open,
+    high: d.high,
+    low: d.low,
+    close: d.close,
+  }
+}).map(datapoint => {
+    if (datapoint.close < 205) { return datapoint; }
+
+    return { ...datapoint, color: 'orange', wickColor: 'orange' };
+});

@@ -1,4 +1,42 @@
 apps:
-  - script: server.js
-    instances: 4
+  - name: "api-server"
+    script: server.js
+    instances: 1
     exec_mode: cluster
+    env:
+      NODE_ENV: "development"
+
+  # - name: "worker"
+  #   script: "./worker.js"
+  #   instances: 1
+  #   autorestart: true
+
+  # - name: "etl-worker"
+  #   script: "./etl.js"
+  #   instances: 1
+  #   autorestart: true
+
+  # - name: "agenda-schedule"
+  #   script: "./agenda-schedule.js"
+  #   instances: 1
+  #   autorestart: true
+
+  # - name: "queue"
+  #   script: "./queue.js"
+  #   instances: 1
+  #   autorestart: true
+
+  - name: "stockConsumer"
+    script: "./stockConsumer.js"
+    instances: 1
+    autorestart: true
+
+  - name: "mockStockApi"
+    script: "./mockStockApi.js"
+    instances: 1
+    autorestart: true
+
+  - name: "stock_publisher"
+    script: "./jobs/stock_publisher.js"
+    instances: 1
+    autorestart: true

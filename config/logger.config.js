@@ -15,7 +15,7 @@ const fileFormat = format.printf(
       msg += ` | ${JSON.stringify(metadata)}`;
     }
     return msg;
-  }
+  },
 );
 
 // Define log levels
@@ -46,7 +46,7 @@ exports.winstonConfig = {
         format.colorize(),
         format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         format.errors({ stack: true }),
-        consoleFormat
+        consoleFormat,
       ),
     }),
     // Error log (only errors)
@@ -56,7 +56,7 @@ exports.winstonConfig = {
       format: format.combine(
         format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         format.errors({ stack: true }),
-        fileFormat
+        fileFormat,
       ),
     }),
     // new transports.File({ filename: "./logs/combined.log" }),
@@ -70,7 +70,7 @@ exports.winstonConfig = {
       format: format.combine(
         format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         format.errors({ stack: true }),
-        fileFormat
+        fileFormat,
       ),
     }),
   ],
@@ -83,8 +83,8 @@ exports.winstonConfig = {
     // format.cli(),
     // format.align(),
     format.printf(
-      (info) => `[${info.timestamp}] ${info.level}: ${info.message}`
-    )
+      (info) => `[${info.timestamp}] ${info.level}: ${info.message}`,
+    ),
   ),
   exceptionHandlers: [
     new transports.File({ filename: "./logs/exception.log" }),
@@ -98,13 +98,13 @@ addColors(customLevels.colors);
 exports.apiUsageConfig = {
   level: "info",
   format: format.combine(
-    format.timestamp(),
+    format.colorize(),
+    format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
     // format.errors({ stack: true }),
     // format.json(),
     format.printf(
-      (info) =>
-        `${info.timestamp} | ${info.level.toUpperCase()} | ${info.message}`
-    )
+      (info) => `${info.timestamp} [${info.level}]: ${info.message}`,
+    ),
   ),
   transports: [
     new transports.Console({

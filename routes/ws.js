@@ -62,42 +62,42 @@ module.exports = (httpServer) => {
     const connectionParams = queryString.parse(params);
     const ip = request.socket.remoteAddress;
     // const ip = request.headers["X-Forwarded-For"].split(",")[0].trim();
-    const token = req.headers["sec-websocket-protocol"];
+    const token = request.headers["sec-websocket-protocol"];
     if (!token) {
-      ws.close(1008, "Token required");
+      connection.close(1008, "Token required");
       return;
     }
     const user = authenticateToken(token);
 
-    const authHeader = req.headers.authorization;
+    const authHeader = request.headers.authorization;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      ws.close(1008, "Authentication required");
+      connection.close(1008, "Authentication required");
       return;
     }
 
     // const token = authHeader.split(' ')[1];
 
-    // const parameters = url.parse(req.url, true).query;
+    // const parameters = url.parse(request.url, true).query;
     // const token = parameters.token;
 
     if (!user) {
-      ws.close(1008, "Invalid or expired token"); // Close connection if authentication fails
+      connection.close(1008, "Invalid or expired token"); // Close connection if authentication fails
       return;
     }
     logger.info(ip);
-    ws.user = decoded; // Attach user data to the WebSocket object
-    logger.info(`Client connected: ${ws.user.username}`);
+    connection.user = decoded; // Attach user data to the WebSocket object
+    logger.info(`Client connected: ${connection.user.username}`);
     // Proceed with WebSocket communication
 
     const username = decoded.username;
     clients.set(username, ws);
 
-    ws.send(
+    connection.send(
       JSON.stringify({
         type: "system",
         message: "Welcome to the WebSocket server!",
         username,
-      })
+      }),
     );
 
     const uuid = randomUUID();
@@ -198,11 +198,11 @@ module.exports = (httpServer) => {
               type: "message",
               from: username,
               content: parsedMessage.content,
-            })
+            }),
           );
         } else {
-          ws.send(
-            JSON.stringify({ type: "error", message: "Recipient not found" })
+          connection.send(
+            JSON.stringify({ type: "error", message: "Recipient not found" }),
           );
         }
       }

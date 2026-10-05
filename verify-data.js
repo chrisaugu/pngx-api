@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const { MongoClient } = require("mongodb");
+const Env = require("./config/env");
 
 // function hashCollection(db, name) {
 //     const cursor = db[name].find({}, { _id: 1 }).sort({ _id: 1 });
@@ -8,8 +9,8 @@ const { MongoClient } = require("mongodb");
 //     return hash.digest("hex");
 // }
 
-// const srcDB = new Mongo("mongodb://localhost:27017").getDB("pngx-db");
-// const destDB = new Mongo("mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@cgk1.clusters.zeabur.com:32312").getDB("pngx-db");
+// const srcDB = new Mongo(Env.mongodb.local).getDB(Env.mongodb.name);
+// const destDB = new Mongo(Env.mongodb.remote).getDB(Env.mongodb.name);
 
 // srcDB.getCollectionNames().forEach(name => {
 //     const srcHash = hashCollection(srcDB, name);
@@ -18,10 +19,8 @@ const { MongoClient } = require("mongodb");
 // });
 
 async function verify() {
-  const src = new MongoClient("mongodb://localhost:27017");
-  const dest = new MongoClient(
-    "mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@cgk1.clusters.zeabur.com:32312/?authSource=admin"
-  );
+  const src = new MongoClient(Env.mongodb.local);
+  const dest = new MongoClient(Env.mongodb.remote);
 
   console.log("Connecting");
 
@@ -30,8 +29,8 @@ async function verify() {
 
   console.log("Connected");
 
-  const srcDB = src.db("pngx-db");
-  const destDB = dest.db("pngx-db");
+  const srcDB = src.db(Env.mongodb.name);
+  const destDB = dest.db(Env.mongodb.name);
 
   console.log("Retrieving collections");
 
@@ -52,13 +51,13 @@ async function verify() {
 
     if (srcDocs.length !== destDocs.length) {
       console.log(
-        `${name}: COUNT MISMATCH (${srcDocs.length} vs ${destDocs.length})`
+        `${name}: COUNT MISMATCH (${srcDocs.length} vs ${destDocs.length})`,
       );
       continue;
     }
 
     const allMatch = srcDocs.every(
-      (doc, i) => JSON.stringify(doc) === JSON.stringify(destDocs[i])
+      (doc, i) => JSON.stringify(doc) === JSON.stringify(destDocs[i]),
     );
     console.log(`${name}: ${allMatch ? "MATCH ✅" : "MISMATCH ⚠️"}`);
   }

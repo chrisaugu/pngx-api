@@ -109,6 +109,98 @@
     "description": "",
     "business_day": "Yes",
     "trading_day": "Yes Market closes at 2.00pm",
-    "settlement_activity": "Yes"
+    "settlement_activity": "Yes",
+    "market_open": "10:00 AM to 12:00 PM",
+    "settlement_day": "Yes"
+  },
+  {
+    "date": "Thursday 26 February 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Thursday 2 April 2026",
+    "business_day": "Yes",
+    "market_open": "10:00 AM to 12:00 PM",
+    "settlement_day": "Yes"
+  },
+  {
+    "date": "Friday 3 April 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Monday 6 April 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Wednesday 17 June 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Thursday 23 July 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Wednesday 26 August 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Wednesday 16 September 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Thursday 24 December 2026",
+    "business_day": "Yes",
+    "market_open": "10:00 AM to 12:00 PM",
+    "settlement_day": "Yes"
+  },
+  {
+    "date": "Friday 25 December 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Saturday 26 December 2026",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
+  },
+  {
+    "date": "Tuesday 29 December 2026",
+    "business_day": "Yes",
+    "market_open": "10:00 AM to 4:00 PM",
+    "settlement_day": "Yes"
+  },
+  {
+    "date": "Wednesday 30 December 2026",
+    "business_day": "Yes",
+    "market_open": "10:00 AM to 4:00 PM",
+    "settlement_day": "Yes"
+  },
+  {
+    "date": "Thursday 31 December 2026",
+    "business_day": "Yes",
+    "market_open": "10:00 AM to 12:00 PM",
+    "settlement_day": "Yes"
+  },
+  {
+    "date": "Friday 1 January 2027",
+    "business_day": "No",
+    "market_open": "Market closed",
+    "settlement_day": "No"
   }
 ]

@@ -5,12 +5,21 @@
   "description": "Restful API that serves stock quotes from pngx.com.pg",
   "main": "./server.js",
   "type": "commonjs",
+  "types": "types/index.d.ts",
+  "engines": {
+    "node": ">=20.19.0 <21.0.0 || >=22.13.0 <23.0.0 || >=24.11.0 <25.0.0"
+  },
+  "bin": {
+    "nuku-server": "bin/nuku-server"
+  },
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "dev": "NODE_ENV=development nodemon server.js --trace-warnings",
     "devx": "nodemon -r dotenv/config server.js --trace-warnings",
-    "startx": "node --env-file=.env.production server.js",
+    "dev:live-server": "nodemon -r dotenv/config graphql-server.js --trace-warnings",
+    "start:prod": "node --env-file=.env.production ./bin/nuku-server",
     "docs": "docsify serve docs",
+    "jsdocs": "jsdoc -c ./jsdoc-conf.json",
     "pretest": "cross-env NODE_ENV=test jest --testTimeout=5000",
     "test": "NODE_ENV=test jest .",
     "testx": "NODE_ENV=test jest -c ./jest.config.js --run --coverage",
@@ -26,6 +35,9 @@
     "test:node": "node --test --test-reporter spec",
     "test:node:watch": "node --test --test-reporter spec --watch ./src/*.test.ts",
     "test:node:coverage": "c8 node --test",
+    "test:benchmark": "node ./tests/benchmark.js",
+    "flow:check": "npx flow check",
+    "flow:clean": "npx flow-remove-types src/ -d dist/",
     "lint": "eslint ./",
     "format": "prettier ./ --write",
     "format:check": "prettier . --check",
@@ -36,13 +48,17 @@
     "package": "openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
     "packages": "npx @openapitools/openapi-generator-cli generate -i docs/openapi.yaml -g javascript -o tmp/test/",
     "commit": "cz",
+    "prettier": "prettier --write {src,spec}/{**/*,*}.js",
+    "prepare": "npm run build",
     "xprepare": "husky",
     "clean": "manypkg exec yarn clean",
     "startxx": "turbo run start --parallel --no-cache",
+    "build": "",
     "lintx": "run-s lint:*",
     "lint:typescript": "tsc --build",
     "lint:eslint": "eslint --fix .",
     "xpostinstall": "husky && node scripts/sync-paths.js && manypkg check",
+    "xxpostinstall": "node -p 'require(\"./postinstall.js\")()'",
     "changeset": "changeset",
     "changeset:version": "changeset version",
     "changeset:release": "yarn build && yarn prettier --write '{packages,example}/*/{package.json,CHANGELOG.md}' '.changeset/*.json' && changeset publish",
@@ -72,12 +88,14 @@
   },
   "homepage": "https://github.com/chrisaugu/nuku-api#readme",
   "dependencies": {
+    "@apollo/client": "^4.3.1",
+    "@apollo/server": "^5.5.1",
+    "@as-integrations/express5": "^1.1.2",
     "@changesets/cli": "^2.29.7",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@elastic/elasticsearch": "^9.0.2",
     "@ladjs/graceful": "^5.0.0",
-    "@socket.io/redis-adapter": "^8.3.0",
     "@zero65tech/indian-stock-market": "^4.4.1",
     "agenda": "^5.0.0",
     "agendash": "^4.0.0",
@@ -106,8 +124,10 @@
     "express-request-id": "^3.0.0",
     "fake-stock-market-generator": "^1.0.3",
     "fs": "^0.0.1-security",
+    "graphql": "^16.14.2",
     "gridfs-stream": "^1.1.1",
     "helmet": "^8.1.0",
+    "hooman": "^2.0.0",
     "http-errors": "^2.0.0",
     "ioredis": "^5.6.1",
     "ip": "^2.0.1",
@@ -121,11 +141,13 @@
     "needle": "^3.3.1",
     "node-cron": "^4.1.1",
     "node-fetch": "^3.3.2",
+    "nodejs-web-scraper": "^6.1.3",
     "ora": "^8.2.0",
     "os": "^0.1.2",
     "p-retry": "^7.0.0",
     "papaparse": "^5.5.3",
     "path": "^0.12.7",
+    "picocolors": "^1.1.1",
     "pino": "^9.13.1",
     "pino-http": "^10.5.0",
     "pino-pretty": "^13.0.0",
@@ -140,7 +162,6 @@
     "semver": "^7.7.2",
     "serverless-http": "^3.2.0",
     "signale": "^1.4.0",
-    "socket.io": "^4.8.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
     "superagent": "^10.2.2",
@@ -153,6 +174,7 @@
     "ws": "^8.18.2"
   },
   "devDependencies": {
+    "@prettier/plugin-hermes": "^0.2.3",
     "@rollup/plugin-typescript": "^12.1.3",
     "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
@@ -161,8 +183,12 @@
     "c8": "^7.13.0",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.36.0",
+    "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-ft-flow": "^3.0.11",
+    "flow-bin": "^0.332.0",
+    "flow-eslint": "^0.333.0",
+    "flow-remove-types": "^2.332.0",
     "git-commit-msg-linter": "^5.0.8",
     "husky": "^9.1.7",
     "jest": "^30.0.2",
@@ -181,7 +207,16 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "{src,spec}/{**/*,*}.js": [
+      "prettier --write",
+      "eslint --fix --cache",
+      "git add"
+    ],
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

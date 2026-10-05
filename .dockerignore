@@ -9,7 +9,6 @@ Dockerfile
 .vscode
 .vercel
 package
-data
 .postman
 .clinic
 sdk

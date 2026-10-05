@@ -2,10 +2,10 @@
 
 # Keys
 
-Added – for new features,
-Deprecated – for deprecated features that will be removed in future versions,
-Removed – for removed functions,
-Fixed – for fixed bugs and refactoring.
+- `Added` – for new features,
+- `Deprecated` – for deprecated features that will be removed in future versions,
+- `Removed` – for removed functions,
+- `Fixed` – for fixed bugs and refactoring.
 
 ## Release Notes
 
@@ -76,6 +76,27 @@ Fixed – for fixed bugs and refactoring.
 - Made changes to the documentation ([0cbe2cf](https://github.com/chrisaugu/pngx-api/commit/0cbe2cf))
 - **api:** Updated the docs ([d76cce4](https://github.com/chrisaugu/pngx-api/commit/d76cce4))
 - Updated Readme file ([e11c0ab](https://github.com/chrisaugu/pngx-api/commit/e11c0ab)) -->
+
+# 2.0.5 / 2026-09-21
+
+- added ADY to COMPANIES constants
+- added support for graphql
+- refreshed the README with setup, configuration, deployment, and API usage documentation
+- Webhooks endpoints are prefixed with `http[s]://nuku.com/api/v2/webhook`.
+- Server-Sent Events endpoints are prefixed with `http[s]://nuku.com/events`.
+- GraphQL endpoints are prefixed with `http[s]://nuku.com/graphql`.
+- WebSocket endpoints are prefixed with `ws[s]://nuku.com/ws`. Websocket is only available from >= v2
+- Cached API responses
+- Changed `ticker` to `symbol` in company model
+
+# 2.0.4 / 2026-05-30
+
+- added `GET /api/v2/stocks/:code/:date` endpoint to get a stock quote for a specific trading date
+- updated API documentation for dated stock quote responses and weekend/holiday validation errors
+
+# 2.0.3 / 2026-05-14
+
+- Added KSL361 to COMPANIES constrants
 
 # 2.0.2 / 2025-12-17
 

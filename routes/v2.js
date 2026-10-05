@@ -19,6 +19,7 @@ const {
 } = require("../constants");
 const {
   Stock,
+  Quote,
   Company,
   Ticker,
   Indices,
@@ -27,13 +28,17 @@ const {
 const logger = require("../libs/logger").winstonLogger;
 const redis = require("../libs/redis").createRedisIoClient;
 const { cache, cacheMiddleware } = require("../middlewares");
+const { FRAMES, getRange, calculateStartDate } = require("../utils/dateRanges");
 // const { iexApiToken, iexSandboxToken } = require("../../config/keys");
 const iexApiToken = "",
   iexSandboxToken = "";
 
-const childWorkerPath = path.resolve(
+const holidays = require("../data/trade_holidays.json");
+const { isSameDay } = require("date-fns/isSameDay");
+
+const childNewsWorkerPath = path.resolve(
   process.cwd(),
-  "./jobs/news_aggregator.js"
+  "./jobs/news_aggregator.js",
 );
 const base_url = new URL(BASE_URL);
 
@@ -167,21 +172,21 @@ router
         query: req.query,
       });
     }
+  })
+  .post(async function (req, res) {
+    const update = req.body;
+
+    try {
+      const company = await Company.create(update);
+
+      res.json(company);
+    } catch (error) {
+      return res.json({
+        status: "Error",
+        message: error,
+      });
+    }
   });
-// .post(async function(req, res) {
-// 	let update = req.body;
-
-// 	try {
-// 		let company = await Company.create(update);
-
-// 		res.json(company);
-// 	} catch (error) {
-// 		return res.json({
-// 			status: "Error",
-// 			message: error
-// 		});
-// 	}
-// })
 
 /**
  * @swagger
@@ -196,40 +201,40 @@ router
  *         description: A successful response
  *
  */
+router.get("/companies/:code", cache(10), async function (req, res) {
+  const { code } = req.params;
+
+  try {
+    logger.info("Retrived company details");
+    const company = await Company.find({ symbol: code });
+    // if (err) {
+    //   logger.error("Error retrieving stocks", {
+    //     error: err.message,
+    //     stack: err.stack,
+    //     params: req.params,
+    //     query: req.query,
+    //   });
+    // return res.status(500).json({
+    //   status: 500,
+    //   message: "Internal Server Error",
+    // });
+    // }
+    // });
+
+    logger.debug("Retrived company details", company);
+    res.json(company);
+  } catch (error) {
+    logger.error("Error retrieving stocks", {
+      error: error.message,
+      stack: error.stack,
+      params: req.params,
+      query: req.query,
+    });
+  }
+});
+
 router
   .route("/companies/:code")
-  .get(async function (req, res) {
-    const { code } = req.params;
-
-    try {
-      logger.info("Retrived company details");
-      const company = await Company.findByCode(code, function (err, company) {
-        if (err) {
-          logger.error("Error retrieving stocks", {
-            error: err.message,
-            stack: err.stack,
-            params: req.params,
-            query: req.query,
-          });
-          return res.status(500).json({
-            status: 500,
-            message: "Internal Server Error",
-          });
-        }
-        return company;
-      });
-
-      logger.debug("Retrived company details", company);
-      res.json(company);
-    } catch (error) {
-      logger.error("Error retrieving stocks", {
-        error: error.message,
-        stack: error.stack,
-        params: req.params,
-        query: req.query,
-      });
-    }
-  })
   .post(async function (req, res) {
     const update = req.body;
 
@@ -332,7 +337,7 @@ router
  * Get a specific company info using stock quote
  * @param :ticker unique ticker of the comapny
  */
-router.route("/companies/:code/code").get(async function (req, res) {
+router.get("/companies/:code/code", cache(10), async function (req, res) {
   const { code } = req.params;
 
   const company = await Company.findOne({ ticker: new RegExp(code, "i") });
@@ -340,16 +345,12 @@ router.route("/companies/:code/code").get(async function (req, res) {
   res.json(company);
 });
 
-router.get("/company/:code", async function (req, res) {
+router.get("/company/:code", cache(10), async function (req, res) {
   const stockTicker = req.params.ticker;
 
   const company = await Company.findOne({ ticker: stockTicker });
 
-  const data = {
-    ...data,
-  };
-
-  res.json(data);
+  res.json(company);
 });
 
 /**
@@ -399,7 +400,7 @@ router.get("/company/:code", async function (req, res) {
 router.get("/historicals/:code", (req, res) => {
   res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}`);
 });
-router.get("/stocks/historicals/:code", function (req, res) {
+router.get("/stocks/historicals/:code", cache(10), function (req, res) {
   if (!req.params.code) {
     return res.status(400).json({
       status: 400,
@@ -554,51 +555,55 @@ router.get("/stocks/historicals/:code", function (req, res) {
 router.get("/historicals/:code/essentials", (req, res) => {
   res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}/essentials`);
 });
-router.get("/stocks/historicals/:code/essentials", function (req, res) {
-  const code = req.params.code;
+router.get(
+  "/stocks/historicals/:code/essentials",
+  cache(10),
+  function (req, res) {
+    const code = req.params.code;
 
-  const stock = Stock.find({});
-  // stock.where({ 'code': code });
-  // stock.select('date bid offer code close high low open vol_today');
+    const stock = Stock.find({});
+    // stock.where({ 'code': code });
+    // stock.select('date bid offer code close high low open vol_today');
 
-  stock
-    .exec()
-    .then(function (stocks) {
-      const count = stocks.length;
-      const dates = [];
-      const bids = [];
-      const offers = [];
+    stock
+      .exec()
+      .then(function (stocks) {
+        const count = stocks.length;
+        const dates = [];
+        const bids = [];
+        const offers = [];
 
-      if (stocks && stocks.length > 0) {
-        stocks.forEach(function (stock) {
-          dates.push(new Date(stock.date).getTime());
-          bids.push(stock.bid);
-          offers.push(stock.offer);
-        });
+        if (stocks && stocks.length > 0) {
+          stocks.forEach(function (stock) {
+            dates.push(new Date(stock.date).getTime());
+            bids.push(stock.bid);
+            offers.push(stock.offer);
+          });
 
-        res.status(200).json([
-          {
-            columns: [
-              ["x", ...dates],
-              ["y1", ...bids],
-              ["y2", ...offers],
-            ],
-            types: { y0: "line", y1: "line", x: "x" },
-            names: { y0: "#0", y1: "#1" },
-            colors: { y0: "#3DC23F", y1: "#F34C44" },
-          },
-        ]);
-      } else {
-        res.status(204).json({
-          status: 204,
-          reason: "No Content",
-        });
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-});
+          res.status(200).json([
+            {
+              columns: [
+                ["x", ...dates],
+                ["y1", ...bids],
+                ["y2", ...offers],
+              ],
+              types: { y0: "line", y1: "line", x: "x" },
+              names: { y0: "#0", y1: "#1" },
+              colors: { y0: "#3DC23F", y1: "#F34C44" },
+            },
+          ]);
+        } else {
+          res.status(204).json({
+            status: 204,
+            reason: "No Content",
+          });
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+);
 
 /**
  * @swagger
@@ -629,11 +634,11 @@ router.get("/stocks/historicals/:code/essentials", function (req, res) {
  *
  * @param: /api/v2/stocks?code=CODE, retreive quotes from a specific company for the current day
  * @param: /api/v2/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
- * @param: /api/v2/stocks?code=CODE&date_from=DATE&date_to=DATE
+ * @param: /api/v2/stocks?code=CODE&start=DATE&end=DATE
  *
  * Date form
  */
-router.get("/stocks", function (req, res) {
+router.get("/stocks", cache(10), function (req, res) {
   let date = req.query.date;
   let start = req.query.start;
   let end = req.query.end;
@@ -713,22 +718,14 @@ router.get("/stocks", function (req, res) {
   query
     .exec()
     .then(function (stocks) {
-      if (stocks && stocks.length > 0) {
-        logger.debug("Quotes retrieved", stocks);
-        res.json({
-          status: 200,
-          ...dateStr,
-          last_updated: stocks[0].date,
-          count: stocks.length,
-          data: stocks,
-        });
-      } else {
-        logger.debug("No content");
-        res.json({
-          status: 204,
-          reason: "No Content",
-        });
-      }
+      logger.debug("Quotes retrieved", stocks);
+      res.json({
+        status: 200,
+        ...dateStr,
+        last_updated: stocks[0]?.date,
+        count: stocks.length,
+        data: stocks,
+      });
     })
     .catch((error) => {
       logger.error("Error retrieving stocks", {
@@ -799,6 +796,20 @@ router.get("/stocks", function (req, res) {
 //   }
 // });
 
+// TODO
+// https://axionquant.com/docs/01-market-data/stocks/list
+// /api/v2/stocks/list/market
+// /api/v2/stocks/list/country
+// /api/v2/stocks/list/currency
+// /api/v2/stocks/list/sector
+// /api/v2/stocks/list/industry
+// /api/v2/stocks/list/type
+// /api/v2/stocks/list/exchange
+// /api/v2/stocks/gainers?days=30&limit=20
+// /api/v2/stocks/losers?days=30&limit=20
+// /api/v2/stocks/:ticker/quote
+// /api/v2/stocks/:ticker
+
 /**
  * @swagger
  *
@@ -817,7 +828,7 @@ router.get("/stocks", function (req, res) {
  * Get a specific quote by code
  * @param :code - a unique code that represents the quote/stock of a public company on PNGX
  */
-router.get("/stocks/:code", function (req, res) {
+router.get("/stocks/:code", cache(10), function (req, res) {
   const code = req.params.code;
 
   logger.info(`Retriving stocks for ${code}`);
@@ -850,7 +861,7 @@ router.get("/stocks/:code", function (req, res) {
 /**
  * OHLCV
  */
-router.get("/stocks/:code/ohlcv/", async function (req, res) {
+router.get("/stocks/:code/ohlcv", cache(10), async function (req, res) {
   const code = req.params.code;
 
   Stock.find({ code: code }).then((stocks) => {
@@ -879,7 +890,7 @@ router.get("/stocks/:code/ohlcv/", async function (req, res) {
  * /api/stocks/ohlcv/history
  * OHLCV
  */
-router.get("/stocks/:code/ohlcv/history", async function (req, res) {
+router.get("/stocks/:code/ohlcv/history", cache(10), async function (req, res) {
   const code = req.params.code;
   const limit = parseInt(req.query["limit"]) || 100;
   const sort = parseInt(req.query["sort"]) || 1;
@@ -934,6 +945,257 @@ router.get("/stocks/:code/ohlcv/history", async function (req, res) {
 });
 
 /**
+ * /api/stocks/:code/quote
+ * Get comprehensive quote for a specific stock code
+ */
+
+/**
+ * /api/stocks/:code/prices
+ * Price history for a Quote
+ * @example
+ */
+router.get("/stocks/:code/prices", cache(10), async function (req, res) {
+  const code = req.params.code;
+  if (typeof code !== "string") {
+    res.status(400).json({
+      success: false,
+      error: "Please provide a valid code",
+    });
+    return;
+  }
+  if (!SYMBOLS.includes(code)) {
+    res.status(400).json({
+      success: false,
+      error: "Please provide a valid code",
+    });
+    return;
+  }
+
+  const period = req.query["period"];
+  // const frame = req.query["frame"];
+  const limit = parseInt(req.query["limit"]) || 100;
+  const sort = parseInt(req.query["sort"]) || 1;
+  const skip = parseInt(req.query["skip"]) || 0;
+  const start = req.query["start"];
+  const end = req.query["end"];
+
+  try {
+    // const today = new Date();
+    // let startDate = start ? new Date(start) : today;
+    // let endDate = end ? new Date(end) : today;
+
+    let range;
+    if (start) {
+      range = {
+        start: new Date(start),
+        end: end ? new Date(end) : new Date(),
+      };
+      if (isNaN(range.start) || isNaN(range.end)) {
+        return res
+          .status(400)
+          .json({ success: false, message: "Invalid date range" });
+      }
+    } else {
+      range = getRange(period);
+    }
+
+    let result = [];
+
+    // if (period) {
+    //   const recordService = new RecordService();
+
+    //   // 1min, 5min, 1h, 1day, 5day, 1m, 6m, 1y, 5y, 10y, all
+    //   switch (period) {
+    //     case '1min':
+    //       startDate = calculateStartDate(endDate, 1, 'min');
+    //       result = await recordService.groupBy1Min(code, startDate, endDate);
+    //     case '5min':
+    //       startDate = calculateStartDate(endDate, 5, 'min');
+    //       result = await recordService.groupBy5Mins(code, startDate, endDate);
+    //     case '1h':
+    //       startDate = calculateStartDate(endDate, 1, 'h');
+    //       result = await recordService.groupBy1Hour(code, startDate, endDate);
+    //     case '1d':
+    //       startDate = calculateStartDate(endDate, 1, 'd');
+    //       result = await recordService.groupBy1Day(code, startDate, endDate);
+    //       break;
+    //     case '5d':
+    //       startDate = calculateStartDate(endDate, 5, 'd');
+    //       result = await recordService.groupBy5Days(code, startDate, endDate);
+    //       break;
+    //     case '1m': // mtd
+    //       startDate = calculateStartDate(endDate, 1, 'm');
+    //       result = await recordService.groupBy1Month(code, startDate, endDate);
+    //       break;
+    //     case '6m':
+    //       startDate = calculateStartDate(endDate, 6, 'm');
+    //       result = await recordService.groupBy6Months(code, startDate, endDate);
+    //       break;
+    //     case '1y': // ytd
+    //       startDate = calculateStartDate(endDate, 1, 'y');
+    //       result = await recordService.groupBy1Year(code, startDate, endDate);
+    //       break;
+    //     case '5y':
+    //       startDate = calculateStartDate(endDate, 5, 'y');
+    //     case '10y':
+    //       startDate = calculateStartDate(endDate, 10, 'y');
+    //     case 'all':
+    //       result = await recordService.groupByAllYears(code);
+    //       break;
+    //     default:
+    //       startDate = calculateStartDate(endDate, 1, 'h');
+    //       result = await recordService.groupBy1Hour(code, startDate, endDate);
+    //       break;
+    //   }
+    // }
+    // else {
+    const filter = { code };
+    if (range.start || range.end) {
+      filter.date = {};
+      if (range.start) filter.date.$gte = range.start;
+      if (range.end) filter.date.$lte = range.end;
+    }
+
+    const query = Quote.find(filter);
+    query.select("-_id date code last");
+    // query.where({ code: code });
+
+    // if (limit) {
+    //   query.limit(limit);
+    // }
+
+    if (sort) {
+      query.sort({ date: sort });
+    }
+
+    if (skip) {
+      query.skip(skip);
+    }
+
+    // if (start && !end) {
+    //   query.where({
+    //     date: {
+    //       $gte: new Date(start),
+    //       $lte: new Date()
+    //     }
+    //   })
+    // }
+    // if (start && end) {
+    //   query.where({
+    //     date: {
+    //       $gte: new Date(start),
+    //       $lte: new Date(end)
+    //     }
+    //   })
+    // }
+
+    query.lean();
+
+    result = await query.exec();
+    // }
+    res.status(200).json({
+      success: true,
+      count: result.length,
+      data: result,
+      meta: {
+        frame: period,
+        start: range.start,
+        end: range.end,
+        limit,
+        sort,
+        skip,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      count: 0,
+      data: [],
+      meta: {
+        limit,
+        sort,
+        skip,
+      },
+    });
+  }
+});
+router.get("/frames", cache(10), (req, res) =>
+  res.json({ frames: Object.keys(FRAMES) }),
+);
+
+/**
+ * Get quote for a particular stock given date
+ */
+router.get("/stocks/:code/:date", cache(10), async function (req, res) {
+  const code = req.params.code;
+  const date = req.params.date;
+
+  if (!code || !date) {
+    return res.json({
+      status: 400,
+      message: "code and date is required",
+    });
+  }
+
+  // Check if date falls on a weekend or a public holiday
+  const isHoliday = holidays.find((a, b) =>
+    isSameDay(new Date(date), new Date(a.date)),
+  );
+  if (isHoliday) {
+    return res.json({
+      status: 400,
+      message: "Date falls on a holiday. Pick a different date",
+    });
+  }
+  if (isWeekend(date)) {
+    return res.json({
+      status: 400,
+      message: "Date falls on a weekend. Pick a different date",
+    });
+  }
+
+  logger.debug(`Retriving stocks for ${code}`);
+
+  // // last N trading days
+  // const rows = await Stock.find({ code, date: { $lte: new Date() } })
+  //   .sort({ date: -1 })
+  //   .limit(5)
+  //   .lean();
+  // rows.reverse();
+
+  Stock.find({
+    code: code,
+    date: new Date(),
+    // date: { $lte: new Date() }
+  })
+    .sort({ date: -1 })
+    .limit(5)
+    .lean()
+    .then(function (result) {
+      // result.reverse();
+      if (result) {
+        logger.info(`${code} stocks `, result);
+        res.json({
+          status: 200,
+          last_updated: result.date,
+          data: result,
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((error) => {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    });
+});
+
+/**
  * @swagger
  *
  *
@@ -955,7 +1217,7 @@ router.get("/stocks/:code/ohlcv/history", async function (req, res) {
 router.get("/tickers", (req, res) => {
   res.redirect(301, "/api/v2/stocks/tickers");
 });
-router.get("/stocks/tickers", async function (req, res) {
+router.get("/stocks/tickers", cache(10), async function (req, res) {
   logger.info("Retriving tickers");
 
   try {
@@ -1015,14 +1277,14 @@ router.get("/stocks/tickers", async function (req, res) {
   // 	{
   // 	  $group : {
   // 		 _id : { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
-  // 		 totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } },
+  // 		 totalSalePrice: { $sum: { $multiply: [ "$price", "$quantity" ] } },
   // 		 averageQuantity: { $avg: "$quantity" },
   // 		 count: { $sum: 1 }
   // 	  }
   // 	},
   // 	// Third Stage
   // 	{
-  // 	  $sort : { totalSaleAmount: -1 }
+  // 	  $sort : { totalSalePrice: -1 }
   // 	}
   //    ])
 });
@@ -1034,7 +1296,7 @@ router.get("/stocks/tickers", async function (req, res) {
 router.get("/tickers/:code", (req, res) => {
   res.redirect(301, `/api/v2/stocks/tickers/${req.params.code}`);
 });
-router.get("/stocks/tickers/:code", async (req, res) => {
+router.get("/stocks/tickers/:code", cache(10), async (req, res) => {
   const code = req.params.code;
 
   Ticker.find({ code: code }).then((ticker) => {
@@ -1048,6 +1310,30 @@ router.get("/stocks/tickers/:code", async (req, res) => {
   });
 });
 
+function fetchNews() {
+  return new Promise((resolve, reject) => {
+    logger.info("[Main_Thread]: Retrieving news");
+
+    const payload = {
+      page,
+    };
+
+    const worker = new Worker(childNewsWorkerPath);
+    worker.postMessage(payload);
+
+    worker.on("message", resolve);
+
+    worker.on("error", reject);
+
+    worker.on("exit", (exitCode) => {
+      if (exitCode !== 0) {
+        logger.error(`Worker stopped with exit code ${exitCode}`);
+        reject(new Error(`Worker stopped with exit code ${exitCode}`));
+      }
+    });
+  });
+}
+
 /**
  * /api/v2/news
  */
@@ -1056,32 +1342,16 @@ router.get("/news", cache(10), async function (req, res) {
 
   try {
     if (isMainThread) {
-      logger.info("[Main_Thread]: Retrieving news");
-
-      const payload = {
-        page: page,
-      };
-
-      const worker = new Worker(childWorkerPath);
-      worker.postMessage(payload);
-
-      worker.on("message", (result) => {
-        logger.debug("completed: ", result);
-        logger.debug("Retrieved news ", result);
-        return res.send(result);
-      });
-
-      worker.on("error", (error) => {
-        logger.error(`Error occured`, error);
-        throw new Error(`Error occured`, error);
-      });
-
-      worker.on("exit", (exitCode) => {
-        if (exitCode !== 0) {
-          logger.error(`Worker stopped with exit code ${exitCode}`);
-          throw new Error(`Worker stopped with exit code ${exitCode}`);
-        }
-      });
+      fetchNews()
+        .then((result) => {
+          logger.debug("Completed: ", result);
+          logger.debug("Retrieved news ", result);
+          return res.send(result);
+        })
+        .catch((error) => {
+          logger.error(`Error occured`, error);
+          throw new Error(`Error occured`, error);
+        });
     }
   } catch (error) {
     logger.error("An error whilte fetching news:", {
@@ -1297,7 +1567,7 @@ function eventsHandler(req, res, next) {
 
 function sendEventsToAll(newFact) {
   clients.forEach((client) =>
-    client.response.write(`data: ${JSON.stringify(newFact)}\n`)
+    client.response.write(`data: ${JSON.stringify(newFact)}\n`),
   );
 }
 
@@ -1315,8 +1585,6 @@ router.post("/endpoints", addEndpoint);
  */
 router.get("/market/status", async (req, res) => {
   try {
-    const holidays = require("../data/trade_holidays.json");
-
     // if current day matches holiday's date
     const status = holidays.find((holiday) => isToday(new Date(holiday.date)));
     const is_weekend = isWeekend(new Date());
@@ -1355,7 +1623,6 @@ router.get("/market/status", async (req, res) => {
  */
 router.get("/market/holidays", async (req, res) => {
   try {
-    const holidays = require("../data/trade_holidays.json");
     res.status(200).json(holidays);
   } catch (error) {
     logger.error("Error fetching market holidays:", {
@@ -1369,6 +1636,7 @@ router.get("/market/holidays", async (req, res) => {
 
 /**
  *
+ * TODO: fix index components
  */
 router.get("/indices", (req, res) => {
   Indices.find({})
@@ -1388,6 +1656,13 @@ router.get("/indices", (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     });
 });
+// TODO
+// /api/v2/indices/tickers
+// /api/v2/indices/gainers?days=30&limit=20
+// /api/v2/indices/losers?days=30&limit=20
+// /api/v2/indices/:ticker/quote
+// /api/v2/indices/:ticker
+// /api/v2/indices/NDX/prices?frame=monthly&from=2024-01-01&to=2024-12-31
 
 /**
  *
@@ -1441,7 +1716,7 @@ router.get("/batch/:symbols", (req, res) => {
         process.env.NODE_ENV === "production" ? "cloud" : "sandbox"
       }.iexapis.com/stable/stock/market/batch?symbols=${
         req.params.symbols
-      }&filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&types=quote&token=${iexApiToken}`
+      }&filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&types=quote&token=${iexApiToken}`,
     )
     .then((stocks) => res.json(stocks.data))
     .catch((err) => {
@@ -1458,14 +1733,14 @@ router.get("/lookup/:symbol", (req, res) => {
         process.env.NODE_ENV === "production" ? "cloud" : "sandbox"
       }.iexapis.com/stable/stock/${
         req.params.symbol
-      }/quote?filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&token=${iexApiToken}`
+      }/quote?filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&token=${iexApiToken}`,
     )
     .then((stock) => res.json(stock.data))
     .catch((err) =>
       res.status(err.response.status).json({
         noStockFound: err.response.data,
         symbol: req.params.symbol.toUpperCase(),
-      })
+      }),
     );
 });
 
@@ -1485,21 +1760,328 @@ router.get("/chart/:symbol/:range", (req, res) => {
     .get(
       `https://sandbox.iexapis.com/stable/stock/${req.params.symbol}/chart/${
         rangeSubUrl[req.params.range]
-      }&token=${iexSandboxToken}`
+      }&token=${iexSandboxToken}`,
     )
     .then((chart) =>
       res.json({
         symbol: req.params.symbol,
         range: req.params.range,
         chart: chart.data,
-      })
+      }),
     )
     .catch((err) =>
       res.status(err.response.status).json({
         noChartFound: err.response.data,
         symbol: req.params.symbol.toUpperCase(),
-      })
+      }),
     );
 });
 
 module.exports = router;
+
+class RecordService {
+  // Shared match builder
+  _match(code, startDate, endDate) {
+    const match = {};
+    if (code) match.code = code;
+    if (startDate || endDate) {
+      match.date = {};
+      if (startDate) match.date.$gte = startDate;
+      if (endDate) match.date.$lte = endDate;
+    }
+    return match;
+  }
+
+  async groupBy1Min(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: {
+              $subtract: [
+                { $dayOfMonth: "$date" },
+                { $mod: [{ $dayOfMonth: "$date" }, 5] },
+              ],
+            },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+    ]);
+  }
+
+  async groupBy5Mins(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: {
+              $subtract: [
+                { $dayOfMonth: "$date" },
+                { $mod: [{ $dayOfMonth: "$date" }, 5] },
+              ],
+            },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+    ]);
+  }
+
+  async groupBy1Hour(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: { $dayOfMonth: "$date" },
+            hour: { $hour: "$date" },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1, "_id.hour": 1 } },
+    ]);
+  }
+
+  async groupBy1Day(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } }, // ✅ sort BEFORE group for $first/$last
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: { $dayOfMonth: "$date" },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+      {
+        $project: {
+          _id: 0,
+          date: {
+            $dateFromParts: {
+              year: "$_id.year",
+              month: "$_id.month",
+              day: "$_id.day",
+            },
+          },
+          code: 1,
+          first: "$startLast", // alias to match frontend shape
+          last: "$endLast",
+          high: "$maxLast",
+          low: "$minLast",
+          avg: "$avgLast",
+          total: "$totalLast",
+          diff: "$lastPriceDiff",
+          count: 1,
+          startDate: 1,
+          endDate: 1,
+        },
+      },
+    ]);
+  }
+
+  async groupBy5Days(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: {
+      //       year: { $year: "$date" },
+      //       month: { $month: "$date" },
+      //       day: {
+      //         $subtract: [
+      //           { $dayOfMonth: "$date" },
+      //           { $mod: [{ $dayOfMonth: "$date" }, 5] }
+      //         ]
+      //       }
+      //     },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+    ]);
+  }
+
+  async groupBy1Month(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: { year: { $year: "$date" }, month: { $month: "$date" } },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1, "_id.month": 1 } },
+    ]);
+  }
+
+  async groupBy6Months(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: {
+      //       year: { $year: "$date" },
+      //       half: { $cond: [{ $lte: [{ $month: "$date" }, 6] }, "H1", "H2"] }
+      //     },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1, "_id.half": 1 } },
+    ]);
+  }
+
+  async groupBy1Year(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: { year: { $year: "$date" } },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1 } },
+    ]);
+  }
+
+  async groupByAllYears(code) {
+    return await Quote.aggregate([
+      { $match: this._match(code) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: null,
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } }
+    ]);
+  }
+}

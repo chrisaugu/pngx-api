@@ -1,9 +1,5 @@
 const { parentPort } = require("node:worker_threads");
-const {
-  getStockData,
-  getQuotes,
-  getTickers,
-} = require("../routes/mockStockApi");
+const { getStockData, getQuotes, getTickers } = require("../mockStockApi");
 const { createRedisIoClient } = require("../libs/redis");
 
 const publisher = createRedisIoClient();
@@ -27,7 +23,7 @@ const actualJob = () => {
   console.log("HEllo");
 };
 
-actualJob();
+// actualJob();
 
 function cancel() {
   // do cleanup here
@@ -60,6 +56,7 @@ process.on("SIGINT", async () => {
 
 setInterval(() => {
   const stocks = getStockData();
+
   stocks.forEach((stock) => {
     publisher.publish(`stocks:${stock.ticker}`, JSON.stringify(stock));
   });
@@ -67,6 +64,7 @@ setInterval(() => {
 
 setInterval(async () => {
   const tickers = await getTickers();
+
   tickers.forEach((ticker) => {
     publisher.publish(`tickers:${ticker.symbol}`, JSON.stringify(ticker));
   });

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticker Tape — iframe embeddable</title>
+  <style>
+    /* minimal reset for the demo page, not part of the embeddable widget */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #f4f7fb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* ---- style for the demo wrapper (not part of the embed) ---- */
+    .demo-container {
+      max-width: 900px;
+      width: 100%;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 2rem 1.5rem 2.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0b1a2f;
+      letter-spacing: -0.01em;
+    }
+    .subhead {
+      color: #4e5e73;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      border-left: 4px solid #0a7e8c;
+      padding-left: 1rem;
+      background: #eef8fa;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.4;
+    }
+    .subhead code {
+      background: #d9e9ed;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #06535e;
+    }
+    .iframe-wrapper {
+      border: 1px solid #cddae9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #ffffff;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+    .embed-code {
+      background: #0e1e2f;
+      color: #d4e6ff;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin-top: 1rem;
+    }
+    .embed-code span {
+      color: #9bc9ff;
+    }
+    .note {
+      margin-top: 1rem;
+      color: #5c6f88;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .note i {
+      font-style: normal;
+      background: #d2e5ff;
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      color: #0e4b7a;
+    }
+
+    /* ------------------------------------------------------------------
+       The iframe itself — this is the actual embed.
+       The iframe content is written inline via srcdoc, so it's fully
+       self-contained and can be copy-pasted as a standalone file.
+       ------------------------------------------------------------------ */
+    .ticker-iframe {
+      width: 100%;
+      height: 80px;          /* comfortable height for the ticker */
+      border: none;
+      display: block;
+      background: #0a1a2b;   /* fallback background */
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-container">
+  <h1>📰 Ticker Tape — iframe embed</h1>
+  <div class="subhead">
+    <code>&lt;iframe&gt;</code> with <code>srcdoc</code> — fully self‑contained, no external files.
+    Copy the code below into any HTML page.
+  </div>
+
+  <!-- 
+    ========== EMBEDDABLE TICKER TAPE (IFRAME) ==========
+    The entire ticker tape is inside srcdoc. It works anywhere.
+    No external CSS/JS — everything is isolated.
+    =====================================================
+  -->
+  <div class="iframe-wrapper">
+    <iframe 
+      class="ticker-iframe"
+      title="Embeddable ticker tape widget"
+      srcdoc='
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            /* reset & base */
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            body {
+              background: #0b1a2b;
+              font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 100vh;
+              margin: 0;
+              overflow: hidden;
+            }
+
+            /* ticker container — takes full width of iframe */
+            .ticker-container {
+              width: 100%;
+              background: linear-gradient(145deg, #0f2136 0%, #0a1725 100%);
+              border-top: 1px solid #2e4b6b;
+              border-bottom: 1px solid #2e4b6b;
+              box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.6);
+              padding: 0.75rem 0;
+              overflow: hidden;
+              position: relative;
+            }
+
+            /* soft glow / edge fade effect */
+            .ticker-container::before,
+            .ticker-container::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              width: 30px;
+              z-index: 2;
+              pointer-events: none;
+            }
+            .ticker-container::before {
+              left: 0;
+              background: linear-gradient(to right, #0a1725 0%, transparent 100%);
+            }
+            .ticker-container::after {
+              right: 0;
+              background: linear-gradient(to left, #0a1725 0%, transparent 100%);
+            }
+
+            /* the scrolling track */
+            .ticker-track {
+              display: flex;
+              align-items: center;
+              width: max-content;
+              animation: scrollTicker 28s linear infinite;
+              will-change: transform;
+              gap: 0;
+              padding-left: 0; /* extra space so first item starts after edge */
+            }
+
+            /* individual ticker item */
+            .ticker-item {
+              display: inline-flex;
+              align-items: center;
+              white-space: nowrap;
+              padding: 0 0.5rem;
+              font-size: 1.1rem;
+              font-weight: 500;
+              letter-spacing: 0.02em;
+              color: #e7f2ff;
+              text-shadow: 0 0 8px rgba(100, 180, 255, 0.3);
+            }
+
+            /* dot separator between items */
+            .ticker-item::after {
+              content: "•";
+              color: #3e7bb6;
+              font-size: 1.6rem;
+              line-height: 1;
+              margin-left: 1.5rem;
+              margin-right: 0.2rem;
+              opacity: 0.9;
+            }
+            /* last item doesn't need separator? but we keep for consistency and loop illusion */
+            /* we actually want the separator after every item so the loop stays seamless */
+
+            /* price change indicators */
+            .up {
+              color: #9ae6b4;
+              font-weight: 600;
+              margin-left: 0.6rem;
+              font-size: 0.95rem;
+              background: rgba(56, 161, 105, 0.15);
+              padding: 0.1rem 0.5rem;
+              border-radius: 20px;
+              border: 1px solid rgba(72, 187, 120, 0.3);
+            }
+            .down {
+              color: #feb2b2;
+              font-weight: 600;
+              margin-left: 0.6rem;
+              font-size: 0.95rem;
+              background: rgba(229, 62, 62, 0.12);
+              padding: 0.1rem 0.5rem;
+              border-radius: 20px;
+              border: 1px solid rgba(245, 101, 101, 0.3);
+            }
+            .neutral {
+              color: #cbd5e0;
+              font-weight: 500;
+              margin-left: 0.6rem;
+              font-size: 0.95rem;
+              background: rgba(160, 174, 192, 0.1);
+              padding: 0.1rem 0.5rem;
+              border-radius: 20px;
+              border: 1px solid rgba(160, 174, 192, 0.2);
+            }
+
+            /* animation */
+            @keyframes scrollTicker {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+
+            /* reduce motion if user prefers */
+            @media (prefers-reduced-motion: reduce) {
+              .ticker-track {
+                animation: none;
+                overflow-x: auto;
+                width: 100%;
+                justify-content: flex-start;
+                padding: 0 1rem;
+              }
+              .ticker-container::before,
+              .ticker-container::after {
+                display: none;
+              }
+              .ticker-item::after {
+                content: "";
+                margin: 0;
+              }
+            }
+
+            /* optional: pause on hover */
+            .ticker-container:hover .ticker-track {
+              animation-play-state: paused;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="ticker-container">
+            <div class="ticker-track">
+              <!-- 
+                Ticker items — duplicated for seamless looping.
+                First set (10 items) then identical second set.
+              -->
+              <!-- SET 1 -->
+              <div class="ticker-item">
+                <span>🌐 S&P 500</span>
+                <span class="up">+0.82%</span>
+              </div>
+              <div class="ticker-item">
+                <span>📈 NASDAQ</span>
+                <span class="up">+1.24%</span>
+              </div>
+              <div class="ticker-item">
+                <span>₿ BTC/USD</span>
+                <span class="up">+2.15%</span>
+              </div>
+              <div class="ticker-item">
+                <span>💎 ETH/USD</span>
+                <span class="down">-1.07%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🛢️ Crude Oil</span>
+                <span class="down">-0.45%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🥇 Gold</span>
+                <span class="up">+0.33%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🇪🇺 EUR/USD</span>
+                <span class="neutral">0.00%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🇯🇵 USD/JPY</span>
+                <span class="up">+0.61%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🏦 US 10Y</span>
+                <span class="down">-0.12%</span>
+              </div>
+              <div class="ticker-item">
+                <span>📊 VIX</span>
+                <span class="up">+3.42%</span>
+              </div>
+
+              <!-- SET 2 (identical to SET 1 for seamless loop) -->
+              <div class="ticker-item">
+                <span>🌐 S&P 500</span>
+                <span class="up">+0.82%</span>
+              </div>
+              <div class="ticker-item">
+                <span>📈 NASDAQ</span>
+                <span class="up">+1.24%</span>
+              </div>
+              <div class="ticker-item">
+                <span>₿ BTC/USD</span>
+                <span class="up">+2.15%</span>
+              </div>
+              <div class="ticker-item">
+                <span>💎 ETH/USD</span>
+                <span class="down">-1.07%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🛢️ Crude Oil</span>
+                <span class="down">-0.45%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🥇 Gold</span>
+                <span class="up">+0.33%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🇪🇺 EUR/USD</span>
+                <span class="neutral">0.00%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🇯🇵 USD/JPY</span>
+                <span class="up">+0.61%</span>
+              </div>
+              <div class="ticker-item">
+                <span>🏦 US 10Y</span>
+                <span class="down">-0.12%</span>
+              </div>
+              <div class="ticker-item">
+                <span>📊 VIX</span>
+                <span class="up">+3.42%</span>
+              </div>
+            </div>
+          </div>
+        </body>
+        </html>
+      '>
+    </iframe>
+  </div>
+
+  <!-- instruction + code snippet -->
+  <div class="note">
+    <i>i</i> The entire ticker is inside the <code>srcdoc</code> attribute — no external requests.
+  </div>
+
+  <div class="embed-code">
+    <span>&lt;!-- Paste this anywhere in your HTML --&gt;</span><br>
+    &lt;iframe <br>
+    &nbsp;&nbsp;width="100%" <br>
+    &nbsp;&nbsp;height="80" <br>
+    &nbsp;&nbsp;style="border:0;border-radius:12px;overflow:hidden;" <br>
+    &nbsp;&nbsp;title="Ticker tape" <br>
+    &nbsp;&nbsp;srcdoc="<span style="color:#a5d8ff;">&lt;!-- full ticker HTML here (see page source) --&gt;</span>" <br>
+    &gt;&lt;/iframe&gt;
+  </div>
+</div>
+
+</body>
+</html>
