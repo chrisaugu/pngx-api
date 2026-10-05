@@ -58,7 +58,7 @@
     "lint:typescript": "tsc --build",
     "lint:eslint": "eslint --fix .",
     "xpostinstall": "husky && node scripts/sync-paths.js && manypkg check",
-    "postinstall": "node -p 'require(\"./postinstall.js\")()'",
+    "xxpostinstall": "node -p 'require(\"./postinstall.js\")()'",
     "changeset": "changeset",
     "changeset:version": "changeset version",
     "changeset:release": "yarn build && yarn prettier --write '{packages,example}/*/{package.json,CHANGELOG.md}' '.changeset/*.json' && changeset publish",
