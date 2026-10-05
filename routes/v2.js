@@ -1310,7 +1310,7 @@ router.get("/stocks/tickers/:code", cache(10), async (req, res) => {
   });
 });
 
-function fetchNews() {
+function fetchNews(page) {
   return new Promise((resolve, reject) => {
     logger.info("[Main_Thread]: Retrieving news");
 
@@ -1342,7 +1342,7 @@ router.get("/news", cache(10), async function (req, res) {
 
   try {
     if (isMainThread) {
-      fetchNews()
+      fetchNews(page)
         .then((result) => {
           logger.debug("Completed: ", result);
           logger.debug("Retrieved news ", result);
