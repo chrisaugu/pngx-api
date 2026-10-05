@@ -43,6 +43,13 @@ async function start() {
   // let result = await news_fetcher();
 
   const page = 0;
+  // Listen for data coming from the parent thread
+  // parentPort.on('message', (data) => {
+  //   const sum = data.numberA + data.numberB;
+
+  //   // Return computed value back to the parent
+  //   parentPort.postMessage(`Result: ${sum}`);
+  // });
 
   // self.addEventListener('message', (event) => {
   //     const receivedData = event.data;
@@ -111,6 +118,7 @@ async function start() {
   });
 
   if (parentPort) {
+    console.log(updated);
     parentPort.postMessage(updated);
     parentPort.postMessage("done");
   }
