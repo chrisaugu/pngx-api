@@ -1,0 +1,29 @@
+{
+  "servers": {
+    "nuku-mcp-server": {
+      "type": "http",
+      "url": "http://localhost:3000/mcp",
+      "note": "For SSE connections, add this URL directly in your MCP Client"
+    },
+    "github-mcp": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp"
+    },
+    "bitchat-android Docs": {
+      "type": "sse",
+      "url": "https://gitmcp.io/permissionlesstech/bitchat-android"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\Christian.Augustyn\\Projects\\HamasStret"
+      ]
+    }
+  }
+}

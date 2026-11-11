@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "baseUrl": "./",
+    "outDir": "./build",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "#/*": ["./src/*"]
+    },
+    "types": ["bun", "node"]
+  },
+  "include": ["src/**/*", "src/server.ts", "src/stdio.ts", "src/http.ts"],
+  "exclude": ["node_modules"]
+}
