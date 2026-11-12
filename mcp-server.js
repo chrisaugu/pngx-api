@@ -112,41 +112,508 @@ async function createMCPServer(app) {
     sessionIdGenerator: () => randomUUID(),
   });
 
+  // ---------------------------------------------------------------------------
+  // NUKU MCP PROMPTS — STOCK MARKET & INVESTMENT RESEARCH
+  // ---------------------------------------------------------------------------
+
+  // 1. Individual Stock Analysis
   mcpServer.registerPrompt(
-    "review-code",
+    "stock-analysis",
     {
-      title: "Code Review",
-      description:
-        "Review a snippet of code for bugs, security, and best practices",
+      title: "Stock Analysis",
+      description: "Perform a comprehensive analysis of a PNGX-listed stock.",
       argsSchema: {
-        language: z
-          .string()
-          .describe("Programming language (e.g., JavaScript, Python)"),
-        code: z.string().describe("The source code to review"),
-        focus: z
-          .string()
-          .optional()
-          .describe("Optional focus area like performance or readability"),
+        code: z.string().min(1).describe("Stock ticker symbol, e.g. BSP"),
       },
     },
-    ({ language, code, focus }) => {
-      const focusInstruction = focus
-        ? ` Pay special attention to ${focus}.`
-        : "";
+    ({ code }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Perform a comprehensive analysis of ${code}, listed on PNGX.
 
-      return {
-        messages: [
-          {
-            role: "user",
-            content: {
-              type: "text",
-              text: `Please review the following ${language} code.${focusInstruction}\n\n\`\`\`${language.toLowerCase()}\n${code}\n\`\`\``,
-            },
+Use the available MCP tools to retrieve:
+- Current stock quote using get_quotes.
+- Historical stock prices using list_historicals.
+- Company information using get_company.
+
+Analyse the following:
+1. Current market price and trading activity.
+2. Daily price movement and percentage change.
+3. Trading volume and liquidity.
+4. Historical price performance.
+5. Price trends and volatility.
+6. Company background and industry.
+7. Potential investment opportunities.
+8. Key risks and limitations.
+
+Conclude with an objective investment research summary.
+
+Clearly distinguish available facts from your own analysis. Do not invent financial information or provide unsupported price targets.`,
           },
-        ],
-      };
-    },
+        },
+      ],
+    }),
   );
+
+  // 2. Compare Multiple Stocks
+  mcpServer.registerPrompt(
+    "compare-stocks",
+    {
+      title: "Compare Stocks",
+      description: "Compare multiple PNGX-listed stocks.",
+      argsSchema: {
+        codes: z
+          .string()
+          .min(3)
+          .describe("Comma-separated ticker symbols, e.g. BSP,KAM"),
+      },
+    },
+    ({ codes }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Compare the following PNGX-listed stocks: ${codes}.
+
+Retrieve the latest quotes and company information for each stock.
+
+Compare:
+1. Current share prices.
+2. Daily price movements.
+3. Trading volumes.
+4. Bid and offer prices.
+5. Historical performance.
+6. Trading liquidity.
+7. Company industries and business operations.
+8. Relative strengths and weaknesses.
+9. Investment risks.
+
+Present the results in a comparison table.
+
+Identify which stocks demonstrate stronger historical performance and explain the differences.
+
+Do not automatically interpret past performance as an indication of future returns. Identify any unavailable data.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 3. PNGX Market Overview
+  mcpServer.registerPrompt(
+    "market-overview",
+    {
+      title: "PNGX Market Overview",
+      description: "Generate an overview of the current PNGX stock market.",
+      argsSchema: {},
+    },
+    () => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Prepare a comprehensive PNGX stock market overview.
+
+Use the available tools:
+- get_market_status
+- list_stocks
+- list_symbols
+- list_indices
+- list_companies
+- get_market_holidays
+
+Cover:
+1. Current market status.
+2. Trading session.
+3. Overall market activity.
+4. Listed companies and available stock symbols.
+5. Stocks with the strongest positive movements.
+6. Stocks with the strongest negative movements.
+7. Trading volumes and activity.
+8. Current market indices.
+9. Upcoming market holidays.
+10. Important market observations.
+
+Present the information in clearly organised sections.
+
+Only describe movements supported by retrieved data. Identify missing information rather than making assumptions.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 4. Technical Analysis
+  mcpServer.registerPrompt(
+    "technical-analysis",
+    {
+      title: "Technical Analysis",
+      description: "Analyse historical stock prices and technical trends.",
+      argsSchema: {
+        code: z.string().min(1).describe("Stock ticker symbol"),
+        start: z.string().optional().describe("Start date YYYY-MM-DD"),
+        end: z.string().optional().describe("End date YYYY-MM-DD"),
+      },
+    },
+    ({ code, start, end }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Perform technical analysis on PNGX stock ${code}.
+
+Analysis period:
+Start: ${start || "Use available historical data"}
+End: ${end || "Latest available data"}
+
+Retrieve historical prices using list_historicals.
+
+Analyse:
+1. Overall price trend.
+2. Support and resistance levels, where sufficient data exists.
+3. Price volatility.
+4. Daily and period-over-period returns.
+5. Moving averages (20-day, 50-day and 200-day where sufficient observations exist).
+6. Relative Strength Index (RSI), where calculable.
+7. MACD, where calculable.
+8. Trading volume patterns.
+9. Potential bullish and bearish signals.
+
+Explain the calculations and assumptions.
+
+Do not manufacture indicators when insufficient historical observations are available.
+
+Conclude with a technical outlook, including the limitations of the analysis.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 5. Company Research
+  mcpServer.registerPrompt(
+    "company-research",
+    {
+      title: "Company Research",
+      description: "Research a PNGX-listed company's profile and business.",
+      argsSchema: {
+        code: z.string().min(1).describe("Company ticker symbol"),
+      },
+    },
+    ({ code }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Prepare a company research report for PNGX-listed company ${code}.
+
+Retrieve company information using get_company.
+
+Research the following areas using available data:
+1. Company name and background.
+2. Business description.
+3. Industry and sector.
+4. Key people.
+5. Establishment date.
+6. PNGX listing date.
+7. Outstanding shares.
+8. Current stock price.
+9. Market trading activity.
+10. Company's position within its industry.
+
+Identify information that is unavailable through the current API.
+
+Do not infer revenue, profitability, debt, earnings or valuation metrics unless reliable supporting data is available.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 6. Financial News Analysis
+  mcpServer.registerPrompt(
+    "market-news-analysis",
+    {
+      title: "Market News Analysis",
+      description:
+        "Analyse financial news and potential PNGX market implications.",
+      argsSchema: {
+        code: z.string().optional().describe("Optional company ticker symbol"),
+      },
+    },
+    ({ code }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Analyse the latest available PNGX financial and market news.
+
+${code ? `Pay particular attention to news concerning ${code}.` : ""}
+
+Retrieve articles using get_news.
+
+For each relevant article:
+1. Identify its headline and publication date.
+2. Summarise the key development.
+3. Identify the companies or sectors affected.
+4. Explain potential positive market implications.
+5. Explain potential negative market implications.
+6. Identify possible investor concerns.
+7. Distinguish confirmed developments from speculation.
+
+Where relevant, compare the news with available stock quotes and historical prices.
+
+Do not claim that a news event caused a price movement without supporting evidence.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 7. Historical Performance Analysis
+  mcpServer.registerPrompt(
+    "historical-performance",
+    {
+      title: "Historical Performance",
+      description:
+        "Evaluate a stock's historical price and trading performance.",
+      argsSchema: {
+        code: z.string().min(1).describe("Stock ticker symbol"),
+        start: z.string().optional().describe("Start date YYYY-MM-DD"),
+        end: z.string().optional().describe("End date YYYY-MM-DD"),
+      },
+    },
+    ({ code, start, end }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Evaluate the historical performance of PNGX stock ${code}.
+
+Period:
+Start: ${start || "Earliest available historical date"}
+End: ${end || "Latest available date"}
+
+Retrieve historical data using list_historicals.
+
+Calculate and analyse:
+1. Starting and ending share prices.
+2. Absolute price change.
+3. Percentage return.
+4. Highest and lowest recorded prices.
+5. Average trading volume.
+6. Periodic price movements.
+7. Volatility.
+8. Maximum drawdown, where calculable.
+9. General historical price trend.
+
+Explain the methodology and any limitations caused by missing trading days or incomplete records.
+
+Present the findings in a structured report.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 8. Market Index Analysis
+  mcpServer.registerPrompt(
+    "index-analysis",
+    {
+      title: "Market Index Analysis",
+      description: "Analyse PNGX stock market indices and their components.",
+      argsSchema: {
+        code: z.string().min(3).describe("Index code, e.g. PNGXD"),
+      },
+    },
+    ({ code }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Analyse the PNGX market index ${code}.
+
+Retrieve index information using get_index.
+
+Analyse:
+1. Current index value.
+2. Previous closing value.
+3. Percentage change.
+4. Historical index movements.
+5. Index components.
+6. Individual component weights.
+7. Concentration among major constituents.
+8. Market exposure and sector representation, where available.
+
+Explain what the index movements indicate about the broader PNGX market.
+
+Clearly identify unavailable component and historical information.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 9. Investment Research Report
+  mcpServer.registerPrompt(
+    "investment-research",
+    {
+      title: "Investment Research Report",
+      description:
+        "Generate a structured investment research report for a PNGX stock.",
+      argsSchema: {
+        code: z.string().min(1).describe("Stock ticker symbol"),
+        investment_horizon: z
+          .enum(["short-term", "medium-term", "long-term"])
+          .default("long-term"),
+      },
+    },
+    ({ code, investment_horizon }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Prepare an investment research report for ${code}, a PNGX-listed stock.
+
+Investment horizon: ${investment_horizon}.
+
+Retrieve all relevant available market and company information.
+
+Structure the report as follows:
+
+1. Executive Summary
+2. Company Overview
+3. Industry and Sector
+4. Current Stock Valuation Data
+5. Historical Stock Performance
+6. Trading Activity and Liquidity
+7. Technical Analysis
+8. Investment Opportunities
+9. Key Investment Risks
+10. Bull Case
+11. Bear Case
+12. Information Gaps
+13. Overall Investment Assessment
+
+Where financial statements, earnings, dividends, cash flows and valuation multiples are unavailable, explicitly identify these limitations.
+
+Do not fabricate financial ratios, intrinsic values or target prices.
+
+This is an analytical research report, not personalised financial advice.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  // 10. Market Risk Analysis
+  mcpServer.registerPrompt(
+    "market-risk-analysis",
+    {
+      title: "Market Risk Analysis",
+      description:
+        "Evaluate historical trading and market risks for a PNGX stock.",
+      argsSchema: {
+        code: z.string().min(1).describe("Stock ticker symbol"),
+      },
+    },
+    ({ code }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Conduct a market risk analysis for PNGX-listed stock ${code}.
+
+Retrieve its current quote, company profile and available historical prices.
+
+Evaluate:
+1. Historical price volatility.
+2. Maximum historical drawdown, where calculable.
+3. Trading liquidity.
+4. Bid-ask spread.
+5. Trading volume consistency.
+6. Price concentration and unusual movements.
+7. Sensitivity to broader market movements, where benchmark data permits.
+8. Data availability and reliability risks.
+9. Potential downside scenarios.
+10. Factors investors should monitor.
+
+Classify identified risks as low, moderate or high only where sufficient evidence supports the classification.
+
+Explain the assumptions and limitations of each assessment.
+
+Do not present historical volatility as a prediction of future losses.`,
+          },
+        },
+      ],
+    }),
+  );
+
+  //     mcpServer.registerResource(
+  //         "market-reference-guide",
+  //         "nuku://reference/market-guide",
+  //         {
+  //             title: "NUKU PNGX Market Reference Guide",
+  //             description:
+  //                 "Reference guide describing PNGX market data concepts and available NUKU resources.",
+  //             mimeType: "text/markdown",
+  //         },
+  //         async (uri) => ({
+  //             contents: [
+  //                 {
+  //                     uri: uri.href,
+  //                     mimeType: "text/markdown",
+  //                     text: `# NUKU PNGX Market Reference Guide
+
+  // ## Purpose
+  // NUKU provides access to Papua New Guinea Exchange
+  // market information through its API and MCP interface.
+
+  // ## Available market information
+  // - Listed stock symbols.
+  // - Current stock quotes.
+  // - Historical stock prices.
+  // - Company profiles.
+  // - Market indices.
+  // - Market status and holidays.
+  // - Market news.
+
+  // ## Interpretation guidelines
+  // 1. Treat API data as the source of truth.
+  // 2. Identify the retrieval date where available.
+  // 3. Distinguish facts from calculations and assumptions.
+  // 4. Do not fabricate financial information.
+  // 5. Historical performance does not guarantee future returns.
+  // 6. Disclose missing or stale data.
+
+  // ## Resource URI patterns
+  // - nuku://market/status
+  // - nuku://market/holidays
+  // - nuku://market/indices
+  // - nuku://market/companies
+  // - nuku://market/symbols
+  // - nuku://market/news
+  // - nuku://stocks/{code}/quote
+  // - nuku://stocks/{code}/historicals
+  // - nuku://companies/{code}
+  // - nuku://indices/{code}
+  // `,
+  //                 },
+  //             ],
+  //         })
+  //     );
 
   mcpServer.registerTool(
     "list_symbols",
