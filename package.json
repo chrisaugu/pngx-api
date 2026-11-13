@@ -53,7 +53,6 @@
     "xprepare": "husky",
     "clean": "manypkg exec yarn clean",
     "startxx": "turbo run start --parallel --no-cache",
-    "build": "",
     "lintx": "run-s lint:*",
     "lint:typescript": "tsc --build",
     "lint:eslint": "eslint --fix .",
@@ -62,7 +61,12 @@
     "changeset": "changeset",
     "changeset:version": "changeset version",
     "changeset:release": "yarn build && yarn prettier --write '{packages,example}/*/{package.json,CHANGELOG.md}' '.changeset/*.json' && changeset publish",
-    "console": "ts-node"
+    "console": "ts-node",
+    "build": "bun run tsc && chmod 755 build/stdio.js",
+    "xpostbuild": "bun run scripts/incremental-build.js patch",
+    "update-version": "bun run scripts/update-version.js",
+    "check-version": "bun run scripts/check-version-consistency.js",
+    "inspector": "npx @modelcontextprotocol/inspector build/stdio.js"
   },
   "xlint-staged": {
     "**/*": "prettier --write --ignore-unknown"
@@ -96,6 +100,7 @@
     "@commitlint/config-conventional": "latest",
     "@elastic/elasticsearch": "^9.0.2",
     "@ladjs/graceful": "^5.0.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "@zero65tech/indian-stock-market": "^4.4.1",
     "agenda": "^5.0.0",
     "agendash": "^4.0.0",
@@ -171,7 +176,8 @@
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",
     "winston-elasticsearch": "^0.19.0",
-    "ws": "^8.18.2"
+    "ws": "^8.18.2",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@prettier/plugin-hermes": "^0.2.3",
@@ -218,5 +224,14 @@
       "git add"
     ],
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "allowScripts": {
+    "@apollo/protobufjs@1.2.8": true,
+    "git-commit-msg-linter@5.0.8": true,
+    "mongodb-memory-server@10.2.0": true,
+    "msgpackr-extract@3.0.3": true,
+    "puppeteer@24.43.1": true,
+    "sqlite3@5.1.7": true,
+    "unrs-resolver@1.9.1": true
   }
 }

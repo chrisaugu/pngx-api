@@ -1633,6 +1633,17 @@ router.get("/market/holidays", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+// /market/movers
+// /market/gainers
+// /market/losers
+
+// /stocks/{code}/indicators
+// /stocks/{code}/performance
+// /stocks/{code}/volatility
+// /stocks/{code}/financials
+// /stocks/{code}/dividends
+// /stocks/{code}/valuation
+// /portfolio/analysis
 
 /**
  *

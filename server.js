@@ -13,6 +13,7 @@ const logger = require("./libs/logger").winstonLogger;
 const redis = require("./libs/redis").createRedisIoClient;
 const cluster = require("cluster");
 const { createGraphQLServer } = require("./graphql-server");
+const { createMCPServer } = require("./mcp-server");
 
 /**
  * Nuku HTTP Server
@@ -119,6 +120,7 @@ class Server {
     );
     logger.debug(`WebSocket server ready at ws://localhost:${this.#port}/ws`);
     logger.debug(`Webhook ready at http://localhost:${this.#port}/webhook`);
+    logger.debug(`MCP Server ready at http://localhost:${this.#port}/mcp`);
   };
 
   onError = (error) => {
@@ -163,6 +165,11 @@ class Server {
     console.log("attachGraphql", gql);
     this.#app.use(gql(this.server));
   };
+  // attachWebSocket = (mcp) => {
+  //   // attach websocket to the http server
+  //   ws(this.server);
+  //   createMCPServer()
+  // };
 
   start = () => {
     // listen on the port
@@ -260,6 +267,11 @@ server.attachWebSocket(websocket);
 
 // Handle startup errors gracefully
 createGraphQLServer(app, server.server).catch((error) => {
+  console.error("Failed to start server:", error);
+  process.exit(1);
+});
+
+createMCPServer(app).catch((error) => {
   console.error("Failed to start server:", error);
   process.exit(1);
 });
