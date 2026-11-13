@@ -57,18 +57,19 @@ async function makeApiRequest(url) {
 
 function formatQuote(quote) {
   return [
-    `Code: ${quote.code || "Unknown"}`,
-    `Short Name: ${quote.short_name || "Unknown"}`,
-    `Last Price: ${quote.last || "Unknown"}`,
-    `Bid: ${quote.bid || "Unknown"}`,
-    `Offer: ${quote.offer || "Unknown"}`,
-    `High: ${quote.high || "Unknown"}`,
-    `Low: ${quote.low || "Unknown"}`,
-    `Open: ${quote.open || "Unknown"}`,
-    `Close: ${quote.close || "Unknown"}`,
-    `Change Today: ${quote.chg_today || "Unknown"}`,
-    `Volume Today: ${quote.vol_today || "Unknown"}`,
-    `Number of Trades: ${quote.num_trades || "Unknown"}`,
+    `Date: ${quote.date ?? "Unknown"}`,
+    `Code: ${quote.code ?? "Unknown"}`,
+    `Short Name: ${quote.short_name ?? "Unknown"}`,
+    `Last Price: ${quote.last ?? "Unknown"}`,
+    `Bid: ${quote.bid ?? "Unknown"}`,
+    `Offer: ${quote.offer ?? "Unknown"}`,
+    `High: ${quote.high ?? "Unknown"}`,
+    `Low: ${quote.low ?? "Unknown"}`,
+    `Open: ${quote.open ?? "Unknown"}`,
+    `Close: ${quote.close ?? "Unknown"}`,
+    `Change Today: ${quote.chg_today ?? "Unknown"}`,
+    `Volume Today: ${quote.vol_today ?? "Unknown"}`,
+    `Number of Trades: ${quote.num_trades ?? "Unknown"}`,
     "---",
   ].join("\n");
 }
@@ -636,7 +637,7 @@ async function createMCPServer(app) {
           {
             type: "text",
             text:
-              "Currently listed stocks: " +
+              "Currently listed stocks: \n" +
               data.data.codes.map((s) => `${s}`).join("\n"),
           },
         ],
@@ -784,13 +785,16 @@ async function createMCPServer(app) {
         };
       }
 
+      const list =
+        data.data.length > 0
+          ? data.data.map(formatIndex).join("\n---\n")
+          : "No Indices Found";
+
       return {
         content: [
           {
             type: "text",
-            text: `Stock Market Indices:\n${data.data
-              .map(formatIndex)
-              .join("\n---\n")}`,
+            text: `Stock Market Indices:\n${list}`,
           },
         ],
       };
@@ -848,7 +852,7 @@ async function createMCPServer(app) {
         };
       }
 
-      const companyList = data.map((c) => `${c.name} (${c.ticker})`).join("\n");
+      const companyList = data.map((c) => `${c.name} (${c.symbol})`).join("\n");
       return {
         content: [
           {
@@ -918,7 +922,6 @@ async function createMCPServer(app) {
           ],
         };
       }
-      console.log(data);
 
       const statusIcon = statusConfig[data.marketStatus]
         ? statusConfig[data.marketStatus].icon
