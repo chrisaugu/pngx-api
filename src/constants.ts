@@ -105,6 +105,7 @@ const BASE_URL = "https://nuku.zeabur.app";
 const THREAD_COUNT = 1;
 
 export {
+  THREAD_COUNT,
   SYMBOLS,
   OLD_SYMBOLS,
   ALL_COMPANIES,

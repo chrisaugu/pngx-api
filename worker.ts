@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
 import celery from "celery-node";
-import tasks from "./src/tasks";
+import { Worker } from "node:worker_threads";
+import * as tasks from "./src/tasks";
 import { initDatabase } from "./src/database";
 import Env from "./src/config/env";
+import { SYMBOLS, THREAD_COUNT } from "./src/constants";
+import { fetchDataFromDB, fetchDataFromPNGX, run } from "./src/etl";
+import _ from "lodash";
 
 const worker = celery.createWorker(Env.redis.broker, Env.redis.backend);
 

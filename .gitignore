@@ -25,7 +25,6 @@ node_modules
 *.zip
 app
 logs/*
-
 .openode
 
 *.logs

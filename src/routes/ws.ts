@@ -5,6 +5,7 @@ import url from "url";
 import { randomUUID } from "crypto";
 import { parse } from "querystring";
 import { isUint8Array } from "util/types";
+import { winstonLogger as logger } from "../libs/logger";
 
 /**
  * Set up a WebSocket server on an existing HTTP or HTTPS server.
@@ -14,6 +15,7 @@ import { isUint8Array } from "util/types";
  */
 export default (httpServer: http.Server | https.Server) => {
   const ws1 = new WebSocketServer({ noServer: true });
+
   const wsServer = new WebSocketServer({
     path: "/ws/v1",
     server: httpServer,

@@ -17,6 +17,8 @@ import {
 import Env from "./config/env";
 import { IQuote } from "./types/nuku";
 import { Stock } from "./models";
+import { winstonLogger as logger } from "./libs/logger";
+import { createReadStream } from "fs";
 
 const csvOptions = {
   header: true,
@@ -78,6 +80,7 @@ function format_date(date: string) {
 
 function normalize_data(data: Record<string, any>) {
   let quote: IQuote = {
+    id: "",
     date: new Date(),
     code: "",
     short_name: "",
@@ -325,7 +328,11 @@ function env(envVar: string, deafult_value: string) {
   }
 }
 
-const processLargeFile = async (file) => {
+async function countFileLines(file: string): Promise<number> {
+  return 1;
+}
+
+const processLargeFile = async (file: string) => {
   const totalLines = await countFileLines(file);
   let processedLines = 0;
 

@@ -65,7 +65,7 @@ initDatabase()
  * @param {IQuote} quote
  * @returns
  */
-async function fetchDataFromDB(quote: string) {
+export async function fetchDataFromDB(quote: string): Promise<IQuote[]> {
   console.log("Fetching quotes for " + quote + " from DB");
   return new Promise((resolve, reject) => {
     Stock.findBySymbol(quote).then(resolve).catch(reject);
@@ -77,7 +77,7 @@ async function fetchDataFromDB(quote: string) {
  * @param {IQuote} quote
  * @returns
  */
-async function fetchDataFromPNGX(quote: string) {
+export async function fetchDataFromPNGX(quote: string): Promise<IQuote[]> {
   console.log("Fetching quotes for " + quote + " from PNGX");
   return new Promise((resolve, reject) => {
     get_quotes_from_pngx(quote)
@@ -118,7 +118,7 @@ function load(data: any) {
     });
 }
 
-function run(dbData: IQuote[] = [], source: IQuote[] = []) {
+export function run(dbData: IQuote[] = [], source: IQuote[] = []) {
   const duplicates: IQuote[] = [];
   const missingInDb: IQuote[] = [];
   const uniqueInSource: IQuote[] = [];
