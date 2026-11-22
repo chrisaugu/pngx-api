@@ -2,7 +2,7 @@ const fakestockmarketgenerator = require("fake-stock-market-generator");
 const ism = require("@zero65tech/indian-stock-market");
 const { Vnstock, stock, commodity } = require("vnstock-js");
 
-let numberOfDays = 30;
+const numberOfDays = 30;
 // let stockData = fakestockmarketgenerator.generateStockData(numberOfDays);
 // console.log(stockData);
 
@@ -24,7 +24,7 @@ async function main() {
   const history = await stock.quote({ ticker: "VCI", start: "2025-01-01" });
 
   // Ticker price board
-  const priceBoard = await stock.priceBoard({ticker: 'VCI'});
+  const priceBoard = await stock.priceBoard({ ticker: "VCI" });
 
   // Top gainers in day
   const topGainers = await stock.topGainers();
@@ -32,21 +32,24 @@ async function main() {
   // Top losers in day
   const topLosers = await stock.topLosers();
 
-  const indexPrices = await stock.index('VNINDEX', '2024-01-01');
+  const indexPrices = await stock.index("VNINDEX", "2024-01-01");
 
-  const companyInfos = await stock.company('VCI');
+  const companyInfos = await stock.company("VCI");
 
-  const tickerPrices = await stock.quote({ticker:'VCI', start:'2024-01-01'});
-  const companyFinancialInfos = await stock.financials('VCI', 'quarter');
+  const tickerPrices = await stock.quote({
+    ticker: "VCI",
+    start: "2024-01-01",
+  });
+  const companyFinancialInfos = await stock.financials("VCI", "quarter");
 
   const { stock: astock } = new Vnstock();
 
   const result = await astock.trading.priceBoard(["VCB"]);
-  
+
   console.log(result);
 
   // Gold Price from SJC
-//   const goldPrices = await commodity.gold.priceSJC();
+  //   const goldPrices = await commodity.gold.priceSJC();
 
   // Access everything directly
   const prices = stock.quote.history({
@@ -62,11 +65,13 @@ async function main() {
     topLosers,
     // goldPrices,
     // prices,
-  }
+  };
 }
 
-main().then((prices) => {
-  console.log(prices);
-}).catch((error) => {
-  console.error("Error fetching stock prices:", error);
-});
+main()
+  .then((prices) => {
+    console.log(prices);
+  })
+  .catch((error) => {
+    console.error("Error fetching stock prices:", error);
+  });

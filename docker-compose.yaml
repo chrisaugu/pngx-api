@@ -1,10 +1,11 @@
 services:
   healthcheck:
-    test: ["CMD-SHELL", "curl -f http://localhost:${PORT:-5000}/health || exit 1"]
+    test:
+      ["CMD-SHELL", "curl -f http://localhost:${PORT:-5000}/health || exit 1"]
     interval: 10s
     timeout: 5s
     retries: 3
-    
+
   nuku-api:
     container_name: nuku-api
     build:
@@ -12,14 +13,14 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - "5000:5000"
-    depends_on:
-      - nuku-redis
-      - nuku-mongodb
-      # - nuku-worker
+    # depends_on:
+    #   - nuku-redis
+    # - nuku-mongodb
+    # - nuku-worker
     restart: always
     networks:
       - nuku-api-network
-  
+
   # nuku-worker:
   #   build: .
   #     # context: ./nuku-redis-worker
@@ -28,7 +29,7 @@ services:
   #   restart: always
   #   depends_on:
   #     - nuku-redis
-  
+
   # nuku-etl:
   #   container_name: nuku-etl
   #   build:
@@ -52,7 +53,6 @@ services:
   # nuku-price-consumer-service:
   #   depends_on:
   #     - nuku-redis
-
 #   nuku-redis:
 #     # image: redis
 #     image: redis:7.2.4-alpine
@@ -72,13 +72,6 @@ services:
 #       - nuku-storage:/data/db
 #     networks:
 #       - nuku-api-network
-
-# volumes:
-#   nuku-storage:
-
-# networks:
-#   nuku-api-network:
-#     driver: bridge
 
 #   db:
 #     restart: always
@@ -101,27 +94,9 @@ services:
 #     healthcheck:
 #       test: ["CMD", "redis-cli", "ping"]
 
-#   mastodon:
-#     restart: always
-#     image: neetshin/mastodon-dev:4.3.0
-#     ports:
-#       - "3000:3000"
-#       - "4000:4000"
-#     depends_on:
-#       - db
-#       - redis
-#     healthcheck:
-#       test:
-#         [
-#           "CMD-SHELL",
-#           "wget -q --spider --proxy=off localhost:3000/health || exit 1",
-#         ]
-#     env_file:
-#       - .env.test
-#     environment:
-#       - RAILS_ENV=development
-#     command: >
-#       /bin/bash -c "
-#         bundle exec rails db:setup &&
-#         foreman start
-#       "
+# volumes:
+#   nuku-storage:
+
+# networks:
+#   nuku-api-network:
+#     driver: bridge

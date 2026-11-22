@@ -7,7 +7,7 @@ WORKDIR /usr/src/nuku-api
 
 # COPY package*.json ./
 
-# RUN npm install -g npm@11.0.0
+# RUN npm install -g npm@11.6.0
 
 # Installing dependencies
 # RUN npm install
@@ -16,4 +16,4 @@ WORKDIR /usr/src/nuku-api
 # COPY . .
 
 # Starting our application
-CMD [ "node", "worker.js" ]
+CMD [ "node", "jobs/worker.js" ]

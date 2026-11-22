@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Price × Time Chart</title>
+
+  <!-- Chart.js + date adapter (for time scale) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field select {
+      background: #0b1220;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 14px;
+      min-width: 130px;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    button {
+      background: var(--accent);
+      color: #0b1220;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .status {
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 18px;
+      margin-bottom: 8px;
+    }
+
+    .status.error {
+      color: #f87171;
+    }
+
+    .chart-wrap {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      height: 520px;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Price × Time</h1>
+
+  <form class="controls" id="controls">
+    <div class="field">
+      <label for="code">Code</label>
+      <input id="code" name="code" value="BSP" required />
+    </div>
+
+    <!-- <div class="field">
+      <label for="start">Start date</label>
+      <input id="start" name="start" type="date" />
+    </div>
+
+    <div class="field">
+      <label for="end">End date</label>
+      <input id="end" name="end" type="date" />
+    </div> -->
+
+    <div class="field">
+      <label for="period">Period</label>
+      <select id="period" name="period">
+        <option value="">Raw</option>
+        <option value="1min">1 min</option>
+        <option value="5min">5 min</option>
+        <option value="1h">1 hour</option>
+        <option value="1d" selected>1 day</option>
+        <option value="5d">5 days</option>
+        <option value="1m">1 month</option>
+        <option value="6m">6 months</option>
+        <option value="1y">1 year</option>
+        <option value="5y">5 years</option>
+        <option value="10y">10 years</option>
+        <option value="All">All</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="sort">Sort</label>
+      <select id="sort" name="sort">
+        <option value="1">Oldest first</option>
+        <option value="-1">Newest first</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="limit">Limit</label>
+      <input id="limit" name="limit" type="number" min="1" max="5000" value="500" />
+    </div>
+
+    <button type="submit" id="submitBtn">Load chart</button>
+  </form>
+
+  <div class="status" id="status"></div>
+
+  <div class="chart-wrap">
+    <canvas id="chart"></canvas>
+  </div>
+
+  <script>
+    (() => {
+      // 🔧 Adjust if your backend runs elsewhere
+      const API_BASE = 'http://localhost:5000/api/v2';
+
+      const form = document.getElementById('controls');
+      const statusEl = document.getElementById('status');
+      const submitBtn = document.getElementById('submitBtn');
+      const canvas = document.getElementById('chart');
+
+      let chart = null;
+
+      // ---------- Chart setup ----------
+      function initChart() {
+        const ctx = canvas.getContext('2d');
+        chart = new Chart(ctx, {
+          type: 'line',
+          data: { datasets: [] },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            parsing: false, // we provide {x, y} pairs directly
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: { labels: { color: '#e2e8f0' } },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => {
+                    const y = ctx.parsed.y;
+                    return ` Price: ${y.toFixed(2)}`;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                type: 'time',
+                time: {
+                  tooltipFormat: 'yyyy-MM-dd HH:mm',
+                  displayFormats: {
+                    minute: 'HH:mm',
+                    hour: 'MMM d HH:mm',
+                    day: 'MMM d',
+                    month: 'MMM yyyy',
+                    year: 'yyyy'
+                  }
+                },
+                ticks: { color: '#94a3b8', maxRotation: 0, autoSkip: true },
+                grid: { color: 'rgba(148,163,184,0.1)' }
+              },
+              y: {
+                ticks: { color: '#94a3b8' },
+                grid: { color: 'rgba(148,163,184,0.1)' }
+              }
+            }
+          }
+        });
+      }
+
+      // ---------- Fetch & render ----------
+      async function loadChart() {
+        const code = document.getElementById('code').value.trim();
+        // const start = document.getElementById('start').value;
+        // const end = document.getElementById('end').value;
+        const period = document.getElementById('period').value;
+        const sort = document.getElementById('sort').value;
+        const limit = document.getElementById('limit').value;
+
+        if (!code) {
+          setStatus('Please enter a stock code.', true);
+          return;
+        }
+
+        // Build path: /quotes/:code[/:start[/:end]]
+        const pathParts = ['stocks', encodeURIComponent(code), 'prices'];
+        // if (start && end) {
+        //   pathParts.push(encodeURIComponent(start), encodeURIComponent(end));
+        // } else if (start) {
+        //   pathParts.push(encodeURIComponent(start));
+        // }
+
+        const params = new URLSearchParams();
+        if (period) params.set('period', period);
+        if (sort) params.set('sort', sort);
+        if (limit) params.set('limit', limit);
+        // if (start) params.set('start', start);
+        // if (end) params.set('end', end);
+
+        const url = `${API_BASE}/${pathParts.join('/')}?${params.toString()}`;
+
+        submitBtn.disabled = true;
+        setStatus(`Loading ${url} ...`);
+
+        try {
+          const res = await fetch(url);
+          const json = await res.json();
+
+          if (!res.ok || !json.success) {
+            throw new Error(json.message || `HTTP ${res.status}`);
+          }
+
+          const rows = json.data || [];
+          if (!rows.length) {
+            setStatus('No data returned.', false);
+            chart.data.datasets = [];
+            chart.update();
+            return;
+          }
+
+          // Map to { x: timestamp, y: price }
+          const points = rows
+            .map((r) => ({
+              x: new Date(r.date).getTime(),
+              y: Number(r.last ?? r.close ?? r.price)
+            }))
+            .filter((p) => Number.isFinite(p.x) && Number.isFinite(p.y))
+            .sort((a, b) => a.x - b.x);
+
+          chart.data.datasets = [{
+            label: code,
+            data: points,
+            borderColor: '#38bdf8',
+            backgroundColor: 'rgba(56,189,248,0.15)',
+            borderWidth: 1.5,
+            pointRadius: 0,
+            pointHoverRadius: 4,
+            tension: 0.15,
+            fill: true,
+            spanGaps: 3 * 24 * 60 * 60 * 1000    // break line if gap > 3 days
+          }];
+          chart.update();
+
+          const first = new Date(points[0].x).toLocaleString();
+          const last = new Date(points[points.length - 1].x).toLocaleString();
+          setStatus(`Loaded ${points.length} points · ${first} → ${last}`);
+        } catch (err) {
+          console.error(err);
+          setStatus(`Error: ${err.message}`, true);
+          chart.data.datasets = [];
+          chart.update();
+        } finally {
+          submitBtn.disabled = false;
+        }
+      }
+
+      function setStatus(msg, isError = false) {
+        statusEl.textContent = msg;
+        statusEl.classList.toggle('error', isError);
+      }
+
+      // ---------- Events ----------
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        loadChart();
+      });
+
+      // ---------- Boot ----------
+      initChart();
+
+      // Default range: last 90 days
+      const today = new Date();
+      const ninetyAgo = new Date(today.getTime() - 90 * 24 * 60 * 60 * 1000);
+      // document.getElementById('end').value = today.toISOString().slice(0, 10);
+      // document.getElementById('start').value = ninetyAgo.toISOString().slice(0, 10);
+
+      // Auto-load on first paint
+      loadChart();
+    })();
+  </script>
+</body>
+
+</html>

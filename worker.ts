@@ -1,24 +1,24 @@
 import mongoose from "mongoose";
 import celery from "celery-node";
-import tasks from "./tasks";
-import { initDatabase } from "./database";
-import Env from "./config/env";
+import tasks from "./src/tasks";
+import { initDatabase } from "./src/database";
+import Env from "./src/config/env";
 
 const worker = celery.createWorker(Env.redis.broker, Env.redis.backend);
 
 initDatabase()
   .on("connected", async function () {
     console.log(
-      "[Main_Thread]: Connected: Successfully connect to mongo server"
+      "[Main_Thread]: Connected: Successfully connect to mongo server",
     );
 
     console.log(
-      "Stocks info will be updated every morning at 30 minutes past 8 o'clock"
+      "Stocks info will be updated every morning at 30 minutes past 8 o'clock",
     );
     // cron.schedule("30 8 * * *", async () => {
     SYMBOLS.forEach(async (quote) => {
-      let dbData = await fetchDataFromDB(quote);
-      let sourceData = await fetchDataFromPNGX(quote);
+      const dbData = await fetchDataFromDB(quote);
+      const sourceData = await fetchDataFromPNGX(quote);
 
       if (!_.isArray(dbData) && !_.isArray(sourceData)) {
         throw new Error("dbData and sourceData must be both arrays");
@@ -30,7 +30,7 @@ initDatabase()
   })
   .on("error", function () {
     console.log(
-      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?"
+      "[Main_Thread]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
     );
   });
 

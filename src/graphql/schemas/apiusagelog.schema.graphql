@@ -1,0 +1,13 @@
+type Apiusagelog {
+  id: ID!
+  ip_address: String!
+  user_agent: String!
+  request_id: String!
+  endpoint: String!
+  method: String!
+  status_code: Float!
+  request_time: String
+  response_time_ms: Float!
+  createdAt: String
+  updatedAt: String
+}

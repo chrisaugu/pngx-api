@@ -1,0 +1,103 @@
+import mongoose, { HydratedDocument, Model } from "mongoose";
+import { IQuote } from "../types/nuku";
+
+interface IQuoteMethods {
+  findSimilarTypes(cb: (value: any[]) => Promise<void>): () => void;
+}
+
+type QuoteModel = Model<IQuote, {}, IQuoteMethods>;
+
+// 4. Schema definition with generic types
+const QuoteSchema = new mongoose.Schema<IQuote, QuoteModel, IQuoteMethods>(
+  {
+    date: Date,
+    code: String, // code: ticker or symbol
+    short_name: String,
+    bid: Number, // bid: the highest price the buyer is willing to pay
+    offer: Number, // offer: the lowest price the seller is will to accept
+    last: Number, // last: the actual price of the most recent completed transaction
+    close: Number, //
+    high: Number,
+    low: Number,
+    open: Number,
+    chg_today: Number,
+    vol_today: Number,
+    num_trades: Number,
+  },
+  {
+    toJSON: {
+      transform(doc, rest) {
+        delete rest.__v;
+        delete rest._id;
+        delete rest.createdAt;
+        delete rest.updatedAt;
+      },
+    },
+    timestamps: {
+      currentTime: () => Math.floor(Date.now() / 1000),
+    },
+  },
+);
+
+QuoteSchema.index({ code: 1, date: 1 });
+QuoteSchema.methods.findSimilarTypes = function (
+  cb: (value: any[]) => Promise<void>,
+) {
+  return mongoose.model("quote").find({ code: this.code }).then(cb);
+};
+QuoteSchema.method(
+  "findSimilarTypes",
+  function findSimilarTypes(cb: (value: any[]) => Promise<void>) {
+    return mongoose.model("quote").find({ code: this.code }).then(cb);
+  },
+);
+
+QuoteSchema.statics.findBySymbol = function (symbol) {
+  return this.find({
+    code: symbol,
+  });
+};
+
+// Static method for finding by code
+QuoteSchema.statics.findByCode = function (code) {
+  return this.find({ code });
+};
+
+export type QuoteDocument = HydratedDocument<IQuote>;
+const Quote = mongoose.model<IQuote>("quote", QuoteSchema);
+
+// Quote.watch().on("change", (data) => {
+//   console.log('Changed', data);
+// });
+
+// Insert a doc, will trigger the change stream handler above
+// await Quote.create({ name: "Axl Rose" });
+// await Quote.create({
+//   date: new Date(),
+//   symbol: 'BSP',
+//   close: 150.00,
+//   high: 155.00,
+//   low: 145.00,
+//   open: 148.00,
+//   change: 5.00,
+//   volume: 1000000,
+// });
+
+// class MyClass {
+//   myMethod() {
+//     return 42;
+//   }
+//   static myStatic() {
+//     return 42;
+//   }
+//   get myVirtual() {
+//     return 42;
+//   }
+// }
+// const schema = new Schema();
+// schema.loadClass(MyClass);
+// console.log(schema.methods); // { myMethod: [Function: myMethod] }
+// console.log(schema.statics); // { myStatic: [Function: myStatic] }
+// console.log(schema.virtuals); // { myVirtual: VirtualType { ... } }
+
+export default Quote;

@@ -1,0 +1,2156 @@
+import express, { NextFunction, Request, Response } from "express";
+import mongoose from "mongoose";
+import Grid from "gridfs-stream";
+import fs from "fs";
+const router = express.Router();
+import { isToday } from "date-fns/isToday";
+import { isWeekend } from "date-fns/isWeekend";
+import {
+  SYMBOLS,
+  OLD_SYMBOLS,
+  COMPANIES,
+  PNGX_DATA_URL,
+  PNGX_URL,
+  BASE_URL,
+  LOCAL_TIMEZONE,
+} from "../../constants";
+import {
+  Stock,
+  Company,
+  Ticker,
+  Indices,
+  Quote,
+  NewsSource,
+} from "../../models";
+import { Worker, isMainThread } from "node:worker_threads";
+import path from "path";
+import axios from "axios";
+const logger = require("../libs/logger").winstonLogger;
+const redis = require("../libs/redis").createRedisIoClient;
+import { cache, cacheMiddleware } from "../../middlewares";
+import { FRAMES, getRange, calculateStartDate } from "../../utils/dateRanges";
+// const { iexApiToken, iexSandboxToken } = require("../../config/keys");
+const iexApiToken = "",
+  iexSandboxToken = "";
+
+import holidays from "../../data/trade_holidays.json";
+import { isSameDay } from "date-fns/isSameDay";
+import { isDate } from "lodash";
+
+const childNewsWorkerPath = path.resolve(
+  process.cwd(),
+  "./jobs/news_aggregator.js",
+);
+const base_url = new URL(BASE_URL);
+
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/:
+ *   get:
+ *     summary: Returns list of stock codes
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/
+ */
+router.get("/", function (req, res) {
+  res.status(200).json({
+    status: 200,
+    message: `Welcome to the Nuku API! Documentation is available at ${base_url.protocol}//${base_url.host}/docs/`,
+    data: {
+      api: "NUKU API",
+      timestamp: new Date().getTime(),
+      codes: SYMBOLS,
+    },
+  });
+});
+
+// Health check endpoint
+router.get("/health", async (_req, res, _next) => {
+  // optional: add further things to check (e.g. connecting to dababase)
+  const healthcheck = {
+    uptime: process.uptime(),
+    message: "OK",
+    timestamp: Date.now(),
+    environment: "production",
+    status: "healthy",
+  };
+
+  try {
+    await redis.ping();
+    res.status(200).json({
+      ...healthcheck,
+      redis: "healthy",
+    });
+  } catch (e: any) {
+    healthcheck.message = e;
+    logger.error("Error creating user", {
+      error: e.message,
+      stack: e.stack,
+      body: _req.body,
+    });
+    res.json(healthcheck);
+    res.status(503).send();
+    // res.status(503).json({ redis: "unavailable" });
+  }
+});
+
+/**
+ * @swagger
+ *
+ * /api/v2/company/{code}:
+ *   get:
+ *     tags:
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ *     parameters:
+ *       - name: code
+ *         in: path
+ *         description: unique code representing a stock in PNGX
+ *         required: true
+ *         schema:
+ *           type: string
+ *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
+ *
+ */
+/**
+ * GET /api/v2/company/:ticker
+ * Get a specific company info using stock quote
+ * @param :ticker unique ticker of the comapny
+ */
+router.get("/company/:ticker", function (req, res) {
+  const stockTicker = req.params.ticker;
+
+  logger.info("Retrieving companies on PNGX");
+
+  // Stock.findByName(stockQuote, req.)
+
+  logger.debug("Companies retrieved", COMPANIES);
+  res.json(COMPANIES);
+});
+
+/**
+ * @swagger
+ *
+ * /api/v2/companies:
+ *   get:
+ *     tags:
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ *
+ */
+/**
+ * /api/v2/companies
+ */
+router
+  .route("/companies")
+  /**
+   * GET
+   */
+  .get(async function (req, res) {
+    try {
+      logger.info("Retrieving companies on PNGX");
+
+      const companies = await Company.find({});
+
+      logger.debug("Companies retrieved", companies);
+      res.json(companies);
+    } catch (error: any) {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    }
+  })
+  .post(async function (req, res) {
+    const update = req.body;
+
+    try {
+      const company = await Company.create(update);
+
+      res.json(company);
+    } catch (error) {
+      return res.json({
+        status: "Error",
+        message: error,
+      });
+    }
+  });
+// .post(async function(req, res) {
+// 	let update = req.body;
+
+// 	try {
+// 		let company = await Company.create(update);
+
+// 		res.json(company);
+// 	} catch (error: any) {
+// 		return res.json({
+// 			status: "Error",
+// 			message: error
+// 		});
+// 	}
+// })
+
+/**
+ * @swagger
+ *
+ * /api/v2/companies/:id:
+ *   get:
+ *     tags:
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ *
+ */
+router.get("/companies/:code", cache(10), async function (req, res) {
+  const { code } = req.params;
+
+  try {
+    logger.info("Retrived company details");
+    const company = await Company.find({ symbol: code });
+    // if (err) {
+    //   logger.error("Error retrieving stocks", {
+    //     error: err.message,
+    //     stack: err.stack,
+    //     params: req.params,
+    //     query: req.query,
+    //   });
+    // return res.status(500).json({
+    //   status: 500,
+    //   message: "Internal Server Error",
+    // });
+    // }
+    // });
+
+    logger.debug("Retrived company details", company);
+    res.json(company);
+  } catch (error) {
+    logger.error("Error retrieving stocks", {
+      error: error.message,
+      stack: error.stack,
+      params: req.params,
+      query: req.query,
+    });
+  }
+});
+
+router
+  .route("/companies/:code")
+  .get(async function (req, res) {
+    let { id } = req.params;
+
+    try {
+      logger.info("Retrived company details");
+      let company = await Company.findById(id);
+
+      logger.debug("Retrived company details", company);
+      res.json(company);
+    } catch (error: any) {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    }
+  })
+  .post(async function (req, res) {
+    const update = req.body;
+
+    try {
+      logger.info("Adding company");
+      // const gfs = new Grid(mongoose.connection.db, mongoose.mongo);
+      // const writeStream = gfs.createWriteStream({
+      //   filename: req.file.originalname,
+      //   mode: "w",
+      //   content_type: req.file.mimetype,
+      // });
+      // fs.createReadStream(req.file.path).pipe(writeStream);
+      // writeStream.on("close", (file) => {
+      //   fs.unlink(req.file.path, (err) => {
+      //     if (err) throw err;
+      //     return res.json({ file });
+      //   });
+      // });
+
+      const company = await Company.create(update);
+
+      logger.debug("Company added", company);
+      res.json(company);
+    } catch (error: any) {
+      logger.error("Error adding company", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      return res.json({
+        status: "Error",
+        message: error,
+      });
+    }
+  })
+  .put(async function (req, res) {
+    const { code } = req.params;
+    const update = req.body;
+
+    try {
+      logger.info("Updating company");
+      const company = await Company.findByIdAndUpdate(code, update);
+
+      logger.debug("Company added", company);
+      res.json(company);
+    } catch (error: any) {
+      logger.error("Error updating company", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      return res.json({
+        status: "Error",
+        message: error,
+      });
+    }
+  });
+// .delete(async function(req, res) {
+// 	let {id} = req.params;
+
+// 	try {
+// 		await Company.findOneAndDelete(id);
+
+// 		return res.statusCode(204).json({
+// 			status: "Error",
+// 			message: error
+// 		});
+// 	} catch (error: any) {
+// 		// throw new Error(error: any);
+// 		return res.json({
+// 			status: "Error",
+// 			message: error
+// 		});
+// 	}
+// });
+
+/**
+ * @swagger
+ *
+ * /api/v2/companies/:code/code:
+ *   get:
+ *     tags:
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ *
+ * /api/v2/company/{code}:
+ *   get:
+ *     tags:
+ *      - company
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/company/:code
+ * Get a specific company info using stock quote
+ * @param :ticker unique ticker of the comapny
+ */
+router.get("/companies/:code/code", cache(10), async function (req, res) {
+  const { code } = req.params;
+
+  const company = await Company.findOne({ ticker: new RegExp(code, "i") });
+
+  res.json(company);
+});
+
+router.get("/company/:code", cache(10), async function (req, res) {
+  const stockTicker = req.params.code;
+
+  const company = await Company.findOne({ ticker: stockTicker });
+
+  res.json(company);
+});
+
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/historicals/{code}:
+ *   get:
+ *     tags:
+ *      - historical
+ *     summary: Returns past quotes for a code
+ *     responses:
+ *       200:
+ *         description: A successful response
+ *       300:
+ *         description: Code required
+ *       400:
+ *         description: Code not found
+ *       500:
+ *         description: Server error
+ *     parameters:
+ *       - name: code
+ *         in: path
+ *         description: Date
+ *         required: true
+ *         schema:
+ *           type: string
+ *           enum: [BSP, CCP, CGA, CPL, KAM, KSL, NEM, NGP, NIU, SST, STO]
+ *       - name: date
+ *         in: path
+ *         description: code
+ *         schema:
+ *            type: date
+ */
+/**
+ * GET /api/stocks/historicals/:code
+ * see also /api/v2/stocks/:code/historicals
+ * @param :code unique code of the stock
+ * @param ?date={date}
+ * @param ?start={date}
+ * @param ?end={date}
+ * @param ?limit=1
+ * @param ?sort=1|-1
+ * @param ?skip=1
+ * @param ?fields=[]
+ */
+router.get("/historicals/:code", (req, res) => {
+  res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}`);
+});
+router.get("/stocks/historicals/:code", cache(10), function (req, res) {
+  if (!req.params.code) {
+    return res.status(400).json({
+      status: 400,
+      message: "`code` is required",
+    });
+  }
+  const code = String(req.params.code);
+  const date = String(req.query.date);
+  const start = String(req.query.start);
+  const end = String(req.query.end);
+  const limit = parseInt(String(req.query.limit));
+  const sort = parseInt(String(req.query.sort));
+  const skip = parseInt(String(req.query.skip));
+  const fields = String(req.query.fields);
+
+  const stock = Stock.find();
+  stock.where({ code: code });
+  stock.select("date code close high low open vol_today");
+
+  var dateStr = {
+    date: new Date().toDateString(),
+  };
+
+  if (date) {
+    dateStr["date"] = new Date(date).toDateString();
+
+    if (Number.isInteger(Number(date))) {
+      // stock.where({ date: date });
+      stock.where("date", date);
+    } else {
+      // stock.where({ date: new Date(date) });
+      stock.where("date", new Date(date));
+    }
+  }
+
+  if (start) {
+    Object.assign(dateStr["date"], { start: new Date(start).toDateString() });
+
+    if (Number.isInteger(Number(start))) {
+      stock.where({ date: { $gte: start } });
+    } else {
+      stock.where({ date: { $gte: new Date(start) } });
+    }
+  }
+  if (end) {
+    Object.assign(dateStr["date"], {
+      end: new Date(end).toDateString(),
+    });
+
+    if (Number.isInteger(Number(end))) {
+      stock.where({ date: { $lte: end } });
+    } else {
+      stock.where({ date: { $lte: new Date(end) } });
+    }
+  }
+
+  if (sort) {
+    stock.sort({ date: sort ? -1 : 1 });
+  } else {
+    // default sort descendence
+    stock.sort({ date: 1 });
+  }
+
+  if (limit) {
+    stock.limit(limit);
+  }
+
+  if (skip) {
+    stock.skip(skip);
+    // dateStr['date'] = new Date(`2021-10-${new Date().getDate() + skip}`).toDateString();
+  }
+
+  if (fields) {
+    stock.select(fields.split(","));
+  }
+
+  stock
+    .exec()
+    .then(function (stocks) {
+      const count = stocks.length == limit ? limit : stocks.length;
+
+      // caching received data using redis
+      // redisClient.setEx(search, 600, JSON.stringify(stocks));
+
+      if (stocks && stocks.length > 0) {
+        res.json({
+          status: 200,
+          // ...dateStr,
+          last_updated: stocks[0].date,
+          symbol: code,
+          total_count: count,
+          historical: stocks,
+
+          // "links": {},
+          // "meta": {
+          // 	"current_page": 1,
+          // 	"from": 1,
+          // 	"last_page": 1,
+          // 	"links": [
+          // 		{
+          // 			"active": false,
+          // 			"label": "« Previous",
+          // 			"url": null
+          // 		},
+          // 		{
+          // 			"active": true,
+          // 			"label": "1",
+          // 			"url": "https://router.apilayer.com/bank_data/banks_by_country?page=1"
+          // 		},
+          // 		{
+          // 			"active": false,
+          // 			"label": "Next »",
+          // 			"url": null
+          // 		}
+          // 	],
+          // 	"path": "https://router.apilayer.com/bank_data/banks_by_country",
+          // 	"per_page": 10,
+          // 	"to": 6,
+          // 	"total": 6
+          // }
+        });
+      } else {
+        res.status(204).json({
+          status: 204,
+          reason: "No Content",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/stocks/historicals/:code/essentials:
+ *   get:
+ *     tags:
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/stocks/historicals/:code/essentials
+ * Retrieves
+ * @param {string} :code
+ */
+router.get("/historicals/:code/essentials", (req, res) => {
+  res.redirect(301, `/api/v2/stocks/historicals/${req.params.code}/essentials`);
+});
+router.get(
+  "/stocks/historicals/:code/essentials",
+  cache(10),
+  function (req, res) {
+    const code = req.params.code;
+
+    const stock = Stock.find({});
+    // stock.where({ 'code': code });
+    // stock.select('date bid offer code close high low open vol_today');
+
+    stock
+      .exec()
+      .then(function (stocks) {
+        const count = stocks.length;
+        const dates: number[] = [];
+        const bids: number[] = [];
+        const offers: number[] = [];
+
+        if (stocks && stocks.length > 0) {
+          stocks.forEach(function (stock) {
+            dates.push(new Date(stock.date).getTime());
+            bids.push(Number(stock.bid));
+            offers.push(Number(stock.offer));
+          });
+
+          res.status(200).json([
+            {
+              columns: [
+                ["x", ...dates],
+                ["y1", ...bids],
+                ["y2", ...offers],
+              ],
+              types: { y0: "line", y1: "line", x: "x" },
+              names: { y0: "#0", y1: "#1" },
+              colors: { y0: "#3DC23F", y1: "#F34C44" },
+            },
+          ]);
+        } else {
+          res.status(204).json({
+            status: 204,
+            reason: "No Content",
+          });
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+);
+
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/stocks:
+ *   get:
+ *     tags:
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/stocks
+ * Retrieve quotes for all the companies for the current day
+ * Retrieve PNGX stock quotes stored in the my own database
+ * Retrieve Stock Quotes directly from PNGX website
+ * @query date - retrieve quote for the exact date
+ * @query start - start date in a range
+ * @query end - end date in a range
+ * @query limit -
+ * @query offset -
+ * @query sort -
+ * @query skip -
+ * @query fields - i.e. fields=id,name,address,contact
+ *
+ * @param: /api/v2/stocks?code=CODE, retreive quotes from a specific company for the current day
+ * @param: /api/v2/stocks?code=CODE&date=now, retreive quotes from a specific company for the specific day
+ * @param: /api/v2/stocks?code=CODE&start=DATE&end=DATE
+ *
+ * Date form
+ */
+router.get("/stocks", cache(10), function (req, res) {
+  let date = String(req.query.date);
+  let start = String(req.query.start);
+  let end = String(req.query.end);
+  const limit = parseInt(String(req.query.limit)) || SYMBOLS.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
+  const sort = parseInt(String(req.query.sort));
+  const skip = parseInt(String(req.query.skip)); // skip number of days behind: 3: go 3 days behind
+  const fields = String(req.query.fields);
+  const code = String(req.query.code || req.query.symbol || req.query.ticker);
+
+  logger.info("Retriving today's quotes");
+
+  const query = Stock.find();
+
+  var dateStr = {
+    date: new Date().toDateString(),
+  };
+
+  if (date) {
+    if (Number.isInteger(Number(date))) {
+      date = String(date);
+    }
+    const $date = new Date(date);
+
+    dateStr["date"] = $date.toDateString();
+    query.where({ date: $date });
+  }
+
+  // TODO: Fix date range
+  if (start) {
+    if (Number.isInteger(Number(start))) {
+      start = String(start);
+    }
+    const $start = new Date(start);
+    console.log($start);
+
+    Object.assign(dateStr["date"], { start: $start.toDateString() });
+    query.where({ date: { $gte: $start } });
+  }
+
+  if (end) {
+    if (Number.isInteger(Number(end))) {
+      end = String(end);
+    }
+    const $end = new Date(end);
+
+    Object.assign(dateStr["date"], { end: $end.toDateString() });
+    query.where({ date: { $lte: $end } });
+  }
+
+  // ?fields=bid,open
+  if (fields) {
+    query.select(fields.split(","));
+  }
+
+  // ?sort=1
+  if (sort) {
+    query.sort({ date: sort ? -1 : 1 });
+  } else {
+    // default sort descendence
+    query.sort({ date: -1 });
+  }
+
+  // ?limit=12
+  if (limit) {
+    query.limit(limit);
+  }
+
+  // skip=
+  if (skip) {
+    query.skip(skip);
+  }
+
+  if (code != null) {
+    query.where({ code: code });
+  }
+
+  query
+    .exec()
+    .then(function (stocks) {
+      logger.debug("Quotes retrieved", stocks);
+      res.json({
+        status: 200,
+        ...dateStr,
+        last_updated: stocks[0]?.date,
+        count: stocks.length,
+        data: stocks,
+      });
+    })
+    .catch((error: any) => {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    });
+});
+
+// /**
+//  * @swagger
+//  *
+//  *
+//  * /api/v2/stocks:
+//  *   post:
+//  *     tags:
+//  *      - quote
+//  *     summary: Returns a sample message
+//  *     responses:
+//  *       200:
+//  *         description: A successful response
+//  */
+// /**
+//  * POST /api/v2/stocks
+//  * Add new quote
+//  */
+// router.post("/stocks", function (req, res) {
+//   let data = req.body;
+
+//   if (Array.isArray(data)) {
+//     for (let i = 0; i < data.length; i++) {
+//       const element = utils.normalize_data(array[i]);
+
+//       let query = Stock.findOne({
+//         date: element["date"],
+//         short_name: element["short_name"],
+//       });
+//       // query.lean();
+//       query
+//         .exec()
+//         .then(function (result) {
+//           if (result == null) {
+//             console.log("Match No Content.");
+//             console.log("Adding it to the db");
+
+//             let quote = new Stock(element);
+//             quote
+//               .save()
+//               .then(() => {
+//                 console.log("added quote for " + element["date"]);
+//                 res.sendStatus(201);
+//               })
+//               .catch(function (err) {
+//                 console.error(err);
+//               });
+//           } else {
+//             console.log("Match found! Cannot add quote");
+//             res.send("Match found! Cannot add quote");
+//           }
+//         })
+//         .catch((err) => {
+//           console.error("Error: " + err);
+//           res.send("Error: " + err);
+//         });
+//     }
+//   }
+// });
+
+// TODO
+// https://axionquant.com/docs/01-market-data/stocks/list
+// /api/v2/stocks/list/market
+// /api/v2/stocks/list/country
+// /api/v2/stocks/list/currency
+// /api/v2/stocks/list/sector
+// /api/v2/stocks/list/industry
+// /api/v2/stocks/list/type
+// /api/v2/stocks/list/exchange
+// /api/v2/stocks/gainers?days=30&limit=20
+// /api/v2/stocks/losers?days=30&limit=20
+// /api/v2/stocks/:ticker/quote
+// /api/v2/stocks/:ticker
+
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/stocks/:code:
+ *   get:
+ *     tags:
+ *      - quote
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/stocks/:code
+ * Get a specific quote by code
+ * @param :code - a unique code that represents the quote/stock of a public company on PNGX
+ */
+router.get("/stocks/:code", cache(10), function (req, res) {
+  const code = req.params.code;
+
+  logger.info(`Retriving stocks for ${code}`);
+
+  Stock.find({
+    code: code,
+  })
+    .exec()
+    .then(function (result) {
+      if (result) {
+        logger.info(`${code} stocks `, result);
+        res.json({
+          status: 200,
+          last_updated: result.date,
+          data: result,
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((error: any) => {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    });
+});
+
+/**
+ * OHLCV
+ */
+router.get("/stocks/:code/ohlcv", cache(10), async function (req, res) {
+  const code = req.params.code;
+
+  Stock.find({ code: code }).then((stocks) => {
+    const history = stocks
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .map((stock) => ({
+        date: stock.date,
+        open: stock.open,
+        high: stock.high,
+        low: stock.low,
+        close: stock.close,
+        volume: stock.vol_today,
+      }));
+
+    if (history) {
+      res.status(200).json({
+        status: "success",
+        results: history.length,
+        data: history,
+      });
+    }
+  });
+});
+
+/**
+ * /api/stocks/ohlcv/history
+ * OHLCV
+ */
+router.get("/stocks/:code/ohlcv/history", cache(10), async function (req, res) {
+  const code = req.params.code;
+  const limit = parseInt(String(req.query["limit"])) || 100;
+  const sort = parseInt(String(req.query["sort"])) || 1;
+  const skip = parseInt(String(req.query["skip"])) || 0;
+
+  // const filters = req.query;
+  // const filteredUsers = data.filter((user) => {
+  //   let isValid = true;
+  //   for (key in filters) {
+  //     console.log(key, user[key], filters[key]);
+  //     isValid = isValid && user[key] == filters[key];
+  //   }
+  //   return isValid;
+  // });
+
+  const query = Stock.find({ code: code });
+
+  if (limit) {
+    query.limit(limit);
+  }
+
+  if (sort) {
+    query.sort({ date: sort ? -1 : 1 });
+  }
+
+  if (skip) {
+    query.skip(skip);
+  }
+
+  query.exec().then((stocks) => {
+    const history = stocks.map((stock) => ({
+      open: stock.open,
+      high: stock.high,
+      low: stock.low,
+      close: stock.close,
+      volume: stock.vol_today,
+    }));
+
+    if (history) {
+      res.status(200).json({
+        status: "success",
+        results: history.length,
+        data: { history },
+        meta: {
+          limit,
+          sort,
+          skip,
+        },
+      });
+    }
+  });
+});
+
+/**
+ * /api/stocks/:code/quote
+ * Get comprehensive quote for a specific stock code
+ */
+
+/**
+ * /api/stocks/:code/prices
+ * Price history for a Quote
+ * @example
+ */
+router.get("/stocks/:code/prices", cache(10), async function (req, res) {
+  const code = req.params.code;
+  if (typeof code !== "string") {
+    res.status(400).json({
+      success: false,
+      error: "Please provide a valid code",
+    });
+    return;
+  }
+  if (!SYMBOLS.includes(code)) {
+    res.status(400).json({
+      success: false,
+      error: "Please provide a valid code",
+    });
+    return;
+  }
+
+  const period = String(req.query["period"]);
+  // const frame = req.query["frame"];
+  const limit = parseInt(String(req.query["limit"])) || 100;
+  const sort = parseInt(String(req.query["sort"])) || 1;
+  const skip = parseInt(String(req.query["skip"])) || 0;
+  const start = String(req.query["start"]);
+  const end = String(req.query["end"]);
+
+  try {
+    // const today = new Date();
+    // let startDate = start ? new Date(start) : today;
+    // let endDate = end ? new Date(end) : today;
+
+    let range;
+    if (start) {
+      range = {
+        start: new Date(start),
+        end: end ? new Date(end) : new Date(),
+      };
+      if (!isDate(range.start) || !isDate(range.end)) {
+        return res
+          .status(400)
+          .json({ success: false, message: "Invalid date range" });
+      }
+    } else {
+      range = getRange(period);
+    }
+
+    let result = [];
+
+    // if (period) {
+    //   const recordService = new RecordService();
+
+    //   // 1min, 5min, 1h, 1day, 5day, 1m, 6m, 1y, 5y, 10y, all
+    //   switch (period) {
+    //     case '1min':
+    //       startDate = calculateStartDate(endDate, 1, 'min');
+    //       result = await recordService.groupBy1Min(code, startDate, endDate);
+    //     case '5min':
+    //       startDate = calculateStartDate(endDate, 5, 'min');
+    //       result = await recordService.groupBy5Mins(code, startDate, endDate);
+    //     case '1h':
+    //       startDate = calculateStartDate(endDate, 1, 'h');
+    //       result = await recordService.groupBy1Hour(code, startDate, endDate);
+    //     case '1d':
+    //       startDate = calculateStartDate(endDate, 1, 'd');
+    //       result = await recordService.groupBy1Day(code, startDate, endDate);
+    //       break;
+    //     case '5d':
+    //       startDate = calculateStartDate(endDate, 5, 'd');
+    //       result = await recordService.groupBy5Days(code, startDate, endDate);
+    //       break;
+    //     case '1m': // mtd
+    //       startDate = calculateStartDate(endDate, 1, 'm');
+    //       result = await recordService.groupBy1Month(code, startDate, endDate);
+    //       break;
+    //     case '6m':
+    //       startDate = calculateStartDate(endDate, 6, 'm');
+    //       result = await recordService.groupBy6Months(code, startDate, endDate);
+    //       break;
+    //     case '1y': // ytd
+    //       startDate = calculateStartDate(endDate, 1, 'y');
+    //       result = await recordService.groupBy1Year(code, startDate, endDate);
+    //       break;
+    //     case '5y':
+    //       startDate = calculateStartDate(endDate, 5, 'y');
+    //     case '10y':
+    //       startDate = calculateStartDate(endDate, 10, 'y');
+    //     case 'all':
+    //       result = await recordService.groupByAllYears(code);
+    //       break;
+    //     default:
+    //       startDate = calculateStartDate(endDate, 1, 'h');
+    //       result = await recordService.groupBy1Hour(code, startDate, endDate);
+    //       break;
+    //   }
+    // }
+    // else {
+    const filter: {
+      date: string | number | Date | null | Record<string, any>;
+      code: string;
+    } = {
+      date: null,
+      code,
+    };
+    if (range.start || range.end) {
+      filter.date = {};
+      if (range.start) filter.date.$gte = range.start;
+      if (range.end) filter.date.$lte = range.end;
+    }
+
+    const query = Quote.find(filter);
+    query.select("-_id date code last");
+    // query.where({ code: code });
+
+    // if (limit) {
+    //   query.limit(limit);
+    // }
+
+    if (sort) {
+      query.sort({ date: sort ? -1 : 1 });
+    }
+
+    if (skip) {
+      query.skip(skip);
+    }
+
+    // if (start && !end) {
+    //   query.where({
+    //     date: {
+    //       $gte: new Date(start),
+    //       $lte: new Date()
+    //     }
+    //   })
+    // }
+    // if (start && end) {
+    //   query.where({
+    //     date: {
+    //       $gte: new Date(start),
+    //       $lte: new Date(end)
+    //     }
+    //   })
+    // }
+
+    query.lean();
+
+    result = await query.exec();
+    // }
+    res.status(200).json({
+      success: true,
+      count: result.length,
+      data: result,
+      meta: {
+        frame: period,
+        start: range.start,
+        end: range.end,
+        limit,
+        sort,
+        skip,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      count: 0,
+      data: [],
+      meta: {
+        limit,
+        sort,
+        skip,
+      },
+    });
+  }
+});
+router.get("/frames", cache(10), (req, res) =>
+  res.json({ frames: Object.keys(FRAMES) }),
+);
+
+/**
+ * Get quote for a particular stock given date
+ */
+router.get("/stocks/:code/:date", cache(10), async function (req, res) {
+  const code = req.params.code;
+  const date = req.params.date;
+
+  if (!code || !date) {
+    return res.json({
+      status: 400,
+      message: "code and date is required",
+    });
+  }
+
+  // Check if date falls on a weekend or a public holiday
+  const isHoliday = holidays.find((a, b) =>
+    isSameDay(new Date(date), new Date(a.date)),
+  );
+  if (isHoliday) {
+    return res.json({
+      status: 400,
+      message: "Date falls on a holiday. Pick a different date",
+    });
+  }
+  if (isWeekend(date)) {
+    return res.json({
+      status: 400,
+      message: "Date falls on a weekend. Pick a different date",
+    });
+  }
+
+  logger.debug(`Retriving stocks for ${code}`);
+
+  // // last N trading days
+  // const rows = await Stock.find({ code, date: { $lte: new Date() } })
+  //   .sort({ date: -1 })
+  //   .limit(5)
+  //   .lean();
+  // rows.reverse();
+
+  Stock.find({
+    code: code,
+    date: new Date(),
+    // date: { $lte: new Date() }
+  })
+    .sort({ date: -1 })
+    .limit(5)
+    .lean()
+    .then(function (result) {
+      // result.reverse();
+      if (result) {
+        logger.info(`${code} stocks `, result);
+        res.json({
+          status: 200,
+          last_updated: result.date,
+          data: result,
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((error) => {
+      logger.error("Error retrieving stocks", {
+        error: error.message,
+        stack: error.stack,
+        params: req.params,
+        query: req.query,
+      });
+    });
+});
+
+/**
+ * @swagger
+ *
+ *
+ * /api/v2/tickers:
+ *   get:
+ *     tags:
+ *      - ticker
+ *     description: Welcome to swagger-jsdoc!
+ *     summary: Returns a sample message
+ *     responses:
+ *       200:
+ *         description: A successful response
+ */
+/**
+ * GET /api/v2/stocks/tickers
+ * Retrieves tickers/codes for all the stocks
+ * @deprecated use /api/v2/stocks/tickers
+ */
+router.get("/tickers", (req, res) => {
+  res.redirect(301, "/api/v2/stocks/tickers");
+});
+router.get("/stocks/tickers", cache(10), async function (req, res) {
+  logger.info("Retriving tickers");
+
+  try {
+    const tickers = await Ticker.find({});
+
+    logger.debug("Tickers retrieved ", tickers);
+
+    res.json(tickers);
+  } catch (error: any) {
+    logger.error("Error retrieving stocks", {
+      error: error.message,
+      stack: error.stack,
+      params: req.params,
+      query: req.query,
+    });
+  }
+
+  // Ticker.aggregate([
+  //   {
+  //     $match: {
+  //       code: "BSP",
+  //     },
+  //   },
+  //   // {
+  //   // 	$group: {
+  //   // 		_id: {
+  //   // 			symbol: "$symbol",
+  //   // 			time: {
+  //   // 				$dateTrunc: {
+  //   // 					date: "$time",
+  //   // 					unit: "minute",
+  //   // 					binSize: 5
+  //   // 				},
+  //   // 			},
+  //   // 		},
+  //   // 		high: { $max: "$price" },
+  //   // 		low: { $min: "$price" },
+  //   // 		open: { $first: "$price" },
+  //   // 		close: { $last: "$price" },
+  //   // 	},
+  //   // },
+  //   // {
+  //   // 	$sort: {
+  //   // 		"_id.time": 1,
+  //   // 	},
+  //   // },
+  // ]).then(function (tickers) {
+  //   res.json(tickers);
+  // });
+
+  // db.sales.aggregate([
+  // 	// First Stage
+  // 	{
+  // 	  $match : { "date": { $gte: new ISODate("2014-01-01"), $lt: new ISODate("2015-01-01") } }
+  // 	},
+  // 	// Second Stage
+  // 	{
+  // 	  $group : {
+  // 		 _id : { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+  // 		 totalSalePrice: { $sum: { $multiply: [ "$price", "$quantity" ] } },
+  // 		 averageQuantity: { $avg: "$quantity" },
+  // 		 count: { $sum: 1 }
+  // 	  }
+  // 	},
+  // 	// Third Stage
+  // 	{
+  // 	  $sort : { totalSalePrice: -1 }
+  // 	}
+  //    ])
+});
+
+/**
+ *
+ * @deprecated
+ */
+router.get("/tickers/:code", (req, res) => {
+  res.redirect(301, `/api/v2/stocks/tickers/${req.params.code}`);
+});
+router.get("/stocks/tickers/:code", cache(10), async (req, res) => {
+  const code = req.params.code;
+
+  Ticker.find({ code: code }).then((ticker) => {
+    console.log(ticker);
+
+    if (ticker) {
+      res.status(200).json({
+        ticker,
+      });
+    }
+  });
+});
+
+function fetchNews(page: number) {
+  return new Promise((resolve, reject) => {
+    logger.info("[Main_Thread]: Retrieving news");
+
+    const payload = {
+      page,
+    };
+
+    const worker = new Worker(childNewsWorkerPath);
+    worker.postMessage(payload);
+
+    worker.on("message", resolve);
+
+    worker.on("error", reject);
+
+    worker.on("exit", (exitCode) => {
+      if (exitCode !== 0) {
+        logger.error(`Worker stopped with exit code ${exitCode}`);
+        reject(new Error(`Worker stopped with exit code ${exitCode}`));
+      }
+    });
+  });
+}
+
+/**
+ * /api/v2/news
+ */
+router.get("/news", cache(10), async function (req, res) {
+  let page = req.query.page;
+
+  logger.info("Retrieving news");
+
+  let headers = new Headers();
+  headers.set("User-Agent", "");
+
+  // let NEWS_URL = 'https://www.pngx.com.pg/feed/';
+  let NEWS_URLS = [
+    "https://www.pngx.com.pg/wp-json/wp/v2/posts",
+    "https://www.postcourier.com.pg/wp-json/wp/v2/posts",
+    "https://www.thenational.com.pg/wp-json/wp/v2/posts",
+  ];
+  let news_posts: Array<any> = [];
+
+  try {
+    if (isMainThread) {
+      fetchNews(page)
+        .then((result) => {
+          logger.debug("Completed: ", result);
+          logger.debug("Retrieved news ", result);
+          return res.send(result);
+        })
+        .catch((error) => {
+          logger.error(`Error occured`, error);
+          throw new Error(`Error occured`, error);
+        });
+    }
+  } catch (error: any) {
+    logger.error("An error whilte fetching news:", {
+      error: error.message,
+      stack: error.stack,
+    });
+
+    res.json({ message: "An error whilte fetching news:", error });
+  }
+});
+
+router.get("/news/sources", function (req, res) {
+  NewsSource.find({})
+    .then((result) => {
+      res.status(200).json({
+        status: 200,
+        data: result,
+      });
+    })
+    .catch((err) => {
+      logger;
+      res.json({
+        status: 1,
+        reason: "",
+      });
+    });
+});
+router.post("/news/sources", function (req, res) {
+  const { name, url } = req.body;
+  logger.debug("Adding news source: ", name, url);
+
+  if (!name) {
+    return res.status(300).json({
+      status: 300,
+      message: "Name must be of type 'string' and cannot be empty",
+    });
+  }
+  if (!url) {
+    return res.status(300).json({
+      status: 300,
+      message: "URL must be of type 'string' and cannot be empty",
+    });
+  }
+
+  const source = new NewsSource({
+    name,
+    url,
+  });
+
+  source
+    .save()
+    .then((result) => {
+      logger.debug("News Source added: ", result);
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      logger.error("Error adding news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while adding news source. Please try again",
+      });
+    });
+});
+router.get("/news/sources/:newsSourceId", function (req, res) {
+  const { newsSourceId } = req.params;
+
+  logger.debug("Retrieving News Source: ", newsSourceId);
+
+  NewsSource.findById(newsSourceId)
+    .then((result) => {
+      logger.debug("News Source retrieved: ", result);
+      res.json(result);
+    })
+    .catch((error) => {
+      logger.error("Error retrieving news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        error: "Internal server error",
+        message:
+          "Error occurred while retrieving news source. Please try again",
+      });
+    });
+});
+router.put("/news/sources/:newsSourceId", function (req, res) {
+  const { newsSourceId } = req.params;
+  const { name, url } = req.body;
+  const payload = {};
+
+  if (!name) {
+    payload["name"] = name;
+  }
+
+  if (!url) {
+    payload["url"] = url;
+  }
+
+  NewsSource.findByIdAndUpdate(newsSourceId, payload)
+    .then((result) => {
+      logger.debug("News Source updated: ", result);
+      res.json(result);
+    })
+    .catch((error) => {
+      logger.error("Error updating news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while updating news source. Please try again",
+      });
+    });
+});
+router.patch("/news/sources/:newsSourceId", function (req, res) {
+  const { newsSourceId } = req.params;
+  const { name, url } = req.body;
+  const payload = {};
+
+  if (!name) {
+    payload["name"] = name;
+  }
+
+  if (!url) {
+    payload["url"] = url;
+  }
+
+  NewsSource.findByIdAndUpdate(newsSourceId, payload)
+    .then((result) => {
+      logger.debug("News Source updated: ", result);
+      res.json(result);
+    })
+    .catch((error) => {
+      logger.error("Error updating news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while updating news source. Please try again",
+      });
+    });
+});
+router.delete("/news/sources/:newsSourceId", function (req, res) {
+  const { newsSourceId } = req.params;
+
+  NewsSource.findByIdAndDelete(newsSourceId)
+    .then((result) => {
+      logger.debug("News Source retrieved: ", result);
+      res.json(result);
+    })
+    .catch((error) => {
+      logger.error("Error deleting news source:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({
+        status: 500,
+        message: "Error occurred while deleting news source. Please try again",
+      });
+    });
+});
+
+const clients: any[] = [];
+const facts = [{ info: "hello", source: "world" }];
+
+function eventsHandler(req: Request, res: Response, next: NextFunction) {
+  // Set headers to keep the connection alive and tell the client we're sending event-stream data
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  const sendEvent = (data: any) => {
+    return res.write(`data: ${JSON.stringify(data)}\n`);
+  };
+
+  // Send an initial message
+  sendEvent("Connected to server");
+
+  const clientId = Date.now();
+
+  const newClient = {
+    id: clientId,
+    res,
+  };
+
+  clients.push(newClient);
+
+  // Simulate sending updates from the server
+  let counter = 0;
+  const intervalId = setInterval(() => {
+    counter++;
+    // Write the event stream format
+    sendEvent(`Message ${counter}`);
+  }, 2000);
+
+  // When client closes connection, stop sending events
+  req.on("close", () => {
+    console.log(`${clientId} Connection closed`);
+    clients.filter((client) => client.id !== clientId);
+
+    clearInterval(intervalId);
+    res.end();
+  });
+}
+
+function sendEventsToAll(newFact: any) {
+  clients.forEach((client) =>
+    client.response.write(`data: ${JSON.stringify(newFact)}\n`),
+  );
+}
+
+async function addEndpoint(
+  request: Request,
+  response: Response,
+  next: NextFunction,
+) {
+  const newFact = request.body;
+  facts.push(newFact);
+  return sendEventsToAll(newFact);
+}
+
+router.get("/feeds", eventsHandler);
+router.post("/endpoints", addEndpoint);
+
+/**
+ *
+ */
+router.get("/market/status", async (req, res) => {
+  try {
+    // if current day matches holiday's date
+    const status = holidays.find((holiday) => isToday(new Date(holiday.date)));
+    const is_weekend = isWeekend(new Date());
+
+    const data = {
+      marketStatus: is_weekend ? "close" : "open",
+      lastUpdated:
+        new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+      exchange: "PG",
+      holiday: status != null,
+      isOpen: !is_weekend ? status != null : false,
+      session: "pre-market",
+      timezone: LOCAL_TIMEZONE,
+      t: new Date().getTime(),
+      source: "PNGX",
+      status,
+    };
+
+    if (data) {
+      res.status(200).json(data);
+    } else {
+      res.status(404).json({ error: "Market status not found" });
+    }
+  } catch (error: any) {
+    logger.error("Error fetching market status:", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body,
+    });
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+/**
+ *
+ */
+router.get("/market/holidays", async (req, res) => {
+  try {
+    res.status(200).json(holidays);
+  } catch (error: any) {
+    logger.error("Error fetching market holidays:", {
+      error: error.message,
+      stack: error.stack,
+      body: req.body,
+    });
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+// /market/movers
+// /market/gainers
+// /market/losers
+
+// /stocks/{code}/indicators
+// /stocks/{code}/performance
+// /stocks/{code}/volatility
+// /stocks/{code}/financials
+// /stocks/{code}/dividends
+// /stocks/{code}/valuation
+// /portfolio/analysis
+
+/**
+ *
+ * TODO: fix index components
+ */
+router.get("/indices", (req, res) => {
+  Indices.find({})
+    .then((indices) => {
+      res.json({
+        status: "success",
+        results: indices.length,
+        data: indices,
+      });
+    })
+    .catch((error: any) => {
+      logger.error("Error fetching market holidays:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+// TODO
+// /api/v2/indices/tickers
+// /api/v2/indices/gainers?days=30&limit=20
+// /api/v2/indices/losers?days=30&limit=20
+// /api/v2/indices/:ticker/quote
+// /api/v2/indices/:ticker
+// /api/v2/indices/NDX/prices?frame=monthly&from=2024-01-01&to=2024-12-31
+
+/**
+ *
+ */
+router.get("/indices/:code", async (req, res) => {
+  const code = req.params["code"];
+
+  if (!code) {
+    logger.error("Index code not provided");
+
+    return res.status(401).json({
+      error: "No Code",
+      message: "Provide a code",
+    });
+  }
+
+  logger.info("Retrieving stocks in index " + code);
+
+  await Indices.findBySymbol(code)
+    .then((index) => {
+      logger.debug("Index retrieved");
+
+      if (Array.isArray(index) && index.length > 0) {
+        res.json({
+          status: "success",
+          results: index.length,
+          data: index[0],
+        });
+      } else {
+        res.json({
+          status: "success",
+          results: 1,
+          data: index,
+        });
+      }
+    })
+    .catch((error: any) => {
+      logger.error("Error fetching market holidays:", {
+        error: error.message,
+        stack: error.stack,
+        body: req.body,
+      });
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+router.get("/batch/:symbols", (req, res) => {
+  axios
+    .get(
+      `https://${
+        process.env.NODE_ENV === "production" ? "cloud" : "sandbox"
+      }.iexapis.com/stable/stock/market/batch?symbols=${
+        req.params.symbols
+      }&filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&types=quote&token=${iexApiToken}`,
+    )
+    .then((stocks) => res.json(stocks.data))
+    .catch((err) => {
+      return res.status(err.response.status).json({
+        noStocksFound: err.response.data,
+      });
+    });
+});
+
+router.get("/lookup/:symbol", (req, res) => {
+  axios
+    .get(
+      `https://${
+        process.env.NODE_ENV === "production" ? "cloud" : "sandbox"
+      }.iexapis.com/stable/stock/${
+        req.params.symbol
+      }/quote?filter=symbol,companyName,latestPrice,latestUpdate,previousClose,lastTradeTime&token=${iexApiToken}`,
+    )
+    .then((stock) => res.json(stock.data))
+    .catch((err) =>
+      res.status(err.response.status).json({
+        noStockFound: err.response.data,
+        symbol: req.params.symbol.toUpperCase(),
+      }),
+    );
+});
+
+router.get("/chart/:symbol/:range", (req, res) => {
+  const rangeSubUrl = {
+    "1d": "1d/?filter=date,minute,close",
+    "5dm": "5dm/?filter=date,minute,close",
+    "1mm": "1mm/?filter=date,minute,close",
+    "3m": "3m/?filter=date,close",
+    "6m": "6m/?filter=date,close",
+    "1y": "1Y/?filter=date,close",
+    "2y": "2y/?filter=date,close",
+    "5y": "5y/?filter=date,close",
+  };
+
+  axios
+    .get(
+      `https://sandbox.iexapis.com/stable/stock/${req.params.symbol}/chart/${
+        rangeSubUrl[req.params.range]
+      }&token=${iexSandboxToken}`,
+    )
+    .then((chart) =>
+      res.json({
+        symbol: req.params.symbol,
+        range: req.params.range,
+        chart: chart.data,
+      }),
+    )
+    .catch((err) =>
+      res.status(err.response.status).json({
+        noChartFound: err.response.data,
+        symbol: req.params.symbol.toUpperCase(),
+      }),
+    );
+});
+
+export default router;
+
+class RecordService {
+  // Shared match builder
+  _match(code, startDate, endDate) {
+    const match = {};
+    if (code) match.code = code;
+    if (startDate || endDate) {
+      match.date = {};
+      if (startDate) match.date.$gte = startDate;
+      if (endDate) match.date.$lte = endDate;
+    }
+    return match;
+  }
+
+  async groupBy1Min(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: {
+              $subtract: [
+                { $dayOfMonth: "$date" },
+                { $mod: [{ $dayOfMonth: "$date" }, 5] },
+              ],
+            },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+    ]);
+  }
+
+  async groupBy5Mins(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: {
+              $subtract: [
+                { $dayOfMonth: "$date" },
+                { $mod: [{ $dayOfMonth: "$date" }, 5] },
+              ],
+            },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+    ]);
+  }
+
+  async groupBy1Hour(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: { $dayOfMonth: "$date" },
+            hour: { $hour: "$date" },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1, "_id.hour": 1 } },
+    ]);
+  }
+
+  async groupBy1Day(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } }, // ✅ sort BEFORE group for $first/$last
+      {
+        $group: {
+          _id: {
+            year: { $year: "$date" },
+            month: { $month: "$date" },
+            day: { $dayOfMonth: "$date" },
+          },
+          totalLast: { $sum: "$last" },
+          avgLast: { $avg: "$last" },
+          startLast: { $first: "$last" },
+          endLast: { $last: "$last" },
+          minLast: { $min: "$last" },
+          maxLast: { $max: "$last" },
+          count: { $sum: 1 },
+          startDate: { $min: "$date" },
+          endDate: { $max: "$date" },
+          code: { $first: "$code" },
+        },
+      },
+      {
+        $addFields: {
+          lastPriceDiff: { $subtract: ["$endLast", "$startLast"] },
+        },
+      },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+      {
+        $project: {
+          _id: 0,
+          date: {
+            $dateFromParts: {
+              year: "$_id.year",
+              month: "$_id.month",
+              day: "$_id.day",
+            },
+          },
+          code: 1,
+          first: "$startLast", // alias to match frontend shape
+          last: "$endLast",
+          high: "$maxLast",
+          low: "$minLast",
+          avg: "$avgLast",
+          total: "$totalLast",
+          diff: "$lastPriceDiff",
+          count: 1,
+          startDate: 1,
+          endDate: 1,
+        },
+      },
+    ]);
+  }
+
+  async groupBy5Days(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: {
+      //       year: { $year: "$date" },
+      //       month: { $month: "$date" },
+      //       day: {
+      //         $subtract: [
+      //           { $dayOfMonth: "$date" },
+      //           { $mod: [{ $dayOfMonth: "$date" }, 5] }
+      //         ]
+      //       }
+      //     },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 } },
+    ]);
+  }
+
+  async groupBy1Month(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: { year: { $year: "$date" }, month: { $month: "$date" } },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1, "_id.month": 1 } },
+    ]);
+  }
+
+  async groupBy6Months(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: {
+      //       year: { $year: "$date" },
+      //       half: { $cond: [{ $lte: [{ $month: "$date" }, 6] }, "H1", "H2"] }
+      //     },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1, "_id.half": 1 } },
+    ]);
+  }
+
+  async groupBy1Year(code, startDate, endDate) {
+    return await Quote.aggregate([
+      { $match: this._match(code, startDate, endDate) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: { year: { $year: "$date" } },
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } },
+      { $sort: { "_id.year": 1 } },
+    ]);
+  }
+
+  async groupByAllYears(code) {
+    return await Quote.aggregate([
+      { $match: this._match(code) },
+      { $sort: { date: 1 } },
+      // {
+      //   $group: {
+      //     _id: null,
+      //     totalLast: { $sum: "$last" },
+      //     avgLast: { $avg: "$last" },
+      //     startLast: { $first: "$last" },
+      //     endLast: { $last: "$last" },
+      //     minLast: { $min: "$last" },
+      //     maxLast: { $max: "$last" },
+      //     count: { $sum: 1 },
+      //     startDate: { $min: "$date" },
+      //     endDate: { $max: "$date" },
+      //     code: { $first: "$code" }
+      //   }
+      // },
+      // { $addFields: { lastPriceDiff: { $subtract: ["$endLast", "$startLast"] } } }
+    ]);
+  }
+}

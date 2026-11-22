@@ -1,14 +1,23 @@
-import { Worker, isMainThread, workerData, parentPort } from "node:worker_threads";
-import { stock_fetcher, data_fetcher } from "./tasks";
-import { initDatabase } from "./database";
+import {
+  Worker,
+  isMainThread,
+  workerData,
+  parentPort,
+} from "node:worker_threads";
+import { stock_fetcher, data_fetcher } from "./src/tasks";
+import { initDatabase } from "./src/database";
 
 // Creating an instance for MongoDB
 initDatabase()
   .on("connected", function () {
-    console.log("[Threads_Worker]: Connected: Successfully connect to mongo server on the worker");
+    console.log(
+      "[Threads_Worker]: Connected: Successfully connect to mongo server on the worker",
+    );
   })
   .on("error", function () {
-    console.log("[Threads_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+    console.log(
+      "[Threads_Worker]: Error: Could not connect to MongoDB. Did you forget to run 'mongod'?",
+    );
   });
 
 // if (isMainThread) {
@@ -24,7 +33,7 @@ initDatabase()
 
 (async () => {
   let result = await data_fetcher();
-  parentPort?.postMessage('completed');
+  parentPort?.postMessage("completed");
 })();
 
 // var num = parseInt(prompt("enter num"));

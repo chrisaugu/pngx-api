@@ -1,0 +1,11 @@
+type Ticker {
+  id: ID!
+  date: String
+  symbol: String
+  close: Float
+  high: Float
+  low: Float
+  open: Float
+  change: Float
+  volume: Float
+}

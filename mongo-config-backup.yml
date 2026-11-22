@@ -1,0 +1,3 @@
+uri: ${MONGODB_URI_REMOTE}
+# out: ${BACKUP_PATH}
+# gzip: true

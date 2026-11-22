@@ -1,1 +1,1 @@
-module.exports = './dist';
+export default "./dist";

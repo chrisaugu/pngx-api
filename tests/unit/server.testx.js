@@ -1,6 +1,3 @@
-// import assert from "node:assert";
-// import test from "node:test";
-
 const request = require("supertest");
 const { expect, jest, test } = require("@jest/globals");
 

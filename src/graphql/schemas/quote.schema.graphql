@@ -1,0 +1,18 @@
+type Quote {
+  id: ID!
+  date: String
+  code: String
+  short_name: String
+  bid: Float
+  offer: Float
+  last: Float
+  close: Float
+  high: Float
+  low: Float
+  open: Float
+  chg_today: Float
+  vol_today: Float
+  num_trades: Float
+  createdAt: String
+  updatedAt: String
+}

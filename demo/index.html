@@ -1,37 +1,62 @@
 <!DOCTYPE html/>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/starter.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/starter.css" />
     <title>NUKU-API Docs - The PNG Stock Exchange (PNGX) API Docs</title>
-    <meta name="description" content="A challenge to display simple linear charts with nice animations"/>
-    <meta name="author" content="hello@christianaugustyn.me"/>
+    <meta
+      name="description"
+      content="A challenge to display simple linear charts with nice animations"
+    />
+    <meta name="author" content="hello@christianaugustyn.me" />
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/imf/favicon.png">
-    <link rel="stylesheet" href="assets/css/chart.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/imf/favicon.png" />
+    <link rel="stylesheet" href="assets/css/chart.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
     <script type="text/javascript" src="assets/js/chart.js"></script>
     <script type="text/javascript" src="assets/js/chart-app.js"></script>
-    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" integrity="sha512-rdhY3cbXURo13l/WU9VlaRyaIYeJ/KBakckXIvJNAQde8DgpOmE+eZf7ha4vdqVjTtwQt69bD2wH2LXob/LB7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/agate.min.css" integrity="sha512-wI7oXtzNHj/bqfLA3P6x3XYbcwzsnIKaPLfjjX8ZAXhc65+kSI6sh8gLOOByOKImokAjHUQR0xAJQ/xZTzwuOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script
+      type="text/javascript"
+      src="https://vk.com/js/api/openapi.js?160"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
+      integrity="sha512-rdhY3cbXURo13l/WU9VlaRyaIYeJ/KBakckXIvJNAQde8DgpOmE+eZf7ha4vdqVjTtwQt69bD2wH2LXob/LB7Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/agate.min.css"
+      integrity="sha512-wI7oXtzNHj/bqfLA3P6x3XYbcwzsnIKaPLfjjX8ZAXhc65+kSI6sh8gLOOByOKImokAjHUQR0xAJQ/xZTzwuOA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script>
-    window.addEventListener("DOMContentLoaded", hljs.highlightAll);
+      window.addEventListener("DOMContentLoaded", hljs.highlightAll);
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNNXFGN9TT"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MNNXFGN9TT"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-MNNXFGN9TT');
+      gtag("config", "G-MNNXFGN9TT");
     </script>
-    
   </head>
   <body>
     <div class="col-md-8 px-3 mx-auto">
@@ -41,10 +66,13 @@
     </div>
 
     <main class="col-md-8 px-3 mx-auto">
-      <p class="lead">NUKU-API is a RESTful api that pulls data from <a href="https://www.pngx.com.pg">PNGX.com</a></p>
+      <p class="lead">
+        NUKU-API is a RESTful api that pulls data from
+        <a href="https://www.pngx.com.pg">PNGX.com</a>
+      </p>
 
       <!-- https://chrisaugu.github.io/pngx-api/ -->
-      
+
       <!-- <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">Toggle example modal</button> -->
       <!-- <a href="#" class="text-success">Example link</a> -->
 
@@ -100,28 +128,56 @@
       <!-- <pre><code>&lt;h1&gt;It works!&lt;/h1&gt; -->
       <!-- &lt;p&gt;This is my code snippet.&lt;/p&gt;</code></pre> -->
 
-
-      <p>This API was part of Crisbot.io, my personal bot which is still under heavy development, but I hope you find it useful for your coding projects.</p>
+      <p>
+        This API was part of Crisbot.io, my personal bot which is still under
+        heavy development, but I hope you find it useful for your coding
+        projects.
+      </p>
       <p>Use these routes to request data on PNGX listed stocks:</p>
       <ul>
-        <li><a href="https://pngx-api.christianaugustyn.me/api/">https://pngx-api.christianaugustyn.me/api/</a> - view all stocks ticker currently trading on PNGX</li>
-        <li><a href="https://pngx-api.christianaugustyn.me/api/stocks">https://pngx-api.christianaugustyn.me/api/stocks</a> - view all stocks for the current day</li>
-        <li><a href="https://pngx-api.christianaugustyn.me/api/historicals/BSP">https://pngx-api.christianaugustyn.me/api/historicals/:ticker</a> - view all quotes belong to the particular :ticker</li>
+        <li>
+          <a href="https://pngx-api.christianaugustyn.me/api/"
+            >https://pngx-api.christianaugustyn.me/api/</a
+          >
+          - view all stocks ticker currently trading on PNGX
+        </li>
+        <li>
+          <a href="https://pngx-api.christianaugustyn.me/api/stocks"
+            >https://pngx-api.christianaugustyn.me/api/stocks</a
+          >
+          - view all stocks for the current day
+        </li>
+        <li>
+          <a href="https://pngx-api.christianaugustyn.me/api/historicals/BSP"
+            >https://pngx-api.christianaugustyn.me/api/historicals/:ticker</a
+          >
+          - view all quotes belong to the particular :ticker
+        </li>
         <!-- <li><a href="https://pngx-api.christianaugustyn.me/api/characters/students">https://pngx-api.christianaugustyn.me/api/characters/students</a> - view all characters who are Hogwarts students during the book series</li> -->
         <!-- <li><a href="https://pngx-api.christianaugustyn.me/api/characters/staff">https://pngx-api.christianaugustyn.me/api/characters/staff</a> - view all characters who are Hogwarts staff during the book series</li> -->
         <!-- <li><a href="https://pngx-api.christianaugustyn.me/api/characters/house/gryffindor">https://pngx-api.christianaugustyn.me/api/characters/house/:house</a> - view all characters in a certain house, e.g. /slytherin</li> -->
       </ul>
       <p>No API key is required.</p>
-      <p>Project created by <a href="https://github.com/chrisaugu">https://github.com/chrisaugu</a> - feel free to get in touch. To see the code for this project, go to the <a href="https://github.com/chrisaugu/pngx-api">GitHub repo</a> - feel free to fork/clone the project for your own use.
+      <p>
+        Project created by
+        <a href="https://github.com/chrisaugu">https://github.com/chrisaugu</a>
+        - feel free to get in touch. To see the code for this project, go to the
+        <a href="https://github.com/chrisaugu/pngx-api">GitHub repo</a> - feel
+        free to fork/clone the project for your own use.
+      </p>
 
-      <hr class="my-5">
+      <hr class="my-5" />
 
-      <p class="text-muted"><b>Disclaimer:</b> NUKU-API is not an affiliate of Papua New Guinea Exchange (PNGX).</p>
-      <p class="text-muted">Created and open sourced by Christian Augustyn. Licensed MIT.</p>
+      <p class="text-muted">
+        <b>Disclaimer:</b> NUKU-API is not an affiliate of Papua New Guinea
+        Exchange (PNGX).
+      </p>
+      <p class="text-muted">
+        Created and open sourced by Christian Augustyn. Licensed MIT.
+      </p>
     </main>
 
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script type="module" src="assets/js/starter.js"></script>
   </body>
 </html>
-

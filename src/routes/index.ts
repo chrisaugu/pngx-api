@@ -1,0 +1,96 @@
+import express from "express";
+const router = express.Router();
+import { BASE_URL } from "../constants";
+import { versionMiddleware } from "../middlewares";
+import { winstonLogger as logger } from "../libs/logger";
+import { createRedisIoClient } from "../libs/redis";
+
+const base_url = new URL(BASE_URL);
+
+const redis = createRedisIoClient();
+
+router.get("/", (req, res) => {
+  res.status(200).json({
+    message: `Welcome to the Nuku API! Documentation is available at ${base_url.protocol}//${base_url.host}/api/docs/`,
+  });
+});
+
+// Health check endpoint
+router.get("/health", async (_req, res, _next) => {
+  // optional: add further things to check (e.g. connecting to dababase)
+  const healthcheck = {
+    uptime: process.uptime(),
+    message: "OK",
+    timestamp: Date.now(),
+    environment: "production",
+    status: "healthy",
+  };
+
+  try {
+    await redis.ping();
+    res.status(200).json({
+      ...healthcheck,
+      redis: "healthy",
+    });
+  } catch (e: any) {
+    healthcheck.message = e.message;
+    logger.error("Error creating user", {
+      error: e.message,
+      stack: e.stack,
+      body: _req.body,
+    });
+    res.json(healthcheck);
+    res.status(503).send();
+    // res.status(503).json({ redis: "unavailable" });
+  }
+});
+router.get("/health", versionMiddleware("3.0.0"), async (_req, res, _next) => {
+  const data = await _req.ctx.db.query("SELECT * FROM users");
+  // optional: add further things to check (e.g. connecting to dababase)
+  const healthcheck = {
+    uptime: process.uptime(),
+    message: "OK",
+    timestamp: Date.now(),
+  };
+
+  try {
+    res.json(healthcheck);
+  } catch (e: any) {
+    healthcheck.message = e.message;
+    res.status(503).send();
+  }
+});
+
+exports.V3 = async function (req, res) {
+  res
+    .status(410)
+    .send({ error: "Adding books is no longer active since version 2.7.0." });
+};
+
+/**
+ * /api/v1
+ * @deprecated Please use v2 as this version is deprecated and will be removed in the future
+ */
+router.use("/v1", require("./v1"));
+
+/**
+ * /api/v2
+ */
+router.use("/v2", [require("./v2"), require("./webhooks")]);
+
+router.all("/*splat", (req, res) => {
+  logger.error("Unknown request URL", {
+    message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${base_url.protocol}//${base_url.host}/docs/`,
+    type: "invalid_request_error",
+    code: "unknown_url",
+  });
+  res.status(404).json({
+    error: {
+      message: `Unknown request URL: GET /api${req.url}. Please check the URL for typos, or see the docs at ${base_url.protocol}//${base_url.host}/api/docs/`,
+      type: "invalid_request_error",
+      code: "unknown_url",
+    },
+  });
+});
+
+export default router;

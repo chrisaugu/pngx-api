@@ -1,0 +1,11 @@
+type Webhook {
+  id: ID!
+  url: String!
+  headers: JSON
+  events: [String]!
+  secret: String
+  isActive: Boolean
+  description: String
+  createdAt: String
+  updatedAt: String
+}

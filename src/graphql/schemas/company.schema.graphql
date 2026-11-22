@@ -1,0 +1,16 @@
+type Company {
+  id: ID!
+  name: String
+  ticker: String
+  description: String
+  industry: String
+  sector: String
+  key_people: [String]
+  date_listed: String
+  esteblished_date: String
+  outstanding_shares: Float
+  pngx_profile_url: String
+  logo_src: String
+  createdAt: String
+  updatedAt: String
+}

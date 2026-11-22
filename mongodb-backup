@@ -1,0 +1,21 @@
+#!/bin/bash
+set -a
+source .env
+set +a
+
+# mongodump --config ./mongo.conf --out=./mongodump
+# mongorestore --config ./mongo.conf ./mongodump/pngx-db
+# rm -rdf mongodump
+
+# mongodump --config=./mongo.conf
+# mongodump --config=/path/to/db-tools.conf --db=myDatabase --out=/path/to/backup/
+# mongorestore --config ./mongo.conf
+
+# For backup
+# export $(cat .env | xargs) && mongodump --config mongo-config-backup.yml
+export $(grep -v '^#' .env | xargs) && mongodump --config mongo-config-backup.yml
+
+# For restore
+# export $(grep -v '^#' .env | xargs) && mongorestore --config mongo-config-restore.yml ${BACKUP_PATH}
+
+mongodump --uri="mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@43.173.30.237:31076/pngx-db?authSource=admin" --collection="quotes" --archive | mongorestore --uri="mongodb://localhost:27017/pngx-db" --archive --drop
