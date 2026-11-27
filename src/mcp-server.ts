@@ -98,10 +98,10 @@ async function createMCPServer(app: express.Application) {
   const mcpServer = new McpServer({
     name: "nuku-mcp-server",
     version: "1.0.0",
-    capabilities: {
-      resources: {},
-      tools: {},
-    },
+    // capabilities: {
+    //   resources: {},
+    //   tools: {},
+    // },
   });
 
   const transport = new StreamableHTTPServerTransport({

@@ -15,6 +15,7 @@ import { createRedisIoClient as redis } from "./libs/redis";
 import debug from "debug";
 import { createGraphQLServer } from "./graphql-server";
 import { createMCPServer } from "./mcp-server";
+import { Http2Server } from "http2";
 
 debug("NUKU-API");
 
@@ -42,7 +43,7 @@ class Server {
   /**
    *
    */
-  private server;
+  public server: http.Server | https.Server;
 
   /**
    *
@@ -54,8 +55,8 @@ class Server {
    */
   private port;
 
-  private app;
-  private apps;
+  private app: Express.Application;
+  private apps: Map<string, Express.Application>;
 
   /**
    *
@@ -85,32 +86,67 @@ class Server {
     this.setupSignalListeners();
   }
 
+  private getIPv4Interfaces() {
+    const ifaces = os.networkInterfaces();
+    const results = [];
+    for (const [name, addrs] of Object.entries(ifaces)) {
+      for (const addr of addrs) {
+        if (addr.family === "IPv4") {
+          results.push({
+            name,
+            address: addr.address,
+            internal: addr.internal,
+          });
+        }
+      }
+    }
+    return results;
+  }
+
   onListen = () => {
     const details = ip.address();
     let localAddress = null;
     let networkAddress = null;
 
-    const interfaces = os.networkInterfaces();
     const getNetworkAddress = () => {
-      for (const name of Object.keys(interfaces)) {
-        for (const internetInterface of interfaces[name]) {
-          const { address, family, internal } = internetInterface;
-          if (family === "IPv4" && !internal) {
-            return address;
+      const interfaces = os.networkInterfaces();
+      const addresses = [];
+      for (const [name, addrs] of Object.entries(interfaces)) {
+        // for (const internetInterface of interfaces[name]) {
+        //   const { address, family, internal } = internetInterface;
+        //   if (family === "IPv4" && !internal) {
+        //     return address;
+        //   }
+        // }
+        for (const addr of addrs) {
+          const { address, family, internal } = addr;
+          if (addr.family === "IPv4" && !internal) {
+            addresses.push({
+              name,
+              address: addr.address,
+              internal: addr.internal,
+              interface: name,
+              ip: addr.address,
+              netmask: addr.netmask,
+              cidr: addr.cidr,
+              mac: addr.mac,
+            });
           }
         }
       }
+      return addresses;
     };
 
     if (typeof details === "string") {
       localAddress = details;
-    } else if (typeof details === "object" && details.port) {
-      const address = details.address === "::" ? "localhost" : details.address;
-      const ip = getNetworkAddress();
-
-      localAddress = `http://${address}:${details.port}`;
-      networkAddress = `http://${ip}:${details.port}`;
     }
+    // else if (typeof details === "object" && details.port) {
+    //   const address = details.address === "::" ? "localhost" : details.address;
+    //   const ip = getNetworkAddress();
+
+    //   localAddress = `http://${address}:${details.port}`;
+    //   networkAddress = `http://${ip}:${details.port}`;
+    // }
 
     let log = "\n--------------------------------------------------\n";
 
@@ -141,14 +177,14 @@ class Server {
     logger.debug(`MCP Server ready at http://localhost:${this.port}/mcp`);
   };
 
-  onError = (error) => {
+  onError = (error: any) => {
     debug("Error occurred: " + error);
   };
 
   onStop = () => {
     debug("Stopping server");
-    this.app.end();
-    this.app.destroy();
+    // this.app.end();
+    // this.app.destroy();
   };
 
   onClose = () => {
@@ -166,23 +202,23 @@ class Server {
    * @param {express.Application} app
    */
   attachApp(app: express.Application) {
-    if (!this.apps.has(app.name, app)) {
+    if (!this.apps.has(app.name)) {
       this.apps.set(app.name, app);
     }
   }
-  attachServerEvents = (serverEvents) => {
-    // attach sse to the http server
-    serverEvents(this.server);
-  };
-  attachWebSocket = (ws) => {
-    // attach websocket to the http server
-    ws(this.server);
-  };
-  attachGraphql = (gql) => {
-    // attach graphql server to the http server
-    console.log("attachGraphql", gql);
-    this.app.use(gql(this.server));
-  };
+  // attachServerEvents = (serverEvents) => {
+  //   // attach sse to the http server
+  //   serverEvents(this.server);
+  // };
+  // attachWebSocket = (ws: WebSocket) => {
+  //   // attach websocket to the http server
+  //   ws(this.server);
+  // };
+  // attachGraphql = (gql: GraphQl) => {
+  //   // attach graphql server to the http server
+  //   console.log("attachGraphql", gql);
+  //   this.app.use(gql(this.server));
+  // };
   // attachWebSocket = (mcp) => {
   //   // attach websocket to the http server
   //   ws(this.server);
@@ -217,7 +253,7 @@ class Server {
         };
 
         try {
-          await redis.ping();
+          // await redis.ping();
           res.writeHead(200, { "Content-Type": "application/json" });
 
           res.end(
@@ -226,7 +262,7 @@ class Server {
               redis: "healthy",
             }),
           );
-        } catch (e) {
+        } catch (e: any) {
           healthcheck.message = e;
           logger.error("Error creating user", {
             error: e.message,
@@ -254,7 +290,7 @@ class Server {
       process.exit(1); // exit application
     });
 
-    process.on("unhandledRejection", (ex) => {
+    process.on("unhandledRejection", (ex: any) => {
       logger.error(`Unhandled Rejection: ${ex.message}`, ex);
       process.exit(1);
     });
@@ -276,7 +312,7 @@ const numCPUs = os.cpus().length;
 // } else {
 // Initialize server (e.g., with express)
 const server = new Server(app);
-server.attachWebSocket(websocket);
+// server.attachWebSocket(websocket);
 // server.attachServerEvents();
 // server.attachGraphql(createGraphQLServer(server));
 // server.attachApp([

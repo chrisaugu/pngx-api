@@ -15,7 +15,6 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import axios from "axios";
 import { z } from "zod";
-import * as mcpcat from "mcpcat";
 import { stringFormat } from "zod/v4";
 import { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 

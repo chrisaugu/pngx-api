@@ -1,5 +1,6 @@
 import express from "express";
 import http from "http";
+import https from "https";
 import cors from "cors";
 import crypto from "crypto";
 import { ApolloServer } from "@apollo/server";
@@ -17,7 +18,7 @@ import Env from "./config/env";
  */
 async function createGraphQLServer(
   app: express.Application,
-  httpServer: http.Server,
+  httpServer: http.Server | https.Server,
 ) {
   const server = new ApolloServer({
     typeDefs,

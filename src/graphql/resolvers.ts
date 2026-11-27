@@ -164,7 +164,7 @@ async function queryIndex(
     const result = await getIndexBySymbol(args);
     return {
       success: true,
-      errors: null,
+      errors: result.error,
       data: result,
     };
   } catch (error: any) {

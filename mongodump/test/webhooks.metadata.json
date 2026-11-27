@@ -1,0 +1,12 @@
+{
+  "indexes": [
+    {
+      "v": { "$numberInt": "2" },
+      "key": { "_id": { "$numberInt": "1" } },
+      "name": "_id_"
+    }
+  ],
+  "uuid": "93e1ba210ff44caca210e3442c809d0d",
+  "collectionName": "webhooks",
+  "type": "collection"
+}

@@ -238,7 +238,7 @@ router.get("/companies/:code", cache(10), async function (req, res) {
 
     logger.debug("Retrived company details", company);
     res.json(company);
-  } catch (error) {
+  } catch (error: any) {
     logger.error("Error retrieving stocks", {
       error: error.message,
       stack: error.stack,
@@ -251,11 +251,11 @@ router.get("/companies/:code", cache(10), async function (req, res) {
 router
   .route("/companies/:code")
   .get(async function (req, res) {
-    let { id } = req.params;
+    let { code } = req.params;
 
     try {
       logger.info("Retrived company details");
-      let company = await Company.findById(id);
+      let company = await Company.findById(code);
 
       logger.debug("Retrived company details", company);
       res.json(company);
@@ -373,7 +373,9 @@ router
 router.get("/companies/:code/code", cache(10), async function (req, res) {
   const { code } = req.params;
 
-  const company = await Company.findOne({ ticker: new RegExp(code, "i") });
+  const company = await Company.findOne({
+    ticker: new RegExp(String(code), "i"),
+  });
 
   res.json(company);
 });
@@ -875,7 +877,7 @@ router.get("/stocks/:code", cache(10), function (req, res) {
         logger.info(`${code} stocks `, result);
         res.json({
           status: 200,
-          last_updated: result.date,
+          last_updated: result.at(0).date,
           data: result,
         });
       } else {
@@ -1168,8 +1170,8 @@ router.get("/frames", cache(10), (req, res) =>
  * Get quote for a particular stock given date
  */
 router.get("/stocks/:code/:date", cache(10), async function (req, res) {
-  const code = req.params.code;
-  const date = req.params.date;
+  const code = String(req.params.code);
+  const date = String(req.params.date);
 
   if (!code || !date) {
     return res.json({
@@ -1218,7 +1220,7 @@ router.get("/stocks/:code/:date", cache(10), async function (req, res) {
         logger.info(`${code} stocks `, result);
         res.json({
           status: 200,
-          last_updated: result.date,
+          last_updated: result.at(0).date,
           data: result,
         });
       } else {
@@ -1378,7 +1380,7 @@ function fetchNews(page: number) {
  * /api/v2/news
  */
 router.get("/news", cache(10), async function (req, res) {
-  let page = req.query.page;
+  let page = Number(req.query.page);
 
   logger.info("Retrieving news");
 
@@ -1498,7 +1500,7 @@ router.get("/news/sources/:newsSourceId", function (req, res) {
 router.put("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
   const { name, url } = req.body;
-  const payload = {};
+  const payload: Record<string, any> = {};
 
   if (!name) {
     payload["name"] = name;
@@ -1528,7 +1530,7 @@ router.put("/news/sources/:newsSourceId", function (req, res) {
 router.patch("/news/sources/:newsSourceId", function (req, res) {
   const { newsSourceId } = req.params;
   const { name, url } = req.body;
-  const payload = {};
+  const payload: Record<string, any> = {};
 
   if (!name) {
     payload["name"] = name;
@@ -1814,7 +1816,7 @@ router.get("/lookup/:symbol", (req, res) => {
 });
 
 router.get("/chart/:symbol/:range", (req, res) => {
-  const rangeSubUrl = {
+  const rangeSubUrl: Record<string, string> = {
     "1d": "1d/?filter=date,minute,close",
     "5dm": "5dm/?filter=date,minute,close",
     "1mm": "1mm/?filter=date,minute,close",
@@ -1825,12 +1827,15 @@ router.get("/chart/:symbol/:range", (req, res) => {
     "5y": "5y/?filter=date,close",
   };
 
+  const range = rangeSubUrl[String(req.params.range)];
+  if (!range) {
+    throw new Error(`Invalid range: ${req.params.range}`);
+  }
+
+  const url = `https://sandbox.iexapis.com/stable/stock/${req.params.symbol}/chart/${range}?token=${iexSandboxToken}`;
+
   axios
-    .get(
-      `https://sandbox.iexapis.com/stable/stock/${req.params.symbol}/chart/${
-        rangeSubUrl[req.params.range]
-      }&token=${iexSandboxToken}`,
-    )
+    .get(url)
     .then((chart) =>
       res.json({
         symbol: req.params.symbol,
@@ -1850,8 +1855,8 @@ export default router;
 
 class RecordService {
   // Shared match builder
-  _match(code, startDate, endDate) {
-    const match = {};
+  _match(code: string, startDate?: string, endDate?: string) {
+    const match: Record<string, any> = {};
     if (code) match.code = code;
     if (startDate || endDate) {
       match.date = {};
@@ -1861,7 +1866,7 @@ class RecordService {
     return match;
   }
 
-  async groupBy1Min(code, startDate, endDate) {
+  async groupBy1Min(code: string, startDate: string, endDate: string) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } },
@@ -1898,7 +1903,7 @@ class RecordService {
     ]);
   }
 
-  async groupBy5Mins(code, startDate, endDate) {
+  async groupBy5Mins(code: any, startDate: any, endDate: any) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } },
@@ -1935,7 +1940,7 @@ class RecordService {
     ]);
   }
 
-  async groupBy1Hour(code, startDate, endDate) {
+  async groupBy1Hour(code: any, startDate: any, endDate: any) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } },
@@ -1968,7 +1973,7 @@ class RecordService {
     ]);
   }
 
-  async groupBy1Day(code, startDate, endDate) {
+  async groupBy1Day(code: any, startDate: any, endDate: any) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } }, // ✅ sort BEFORE group for $first/$last
@@ -2023,7 +2028,7 @@ class RecordService {
     ]);
   }
 
-  async groupBy5Days(code, startDate, endDate) {
+  async groupBy5Days(code: any, startDate: any, endDate: any) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } },
@@ -2056,7 +2061,7 @@ class RecordService {
     ]);
   }
 
-  async groupBy1Month(code, startDate, endDate) {
+  async groupBy1Month(code: any, startDate: any, endDate: any) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } },
@@ -2080,7 +2085,7 @@ class RecordService {
     ]);
   }
 
-  async groupBy6Months(code, startDate, endDate) {
+  async groupBy6Months(code: any, startDate: any, endDate: any) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } },
@@ -2107,7 +2112,7 @@ class RecordService {
     ]);
   }
 
-  async groupBy1Year(code, startDate, endDate) {
+  async groupBy1Year(code: any, startDate: any, endDate: any) {
     return await Quote.aggregate([
       { $match: this._match(code, startDate, endDate) },
       { $sort: { date: 1 } },
@@ -2131,7 +2136,7 @@ class RecordService {
     ]);
   }
 
-  async groupByAllYears(code) {
+  async groupByAllYears(code: any) {
     return await Quote.aggregate([
       { $match: this._match(code) },
       { $sort: { date: 1 } },

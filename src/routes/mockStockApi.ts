@@ -1,6 +1,6 @@
-const { initDatabase } = require("./database");
-const { Stock, Ticker } = require("./models/index");
-const { SYMBOLS } = require("./constants");
+import { initDatabase } from "../database";
+import { Stock, Ticker } from "../models/index";
+import { SYMBOLS } from "../constants";
 
 initDatabase()
   .on("connected", function () {
@@ -14,12 +14,12 @@ initDatabase()
     );
   });
 
-function getRandomPrice() {
-  return (Math.random() * 1000 + 100).toFixed(2);
+function getRandomPrice(): number {
+  return Number((Math.random() * 1000 + 100).toFixed(2));
 }
 
-function getRandomNumber() {
-  return (Math.random() * 1000 + 100).toFixed(0);
+function getRandomNumber(): number {
+  return Number((Math.random() * 1000 + 100).toFixed(0));
 }
 
 function getStockData() {
@@ -56,7 +56,7 @@ async function getTickers() {
   });
 }
 
-async function generateCandlestickData(code) {
+async function generateCandlestickData(code: string) {
   let candleStickData = [];
 
   for (let i = 0; i < 365; i++) {
@@ -103,7 +103,7 @@ async function getQuotes() {
 }
 
 let randomFactor = 25 + Math.random() * 25;
-const samplePoint = (i) =>
+const samplePoint = (i: number) =>
   i *
     (0.5 +
       Math.sin(i / 1) * 0.2 +
@@ -118,7 +118,7 @@ function generateData(
   updatesPerCandle = 5,
   startAt = 100,
 ) {
-  const createCandle = (val, time) => ({
+  const createCandle = (val: number, time: number) => ({
     time,
     open: val,
     high: val,
@@ -126,7 +126,14 @@ function generateData(
     close: val,
   });
 
-  const updateCandle = (candle, val) => ({
+  type Candle = {
+    time: number;
+    open: number;
+    low: number;
+    high: number;
+  };
+
+  const updateCandle = (candle: Candle, val: number) => ({
     time: candle.time,
     close: val,
     open: candle.open,
@@ -175,13 +182,14 @@ function generateData(
 const data = generateData(2500, 20, 1000);
 
 // simulate real-time data
-function* getNextRealtimeUpdate(realtimeData) {
-  for (const dataPoint of realtimeData) {
-    yield dataPoint;
-  }
-  return null;
-}
-const streamingDataProvider = getNextRealtimeUpdate(data.realtimeUpdates);
+// function* getNextRealtimeUpdate<T>(realtimeData: Iterable<T>): Generator<T, void, unknown> {
+//   for (const dataPoint of realtimeData) {
+//     yield dataPoint;
+//   }
+//   return null;
+// }
+
+// const streamingDataProvider = getNextRealtimeUpdate(data.realtimeUpdates);
 
 // const intervalID = setInterval(() => {
 //     const update = streamingDataProvider.next();

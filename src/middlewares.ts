@@ -1,17 +1,32 @@
+import { ErrorRequestHandler, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import semver from "semver";
-import rateLimiter from "ratelimiter";
+import RateLimiter from "ratelimiter";
 import setRateLimit from "express-rate-limit";
 import morgan from "morgan";
 import fs from "fs";
 import path from "path";
 import createError from "http-errors";
 import mcache from "memory-cache";
+import requestIp from "request-ip";
 import { ALLOWED_IP_LIST, ORIGINAL_URL } from "./config/index";
 import { winstonLogger as logger, apiUsageLogger } from "./libs/logger";
 import { getRedisClient } from "./libs/redis";
 
-export const allowCrossDomain = function allowCrossDomain(req, res, next) {
+const ipMiddleware = function (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  const clientIp = requestIp.getClientIp(req);
+  next();
+};
+
+export const allowCrossDomain = function allowCrossDomain(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   // let allowHeaders = DEFAULT_ALLOWED_HEADERS;
 
   res.header("Access-Control-Allow-Origin", "*");
@@ -37,12 +52,12 @@ export const corsMiddleware = cors({
 });
 
 export const allowMethodOverride = function allowMethodOverride(
-  req,
-  res,
-  next,
+  req: Request,
+  res: Response,
+  next: NextFunction,
 ) {
   if (req.method === "POST" && req.body._method) {
-    req.originalMethod = req.method;
+    (req as any).originalMethod = req.method;
     req.method = req.body._method;
     delete req.body._method;
   }
@@ -50,13 +65,21 @@ export const allowMethodOverride = function allowMethodOverride(
   next();
 };
 
-export const error404Handler = function error404Handler(error, req, res, next) {
-  var err = new Error("Not Found");
-  err.status = 404;
-  next(err) || next(createError(404));
+export const error404Handler = function error404Handler(
+  error: ErrorRequestHandler,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  next(createError(404));
 };
 
-export const errorHandler = function errorHandler(err, req, res, next) {
+export const errorHandler = function errorHandler(
+  err,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   logger.error(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
       req.method
@@ -81,7 +104,12 @@ export const errorHandler = function errorHandler(err, req, res, next) {
   res.send(html);
 };
 
-export const errorLogHandler = function errorLogHandler(err, req, res, next) {
+export const errorLogHandler = function errorLogHandler(
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   logger.error(
     `${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`,
   );
@@ -109,12 +137,12 @@ const morganFormatx =
 
 // Stream morgan output to winston
 const morganStream = {
-  write: (message) => logger.http(message.trim()),
+  write: (message: any) => logger.http(message.trim()),
 };
 
 // Morgan token for request body (for POST/PUT requests)
 morgan.token("body", (req) => {
-  return JSON.stringify(req.body);
+  return JSON.stringify((req as any).body);
 });
 
 // log only 4xx and 5xx responses to console
@@ -164,11 +192,15 @@ export const rateLimitMiddleware = setRateLimit({
   skip: (req) => ALLOWED_IP_LIST.includes(req.ip),
 });
 
-export const rateLimit = function rateLimit(req, res, next) {
+export const rateLimit = function rateLimit(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   var id = req.user._id;
   const redisClient = getRedisClient();
 
-  var limit = new rateLimiter({ id, db: redisClient });
+  var limit = new RateLimiter({ id, db: redisClient });
   limit.get(function (err, limit) {
     if (err) return next(err);
 
@@ -188,7 +220,7 @@ export const rateLimit = function rateLimit(req, res, next) {
   });
 };
 
-var emailBasedRatelimit = rateLimiter({
+var emailBasedRatelimit = new RateLimiter({
   db: getRedisClient(),
   duration: 60000,
   max: 10,
@@ -197,12 +229,12 @@ var emailBasedRatelimit = rateLimiter({
   },
 });
 
-var ipBasedRatelimit = rateLimiter({
+var ipBasedRatelimit = new RateLimiter({
   db: getRedisClient(),
   duration: 60000,
   max: 10,
-  id: function (context) {
-    return context.ip;
+  id: (context) => {
+    return context.ip as string;
   },
 });
 
@@ -229,7 +261,7 @@ export const rateLimitedRequest = (url, callback) => {
 };
 
 export const versionMiddleware = function (version) {
-  return function (req, res, next) {
+  return function (req: Request, res: Response, next: NextFunction) {
     if (semver.gte(req.headers["x-version"], version)) {
       return next();
     }
@@ -243,7 +275,11 @@ const apiUsageLogStream = fs.createWriteStream(
   { flags: "a" },
 );
 // Log api usage
-export const apiUsageLogMiddlware = (req, res, next) => {
+export const apiUsageLogMiddlware = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   const apiKey = req.headers["x-api-key"] || "anonymous";
   apiUsageLogger.info(
     `User: ${apiKey}, ${req.ip} called ${req.method} ${req.originalUrl}`,
@@ -257,7 +293,11 @@ export const apiUsageLogMiddlware = (req, res, next) => {
  * @param {*} res
  * @param {*} next
  */
-export const globalProperties = function (req, res, next) {
+export const globalProperties = function (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   const limit = req.query["limit"];
   if (limit) {
   }
@@ -273,7 +313,7 @@ export const cache = (duration = 60) => {
   // const mcache = await getRedisClient();
   const TTL = duration * 1000;
 
-  return (req, res, next) => {
+  return (req: Request, res: Response, next: NextFunction) => {
     if (req.method !== "GET") {
       return next();
     }
@@ -339,7 +379,7 @@ export const cacheMiddleware = async (duration = 1) => {
     });
   }
 
-  return (req, res, next) => {
+  return (req: Request, res: Response, next: NextFunction) => {
     const key = req.originalUrl;
 
     client.get(key, (err, data) => {
@@ -365,7 +405,7 @@ export const cacheMiddleware = async (duration = 1) => {
 const cacheData = async (expireTime = 3600) => {
   const client = await getRedisClient();
 
-  return async (req, res, next) => {
+  return async (req: Request, res: Response, next: NextFunction) => {
     // Skip caching for non-GET requests
     if (req.method !== "GET") {
       return next();

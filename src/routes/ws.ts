@@ -1,11 +1,12 @@
 import http from "http";
 import https from "https";
-import { WebSocketServer, WebSocket } from "ws";
+import { WebSocketServer, WebSocket, RawData } from "ws";
 import url from "url";
 import { randomUUID } from "crypto";
 import { parse } from "querystring";
 import { isUint8Array } from "util/types";
 import { winstonLogger as logger } from "../libs/logger";
+import jwt from "jsonwebtoken";
 
 /**
  * Set up a WebSocket server on an existing HTTP or HTTPS server.
@@ -13,240 +14,444 @@ import { winstonLogger as logger } from "../libs/logger";
  * @param {http.Server | https.Server} httpServer
  * @returns {WebSocket.Server}
  */
-export default (httpServer: http.Server | https.Server) => {
-  const ws1 = new WebSocketServer({ noServer: true });
+// export default (httpServer: http.Server | https.Server) => {
+//   const ws1 = new WebSocketServer({ noServer: true });
 
+//   const wsServer = new WebSocketServer({
+//     path: "/ws/v1",
+//     server: httpServer,
+//     // port: 8080,
+//     // rejectUnauthorized: true, // Verify SSL (set `false` for self-signed certs)
+//     // headers: {               // Optional headers (if needed)
+//     //   "User-Agent": "Node.js-WS"
+//     // }
+//   });
+//   const clients = new Map();
+//   // let clients = new List<IWebSocketConnection>();
+
+//   httpServer.on("upgrade", (request, socket, head) => {
+//     // const { pathname } = new URL(request.URL, "wss://base.url");
+//     // if (pathname === "/foo") {
+//     //   ws1.handleUpgrade(request, socket, head, function done(ws) {
+//     //     ws1.emit('connection', ws, request);
+//     //   })
+//     // }
+//     // else {
+//     //   socket.destroy();
+//     // }
+//     // const authed = authenticate(request);
+
+//     // if (!authed) {
+//     //   // \r\n\r\n: These are control characters used in HTTP to
+//     //   // denote the end of the HTTP headers section.
+//     //   socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
+//     //   socket.destroy();
+//     //   return;
+//     // }
+
+//     socket.on("error", onSocketError);
+
+//     wsServer.handleUpgrade(request, socket, head, (connection, request) => {
+//       // Manually emit the 'connection' event on a WebSocket
+//       // server (we subscribe to this event below).
+//       wsServer.emit("connection", connection, request, "client");
+//     });
+//   });
+
+//   wsServer.on("connection", (connection /*stream*/, request, client) => {
+//     const decoded = 1;
+//     logger.info("A new client connected");
+//     const [_path, params] = request?.url?.split("?");
+//     const connectionParams = parse(params);
+//     const ip = request.socket.remoteAddress;
+//     // const ip = request.headers["X-Forwarded-For"].split(",")[0].trim();
+//     const token = request.headers["sec-websocket-protocol"];
+//     if (!token) {
+//       connection.close(1008, "Token required");
+//       return;
+//     }
+//     const user = authenticateToken(token);
+
+//     const authHeader = request.headers.authorization;
+//     if (!authHeader || !authHeader.startsWith("Bearer ")) {
+//       connection.close(1008, "Authentication required");
+//       return;
+//     }
+
+//     // const token = authHeader.split(' ')[1];
+
+//     // const parameters = url.parse(request.url, true).query;
+//     // const token = parameters.token;
+
+//     if (!user) {
+//       connection.close(1008, "Invalid or expired token"); // Close connection if authentication fails
+//       return;
+//     }
+//     logger.info(ip);
+//     connection.user = decoded; // Attach user data to the WebSocket object
+//     logger.info(`Client connected: ${connection.user.username}`);
+//     // Proceed with WebSocket communication
+
+//     // const username = decoded.username;
+//     // clients.set(username, ws);
+
+//     connection.send(
+//       JSON.stringify({
+//         type: "system",
+//         message: "Welcome to the WebSocket server!",
+//         // username,
+//       }),
+//     );
+
+//     const uuid = randomUUID();
+//     const color = Math.floor(Math.random() * 360);
+//     const metadata = {
+//       uuid,
+//       color,
+//       date: "2020-04-06",
+//       symbol: "SST",
+//       bid: 0,
+//       offer: 0,
+//       last: 0,
+//       close: 35.46,
+//       high: 0,
+//       low: 0,
+//       open: 0,
+//       change: 0,
+//       volume: 0,
+//       num_trades: 0,
+//     };
+
+//     // clients.set(connection, metadata);
+//     clients.set(uuid, connection);
+//     connection.isAlive = true;
+
+//     connection.ping("ping", () => {
+//       logger.info("PING");
+//     });
+//     connection.on("pong", heartbeat, () => {
+//       connection.isAlive = true;
+//       logger.info("PONG");
+//     });
+
+//     // Event listener for incoming messages
+//     connection.on("message", (bytes) => handleMessage(bytes, uuid));
+
+//     // Event listener for client disconnection
+//     connection.on("close", () => handleClose(uuid));
+//   });
+
+//   wsServer.on("error", (error) => {
+//     logger.error("Error: " + error.message);
+//   });
+
+//   const interval = setInterval(function ping() {
+//     wsServer.clients.forEach((client) => {
+//       if (client.isAlive === false) return client.terminate();
+//       client.isAlive = false;
+//       client.ping();
+//     });
+//   }, 3000);
+
+//   const authenticate = (token /*request*/) => {
+//     // const origin = request.headers["origin"];
+//     // const token = request.headers["authorization"].split(" ")[1];
+//     // const { token } = url.parse(request.url, true).query;
+//     // TODO: Actually authenticate token
+//     if (token === "abc") {
+//       return true;
+//     }
+//   };
+
+//   function authenticateToken(token) {
+//     if (!token) {
+//       return null;
+//     }
+
+//     return jwt.verify(token, "your-secret-key", (err, user) => {
+//       if (err) return null;
+//       return user;
+//     });
+//   }
+
+//   const handleMessage = (bytes, uuid) => {
+//     try {
+//       // Convert the bytes (buffer) into a string using utf-8 encoding.
+//       const obj = bytes.toString();
+//       const parsedMessage = JSON.parse(obj);
+//       logger.info("Received message: %s", parsedMessage);
+
+//       const connection = clients.get(uuid);
+//       const metadata = clients.get(uuid);
+//       let data;
+//       if (isUint8Array(bytes)) {
+//         data = new ArrayBuffer(bytes);
+//       }
+
+//       if (parsedMessage.type === "authenticate") {
+//         connection.authenticated = authenticate(parsedMessage.token);
+//         return;
+//       }
+
+//       if (parsedMessage.type === "message") {
+//         const recipientWs = clients.get(parsedMessage.to);
+//         if (recipientWs && recipientWs.readyState === WebSocket.OPEN) {
+//           recipientWs.send(
+//             JSON.stringify({
+//               type: "message",
+//               from: username,
+//               content: parsedMessage.content,
+//             }),
+//           );
+//         } else {
+//           connection.send(
+//             JSON.stringify({ type: "error", message: "Recipient not found" }),
+//           );
+//         }
+//       }
+
+//       if (connection.authenticated) {
+//         // Broadcast the message to all connected clients
+//         wsServer.clients.forEach((client) => {
+//           if (client.isAlive === false) return client.terminate();
+//           // broadcasting message to all connected clients, excluding itself
+//           if (client !== socket && client.readyState === WebSocket.OPEN) {
+//             client.isAlive = false;
+//             client.ping();
+//             client.send(parsedMessage);
+//           }
+//         });
+
+//         [...wsServer.clients.keys()].forEach((client) => {
+//           client.send(outbound);
+//         });
+//       } else {
+//         connection.terminate();
+//       }
+//     } catch (error) {
+//       logger.error("Invalid JSON:", message);
+//     }
+//   };
+
+//   const handleClose = (uuid) => {
+//     logger.info("A client disconnected. Reconnecting...");
+//     clients.delete(uuid);
+//     wsServer.clients.delete(uuid);
+
+//     // setTimeout(this, 1000);
+//     clearInterval(interval);
+//   };
+
+//   const onSocketError = (err) => {
+//     logger.error(err);
+//   };
+
+//   const heartbeat = () => {
+//     this.isAlive = true;
+//   };
+
+//   return wsServer;
+// };
+
+// --- Type augmentation for our per-connection fields -------------------------
+interface AuthedWebSocket extends WebSocket {
+  isAlive: boolean;
+  uuid: string;
+  user?: { username: string; [k: string]: unknown };
+  authenticated: boolean;
+}
+
+type ClientMeta = {
+  uuid: string;
+  color: number;
+  user?: { username: string };
+};
+
+export default (httpServer: http.Server | https.Server) => {
   const wsServer = new WebSocketServer({
     path: "/ws/v1",
-    server: httpServer,
-    // port: 8080,
-    // rejectUnauthorized: true, // Verify SSL (set `false` for self-signed certs)
-    // headers: {               // Optional headers (if needed)
-    //   "User-Agent": "Node.js-WS"
-    // }
+    // Important: do NOT pass `server:` if you also attach an "upgrade"
+    // handler manually. Pick one. We use manual upgrade so we can do
+    // pre-upgrade auth.
+    noServer: true,
   });
-  const clients = new Map();
-  // let clients = new List<IWebSocketConnection>();
 
+  // uuid -> connection
+  const clients = new Map<string, AuthedWebSocket>();
+  // uuid -> metadata
+  const metadataByUuid = new Map<string, ClientMeta>();
+
+  // ---- Auth ---------------------------------------------------------------
+  const JWT_SECRET = process.env.JWT_SECRET ?? "your-secret-key";
+
+  function verifyToken(token: string): { username: string } | null {
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+      if (typeof decoded === "string") return null;
+      return decoded as { username: string };
+    } catch {
+      return null;
+    }
+  }
+
+  // ---- Upgrade (pre-handshake auth) --------------------------------------
   httpServer.on("upgrade", (request, socket, head) => {
-    // const { pathname } = new URL(request.URL, "wss://base.url");
-    // if (pathname === "/foo") {
-    //   ws1.handleUpgrade(request, socket, head, function done(ws) {
-    //     ws1.emit('connection', ws, request);
-    //   })
-    // }
-    // else {
-    //   socket.destroy();
-    // }
-    // const authed = authenticate(request);
+    socket.on("error", (err: any) => logger.error("upgrade socket error", err));
 
-    // if (!authed) {
-    //   // \r\n\r\n: These are control characters used in HTTP to
-    //   // denote the end of the HTTP headers section.
-    //   socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
-    //   socket.destroy();
-    //   return;
-    // }
+    // Accept token from either header.
+    const authHeader = request.headers.authorization;
+    const protoHeader = request.headers["sec-websocket-protocol"];
+    const protoToken = Array.isArray(protoHeader)
+      ? protoHeader[0]
+      : protoHeader;
 
-    socket.on("error", onSocketError);
+    const token =
+      (authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : undefined) ??
+      protoToken;
 
-    wsServer.handleUpgrade(request, socket, head, (connection, request) => {
-      // Manually emit the 'connection' event on a WebSocket
-      // server (we subscribe to this event below).
-      wsServer.emit("connection", connection, request, "client");
+    if (!token) {
+      socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
+      socket.destroy();
+      return;
+    }
+
+    const user = verifyToken(token);
+    if (!user) {
+      socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
+      socket.destroy();
+      return;
+    }
+
+    wsServer.handleUpgrade(request, socket, head, (ws) => {
+      // stash the user on the ws before 'connection' fires
+      (ws as AuthedWebSocket).user = user;
+      wsServer.emit("connection", ws, request);
     });
   });
 
-  wsServer.on("connection", (connection /*stream*/, request, client) => {
-    logger.info("A new client connected");
-    const [_path, params] = request?.url?.split("?");
-    const connectionParams = parse(params);
+  // ---- Connection ---------------------------------------------------------
+  wsServer.on("connection", (rawWs, request) => {
+    const ws = rawWs as AuthedWebSocket;
+
+    const uuid = randomUUID();
+    ws.uuid = uuid;
+    ws.isAlive = true;
+    ws.authenticated = true; // already verified above
+    if (!ws.user) {
+      ws.close(1008, "Authentication required");
+      return;
+    }
+
     const ip = request.socket.remoteAddress;
-    // const ip = request.headers["X-Forwarded-For"].split(",")[0].trim();
-    const token = request.headers["sec-websocket-protocol"];
-    if (!token) {
-      connection.close(1008, "Token required");
-      return;
-    }
-    const user = authenticateToken(token);
+    const [, params] = (request.url ?? "").split("?");
+    const _query = parse(params ?? "");
 
-    const authHeader = request.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      connection.close(1008, "Authentication required");
-      return;
-    }
+    logger.info(`Client connected: ${ws.user.username} (${ip})`);
 
-    // const token = authHeader.split(' ')[1];
+    clients.set(uuid, ws);
+    metadataByUuid.set(uuid, {
+      uuid,
+      color: Math.floor(Math.random() * 360),
+      user: ws.user,
+    });
 
-    // const parameters = url.parse(request.url, true).query;
-    // const token = parameters.token;
-
-    if (!user) {
-      connection.close(1008, "Invalid or expired token"); // Close connection if authentication fails
-      return;
-    }
-    logger.info(ip);
-    connection.user = decoded; // Attach user data to the WebSocket object
-    logger.info(`Client connected: ${connection.user.username}`);
-    // Proceed with WebSocket communication
-
-    const username = decoded.username;
-    clients.set(username, ws);
-
-    connection.send(
+    ws.send(
       JSON.stringify({
         type: "system",
         message: "Welcome to the WebSocket server!",
-        username,
+        username: ws.user.username,
       }),
     );
 
-    const uuid = randomUUID();
-    const color = Math.floor(Math.random() * 360);
-    const metadata = {
-      uuid,
-      color,
-      date: "2020-04-06",
-      symbol: "SST",
-      bid: 0,
-      offer: 0,
-      last: 0,
-      close: 35.46,
-      high: 0,
-      low: 0,
-      open: 0,
-      change: 0,
-      volume: 0,
-      num_trades: 0,
-    };
-
-    // clients.set(connection, metadata);
-    clients.set(uuid, connection);
-    connection.isAlive = true;
-
-    connection.ping("ping", () => {
-      logger.info("PING");
-    });
-    connection.on("pong", heartbeat, () => {
-      connection.isAlive = true;
+    ws.on("pong", () => {
+      ws.isAlive = true;
       logger.info("PONG");
     });
 
-    // Event listener for incoming messages
-    connection.on("message", (bytes) => handleMessage(bytes, uuid));
+    ws.on("message", (data) => handleMessage(data, uuid));
 
-    // Event listener for client disconnection
-    connection.on("close", () => handleClose(uuid));
+    ws.on("close", () => handleClose(uuid));
+    ws.on("error", (err) => logger.error("ws error", err));
+
+    ws.ping();
   });
 
-  wsServer.on("error", (error) => {
-    logger.error("Error: " + error.message);
-  });
+  wsServer.on("error", (error) => logger.error("wsServer error", error));
 
-  const interval = setInterval(function ping() {
-    wsServer.clients.forEach((client) => {
-      if (client.isAlive === false) return client.terminate();
-      client.isAlive = false;
-      client.ping();
+  // ---- Heartbeat ----------------------------------------------------------
+  const heartbeatTimer = setInterval(() => {
+    wsServer.clients.forEach((c) => {
+      const ws = c as AuthedWebSocket;
+      if (ws.isAlive === false) return ws.terminate();
+      ws.isAlive = false;
+      ws.ping();
     });
-  }, 3000);
+  }, 30_000);
 
-  const authenticate = (token /*request*/) => {
-    // const origin = request.headers["origin"];
-    // const token = request.headers["authorization"].split(" ")[1];
-    // const { token } = url.parse(request.url, true).query;
-    // TODO: Actually authenticate token
-    if (token === "abc") {
-      return true;
-    }
-  };
+  wsServer.on("close", () => clearInterval(heartbeatTimer));
 
-  function authenticateToken(token) {
-    if (!token) {
-      return null;
-    }
+  // ---- Message handling ---------------------------------------------------
+  function handleMessage(data: RawData, uuid: string) {
+    const ws = clients.get(uuid);
+    if (!ws) return;
 
-    return jwt.verify(token, "your-secret-key", (err, user) => {
-      if (err) return null;
-      return user;
-    });
-  }
-
-  const handleMessage = (bytes, uuid) => {
+    let parsed: any;
     try {
-      // Convert the bytes (buffer) into a string using utf-8 encoding.
-      const obj = bytes.toString();
-      const parsedMessage = JSON.parse(obj);
-      logger.info("Received message: %s", parsedMessage);
+      parsed = JSON.parse(data.toString());
+    } catch {
+      logger.error("Invalid JSON from %s", uuid);
+      return;
+    }
 
-      const connection = clients.get(uuid);
-      const metadata = clients.get(uuid);
-      let data;
-      if (isUint8Array(bytes)) {
-        data = new ArrayBuffer(bytes);
-      }
+    logger.info("Received message from %s: %o", uuid, parsed);
 
-      if (parsedMessage.type === "authenticate") {
-        connection.authenticated = authenticate(parsedMessage.token);
-        return;
-      }
-
-      if (parsedMessage.type === "message") {
-        const recipientWs = clients.get(parsedMessage.to);
-        if (recipientWs && recipientWs.readyState === WebSocket.OPEN) {
-          recipientWs.send(
+    switch (parsed.type) {
+      case "message": {
+        // Direct message by uuid
+        const recipient = clients.get(parsed.to);
+        if (recipient && recipient.readyState === WebSocket.OPEN) {
+          recipient.send(
             JSON.stringify({
               type: "message",
-              from: username,
-              content: parsedMessage.content,
+              from: ws.user?.username,
+              content: parsed.content,
             }),
           );
         } else {
-          connection.send(
+          ws.send(
             JSON.stringify({ type: "error", message: "Recipient not found" }),
           );
         }
+        return;
       }
 
-      if (connection.authenticated) {
-        // Broadcast the message to all connected clients
-        wsServer.clients.forEach((client) => {
-          if (client.isAlive === false) return client.terminate();
-          // broadcasting message to all connected clients, excluding itself
-          if (client !== socket && client.readyState === WebSocket.OPEN) {
-            client.isAlive = false;
-            client.ping();
-            client.send(parsedMessage);
+      case "broadcast": {
+        for (const [otherUuid, other] of clients) {
+          if (otherUuid === uuid) continue;
+          if (other.readyState === WebSocket.OPEN) {
+            other.send(JSON.stringify(parsed));
           }
-        });
-
-        [...wsServer.clients.keys()].forEach((client) => {
-          client.send(outbound);
-        });
-      } else {
-        connection.terminate();
+        }
+        return;
       }
-    } catch (error) {
-      logger.error("Invalid JSON:", message);
+
+      case "subscribe":
+      case "unsubscribe":
+        // TODO: channels
+        return;
+
+      default:
+        ws.send(
+          JSON.stringify({ type: "error", message: "Unknown message type" }),
+        );
     }
-  };
+  }
 
-  const handleClose = (uuid) => {
-    logger.info("A client disconnected. Reconnecting...");
+  function handleClose(uuid: string) {
+    logger.info("Client disconnected: %s", uuid);
     clients.delete(uuid);
-    wsServer.clients.delete(uuid);
-
-    // setTimeout(this, 1000);
-    clearInterval(interval);
-  };
-
-  const onSocketError = (err) => {
-    logger.error(err);
-  };
-
-  const heartbeat = () => {
-    this.isAlive = true;
-  };
+    metadataByUuid.delete(uuid);
+  }
 
   return wsServer;
 };

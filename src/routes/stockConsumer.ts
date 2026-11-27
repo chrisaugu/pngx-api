@@ -1,5 +1,5 @@
-const { SYMBOLS, TOPICS, CHANNELS } = require("./constants");
-const { createRedisIoClient } = require("./libs/redis");
+import { SYMBOLS, TOPICS, CHANNELS } from "../constants";
+import { createRedisIoClient } from "../libs/redis";
 
 const subscriber = createRedisIoClient();
 
@@ -47,7 +47,7 @@ if (TOPICS) {
  * @param {*} topic
  * @param {*} message
  */
-function writer(topic, message) {
+function writer(topic: string, message: string) {
   // res.write(`event: ${topic}\n`);
   // res.write(`data: ${message}\n\n`);
   console.log(topic, message);

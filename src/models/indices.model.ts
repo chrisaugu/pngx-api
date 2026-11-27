@@ -23,6 +23,7 @@ interface IIndexMethods {
 
 interface IIndexModel extends Model<IIndex, {}, IIndexMethods> {
   findByCode(code: string): Promise<HydratedDocument<IIndex> | null>;
+  findBySymbol(symbol: string): Promise<HydratedDocument<IIndex> | null>;
   findByExchange(exchange: string): Promise<HydratedDocument<IIndex>[]>;
   findActive(): Promise<HydratedDocument<IIndex>[]>;
 }
@@ -278,6 +279,12 @@ IndexSchema.methods.findSimilarTypes = function () {
 IndexSchema.statics.findByCode = function (code: string) {
   return this.findOne({
     code: code.trim().toUpperCase(),
+  });
+};
+
+IndexSchema.statics.findBySymbol = function (symbol: string) {
+  return this.findOne({
+    code: symbol.trim().toUpperCase(),
   });
 };
 

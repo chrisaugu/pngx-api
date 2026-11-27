@@ -1,26 +1,7 @@
-import { Worker, isMainThread } from "node:worker_threads";
-import mongoose from "mongoose";
-import Grid from "gridfs-stream";
-import fs from "fs";
 import { isToday } from "date-fns/isToday";
 import { isWeekend } from "date-fns/isWeekend";
-import {
-  SYMBOLS,
-  OLD_SYMBOLS,
-  COMPANIES,
-  PNGX_DATA_URL,
-  PNGX_URL,
-  BASE_URL,
-  LOCAL_TIMEZONE,
-} from "../constants";
-import {
-  Stock,
-  Company,
-  Ticker,
-  Indices,
-  NewsSource,
-  News,
-} from "../models/index";
+import { SYMBOLS, COMPANIES, LOCAL_TIMEZONE } from "../constants";
+import { Stock, Company, Indices, News } from "../models/index";
 import holidays from "../data/trade_holidays.json";
 import { isSameDay } from "date-fns/isSameDay";
 import {
@@ -59,7 +40,8 @@ async function getCompanies(
     }
 
     if (filters?.sort) {
-      query.sort(filters.sort);
+      // const _filter = makeFilter(filters.sort);
+      query.sort({ date: filters?.sort ? -1 : 1 });
     }
 
     if (filters?.skip) {
@@ -197,11 +179,11 @@ async function updateCompany(
   company: Partial<ICompany> = {},
   updateData: object = {},
 ) {
-  const { _id } = company;
+  const { id } = company;
 
   try {
     logger.info("Updating company");
-    const updatedCompany = await Company.findByIdAndUpdate(_id, updateData);
+    const updatedCompany = await Company.findByIdAndUpdate(id, updateData);
 
     logger.debug("Company updated", updatedCompany);
     return { data: updatedCompany };
@@ -235,7 +217,7 @@ async function deleteCompany(id: string = "") {
     logger.error("Error deleting company", {
       error: error.message,
       stack: error.stack,
-      body: updateData,
+      body: "updateData",
     });
     throw error;
   }
@@ -244,15 +226,6 @@ async function deleteCompany(id: string = "") {
 /**
  * GET /api/stocks/historicals/:code
  * see also /api/v2/stocks/:code/historicals
- * @param {Object} filters
- * @param {string} filters.code - unique code of the stock
- * @param {string} filters.date - date
- * @param {string} filters.start - start date
- * @param {string} filters.end - end date
- * @param {number} filters.limit - limit of results
- * @param {number} filters.sort - sort order
- * @param {number} filters.skip - skip results
- * @param {string} filters.fields - fields to include
  */
 function getQuotesHistorical(filters: QuoteFilters = {}) {
   const { code, date, start, end, limit, sort, skip, fields } = filters;
@@ -302,7 +275,7 @@ function getQuotesHistorical(filters: QuoteFilters = {}) {
   }
 
   if (sort) {
-    stock.sort({ date: sort });
+    stock.sort({ date: sort ? -1 : 1 });
   } else {
     // default sort descendence
     stock.sort({ date: 1 });
@@ -369,7 +342,7 @@ function getQuotesHistorical(filters: QuoteFilters = {}) {
       } else {
         return {
           status: 204,
-          historical: [],
+          historical: [] as any,
           reason: "No Content",
         };
       }
@@ -408,9 +381,9 @@ function getQuotesHistoricalEssentials(filters: QuoteFilters = {}) {
     .exec()
     .then(function (stocks) {
       const count = stocks.length;
-      let dates: string[] = [];
-      let bids: string[] = [];
-      let offers: string[] = [];
+      let dates: number[] = [];
+      let bids: Number[] = [];
+      let offers: Number[] = [];
 
       if (stocks && stocks.length > 0) {
         stocks.forEach(function (stock) {
@@ -419,7 +392,7 @@ function getQuotesHistoricalEssentials(filters: QuoteFilters = {}) {
           offers.push(stock.offer);
         });
 
-        res.status(200).json([
+        return [
           {
             columns: [
               ["x", ...dates],
@@ -430,7 +403,7 @@ function getQuotesHistoricalEssentials(filters: QuoteFilters = {}) {
             names: { y0: "#0", y1: "#1" },
             colors: { y0: "#3DC23F", y1: "#F34C44" },
           },
-        ]);
+        ];
       } else {
         throw new Error("No Content");
       }
@@ -455,9 +428,9 @@ function getQuotesHistoricalEssentials(filters: QuoteFilters = {}) {
 async function getQuotes(filters: QuoteFilters = {}) {
   let { date, start, end, fields, code } = filters;
 
-  let limit = parseInt(filters.limit) || SYMBOLS.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
-  let sort = parseInt(filters.sort);
-  let skip = parseInt(filters.skip); // skip number of days behind: 3: go 3 days behind
+  let limit = parseInt(String(filters.limit)) || SYMBOLS.length; // default limit is 11 - current number of companies listed on PNGX.com.pg
+  let sort = parseInt(String(filters.sort));
+  let skip = parseInt(String(filters.skip)); // skip number of days behind: 3: go 3 days behind
 
   logger.info("Retriving today's quotes");
 
@@ -506,7 +479,7 @@ async function getQuotes(filters: QuoteFilters = {}) {
 
   // ?sort=1
   if (sort) {
-    query.sort({ date: sort });
+    query.sort({ date: sort ? -1 : 1 });
   } else {
     // default sort descendence
     query.sort({ date: -1 });
@@ -618,7 +591,7 @@ async function getQuote(filters: QuoteFilters): Promise<APIResponse<IQuote>> {
 
   // ?sort=1
   if (sort) {
-    query.sort({ date: sort });
+    query.sort({ date: sort ? -1 : 1 });
   } else {
     // default sort descendence
     query.sort({ date: -1 });
@@ -638,7 +611,7 @@ async function getQuote(filters: QuoteFilters): Promise<APIResponse<IQuote>> {
     query.where({ code: code });
   }
 
-  return query
+  query
     .then(function (result) {
       if (result && result.length > 0) {
         logger.info(`${code} stocks `, result);
@@ -649,7 +622,7 @@ async function getQuote(filters: QuoteFilters): Promise<APIResponse<IQuote>> {
           data: result,
         };
       } else {
-        return { status: 204, data: [] };
+        return { status: 204, data: [] as any };
       }
     })
     .catch((error: any) => {
@@ -707,7 +680,7 @@ function getQuoteByDate(filters: Pick<QuoteFilters, "code" | "date"> = {}) {
         logger.info(`${code} stocks `, result);
         return {
           status: 200,
-          last_updated: result.date,
+          last_updated: result[0].date,
           data: result,
         };
       } else {
@@ -780,9 +753,9 @@ async function getQuoteOHLCV(filters: Pick<QuoteFilters, "code"> = {}) {
  */
 async function getQuoteOHLCVHistory(filters: QuoteFilters = {}) {
   const { code } = filters;
-  const limit = parseInt(filters["limit"]) || 100;
-  const sort = parseInt(filters["sort"]) || 1;
-  const skip = parseInt(filters["skip"]) || 0;
+  const limit = parseInt(String(filters["limit"])) || 100;
+  const sort = parseInt(String(filters["sort"])) || 1;
+  const skip = parseInt(String(filters["skip"])) || 0;
 
   // const filteredUsers = data.filter((user) => {
   //   const isValid = true;
@@ -800,7 +773,7 @@ async function getQuoteOHLCVHistory(filters: QuoteFilters = {}) {
   }
 
   if (sort) {
-    query.sort({ date: sort });
+    query.sort({ date: sort ? -1 : 1 });
   }
 
   if (skip) {
@@ -1128,7 +1101,7 @@ async function filterQuotes(filters: QuoteFilters = {}) {
   }
 
   if (sort) {
-    stock.sort({ date: sort });
+    stock.sort({ date: sort ? -1 : 1 });
   } else {
     // default sort descendence
     stock.sort({ date: 1 });
@@ -1194,7 +1167,7 @@ async function filterQuotes(filters: QuoteFilters = {}) {
       } else {
         return {
           status: 204,
-          historical: [],
+          historical: [] as any,
           reason: "No Content",
         };
       }
@@ -1294,7 +1267,7 @@ async function filterIndices(filters: any = {}) {
       } else {
         return {
           status: 204,
-          historical: [],
+          historical: [] as any,
           reason: "No Content",
         };
       }

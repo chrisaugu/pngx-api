@@ -6,3 +6,8 @@ rm -rdf mongodump
 
 # mongodump --config ./mongo.conf
 # mongorestore --config ./mongo.conf
+
+mongodump --config ./mongo.conf --db=pngx-db --out=/mongodump
+
+mongodump --uri="mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@43.173.30.237:31076/?authSource=admin" --out=./mongodump
+mongorestore --db="mongodb://mongo:7jwWt40aFifdQ5N8U1xRHhJ3MYBn692P@43.173.30.237:31076/?authSource=admin" ./mongodump

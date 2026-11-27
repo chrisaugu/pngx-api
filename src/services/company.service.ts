@@ -49,7 +49,7 @@ class CompanyService {
    * @returns {Promise<ICompany>}
    */
   async updateCompany(company: ICompany): Promise<ICompany> {
-    return await Company.findByIdAndUpdate(company._id, company);
+    return await Company.findByIdAndUpdate(company.id, company);
   }
 
   /**
@@ -57,8 +57,8 @@ class CompanyService {
    * @param {ICompany} company - Company object
    * @returns {Promise<ICompany>}
    */
-  async deleteCompany(company: Company): Promise<ICompany> {
-    return await Company.findByIdAndDelete(company._id);
+  async deleteCompany(company: ICompany): Promise<ICompany> {
+    return await Company.findByIdAndDelete(company.id);
   }
 }
 

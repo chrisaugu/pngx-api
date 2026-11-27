@@ -1,21 +1,21 @@
-const crypto = require("node:crypto");
-const { Router, json } = require("express");
-const jwt = require("jsonwebtoken");
+import crypto from "node:crypto";
+import { Request, Response, Router, json } from "express";
+import jwt from "jsonwebtoken";
 const logger = require("../libs/logger").winstonLogger;
-const { SYMBOLS } = require("../constants");
-const { createRedisIoClient } = require("../libs/redis");
+import { SYMBOLS } from "../constants";
+import { createRedisIoClient } from "../libs/redis";
 
 const router = Router();
 const redis = createRedisIoClient(); // for publishing
 const subscriber = createRedisIoClient(); // for consuming
 
-subscriber.on("error", async (err) => {
+subscriber.on("error", async (err: any) => {
   logger.error("Redis error:", err);
   await subscriber.quit();
   process.exit();
 });
 
-redis.on("error", async (err) => {
+redis.on("error", async (err: any) => {
   logger.error("Redis error:", err);
   await redis.quit();
   process.exit();
@@ -27,11 +27,16 @@ process.on("SIGINT", async () => {
 });
 
 // use redis to store clients
-const clients = new Set();
+type Client = {
+  id: string;
+  topics: Set<string>;
+  res: Response;
+};
+const clients = new Set<Client>();
 const facts = [];
 const topicCounts = new Map();
 
-async function addTopic(topic) {
+async function addTopic(topic: string) {
   const count = topicCounts.get(topic) || 0;
 
   if (count === 0) {
@@ -41,7 +46,7 @@ async function addTopic(topic) {
   topicCounts.set(topic, count + 1);
 }
 
-async function removeTopic(topic) {
+async function removeTopic(topic: string) {
   const count = topicCounts.get(topic);
 
   if (!count) return;
@@ -84,7 +89,7 @@ async function removeTopic(topic) {
  *
  */
 
-subscriber.on("message", (topic, message) => {
+subscriber.on("message", (topic: any, message: any) => {
   for (const client of clients) {
     if (!client.topics.has(topic)) continue;
 
@@ -102,7 +107,7 @@ subscriber.on("message", (topic, message) => {
 // });
 
 // topic-based channel
-async function eventsHandler(req, res) {
+async function eventsHandler(req: Request, res: Response) {
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
@@ -111,8 +116,8 @@ async function eventsHandler(req, res) {
 
   logger.info("SSE connection established");
 
-  const topics = new Set(req.query.topics?.split(",") || []);
-  const channel = req.query.channel; // quotes,tickers,news
+  const topics = new Set<string>(String(req.query.topics)?.split(",") || []);
+  const channel = String(req.query.channel); // quotes,tickers,news
   // const channel2 = req.headers["X-Channel"];
 
   const token = req.headers["X-Access-Token"];
@@ -132,7 +137,7 @@ async function eventsHandler(req, res) {
   //   cache.shift();
   // }
 
-  const newClient = {
+  const newClient: Client = {
     id: crypto.randomUUID(),
     topics,
     res,
@@ -199,26 +204,27 @@ async function eventsHandler(req, res) {
   // });
 }
 
-function broadcast(event) {
+function broadcast(event: any) {
   const data = `data: ${JSON.stringify(event)}\n\n`;
 
   for (const client of clients) {
-    client.write(data);
+    client.res.write(data);
   }
 }
 
-const sendEvent = (clientId, data) => {
-  res.write(`id: ${clientId}\n`);
-  return res.write(`data: ${JSON.stringify(data)}\n\n`);
+const sendEvent = (clientId: any, data: any) => {
+  // const client = clients[clientId]
+  // res.write(`id: ${clientId}\n`);
+  // return res.write(`data: ${JSON.stringify(data)}\n\n`);
 };
 
-function sendEventsToAll(newFact) {
+function sendEventsToAll(newFact: any) {
   logger.info("Sending new fact to all clients:", newFact);
   const data = `data: ${JSON.stringify(event)}\n\n`;
   clients.forEach((client) => client.res.write(data));
 }
 
-async function addFact(request, response, next) {
+async function addFact(request: { body: any }, response: any, next: any) {
   const newFact = request.body;
   facts.push(newFact);
   return sendEventsToAll(newFact);
@@ -227,62 +233,72 @@ async function addFact(request, response, next) {
 router.get("/", eventsHandler);
 router.post("/fact", addFact);
 
-router.get("/logs/stream", (req, res) => {
-  // Set headers for SSE
-  res.setHeader("Content-Type", "text/event-stream");
-  res.setHeader("Cache-Control", "no-cache");
-  res.setHeader("Connection", "keep-alive");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+router.get(
+  "/logs/stream",
+  (
+    req: { on: (arg0: string, arg1: () => void) => void },
+    res: {
+      setHeader: (arg0: string, arg1: string) => void;
+      write: (arg0: string) => void;
+      end: () => void;
+    },
+  ) => {
+    // Set headers for SSE
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+    res.setHeader("Access-Control-Allow-Origin", "*");
 
-  // Handle client disconnect
-  req.on("close", () => {
-    // Clean up if needed
-    logger.info("Client disconnected");
-  });
+    // Handle client disconnect
+    req.on("close", () => {
+      // Clean up if needed
+      logger.info("Client disconnected");
+    });
 
-  // Your process that generates logs
-  const streamLogs = async () => {
-    try {
-      // Example: simulate a process with multiple steps
-      const steps = [
-        "Starting process...",
-        "Loading data...",
-        "Processing...",
-        "Finishing up...",
-      ];
+    // Your process that generates logs
+    const streamLogs = async () => {
+      try {
+        // Example: simulate a process with multiple steps
+        const steps = [
+          "Starting process...",
+          "Loading data...",
+          "Processing...",
+          "Finishing up...",
+        ];
 
-      for (const message of steps) {
-        // Send log as SSE
+        for (const message of steps) {
+          // Send log as SSE
+          res.write(
+            `data: ${JSON.stringify({
+              timestamp: new Date(),
+              message: message,
+            })}\n\n`,
+          );
+
+          // Simulate some work
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+        }
+      } catch (error: any) {
         res.write(
           `data: ${JSON.stringify({
+            type: "error",
+            message: error.message,
             timestamp: new Date(),
-            message: message,
           })}\n\n`,
         );
-
-        // Simulate some work
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+      } finally {
+        res.write(
+          `data: ${JSON.stringify({
+            type: "end",
+            message: "Stream ended",
+          })}\n\n`,
+        );
+        res.end();
       }
-    } catch (error) {
-      res.write(
-        `data: ${JSON.stringify({
-          type: "error",
-          message: error.message,
-          timestamp: new Date(),
-        })}\n\n`,
-      );
-    } finally {
-      res.write(
-        `data: ${JSON.stringify({
-          type: "end",
-          message: "Stream ended",
-        })}\n\n`,
-      );
-      res.end();
-    }
-  };
+    };
 
-  streamLogs();
-});
+    streamLogs();
+  },
+);
 
 export default router;

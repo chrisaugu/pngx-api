@@ -1,8 +1,11 @@
-const { Server } = require("socket.io");
-const sqlite3 = require("sqlite3");
-const { open } = require("sqlite");
-const { createAdapter } = require("@socket.io/redis-adapter");
-const { createRedisClient } = require("../libs/redis");
+import { Server } from "socket.io";
+import { createAdapter } from "@socket.io/redis-adapter";
+import http from "http";
+import https from "https";
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
+import { getRedisClient } from "../libs/redis";
+import WebSocket from "ws";
 
 // const db = await open({
 //   filename: "chat.db",
@@ -17,7 +20,7 @@ const { createRedisClient } = require("../libs/redis");
 //       content TEXT
 //   );
 // `);
-const pubClient = createRedisClient();
+const pubClient = getRedisClient();
 // const subClient = pubClient.duplicate();
 
 /**
@@ -26,7 +29,7 @@ const pubClient = createRedisClient();
  * @param {http.Server | https.Server} httpServer
  * @returns {WebSocket.Server}
  */
-export default (httpServer) => {
+export default (httpServer: http.Server | https.Server) => {
   const io = new Server(httpServer, {
     path: "/socket.io/websocket",
     // cors: {
@@ -75,7 +78,7 @@ export default (httpServer) => {
 
     // socket.broadcast.emit("hi");
 
-    socket.on("chat", async (msg) => {
+    socket.on("chat", async (msg: any) => {
       const result = { lastID: 1 };
       // try {
       //   // store the message in the database
@@ -112,7 +115,7 @@ export default (httpServer) => {
       console.log("❌ Disconnected");
     });
 
-    socket.on("error", (err) => {
+    socket.on("error", (err: any) => {
       console.error("Socket error:", err);
     });
 
@@ -120,7 +123,7 @@ export default (httpServer) => {
     socket.emit("subscribe", { symbol: "BTCUSD" });
 
     // Example: Listen for a specific event
-    socket.on("data", (data) => {
+    socket.on("data", (data: any) => {
       console.log("Received data:", data);
     });
   });

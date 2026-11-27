@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 const router = express.Router();
 import { BASE_URL } from "../constants";
 import { versionMiddleware } from "../middlewares";
@@ -45,7 +45,7 @@ router.get("/health", async (_req, res, _next) => {
   }
 });
 router.get("/health", versionMiddleware("3.0.0"), async (_req, res, _next) => {
-  const data = await _req.ctx.db.query("SELECT * FROM users");
+  // const data = await _req.ctx.db.query("SELECT * FROM users");
   // optional: add further things to check (e.g. connecting to dababase)
   const healthcheck = {
     uptime: process.uptime(),
@@ -61,7 +61,7 @@ router.get("/health", versionMiddleware("3.0.0"), async (_req, res, _next) => {
   }
 });
 
-exports.V3 = async function (req, res) {
+exports.V3 = async function (req: Request, res: Response) {
   res
     .status(410)
     .send({ error: "Adding books is no longer active since version 2.7.0." });

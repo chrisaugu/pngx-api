@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cron from "node-cron";
 import path from "path";
 import crypto from "crypto";
@@ -36,10 +36,7 @@ import {
   morganBodyMiddlware,
   apiUsageLogMiddlware,
 } from "./middlewares";
-import {
-  QUOTE_FETCH_WORKER_SCHEDULE_TIME,
-  WORKER_SCHEDULE_TIME,
-} from "./constants";
+import { QUOTE_FETCH_WORKER_SCHEDULE_TIME } from "./constants";
 
 const app = express();
 
@@ -52,7 +49,7 @@ app.set("trust proxy", 1 /* number of proxies between user and server */);
 app.disable("x-powered-by");
 
 // Middleware to log the start time of each request
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next) => {
   req.startTime = process.hrtime();
   next();
 });
@@ -122,7 +119,7 @@ app.use(cabin.middleware);
 // app.use(checkCache);
 
 // Middleware to log request details using Pino
-// app.use((req, res, next) => {
+// app.use((req: Request, res: Response, next) => {
 //   pinoLogger.debug({
 //     method: req.method,
 //     path: req.path,
@@ -205,7 +202,7 @@ initDatabase()
     );
   });
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next) => {
   req.ctx = {
     userId: 123,
     requestId: crypto.randomUUID(), // Unique ID per request
@@ -236,10 +233,10 @@ var pets = [
   { id: 3, name: "Loki" },
 ];
 var petActions = {
-  index: function (req, res) {
+  index: function (req: Request, res: Response) {
     res.send(pets);
   },
-  show: function (req, res) {
+  show: function (req: Request, res: Response) {
     var pet = pets.find((p) => p.id == req.params.pet);
     if (pet) {
       res.send(pet);
@@ -247,15 +244,15 @@ var petActions = {
       res.status(404).send("Pet not found");
     }
   },
-  create: function (req, res) {
+  create: function (req: Request, res: Response) {
     // ... logic to create a new pet
     res.status(201).send("Pet created");
   },
-  update: function (req, res) {
+  update: function (req: Request, res: Response) {
     // ... logic to update a pet
     res.send("Pet updated");
   },
-  destroy: function (req, res) {
+  destroy: function (req: Request, res: Response) {
     // ... logic to delete a pet
     res.status(204).send();
   },
@@ -267,7 +264,7 @@ var petActions = {
 
 app.use(startMonitoring);
 
-app.get("/metrics", async (req, res) => {
+app.get("/metrics", async (req: Request, res: Response) => {
   res.set("Content-Type", client.register.contentType);
   // Log the time taken to process the request
   const diff = process.hrtime(req.startTime);

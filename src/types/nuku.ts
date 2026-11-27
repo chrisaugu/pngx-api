@@ -100,6 +100,8 @@ export interface ICompany {
     data: Buffer;
     contentType: string;
   };
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface IIndexComponent {
@@ -148,6 +150,8 @@ export interface IQuote {
   chg_today: Number;
   vol_today: Number;
   num_trades: Number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface ICandle {

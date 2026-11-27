@@ -288,7 +288,7 @@ router.post("/generate-event", async (req: Request, res: Response) => {
 function formatWebhook(webhook: WebhookDocument) {
   return [
     { label: "ID", value: webhook.id },
-    { label: "Event", value: webhook.event },
+    { label: "Event", value: webhook.events },
     { label: "URL", value: webhook.url },
     {
       label: "Created at",
@@ -324,12 +324,12 @@ router.post("/webhook-endpoint", (req: Request, res: Response) => {
 
 router.post("/webhook-endpoint", (req: Request, res: Response) => {
   // Add the processing of the webhook event to the queue
-  webhookQueue.add(req.body);
+  // webhookQueue.add(req.body);
 
   res.status(200).send("Webhook received!");
 });
 
-function sendWebhook(eventData) {
+function sendWebhook(eventData: any) {
   axios
     .post("https://thirdparty.service/webhook-receiver", eventData)
     .then((response) =>

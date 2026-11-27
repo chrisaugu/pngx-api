@@ -1,10 +1,11 @@
-const { Quote } = require("../models");
+import { IQuote } from "@/types/nuku";
+import { Quote } from "../models";
 
 class QuoteService {
-  #quote;
+  private quote;
 
   constructor() {
-    this.#quote = new Quote();
+    this.quote = new Quote();
   }
 
   async getQuotes() {
@@ -16,7 +17,7 @@ class QuoteService {
    * @param {Number} id
    * @returns
    */
-  async getQuoteById(id) {
+  async getQuoteById(id: number) {
     return await Quote.findById(id);
   }
 
@@ -25,20 +26,20 @@ class QuoteService {
    * @param {String} code
    * @returns
    */
-  async getQuoteByCode(code) {
+  async getQuoteByCode(code: string) {
     return await Quote.findByCode(code);
   }
 
-  async createQuote(quote) {
+  async createQuote(quote: IQuote) {
     return await Quote.create(quote);
   }
 
-  async updateQuote(quote) {
-    return await Quote.findByIdAndUpdate(quote._id, quote);
+  async updateQuote(quote: IQuote) {
+    return await Quote.findByIdAndUpdate(quote.id, quote);
   }
 
-  async deleteQuote(quote) {
-    return await Quote.findByIdAndDelete(quote._id);
+  async deleteQuote(quote: IQuote) {
+    return await Quote.findByIdAndDelete(quote.id);
   }
 }
 

@@ -1,0 +1,22 @@
+{
+  "indexes": [
+    {
+      "v": { "$numberInt": "2" },
+      "key": { "_id": { "$numberInt": "1" } },
+      "name": "_id_"
+    },
+    {
+      "v": { "$numberInt": "2" },
+      "key": { "_fts": "text", "_ftsx": { "$numberInt": "1" } },
+      "name": "name_text",
+      "background": true,
+      "weights": { "name": { "$numberInt": "1" } },
+      "default_language": "english",
+      "language_override": "language",
+      "textIndexVersion": { "$numberInt": "3" }
+    }
+  ],
+  "uuid": "10ff26af50414fc8b2dcffb9cac88e46",
+  "collectionName": "news-sources",
+  "type": "collection"
+}

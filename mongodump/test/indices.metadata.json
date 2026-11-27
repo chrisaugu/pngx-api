@@ -1,0 +1,44 @@
+{
+  "indexes": [
+    {
+      "v": { "$numberInt": "2" },
+      "key": { "_id": { "$numberInt": "1" } },
+      "name": "_id_"
+    },
+    {
+      "v": { "$numberInt": "2" },
+      "key": { "code": { "$numberInt": "1" } },
+      "name": "code_1",
+      "background": true,
+      "unique": true
+    },
+    {
+      "v": { "$numberInt": "2" },
+      "key": { "code": { "$numberInt": "1" }, "date": { "$numberInt": "1" } },
+      "name": "code_1_date_1",
+      "background": true
+    },
+    {
+      "v": { "$numberInt": "2" },
+      "key": { "_fts": "text", "_ftsx": { "$numberInt": "1" } },
+      "name": "name_text",
+      "background": true,
+      "weights": { "name": { "$numberInt": "1" } },
+      "default_language": "english",
+      "language_override": "language",
+      "textIndexVersion": { "$numberInt": "3" }
+    },
+    {
+      "v": { "$numberInt": "2" },
+      "key": {
+        "exchange": { "$numberInt": "1" },
+        "isActive": { "$numberInt": "1" }
+      },
+      "name": "exchange_1_isActive_1",
+      "background": true
+    }
+  ],
+  "uuid": "d4e3a32402eb49cdbedbee5093dac284",
+  "collectionName": "indices",
+  "type": "collection"
+}

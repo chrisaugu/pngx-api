@@ -1,5 +1,5 @@
-const { getStockData, getQuotes, getTickers } = require("./mockStockApi");
-const { createRedisIoClient } = require("../libs/redis");
+import { getStockData, getQuotes, getTickers } from "../mockStockApi";
+import { createRedisIoClient } from "../libs/redis";
 
 const publisher = createRedisIoClient();
 const TIMEOUT = 2000;

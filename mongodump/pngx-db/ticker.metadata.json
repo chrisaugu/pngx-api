@@ -1,0 +1,22 @@
+{
+  "options": {
+    "timeseries": {
+      "timeField": "timestamp",
+      "metaField": "metadata",
+      "granularity": "hours",
+      "bucketMaxSpanSeconds": { "$numberInt": "2592000" }
+    }
+  },
+  "indexes": [
+    {
+      "v": { "$numberInt": "2" },
+      "key": {
+        "metadata": { "$numberInt": "1" },
+        "timestamp": { "$numberInt": "1" }
+      },
+      "name": "metadata_1_timestamp_1"
+    }
+  ],
+  "collectionName": "ticker",
+  "type": "timeseries"
+}

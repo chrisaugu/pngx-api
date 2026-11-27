@@ -38,8 +38,17 @@ NewsSourceSchema.statics.findBySource = function (name) {
   // this.find({ name: { $regex: name } })
 };
 
+export interface INewsSourceModel extends mongoose.Model<INewsSource> {
+  findBySource(name: string): any;
+}
+
 export type NewsSourceDocument = HydratedDocument<INewsSource>;
-const NewsSource = mongoose.model("news-sources", NewsSourceSchema);
+const NewsSource =
+  (mongoose.models["news-sources"] as INewsSourceModel) ||
+  mongoose.model<INewsSource, INewsSourceModel>(
+    "news-sources",
+    NewsSourceSchema,
+  );
 
 const NewsSchema = new Schema<INews>(
   {
@@ -94,7 +103,14 @@ NewsSchema.statics.findNewsArticles = function (txt) {
   // ).sort({ score: { $meta: "textScore" } })
 };
 
+export interface INewsModel extends mongoose.Model<INews> {
+  findBySource(name: string): any;
+  findNewsArticles(txt: string): any;
+}
+
 export type NewsDocument = HydratedDocument<INews>;
-const News = mongoose.model("news", NewsSchema);
+const News =
+  (mongoose.models.news as INewsModel) ||
+  mongoose.model<INews, INewsModel>("news", NewsSchema);
 
 export { NewsSource, News };

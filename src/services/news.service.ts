@@ -1,10 +1,12 @@
-const {
-  Stock,
-  Company,
-  Ticker,
-  Indices,
-  NewsSource,
-} = require("../models/index");
+import { Worker } from "node:worker_threads";
+import { NewsSource } from "../models/index";
+import path from "node:path";
+import { Request, Response } from "express";
+
+const childNewsWorkerPath = path.resolve(
+  process.cwd(),
+  "./jobs/news_aggregator.js",
+);
 
 async function fetchNews(page = 1) {
   return new Promise((resolve, reject) => {
@@ -33,7 +35,7 @@ async function fetchNews(page = 1) {
 /**
  * /api/v2/news
  */
-async function getNews(req, res) {
+async function getNews(req: Request, res: Response) {
   const page = req.query.page;
 
   try {
@@ -44,12 +46,12 @@ async function getNews(req, res) {
           logger.debug("Retrieved news ", result);
           return res.send(result);
         })
-        .catch((error) => {
+        .catch((error: any) => {
           logger.error(`Error occured`, error);
           throw new Error(`Error occured`, error);
         });
     }
-  } catch (error) {
+  } catch (error: any) {
     logger.error("An error whilte fetching news:", {
       error: error.message,
       stack: error.stack,
@@ -59,7 +61,7 @@ async function getNews(req, res) {
   }
 }
 
-function getNewsSources(req, res) {
+function getNewsSources(req: Request, res: Response) {
   NewsSource.find({})
     .then((result) => {
       return {
@@ -67,10 +69,10 @@ function getNewsSources(req, res) {
         data: result,
       };
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error retrieving news sources", {
-        error: err.message,
-        stack: err.stack,
+        error: error.message,
+        stack: error.stack,
         params: req.params,
         query: req.query,
       });
@@ -78,7 +80,7 @@ function getNewsSources(req, res) {
     });
 }
 
-function createNewsSources(req, res) {
+function createNewsSources(req: Request, res: Response) {
   const { name, url } = req.body;
   logger.debug("Adding news source: ", name, url);
 
@@ -106,7 +108,7 @@ function createNewsSources(req, res) {
       logger.debug("News Source added: ", result);
       return { status: 201 };
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error adding news source:", {
         error: error.message,
         stack: error.stack,
@@ -116,7 +118,7 @@ function createNewsSources(req, res) {
     });
 }
 
-async function getNewsSource(req, res) {
+async function getNewsSource(req: Request, res: Response) {
   const { newsSourceId } = req.params;
 
   logger.debug("Retrieving News Source: ", newsSourceId);
@@ -126,7 +128,7 @@ async function getNewsSource(req, res) {
       logger.debug("News Source retrieved: ", result);
       return { status: 200, data: result };
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error retrieving news source:", {
         error: error.message,
         stack: error.stack,
@@ -136,10 +138,10 @@ async function getNewsSource(req, res) {
     });
 }
 
-function updateNewsSource(req, res) {
+function updateNewsSource(req: Request, res: Response) {
   const { newsSourceId } = req.params;
   const { name, url } = req.body;
-  const payload = {};
+  const payload: Record<string, any> = {};
 
   if (!name) {
     payload["name"] = name;
@@ -154,7 +156,7 @@ function updateNewsSource(req, res) {
       logger.debug("News Source updated: ", result);
       return { status: 200, data: result };
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error updating news source:", {
         error: error.message,
         stack: error.stack,
@@ -164,10 +166,10 @@ function updateNewsSource(req, res) {
     });
 }
 
-function partialUpdateNewsSource(req, res) {
+function partialUpdateNewsSource(req: Request, res: Response) {
   const { newsSourceId } = req.params;
   const { name, url } = req.body;
-  const payload = {};
+  const payload: Record<string, any> = {};
 
   if (!name) {
     payload["name"] = name;
@@ -182,7 +184,7 @@ function partialUpdateNewsSource(req, res) {
       logger.debug("News Source updated: ", result);
       return { status: 200, data: result };
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error updating news source:", {
         error: error.message,
         stack: error.stack,
@@ -192,7 +194,7 @@ function partialUpdateNewsSource(req, res) {
     });
 }
 
-function deleteNewsUpdate(req, res) {
+function deleteNewsUpdate(req: Request, res: Response) {
   const { newsSourceId } = req.params;
 
   NewsSource.findByIdAndDelete(newsSourceId)
@@ -200,7 +202,7 @@ function deleteNewsUpdate(req, res) {
       logger.debug("News Source retrieved: ", result);
       return { status: 200, data: result };
     })
-    .catch((error) => {
+    .catch((error: any) => {
       logger.error("Error deleting news source:", {
         error: error.message,
         stack: error.stack,
@@ -210,7 +212,7 @@ function deleteNewsUpdate(req, res) {
     });
 }
 
-export default {
+export {
   getNews,
   getNewsSources,
   createNewsSources,

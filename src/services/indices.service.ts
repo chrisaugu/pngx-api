@@ -1,3 +1,3 @@
 class IndicesService {}
 
-export default { IndicesService };
+export { IndicesService };

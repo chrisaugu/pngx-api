@@ -1,4 +1,4 @@
-export { Request, Response } from "express";
+import { Request, Response } from "express";
 import _ from "lodash";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
@@ -179,7 +179,8 @@ function parse_csv_to_json2(body: string) {
       // attaches splited row to the header row
       // then store it on variable d
       // create array by pushing the stored data to the variable i
-      for (var d = {}, u = 0; u < a.length; u++) d[a[u]] = l[u];
+      for (var d: Record<string, any> = {}, u = 0; u < a.length; u++)
+        d[a[u]] = l[u];
       i.push(d);
     }
   }
@@ -187,63 +188,48 @@ function parse_csv_to_json2(body: string) {
   return i;
 }
 
-function parse_csv_to_json(csv: string) {
-  if (!csv) throw Error("CSV file is needed to continue");
-  // Parse local CSV file
-  // Stream big file in worker thread
-  const { errors, data, meta } = Papa.parse(csv, {
-    ...csvOptions,
-    // step: function(results) {
-    // 	results['data'] = normalize_data(results.data)
-    // },
-    // chunk: function(chunks) {
-    // 	logger.debug(chunks)
-    // },
-    // complete: function (results) {
-    //   // Remove empty columns
-    //   const cleanedData = results.data.map((row) => {
-    //     const newRow = {};
-    //     for (let key in row) {
-    //       // Keep only columns with non-empty headers
-    //       if (key.trim() !== "") {
-    //         newRow[key] = row[key];
-    //       }
-    //     }
-    //     return newRow;
-    //   });
+type CsvRow = Record<string, string>;
 
-    //   logger.debug(cleanedData);
-    // },
-    // complete: function (results) {
-    //   // Filter out empty columns (by checking the header row)
-    //   const data = results.data;
-    //   const header = data;
-
-    //   // Get indexes of non-empty columns
-    //   const validIndexes = header
-    //     .map((col, index) => (col.trim() !== "" ? index : -1))
-    //     .filter((i) => i !== -1);
-
-    //   // Rebuild cleaned data
-    //   const cleanedData = data.map((row) => validIndexes.map((i) => row[i]));
-
-    //   logger.debug(cleanedData);
-    //   return cleanedData;
-    // },
-    // transformHeader: function (header) {
-    //   if (header.trim() !== "") return header;
-    // },
-    // complete: function (results) {
-    //   logger.debug(results.data);
-    // },
-  });
-
-  if (errors.length > 0) {
-    console.error(errors);
-    throw new Error(errors);
+interface CsvParseOptions {
+  header?: boolean;
+  skipEmptyLines?: boolean | "greedy";
+  dynamicTyping?: boolean;
+  // ...etc, mirror the subset of Papa.ParseConfig you allow
+}
+function parse_csv_to_json(
+  csv: string,
+  csvOptions: CsvParseOptions = { header: true, skipEmptyLines: "greedy" },
+): CsvRow[] {
+  if (typeof csv !== "string" || csv.trim() === "") {
+    throw new Error("CSV content is required");
   }
 
-  return data;
+  const { data, errors, meta } = Papa.parse<CsvRow>(csv, {
+    ...csvOptions,
+    // sync parse of a string; do not use step/chunk/complete here
+  });
+
+  if (meta.aborted) {
+    throw new Error("CSV parsing was aborted");
+  }
+
+  if (errors.length > 0) {
+    const formatted = errors
+      .map(
+        (e) => `${e.type}${e.row != null ? `@row ${e.row}` : ""}: ${e.message}`,
+      )
+      .join("; ");
+    throw new Error(`CSV parse failed: ${formatted}`);
+  }
+
+  // Drop columns whose header is blank (this replaces the dead `complete` logic)
+  return data.map((row) => {
+    const cleaned: CsvRow = {};
+    for (const [key, value] of Object.entries(row)) {
+      if (key.trim() !== "") cleaned[key.trim()] = value;
+    }
+    return cleaned;
+  });
 }
 
 const keyGenerator = (request: Request, response: Response) => {
@@ -270,6 +256,9 @@ const verifySignature = (
   signature: string,
 ) => {
   if (!secret || !payload || !signature) return false;
+  // if (!secret || !payload || !signature) {
+  //   throw new Error("Secret, payload or signature is missing.");
+  // }
 
   const digest = crypto
     .createHmac("sha256", secret)
@@ -289,8 +278,8 @@ function generateSignature(
   timestamp: string,
   body: string,
 ) {
-  if (!secret || !payload || !signature) {
-    throw new Error("Secret, payload or signature is missing.");
+  if (!secret) {
+    throw new Error("Secret is missing.");
   }
 
   const hmac = crypto.createHmac("SHA256", secret);
@@ -337,13 +326,13 @@ const processLargeFile = async (file: PathLike) => {
     processedLines += chunk.toString().split("\n").length;
 
     // Send progress update
-    res.write(
-      `data: ${JSON.stringify({
-        type: "progress",
-        percentage: (processedLines / totalLines) * 100,
-        message: `Processing line ${processedLines} of ${totalLines}`,
-      })}\n\n`,
-    );
+    // res.write(
+    //   `data: ${JSON.stringify({
+    //     type: "progress",
+    //     percentage: (processedLines / totalLines) * 100,
+    //     message: `Processing line ${processedLines} of ${totalLines}`,
+    //   })}\n\n`,
+    // );
   });
 };
 
@@ -427,7 +416,17 @@ const stockMarket = (priceArray: number[]) => {
   return maxProfit;
 };
 
+const makeFilter = (filter: string) => {
+  const key = filter.split("-")[0];
+  const value = filter.split("-")[1];
+
+  return {
+    [key]: value,
+  };
+};
+
 export {
+  makeFilter,
   parse_csv_to_json,
   parallel,
   normalize_data,
